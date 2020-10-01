@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <body>
-	<?php
+    <?php
 		require "header.php";
 	?>
 
-	<main>
-		<link rel="stylesheet" href="/assests/css/style.css">
-		<div class="formstyle">
-			<h2>IMS of Academic And Publication Division </h2>
-		</div>
-	</main>
+    <main>
+        <link rel="stylesheet" href="/assests/css/style.css">
+        <div class="formstyle">
+            <h2>IMS of Academic And Publication Division </h2>
+        </div>
+    </main>
 
-	<?php
+    <?php
 		require "footer.php";
 	?>
 </body>
+
 </html>
