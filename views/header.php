@@ -18,7 +18,7 @@
 			<ul>
 				<li><a href="loginForm.php">Home</a></li>
 				<?php
-					if (isset($_SESSION['logid'])) {
+					if (isset($_SESSION['login'])) {
 						echo '<li><a href="logOut.php">Log Out</a></li>';
 					}
 					else {

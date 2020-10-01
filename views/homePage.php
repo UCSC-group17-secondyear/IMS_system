@@ -6,7 +6,7 @@
 	?>
 
 	<main>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="/assests/css/style.css">
 		<div class="formstyle">
 			<h2>IMS of Academic And Publication Division </h2>
 		</div>
