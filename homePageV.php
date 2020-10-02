@@ -7,8 +7,10 @@
 
 	<main>
 		<link rel="stylesheet" href="style.css">
-		<div class="formstyle">
-			<h2>IMS of Academic And Publication Division </h2>
+		<div class="container">
+			<div class="formStyle">
+				<h2>IMS of Academic And Publication Division </h2>
+			</div>
 		</div>
 	</main>
 
