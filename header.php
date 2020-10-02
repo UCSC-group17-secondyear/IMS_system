@@ -16,13 +16,13 @@
 		<nav class="nav-header-main">
 			<a class="header-logo" href="#">IMS</a>
 			<ul>
-				<li><a href="loginForm.php">Home</a></li>
+				<li><a href="homePageV.php">Home</a></li>
 				<?php
 					if (isset($_SESSION['logid'])) {
 						echo '<li><a href="logOut.php">Log Out</a></li>';
 					}
 					else {
-						echo '<li><a href="loginForm.php">Log In</a></li>';
+						echo '<li><a href="loginFormV.php">Log In</a></li>';
 					}
 				?>
 			</ul>
