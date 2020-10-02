@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Admin's Page</title>
+<title>Medical Officer's Page</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,11 +10,11 @@
     <div class="container">
         <ul class="breadcrumb">
             <li><a href="homePageV.php">Home</a></li>
-            <li>Admin's Page</li>
+            <li>Medican Officer's Page</li>
         </ul>
     </div>
     <?php
-        require "aSideNavV.php";
+        require "moSideNavV.php";
     ?>
     <?php
         require "footer.php";
