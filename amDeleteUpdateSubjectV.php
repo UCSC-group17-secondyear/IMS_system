@@ -10,16 +10,19 @@
         <ul class="breadcrumb">
             <li><a href="homePageV.php">Home</a></li>
             <li><a href="amHomeV.php">Attendance Maintainer Page</a></li>
-            <li>Delete/Update Student's Details</li>
+            <li>Enter Subject's Details</li>
         </ul>
         <?php
             require "amSideNavV.php";
         ?>
 
         <div class="formStyle">
-        <form action="amDeleteUpdateStudentSearchV.php" method="post">
-            <input type="text" name="index_no" placeholder="Student Index No" required>
-            <button type="submit" name="deleteupdateStudent-submit" href="amDeleteUpdateStudentV.php">Select</button>
+        <form action="amUpdateSubjectDetails.php" method="post">
+            <input type="text" name="subject_code" placeholder="Subject Code" required>
+            <input type="text" name="subject_name" placeholder="Subject Name" required>
+            <input type="textarea" name="description" placeholder="Description" required>
+            <button type="submit" name="updateSubject-submit">Save Updates</button>
+            <button type="submit" name="deleteSubject-submit">Delete</button>
         </form>
     </div>
 
