@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Scheme Maintainer Home Page</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <!-- <div class="nameLogo"> -->
-            <img src="../img/ims.jpg" alt="ims" class="logo">
+            <img src="../assests/img/ims.jpg" alt="ims" class="logo">
             <!-- </div> -->
             <div class="options">
                 <a href="#">Home</a>
@@ -36,7 +36,7 @@
         <div class="content">
            
         </div>
-        <div class="footer">Footer</div>
+        <div class="footer"><?php require "../footer.php"; ?></div>
     </div>
 </body>
 </html>

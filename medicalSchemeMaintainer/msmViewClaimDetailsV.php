@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Claim Details</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <!-- <div class="nameLogo"> -->
-            <img src="../img/ims.jpg" alt="ims" class="logo">
+            <img src="../assests/img/ims.jpg" alt="ims" class="logo">
             <!-- </div> -->
             <div class="options">
                 <a href="msmHomeV.php">Home</a>
@@ -63,7 +63,7 @@
                 <a href="msmClaimDetailsV.php"><button type="submit" name="selectwise-submit">Select</button></a>
                 <!-- mekedi javascript function ekk liyla check krla tamai ywnna ona eka tornne -->
         </div>
-        <div class="footer">Footer</div>
+        <div class="footer"><?php require "../footer.php"; ?></div>
     </div>
 </body>
 </html>

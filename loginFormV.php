@@ -1,9 +1,9 @@
 <?php
-	require "header.php";
+	require "../header.php";
 ?>
 
 <main>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../assests/css/style.css">
 	
 	<!-- <h2>Log in </h2> -->
 	<div class="container">

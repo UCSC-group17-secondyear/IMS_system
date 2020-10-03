@@ -1,13 +1,13 @@
 <?php
 	include_once 'database.php';
-	require "header.php";
+	require "../header.php";
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Sign Up</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../assests/css/style.css">
 </head>
 <body>
 	<div class="formstyle">

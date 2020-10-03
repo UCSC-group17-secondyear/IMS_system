@@ -9,7 +9,7 @@
 	<meta name="descriotion" content="Meta content that will show up in search results.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Registration</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../assests/css/style.css">
 </head>
 <body>
 	<header>
