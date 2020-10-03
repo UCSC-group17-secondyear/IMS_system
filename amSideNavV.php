@@ -38,7 +38,11 @@
         </div>
         <br>
         <div class="dropdown">
-            <span><h3>View Medical Scheme Details</h3></span>
+            <span><h3><a href="medicalSchemDetailsV.php">View Scheme Details</a></h3></span>
+        </div>
+        <br>
+        <div class="dropdown">
+            <span><h3><a href="registerMedicalScheme.php">Register to the Staff Medical Scheme</a></h3></span>
         </div>
         <br>
     </div>
