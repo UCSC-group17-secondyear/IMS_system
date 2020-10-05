@@ -1,11 +1,11 @@
 <html>
 <head>
 <title>Admin's Page</title>
-<link rel="stylesheet" href="../assests/css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php
-        require "../header.php";
+        require "header.php";
     ?>
     <div class="container">
         <ul class="breadcrumb">
@@ -17,7 +17,7 @@
         require "aSideNavV.php";
     ?>
     <?php
-        require "../footer.php";
+        require "footer.php";
     ?>
 </body>
 </html>
