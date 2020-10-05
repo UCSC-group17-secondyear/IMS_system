@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register to Medical Scheme</title>
-    <link rel="stylesheet" href="../assests/css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
                 <div class="container">
                     <div class="header">
                         <!-- <div class="nameLogo"> -->
-                        <img src="../assests/img/ims.jpg" alt="ims" class="logo">
+                        <img src="../img/ims.jpg" alt="ims" class="logo">
                         <!-- </div> -->
                         <div class="options">
                             <a href="msmHomeV.php">Home</a>
+                            <a href="msmProfileV.php">Profile</a>
                             <a href="#">Logout</a>
                         </div>
                     </div>
                     <div class="header">breadcrums</div>
                     <div class="side-nav"> 
-                        <!-- <div> -->
-                            <h2>Medical Scheme Maintainer</h2>
-                        <!-- </div> -->
+                        
 
                         <!-- <div> -->
                         <a href="msmViewMedicalMemberListV.php"><button type="submit" name="" class="button">View Medical Member List</button></a><br>
@@ -33,7 +32,11 @@
                         <a href="msmRegisterToMedicalSchemeV.php"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a><br>
                         <!-- </div> -->
                     </div>
-                    <!-- <div class="banner">Banner</div> -->
+                    <div class="banner">
+                        <div>
+                            <h2>Medical Scheme Maintainer</h2>
+                        </div>
+                    </div>
                     <div class="content">
                     <form action="" method="post">
                     <label for="empName">Employee Name</label>
@@ -68,7 +71,11 @@
                 </form>
                 <a href="msmRegisterSuccessV.php"><button type="submit" name="registerMedicalScheme-submit">Register</button></a><br>
         </div>
-        <div class="footer"><?php require "../footer.php"; ?></div>
+        <div class="footer">
+            <?php
+                require_once('../include/footer.php');
+            ?>
+        </div>
     </div>
 </body>
 </html>
