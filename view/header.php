@@ -8,24 +8,27 @@
 	<meta charset="utf-8">
 	<meta name="descriotion" content="Meta content that will show up in search results.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Registration</title>
-	<link rel="stylesheet" href="../assests/css/style.css">
+	<title>Home Page</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<header>
 		<nav class="nav-header-main">
 			<a class="header-logo" href="#">IMS</a>
-			<ul>
-				<li><a href="homePageV.php">Home</a></li>
-				<?php
-					if (isset($_SESSION['logid'])) {
-						echo '<li><a href="logOut.php">Log Out</a></li>';
-					}
-					else {
-						echo '<li><a href="loginFormV.php">Log In</a></li>';
-					}
-				?>
-			</ul>
+			<form action="" method="POST">
+				<ul>
+					<li><a href="homePageV.php">Home</a></li>
+					<?php
+						if (isset($_SESSION['logid'])) {
+
+							echo '<li><button type="submit" name="logout-submit"><a href="logOut.php">Log Out</a></button></li>';
+						}
+						else {
+							echo '<li><button type="submit" name="login-submit">Log In</button></li>';
+						}
+					?>
+				</ul>
+			</form>
 		</nav>
 		<!--<div class="banner">-->
 			<!--<h2>University of Colombo School of Computing</h2>
