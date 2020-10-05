@@ -1,37 +1,34 @@
-<?php 
-	include_once 'C:\xampp\htdocs\LoginSystem\database.php';
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sign Up</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" name="empid" placeholder="Enter employee id" required><br>
 
-	if (isset($_POST['signup-submit'])) {
-		$empid = $_POST['empid'];
-		$initials = $_POST['initials'];
-		$sname = $_POST['sname'];
-		$email = $_POST['email'];
-		$mobile = $_POST['mobile'];
-		$tp = $_POST['tp'];
-		$dob = $_POST['dob'];
-		$designation = $_POST['designation'];
-		$appointment = $_POST['appointment'];
-		$password = $_POST['password'];
-		$conpassword = $_POST['conpassword'];
+			<input type="text" name="initials" placeholder="Enter your initials" required><br>
 
-		if ($password != $conpassword) {
-			header("Location: signupForm.php?error=passwordConfirmationFailed&empid=".$empid."&initials=".$initials."&sname=".$sname."&email=".$email."&mobile=".$tp."&dob=".$dob."&designation=".$designation."&appointment=".$appointment);
-			exit();
-		}
-		
-		$checkID = "SELECT empid FROM users WHERE empid='$empid';";
+			<input type="text" name="sname" placeholder="Enter your surname" required><br>
 
-		if ($checkID == $empid) {
-			header("Location: signupForm.php?error=empidAlreadyExists&initials=".$initials."&sname=".$sname."&email=".$email."&mobile=".$tp."&dob=".$dob."&designation=".$designation."&appointment=".$appointment);
-			exit();
-		}
+			<input type="email" name="email" placeholder="Enter your email"><br>
 
-		$hashpwd = password_hash($password, PASSWORD_DEFAULT);
+			<input type="text" name="mobile" placeholder="Enter your mobile number" required><br>
 
-		$sql = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, designation, appointment, password) 
-			VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$designation', '$appointment', '$hashpwd');";
-		mysqli_query ($conn, $sql);
+			<input type="text" name="tp" placeholder="Enter your telephone number"><br>
 
-		header("Location: loginForm.php?signup=success");
-	}
-?>
+			<input type="date" name="dob" placeholder="Enter date of birth" required><br>
+
+			<input type="text" name="designation" placeholder="Enter your designation" required><br>
+
+			<input type="date" name="appointment" placeholder="Enter date of appointment" required><br>
+
+			<input type="password" name="password" placeholder="Enter password" required><br>
+
+			<input type="password" name="conpassword" placeholder="Confirm password" required><br>
+
+			<button type="submit" name="signup-submit">Create Account</button>
+		</form>
+	</body>
+</html>
