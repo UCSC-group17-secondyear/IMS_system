@@ -15,14 +15,13 @@
             <!-- </div> -->
             <div class="options">
                 <a href="memHomeV.php">Home</a>
+                <a href="memProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
         </div>
         <div class="header">breadcrums</div>
         <div class="side-nav">
-            <div>
-                  <h2>Medical Scheme Member</h2>
-            </div>
+            
             
                   <a href="memRenewMembershipV.php" ><button type="submit" name="" class="button">Renew Membership</button></a><br>
                   <a href="memViewSchemeDetailsV.php" ><button type="submit" name="" class="button">View Medical Scheme Details</button></a><br>
@@ -34,10 +33,16 @@
 
             
         </div>
-        <div class="banner">Banner</div>
+        <div class="banner">
+            <div>
+                  <h2>Medical Scheme Member</h2>
+            </div>
+        </div>
         <div class="content">Content</div>
         <div class="footer">
-            <!-- require_once('../') -->
+            <?php
+                require_once('../include/footer.php');
+            ?>
         </div>
     </div>
 </body>
