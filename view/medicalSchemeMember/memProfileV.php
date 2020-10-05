@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search by Reference Number</title>
-    <link rel="stylesheet" href="../css/main.css"></link>
-
+    <title>Profile</title>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
-
 <body>
     <div class="container">
         <div class="header">
             <!-- <div class="nameLogo"> -->
-            <img src="../img/ims.jpg" alt="ims" class="logo">
+                <img src="../img/ims.jpg" alt="ims" class="logo">
             <!-- </div> -->
             <div class="options">
                 <a href="memHomeV.php">Home</a>
@@ -22,29 +20,53 @@
         </div>
         <div class="header">breadcrums</div>
         <div class="side-nav">
-           
             
+
+            <!-- <div> -->
                   <a href="memRenewMembershipV.php" ><button type="submit" name="" class="button">Renew Membership</button></a><br>
                   <a href="memViewSchemeDetailsV.php" ><button type="submit" name="" class="button">View Medical Scheme Details</button></a><br>
                   <a href="memFillClaimFormsV.php" ><button type="submit" name="" class="button">Fill Claim Forms</button></a><br>
                   <a href="memUpdateClaimFormsV.php" ><button type="submit" name="" class="button">Update Claim Form</button></a><br>
                   <a href="memViewClaimFormsV.php" ><button type="submit" name="" class="button">View Claim Forms</button></a><br>
                   <a href="memGetClaimDetailsV.php" ><button type="submit" name="" class="button">Get Claim Detials</button></a><br>
+            <!-- </div> -->
         </div>
         <div class="banner">
             <div>
-                  <h2>Medical Scheme Member</h2>
+                <h2>Medical Scheme Member</h2>
             </div>
+            
         </div>
         <div class="content">
             <div>
-                <h4>Search by Reference Number</h4>
+                <h3>Profile</h3>
+            </div>
+            <div>
+                <form action="" method="post">
+                    <label for="empId">Employee Id</label>
+                    <input type="text" value=""> <br>
+                    <label for="nameWithInt">Initials of the name</label>
+                    <input type="text" value=""> <br>
+                    <label for="surname">Surname</label>
+                    <input type="text" value=""> <br>
+                    <label for="email">Email</label>
+                    <input type="email" value=""> <br>
+                    <label for="mobNum">Mobile Number</label>
+                    <input type="text" value=""> <br>
+                    <label for="telNum">Telephone Number</label>
+                    <input type="text" value=""> <br>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" value=""> <br>
+                    <label for="designation">Designation</label>
+                    <input type="text" value=""> <br>
+                    <label for="appointmentDate">Appointment Date</label>
+                    <input type="date" value=""> <br>                    
+                </form>
+                <a href="memUpdateProfileV.php"><button type="submit">Update Profile</button></a>
             </div>
 
-            <label for="refNUmber">Enter Reference Number</label>
-            <input type="text" value=""> <br>
+                    <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai methndi update krnna denna ba -->
 
-            <a href="memClaimDetailsReferenceNumberV.php" ><button type="submit" name="" >Display Form</button></a><br>
         </div>
         <div class="footer">
             <?php

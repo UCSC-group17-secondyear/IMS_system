@@ -16,14 +16,13 @@
             <!-- </div> -->
             <div class="options">
                 <a href="memHomeV.php">Home</a>
+                <a href="memProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
         </div>
         <div class="header">breadcrums</div>
         <div class="side-nav">
-            <div>
-                  <h2>Medical Scheme Member</h2>
-            </div>
+            
             
                   <a href="memRenewMembershipV.php" ><button type="submit" name="" class="button">Renew Membership</button></a><br>
                   <a href="memViewSchemeDetailsV.php" ><button type="submit" name="" class="button">View Medical Scheme Details</button></a><br>
@@ -32,10 +31,14 @@
                   <a href="memViewClaimFormsV.php" ><button type="submit" name="" class="button">View Claim Forms</button></a><br>
                   <a href="memGetClaimDetailsV.php" ><button type="submit" name="" class="button">Get Claim Detials</button></a><br>
         </div>
-        <!-- <div class="banner">Banner</div> -->
+        <div class="banner">
+            <div>
+                  <h2>Medical Scheme Member</h2>
+            </div>
+        </div>
         <div class="content">
             <div>
-                <h2>Form</h2>
+                <h4>Form</h4>
             </div>
         <form action="" method="POST">
             <label for="name">Name</label>
@@ -51,7 +54,11 @@
         <a href="memFormUpdateSuccessV.php" ><button type="submit" name="" >Submit</button></a><br>
 
         </div>
-        <div class="footer">Footer</div>
+        <div class="footer">
+            <?php
+                require_once('../include/footer.php');
+            ?>
+        </div>
     </div>
 </body>
 </html>

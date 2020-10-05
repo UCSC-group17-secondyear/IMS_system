@@ -16,14 +16,13 @@
             <!-- </div> -->
             <div class="options">
                 <a href="mmHomeV.php">Home</a>
+                <a href="mmProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
         </div>
         <div class="header">breadcrums</div>
         <div class="side-nav">
-            <div>
-                  <h2>Mahapola Scheme Maintainer</h2>
-            </div>
+            
             
                   <a href="mmMarkMahapolaSelectedStudentsV.php" ><button type="submit" name="" class="button">Mark Mahapola Selected Students</button></a><br>
                   <a href="mmViewMahapolaNominatedListV.php" ><button type="submit" name="" class="button">View Mahapola Nominated Student List</button></a><br>
@@ -33,8 +32,16 @@
                   <a href="mmViewSchemeDetailsV.php" ><button type="submit" name="" class="button">View Scheme Details</button></a><br>
                   <a href="mmRegisterToMedicalSchemeV.php" ><button type="submit" name="" class="button">Register to Staff Medical Scheme</button></a><br>
         </div>
-        <!-- <div class="banner">Banner</div> -->
+        <div class="banner">
+            <div>
+                  <h2>Mahapola Scheme Maintainer</h2>
+            </div>
+        </div>
         <div class="content">
+            <div>
+                <h4>Register to Staff Medical Scheme</h4>
+            </div>
+
             <form action="" method="post">
                 <label for="empName">Employee Name</label>
                 <input type="text" value=""> <br>
@@ -76,7 +83,11 @@
             <a href="mmRegisterSuccessV.php"><button type="submit" name="registerMedicalScheme-submit">Register</button></a><br>
         
         </div>
-        <div class="footer">Footer</div>
+        <div class="footer">
+            <?php
+              require_once('../include/footer.php');
+            ?>
+        </div>
     </div>
 </body>
 </html>
