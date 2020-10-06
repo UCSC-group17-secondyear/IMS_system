@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Staff Member Home Page</title>
+    <title>Admin Home Page</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
     <div class="container">
-
         <div class="header">
             <!-- <div class="nameLogo"> -->
             <img src="../img/ims.jpg" alt="ims" class="logo">
@@ -21,9 +20,7 @@
                 <a href="#">Logout</a>
             </div>
         </div>
-
         <div class="header">breadcrums</div>
-
         <div class="side-nav">
             <a href="aManageUserRolesV.php"><button type="submit" name="" class="button">Manage User
                     Roles</button></a><br>
@@ -43,28 +40,20 @@
             <a href="aViewHallDetailsV.php"><button type="submit" name="" class="button">View Hall
                     Details</button></a><br>
         </div>
-
         <div class="content">
             <div>
-                <h3>Add User Role</h3>
+                <h3>Manage User Roles</h3>
             </div>
-
-            <div class="formStyle">
-                <form action="aAddNewUserRole.php" method="post">
-                    User Role: <input type="text" name="userRole" placeholder="Enter User role" required><br>
-                    Description: <input type="text" name="description" placeholder="Enter its description" required><br>
-                    <button type="submit" name="userRole-submit">Add user role</button>
-                </form>
-            </div>
-
+            <a href="aAddNewUserRoleV.php"><button type="submit" name="">Add a new user role</button></a><br><br>
+            <a href="aRemoveUserRoleV.php"><button type="submit" name="">Remove a new user role</button></a><br><br>
+            <a href="aAssignUserRoleV.php"><button type="submit" name="">Assign a user role to a user</button></a><br><br>
+            <a href="aUpdateUserRoleV.php"><button type="submit" name="">Update the user role of a user</button></a>
         </div>
-
         <div class="footer">
             <?php
                 require_once('../include/footer.php');
             ?>
         </div>
-
     </div>
 </body>
 
