@@ -18,6 +18,9 @@
 			<p>
 				<button type="submit" name="submit">LOGIN</button>
 			</p>
+			<p>
+				<h3>No account yet? <a href="signup.php">Sign Up.</a></h3>
+			</p>
 		</form>
 	</body>
 </html>

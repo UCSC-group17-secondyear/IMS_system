@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Admin's Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
     <?php

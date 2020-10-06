@@ -6,7 +6,7 @@
 	    <title>Sign Up</title>
 	</head>
 	<body>
-		<form action="../controller/SignupController" method="post">
+		<form action="../controller/SignupController.php" method="post">
 			<legend>Sign Up</legend>
 			<p>
 				<label>Enter employee id</label>
