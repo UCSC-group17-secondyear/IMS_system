@@ -5,33 +5,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="descriotion" content="Meta content that will show up in search results.">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home Page</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
 	<header>
-		<nav class="nav-header-main">
-			<a class="header-logo" href="#">IMS</a>
-			<form action="" method="POST">
-				<ul>
-					<li><a href="homePageV.php">Home</a></li>
-					<?php
-						if (isset($_SESSION['logid'])) {
+		<div class="container">
+	        <div class="header">
+				<img src="../img/ims.jpg" alt="ims" class="logo">
+				<div class="options">
+					<ul>
+						<li><a href="homePageV.php">Home</a></li>
+						<?php
+							if (isset($_SESSION['logid'])) {
 
-							echo '<li><button type="submit" name="logout-submit"><a href="logOut.php">Log Out</a></button></li>';
-						}
-						else {
-							echo '<li><button type="submit" name="login-submit">Log In</button></li>';
-						}
-					?>
-				</ul>
-			</form>
-		</nav>
-		<!--<div class="banner">-->
-			<!--<h2>University of Colombo School of Computing</h2>
-			<h2>Welcome to the IMS of Academic and Publications Division</h2>		-->	
-		<!--</div>-->
+								echo '<li><a href="../controller/logOutController.php">Log Out</a></li>';
+							}
+							else {
+								echo '<li><a href="login.php">Log In</a></li>';
+							}
+						?>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</header>
