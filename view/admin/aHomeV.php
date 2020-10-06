@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Staff Member Home Page</title>
+    <title>Admin Home Page</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
@@ -23,7 +23,7 @@
         </div>
 
         <div class="header">breadcrums</div>
-
+        
         <div class="side-nav">
             <a href="aManageUserRolesV.php"><button type="submit" name="" class="button">Manage User
                     Roles</button></a><br>
@@ -44,19 +44,10 @@
                     Details</button></a><br>
         </div>
 
-        <div class="content">
+        <div class="banner">
             <div>
-                <h3>Add User Role</h3>
+                <h2>Admin</h2>
             </div>
-
-            <div class="formStyle">
-                <form action="aAddNewUserRole.php" method="post">
-                    User Role: <input type="text" name="userRole" placeholder="Enter User role" required><br>
-                    Description: <input type="text" name="description" placeholder="Enter its description" required><br>
-                    <button type="submit" name="userRole-submit">Add user role</button>
-                </form>
-            </div>
-
         </div>
 
         <div class="footer">
@@ -64,7 +55,7 @@
                 require_once('../include/footer.php');
             ?>
         </div>
-
+        
     </div>
 </body>
 

@@ -18,30 +18,24 @@
                 <a href="#">Logout</a>
             </div>
         </div>
-        <div class="header">breadcrums</div>
-        <div class="side-nav">
-            
 
-        <!-- <div> -->
-        <a href="lWeeklyTimeTableV.php"><button type="submit" name="" class="button">View Weekly Time Table</button></a><br>
-                <a href="hamViewHallAllocationScheduleV.php"><button type="submit" name="" class="button">View Hall Allocation Schedule</button></a><br>
-                <a href="hamViewSchemeDetailsV.php"><button type="submit" name="" class="button">View Scheme Details</button></a><br>
-                <a href="hamHallDetailsV.php"><button type="submit" name="" class="button">View Hall Details</button></a><br>
-                <a href="hamManageWeeklyTimeTableV.php"><button type="submit" name="" class="button">Manage Weekly Time Table</button></a><br>
-                <a href="hamManageBookingV.php"><button type="submit" name="" class="button">Manage Booking</button></a><br>
-                <a href="hamRegisterToMedicalSchemeV.php"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a><br>
-            <!-- </div> -->
-        </div>
+        <div class="header">breadcrums</div>
+        
+        <?php
+            require_once('hamSideNavV.php');
+        ?>
+
         <div class="banner">
             <div>
                 <h2>Hall Allocation Maintainer</h2>
             </div>
         </div>
+
         <div class="content">
-           
             <div>
                 <h3>Add a Booking</h3>
             </div>
+
             <form action="" method="POST">
                 Enter Date<input type="date" id="" name="enterDate"><br>
                 <select name="hall" id="hall">
@@ -54,16 +48,15 @@
                 Start Time<input type="time" id="" name="startTime"><br>
                 End Time<input type="time" id="" name="endTime"><br>
             </form>
-            
 
             <a href="hamBookingSuccessfulV.php"><button type="submit" name="addBooking-submit">Book</button></a>
-
-            
         </div>
+
         <div class="footer">
             <?php
                 require_once('../include/footer.php');
-            ?></div>
+            ?>
+        </div>
     </div>
 </body>
 </html>
