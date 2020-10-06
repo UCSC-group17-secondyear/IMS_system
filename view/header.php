@@ -21,17 +21,13 @@
 					<?php
 						if (isset($_SESSION['logid'])) {
 
-							echo '<li><button type="submit" name="logout-submit"><a href="logOut.php">Log Out</a></button></li>';
+							echo '<li><a href="../controller/logOutController.php">Log Out</a></li>';
 						}
 						else {
-							echo '<li><button type="submit" name="login-submit">Log In</button></li>';
+							echo '<li><a href="login.php">Log In</a></li>';
 						}
 					?>
 				</ul>
 			</form>
 		</nav>
-		<!--<div class="banner">-->
-			<!--<h2>University of Colombo School of Computing</h2>
-			<h2>Welcome to the IMS of Academic and Publications Division</h2>		-->	
-		<!--</div>-->
 	</header>

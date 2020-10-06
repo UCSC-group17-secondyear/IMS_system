@@ -1,34 +1,71 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Sign Up</title>
-		<link rel="stylesheet" href="style.css">
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Sign Up</title>
 	</head>
 	<body>
-		<form action="" method="post">
-			<input type="text" name="empid" placeholder="Enter employee id" required><br>
+		<form action="../controller/SignupController" method="post">
+			<legend>Sign Up</legend>
+			<p>
+				<label>Enter employee id</label>
+				<input type="text" name="empid" placeholder="Employee ID" required/>
+			</p>
 
-			<input type="text" name="initials" placeholder="Enter your initials" required><br>
+			<p>
+				<label>Enter your initials</label>
+				<input type="text" name="initials" placeholder="Initials" required/>
+			</p>
 
-			<input type="text" name="sname" placeholder="Enter your surname" required><br>
+			<p>
+				<label>Enter your surname</label>
+				<input type="text" name="sname" placeholder="Surname" required/>
+			</p>
 
-			<input type="email" name="email" placeholder="Enter your email"><br>
+			<p>
+				<label>Enter your email</label>
+				<input type="email" name="email" placeholder="Email"/>
+			</p>
 
-			<input type="text" name="mobile" placeholder="Enter your mobile number" required><br>
+			<p>
+				<label>Enter your mobile number</label>
+				<input type="text" name="mobile" placeholder="Mobile Number" required/>
+			</p>
 
-			<input type="text" name="tp" placeholder="Enter your telephone number"><br>
+			<p>
+				<label>Enter your telephone number</label>
+				<input type="text" name="tp" placeholder="Telephone number"/>
+			</p>
 
-			<input type="date" name="dob" placeholder="Enter date of birth" required><br>
+			<p>
+				<label>Enter date of birth</label>
+				<input type="date" name="dob" required/>
+			</p>
 
-			<input type="text" name="designation" placeholder="Enter your designation" required><br>
+			<p>
+				<label>Enter your designation</label>
+				<input type="text" name="designation" placeholder="Designation" required/>
+			</p>
 
-			<input type="date" name="appointment" placeholder="Enter date of appointment" required><br>
+			<p>
+				<label>Enter date of appointment</label>
+				<input type="date" name="appointment" required/>
+			</p>
 
-			<input type="password" name="password" placeholder="Enter password" required><br>
+			<p>
+				<label>Create a password</label>
+				<input type="password" name="password" placeholder="Password" required/>
+			</p>
 
-			<input type="password" name="conpassword" placeholder="Confirm password" required><br>
+			<p>
+				<label>Confirm the password</label>
+				<input type="password" name="conpassword" placeholder="Confirm password" required/>
+			</p>
 
-			<button type="submit" name="signup-submit">Create Account</button>
+			<p>
+				<button type="submit" name="signup-submit">Create Account</button>
+			</p>
 		</form>
 	</body>
 </html>
