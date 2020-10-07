@@ -20,17 +20,18 @@
                 <a href="#">Logout</a>
             </div>
         </div>
-        <div class="header">breadcrums</div>
-        <div class="side-nav">
-            
-            
-                  <a href="memRenewMembershipV.php" ><button type="submit" name="" class="button">Renew Membership</button></a><br>
-                  <a href="memViewSchemeDetailsV.php" ><button type="submit" name="" class="button">View Medical Scheme Details</button></a><br>
-                  <a href="memFillClaimFormsV.php" ><button type="submit" name="" class="button">Fill Claim Forms</button></a><br>
-                  <a href="memUpdateClaimFormsV.php" ><button type="submit" name="" class="button">Update Claim Form</button></a><br>
-                  <a href="memViewClaimFormsV.php" ><button type="submit" name="" class="button">View Claim Forms</button></a><br>
-                  <a href="memGetClaimDetailsV.php" ><button type="submit" name="" class="button">Get Claim Detials</button></a><br>
-        </div>
+        
+        <!-- breadcrumbs -->
+        <ul class="breadcrumb">
+            <li><a href="memHomeV.php">Home</a></li>
+            <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
+            <li>Select Scheme</li>
+        </ul>
+        
+        <?php
+          require_once('memSideNavV.php');
+        ?>
+        
         <div class="banner">
             <div>
                   <h2>Medical Scheme Member</h2>

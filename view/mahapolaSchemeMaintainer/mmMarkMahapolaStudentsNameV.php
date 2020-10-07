@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Report</title>
+    <title>Mark Mahapola Selected Students</title>
     <link rel="stylesheet" href="../css/main.css"></link>
+
 </head>
 
 <body>
@@ -19,12 +20,10 @@
                 <a href="#">Logout</a>
             </div>
         </div>
-        
         <!-- breadcrumbs -->
         <ul class="breadcrumb">
             <li><a href="mmHomeV.php">Home</a></li>
-            <li><a href="mmViewReportsMahapolaSchemeV.php">View Mahapola Scheme Reports</a></li>
-            <li>View Report</li>
+            <li>Mark Mahapola Selected Students By Name</li>
         </ul>
         
         <?php
@@ -38,14 +37,22 @@
         </div>
         <div class="content">
             <div>
-                <h4>Report</h4>
+                <h4>Mark Mahapola Selected Students</h4>
             </div>
-            <!-- report eke generate kranna one -->
 
-            <a href="mmViewReportsMahapolaSchemeV.php" ><button type="submit" name="" >OK</button></a><br>
-        </div>
+            <form action="" method="POST">
+
+                <!-- <input type="text" id="studentname" name="student" value="studentname"> -->
+                <label for="studentname">Search by Student Name</label><br>
+                <input type="text" id="studentName">
+            
+            </form>
+            <br>
+            <a href="mmStudentDetailsV.php" ><button type="submit" name="" >Display Student's Details</button></a><br>
+            <!-- mekedi js function eka check krla tamai display kranna one -->
+            </div>
         <div class="footer">
-            <?php
+        <?php
               require_once('../include/footer.php');
             ?>
         </div>
