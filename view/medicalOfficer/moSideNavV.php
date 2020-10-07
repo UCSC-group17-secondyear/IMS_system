@@ -1,5 +1,5 @@
 <main>
-    <div class="sidenav">
+    <div class="side-nav">
         <a href="moClaimReqestingFormsV.php"><button type="submit" name="" class="button">View Claim Requesting
                 Forms</button></a><br>
         <button class="button accordion">View Claim Requesting Forms</button>
