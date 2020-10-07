@@ -1,6 +1,9 @@
 <?php
-	include 'model/Model.php';
-	include 'config/database.php';
+	session_start();
+	require_once('../config/database.php');
+	require_once('../model/Model.php');
+	// include 'model/Model.php';
+	// include 'config/database.php';
 
 	
 	if (isset($_POST['signup-submit'])) 
