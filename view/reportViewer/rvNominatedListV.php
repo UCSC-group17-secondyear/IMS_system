@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Time Table</title>
+    <title>Mahapola Nominated List</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
@@ -16,8 +16,8 @@
             <img src="../img/ims.jpg" alt="ims" class="logo">
             <!-- </div> -->
             <div class="options">
-                <a href="asmHomeV.php">Home</a>
-                <a href="asmProfileV.php">Profile</a>
+                <a href="rvHomeV.php">Home</a>
+                <a href="rvProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
         </div>
@@ -25,31 +25,15 @@
         <div class="header">breadcrums</div>
 
         <?php
-            require_once('asmSideNavV.php');
+            require_once('rvSideNavV.php');
         ?>
 
         <div class="content">
             <div>
-                <h3>Weekly Time Table</h3>
+                <h4>Student List</h4>
             </div>
-
-            <table>
-                <tr>
-                    <th>Date</th>
-                    <th>Time Duration</th>
-                    <th>Hall Name</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-
-            <a href="asmHomeV.php"><button type="submit" name="">OK</button></a>
-
-            <!-- if lecturer registered as a medical scheme member then redirect to the lecturer home page without "Register to the medical scheme button"  -->
-
+            <!-- pdf ekak generate kranna -->
+            <a href="rvViewMahapolaNominatedListV.php"><button type="submit" name="">Back</button></a><br>
         </div>
 
         <div class="footer">

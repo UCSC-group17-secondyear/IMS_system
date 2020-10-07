@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update a Booking</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
@@ -16,8 +16,8 @@
             <img src="../img/ims.jpg" alt="ims" class="logo">
             <!-- </div> -->
             <div class="options">
-                <a href="asmHomeV.php">Home</a>
-                <a href="asmProfileV.php">Profile</a>
+                <a href="rvHomeV.php">Home</a>
+                <a href="rvProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
         </div>
@@ -25,17 +25,13 @@
         <div class="header">breadcrums</div>
 
         <?php
-            require_once('asmSideNavV.php');
+            require_once('rvSideNavV.php');
         ?>
 
-        <div class="content">
+        <div class="banner">
             <div>
-                <h3>Update / Remove Booking</h3>
+                <h2>Academic Staff Member</h2>
             </div>
-
-            Enter booking id : <input type="text" id="" name="bookingId"><br>
-
-            <a href="asmBookingDetailsV.php"><button type="submit" name="updateBooking-submit">OK</button></a>
 
         </div>
 
