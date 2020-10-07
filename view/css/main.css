@@ -4,7 +4,7 @@ body {
 
 .container {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     font-family: 'Quicksand', sans-serif;
     /* font-weight: bold; */
     font-size: 20px;   
@@ -22,6 +22,12 @@ body {
 }
 
 .header {
+    background-color:#ac9766;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.breadcrumbs {
     background-color:#ac9766;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -54,10 +60,28 @@ body {
 
 .side-nav {
     grid-row-start: 3;
-    grid-row-end: span 2;
+    /* grid-row-end: span 2; */
     background-color:#ac9766;
     text-align: center;
     color: black;
+}
+
+.accordion {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.accordion:after {
+    content: '  \002B';
+}
+
+.panel {
+    display: none;
+
+}
+
+.active:after {
+    content: "  \2212";
 }
 
 .button {
@@ -78,6 +102,24 @@ body {
     height: 40px;
 }
 
+.buttonTwo {
+    background-color:#FFE4C4;
+    border: none;
+    box-shadow: 5px 5px 3px black;
+    border-radius:8px;
+    color: black;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 6px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+}
+
 .button:hover {
     background-color: white;
     color:#ac9766;
@@ -86,8 +128,8 @@ body {
 .footer {
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-row-start: 5;
-    grid-row-end: 8;
+    /* grid-row-start: 5; */
+    /* grid-row-end: 8; */
     color: white;
     background-color: black;
 }
