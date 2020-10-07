@@ -16,8 +16,8 @@
             <img src="../img/ims.jpg" alt="ims" class="logo">
             <!-- </div> -->
             <div class="options">
-                <a href="asmHomeV.php">Home</a>
-                <a href="asmProfileV.php">Profile</a>
+                <a href="rvHomeV.php">Home</a>
+                <a href="rvProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="header">breadcrums</div>
 
         <?php
-            require_once('asmSideNavV.php');
+            require_once('rvSideNavV.php');
         ?>
 
         <div class="content">
@@ -53,7 +53,7 @@
                     <label for="appointmentDate">Appointment Date</label>
                     <input type="date" value=""> <br>                    
                 </form>
-                <a href="asmUpdateProfileSuccessV.php"><button type="submit">Save Updates</button></a>
+                <button type="submit">Save Updates</button>
             </div>
         <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
         </div>
