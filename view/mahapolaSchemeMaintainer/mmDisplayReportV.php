@@ -19,7 +19,13 @@
                 <a href="#">Logout</a>
             </div>
         </div>
-        <div class="header">breadcrums</div>
+        
+        <!-- breadcrumbs -->
+        <ul class="breadcrumb">
+            <li><a href="mmHomeV.php">Home</a></li>
+            <li><a href="mmViewReportsMahapolaSchemeV.php">View Mahapola Scheme Reports</a></li>
+            <li>View Report</li>
+        </ul>
         
         <?php
           require_once('mmSideNavV.php');
