@@ -1,20 +1,17 @@
 <?php
 	require "../header.php";
+	require "aSideNavV.php";
 ?>
 
 <main>
 	<link rel="stylesheet" href="../assests/css/style.css">
 	
 	<ul class="breadcrumb">
-        <li><a href="homePageV.php">Home</a></li>
-        <li><a href="adminV.php">Admin Page</a></li>
-        <li>Add new User role</li>
+		<li><a href="adminV.php">Home</a></li>
+		<li>Add new User role</li>
     </ul>
-    <?php
-        require "aSideNavV.php";
-    ?>
 
-	<div class="formStyle">
+	<div class="content">
 		<form action="aAddNewUserRole.php" method="post">	
 			<input type="text" name="userRole" placeholder="Enter User role" required>
 			<input type="text" name="description" placeholder="Enter its description" required>

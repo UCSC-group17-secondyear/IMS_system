@@ -19,7 +19,10 @@
             </div>
         </div>
 
-        <div class="header">breadcrums</div>
+        <ul class="breadcrumb">
+            <li><a href="hamHomeV.php">Home</a></li>
+            <li>Add a new degree</li>
+        </ul>
         
         <?php
             require_once('hamSideNavV.php');

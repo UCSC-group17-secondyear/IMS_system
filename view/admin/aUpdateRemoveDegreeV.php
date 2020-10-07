@@ -1,22 +1,17 @@
-<html>
-    <head>
-        <title>Admin Page</title>
-        <link rel="stylesheet" href="../assests/css/style.css">
-    </head>
-    <body>
-        <?php
-            require "../header.php";
-        ?>
-        <ul class="breadcrumb">
-            <li><a href="homePageV.php">Home</a></li>
-            <li><a href="adminV.php">Admin Page</a></li>
-            <li>Update or remove a degree</li>
-        </ul>
-        <?php
-            require "aSideNavV.php";
-        ?>
+<?php
+    require "../header.php";
+    require "aSideNavV.php";
+?>
 
-        <div class="formStyle">
+<main>
+    <link rel="stylesheet" href="../assests/css/style.css">
+    
+    <ul class="breadcrumb">
+        <li><a href="adminV.php">Home</a></li>
+        <li>Update or remove a degree</li>
+    </ul>
+
+    <div class="content">
         <form action="aUpdateRemoveDegree.php" method="post"> 
             <input type="text" name="degree" placeholder="Enter degree name" required>
             <input type="text" name="description" placeholder="Degree description" required>
@@ -24,9 +19,8 @@
             <button type="submit" name="removeDegree-submit">Remove degree</button>
         </form>
     </div>
+</main>
 
-        <?php
-            require "../footer.php";
-        ?>
-    </body>
-</html>
+<?php
+    require "../footer.php";
+?>

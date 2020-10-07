@@ -1,4 +1,6 @@
 <main>
+	<link rel="stylesheet" href="../css/main.css"></link>
+	
     <div class="side-nav">
         <a href="hamWeeklyTimeTableV.php"><button type="submit" name="" class="button">View Weekly Time Table</button></a><br>
         <a href="hamViewHallAllocationScheduleV.php"><button type="submit" name="" class="button">View Hall Allocation Schedule</button></a><br>

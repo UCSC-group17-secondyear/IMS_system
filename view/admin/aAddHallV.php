@@ -1,22 +1,22 @@
 <html>
     <head>
         <title>Admin Page</title>
-        <link rel="stylesheet" href="../assests/css/style.css">
+        
     </head>
     <body>
         <?php
             require "../header.php";
-        ?>
-        <ul class="breadcrumb">
-            <li><a href="homePageV.php">Home</a></li>
-            <li><a href="adminV.php">Admin Page</a></li>
-            <li>Add a new Hall</li>
-        </ul>
-        <?php
             require "aSideNavV.php";
         ?>
+<main>
+    <link rel="stylesheet" href="../assests/css/style.css">
 
-        <div class="formStyle">
+    <ul class="breadcrumb">
+        <li><a href="adminV.php">Home</a></li>
+        <li>Add a new Hall</li>
+    </ul>
+
+    <div class="content">
         <form action="aAddHall.php" method="post"> 
             <input type="text" name="hallName" placeholder="Enter hall name" required>
             <input type="text" name="hallLocation" placeholder="Enter hall location" required>
@@ -25,9 +25,8 @@
             <button type="submit" name="addHall-submit">Add hall</button>
         </form>
     </div>
+</main>
 
-        <?php
-            require "../footer.php";
-        ?>
-    </body>
-</html>
+<?php
+    require "../footer.php";
+?>
