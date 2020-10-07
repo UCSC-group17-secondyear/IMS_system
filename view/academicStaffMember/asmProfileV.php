@@ -55,12 +55,12 @@
                 </form>
                 <a href="asmUpdateProfileV.php"><button type="submit">Update Profile</button></a>
             </div>
+        </div>
 
-            <div class="footer">
-                <?php
+        <div class="footer">
+            <?php
                 require_once('../include/footer.php');
             ?>
-            </div>
         </div>
 </body>
 
