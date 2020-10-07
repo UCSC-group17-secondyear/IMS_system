@@ -1,24 +1,37 @@
-<main>
-	<link rel="stylesheet" href="../assests/css/style.css">
-	<?php
-        require "../header.php";
-    ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejected Claim Forms</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
     <div class="container">
-        <ul class="breadcrumb">
-            <li><a href="homePageV.php">Home</a></li>
-            <li><a href="medicalOfficerV.php">Medican Officer's Page</a></li>
-            <li>Rejected Claim Forms</li>
-        </ul>
+        <div class="header">
+            <!-- <div class="nameLogo"> -->
+            <img src="../img/ims.jpg" alt="ims" class="logo">
+            <!-- </div> -->
+            <div class="options">
+                <a href="moHomeV.php">Home</a>
+                <a href="moProfileV.php">Profile</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+
+        <div class="header">breadcrums</div>
+
+        <?php
+            require_once('moSideNavV.php');
+        ?>
+
+        <div class="content"></div>
+
+        <div class="footer">
+            <?php
+                require_once('../include/footer.php');
+            ?>
+        </div>
     </div>
-	<?php
-        require "moSideNavV.php";
-    ?>
-	<div class="container">
-		<div class="formStyle">
-			<h3>Rejected Claim Forms</h3>
-		</div>
-	</div>
-    <?php
-        require "../footer.php";
-    ?>
-</main>
+</body>
+</html>
