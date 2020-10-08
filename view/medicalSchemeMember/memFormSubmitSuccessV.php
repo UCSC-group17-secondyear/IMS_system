@@ -1,41 +1,39 @@
-<?php
-    require_once('../header.php');
-    require_once('memSideNavV.php');
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
-
-    <div class="container">
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="memHomeV.php">Home</a>
-                <a href="memProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div> -->
-
-        <!-- breadcrumbs -->
-        <ul class="breadcrumb">
-            <li><a href="memHomeV.php">Home</a></li>
-            <!-- <li><a href="memFillClaimFormsV.php">Select Form Type</a></li> -->
-            <li>Form Submitted</li>
-        </ul>
-
-        <div class="banner">
-            <div>
-                <h2>Medical Scheme Member</h2>
-            </div>
-        </div>
-        <div class="content">
-            <p>Your form has been submitted succesfully.</p>
-
-            <a href="memHomeV.php"><button type="submit" name="">OK</button></a><br>
-        </div>
-    </div>
-</main>
+    <title>Submit Successfull</title>
 
 <?php
-    require_once('../include/footer.php');
+    require('../basic/header.php');
+    
 ?>
+
+        
+            <div class="header">Breadcrumbs
+                <!-- <ul class="breadcrumb">
+                    <li><a href="memHomeV.php">Home</a></li>
+                    <li><a href="memFillClaimFormsV.php">Select Form Type</a></li>
+                    <li>Form Submitted</li>
+                </ul> -->
+            </div>
+
+            <div class="side-nav">
+                <?php 
+                    require('../medicalSchemeMember/memSideNavV.php');
+                ?>
+            </div>
+            
+            <div class="content">
+                <p>Your form has been submitted succesfully.</p>
+
+                <a href="memHomeV.php"><button type="submit" name="">OK</button></a><br>
+            </div>
+
+            <div class="right-side-bar">
+                <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+            </div>
+            
+            <?php
+                require_once('../basic/footer.php');
+            ?>
+      
+
+</main>
