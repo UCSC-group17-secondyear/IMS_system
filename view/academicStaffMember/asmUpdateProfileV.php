@@ -8,14 +8,14 @@
 
     <div class="container">
 
-        <div class="header">
+        <!-- <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
             <div class="options">
                 <a href="asmHomeV.php">Home</a>
                 <a href="asmProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
-        </div>
+        </div> -->
 
         <div class="header">breadcrums</div>
 
@@ -42,11 +42,11 @@
                     <label for="designation">Designation</label>
                     <input type="text" value=""> <br>
                     <label for="appointmentDate">Appointment Date</label>
-                    <input type="date" value=""> <br>                    
+                    <input type="date" value=""> <br>
                 </form>
                 <a href="asmUpdateProfileSuccessV.php"><button type="submit">Save Updates</button></a>
             </div>
-        <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
+            <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
         </div>
     </div>
 </main>

@@ -4,7 +4,7 @@
 ?>
 
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 
     <div class="container">
 
@@ -23,7 +23,7 @@
             <div>
                 <h3>Booking</h3>
             </div>
-            
+
             <a href="asmBookingUpdateSaveV.php"><button type="submit" name="bookingUpdateSave-submit">Save
                     Updates</button></a><br>
             <a href="asmBookingRemoveV.php"><button type="submit" name="bookingRemove-submit">Remove</button></a>

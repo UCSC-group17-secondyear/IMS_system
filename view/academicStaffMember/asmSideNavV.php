@@ -1,15 +1,17 @@
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
-    
+    <link rel="stylesheet" href="../assests/css/main.css">
+
     <div class="container">
         <div class="side-nav">
             <a href="asmWeeklyTimeTableV.php"><button type="submit" name="" class="button">View Weekly Time
                     Table</button></a><br>
-            <a href="asmViewHallAllocationScheduleV.php"><button type="submit" name="" class="button">View Hall Allocation
+            <a href="asmViewHallAllocationScheduleV.php"><button type="submit" name="" class="button">View Hall
+                    Allocation
                     Schedule</button></a><br>
             <a href="asmViewSchemeDetailsV.php"><button type="submit" name="" class="button">View Scheme
                     Details</button></a><br>
-            <a href="asmHallDetailsV.php"><button type="submit" name="" class="button">View Hall Details</button></a><br>
+            <a href="asmHallDetailsV.php"><button type="submit" name="" class="button">View Hall
+                    Details</button></a><br>
             <button class="button accordion">Manage Booking</button>
             <div class="panel">
                 <a href="asmAddBookingV.php" class="buttonTwo">Add a Booking</a>
