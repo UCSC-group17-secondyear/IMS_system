@@ -8,8 +8,8 @@
     
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="hamHomeV.php">Home</a></li>
-            <li><a href="hamProfileV.php">My Profile</a></li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aProfileV.php">My Profile</a></li>
             <li>Update Profile</li>
         </ul>
 
