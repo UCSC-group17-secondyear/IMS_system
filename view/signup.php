@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>Sign Up</title>
-	</head>
-	<body>
+<main>
+	<title>Sign Up</title>
+	<?php
+		require "header.php";
+	?>
+
+	<div class="header"></div>
+
+	<div class="side-nav">
+		<div>
+			<h2>IMS of Academic And Publication Division </h2>
+		</div>
+	</div>
+	<div class="content">
 		<form action="../controller/SignupController.php" method="post">
-			<legend>Sign Up</legend>
+			<h2>Sign Up</h2>
 			<p>
 				<label>Enter employee id</label>
 				<input type="text" name="empid" placeholder="Employee ID" required/>
@@ -67,5 +73,10 @@
 				<button type="submit" name="signup-submit">Create Account</button>
 			</p>
 		</form>
-	</body>
-</html>
+	</div>
+
+	<?php
+		require "footer.php";
+	?>
+
+</main>

@@ -4,10 +4,10 @@
 ?>
 
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 
     <div class="container">
-<!--         <div class="header">
+        <!--         <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
             <div class="options">
                 <a href="asmHomeV.php">Home</a>
