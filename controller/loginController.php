@@ -29,7 +29,7 @@
             if ($result) {
                 if (mysqli_num_rows($result)==1) {
                     $key = mysqli_fetch_assoc($result);
-                    $_SESSION['id'] = $key['id'];
+                    $_SESSION['userId'] = $key['userId'];
                     $_SESSION['empid'] = $key['empid'];
 
                     if ($key['userRole'] == "admin") {
@@ -63,7 +63,7 @@
 						echo "USER";
 					}
                 }
-                else{
+                else if(mysqli_num_rows($result)==0){
                     echo "More than one row";
                 }
             }
