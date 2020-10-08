@@ -4,7 +4,7 @@
 ?>
 
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 
     <div class="container">
         <!-- <div class="header">
@@ -15,6 +15,11 @@
                 <a href="#">Logout</a>
             </div>
         </div> -->
+
+<!--         <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Update Profile Success</li>
+        </ul> -->
 
         <div class="header">breadcrums</div>
 

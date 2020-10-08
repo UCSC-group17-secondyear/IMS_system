@@ -4,7 +4,7 @@
 ?>
 
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 
     <div class="container">
         <!-- <div class="header">
@@ -16,11 +16,10 @@
             </div>
         </div> -->
 
-        <div class="header">breadcrums</div>
-
-        <?php
-            require_once('asmSideNavV.php');
-        ?>
+        <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Hall Allocation Schedule</li>
+        </ul>
 
         <div class="content">
             <div>

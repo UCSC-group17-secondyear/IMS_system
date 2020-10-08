@@ -4,10 +4,10 @@
 ?>
 
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 
     <div class="container">
-<!--         <div class="header">
+        <!--         <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
             <div class="options">
                 <a href="asmHomeV.php">Home</a>
@@ -16,7 +16,10 @@
             </div>
         </div>
  -->
-        <div class="header">breadcrums</div>
+        <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>View Weekly Time Table</li>
+        </ul>
 
         <div class="content">
             <div>
