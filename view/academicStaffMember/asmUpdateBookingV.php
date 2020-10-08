@@ -17,11 +17,10 @@
             </div>
         </div> -->
 
-        <div class="header">breadcrums</div>
-
-        <?php
-            require_once('asmSideNavV.php');
-        ?>
+        <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Update or remove a Booking</li>
+        </ul>
 
         <div class="content">
             <div>

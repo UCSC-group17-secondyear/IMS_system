@@ -16,7 +16,10 @@
             </div>
         </div> -->
 
-        <div class="header">breadcrums</div>
+<!--         <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Removed a Booking</li>
+        </ul> -->
 
         <div class="content">
             <p>Your booking has been removed successfully.</p>

@@ -16,7 +16,10 @@
             </div>
         </div> -->
 
-        <div class="header">breadcrums</div>
+<!--         <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Booking Successfull</li>
+        </ul> -->
 
         <div class="content">
             <p>Your booking request has been sent for the approval.
