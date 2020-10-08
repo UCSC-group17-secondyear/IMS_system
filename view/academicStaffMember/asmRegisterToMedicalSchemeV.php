@@ -16,7 +16,10 @@
             </div>
         </div> -->
 
-        <div class="header">breadcrums</div>
+        <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Registration to medical scheme</li>
+        </ul>
 
         <div class="content">
             <form action="" method="post">

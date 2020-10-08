@@ -17,8 +17,6 @@
             </div>
         </div> -->
 
-        <div class="header">breadcrums</div>
-
         <div class="banner">
             <div>
                 <h2>Academic Staff Member</h2>
