@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer</title>
-    <link rel="stylesheet" href="../css/main.css">
-</head>
-<body>
-
-    <footer>
+<main>
         <div class="contact">
             <div class="address">
                 <h4>CONTACT US</h4>
@@ -37,9 +27,4 @@
                 </h6> -->
             </div>
         </div>
-    </footer>
-
-    
-    
-</body>
-</html>
+</main>
