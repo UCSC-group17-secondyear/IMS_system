@@ -10,7 +10,7 @@
     <div class="container">
         <ul class="breadcrumb">
             <li><a href="homePageV.php">Home</a></li>
-            <li>Medican Officer's Page</li>
+            <li>Medical Officer's Page</li>
         </ul>
     </div>
     <?php
