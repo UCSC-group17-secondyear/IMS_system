@@ -1,35 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="../css/main.css">
-</head>
-<body>
+<?php
+    require "../header.php";
+    require "hamSideNavV.php";
+?>
+
+<main>
+    <link rel="stylesheet" href="../assests/css/main.css">
+    
     <div class="container">
-        <div class="header">
-            <!-- <div class="nameLogo"> -->
+        <ul class="breadcrumb">
+            <li><a href="hamHomeV.php">Home</a></li>
+            <li>Profile</li>
+        </ul>
+
+        <!-- <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
             <div class="options">
                 <a href="hamHomeV.php">Home</a>
                 <a href="hamProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
-        </div>
-
-        <div class="header">breadcrums</div>
-        
-        <?php
-            require_once('hamSideNavV.php');
-        ?>
-
-        <div class="banner">
-            <div>
-                <h2>Hall Allocation Maintainer</h2>
-            </div>
-        </div>
+        </div> -->
 
         <div class="content">
             <div>
@@ -60,11 +50,9 @@
                 <!-- here by using a 'foreach loop', we have to be able to display the data that we fetch from the database plus should let the user to update them as well-->
             </div>
         </div>
+    </div>
+</main>
         
-        <div class="footer">
-            <?php
-                require_once('../include/footer.php');
-            ?>
-        </div>
-</body>
-</html>
+<?php
+    require_once('../include/footer.php');
+?>
