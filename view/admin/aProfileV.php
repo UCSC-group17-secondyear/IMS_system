@@ -1,6 +1,6 @@
 <?php
     require "../header.php";
-    require "hamSideNavV.php";
+    require "aSideNavV.php";
 ?>
 
 <main>
@@ -8,9 +8,8 @@
     
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="hamHomeV.php">Home</a></li>
-            <li><a href="hamProfileV.php">My Profile</a></li>
-            <li>Update Profile</li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li>My Profile</li>
         </ul>
 
         <!-- <div class="header">
@@ -24,8 +23,9 @@
 
         <div class="content">
             <div>
-                <h3>Update Profile</h3>
+                <h3>My Profile</h3>
             </div>
+
             <div>
                 <form action="" method="post">
                     <label for="empId">Employee Id</label>
@@ -47,13 +47,12 @@
                     <label for="appointmentDate">Appointment Date</label>
                     <input type="date" value=""> <br>                    
                 </form>
-                <a href="hamUpdateProfileSuccessV.php"><button type="submit">Save Updates</button></a>
-                <!-- here by using a 'foreach loop', we have to be able to display the data that we fetch from the database plus should let the user to update them as well-->
+                <a href="hamUpdateProfileV.php"><button type="submit">Update Profile</button></a>
             </div>
         </div>
     </div>
 </main>
-        
+
 <?php
     require_once('../include/footer.php');
 ?>

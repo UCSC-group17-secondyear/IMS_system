@@ -1,6 +1,6 @@
 <?php
     require "../header.php";
-    require "hamSideNavV.php";
+    require "dhSideNavV.php";
 ?>
 
 <main>
@@ -8,8 +8,8 @@
     
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="hamHomeV.php">Home</a></li>
-            <li><a href="hamProfileV.php">My Profile</a></li>
+            <li><a href="dhHomeV.php">Home</a></li>
+            <li><a href="dhProfileV.php">My Profile</a></li>
             <li>Update Profile</li>
         </ul>
 
