@@ -1,44 +1,47 @@
+<main>
+    <title>Claim Details</title>
+
 <?php
-    require_once('../header.php');
-    require_once('memSideNavV.php');
+    require('../basic/header.php');
+    
 ?>
 
-<main>
-    <link rel="stylesheet" href="../assests/css/main.css">
-    <div class="container">
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="memHomeV.php">Home</a>
-                <a href="memProfileV.php">Profile</a>
-                <a href="#">Logout</a>
+        
+            <div class="header">Breadcrumbs
+                <!-- <ul class="breadcrumb">
+                    <li><a href="memHomeV.php">Home</a></li>
+                    <li><a href="memGetClaimDetailsV.php">Enter Year</a></li>
+                    <li>Claim Details</li>
+                </ul> -->
             </div>
-        </div> -->
 
-        <!-- breadcrumbs -->
-        <ul class="breadcrumb">
-            <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memGetClaimDetailsV.php">Enter Year</a></li>
-            <li>Claim Details</li>
-        </ul>
-
-        <div class="banner">
-            <div>
-                <h2>Medical Scheme Member</h2>
+            <div class="side-nav">
+                <?php 
+                    require('../medicalSchemeMember/memSideNavV.php');
+                ?>
             </div>
-        </div>
-        <div class="content">
-            <div>
-                <h4>Claim Details</h4>
+
+            <div class="content">
+                <div>
+                    <h4>Claim Details</h4>
+                </div>
+                <!-- memberge year eke claim details pdf ekak wiidyat show kranna one -->
+
+                <a href="memGetClaimDetailsV.php"><button type="submit" name="">OK</button></a><br>
+
             </div>
-            <!-- memberge year eke claim details pdf ekak wiidyat show kranna one -->
+           
+            <div class="right-side-bar">
+                <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+            </div>
+            
+            <?php
+                require_once('../basic/footer.php');
+            ?>
+      
 
-            <a href="memGetClaimDetailsV.php"><button type="submit" name="">OK</button></a><br>
-
-        </div>
-    </div>
 </main>
 
-<?php
-    require_once('../include/footer.php');
-?>
+
+
+
