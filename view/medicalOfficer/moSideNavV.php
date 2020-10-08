@@ -1,22 +1,31 @@
 <main>
-    <div class="container">
-        <div class="sidenav">
-                <!-- <form action="adminPage.php" method="post">	 -->
-            <div class="dropdown">
-                <span><a href="moClaimReqestingFormsV.php">
-                    <h3>View Claim Requesting Forms</h3>
-                </a></span>
-            </div>
-            <br>
+    <link rel="stylesheet" href="../assests/css/main.css">
 
-            <div class="dropdown">
-                <span><h3>View Reffered Claim Forms</h3></span>
-                <div class="dropdown-content">
-                    <a href="moApprovedClaimFormsV.php">Approved claim forms</a>
-                    <a href="moRejectedClaimFormsV.php">Rejected claim forms</a>
-                </div>
+    <div class="container">
+        <div class="side-nav">
+            <a href="moClaimReqestingFormsV.php"><button type="submit" name="" class="button">View Claim Requesting
+                    Forms</button></a><br>
+            <button class="button accordion">View Reffered Claim Forms</button>
+            <div class="panel">
+                <a href="asmAddBookingV.php" class="buttonTwo">Approved claim forms</a>
+                <a href="asmUpdateBookingV.php" class="buttonTwo">Rejected claim forms</a>
             </div>
-            <br>
+
+            <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+            </script>
         </div>
     </div>
 </main>

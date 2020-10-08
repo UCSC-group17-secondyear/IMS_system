@@ -4,7 +4,7 @@
 ?>
 
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
     <div class="container">
         <!-- <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
@@ -21,7 +21,7 @@
             <div>
                 <h3>Add a Booking</h3>
             </div>
-            
+
             Enter Date<input type="date" id="" name="enterDate"><br>
             Enter Hall<select name="hall" id="hall">
                 <option value="">Select a Hall</option>
