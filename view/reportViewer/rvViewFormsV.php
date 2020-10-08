@@ -1,32 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    require_once('../header.php');
+    require_once('asmSideNavV.php');
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Forms</title>
-    <link rel="stylesheet" href="../css/main.css">
-</head>
+<main>
+    <link rel="stylesheet" href="../assests/css/main.css">
 
-<body>
     <div class="container">
 
-        <div class="header">
-            <!-- <div class="nameLogo"> -->
+        <!-- <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
             <div class="options">
                 <a href="rvHomeV.php">Home</a>
                 <a href="rvProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
-        </div>
+        </div> -->
 
         <div class="header">breadcrums</div>
-
-        <?php
-            require_once('rvSideNavV.php');
-        ?>
 
         <div class="content">
             <div>
@@ -38,13 +29,9 @@
             <a href="#"><button type="submit" name="requestedClaim-submit">Requested Claim Form</button></a> <br>
             <!-- meketh form ekta adaalawa display krnn ona -->
         </div>
-
-        <div class="footer">
-            <?php
-                require_once('../include/footer.php');
-            ?>
-        </div>
     </div>
-</body>
+</main>
 
-</html>
+<?php
+    require_once('../include/footer.php');
+?>

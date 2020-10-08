@@ -4,7 +4,7 @@
 ?>
 
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 
     <div class="container">
         <!-- <div class="header">
@@ -16,7 +16,10 @@
             </div>
         </div> -->
 
-        <div class="header">breadcrums</div>
+        <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Hall Details</li>
+        </ul>
 
         <div class="content">
             <div>

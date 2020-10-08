@@ -1,45 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surgical Hospitalization Form</title>
-    <link rel="stylesheet" href="../css/main.css"></link>
-</head>
+<?php
+    require_once('../header.php');
+    require_once('memSideNavV.php');
+?>
 
-<body>
+<main>
+    <link rel="stylesheet" href="../assests/css/main.css">
+
     <div class="container">
-        <div class="header">
-            <!-- <div class="nameLogo"> -->
+        <!-- <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
             <div class="options">
                 <a href="memHomeV.php">Home</a>
                 <a href="memProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
-        </div>
-        
+        </div> -->
+
         <!-- breadcrumbs -->
         <ul class="breadcrumb">
             <li><a href="memHomeV.php">Home</a></li>
             <!-- <li><a href="memFillClaimFormsV.php">Select Form Type</a></li> -->
             <li>Surgical Form</li>
         </ul>
-        
-        <?php
-          require_once('memSideNavV.php');
-        ?>
-        
+
         <div class="banner">
             <div>
-                  <h2>Medical Scheme Member</h2>
+                <h2>Medical Scheme Member</h2>
             </div>
         </div>
         <div class="content">
-                <div>
-                    <h4>Surgical Hospitalization Form</h4>
-                </div>
+            <div>
+                <h4>Surgical Hospitalization Form</h4>
+            </div>
 
             <form action="" method="post">
                 <label for="patientName">Enter Patient's Name</label>
@@ -88,18 +80,16 @@
 
                 <!-- scaaned copy eka upload kranna -->
 
-                
             </form>
 
-            <a href="memFormSubmitSuccessV.php" ><button type="submit" name="" >Submit</button></a><br>
+            <a href="memFormSubmitSuccessV.php"><button type="submit" name="">Submit</button></a><br>
 
-            <p>Download the form to be filled by the surgeon and get if field before you fill the surgical hospitalization form.</p>
-        </div>
-        <div class="footer">
-            <?php
-                require_once('../include/footer.php');
-            ?>
+            <p>Download the form to be filled by the surgeon and get if field before you fill the surgical
+                hospitalization form.</p>
         </div>
     </div>
-</body>
-</html>
+</main>
+
+<?php
+    require_once('../include/footer.php');
+?>

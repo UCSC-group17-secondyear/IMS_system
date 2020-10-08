@@ -4,7 +4,7 @@
 ?>
 
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <link rel="stylesheet" href="../assests/css/main.css">
 
     <div class="container">
 
@@ -16,8 +16,6 @@
                 <a href="#">Logout</a>
             </div>
         </div> -->
-
-        <div class="header">breadcrums</div>
 
         <div class="banner">
             <div>
