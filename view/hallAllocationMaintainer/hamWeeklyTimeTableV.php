@@ -1,35 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Time Table</title>
-    <link rel="stylesheet" href="../css/main.css">
-</head>
-<body>
+<?php
+    require "../header.php";
+    require "hamSideNavV.php";
+?>
+
+<main>
+    <link rel="stylesheet" href="../assests/css/main.css">
+    
     <div class="container">
-        <div class="header">
-            <!-- <div class="nameLogo"> -->
+        <ul class="breadcrumb">
+            <li><a href="hamHomeV.php">Home</a></li>
+            <li>Weekly Time Table</li>
+        </ul>
+
+<!--         <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
             <div class="options">
                 <a href="hamHomeV.php">Home</a>
                 <a href="hamProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
-        </div>
-
-        <div class="header">breadcrums</div>
-        
-        <?php
-            require_once('hamSideNavV.php');
-        ?>
-
-        <div class="banner">
-            <div>
-                <h2>Hall Allocation Maintainer</h2>
-            </div>
-        </div>
+        </div> -->
 
         <div class="content">
             <div>
@@ -50,12 +40,9 @@
             <a href="hamHomeV.php"><button type="submit" name="">OK</button></a> 
             <!-- if lecturer registered as a medical scheme member then redirect to the lecturer home page without "Register to the medical scheme button"  -->
         </div>
-        
-        <div class="footer">
-            <?php
-                require_once('../include/footer.php');
-            ?>
-        </div>
     </div>
-</body>
-</html>
+</main>
+        
+<?php
+    require_once('../include/footer.php');
+?>
