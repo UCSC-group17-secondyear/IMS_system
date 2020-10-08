@@ -16,11 +16,14 @@
             </div>
         </div> -->
 
-        <div class="header">breadcrums</div>
+<!--         <ul class="breadcrumb">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Registration Approval</li>
+        </ul> -->
 
         <div class="content">
             <p>
-                Your membership form has been sent for the approval. You will be inform about the membership later.
+                Your membership request has been sent for the approval. You will be inform about the approval later.
             </p> <br>
             <p>Thank you..</p>
 
