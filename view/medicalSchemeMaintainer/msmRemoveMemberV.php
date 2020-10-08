@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remove Member</title>
+    <title>Claim Details</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -19,60 +20,49 @@
                 <a href="#">Logout</a>
             </div>
         </div>
+
         <div class="header">breadcrums</div>
-        <div class="side-nav"> 
-            
 
-            <!-- <div> -->
-                <a href="msmViewMedicalMemberListV.php"><button type="submit" name="" class="button">View Medical Member List</button></a><br>
-                <a href="msmRemoveMemberV.php"><button type="submit" name="" class="button">Remove Member</button></a><br>
-                <a href="msmViewClaimDetailsV.php"><button type="submit" name="" class="button">View Claim Details</button></a><br>
-                <a href="msmViewFormsV.php"><button type="submit" name="" class="button">View Forms of the Medical Scheme</button></a><br>
-                <a href="msmViewSchemeDetailsV.php"><button type="submit" name="" class="button">View Medical Scheme Details</button></a><br>
-                <a href="msmRegisterToMedicalSchemeV.php"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a><br>
-            <!-- </div> -->
-        </div>
-        <div class="banner">
-            <div>
-                <h2>Medical Scheme Maintainer</h2>
-            </div>
-        </div>
+        <?php
+            require_once('msmSideNavV.php');
+        ?>
+
         <div class="content">
-                    <div>
-                    <h3>Remove Member</h3>
-                </div>
+            <div>
+                <h3>Remove Member</h3>
+            </div>
 
-                <div>
-                    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Enter Employee Number" >
+            <div>
+                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Enter Employee Number">
 
-                    <ul id="memberList">
-                        <li><a href="msmViewMemberDetailsV.php">Kamal</a></li>
-                        <li><a href="msmViewMemberDetailsV.php">Ajith</a></li>
-                        <li><a href="msmViewMemberDetailsV.php">Sunil</a></li>
-                        <!-- database eken aran me list ekata danna -->
-                    </ul>
-                </div>
+                <ul id="memberList">
+                    <li><a href="msmViewMemberDetailsV.php">Kamal</a></li>
+                    <li><a href="msmViewMemberDetailsV.php">Ajith</a></li>
+                    <li><a href="msmViewMemberDetailsV.php">Sunil</a></li>
+                    <!-- database eken aran me list ekata danna -->
+                </ul>
+            </div>
 
-                <script>
-                    function myFunction(){
-                        var input, filter, ul, li, a, i;
-                        input = document.getElementById("mySearch");
-                        filter = input.value.toUpperCase();
-                        ul = document.getElementById("memberList");
-                        li = ul.getElementsByTagName("li");
+            <script>
+            function myFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("mySearch");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("memberList");
+                li = ul.getElementsByTagName("li");
 
-                        for (i = 0; i < li.length; i++) {             
-                            a = li[i].getElementsByTagName("a")[0];
-                            if(a.innerHTML.toUpperCase().indexOf(filter)>-1){
-                                li[i].style.display = "";
-                            }
-                            else{
-                                li[i].style.display = "none";
-                            }
-                        }
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
                     }
-                </script>
+                }
+            }
+            </script>
         </div>
+
         <div class="footer">
             <?php
                 require_once('../include/footer.php');
@@ -80,4 +70,5 @@
         </div>
     </div>
 </body>
+
 </html>

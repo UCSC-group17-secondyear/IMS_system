@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Scheme Form</title>
+    <title>Medical Scheme Maintainer Home Page</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -18,34 +20,22 @@
                 <a href="#">Logout</a>
             </div>
         </div>
-        <div class="header">breadcrums</div>
-        <div class="side-nav"> 
-            
 
-            <!-- <div> -->
-                <a href="msmViewMedicalMemberListV.php"><button type="submit" name="" class="button">View Medical Member List</button></a><br>
-                <a href="msmRemoveMemberV.php"><button type="submit" name="" class="button">Remove Member</button></a><br>
-                <a href="msmViewClaimDetailsV.php"><button type="submit" name="" class="button">View Claim Details</button></a><br>
-                <a href="msmViewFormsV.php"><button type="submit" name="" class="button">View Forms of the Medical Scheme</button></a><br>
-                <a href="msmViewSchemeDetailsV.php"><button type="submit" name="" class="button">View Medical Scheme Details</button></a><br>
-                <a href="msmRegisterToMedicalSchemeV.php"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a><br>
-            <!-- </div> -->
-        </div>
-        <div class="banner">
-            <div>
-                <h2>Medical Scheme Maintainer</h2>
-            </div>
-        </div>
+        <div class="header">breadcrums</div>
+
+        <?php
+            require_once('msmSideNavV.php');
+        ?>
+
         <div class="content">
-                <div>
+            <div>
                 <h3>Form</h3>
             </div>
-
             <!-- database eken form eka pennanna -->
             <!-- pdf eka generate krnna ona -->
-
             <a href="msmViewFormListV.php"><button type="submit" name="medicalSchemeForm-submit">OK</button></a>
         </div>
+
         <div class="footer">
             <?php
                 require_once('../include/footer.php');
@@ -53,4 +43,5 @@
         </div>
     </div>
 </body>
+
 </html>
