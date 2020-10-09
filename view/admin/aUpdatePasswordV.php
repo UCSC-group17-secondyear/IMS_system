@@ -5,15 +5,15 @@
 
     <div class="header">
         <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
-            <li><a href="asmProfileV.php">Profile</a></li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aProfileV.php">Profile</a></li>
             <li>Update Password</li>
         </ul>
     </div>
 
     <div class="side-nav">
         <?php
-            require '../academicStaffMember/asmSideNavV.php';
+            require '../admin/aSideNavV.php';
         ?>
     </div>
 
@@ -56,10 +56,17 @@
 
                 <label for="">Confirm Password: </label>
                 <input type="password" name="conpassword" required> <br>
-
+                
                 <button type="submit" name="submit">Save Password</button>
             </form>
-            <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
         </div>
     </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
 </main>

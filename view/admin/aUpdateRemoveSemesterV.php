@@ -1,32 +1,43 @@
-<?php
-    require "../header.php";
-    require "aSideNavV.php";
-?>
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <title>Update or Remove a semester</title>
+    <?php
+        require '../basic/header.php';
+    ?>
 
-    <div class="container">
+    <div class="header">
         <ul class="breadcrumb">
             <li><a href="adminV.php">Home</a></li>
             <li>Add a new Semester</li>
         </ul>
-
-        <div class="content">
-            <div>
-                <h3>Add a new Semester</h3>
-            </div>
-            
-            <form action="aAddSemester.php" method="post"> 
-                <input type="text" name="semester" placeholder="Enter Semester" required>
-                <input type="text" name="startDate" placeholder="Starting date" required>
-                <input type="text" name="endDate" placeholder="Ending date" required>
-                <button type="submit" name="updateSemester-submit">Save Updates</button>
-                <button type="submit" name="removeSemester-submit">Remove semester</button>
-            </form>
-        </div>
     </div>
-</main>
 
-<?php
-    require "../footer.php";
-?>
+    <div class="side-nav">
+        <?php
+            require '../admin/aSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <div>
+            <h3>Add a new Semester</h3>
+        </div>
+        
+        Enter Semester <input type="text" name="semester" placeholder="Enter Semester" required/> <br>
+
+        Enter starting date <input type="text" name="startDate" placeholder="Starting date" required/> <br>
+
+        Enter ending date <input type="text" name="endDate" placeholder="Ending date" required/> <br>
+
+        <button type="submit" name="updateSemester-submit">Save Updates</button>
+        
+        <button type="submit" name="removeSemester-submit">Remove semester</button>
+    </div>
+    
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>

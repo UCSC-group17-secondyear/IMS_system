@@ -1,5 +1,5 @@
 <main>
-    <title>Add a degree</title>
+    <title>Update or Remove a department</title>
     <?php
         require '../basic/header.php';
     ?>
