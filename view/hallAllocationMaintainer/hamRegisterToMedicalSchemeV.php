@@ -1,61 +1,60 @@
-<?php
-    require "../header.php";
-    require "hamSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
-    
-    <div class="container">
-        <ul class="breadcrumb">
+    <title>Register to medical scheme</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
             <li>Register to medical scheme</li>
         </ul>
-
-<!--         <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="hamHomeV.php">Home</a>
-                <a href="hamProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div>
- -->
-        <div class="content">
-            <form action="" method="post">
-                <label for="empName">Employee Name</label>
-                <input type="text" value=""> <br>
-                <label for="empNumber">Employee Number</label>
-                <input type="text" value=""> <br>
-                <label for="designation">Designation</label>
-                <input type="text" value=""> <br>
-                Enter department
-                <select name="department" id="">
-                    <option value="">Select department</option>
-                    <option value="CS">CS</option>
-                    <option value="IS">IS</option>
-                    <option value="SE">SE</option>
-                </select> <br>
-                <label for="healthCondition">Enter health condition</label>
-                <input type="text" value=""> <br>
-                Enter civil status
-                <select name="civilstatus" id="">
-                    <option value="married">Married</option>
-                    <option value="unmarried">Unmarried</option>
-                </select> <br>
-                Select Medical Scheme
-                <select name="medical scheme" id="">
-                    <option value="">Select Scheme</option>
-                    <option value="scheme1">Scheme 1</option>
-                    <option value="scheme2">Scheme 2</option>
-                    <option value="scheme3">Scheme 3</option>
-                </select> <br>
-            </form>
-            <a href="hamRegisterSuccessV.php"><button type="submit" name="registerMedicalScheme-submit">Register</button></a><br>
-        </div>
     </div>
+
+    <div class="side-nav">
+        <?php
+            require '../hallAllocationMaintainer/hamSideNavV.php';
+        ?>
+    </div>
+    
+    <div class="content">
+        <form action="" method="post">
+            <label for="empName">Employee Name</label>
+            <input type="text" value=""> <br>
+            <label for="empNumber">Employee Number</label>
+            <input type="text" value=""> <br>
+            <label for="designation">Designation</label>
+            <input type="text" value=""> <br>
+            Enter department
+            <select name="department" id="">
+                <option value="">Select department</option>
+                <option value="CS">CS</option>
+                <option value="IS">IS</option>
+                <option value="SE">SE</option>
+            </select> <br>
+            <label for="healthCondition">Enter health condition</label>
+            <input type="text" value=""> <br>
+            Enter civil status
+            <select name="civilstatus" id="">
+                <option value="married">Married</option>
+                <option value="unmarried">Unmarried</option>
+            </select> <br>
+            Select Medical Scheme
+            <select name="medical scheme" id="">
+                <option value="">Select Scheme</option>
+                <option value="scheme1">Scheme 1</option>
+                <option value="scheme2">Scheme 2</option>
+                <option value="scheme3">Scheme 3</option>
+            </select> <br>
+        </form>
+        <a href="hamRegisterSuccessV.php"><button type="submit" name="registerMedicalScheme-submit">Register</button></a><br>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
 </main>
-        
-<?php
-    require_once('../include/footer.php');
-?>

@@ -1,38 +1,35 @@
-<?php
-    require "../header.php";
-    require "hamSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
-    
-    <div class="container">
-        <!-- <ul class="breadcrumb">
+    <title>TT has been removed</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
+        <!-- <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
             <li>TT has been removed</li>
         </ul> -->
-        
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="hamHomeV.php">Home</a>
-                <a href="hamProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div>
- -->
-
-        <div class="content">
-            <div>
-                <p>The time table has been successfully removed</p>
-            </div>
-
-            <a href="hamManageWeeklyTimeTableV.php"><button type="submit" name="">Ok</button></a>
-
-        </div>
     </div>
+
+    <div class="side-nav">
+        <?php
+            require '../hallAllocationMaintainer/hamSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <div>
+            <p>The time table has been successfully removed</p>
+        </div>
+
+        <a href="hamManageWeeklyTimeTableV.php"><button type="submit" name="">Ok</button></a>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
 </main>
-        
-<?php
-    require_once('../include/footer.php');
-?>

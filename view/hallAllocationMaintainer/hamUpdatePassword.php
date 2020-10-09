@@ -1,5 +1,5 @@
 <main>
-    <title>Profile</title>
+
     <?php
         require '../basic/header.php';
     ?>
@@ -7,7 +7,8 @@
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>My Profile</li>
+            <li><a href="hamProfileV.php">Profile</a></li>
+            <li>Update Password</li>
         </ul>
     </div>
 
@@ -19,11 +20,10 @@
 
     <div class="content">
         <div>
-            <h3>Profile</h3>
+            <h3>Update Profile</h3>
         </div>
         <div>
-            <form action="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
-
+            <form action="../../controller/updatePasswordControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                 <label for="">Employee Id</label>
                 <input type="text" name="empid" <?php echo 'value=" '.$_SESSION['empid'].' "' ?> disabled> <br>
 
@@ -51,16 +51,14 @@
                 <label for="">Appointment Date</label>
                 <input type="text" name="appointment" <?php echo 'value=" '.$_SESSION['appointment'].' "' ?> disabled> <br>   
 
-                <button type="submit" name="submit">Update Profile</button>
+                <label for="">New Password: </label>
+                <input type="password" name="password" required> <br>
+
+                <label for="">Confirm Password: </label>
+                <input type="password" name="conpassword" required> <br>
+
+                <button type="submit" name="submit">Save Password</button>
             </form>
         </div>
     </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>

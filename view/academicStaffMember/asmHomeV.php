@@ -1,5 +1,4 @@
 <main>
-
     <?php
         require '../basic/header.php';
     ?>
@@ -25,5 +24,4 @@
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>
