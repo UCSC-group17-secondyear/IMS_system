@@ -29,6 +29,7 @@
             if ($result) {
                 if (mysqli_num_rows($result)==1) {
                     $key = mysqli_fetch_assoc($result);
+                    
                     $_SESSION['userId'] = $key['userId'];
                     $_SESSION['empid'] = $key['empid'];
 
@@ -64,7 +65,7 @@
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    echo "More than one row";
+                    echo "No row bla bla bla";
                 }
             }
             else {
