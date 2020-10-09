@@ -6,7 +6,7 @@
 <?php
 	class Model {
 		public static function getlogin($empid, $password, $connect)
-		{
+		{	
 			$query = "SELECT * FROM users WHERE empid ='{$empid}' AND password='{$password}'" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
