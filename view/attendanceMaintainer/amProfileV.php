@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assests/css/main.css">
     
     <div class="container">
-        <ul class="breadcrumb">
+        <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
             <li>My Profile</li>
         </ul>
