@@ -1,11 +1,11 @@
 <main>
-    <title>Add a degree</title>
+    <title>Update or Remove a designation</title>
     <?php
         require '../basic/header.php';
     ?>
 
     <div class="header">
-        <ul class="breadcrumb">
+        <ul class="breadcrumbs">
             <li><a href="adminV.php">Home</a></li>
             <li>Update or remove a Designation</li>
         </ul>

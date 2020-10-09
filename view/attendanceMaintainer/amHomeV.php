@@ -1,14 +1,27 @@
-<?php
-    require "../header.php";
-    require "amSideNavV.php";
-?>
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <?php
+        require '../basic/header.php';
+    ?>
 
-<div class="contnet">
-    
-</div>
+    <div class="header">
+        <!-- Breadcrumbs -->
+    </div>
 
-<?php
-    require "../footer.php";
-?>
+    <div class="side-nav">
+        <?php
+            require '../attendanceMaintainer/amSideNavV.php';
+        ?>
+    </div>
+
+    <div class="banner">
+        <h2>Attendance Maintainer</h2>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>

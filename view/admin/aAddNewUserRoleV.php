@@ -1,5 +1,5 @@
 <main>
-    <title>Add a degree</title>
+    <title>Add a new user role</title>
     <?php
         require '../basic/header.php';
     ?>

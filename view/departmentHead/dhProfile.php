@@ -1,58 +1,57 @@
-<?php
-    require "../header.php";
-    require "dhSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
-    
-    <div class="container">
-        <ul class="breadcrumb">
+    <title>Profile</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
             <li>My Profile</li>
         </ul>
+    </div>
 
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="hamHomeV.php">Home</a>
-                <a href="hamProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div> -->
+    <div class="side-nav">
+        <?php
+            require '../departmentHead/dhSideNavV.php';
+        ?>
+    </div>
 
-        <div class="content">
-            <div>
-                <h3>My Profile</h3>
-            </div>
-
-            <div>
-                <form action="" method="post">
-                    <label for="empId">Employee Id</label>
-                    <input type="text" value=""> <br>
-                    <label for="nameWithInt">Initials of the name</label>
-                    <input type="text" value=""> <br>
-                    <label for="surname">Surname</label>
-                    <input type="text" value=""> <br>
-                    <label for="email">Email</label>
-                    <input type="email" value=""> <br>
-                    <label for="mobNum">Mobile Number</label>
-                    <input type="text" value=""> <br>
-                    <label for="telNum">Telephone Number</label>
-                    <input type="text" value=""> <br>
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" value=""> <br>
-                    <label for="designation">Designation</label>
-                    <input type="text" value=""> <br>
-                    <label for="appointmentDate">Appointment Date</label>
-                    <input type="date" value=""> <br>                    
-                </form>
-                <a href="hamUpdateProfileV.php"><button type="submit">Update Profile</button></a>
-            </div>
+    <div class="content">
+        <div>
+            <h3>Profile</h3>
+        </div>
+        <div>
+            <form action="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                <label for="">Employee Id</label>
+                <input type="text" name="empid" <?php echo 'value=" '.$_SESSION['empid'].' "' ?> disabled> <br>
+                <label for="">Initials of the name</label>
+                <input type="text" name="initials" <?php echo 'value=" '.$_SESSION['initials'].' "' ?> disabled> <br>
+                <label for="">Surname</label>
+                <input type="text" name="sname" <?php echo 'value=" '.$_SESSION['sname'].' "' ?> disabled> <br>
+                <label for="">Email</label>
+                <input type="email" name="email" <?php echo 'value=" '.$_SESSION['email'].' "' ?> disabled> <br>
+                <label for="">Mobile Number</label>
+                <input type="text" name="mobile" <?php echo 'value=" '.$_SESSION['mobile'].' "' ?> disabled> <br>
+                <label for="">Telephone Number</label>
+                <input type="text" name="tp" <?php echo 'value=" '.$_SESSION['tp'].' "' ?> disabled> <br>
+                <label for="">Date of Birth</label>
+                <input type="text" name="dob" <?php echo 'value=" '.$_SESSION['dob'].' "' ?> disabled> <br>
+                <label for="">Designation</label>
+                <input type="text" name="designation" <?php echo 'value=" '.$_SESSION['designation'].' "' ?> disabled> <br>
+                <label for="">Appointment Date</label>
+                <input type="text" name="appointment" <?php echo 'value=" '.$_SESSION['appointment'].' "' ?> disabled> <br>                    
+                <button type="submit" name="submit">Update Profile</button>
+            </form>
         </div>
     </div>
-</main>
 
-<?php
-    require_once('../include/footer.php');
-?>
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+</main>

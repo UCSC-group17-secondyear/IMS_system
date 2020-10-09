@@ -1,11 +1,11 @@
 <main>
-    <title>Add a degree</title>
+    <title>Remove a scheme</title>
     <?php
         require '../basic/header.php';
     ?>
 
     <div class="header">
-        <ul class="breadcrumb">
+        <ul class="breadcrumbs">
             <li><a href="adminV.php">Home</a></li>
             <li>Remove a medical scheme</li>
         </ul>

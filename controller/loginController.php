@@ -29,6 +29,7 @@
             if ($result) {
                 if (mysqli_num_rows($result)==1) {
                     $key = mysqli_fetch_assoc($result);
+                    
                     $_SESSION['userId'] = $key['userId'];
                     $_SESSION['empid'] = $key['empid'];
 
@@ -51,20 +52,20 @@
 						header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
 					}
 					else if ($key['userRole'] == "recordsViewer") {
-						header('Location:../view/recordsViewer/recordsViwerUI.php');
+						header('Location:../view/recordsViewer/rvHomeV.php');
 					}
 					else if ($key['userRole'] == "departmentHead") {
 						header('Location:../view/departmentHead/dhHomeV.php');
 					}
 					else if ($key['userRole'] == "medicalOfficer") {
-						header('Location:../view/medicalOfficer/medicalOfficerV.php');
+						header('Location:../view/medicalOfficer/moHomeV.php');
 					}
 					else {
 						echo "USER";
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    echo "More than one row";
+                    echo "No row bla bla bla";
                 }
             }
             else {

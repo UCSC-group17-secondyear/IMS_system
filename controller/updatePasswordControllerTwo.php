@@ -35,7 +35,8 @@
             $result = Model::updatePassword($user_id, $hashed_password, $connect);
 
             if ($result) {
-                header('Location:../view/profileUpdateSuccess.php');
+                echo "Successfully updated";
+                // header('Location:../view/basic/profileUpdateSuccess.php');
             }
         }
 
