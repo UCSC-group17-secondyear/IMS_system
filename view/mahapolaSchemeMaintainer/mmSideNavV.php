@@ -1,11 +1,10 @@
 <main>
-  
     <!-- <a href="mmMarkMahapolaSelectedStudentsV.php" ><button type="submit" name="" class="button">Mark Mahapola Selected Students</button></a><br> -->
     <button class="button accordion">Mark Mahapola Selected Students</button>
-                <div class="panel">
-                    <a href="mmMarkMahapolaStudentsIndexV.php" class="buttonTwo">Search By Index Number</a> <br>
-                    <a href="mmMarkMahapolaStudentsNameV.php" class="buttonTwo">Search By Student Name</a> 
-                </div>
+        <div class="panel">
+            <a href="mmMarkMahapolaStudentsIndexV.php" class="buttonTwo">Search By Index Number</a> <br>
+            <a href="mmMarkMahapolaStudentsNameV.php" class="buttonTwo">Search By Student Name</a> 
+        </div>
 
     <a href="mmViewMahapolaNominatedListV.php" ><button type="submit" name="" class="button">View Mahapola Nominated Student List</button></a><br>
 
@@ -17,22 +16,20 @@
     
     <a href="mmRegisterToMedicalSchemeV.php" ><button type="submit" name="" class="button">Register to Staff Medical Scheme</button></a><br>
 
-                <script>
-                    var acc = document.getElementsByClassName("accordion");
-                    var i;
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-                    for (i = 0; i < acc.length; i++) {
-                        acc[i].addEventListener("click", function() {
-                        this.classList.toggle("active");
-                        var panel = this.nextElementSibling;
-                            if (panel.style.display === "block") {
-                                panel.style.display = "none";
-                            } else {
-                                panel.style.display = "block";
-                            }
-                        });
-                    }
-                </script>
-
-  
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>  
 </main>
