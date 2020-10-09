@@ -1,7 +1,8 @@
 <?php
-    require "header.php";
+    require '../basic/header.php';
     require "aSideNavV.php";
 ?>
+
 
 <main>
     <link rel="stylesheet" href="../assests/css/style.css">
@@ -14,5 +15,5 @@
 </main>
 
 <?php
-    require "footer.php";
+    require "../basic/footer.php";
 ?>
