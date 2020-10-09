@@ -1,16 +1,21 @@
-<?php
-    require "../header.php";
-    require "aSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <title>Add a degree</title>
+    <?php
+        require '../basic/header.php';
+    ?>
 
-    <div class="container">
+    <div class="header">
         <ul class="breadcrumb">
             <li><a href="adminV.php">Home</a></li>
             <li>Update or remove a Designation</li>
         </ul>
+    </div>
+
+    <div class="side-nav">
+        <?php
+            require '../admin/aSideNavV.php';
+        ?>
+    </div>
 
         <div class="content">
             <div>
@@ -19,16 +24,20 @@
                 </h3>
             </div>
             
-            <form action="aUpdateRemoveDesignation.php" method="post"> 
-                <input type="text" name="designation" placeholder="Enter designation" required>
-                <input type="text" name="designationDescriotion" placeholder="Designation description" required>
-                <button type="submit" name="updateDesignation-submit">Save Updates</button>
-                <button type="submit" name="removeDesignation-submit">Remove Designation</button>
-            </form>
-        </div>
-    </div>
-</main>
+            Enter designation <input type="text" name="designation" placeholder="Designation" required/> <br>
 
-<?php
-    require "../footer.php";
-?>
+            Enter description<input type="text" name="designationDescriotion" placeholder="Designation description" required/> <br>
+
+            <button type="submit" name="updateDesignation-submit">Save Updates</button>
+            
+            <button type="submit" name="removeDesignation-submit">Remove Designation</button>
+        </div>
+
+        <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>

@@ -1,30 +1,39 @@
-<?php
-    require "../header.php";
-    require "aSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
-    
-    <div class="container">
-        <ul class="breadcrumb">
+    <title>Add a degree</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="adminV.php">Home</a></li>
             <li>Assign a user role</li>
         </ul>
+    </div>
+
+    <div class="side-nav">
+        <?php
+            require '../admin/aSideNavV.php';
+        ?>
+    </div>
 
         <div class="content">
             <div>
                 <h3>Assign a user role</h3>
             </div>
-            <form action="aAssignUserRole.php" method="post">   
-                <input type="text" name="empid" placeholder="Enter Employee Id" required>
-                <input type="text" name="userRole" placeholder="Enter User Role" required>
-                <button type="submit" name="userRole-submit">Save</button>
-            </form>
-        </div>
-    </div>
-</main>
+            
+            Enter Employee Id <input type="text" name="empid" placeholder="Employee Id" required/> <br>
 
-<?php
-    require "../footer.php";
-?>
+            Enter User Role <input type="text" name="userRole" placeholder="User Role" required/> <br>
+
+            <button type="submit" name="userRole-submit">Save</button>
+        </div>
+
+        <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>
