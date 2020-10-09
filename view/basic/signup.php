@@ -12,7 +12,7 @@
 		</div>
 	</div>
 	<div class="content">
-		<form action="../controller/SignupController.php" method="post">
+		<form action="../../controller/SignupController.php" method="post">
 			<h2>Sign Up</h2>
 			<p>
 				<label>Enter employee id</label>

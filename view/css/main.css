@@ -29,11 +29,27 @@ body {
     grid-column-end: 4;
 }
 
-.breadcrumbs {
-    background-color:#ac9766;
-    grid-column-start: 1;
-    grid-column-end: 4;
-}
+
+ul.breadcrumbs {
+    /* padding: 10px 16px; */
+    list-style: none; 
+ }
+ 
+ ul.breadcrumbs li {
+     color: black;
+     display: inline;
+     font-size: 16px;
+ }
+ 
+ ul.breadcrumbs li a {
+     text-decoration: none;
+ }
+ 
+ ul.breadcrumbs li+li:before {
+     padding: 8px;
+     content: ">\00a0";
+ }
+ 
 
 .nameLogo {
     float: left;
