@@ -1,42 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Reports in Mahapola Scheme</title>
-    <link rel="stylesheet" href="../css/main.css"></link>
+<main>
+        <title>Reports</title>
 
-</head>
+<?php
+    require('../basic/header.php');
+    
+?>
 
-<body>
-    <div class="container">
-        <div class="header">
-              <!-- <div class="nameLogo"> -->
-              <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
-            <div class="options">
-                <a href="mmHomeV.php">Home</a>
-                <a href="mmProfileV.php">Profile</a>
-                <a href="#">Logout</a>
+        
+            <div class="header">Breadcrumbs
+                <!-- <ul class="breadcrumb">
+                    <li><a href="mmHomeV.php">Home</a></li>
+                    <li>View Mahapola Scheme Reports</li>
+                </ul> -->
             </div>
-        </div>
-        
-        <!-- breadcrumbs -->
-        <ul class="breadcrumb">
-            <li><a href="mmHomeV.php">Home</a></li>
-            <li>View Mahapola Scheme Reports</li>
-        </ul>
-        
-        <?php
-          require_once('mmSideNavV.php');
-        ?>
-        
-        <div class="banner">
-            <div>
-                  <h2>Mahapola Scheme Maintainer</h2>
+
+            <div class="side-nav">
+                <?php 
+                    require('../mahapolaSchemeMaintainer/mmSideNavV.php');
+                ?>
             </div>
-        </div>
-        <div class="content">
+
+            <div class="content">
                 <div>
                     <h4>View Reports in Mahapola Scheme</h4>
                 </div>
@@ -66,12 +50,27 @@
                 <br>
 
                 <a href="mmDisplayReportV.php" ><button type="submit" name="" >Display Report</button></a><br>
-        </div>
-        <div class="footer">
+            </div>
+        
+
+            <div class="right-side-bar">
+                <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+            </div>
+            
             <?php
-              require_once('../include/footer.php');
+                require_once('../basic/footer.php');
             ?>
-        </div>
-    </div>
-</body>
-</html>
+      
+
+</main>
+
+
+
+
+
+
+
+
+
+
+

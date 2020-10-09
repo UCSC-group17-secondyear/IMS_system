@@ -1,5 +1,5 @@
 <main>
-  <div class="side-nav">
+  
     <!-- <a href="mmMarkMahapolaSelectedStudentsV.php" ><button type="submit" name="" class="button">Mark Mahapola Selected Students</button></a><br> -->
     <button class="button accordion">Mark Mahapola Selected Students</button>
                 <div class="panel">
@@ -34,5 +34,5 @@
                     }
                 </script>
 
-  </div>
+  
 </main>

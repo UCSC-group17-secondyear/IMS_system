@@ -1,60 +1,65 @@
-<?php
-    require_once('../header.php');
-    require_once('asmSideNavV.php');
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
+    <title>Update Profile</title>
 
-    <div class="container">
+    <?php
+        require '../basic/header.php';
+    ?>
 
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="asmHomeV.php">Home</a>
-                <a href="asmProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div> -->
-
-        <ul class="breadcrumb">
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li><a href="asmProfileV">My Profile</a></li>
             <li>Update Profile</li>
         </ul>
+    </div>
 
-        <div class="content">
-            <div>
-                <h3>Update Profile</h3>
-            </div>
-            <div>
-                <form action="" method="post">
-                    <label for="empId">Employee Id</label>
-                    <input type="text" value=""> <br>
-                    <label for="nameWithInt">Initials of the name</label>
-                    <input type="text" value=""> <br>
-                    <label for="surname">Surname</label>
-                    <input type="text" value=""> <br>
-                    <label for="email">Email</label>
-                    <input type="email" value=""> <br>
-                    <label for="mobNum">Mobile Number</label>
-                    <input type="text" value=""> <br>
-                    <label for="telNum">Telephone Number</label>
-                    <input type="text" value=""> <br>
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" value=""> <br>
-                    <label for="designation">Designation</label>
-                    <input type="text" value=""> <br>
-                    <label for="appointmentDate">Appointment Date</label>
-                    <input type="date" value=""> <br>
-                </form>
-                <a href="asmUpdateProfileSuccessV.php"><button type="submit">Save Updates</button></a>
-            </div>
-            <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
+    <div class="side-nav">
+        <?php
+            require '../academicStaffMember/asmSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <div>
+            <h3>Update Profile</h3>
+        </div>
+        <div>
+            <form action="../../controller/updateProfileControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                <label for="">Employee Id</label>
+                <input type="text" name="empid" <?php echo 'value=" '.$_SESSION['empid'].' "' ?> required> <br>
+                <label for="">Initials of the name</label>
+                <input type="text" name="initials" <?php echo 'value=" '.$_SESSION['initials'].' "' ?> required> <br>
+                <label for="">Surname</label>
+                <input type="text" name="sname" <?php echo 'value=" '.$_SESSION['sname'].' "' ?> required> <br>
+                <label for="">Email</label>
+                <input type="email" name="email" <?php echo 'value=" '.$_SESSION['email'].' "' ?> required> <br>
+                <label for="">Mobile Number</label>
+                <input type="text" name="mobile" <?php echo 'value=" '.$_SESSION['mobile'].' "' ?> required> <br>
+                <label for="">Telephone Number</label>
+                <input type="text" name="tp" <?php echo 'value=" '.$_SESSION['tp'].' "' ?> required> <br>
+                <label for="">Date of Birth</label>
+                <input type="text" name="dob" <?php echo 'value=" '.$_SESSION['dob'].' "' ?> required> <br>
+                <label for="">Designation</label>
+                <input type="text" name="designation" <?php echo 'value=" '.$_SESSION['designation'].' "' ?> required> <br>
+                <label for="">Appointment Date</label>
+                <input type="text" name="appointment" <?php echo 'value=" '.$_SESSION['appointment'].' "' ?> required> <br>                    
+                <label for="">Password: </label>
+                <span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
+                <button type="submit" name="submit">Save Updates</button>
+
+            </form>
+
+                    <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
+
         </div>
     </div>
-</main>
 
-<?php
-    require_once('../include/footer.php');
-?>
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+</main>
