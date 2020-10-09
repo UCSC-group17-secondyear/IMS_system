@@ -44,13 +44,13 @@
                 header('Location:../view/medicalSchemeMaintainer/msmUpdatePasswordV.php');
             }
             else if ($result['userRole'] == "recordsViewer") {
-                header('Location:../view/recordsViewer/recordsUpdateViwerPasswordUI.php');
+                header('Location:../view/recordsViewer/rvPasswordUI.php');
             }
             else if ($result['userRole'] == "departmentHead") {
                 header('Location:../view/departmentHead/dhUpdatePasswordV.php');
             }
             else if ($result['userRole'] == "medicalOfficer") {
-                header('Location:../view/medicalOfficer/medicalOfficerUpdatePasswordV.php');
+                header('Location:../view/medicalOfficer/moUpdatePasswordV.php');
             }
             else {
                 echo "USER";
