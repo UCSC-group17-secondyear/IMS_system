@@ -1,33 +1,33 @@
-<?php
-    require_once('../header.php');
-    require_once('asmSideNavV.php');
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
-    <div class="container">
+    <title>Booking Remove</title>
+    <?php
+        require '../basic/header.php';
+    ?>
 
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="asmHomeV.php">Home</a>
-                <a href="asmProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div> -->
-
-<!--         <ul class="breadcrumb">
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li>Removed a Booking</li>
-        </ul> -->
-
-        <div class="content">
-            <p>Your booking has been removed successfully.</p>
-            <a href="asmUpdateBookingV.php"><button type="submit" name="bookingRemoveSuccess-submit">OK</button></a><br>
-        </div>
+        </ul>
     </div>
-</main>
 
-<?php
-    require_once('../include/footer.php');
-?>
+    <div class="side-nav">
+        <?php
+            require '../academicStaffMember/asmSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <p>Your booking has been removed successfully.</p>
+        <a href="asmUpdateBookingV.php"><button type="submit" name="bookingRemoveSuccess-submit">OK</button></a><br>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+</main>

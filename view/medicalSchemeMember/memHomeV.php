@@ -1,37 +1,32 @@
+<main>
+    <title>Home Page</title>
+
 <?php
-    require_once('../header.php');
-    require_once('memSideNavV.php');
+    require('../basic/header.php');
+    
 ?>
 
-<main>
-    <link rel="stylesheet" href="../assests/css/main.css">
+        
+            <div class="header">Breadcrumbs</div>
 
-    <div class="container">
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="memHomeV.php">Home</a>
-                <a href="memProfileV.php">Profile</a>
-                <a href="#">Logout</a>
+            <div class="side-nav">
+                <?php 
+                    require('../medicalSchemeMember/memSideNavV.php');
+                ?>
             </div>
-        </div> -->
-
-        <!-- breadcrumbs -->
-        <div class="header">breadcrums</div>
-
-        <?php
-          require_once('memSideNavV.php');
-        ?>
-
-        <div class="banner">
-            <div>
+            
+            <div class="banner">
                 <h2>Medical Scheme Member</h2>
             </div>
-        </div>
-        <div class="content">Content</div>
-    </div>
+
+            <div class="right-side-bar">
+                <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+            </div>
+            
+            <?php
+                require_once('../basic/footer.php');
+            ?>
+      
+
 </main>
 
-<?php
-    require_once('../include/footer.php');
-?>
