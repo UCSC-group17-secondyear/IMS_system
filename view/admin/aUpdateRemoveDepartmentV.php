@@ -1,31 +1,41 @@
-<?php
-    require "../header.php";
-    require "aSideNavV.php";
-?>
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
-    
-    <div class="container">
+    <title>Update or Remove a department</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
         <ul class="breadcrumb">
             <li><a href="adminV.php">Home</a></li>
             <li>Update or remove a Department</li>
         </ul>
-
-        <div class="content">
-            <div>
-                <h3>Update or remove a Department</h3>
-            </div>
-            
-            <form action="aUpdateRemoveDepartment.php" method="post"> 
-                <input type="text" name="departmentName" placeholder="Enter department name" required>
-                <input type="text" name="departmentDescriotion" placeholder="Description" required>
-                <button type="submit" name="updateDepartment-submit">Save Updates</button>
-                <button type="submit" name="removeDepartment-submit">Remove Department</button>
-            </form>
-        </div>
     </div>
-</main>
 
-<?php
-    require "../footer.php";
-?>
+    <div class="side-nav">
+        <?php
+            require '../admin/aSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <div>
+            <h3>Update or remove a Department</h3>
+        </div>
+        
+        Enter department name <input type="text" name="departmentName" placeholder="Department name" required/> <br>
+        
+        Enter its description <input type="text" name="departmentDescriotion" placeholder="Description" required/> <br>
+
+        <button type="submit" name="updateDepartment-submit">Save Updates</button>
+        
+        <button type="submit" name="removeDepartment-submit">Remove Department</button>
+    </div>
+
+        <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>

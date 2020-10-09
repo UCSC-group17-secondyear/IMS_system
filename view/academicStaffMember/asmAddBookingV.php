@@ -16,20 +16,20 @@
 
     <div class="content">
         <div>
-                <h3>Add a Booking</h3>
-            </div>
+            <h3>Add a Booking</h3>
+        </div>
 
-            Enter Date<input type="date" id="" name="enterDate"><br>
-            Enter Hall<select name="hall" id="hall">
-                <option value="">Select a Hall</option>
-                <option value="E401">E401</option>
-                <option value="S104">S104</option>
-                <option value="W001">W001</option>
-            </select>
-            <br>
-            Start Time<input type="time" id="" name="startTime"><br>
-            End Time<input type="time" id="" name="endTime"><br>
-            <a href="asmBookingSuccessfulV.php"><button type="submit" name="addBooking-submit">Book</button></a>
+        Enter Date<input type="date" id="" name="enterDate"><br>
+        Enter Hall<select name="hall" id="hall">
+            <option value="">Select a Hall</option>
+            <option value="E401">E401</option>
+            <option value="S104">S104</option>
+            <option value="W001">W001</option>
+        </select>
+        <br>
+        Start Time<input type="time" id="" name="startTime"><br>
+        End Time<input type="time" id="" name="endTime"><br>
+        <a href="asmBookingSuccessfulV.php"><button type="submit" name="addBooking-submit">Book</button></a>
     </div>
 
     <div class="right-side-bar">

@@ -1,27 +1,35 @@
-<?php
-    require "../header.php";
-    require "aSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
-    
-    <div class="container">
-        <ul class="breadcrumb">
+    <title>Add a new scheme</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="adminV.php">Home</a></li>
             <li>Add a new scheme</li>
         </ul>
-
-        <div class="content">
-            <form action="aAddNewScheme.php" method="post"> 
-                <input type="text" name="scheme" placeholder="Enter Scheme Number" required>
-                <input type="text" name="description" placeholder="Enter its description" required>
-                <button type="submit" name="addScheme-submit">Add new scheme</button>
-            </form>
-        </div>
     </div>
-</main>
 
-<?php
-    require "../footer.php";
-?>
+    <div class="side-nav">
+        <?php
+            require '../admin/aSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        Enter Scheme Number <input type="text" name="scheme" placeholder="Scheme Number" required/><br>
+        
+        Enter its description <input type="text" name="description" placeholder="Description" required/><br>
+        
+        <button type="submit" name="addScheme-submit">Add new scheme</button>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>

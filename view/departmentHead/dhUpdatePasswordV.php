@@ -5,15 +5,15 @@
 
     <div class="header">
         <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
-            <li><a href="asmProfileV.php">Profile</a></li>
+            <li><a href="dhHomeV.php">Home</a></li>
+            <li><a href="dhProfileV.php">Profile</a></li>
             <li>Update Password</li>
         </ul>
     </div>
 
     <div class="side-nav">
         <?php
-            require '../academicStaffMember/asmSideNavV.php';
+            require '../departmentHead/dhSideNavV.php';
         ?>
     </div>
 
@@ -49,7 +49,7 @@
                 <input type="text" name="designation" <?php echo 'value=" '.$_SESSION['designation'].' "' ?> disabled> <br>
 
                 <label for="">Appointment Date</label>
-                <input type="text" name="appointment" <?php echo 'value=" '.$_SESSION['appointment'].' "' ?> disabled> <br>
+                <input type="text" name="appointment" <?php echo 'value=" '.$_SESSION['appointment'].' "' ?> disabled> <br> 
 
                 <label for="">New Password: </label>
                 <input type="password" name="password" required> <br>
@@ -59,7 +59,10 @@
 
                 <button type="submit" name="submit">Save Password</button>
             </form>
-            <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
         </div>
     </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
 </main>
