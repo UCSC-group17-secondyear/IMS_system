@@ -1,31 +1,40 @@
-<?php
-    require "../header.php";
-    require "aSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
-    
-    <div class="container">
-        <ul class="breadcrumb">
+    <title>Add a degree</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="adminV.php">Home</a></li>
             <li>Add a new User role</li>
         </ul>
-
-        <div class="content">
-            <div>
-                <h3>Add a new User role</h3>
-            </div>
-            
-            <form action="aAddNewUserRole.php" method="post">   
-                <input type="text" name="userRole" placeholder="Enter User role" required>
-                <input type="text" name="description" placeholder="Enter its description" required>
-                <button type="submit" name="userRole-submit">Add user role</button>
-            </form>
-        </div>
     </div>
-</main>
 
-<?php
-    require "../footer.php";
-?>
+    <div class="side-nav">
+        <?php
+            require '../admin/aSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <div>
+            <h3>Add a new User role</h3>
+        </div>
+        
+        Enter User role <input input type="text" name="userRole" placeholder="User role" required/> <br>
+
+        Enter its description <input type="text" name="description" placeholder="Description" required/> <br>
+        
+        <button type="submit" name="userRole-submit">Add user role</button>
+        </form>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>

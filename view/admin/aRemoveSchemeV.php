@@ -1,30 +1,37 @@
-<?php
-    require "../header.php";
-    require "aSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
-    
-    <div class="container">
+    <title>Add a degree</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
         <ul class="breadcrumb">
             <li><a href="adminV.php">Home</a></li>
             <li>Remove a medical scheme</li>
         </ul>
+    </div>
+
+    <div class="side-nav">
+        <?php
+            require '../admin/aSideNavV.php';
+        ?>
+    </div>
         
         <div class="content">
             <div>
                 <h3><li>Remove a medical scheme</li></h3>
             </div>
             
-            <form action="aRemoveScheme.php" method="post">
-                <input type="text" name="scheme" placeholder="Enter Scheme Number" required>
-                <button type="submit" name="removeScheme-submit">Remove</button>
-            </form>
-        </div>
-    </div>
-</main>
+            Enter Scheme Number <input type="text" name="scheme" placeholder="Scheme Number" required/> <br>
 
-<?php
-    require "../footer.php";
-?>
+            <button type="submit" name="removeScheme-submit">Remove</button>
+        </div>
+
+        <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>
