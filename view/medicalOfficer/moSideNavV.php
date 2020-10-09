@@ -1,14 +1,10 @@
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
-
-    <div class="container">
-        <div class="side-nav">
             <a href="moClaimReqestingFormsV.php"><button type="submit" name="" class="button">View Claim Requesting
                     Forms</button></a><br>
             <button class="button accordion">View Reffered Claim Forms</button>
             <div class="panel">
-                <a href="asmAddBookingV.php" class="buttonTwo">Approved claim forms</a>
-                <a href="asmUpdateBookingV.php" class="buttonTwo">Rejected claim forms</a>
+                <a href="moApprovedClaimFormsV.php" class="buttonTwo">Approved claim forms</a>
+                <a href="moRejectedClaimFormsV.php" class="buttonTwo">Rejected claim forms</a>
             </div>
 
             <script>
@@ -26,6 +22,5 @@
                 });
             }
             </script>
-        </div>
-    </div>
+        
 </main>

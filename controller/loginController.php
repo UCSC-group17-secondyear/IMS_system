@@ -52,13 +52,13 @@
 						header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
 					}
 					else if ($key['userRole'] == "recordsViewer") {
-						header('Location:../view/recordsViewer/recordsViwerUI.php');
+						header('Location:../view/recordsViewer/rvHomeV.php');
 					}
 					else if ($key['userRole'] == "departmentHead") {
 						header('Location:../view/departmentHead/dhHomeV.php');
 					}
 					else if ($key['userRole'] == "medicalOfficer") {
-						header('Location:../view/medicalOfficer/medicalOfficerV.php');
+						header('Location:../view/medicalOfficer/moHomeV.php');
 					}
 					else {
 						echo "USER";
