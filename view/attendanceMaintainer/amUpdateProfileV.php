@@ -1,59 +1,34 @@
-<?php
-    require "../header.php";
-    require "amSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
-    
-    <div class="container">
+    <title>Profile Update Success</title>
+
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amProfileV.php">My Profile</a></li>
-            <li>Update Profile</li>
+            <li>Success Massage</li>
         </ul>
-
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="hamHomeV.php">Home</a>
-                <a href="hamProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div> -->
-
-        <div class="content">
-            <div>
-                <h3>Update Profile</h3>
-            </div>
-            <div>
-                <form action="" method="post">
-                    <label for="empId">Employee Id</label>
-                    <input type="text" value=""> <br>
-                    <label for="nameWithInt">Initials of the name</label>
-                    <input type="text" value=""> <br>
-                    <label for="surname">Surname</label>
-                    <input type="text" value=""> <br>
-                    <label for="email">Email</label>
-                    <input type="email" value=""> <br>
-                    <label for="mobNum">Mobile Number</label>
-                    <input type="text" value=""> <br>
-                    <label for="telNum">Telephone Number</label>
-                    <input type="text" value=""> <br>
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" value=""> <br>
-                    <label for="designation">Designation</label>
-                    <input type="text" value=""> <br>
-                    <label for="appointmentDate">Appointment Date</label>
-                    <input type="date" value=""> <br>                    
-                </form>
-                <a href="hamUpdateProfileSuccessV.php"><button type="submit">Save Updates</button></a>
-                <!-- here by using a 'foreach loop', we have to be able to display the data that we fetch from the database plus should let the user to update them as well-->
-            </div>
-        </div>
     </div>
+
+    <div class="side-nav">
+        <?php
+            require '../attendanceMaintainer/amSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <p>Your profile has been updated successfully..</p>
+
+        <a href="amProfileV.php"><button type="submit">OK</button></a>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
 </main>
-        
-<?php
-    require_once('../include/footer.php');
-?>
