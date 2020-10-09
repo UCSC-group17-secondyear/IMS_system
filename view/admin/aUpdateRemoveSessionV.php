@@ -5,7 +5,7 @@
     ?>
 
     <div class="header">
-        <ul class="breadcrumb">
+        <ul class="breadcrumbs">
             <li><a href="adminV.php">Home</a></li>
             <li>Update or remove a session type</li>
         </ul>

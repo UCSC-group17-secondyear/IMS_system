@@ -6,7 +6,7 @@
 <main>
     <link rel="stylesheet" href="../assests/css/style.css">
     <div class="container">
-        <ul class="breadcrumb">
+        <ul class="breadcrumbs">
             <li><a href="amHomeV.php">home</a></li>
             <li>Enter Subjects' Details</li>
         </ul>

@@ -1,20 +1,18 @@
 <main>
-    <div class="container">
-        <div class="sidenav">
-            <!-- <form action="adminPage.php" method="post">	 -->
-            <div class="dropdown">
-                <span><h3>Manage Attendance</h3></span>
-                <div class="dropdown-content">
-                    <a href="amEnterUpdateAttendaceSelectV.php">Enter/Update Attendance</a>
-                    <a href="amDeleteAttendaceSearchV.php">Delete Attendance</a>
-                </div>
-            </div>
-            <br>
-            <div class="dropdown">
-                <span><h3>View Attendance</h3></span>
-                <div class="dropdown-content">
-                    <a href="amStudentWiseAttendanceV.php">View Student Wise Attendance</a>
-                    <a href="amMonthWiseAttendanceV.php">View Student Wise Attendance</a>
+    <button class="button accordion">Manage Attendance</button>
+        <div class="panel">
+            <a href="amEnterUpdateAttendaceSelectV.php"><button type="submit" name="" class="button">Enter/Update Attendance</button></a><br>
+            <a href="amDeleteAttendaceSearchV.php"><button type="submit" name="" class="button">Delete Attendance</button></a><br>
+        </div>
+
+    <button class="button accordion">View Attendance</button>
+        <div class="panel">
+            <a href="amStudentWiseAttendanceV.php"><button type="submit" name="" class="button"> View Student Wise Attendance </button></a><br>
+            <a href="amMonthWiseAttendanceV.php"><button type="submit" name="" class="button">View Student Wise Attendance</button></a><br>
+        </div>
+
+
+                
                     <a href="amSubjectWiseAttendanceV.php">View Student Wise Attendance</a>
                     <a href="amBatchWiseAttendanceV.php">View Student Wise Attendance</a>
                     <a href="amSemesterWiseAttendanceV.php">View Student Wise Attendance</a>
