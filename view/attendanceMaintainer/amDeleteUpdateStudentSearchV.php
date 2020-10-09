@@ -1,28 +1,37 @@
-<?php
-    require "../header.php";
-    require "amSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/style.css">
-    <div class="container">
+    <title>Delete or Update Students' Details</title>
+    <?php
+        require '../basic/header.php';
+    ?>
+
+    <div class="header">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
             <li>Delete or Update Students' Details</li>
         </ul>
-
-        <div class="content">
-            <div>
-                <h3>Delete or Update Students' Details</h3>
-            </div>
-            <form action="amDeleteUpdateStudentSearchV.php" method="post">
-                <input type="text" name="index_no" placeholder="Student Index No" required/>
-                <button type="submit" name="deleteupdateStudent-submit" href="amDeleteUpdateStudentV.php">Select</button>
-            </form>
-        </div>
     </div>
-</main>
 
-<?php
-    require "../footer.php";
-?>
+    <div class="side-nav">
+        <?php
+            require '../attendanceMaintainer/amSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <div>
+            <h3>Delete or Update Students' Details</h3>
+        </div>
+
+        Enter Student Index Number <input type="text" name="index_no" placeholder="Student Index No" required/> <br>
+        
+        <button type="submit" name="deleteupdateStudent-submit" href="amDeleteUpdateStudentV.php">Select</button>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+</main>

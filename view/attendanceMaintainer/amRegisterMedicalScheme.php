@@ -1,43 +1,43 @@
 <main>
-    <title>Register to medical scheme</title>
+    <title>Register to Medical Scheme</title>
     <?php
         require '../basic/header.php';
     ?>
 
     <div class="header">
         <ul class="breadcrumbs">
-            <li><a href="hamHomeV.php">Home</a></li>
-            <li>Register to medical scheme</li>
+            <li><a href="amHomeV.php">Home</a></li>
+            <li>Registration to medical scheme</li>
         </ul>
     </div>
 
     <div class="side-nav">
         <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
+            require '../attendanceMaintainer/amSideNavV.php';
         ?>
     </div>
-    
+
     <div class="content">
         <form action="" method="post">
             <label for="empName">Employee Name</label>
-            <input type="text" value=""> <br>
+            <input type="text" value="" placeholder="Employee Name"> <br>
             <label for="empNumber">Employee Number</label>
-            <input type="text" value=""> <br>
+            <input type="text" value="" placeholder="Employee Number"> <br>
             <label for="designation">Designation</label>
-            <input type="text" value=""> <br>
+            <input type="text" value="" placeholder="Designation"> <br>
             Enter department
             <select name="department" id="">
-                <option value="">Select department</option>
-                <option value="CS">CS</option>
-                <option value="IS">IS</option>
-                <option value="SE">SE</option>
+            <option value="">Select department</option>
+            <option value="CS">CS</option>
+            <option value="IS">IS</option>
+            <option value="SE">SE</option>
             </select> <br>
             <label for="healthCondition">Enter health condition</label>
-            <input type="text" value=""> <br>
+            <input type="text" value="" placeholder="Heatlh Condition"> <br>
             Enter civil status
             <select name="civilstatus" id="">
-                <option value="married">Married</option>
-                <option value="unmarried">Unmarried</option>
+            <option value="married">Married</option>
+            <option value="unmarried">Unmarried</option>
             </select> <br>
             Select Medical Scheme
             <select name="medical scheme" id="">
@@ -47,7 +47,7 @@
                 <option value="scheme3">Scheme 3</option>
             </select> <br>
         </form>
-        <a href="hamRegisterSuccessV.php"><button type="submit" name="registerMedicalScheme-submit">Register</button></a><br>
+        <a href="amRegisterSuccessV.php"><button type="submit" name="registerMedicalScheme-submit">Register</button></a><br>
     </div>
 
     <div class="right-side-bar">
@@ -57,4 +57,5 @@
     <?php
         require '../basic/footer.php';
     ?>
+
 </main>
