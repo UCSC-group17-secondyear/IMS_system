@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assests/css/style.css">
     
     <div class="container">
-        <ul class="breadcrumb">
+        <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
             <li>View Month Wise Attendance</li>
         </ul>

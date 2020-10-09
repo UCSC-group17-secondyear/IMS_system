@@ -6,7 +6,7 @@
 <main>
     <link rel="stylesheet" href="../assests/css/style.css">
 
-    <ul class="breadcrumb">
+    <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
         <li>View Semester Wise Attendance</li>
     </ul>
