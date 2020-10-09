@@ -1,5 +1,5 @@
 <main>
-    <title>Add a degree</title>
+    <title>Add a monthly session</title>
     <?php
         require '../basic/header.php';
     ?>
