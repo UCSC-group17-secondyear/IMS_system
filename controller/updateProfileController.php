@@ -51,7 +51,7 @@
                 header('Location:../view/departmentHead/dhUpdateProfileV.php');
             }
             else if ($result['userRole'] == "medicalOfficer") {
-                header('Location:../view/medicalOfficer/medicalOfficerUpdateProfileV.php');
+                header('Location:../view/medicalOfficer/moUpdateProfileV.php');
             }
             else {
                 echo "USER";
