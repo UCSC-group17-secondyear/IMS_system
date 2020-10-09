@@ -1,23 +1,28 @@
-<html>
-<head>
-<title>Department Head's Page</title>
-<link rel="stylesheet" href="../assests/css/style.css">
-</head>
-<body>
+<main>
+    <title>Department Head's Home Page</title>
     <?php
-        require "../header.php";
+        require '../basic/header.php';
     ?>
-    <div class="container">
-        <ul class="breadcrumb">
-            <li><a href="homePageV.php">Home</a></li>
-            <li>Department Head's Page</li>
-        </ul>
+
+    <div class="header">
+        <!-- Breadcrumbs -->
     </div>
+
+    <div class="side-nav">
+        <?php
+            require '../departmentHead/dhSideNavV.php';
+        ?>
+    </div>
+
+    <div class="banner">
+        <h2>Department Head</h2>
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
     <?php
-        require "dhSideNavV.php";
+        require '../basic/footer.php';
     ?>
-    <?php
-        require "../footer.php";
-    ?>
-</body>
-</html>
+</main>
