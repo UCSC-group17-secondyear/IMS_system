@@ -6,7 +6,7 @@
 <main>
     <link rel="stylesheet" href="../assests/css/style.css">
     <div class="container">
-        <ul class="breadcrumb">
+        <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
             <li>Delete or Update Students' Details</li>
         </ul>
