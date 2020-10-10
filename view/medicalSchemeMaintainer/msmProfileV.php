@@ -1,67 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+<main>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="../css/main.css">
-</head>
+    <?php
+        require '../basic/header.php';
+    ?>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <!-- <div class="nameLogo"> -->
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
-            <div class="options">
-                <a href="msmHomeV.php">Home</a>
-                <a href="msmProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div>
+    <div class="header">
+        <ul class="breadcrumbs">
+            <li><a href="msmHomeV.php">Home</a></li>
+            <li>Profile</li>
+        </ul>
+    </div>
 
-        <div class="header">breadcrums</div>
-
+    <div class="side-nav">
         <?php
-            require_once('msmSideNavV.php');
+            require 'msmSideNavV.php';
         ?>
+    </div>
 
-        <div class="content">
-            <div>
-                <h3>Profile</h3>
-            </div>
-            <div>
-                <form action="" method="post">
-                    <label for="empId">Employee Id</label>
-                    <input type="text" value=""> <br>
-                    <label for="nameWithInt">Initials of the name</label>
-                    <input type="text" value=""> <br>
-                    <label for="surname">Surname</label>
-                    <input type="text" value=""> <br>
-                    <label for="email">Email</label>
-                    <input type="email" value=""> <br>
-                    <label for="mobNum">Mobile Number</label>
-                    <input type="text" value=""> <br>
-                    <label for="telNum">Telephone Number</label>
-                    <input type="text" value=""> <br>
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" value=""> <br>
-                    <label for="designation">Designation</label>
-                    <input type="text" value=""> <br>
-                    <label for="appointmentDate">Appointment Date</label>
-                    <input type="date" value=""> <br>
-                </form>
-                <a href="msmUpdateProfileV.php"><button type="submit">Update Profile</button></a>
-                <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai methndi update krnna denna ba -->
-            </div>
-
-            <div class="footer">
-                <?php
-                require_once('../include/footer.php');
-            ?>
-            </div>
+    <div class="content">
+        <div>
+            <h3>Profile</h3>
         </div>
-</body>
 
-</html>
+        <div>
+            <form action="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                <label for="">Employee Id</label>
+                <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
+                <label for="">Initials of the name</label>
+                <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"' ?> disabled> <br>
+                <label for="">Surname</label>
+                <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"' ?> disabled> <br>
+                <label for="">Email</label>
+                <input type="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"' ?> disabled> <br>
+                <label for="">Mobile Number</label>
+                <input type="text" name="mobile" <?php echo 'value="'.$_SESSION['mobile'].'"' ?> disabled> <br>
+                <label for="">Telephone Number</label>
+                <input type="text" name="tp" <?php echo 'value="'.$_SESSION['tp'].'"' ?> disabled> <br>
+                <label for="">Date of Birth</label>
+                <input type="text" name="dob" <?php echo 'value="'.$_SESSION['dob'].'"' ?> disabled> <br>
+                <label for="">Designation</label>
+                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled> <br>
+                <label for="">Appointment Date</label>
+                <input type="text" name="appointment" <?php echo 'value="'.$_SESSION['appointment'].'"' ?> disabled> <br>                    
+                <button type="submit" name="submit">Update Profile</button>
+            </form>
+                    
+                    <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai methndi update krnna denna ba -->
+        </div>
+        
+    </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+</main>
