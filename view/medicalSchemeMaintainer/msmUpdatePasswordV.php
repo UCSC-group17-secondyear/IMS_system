@@ -1,20 +1,20 @@
 <main>
-
+    <title>Update Password</title>
     <?php
         require '../basic/header.php';
     ?>
 
     <div class="header">
         <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
-            <li><a href="asmProfileV.php">Profile</a></li>
-            <li>Update Password</li>
+            <li><a href="msmHomeV.php">Home</a></li>
+            <li><a href="msmProfileV.php">Profile</li>
+            <li>Change Password</li>
         </ul>
     </div>
 
     <div class="side-nav">
         <?php
-            require '../academicStaffMember/asmSideNavV.php';
+            require 'msmSideNavV.php';
         ?>
     </div>
 

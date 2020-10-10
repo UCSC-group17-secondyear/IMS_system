@@ -1,25 +1,24 @@
-<?php
-    require_once('../header.php');
-    require_once('asmSideNavV.php');
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
+    <title>View Claim Details</title>
 
-    <div class="container">
+    <?php
+        require '../basic/header.php';
+    ?>
 
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="rvHomeV.php">Home</a>
-                <a href="rvProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div> -->
+    <div class="header">
+        <ul class="breadcrumbs">
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li>View Claim Details</li>
+        </ul>
+    </div>
 
-        <div class="header">breadcrums</div>
+    <div class="side-nav">
+        <?php
+            require 'rvSideNavV.php';
+        ?>
+    </div>
 
-        <div class="content">
+    <div class="content">
             <div>
                 <h3>View Claim Details</h3>
             </div>
@@ -44,11 +43,16 @@
             </form>
             <a href="#"><button type="submit" name="selectwise-submit">Select</button></a>
             <!-- mekedi javascript function ekk liyla check krla tamai ywnna ona eka tornne -->
-        </div>
-
     </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+
 </main>
 
-<?php
-    require_once('../include/footer.php');
-?>

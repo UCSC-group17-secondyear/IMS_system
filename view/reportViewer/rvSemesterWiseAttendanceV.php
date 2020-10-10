@@ -1,17 +1,24 @@
-<?php
-    require "../header.php";
-    require "amSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
 
-    <ul class="breadcrumb">
-        <li><a href="rvHomeV.php">Home</a></li>
-        <li>View Semester Wise Attendance</li>
-    </ul>
+    <?php
+        require '../basic/header.php';
+    ?>
 
-    <div class="container">
+    <div class="header">
+        <ul class="breadcrumbs">
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li>Attendance</li>
+            <li>Semesterewise Attendance</li>
+        </ul>
+    </div>
+
+    <div class="side-nav">
+        <?php
+            require 'rvSideNavV.php';
+        ?>
+    </div>
+    
+    <div class="content">
         <div>
             <h3>Semester Wise Attendance</h3>
         </div>
@@ -27,8 +34,13 @@
             </form>
         </div>
     </div>
-</main>
 
-<?php
-    require "../footer.php";
-?>
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+</main>

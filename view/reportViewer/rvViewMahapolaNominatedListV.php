@@ -1,26 +1,25 @@
-<?php
-    require_once('../header.php');
-    require_once('asmSideNavV.php');
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
+    <title>Mahapola Nominated List</title>
 
-    <div class="container">
+    <?php
+        require '../basic/header.php';
+    ?>
 
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="rvHomeV.php">Home</a>
-                <a href="rvProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div> -->
+    <div class="header">
+        <ul class="breadcrumbs">
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li>Mahapola Nominated List</li>
+        </ul>
+    </div>
 
-        <div class="header">breadcrums</div>
+    <div class="side-nav">
+        <?php
+            require 'rvSideNavV.php';
+        ?>
+    </div>
 
-        <div class="content">
-            <div>
+    <div class="content">
+        <div>
                 <h4>View Mahapola Nominated Student List</h4>
             </div>
             <input type="text" value="" placeholder="Enter batch no"> <br><br>
@@ -32,10 +31,14 @@
             <br>
             <br>
             <a href="rvNominatedListV.php"><button type="submit" name="">Display Student List</button></a><br>
-        </div>
     </div>
-</main>
 
-<?php
-    require_once('../include/footer.php');
-?>
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+</main>
