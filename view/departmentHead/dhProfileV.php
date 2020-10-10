@@ -6,14 +6,14 @@
 
     <div class="header">
         <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="dhHomeV.php">Home</a></li>
             <li>My Profile</li>
         </ul>
     </div>
 
     <div class="side-nav">
         <?php
-            require '../admin/aSideNavV.php';
+            require '../departmentHead/dhSideNavV.php';
         ?>
     </div>
 
