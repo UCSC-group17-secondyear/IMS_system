@@ -1,28 +1,30 @@
 <main>
-    <title>Profile</title>
+
+    <title>Update Password</title>
+
     <?php
-        require '../basic/header.php';
+        require('../basic/header.php');
     ?>
 
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li>My Profile</li>
+    <div class="header">Breadcrumbs
+        <ul class="breadcrumb">
+            <li><a href="memHomeV.php">Home</a></li>
+            <li>Profile</li>
         </ul>
     </div>
 
     <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
+        <?php 
+            require('../medicalSchemeMember/memSideNavV.php');
         ?>
     </div>
 
     <div class="content">
         <div>
-            <h3>Profile</h3>
+            <h3>Update Profile</h3>
         </div>
         <div>
-            <form action="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+            <form action="../../controller/updatePasswordControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                 <label for="">Employee Id</label>
                 <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
                 <label for="">Initials of the name</label>
@@ -41,9 +43,18 @@
                 <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled> <br>
                 <label for="">Appointment Date</label>
                 <input type="text" name="appointment" <?php echo 'value="'.$_SESSION['appointment'].'"' ?> disabled> <br>                    
-                <button type="submit" name="submit">Update Profile</button>
+                <label for="">New Password: </label>
+                <input type="password" name="password" required> <br>
+                <label for="">Confirm Password: </label>
+                <input type="password" name="conpassword" required> <br>
+
+                <button type="submit" name="submit">Save Password</button>
+
             </form>
-        </div>
+
+                <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
+
+            </div>
     </div>
 
     <div class="right-side-bar">

@@ -10,7 +10,7 @@
     <button class="button accordion">Manage Weekly Time Table</button>
         <div class="panel">
             <a href="hamEnterTimeTableV.php" class="buttonTwo"> Enter Time Table</a>
-            <a href="hamUpdateTimeTableV.php" class="buttonTwo"> Update/Remove Time TableBooking</a>
+            <a href="hamUpdateTimeTableV.php" class="buttonTwo"> Update/Remove TimeTable</a>
         </div>
 
     <button class="button accordion">Manage Booking</button>
