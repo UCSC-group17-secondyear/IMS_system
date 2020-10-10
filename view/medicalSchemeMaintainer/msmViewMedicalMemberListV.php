@@ -1,33 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<main>
+    <title>Medical Scheme Member List</title>
+    <?php
+        require '../basic/header.php';
+    ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Medical Member List</title>
-    <link rel="stylesheet" href="../css/main.css">
-</head>
+    <div class="header">
+        <ul class="breadcrumbs">
+            <li><a href="msmHomeV.php">Home</a></li>
+            <li>Medical Scheme Member List</li>
+        </ul>
+    </div>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <!-- <div class="nameLogo"> -->
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
-            <div class="options">
-                <a href="msmHomeV.php">Home</a>
-                <a href="msmProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div>
-
-        <div class="header">breadcrums</div>
-
+    <div class="side-nav">
         <?php
-            require_once('msmSideNavV.php');
+            require 'msmSideNavV.php';
         ?>
+    </div>
 
-        <div class="content">
+    <div class="content">
             <div>
                 <h3>Select a Scheme</h3>
             </div>
@@ -47,16 +37,15 @@
             </select>
             <br>
 
-            <a href="msmMedicalMemberlistV.php"><button type="submit"
-                    name="viewMedicalMemberlist-submit">Select</button></a>
-        </div>
-
-        <div class="footer">
-            <?php
-                require_once('../include/footer.php');
-            ?>
-        </div>
+            <a href="msmMedicalMemberlistV.php"><button type="submit" name="viewMedicalMemberlist-submit">Select</button></a>
     </div>
-</body>
 
-</html>
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+</main>

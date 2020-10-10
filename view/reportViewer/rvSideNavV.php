@@ -1,5 +1,4 @@
 <main>
-    <div class="side-nav">
         <button class="button accordion">View Student Attendance Reports</button>
         <div class="panel">
             <a href="rvStudentWiseAttendanceV.php" class="buttonTwo">View Attendance Student Wise</a>
@@ -30,5 +29,5 @@
             });
         }
         </script>
-    </div>
+    
 </main>
