@@ -50,7 +50,7 @@
 
             if ($result == true) 
             {
-                header('Location:../view/login.php');
+                header('Location:../view/basic/login.php');
             }
             else 
             {

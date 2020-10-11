@@ -1,25 +1,23 @@
-<?php
-    require_once('../header.php');
-    require_once('asmSideNavV.php');
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
+    <title>View Medical Scheme Memberlist</title>
+    <?php
+        require '../basic/header.php';
+    ?>
 
-    <div class="container">
+    <div class="header">
+        <ul class="breadcrumbs">
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li>Medical Scheme Memberlist</li>
+        </ul>
+    </div>
 
-        <!-- <div class="header">
-            <img src="../img/ims.jpg" alt="ims" class="logo">
-            <div class="options">
-                <a href="rvHomeV.php">Home</a>
-                <a href="rvProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div> -->
+    <div class="side-nav">
+        <?php
+            require 'rvSideNavV.php';
+        ?>
+    </div>
 
-        <div class="header">breadcrums</div>
-
-        <div class="content">
+    <div class="cotent">
             <div>
                 <h3>Select a Scheme</h3>
             </div>
@@ -40,10 +38,15 @@
 
             <a href="rvMedicalMemberlistV.php"><button type="submit"
                     name="viewMedicalMemberlist-submit">Select</button></a>
-        </div>
     </div>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
 </main>
 
-<?php
-    require_once('../include/footer.php');
-?>
