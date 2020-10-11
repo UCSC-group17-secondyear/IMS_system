@@ -1,50 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<main>
     <title>Mark Mahapola Selected Students</title>
-    <link rel="stylesheet" href="../css/main.css"></link>
+    <?php
+        require('../basic/header.php');     
+    ?>
+    
+    <div class="header">
+        <ul class="breadcrumbs">
+            <li><a href="mmHomeV.php">Home</a></li>
+            <li>Mark Mahapola Nominated List</li>
+        </ul>
+    </div>
 
-</head>
+    <div class="side-nav">
+        <?php 
+          require('../mahapolaSchemeMaintainer/mmSideNavV.php');
+        ?>
+    </div>
 
-<body>
-    <div class="container">
-        <div class="header">
-              <!-- <div class="nameLogo"> -->
-              <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
-            <div class="options">
-                <a href="mmHomeV.php">Home</a>
-                <a href="mmProfileV.php">Profile</a>
-                <a href="#">Logout</a>
-            </div>
-        </div>
-        <div class="header breadcrumb">
-            <!-- <ul>
-                <h6>
-                    <a href="mmHomeV.php">Home / </a>
-                    <a href="mmMarkMahapolaSelectedStudentsV.php">Mark Mahapola Selected Students</a>
-                </h6>
-            </ul> -->
-        </div>
-        <div class="side-nav">
-            
-            
-                  <a href="mmMarkMahapolaSelectedStudentsV.php" ><button type="submit" name="" class="button">Mark Mahapola Selected Students</button></a><br>
-                  <a href="mmViewMahapolaNominatedListV.php" ><button type="submit" name="" class="button">View Mahapola Nominated Student List</button></a><br>
-                  <a href="mmViewReportsMahapolaSchemeV.php" ><button type="submit" name="" class="button">View Reports in Mahapola Scheme</button></a><br>
-                  <a href="#" ><button type="submit" name="" class="button">View Attendance Student Records</button></a><br>
-                  <!-- attendance maintainerge ui flow eke aran demu -->
-                  <a href="mmViewSchemeDetailsV.php" ><button type="submit" name="" class="button">View Scheme Details</button></a><br>
-                  <a href="mmRegisterToMedicalSchemeV.php" ><button type="submit" name="" class="button">Register to Staff Medical Scheme</button></a><br>
-        </div>
-        <div class="banner">
-            <div>
-                  <h2>Mahapola Scheme Maintainer</h2>
-            </div>
-        </div>
-        <div class="content">
+    <div class="content">
             <div>
                 <h4>Mark Mahapola Selected Students</h4>
             </div>
@@ -63,12 +36,14 @@
             <br>
             <a href="mmStudentDetailsV.php" ><button type="submit" name="" >Display Student's Details</button></a><br>
             <!-- mekedi js function eka check krla tamai display kranna one -->
-            </div>
-        <div class="footer">
-        <?php
-              require_once('../include/footer.php');
-            ?>
-        </div>
     </div>
-</body>
-</html>
+
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+    
+    <?php
+        require_once('../basic/footer.php');
+    ?>
+
+</main>
