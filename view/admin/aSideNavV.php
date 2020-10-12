@@ -7,6 +7,8 @@
         <a href="aUpdateUserRoleV.php" class="buttonTwo">Update the user role of a user</a><br>
     </div>
 
+    <a href="../../controller/userListController.php"><button type="submit" name="" class="button">View Users in IMS System</button></a><br>
+
     <button class="button accordion">Manage Medical Schemes</button>
     <div class="panel">
         <a href="aAddNewSchemeV.php" class="buttonTwo">Add a new scheme</a><br>
