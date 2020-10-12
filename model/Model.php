@@ -1,6 +1,5 @@
 <?php
 	require_once('../config/database.php');
-
 ?>
 
 <?php
@@ -76,11 +75,35 @@
 		}
 
 		public static function deleteUser($user_id , $connect) {
-			$query = "UPDATE users SET is_deleted = 1 WHERE userId={$user_id} LIMIT 1";
+			$query = "UPDATE users SET is_deleted = 1 WHERE userId='{$user_id}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
+		}
+
+		public static function addUserrole($userrole, $description, $connect) {
+			$query = "INSERT INTO userroles (role_name, description) VALUES('$userrole', '$description')";
+
+			if($connect->query($query)) {
+				return true;
+			}
+		}
+
+		public static function viewUserRoles($connect) {
+			$query = "SELECT * FROM userroles WHERE is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function removeUserrole($userrole, $connect) {
+			$query = "UPDATE userroles SET is_deleted = 1 WHERE role_name='{$userrole}' LIMIT 1";
+
+			if($connect->query($query)) {
+				return true;
+			}
 		}
 	}
 ?>
