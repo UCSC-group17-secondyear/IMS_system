@@ -28,14 +28,13 @@
 				<p>
 					<h3>No account yet? <a href="signup.php">Sign Up.</a></h3>
 				</p>
+				<p>
+					<h3><a href="forgotpwdV.php">Forgot pwd?</a></h3>
+				</p>
 			</form>
 	</div>
 
 	<?php
 		require "footer.php";
 	?>
-
 </main>
-
-
-		
