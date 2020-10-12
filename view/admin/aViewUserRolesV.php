@@ -1,5 +1,6 @@
 <main>
-    <title>Remove a use role</title>
+    <title>User Roless</title>
+
     <?php
         require '../basic/header.php';
     ?>
@@ -7,26 +8,28 @@
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Remove a User role</li>
+            <li>User Roles List</li>
         </ul>
     </div>
 
     <div class="side-nav">
         <?php
-            require '../admin/aSideNavV.php';
+            require 'aSideNavV.php';
         ?>
     </div>
-        
+
     <div class="content">
-        <div>
-            <h3>Remove a User role</h3>
-        </div>
-        
-        <form action="../../controller/removeRoleController.php" method="post">
-            Enter User role <input type="text" name="userRole" placeholder="User role" required/> <br>
+        <h1>User roles in IMS System</h1>
+
+        <table class="mytable">
+            <tr>
+                <th>User role</th>
+                <th>Description</th>
+            </tr>
             
-            <button type="submit" name="remove-submit">Remove user role</button>
-        </form>
+            <?php echo $_SESSION['user_role'] ?>
+
+        </table>
     </div>
 
     <div class="right-side-bar">
@@ -36,4 +39,5 @@
     <?php
         require '../basic/footer.php';
     ?>
+
 </main>
