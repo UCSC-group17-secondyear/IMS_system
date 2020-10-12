@@ -7,7 +7,7 @@
 	class Model {
 		public static function getlogin($empid, $password, $connect)
 		{	
-			$query = "SELECT * FROM users WHERE empid ='{$empid}' AND password='{$password}'" ;
+			$query = "SELECT * FROM users WHERE empid ='{$empid}' AND password='{$password}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
@@ -57,6 +57,30 @@
 			$result = mysqli_query($connect, $query);
 
             return $result;
+		}
+
+		public static function setUserRole($empid, $userRole, $connect) {
+			$query = "UPDATE users SET userRole = '{$userRole}' WHERE empid='{$empid}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function viewList($connect) {
+			$query = "SELECT * FROM users WHERE is_deleted=0 ORDER BY empid";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function deleteUser($user_id , $connect) {
+			$query = "UPDATE users SET is_deleted = 1 WHERE userId={$user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
 		}
 	}
 ?>
