@@ -19,47 +19,58 @@
     </div>
 
     <div class="content">
-        <div>
-            <h4>Register to Staff Medical Scheme</h4>
-        </div>
-
-        <form action="" method="post">
-            <label for="empName">Employee Name</label>
-            <input type="text" value=""> <br>
-
-            <label for="empNumber">Employee Number</label>
-            <input type="text" value=""> <br>
-
-            <label for="designation">Designation</label>
-            <input type="text" value=""> <br>
-
-            Enter department
-            <select name="department" id="">
-                <option value="">Select department</option>
-                <option value="CS">CS</option>
-                <option value="IS">IS</option>
-                <option value="SE">SE</option>
-            </select> <br>
-
-            <label for="healthCondition">Enter health condition</label>
-            <input type="text" value=""> <br>
-
-            Enter civil status
-            <select name="civilstatus" id="">
+        <form action="../../controller/registerMSControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+        <p>   
+            <label>Employee ID: </label>
+            <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled>
+        </p>
+        <p>
+            <label>Your initials: </label>
+            <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"' ?> disabled/>
+        </p>
+        <p>
+            <label>Your surname: </label>
+            <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"' ?> disabled/>
+        </p>
+        <p>
+            <label>Your E-mail: </label>
+            <input type="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"' ?> disabled/>
+        </p>
+        <p>
+            <label>Designation: </label>
+            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled> <br>
+        </p>
+        <p>  
+            <label>Enter department</label>
+            <select name="department"required>
+                <option value="">Select department: </option>
+                <?php echo $_SESSION['deps'] ?>
+            </select>
+            <br>
+        </p>
+        <p>   
+            <label>Health condition: </label>
+            <input name="health_condition" type="text" required> <br>
+        </p>
+        <p>
+            <label>Civil status</label>
+            <select name="civil_status" required>
+                <option value="">...</option>
                 <option value="married">Married</option>
                 <option value="unmarried">Unmarried</option>
             </select> <br>
-
-            Select Medical Scheme
-            <select name="medical scheme" id="">
+        </p>
+        <p>   
+            <label>Medical Scheme Type: </label>
+            <select name="scheme_name" id="schemename" required>
                 <option value="">Select Scheme</option>
-                <option value="scheme1">Scheme 1</option>
-                <option value="scheme2">Scheme 2</option>
-                <option value="scheme3">Scheme 3</option>
+                <?php echo $_SESSION['scheme'] ?>
             </select> <br>
+        </p>
+        <p>
+            <button type="submit" name="registerMS-submit">Register</button>
+        </p>
         </form>
-
-        <a href="mmRegisterSuccessV.php"><button type="submit" name="registerMedicalScheme-submit">Register</button></a><br>
     </div>
     
     <div class="right-side-bar">

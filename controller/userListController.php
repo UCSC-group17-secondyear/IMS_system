@@ -1,12 +1,8 @@
 <?php 
     session_start();
-    // include 'model/Model.php';
-	// include 'config/database.php';
     require_once('../model/Model.php');
     require_once('../config/database.php');
-?>
-
-<?php
+    
     $_SESSION['user_list'] = '';
     $users = Model::viewList($connect);
     
