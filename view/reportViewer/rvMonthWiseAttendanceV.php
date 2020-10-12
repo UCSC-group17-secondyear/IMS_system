@@ -1,21 +1,27 @@
-<?php
-    require "../header.php";
-    require "amSideNavV.php";
-?>
-
 <main>
-    <link rel="stylesheet" href="../assests/css/main.css">
+    <title>Monthwise Attendance</title>
+    <?php
+        require '../basic/header.php';
+    ?>
 
-    <div class="container">
-        <ul class="breadcrumb">
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>View Month Wise Attendance</li>
+            <li>Atendance</li>
+            <li>Monthwise Attendance</li>
         </ul>
+    </div>
 
-        <div class="content">
-            <div>
-                <h3>Month Wise Attendance</h3>
-            </div>
+    <div class="side-nav">
+        <?php
+            require 'rvSideNavV.php';
+        ?>
+    </div>
+
+    <div class="content">
+        <div>
+            <h3>Month Wise Attendance</h3>
+        </div>
 
             <form action="rvMonthWiseAttendanceV.php" method="post">
                 <input type="number" name="calander_year" placeholder="Calander Year" required />
@@ -26,10 +32,14 @@
                 <input type="text" name="subject" placeholder="Subject" required />
                 <button type="submit" name="select-submit" href="#">Display Attendance</button>
             </form>
-        </div>
     </div>
-</main>
 
-<?php
-    require "../footer.php";
-?>
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+    </div>
+
+    <?php
+        require '../basic/footer.php';
+    ?>
+
+</main>

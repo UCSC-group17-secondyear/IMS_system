@@ -10,7 +10,7 @@
 
     <div class="side-nav">
         <?php
-            require '../admin/aSideNavV.php';
+            require 'aSideNavV.php';
         ?>
     </div>
 

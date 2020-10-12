@@ -6,7 +6,7 @@
 
     <div class="header">
         <ul class="breadcrumbs">
-            <li><a href="adminV.php">Home</a></li>
+            <li><a href="aHomeV.php">Home</a></li>
             <li>Update User role</li>
         </ul>
     </div>
@@ -22,11 +22,25 @@
             <h3>Update User role</h3>
         </div>
         
-        Enter Employee Id <input type="text" name="empid" placeholder="Employee Id" required/> <br>
-        
-        Enter User Role <input type="text" name="userRole" placeholder="User Role" required/> <br>
-
-        <button type="submit" name="userRole-submit">Save Updates</button>
+        <form action="../../controller/setUserRoleController.php" method="post">
+            <label for="">Employee Id</label>
+            <input type="text" name="empid" placeholder="Employee Id" required>
+            <label for="">Enter user role</label>
+            <select name="userRole" id="">
+            <option value="">Select User Role</option>
+            <option value="admin">Admin</option>
+            <option value="academicStaffMemb">Academic Staff Member</option>
+            <option value="attendanceMain">Attendance Maintainer</option>
+            <option value="hallAllocationMain">Hall Allocation Maintainer</option>
+            <option value="mahapolaSchemeMain">Mahapola Scheme Maintainer</option>
+            <option value="medicalSchemeMain">Medical Scheme Maintainer</option>
+            <option value="medicalSchemeMemb">Medical Scheme Member</option>
+            <option value="recordsViewer">Report Viwer</option>
+            <option value="departmentHead">Department Head</option>
+            <option value="medicalOfficer">Medical Officer</option>
+            </select>
+            <button type="submit" name="userRole-submit">Save</button>
+        </form>
     </div>
     
     <div class="right-side-bar">
