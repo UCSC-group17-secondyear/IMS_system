@@ -26,11 +26,11 @@
             $_SESSION['appointment'] = $result['appointment'];
 
             while ($record1 = mysqli_fetch_array($records1)) {
-                $_SESSION['deps'] .= "<option value='" . $record1['department'] ."'>". $record1['department']."</option>";
+                $_SESSION['deps'] .= "<option value='". $record1['department']."'>". $record1['department']."</option>";
             }
 
             while ($record2 = mysqli_fetch_array($records2)) {
-                $_SESSION['scheme'] .= "<option value='" . $record2['schemename'] ."'>". $record2['schemename']."</option>";
+                $_SESSION['scheme'] .= "<option value='". $record2['schemename']."'>". $record2['schemename']."</option>";
             }
 
             if ($result['userRole'] == "admin") {
