@@ -116,5 +116,29 @@
 			
 			return $result_set;
 		}
+
+		public static function viewMember($user_id, $connect){ // for opd form & surgical form
+			$query = "SELECT * FROM users WHERE userId={$user_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+
+		}
+
+		public static function checkEmpidThree($empid, $user_id, $connect){
+			$query = "SELECT * FROM members WHERE empid='{$empid}' AND userId!={$user_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function fillOpdForm($user_id, $department, $patientname, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag,  $connect){
+			$query = "INSERT INTO tbl_claimform (user_id,  department, patientname, relationship,  doctor_name, treatment_received_date, bill_issued_date, purpose, bill_amount, opd_form_flag, surgical_form_flag) VALUES ( $user_id , '$department', '$patientname' ,'$relationship', '$doctor_name' , '$treatment_received_date' ,'$bill_issued_date', '$purpose' , '$bill_amount', 1, 0) ";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
 	}
 ?>
