@@ -1,8 +1,6 @@
 <main>
-
     <?php
         require('../basic/header.php');
-        
     ?>
 
     <div class="header">
@@ -24,8 +22,7 @@
         </div>
         <a href="memOpdFormV.php"><button type="submit" name="currentMemberDetail-submit">OPD Form</button></a><br>
         <a href="memSurgicalFormV.php"><button type="submit" name="currentMemberDetail-submit">Surgical Hospitalization Form</button></a><br>
-            <p>Download the form to be filled by the surgeon and get if field before you fill the surgical
-                hospitalization form.</p>
+            <p>Download the form to be filled by the surgeon and get if field before you fill the surgical hospitalization form.</p>
     </div>
 
     <div class="right-side-bar">
@@ -35,5 +32,4 @@
     <?php
         require_once('../basic/footer.php');
     ?>
-
 </main>

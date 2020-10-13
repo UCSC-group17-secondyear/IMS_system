@@ -1,13 +1,12 @@
 <main>
-
     <title>Update Password</title>
 
     <?php
         require('../basic/header.php');
     ?>
 
-    <div class="header">Breadcrumbs
-        <ul class="breadcrumb">
+    <div class="header">
+        <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
             <li>Profile</li>
         </ul>
@@ -49,12 +48,9 @@
                 <input type="password" name="conpassword" required> <br>
 
                 <button type="submit" name="submit">Save Password</button>
-
             </form>
-
-                <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
-
-            </div>
+        <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
+        </div>
     </div>
 
     <div class="right-side-bar">
@@ -64,5 +60,4 @@
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>
