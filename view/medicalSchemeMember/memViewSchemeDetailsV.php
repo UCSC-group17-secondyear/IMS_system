@@ -18,26 +18,9 @@
         ?>
     </div>
 
-    <div class="content">
-        <div>
-            <h4>Scheme Details</h4>
-        </div>
-
-        <h3>Scheme 1 : </h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, voluptas cupiditate tenetur incidunt
-            ab autem maiores optio inventore sunt dolor. Voluptate tenetur totam similique molestias labore ipsum
-            architecto eius amet.</p>
-
-        <h3>Scheme 2 : </h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, voluptas cupiditate tenetur incidunt
-            ab autem maiores optio inventore sunt dolor. Voluptate tenetur totam similique molestias labore ipsum
-            architecto eius amet.</p>
-
-        <h3>Scheme 3 : </h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, voluptas cupiditate tenetur inciduntab autem maiores optio inventore sunt dolor. architecto eius amet.</p>
-
-        <a href="memHomeV.php"><button type="submit" name="">OK</button></a>
-    </div>
+    <?php
+        require '../basic/viewClaimDetails.php';
+    ?>
     
     <div class="right-side-bar">
         <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
