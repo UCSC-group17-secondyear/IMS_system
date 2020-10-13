@@ -1,5 +1,6 @@
 <?php
 	require_once('../config/database.php');
+
 ?>
 
 <?php
@@ -26,7 +27,8 @@
 				return true;
 		}
 
-		public static function view($user_id, $connect){
+		public static function view($user_id, $connect)
+		{
 			$query = "SELECT * FROM users WHERE userId={$user_id} LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
@@ -34,7 +36,8 @@
 			return $result_set;
 		}
 
-		public static function checkEmpidTwo($empid, $user_id, $connect){
+		public static function checkEmpidTwo($empid, $user_id, $connect)
+		{
 			$query = "SELECT * FROM users WHERE empid='{$empid}' AND userId!={$user_id} LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
@@ -42,7 +45,8 @@
 			return $result_set;
 		}
 
-		public static function update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect){
+		public static function update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect)
+		{
 			$query = "UPDATE users SET empid='{$empid}', initials='{$initials}', sname='{$sname}', email='{$email}', mobile='{$mobile}', tp='{$tp}', dob='{$dob}', designation='{$designation}', appointment='{$appointment}' WHERE userId={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
@@ -50,7 +54,8 @@
 			return $result;
 		}
 
-		public static function updatePassword($user_id, $hashed_password, $connect){
+		public static function updatePassword($user_id, $hashed_password, $connect)
+		{
 			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
@@ -58,7 +63,8 @@
             return $result;
 		}
 
-		public static function setUserRole($empid, $userRole, $connect) {
+		public static function setUserRole($empid, $userRole, $connect)
+		{
 			$query = "UPDATE users SET userRole = '{$userRole}' WHERE empid='{$empid}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
@@ -66,7 +72,8 @@
 			return $result;
 		}
 
-		public static function viewList($connect) {
+		public static function viewList($connect)
+		{
 			$query = "SELECT * FROM users WHERE is_deleted=0 ORDER BY empid";
 
 			$result_set = mysqli_query($connect, $query);
@@ -74,36 +81,40 @@
 			return $result_set;
 		}
 
-		public static function deleteUser($user_id , $connect) {
-			$query = "UPDATE users SET is_deleted = 1 WHERE userId='{$user_id}' LIMIT 1";
+		public static function deleteUser($user_id , $connect)
+		{
+			$query = "UPDATE users SET is_deleted = 1 WHERE userId={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
 		}
 
-		public static function addUserrole($userrole, $description, $connect) {
-			$query = "INSERT INTO userroles (role_name, description) VALUES('$userrole', '$description')";
+		public static function registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $connect)
+		{
+			$query = "INSERT INTO tbl_user_flag (user_id, department, healthcondition, civilstatus, schemename) VALUES('$user_id', '$department', '$health_condition', '$civil_status', '$scheme_name')";
 
-			if($connect->query($query)) {
-				return true;
-			}
+			$result = mysqli_query($connect, $query);
+
+			return $result;
 		}
 
-		public static function viewUserRoles($connect) {
-			$query = "SELECT * FROM userroles WHERE is_deleted=0";
+		public static function department($connect)
+		{
+			$query = "SELECT department FROM tbl_department";
 
 			$result_set = mysqli_query($connect, $query);
-
+			
 			return $result_set;
 		}
 
-		public static function removeUserrole($userrole, $connect) {
-			$query = "UPDATE userroles SET is_deleted = 1 WHERE role_name='{$userrole}' LIMIT 1";
-
-			if($connect->query($query)) {
-				return true;
-			}
+		public static function scheme($connect)
+		{
+			$query = "SELECT schemename FROM tbl_medicalscheme";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
 		}
 	}
 ?>

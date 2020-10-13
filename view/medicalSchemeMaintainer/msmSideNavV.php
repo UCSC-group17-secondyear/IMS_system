@@ -1,6 +1,8 @@
 <main>
         <a href="msmViewMedicalMemberListV.php"><button type="submit" name="" class="button">View Medical Member List</button></a><br>
+        
         <a href="msmRemoveMemberV.php"><button type="submit" name="" class="button">Remove Member</button></a><br>
+        
         <a href="msmViewClaimDetailsV.php"><button type="submit" name="" class="button">View Claim Details</button></a><br>
 
         <button class="button accordion">View Forms Of the Medical Scheme</button>
@@ -11,7 +13,8 @@
         </div>
 
         <a href="msmViewSchemeDetailsV.php"><button type="submit" name="" class="button">View Medical Scheme Details</button></a><br>
-        <a href="msmRegisterToMedicalSchemeV.php"><button type="submit" name="" class="button">Register to Medical Scheme</button></a><br>
+        
+        <a href="../../controller/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
 
 
     <script>

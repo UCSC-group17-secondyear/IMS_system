@@ -6,14 +6,14 @@
 
     <div class="header">
         <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
+            <li><a href="dhHomeV.php">Home</a></li>
             <li>Registration to medical scheme</li>
         </ul>
     </div>
 
     <div class="side-nav">
         <?php
-            require '../academicStaffMember/asmSideNavV.php';
+            require '../departmentHead/dhSideNavV.php';
         ?>
     </div>
 
@@ -79,5 +79,4 @@
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>
