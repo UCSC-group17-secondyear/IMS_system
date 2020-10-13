@@ -20,8 +20,6 @@
 
         <a href="memGetClaimDetailsV.php"><button type="submit" name="" class="button">Get Claim Detials</button></a><br>
         
-        <a href="../../controller/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
-        
         <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
