@@ -6,14 +6,14 @@
 <main>
     <link rel="stylesheet" href="../assests/css/main.css">
     <div class="container">
-        <!-- <div class="header">
+        <div class="header">
             <img src="../img/ims.jpg" alt="ims" class="logo">
             <div class="options">
                 <a href="memHomeV.php">Home</a>
                 <a href="memProfileV.php">Profile</a>
                 <a href="#">Logout</a>
             </div>
-        </div> -->
+        </div>
 
         <div class="header">breadcrums</div>
 
