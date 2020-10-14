@@ -1,11 +1,7 @@
 <?php
-
-
-
-session_start();
+    session_start();
     require_once('../model/Model.php');
     require_once('../config/database.php');
-
 ?>
 
 <?php
@@ -13,7 +9,7 @@ session_start();
     $errors = array();
     $user_id = '';
 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['form-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
 
         $userInfo = array( 'bill_amount'=>11);
@@ -29,8 +25,8 @@ session_start();
         
         
         if (empty($errors)) {
-            $department = mysqli_real_escape_string($connect, $_POST['department']);
-            $patientname = mysqli_real_escape_string($connect, $_POST['patientname']);
+            //$empid = mysqli_real_escape_string($connect, $_POST['empid']);
+            $patient_name = mysqli_real_escape_string($connect, $_POST['patient_name']);
             $relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
             $doctor_name = mysqli_real_escape_string($connect, $_POST['doctor_name']);
             $treatment_received_date = mysqli_real_escape_string($connect, $_POST['treatment_received_date']);
@@ -38,7 +34,7 @@ session_start();
             $purpose = mysqli_real_escape_string($connect, $_POST['purpose']);
             $bill_amount = mysqli_real_escape_string($connect, $_POST['bill_amount']);
             $opd_form_flag = mysqli_real_escape_string($connect, $_POST['opd_form_flag']);
-            $opd_form_flag = mysqli_real_escape_string($connect, $_POST['surgical_form_flag']);
+            $surgical_form_flag = mysqli_real_escape_string($connect, $_POST['surgical_form_flag']);
             
 
             // $file = $_FILES('bill');
@@ -63,12 +59,9 @@ session_start();
             //     echo "File type is incorrrect.";
             //   }
 
-            $result = Model::fillOpdForm($user_id, $department, $patientname, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag ,$surgical_form_flag , $connect);
+            $result = Model::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag, $connect);
 
             if ($result) {
-                // header('Location:../view/hallAllocationMaintainer/hamProfileV.php');
-                // header('Location:../view/basic/profileUpdateSuccess.php');
-                // echo "Changes updated successfully.";
                 header('Location:../view/medicalSchemeMember/memFormSubmitSuccessV.php');
             }
             else {
