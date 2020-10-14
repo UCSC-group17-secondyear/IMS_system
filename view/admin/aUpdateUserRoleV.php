@@ -22,7 +22,7 @@
             <h3>Update User role</h3>
         </div>
         
-        <form action="../../controller/setUserRoleController.php" method="post">
+        <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
             <label for="">Employee Id</label>
             <input type="text" name="empid" placeholder="Employee Id" required>
             <label for="">Enter user role</label>
@@ -39,12 +39,8 @@
             <option value="departmentHead">Department Head</option>
             <option value="medicalOfficer">Medical Officer</option>
             </select>
-            <button type="submit" name="userRole-submit">Save</button>
+            <button type="submit" name="updateUserRole-submit">Save</button>
         </form>
-    </div>
-    
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
 
     <?php

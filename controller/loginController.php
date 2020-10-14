@@ -34,7 +34,7 @@
                     $_SESSION['empid'] = $key['empid'];
 
                     if ($key['userRole'] == "admin") {
-                    	header('Location:../view/admin/adminV.php');
+                    	header('Location:../view/admin/aHomeV.php');
 					}
 					else if ($key['userRole'] == "academicStaffMemb") {
 						header('Location:../view/academicStaffMember/asmHomeV.php');

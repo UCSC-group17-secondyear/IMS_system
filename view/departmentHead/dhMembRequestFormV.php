@@ -20,11 +20,6 @@
         <div>
             <h3>Memebership Requesting Forms</h3>
         </div>
-
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
 
     <?php

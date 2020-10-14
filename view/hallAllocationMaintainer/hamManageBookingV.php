@@ -9,9 +9,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <!-- <div class="nameLogo"> -->
             <img src="../img/ims.jpg" alt="ims" class="logo">
-            <!-- </div> -->
             <div class="options">
                 <a href="hamHomeV.php">Home</a>
                 <a href="hamProfileV.php">Profile</a>

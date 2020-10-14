@@ -27,10 +27,6 @@
         <a href="hamBookingDetailsV.php"><button type="submit" name="updateBooking-submit">OK</button></a>
     </div>
 
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
-
     <?php
         require '../basic/footer.php';
     ?>

@@ -18,20 +18,14 @@
     </div>
 
     <div class="content">
-            <div>
-                <h4>Student List</h4>
-            </div>
-            <!-- pdf ekak generate kranna -->
-            <a href="rvViewMahapolaNominatedListV.php"><button type="submit" name="">Back</button></a><br>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+        <div>
+            <h4>Student List</h4>
+        </div>
+        <!-- pdf ekak generate kranna -->
+        <a href="rvViewMahapolaNominatedListV.php"><button type="submit" name="">Back</button></a><br>
     </div>
 
     <?php
         require '../basic/footer.php';
     ?>
-
-
 </main>
