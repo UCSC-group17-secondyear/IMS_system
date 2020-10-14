@@ -1,5 +1,7 @@
 <?php 
     session_start();
+    // include 'model/Model.php';
+	// include 'config/database.php';
     require_once('../model/Model.php');
     require_once('../config/database.php');
 ?>
@@ -23,6 +25,7 @@
 
             $result = Model::getlogin($empid, $hashed_password, $connect);
 
+            // print_r($result->fetch_assoc());
             if ($result) {
                 if (mysqli_num_rows($result)==1) {
                     $key = mysqli_fetch_assoc($result);
@@ -31,7 +34,7 @@
                     $_SESSION['empid'] = $key['empid'];
 
                     if ($key['userRole'] == "admin") {
-                    	header('Location:../view/admin/adminV.php');
+                    	header('Location:../view/admin/aHomeV.php');
 					}
 					else if ($key['userRole'] == "academicStaffMemb") {
 						header('Location:../view/academicStaffMember/asmHomeV.php');
@@ -62,12 +65,13 @@
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    echo "Row count is zero";
+                    echo "No row bla bla bla";
                 }
             }
             else {
-            	echo "Invalid user";
+            	echo "INVALID";
             }
         }
     }
+
 ?>
