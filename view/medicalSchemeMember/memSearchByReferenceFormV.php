@@ -29,10 +29,6 @@
         <a href="memClaimDetailsReferenceNumberV.php"><button type="submit" name="">Display Form</button></a><br>
     </div>
     
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
-    
     <?php
         require_once('../basic/footer.php');
     ?>

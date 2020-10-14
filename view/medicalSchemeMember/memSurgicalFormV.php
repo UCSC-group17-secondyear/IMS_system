@@ -122,10 +122,6 @@
 
         <p>Download the form to be filled by the surgeon and get if field before you fill the surgical hospitalization form.</p>
     </div>
-   
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
     
     <?php
         require_once('../basic/footer.php');

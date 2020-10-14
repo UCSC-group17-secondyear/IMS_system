@@ -28,9 +28,7 @@
             <option value="monthlyEligibiltyList">Monthly Eligibility List</option>
             <option value="monthlyInEligibiltyList">Monthly In-Eligibility List</option>
             <option value="monthlyReconciliationReport">Monthly Reconciliation Report</option>
-        </select>
-        <br>
-        <br>
+        </select> <br> <br>
 
         <label for="yearmonth">Select Year & Month</label>
         <input type="month" id="yearmonth" name="yearmonth"><br><br>
@@ -43,16 +41,9 @@
             <option value="">Select Degree</option>
             <option value="CS">CS</option>
             <option value="IS">IS</option>
-        </select>
-        <br>
-        <br>
+        </select> <br> <br>
 
         <a href="mmDisplayReportV.php" ><button type="submit" name="" >Display Report</button></a><br>
-    </div>
-
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
     
     <?php

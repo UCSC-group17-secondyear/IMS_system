@@ -19,26 +19,19 @@
 
     <div class="content">
         <div>
-                <h3>Member Details</h3>
-            </div>
+            <h3>Member Details</h3>
+        </div>
 
-            <!-- get method wge mokk hri ekakin id eken details aran display krnna ona -->
+        <a href="msmRemoveMemberV.php"><button onclick="myFunction()">Delete</button></a>
 
-            <a href="msmRemoveMemberV.php"><button onclick="myFunction()">Delete</button></a>
-
-            <script>
+        <script>
             function myFunction() {
                 alert("The employee has been removed successfully.");
             }
-            </script>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+        </script>
     </div>
 
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>

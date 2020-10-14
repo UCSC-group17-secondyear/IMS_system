@@ -38,8 +38,6 @@
                     Form</button></a> <br>
             <a href="msmViewFormListV.php"><button type="submit" name="requestedClaim-submit">Requested Claim
                     Form</button></a> <br>
-
-            <!-- meketh form ekta adaalawa display krnn ona -->
         </div>
 
         <div class="footer">
@@ -49,5 +47,4 @@
         </div>
     </div>
 </body>
-
 </html>

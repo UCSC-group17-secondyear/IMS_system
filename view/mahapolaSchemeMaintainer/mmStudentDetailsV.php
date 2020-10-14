@@ -46,16 +46,9 @@
             <label for="m">M</label>
             <input type="radio" id="o" name="mo" value="o">
             <label for="o">O</label><br>
-            
-        
         </form>
         <br>
-
         <a href="mmStudentDetailsSaveV.php" ><button type="submit" name="" >Save</button></a><br>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
     
     <?php

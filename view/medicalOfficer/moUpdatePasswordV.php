@@ -48,20 +48,11 @@
                 <input type="password" name="conpassword" required> <br>
 
                 <button type="submit" name="submit">Save Password</button>
-
             </form>
-
-                <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai mekedi update krnna puluwn wenna ona -->
-
         </div>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
 
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>

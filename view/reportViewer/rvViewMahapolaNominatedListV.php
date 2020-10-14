@@ -20,25 +20,20 @@
 
     <div class="content">
         <div>
-                <h4>View Mahapola Nominated Student List</h4>
-            </div>
-            <input type="text" value="" placeholder="Enter batch no"> <br><br>
-            <select name="degree" id="">
-                <option value="">Select Degree</option>
-                <option value="CS">CS</option>
-                <option value="IS">IS</option>
-            </select>
-            <br>
-            <br>
-            <a href="rvNominatedListV.php"><button type="submit" name="">Display Student List</button></a><br>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+            <h4>View Mahapola Nominated Student List</h4>
+        </div>
+        <input type="text" value="" placeholder="Enter batch no"> <br><br>
+        <select name="degree" id="">
+            <option value="">Select Degree</option>
+            <option value="CS">CS</option>
+            <option value="IS">IS</option>
+        </select>
+        <br>
+        <br>
+        <a href="rvNominatedListV.php"><button type="submit" name="">Display Student List</button></a><br>
     </div>
 
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>
