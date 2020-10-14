@@ -54,9 +54,9 @@
 			return $result;
 		}
 
-		public static function updatePassword($user_id, $hashed_password, $connect)
+		public static function updatePassword($empid, $hashed_password, $connect)
 		{
-			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId={$user_id} LIMIT 1";
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE empid='{$empid}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -90,31 +90,21 @@
 			return $result;
 		}
 
-		public static function registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $connect)
-		{
-			$query = "INSERT INTO tbl_user_flag (user_id, department, healthcondition, civilstatus, schemename) VALUES('$user_id', '$department', '$health_condition', '$civil_status', '$scheme_name')";
+		public static function checkEmpidThree($empid, $user_id, $connect){
+			$query = "SELECT * FROM users WHERE empid='{$empid}' AND userId!={$user_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function fillOpdForm($user_id, $department, $patientname, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag,  $connect){
+			$query = "INSERT INTO tbl_claimform (user_id,  department, patientname, relationship,  doctor_name, treatment_received_date, bill_issued_date, purpose, bill_amount, opd_form_flag, surgical_form_flag) VALUES ( $user_id , '$department', '$patientname' ,'$relationship', '$doctor_name' , '$treatment_received_date' ,'$bill_issued_date', '$purpose' , '$bill_amount', 1, 0) ";
 
 			$result = mysqli_query($connect, $query);
-
 			return $result;
 		}
 
-		public static function department($connect)
-		{
-			$query = "SELECT department FROM tbl_department";
-
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
-		public static function scheme($connect)
-		{
-			$query = "SELECT schemename FROM tbl_medicalscheme";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
+		
 	}
 ?>

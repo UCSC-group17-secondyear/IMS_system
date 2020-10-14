@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once('../model/Model.php');
   require_once('../config/database.php');
 
@@ -23,33 +24,39 @@
         $sendMail = mail($to_email, $subject, $body, $headers);
 
         if ($sendMail) 
-        {
-          include '../view/basic/checkRandNumV.php';
+         {  //echo $randNum;
+           $_SESSION['randNum'] = $randNum;
+           $_SESSION['uname'] = $uname;
+           //echo $_SESSION['randNum'];
+          // header('Location:../view/basic/adminV.php');
+          header('Location:../view/basic/checkRandNumV.php');
+          // include '../view/basic/checkRandNumV.php';
 
-          if(isset($_POST['codecheck-submit'])) 
-          {
-            $code = $_POST['code'];
-            if ($code==$randNum) 
-            {
-              include '../view/basic/resetPwdV.php';
-              if (isset($_POST['savepwd']))
-              {
-                $res = Model::updatePassword($uname, $pwd, $connect);
-                if ($res) {
-                  echo "Your password has been reset successfully!";
-                }
-                else {
-                  echo "Password has not been reset!";
-                }
-              }
-            }
-            else {
-              echo "Sorry. The number you entered is incorrect!";
-            }
-          }
-          else {
-            echo "Submit button has not been pressed!";
-          }
+          // if(isset($_POST['codecheck-submit'])) 
+          // {
+          //   $code = mysqli_real_escape_string($connect,$_POST['code']);//$_POST['code'];
+          //   if ($code==$randNum) 
+          //   {
+          //     header('Location:../view/basic/resetPwdV.php');
+          //     // include '../view/basic/resetPwdV.php';
+          //     if (isset($_POST['savepwd']))
+          //     {
+          //       $res = Model::updatePassword($uname, $pwd, $connect);
+          //       if ($res) {
+          //         echo "Your password has been reset successfully!";
+          //       }
+          //       else {
+          //         echo "Password has not been reset!";
+          //       }
+          //     }
+          //   }
+          //   else {
+          //     echo "Sorry. The number you entered is incorrect!";
+          //   }
+          // }
+          // else {
+          //   echo "Submit button has not been pressed!";
+          // }
         }
         else {
           echo "mail has not been sent!";

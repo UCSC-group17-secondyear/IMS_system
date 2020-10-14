@@ -18,7 +18,7 @@
     </div>
     
     <div class="content">
-        <form action="../../controller/registerMSControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+        <form action="../../controller/memControllers/registerMSControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
         <p>   
             <label>Employee ID: </label>
             <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled>
