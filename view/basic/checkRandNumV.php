@@ -12,18 +12,21 @@
     </div> -->
   </div>
   <div class="content">
-    <form action="../../controller/pwdController.php" method="POST">
+    <form action="../../controller/pwdControllerTwo.php" method="POST">
         <h2>Verification Code</h2>
         <p>
           <label>Enter received code</label>
           <input type="text" placeholder="verification code" name="code" required/>
         </p>
-
+        
+        
         <p>
           <button type="submit" name="codecheck-submit">Verify</button>
         </p>
         <p>
+          
       </form>
+      
   </div>
   <?php
     require "footer.php";
