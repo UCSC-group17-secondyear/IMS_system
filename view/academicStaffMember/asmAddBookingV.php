@@ -5,7 +5,10 @@
     ?>
 
     <div class="header">
-        Breadcrumbs
+        <ul class="breadcrumbs">
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li>Add Booking</li>
+        </ul>
     </div>
 
     <div class="side-nav">
@@ -16,20 +19,26 @@
 
     <div class="content">
         <div>
-                <h3>Add a Booking</h3>
-            </div>
-
-            Enter Date<input type="date" id="" name="enterDate"><br>
-            Enter Hall<select name="hall" id="hall">
-                <option value="">Select a Hall</option>
-                <option value="E401">E401</option>
-                <option value="S104">S104</option>
-                <option value="W001">W001</option>
-            </select>
-            <br>
-            Start Time<input type="time" id="" name="startTime"><br>
-            End Time<input type="time" id="" name="endTime"><br>
-            <a href="asmBookingSuccessfulV.php"><button type="submit" name="addBooking-submit">Book</button></a>
+            <h3>Add a Booking</h3>
+        </div>
+        <div>
+            <form action="../../controller/addBookingControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                <label for="">Enter Date: </label>
+                <input type="date" name="date" required> <br>
+                <label for="">Enter Hall: </label>
+                <select name="hall" id="hall" required>
+                    <option value="">Select a Hall</option>
+                    <?php echo $_SESSION['halls'] ?>
+                </select> <br>
+                <label for="">Start Time</label>
+                <input type="time" name="startTime" required> <br>
+                <label for="">End Time</label>
+                <input type="time" name="endTime" required> <br> 
+                <label for="">Reason: </label>
+                <input type="text" name="reason" required> <br> 
+                <button type="submit" name="submit">Book</button>
+            </form>
+        </div>
     </div>
 
     <div class="right-side-bar">
