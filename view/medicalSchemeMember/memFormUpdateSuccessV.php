@@ -22,12 +22,7 @@
     <div class="content">
         <p>Your Form has been Submitted Succesfully.</p>
         <!-- form eka updat kalat passe mekay redirect wenne -->
-
         <a href="memUpdateClaimFormsV.php"><button type="submit" name="">OK</button></a><br>
-    </div>
- 
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
     
     <?php
