@@ -1,6 +1,5 @@
 <?php
 	require_once('../config/database.php');
-
 ?>
 
 <?php
@@ -54,9 +53,9 @@
 			return $result;
 		}
 
-		public static function updatePassword($user_id, $hashed_password, $connect)
+		public static function updatePassword($empid, $hashed_password, $connect)
 		{
-			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId={$user_id} LIMIT 1";
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE empid='{$empid}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

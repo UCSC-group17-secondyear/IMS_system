@@ -12,14 +12,14 @@
     </div> -->
   </div>
   <div class="content">
-    <form action="../../controller/pwdController.php" method="POST">
+    <form action="../../controller/pwdControllerThree.php" method="POST">
         <h2>Reset Password</h2>
         <p>
-          <input type="password" placeholder="Enter password" name="uname" required/>
+          <input type="password" placeholder="Enter password" name="pwd" required/>
         </p>
         
         <p>
-          <input type="password" placeholder="Confirm Password" name="pwd" required/>
+          <input type="password" placeholder="Confirm Password" name="conpwd" required/>
         </p>
         
         <p>

@@ -43,9 +43,8 @@
                 <input type="text" name="appointment" <?php echo 'value="'.$_SESSION['appointment'].'"' ?> disabled> <br>                    
                 <button type="submit" name="submit">Update Profile</button>
             </form>
-                    
-                    <!-- mekedi api database eken gnna data tika for each loop ekk ghla display krnna ona habai methndi update krnna denna ba -->
-            </div>
+            <!-- The data that will be fetched from the database and will be displayed by using a foreach loop, but will not be allowed to change. -->
+        </div>
     </div>
 
     <div class="right-side-bar">
@@ -55,5 +54,4 @@
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>
