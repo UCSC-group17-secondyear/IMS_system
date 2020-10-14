@@ -9,8 +9,8 @@
 
     <button class="button accordion">Manage Booking</button>
         <div class="panel">
-            <a href="asmAddBookingV.php" class="buttonTwo">Add a Booking</a>
-            <a href="asmUpdateBookingV.php" class="buttonTwo">Update/ Remove Booking</a>
+            <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Add a Booking</a>
+            <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">My Bookings</a>
         </div>
 
         <a href="../../controller/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>

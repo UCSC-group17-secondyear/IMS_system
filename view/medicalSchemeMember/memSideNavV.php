@@ -17,8 +17,6 @@
             <a href="memSearchByReferenceFormV.php" class="buttonTwo">Search By Ref. Number</a> <br>
             <a href="memClaimFormListV.php" class="buttonTwo">Display Form List</a>
         </div>
-        <a href="memGetClaimDetailsV.php"><button type="submit" name="" class="button">Get Claim
-                Detials</button></a><br>
         <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
