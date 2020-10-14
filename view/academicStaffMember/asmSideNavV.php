@@ -13,7 +13,7 @@
             <a href="asmUpdateBookingV.php" class="buttonTwo">Update/ Remove Booking</a>
         </div>
 
-        <a href="../../controller/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+        <a href="../../controller/memControllers/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
 
     <script>
         var acc = document.getElementsByClassName("accordion");
