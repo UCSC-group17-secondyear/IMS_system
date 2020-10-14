@@ -1,17 +1,49 @@
 <?php
-	/*include 'model/Model.php';
-	include 'config/database.php';
+	
+	session_start();
+	require_once('../model/Model.php');
+	require_once('../config/database.php');
+	
+	$user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
 
-	class HomeController {
-		public $model;
+	$result_set = Model::view($user_id, $connect);
 
-		public function __construct() {
-	        $this->model = new Model();
-	    }
+	if ($result_set) {
+		$result = mysqli_fetch_assoc($result_set);
 
-	    public function home() {
-	    	require_once('view/homePageV.php');
-	    }	
-	}*/
-	header('Location:../view/homePageV.php');
+		if ($result['userRole'] == "admin") {
+            header('Location:../view/admin/aHomeV.php');
+		}
+		else if ($result['userRole'] == "academicStaffMemb") {
+			header('Location:../view/academicStaffMember/asmHomeV.php');
+		}
+		else if ($result['userRole'] == "attendanceMain") {
+			header('Location:../view/attendanceMaintainer/amHomeV.php');
+		}
+		else if ($result['userRole'] == "hallAllocationMain") {
+			header('Location:../view/hallAllocationMaintainer/hamHomeV.php');
+		}
+		else if ($result['userRole'] == "mahapolaSchemeMain") {
+			header('Location:../view/mahapolaSchemeMaintainer/mmHomeV.php');
+		}
+		else if ($result['userRole'] == "medicalSchemeMain") {
+			header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
+		}
+		else if ($result['userRole'] == "recordsViewer") {
+			header('Location:../view/recordsViewer/rvHomeV.php');
+		}
+		else if ($result['userRole'] == "departmentHead") {
+			header('Location:../view/departmentHead/dhHomeV.php');
+		}
+		else if ($result['userRole'] == "medicalOfficer") {
+			header('Location:../view/medicalOfficer/moHomeV.php');
+		}
+		else {
+			echo "USER";
+		}
+	}
+	else {
+		echo "Query failed..";
+	}
+
 ?>
