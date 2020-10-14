@@ -25,13 +25,8 @@
         <a href="asmBookingUpdateSaveV.php"><button type="submit" name="bookingUpdateSave-submit">Save Updates</button></a><br>
         <a href="asmBookingRemoveV.php"><button type="submit" name="bookingRemove-submit">Remove</button></a>
     </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
-
+    
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>

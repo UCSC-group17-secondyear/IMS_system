@@ -18,7 +18,6 @@
     </div>
 
     <div class="content">
-
         <table class="mytable"> 
             <tr>
                 <th>Date</th>
@@ -39,10 +38,6 @@
 
         Enter booking id : <input type="text" id="" name="bookingId" placeholder="Booking Id"><br>
         <a href="asmBookingDetailsV.php"><button type="submit" name="updateBooking-submit">OK</button></a> -->
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
 
     <?php
