@@ -1,5 +1,5 @@
 <main>
-    <title>User Roless</title>
+    <title>User Roless List</title>
 
     <?php
         require '../basic/header.php';
@@ -26,14 +26,8 @@
                 <th>User role</th>
                 <th>Description</th>
             </tr>
-            
             <?php echo $_SESSION['user_role'] ?>
-
         </table>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
 
     <?php
