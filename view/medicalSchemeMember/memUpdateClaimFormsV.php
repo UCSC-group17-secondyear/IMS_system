@@ -30,10 +30,6 @@
         </ul>
         <!-- database eken form list ekak enawa. eken form eka select krala form page ekat yanwa -->
     </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
     
     <?php
         require_once('../basic/footer.php');

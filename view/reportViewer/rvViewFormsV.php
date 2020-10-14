@@ -18,22 +18,17 @@
     </div>
 
     <div class="content">
-            <div>
-                <h3>View Forms of Medical Scheme</h3>
-            </div>
-            <a href="#"><button type="submit" name="membership-submit">Membership Form</button></a>
-            <br>
-            <a href="#"><button type="submit" name="refferedClaim-submit">Reffered Claim Form</button></a> <br>
-            <a href="#"><button type="submit" name="requestedClaim-submit">Requested Claim Form</button></a> <br>
-            <!-- meketh form ekta adaalawa display krnn ona -->
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+        <div>
+            <h3>View Forms of Medical Scheme</h3>
+        </div>
+        <a href="#"><button type="submit" name="membership-submit">Membership Form</button></a>
+        <br>
+        <a href="#"><button type="submit" name="refferedClaim-submit">Reffered Claim Form</button></a> <br>
+        <a href="#"><button type="submit" name="requestedClaim-submit">Requested Claim Form</button></a> <br>
+        <!-- meketh form ekta adaalawa display krnn ona -->
     </div>
 
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>

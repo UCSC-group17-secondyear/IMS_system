@@ -18,42 +18,35 @@
     </div>
 
     <div class="content">
-            <div>
-                <h3>View Claim Details</h3>
-            </div>
-            <form action="" method="POST">
-                <label for="year">Enter medical year: </label>
-                <input type="text" id="medicalYear"> <br> <br>
+        <div>
+            <h3>View Claim Details</h3>
+        </div>
+        <form action="" method="POST">
+            <label for="year">Enter medical year: </label>
+            <input type="text" id="medicalYear"> <br> <br>
 
-                <input type="radio" id="memberWise" name="wise" value="memberwise">
-                <label for="memberwise">Member-wise Claim Details</label> <br>
-                <label for="empId">Enter employee id: </label>
-                <input type="text" id="empId"> <br>
+            <input type="radio" id="memberWise" name="wise" value="memberwise">
+            <label for="memberwise">Member-wise Claim Details</label> <br>
+            <label for="empId">Enter employee id: </label>
+            <input type="text" id="empId"> <br>
 
-                <input type="radio" id="departmentWise" name="wise" value="departmentwise">
-                <label for="departmentwise">Department-wise Claim Details</label> <br>
-                Department <select name="department" id="department">
-                    <option value="">Select a Department</option>
-                    <option value="CS">CS</option>
-                    <option value="IS">IS</option>
-                    <option value="SE">SE</option>
-                </select> <br>
+            <input type="radio" id="departmentWise" name="wise" value="departmentwise">
+            <label for="departmentwise">Department-wise Claim Details</label> <br>
+            Department <select name="department" id="department">
+                <option value="">Select a Department</option>
+                <option value="CS">CS</option>
+                <option value="IS">IS</option>
+                <option value="SE">SE</option>
+            </select> <br>
 
-                <input type="radio" id="UCSC" name="wise" value="UCSC">
-                <label for="UCSC">UCSC Claim Details</label>
-                <!-- meke name eka fill krnna -->
-            </form>
+            <input type="radio" id="UCSC" name="wise" value="UCSC">
+            <label for="UCSC">UCSC Claim Details</label>
+        </form>
 
-            <a href="msmClaimDetailsV.php"><button type="submit" name="selectwise-submit">Select</button></a>
-            <!-- mekedi javascript function ekk liyla check krla tamai ywnna ona eka tornne -->
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+        <a href="msmClaimDetailsV.php"><button type="submit" name="selectwise-submit">Select</button></a>
     </div>
 
     <?php
         require '../basic/footer.php';
     ?>
-
 </main>

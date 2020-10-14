@@ -32,14 +32,9 @@
             <label for="designation">Email</label>
             <input type="text" value=""> <br>
             <!-- database eken details ganna one -->
-
         </form>
 
         <a href="memUpdateSuccessV.php"><button type="submit" name="currentMemberDetail-submit">Save Updates</button></a><br>
-    </div>
-   
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
     
     <?php
