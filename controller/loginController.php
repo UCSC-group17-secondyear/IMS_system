@@ -1,7 +1,5 @@
 <?php 
     session_start();
-    // include 'model/Model.php';
-	// include 'config/database.php';
     require_once('../model/Model.php');
     require_once('../config/database.php');
 ?>
@@ -25,7 +23,6 @@
 
             $result = Model::getlogin($empid, $hashed_password, $connect);
 
-            // print_r($result->fetch_assoc());
             if ($result) {
                 if (mysqli_num_rows($result)==1) {
                     $key = mysqli_fetch_assoc($result);
@@ -65,13 +62,12 @@
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    echo "No row bla bla bla";
+                    echo "Row count is zero";
                 }
             }
             else {
-            	echo "INVALID";
+            	echo "Invalid user";
             }
         }
     }
-
 ?>

@@ -22,15 +22,11 @@
             <h3>Remove a User role</h3>
         </div>
         
-        <form action="../../controller/removeRoleController.php" method="post">
+        <form action="../../controller/adminControllers/manageUSerRoleController.php" method="post">
             Enter User role <input type="text" name="userRole" placeholder="User role" required/> <br>
             
             <button type="submit" name="remove-submit">Remove user role</button>
         </form>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
 
     <?php

@@ -16,19 +16,15 @@
             require '../admin/aSideNavV.php';
         ?>
     </div>
-        
-        <div class="content">
-            <div>
-                <h3><li>Remove a medical scheme</li></h3>
-            </div>
-            
-            Enter Scheme Number <input type="text" name="scheme" placeholder="Scheme Number" required/> <br>
-
-            <button type="submit" name="removeScheme-submit">Remove</button>
+    
+    <div class="content">
+        <div>
+            <h3><li>Remove a medical scheme</li></h3>
         </div>
+        
+        Enter Scheme Number <input type="text" name="scheme" placeholder="Scheme Number" required/> <br>
 
-        <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
+        <button type="submit" name="removeScheme-submit">Remove</button>
     </div>
 
     <?php
