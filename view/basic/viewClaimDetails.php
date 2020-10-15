@@ -10,19 +10,20 @@
         <div class="collapse">
           <p>Contribution for the period of one year is RS.2,580/-</p>
           <p>Monthly deduction from your salary will be RS.215/-</p>
+          <p>Individual or Family</p>
         </div>
 
         <button type="button" class="collapsible">Scheme 2</button>
         <div class="collapse">
           <p>Contribution for the period of one year is RS.10,800/-</p>
           <p>Monthly deduction from your salary will be RS.900/-</p>
-          <p>Only for Individual Staff Members</p>
         </div>
 
         <button type="button" class="collapsible">Scheme 3</button>
         <div class="collapse">
           <p>Contribution for the period of one year is RS.1,440/-</p>
           <p>Monthly deduction from your salary will be RS.120/-</p>
+          <p>Only for Individuals</p>
         </div>
 
         <div>

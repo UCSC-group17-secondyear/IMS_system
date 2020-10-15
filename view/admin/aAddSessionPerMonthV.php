@@ -7,7 +7,7 @@
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Add a new Session</li>
+            <li>Assign monthly sessions to subjects</li>
         </ul>
     </div>
 
@@ -19,18 +19,22 @@
 
     <div class="content">
         <div>
-            <h3>Add a new Session</h3>
+            <h3>Assign monthly sessions to subjects</h3>
         </div>
-        
-        Enter month <input type="text" name="month" placeholder="Month" required/><br>
 
-        Enter subject <input type="text" name="subject" placeholder="Subject" required/> <br>
+        <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
+            Enter calendar year <input type="text" name="year" placeholder="Calendar Year" required/><br>
 
-        Enter session type <input type="text" name="sessionType" placeholder="Session type" required/> <br>
+            Enter month <input type="text" name="month" placeholder="Month" required/><br>
 
-        Enter number of sessions per month <input type="text" name="numOfSessions" placeholder="Number of sessions per month" required/> <br>
+            Enter subject <input type="text" name="subject" placeholder="Subject" required/> <br>
 
-        <button type="submit" name="addSession-submit">Add session</button>
+            Enter session type <input type="text" name="sessionType" placeholder="Session type" required/> <br>
+
+            Enter number of sessions per month <input type="text" name="numOfSessions" placeholder="Number of sessions per month" required/> <br>
+
+            <button type="submit" name="addMSession-submit">Add session</button>
+        </form>
     </div>
 
     <?php
