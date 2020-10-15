@@ -4,7 +4,6 @@
         require('../basic/header.php');    
     ?>
 
-        
     <div class="header">
         
     </div>
@@ -29,10 +28,6 @@
         <br>
         <a href="mmStudentDetailsV.php" ><button type="submit" name="" >Display Student's Details</button></a><br>
         <!-- mekedi js function eka check krla tamai display kranna one -->
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
     
     <?php

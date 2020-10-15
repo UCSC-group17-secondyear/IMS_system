@@ -29,10 +29,6 @@
         <!-- if ekakin check krala selectScheme.php & schemeChangeYes.php walin ekakat yanwa -->
         <a href="memCurrentMemberDetailsV.php"><button type="submit" name="">No</button></a><br>
     </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
     
     <?php
         require_once('../basic/footer.php');

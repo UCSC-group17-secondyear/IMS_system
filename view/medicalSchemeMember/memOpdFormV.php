@@ -5,12 +5,10 @@
     require('../basic/header.php');
     
 ?>
-
-        
+ 
             <div class="header">
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <!-- <li><a href="memFillClaimFormsV.php">Select Form Type</a></li>  -->
                     <li>OPD Form</li>
                 </ul>
             </div>
@@ -50,7 +48,7 @@
 
 
                     <label for="">Enter Patient's Name</label>
-                    <input type="text" name="patientname" required> <br>
+                    <input type="text" name="patient_name" required> <br>
 
                     <label for="">Select relationship</label>
                     <select name="relationship" id="" required>
@@ -79,25 +77,13 @@
                     <!-- <label for="">Scanned copy of bill</label>
                     <input type="file" name="bill" required> -->
                     
-
-                    <button type="submit" name="submit">Submit</button><br>
+                    <button type="submit" name="form-submit">Submit</button><br>
                     
                 </form>
-
-                <!-- <form action="../../controller/opdFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST" enctype="multipart/form-data">
-                    <label for="">Scanned copy of bill</label>
-                    <input type="file" name="bill" required>
-                    
-
-                    <button type="submit" name="submit">Submit</button><br>
-                </form> -->
-
-                
 
                 <p>Download the form to be filled by the surgeon and get if field before you fill the surgical
                     hospitalization form.</p>
             </div>
-        
 
             <div class="right-side-bar">
                 <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
@@ -106,7 +92,5 @@
             <?php
                 require_once('../basic/footer.php');
             ?>
-      
 
 </main>
-
