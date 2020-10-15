@@ -14,12 +14,12 @@
         </div>
 
     <button class="button accordion">Manage Booking</button>
-        <div class="panel">
-            <a href="hamAddBookingV.php" class="buttonTwo">Add a Booking</a> <br>
-                <a href="hamUpdateBookingV.php" class="buttonTwo">Update/ Remove Booking</a>
-        </div>
+    <div class="panel">
+        <a href="hamAddBookingV.php" class="buttonTwo">Add a Booking</a> <br>
+            <a href="hamUpdateBookingV.php" class="buttonTwo">Update/ Remove Booking</a>
+    </div>
 
-        <a href="../../controller/memControllers/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
 
     <script>
         var acc = document.getElementsByClassName("accordion");

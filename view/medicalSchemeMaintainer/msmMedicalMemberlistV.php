@@ -1,5 +1,4 @@
 <main>
-
     <?php
         require '../basic/header.php';
     ?>
@@ -18,28 +17,27 @@
     </div>
 
     <div class="content">
-        <div>
-            <h3>Member List</h3>
-        </div>
+        <form action="">
+            <h1>Members in IMS System</h1>
+            <table class="mytable">
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Initials</th>
+                    <th>Surname</th>
+                    <th></th>
+                </tr>
+                <?php echo $_SESSION['member_info'] ?>
+            </table>
+            <br>
+            <a href="msmViewMedicalMemberlistV.php"><button type="submit" name="MedicalMemberlist-submit">OK</button></a>
+        </form>
+    </div>
 
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <br>
-
-        <a href="msmViewMedicalMemberlistV.php"><button type="submit" name="MedicalMemberlist-submit">OK</button></a>
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
 
     <?php
         require '../basic/footer.php';
     ?>
-
-
 </main>

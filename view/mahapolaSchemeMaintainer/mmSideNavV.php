@@ -14,7 +14,7 @@
     <!-- attendance maintainerge ui flow eke aran demu -->
     <a href="mmViewSchemeDetailsV.php" ><button type="submit" name="" class="button">View Scheme Details</button></a><br>
     
-    <a href="../../controller/memControllers/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
 
     <script>
         var acc = document.getElementsByClassName("accordion");
