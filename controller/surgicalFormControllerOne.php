@@ -7,7 +7,7 @@
 ?>
 
 <?php
-    
+
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     //echo $user_id;
     $result_set = Model::viewMember($user_id, $connect);
@@ -20,15 +20,17 @@
             $_SESSION['initials'] = $result['initials'];
             $_SESSION['sname'] = $result['sname'];
             $_SESSION['designation'] = $result['designation'];
+            $_SESSION['tp'] = $result['tp'];
+            $_SESSION['mobile'] = $result['mobile'];
+            
 
-            header('Location:../view/medicalSchemeMember/memOpdFormV.php');
+            header('Location:../view/medicalSchemeMember/memSurgicalFormV.php');
                                     
         }
         else{
             echo "User not Found!";
         }
     }
-
     else
         {
             echo "Query Unsuccessful"; 
