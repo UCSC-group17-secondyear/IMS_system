@@ -18,19 +18,19 @@
     </div>
 
     <div class="content">
-        <div>
-            <h3>Add a new Semester</h3>
-        </div>
-        
-        Enter Semester <input type="text" name="semester" placeholder="Enter Semester" required/> <br>
+        <h1>Semester Details</h1>
 
-        Enter starting date <input type="text" name="startDate" placeholder="Starting date" required/> <br>
-
-        Enter ending date <input type="text" name="endDate" placeholder="Ending date" required/> <br>
-
-        <button type="submit" name="updateSemester-submit">Save Updates</button>
-        
-        <button type="submit" name="removeSemester-submit">Remove semester</button>
+        <table class="mytable">
+            <tr>
+                <th>Semester</th>
+                <th>Academic Year</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <?php echo $_SESSION['semester_list']; ?>
+        </table>
     </div>
 
     <?php

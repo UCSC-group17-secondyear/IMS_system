@@ -25,8 +25,7 @@
     <button class="button accordion">Manage Sessions</button>
     <div class="panel">
         <a href="aAddSessionV.php" class="buttonTwo">Add a new Session</a><br>
-        <a href="aUpdateRemoveSessionV.php" class="buttonTwo">Remove a Session</a><br>
-        <a href="aAssignSessionTypeV.php" class="buttonTwo">Assign a Session to a subject</a><br>
+        <a href="aUpdateRemoveSessionV.php" class="buttonTwo">Update or remove a Session</a><br>
     </div>
 
     <button class="button accordion">Manage Sessions Per Month</button>
@@ -38,7 +37,7 @@
     <button class="button accordion">Manage Semesters</button>
     <div class="panel">
         <a href="aAddSemesterV.php" class="buttonTwo">Add a new Semester</a><br>
-        <a href="aUpdateRemoveSemesterV.php" class="buttonTwo">Update or remove a Semester</a><br>
+        <a href="../../controller/aViewSemesterController.php" class="buttonTwo">Update or remove a Semester</a><br>
     </div>
 
     <button class="button accordion">Manage Halls</button>
@@ -59,7 +58,7 @@
         <a href="aUpdateRemoveDesignationV.php" class="buttonTwo">Update or remove a Designation</a><br>
     </div>
 
-    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+    <a href="../../controller/memControllers/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
 
     <script>
         var acc = document.getElementsByClassName("accordion");

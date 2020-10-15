@@ -1,5 +1,5 @@
 <main>
-    <title>Add a semester</title>
+    <title>Update semester</title>
     <?php
         require '../basic/header.php';
     ?>
@@ -7,7 +7,7 @@
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Add a new Semester</li>
+            <li>Update Semester</li>
         </ul>
     </div>
 
@@ -19,23 +19,23 @@
 
     <div class="content">
         <div>
-            <h3>Add a new Semester</h3>
+            <h3>Update Semester</h3>
         </div>
         <div>
-            <form action="../../controller/aAddSemesterController.php" method="POST">
+            <form action="../../controller/aUpdateSemesterController.php" method="POST">
                 <label for="">Enter Semester</label>
-                <select name="semester"required>
-                    <option value="">Select semester: </option>
+                <select name="semester" required>
+                    <option <?php echo 'value="'.$_SESSION['semester'].'"' ?>><?php echo $_SESSION['semester'] ?></option>
                     <option value="FirstSemester">First semester: </option>
                     <option value="SecondSemester">Second semester: </option>
                 </select>
                 <label for="">Enter Academic Year</label>
-                <input type="year" name="academic_year" placeholder="Academic Year" required/> <br>
+                <input type="year" name="academic_year" <?php echo 'value="'.$_SESSION['academic_year'].'"' ?> required/> <br>
                 <label for="">Enter Starting Date</label>
-                <input type="date" name="start_date" placeholder="Start date" required/> <br>
+                <input type="date" name="start_date" <?php echo 'value="'.$_SESSION['start_date'].'"' ?> required/> <br>
                 <label for="">Enter Ending Date</label>
-                <input type="date" name="end_date" placeholder="End date" required/> <br>                               
-                <button type="submit" name="addSemester-submit">Add Semester</button>
+                <input type="date" name="end_date" <?php echo 'value="'.$_SESSION['end_date'].'"' ?> required/> <br>                               
+                <button type="submit" name="addSemester-submit">Update Semester</button>
             </form>
         </div>
     </div>
