@@ -6,8 +6,8 @@
         <!-- <a href="memFillClaimFormsV.php" ><button type="submit" name="" class="button">Fill Claim Forms</button></a><br> -->
         <button class="button accordion">Fill Claim Forms</button>
         <div class="panel">
-            <a href="memOpdFormV.php" class="buttonTwo">OPD Form</a> <br>
-            <a href="memSurgicalFormV.php" class="buttonTwo">Surgical Hospitalization Form</a>
+            <a href="../../controller/opdFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">OPD Form</a> <br>
+            <a href="../../controller/surgicalFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Surgical Hospitalization Form</a>
         </div>
         <a href="memUpdateClaimFormsV.php"><button type="submit" name="" class="button">Update Claim
                 Form</button></a><br>
