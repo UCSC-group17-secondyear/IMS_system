@@ -21,14 +21,11 @@
         <div>
             <h3>Add a new session type</h3>
         </div>
-        
-        Enter session type <input type="text" name="sessionType" placeholder="Session type" required/> <br>
+        <form action="../../controller/adminControllers/manageSessionsC.php" method="post">
+            Enter session type <input type="text" name="sessionType" placeholder="Session type" required/> <br>
 
-        Enter subject <input type="text" name="subject" placeholder="Subject" required/> <br>
-
-        Enter number of sessions per smester <input type="text" name="numOfSessions" placeholder="Number of sessions per smester" required/> <br>
-
-        <button type="submit" name="addSession-submit">Add session type</button>
+            <button type="submit" name="addSession-submit">Add session type</button>
+        </form>
     </div>
 
     <?php

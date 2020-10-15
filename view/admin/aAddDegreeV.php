@@ -22,11 +22,13 @@
             <h3>Add a new degree</h3>
         </div>
 
-        Enter Degree Name <input type="text" id="" name="degree" placeholder="Degree name" required/><br>
+        <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
+            Enter Degree Name <input type="text" id="" name="degree_name" placeholder="Degree name" required/><br>
 
-        Degree Description <input type="text" id="" name="description" placeholder="Enter its description" required/><br>
-        
-        <button type="submit" name="addDegree-submit">Add degree</button>
+            Enter Abbreviation/code <input type="text" id="" name="degree_abbriviation" placeholder="Abbriviation" required/><br>
+            
+            <button type="submit" name="addDegree-submit">Add degree</button>
+        </form>
     </div>
 
     <?php
