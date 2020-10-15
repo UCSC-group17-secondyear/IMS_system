@@ -25,7 +25,8 @@
     <button class="button accordion">Manage Sessions</button>
     <div class="panel">
         <a href="aAddSessionV.php" class="buttonTwo">Add a new Session</a><br>
-        <a href="aUpdateRemoveSessionV.php" class="buttonTwo">Update or remove a Session</a><br>
+        <a href="aUpdateRemoveSessionV.php" class="buttonTwo">Remove a Session</a><br>
+        <a href="aAssignSessionTypeV.php" class="buttonTwo">Assign a Session to a subject</a><br>
     </div>
 
     <button class="button accordion">Manage Sessions Per Month</button>
