@@ -228,5 +228,24 @@
 			
 			return $result_set;
 		}
+
+		public static function fetchmembers($scheme, $member_type, $connect)
+		{
+			$query = "SELECT * FROM users WHERE userId IN
+				(SELECT user_id FROM tbl_user_flag WHERE schemename = '{$scheme}' AND member_type = '{$member_type}' AND membership_status=1) ORDER BY userId";
+
+			$result_set = mysqli_query($connect, $query);
+					
+			return $result_set;
+		}
+
+		public static function getmemberdetails($userid, $connect)
+		{
+			$query = "SELECT * FROM users u,tbl_user_flag f WHERE u.userId = '{$userid}' AND f.user_id = '{$userid}'";
+
+			$result_set = mysqli_query($connect, $query);
+					
+			return $result_set;
+		}
 	}
 ?>
