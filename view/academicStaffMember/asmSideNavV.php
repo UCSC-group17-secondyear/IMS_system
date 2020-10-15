@@ -8,12 +8,12 @@
     <a href="asmHallDetailsV.php"><button type="submit" name="" class="button">View Hall Details</button></a><br>
 
     <button class="button accordion">Manage Booking</button>
-        <div class="panel">
-            <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Add a Booking</a>
-            <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">My Bookings</a>
-        </div>
+    <div class="panel">
+        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Add a Booking</a>
+        <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">My Bookings</a>
+    </div>
 
-        <a href="../../controller/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
 
     <script>
         var acc = document.getElementsByClassName("accordion");
