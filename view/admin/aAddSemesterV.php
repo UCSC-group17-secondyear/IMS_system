@@ -21,14 +21,23 @@
         <div>
             <h3>Add a new Semester</h3>
         </div>
-        
-        Enter Semester <input type="text" name="semester" placeholder="Semester" required/> <br>
-
-        Enter starting date <input type="text" name="startDate" placeholder="Starting date" required/> <br>
-
-        Enter ending date <input type="text" name="endDate" placeholder="Ending date" required/> <br>
-
-        <button type="submit" name="addSemester-submit">Add semester</button>
+        <div>
+            <form action="../../controller/aAddSemesterController.php" method="POST">
+                <label for="">Enter Semester</label>
+                <select name="semester"required>
+                    <option value="">Select semester: </option>
+                    <option value="FirstSemester">First semester: </option>
+                    <option value="SecondSemester">Second semester: </option>
+                </select>
+                <label for="">Enter Academic Year</label>
+                <input type="year" name="academic_year" placeholder="Academic Year" required/> <br>
+                <label for="">Enter Starting Date</label>
+                <input type="date" name="start_date" placeholder="Start date" required/> <br>
+                <label for="">Enter Ending Date</label>
+                <input type="date" name="end_date" placeholder="End date" required/> <br>                               
+                <button type="submit" name="addSemester-submit">Add Semester</button>
+            </form>
+        </div>
     </div>
 
     <?php

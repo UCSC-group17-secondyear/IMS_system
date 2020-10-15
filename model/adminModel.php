@@ -9,17 +9,17 @@
 
 		public static function addUserrole($userrole, $description, $connect) 
 		{
-			$checkquery = "SELECT * FROM userroles WHERE role_name ='{$userrole}'" ;
+			// $checkquery = "SELECT * FROM userroles WHERE role_name ='{$userrole}'" ;
 
-			if ($checkquery) {
-				echo "User role already exists.";
-			}
-			else {
+			// if ($checkquery) {
+			// 	echo "User role already exists.";
+			// }
+			// else {
 				$query = "INSERT INTO userroles (role_name, description) VALUES('$userrole', '$description')";
 			
 				if($connect->query($query))
 					return true;
-			}
+			// }
 		}
 
 		public static function viewUserRoles($connect)

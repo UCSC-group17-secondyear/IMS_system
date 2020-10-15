@@ -18,29 +18,29 @@
     </div>
 
     <div class="content">
-        <div>
-            <h3>Select a Scheme</h3>
-        </div>
+        <form action="../../controller/msmviewMemberListTwoC.php" method="POST">
+            <label>Medical Scheme Type: </label>
+            <select name="schemename" id="schemename" required>
+                <option value="">Select Scheme</option>
+                <?php echo $_SESSION['scheme'] ?>
+            </select>
+            <br>
+            <label>Medical Member Type: </label>
+            <select name="member_type" id="member_type" required>
+                <option value="">Select Member Type</option>
+                <?php echo $_SESSION['member_type'] ?>
+            </select>
+            <br>
+            <button type="submit" name="viewMemberList-submit">Select</button>
+        </form>
+    </div>
 
-        <select name="scheme" id="">
-            <option value="">Select a Scheme</option>
-            <option value="scheme1">Scheme 1</option>
-            <option value="scheme2">Scheme 2</option>
-            <option value="scheme3">Scheme 3</option>
-        </select>
-        <br>
-        <select name="memberType" id="">
-            <option value="">Select a Member Type</option>
-            <option value="academic">Academic</option>
-            <option value="non-academic">Non - Academic</option>
-            <option value="temporary">Temporary</option>
-        </select>
-        <br>
-
-        <a href="msmMedicalMemberlistV.php"><button type="submit" name="viewMedicalMemberlist-submit">Select</button></a>
+    <div class="right-side-bar">
+        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
     </div>
 
     <?php
         require '../basic/footer.php';
     ?>
+
 </main>

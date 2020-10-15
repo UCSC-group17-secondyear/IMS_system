@@ -192,5 +192,105 @@
 
 			return $result;
 		}
+
+		public static function registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $member_type, $connect)
+		{
+			$query = "INSERT INTO tbl_user_flag (user_id, department, healthcondition, civilstatus, schemename, member_type) VALUES('$user_id', '$department', '$health_condition', '$civil_status', '$scheme_name', '$member_type')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function department($connect)
+		{
+			$query = "SELECT department FROM tbl_department";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function scheme($connect)
+		{
+			$query = "SELECT schemename FROM tbl_medicalscheme";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+        }
+        
+        public static function membertype($connect)
+		{
+			$query = "SELECT member_type FROM tbl_member_type";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function fetchmembers($scheme, $member_type, $connect)
+		{
+			$query = "SELECT * FROM users WHERE userId IN
+				(SELECT user_id FROM tbl_user_flag WHERE schemename = '{$scheme}' AND member_type = '{$member_type}' AND membership_status=1) ORDER BY userId";
+
+			$result_set = mysqli_query($connect, $query);
+					
+			return $result_set;
+		}
+
+		public static function getmemberdetails($userid, $connect)
+		{
+			$query = "SELECT * FROM users u,tbl_user_flag f WHERE u.userId = '{$userid}' AND f.user_id = '{$userid}'";
+
+			$result_set = mysqli_query($connect, $query);
+					
+			return $result_set;
+		}
+
+		public static function enterSemester($semester, $academic_year, $start_date, $end_date, $connect)
+		{
+			$query = "INSERT INTO tbl_semester (semester, academic_year, start_date, end_date ) VALUES('$semester', '$academic_year', '$start_date', '$end_date')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function viewSemesters($connect) 
+		{
+			$query = "SELECT * FROM tbl_semester WHERE is_deleted=0 ORDER BY sem_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function viewASem ($sem_id, $connect) 
+		{
+			$query = "SELECT * FROM tbl_semester WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function updateSemester($sem_id, $semester, $academic_year, $start_date, $end_date, $connect)
+		{
+			$query = "UPDATE tbl_semester SET semester='{$semester}', academic_year='{$academic_year}', start_date='{$start_date}', end_date='{$end_date}' WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteSemester($sem_id, $connect)
+		{
+			$query = "UPDATE tbl_semester SET is_deleted = 1 WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 	}
 ?>

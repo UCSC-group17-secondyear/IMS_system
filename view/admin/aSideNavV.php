@@ -37,7 +37,7 @@
     <button class="button accordion">Manage Semesters</button>
     <div class="panel">
         <a href="aAddSemesterV.php" class="buttonTwo">Add a new Semester</a><br>
-        <a href="aUpdateRemoveSemesterV.php" class="buttonTwo">Update or remove a Semester</a><br>
+        <a href="../../controller/aViewSemesterController.php" class="buttonTwo">Update or remove a Semester</a><br>
     </div>
 
     <button class="button accordion">Manage Halls</button>

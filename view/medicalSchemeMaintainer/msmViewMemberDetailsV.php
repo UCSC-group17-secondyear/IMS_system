@@ -21,8 +21,11 @@
         <div>
             <h3>Member Details</h3>
         </div>
-
-        <a href="msmRemoveMemberV.php"><button onclick="myFunction()">Delete</button></a>
+        <table class="mytable">
+            <tr>
+                <th>Employee ID</th>
+            <?php echo $_SESSION['member'] ?>
+        </table>
 
         <script>
             function myFunction() {
