@@ -49,7 +49,7 @@
     <button class="button accordion">Manage Departments</button>
     <div class="panel">
         <a href="aAddDepartmentV.php" class="buttonTwo">Add a new Department</a><br>
-        <a href="aUpdateRemoveDepartmentV.php" class="buttonTwo">Update or remove a Department</a><br>
+        <a href="../../controller/aViewDepartmentController.php" class="buttonTwo">Update or remove a Department</a><br>
     </div>
 
     <button class="button accordion">Manage Designations</button>
