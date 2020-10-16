@@ -18,21 +18,19 @@
     </div>
         
     <div class="content">
-        <div>
-            <h3>Update or remove a Hall</h3>
-        </div>
-        
-        Enter hall name <input type="text" name="hallName" placeholder="Hall name" required/> <br>
+        <h1>Hall Details</h1>
 
-        Enter Hall location <input type="text" name="hallLocation" placeholder="Hall location" required/> <br>
-
-        Enter Seating capacity <input type="text" name="seatingCapacity" placeholder="Seating capacity" required/> <br>
-
-        About AC availability <input type="text" name="acAvailability" placeholder="AC availability" required/> <br>
-
-        <button type="submit" name="updateHall-submit">Save Updates</button>
-        
-        <button type="submit" name="removeHall-submit">Remove Hall</button>
+        <table class="mytable">
+            <tr>
+                <th>Hall Name</th>
+                <th>Seating Capacity</th>
+                <th>Location</th>
+                <th>AC</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <?php echo $_SESSION['hall_list']; ?>
+        </table>
     </div>
 
     <?php

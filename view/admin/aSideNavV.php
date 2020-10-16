@@ -43,7 +43,7 @@
     <button class="button accordion">Manage Halls</button>
     <div class="panel">
         <a href="aAddHallV.php" class="buttonTwo">Add a new Hall</a><br>
-        <a href="aUpdateRemoveHallV.php" class="buttonTwo">Update or remove a Hall</a><br>
+        <a href="../../controller/aViewHallController.php" class="buttonTwo">Update or remove a Hall</a><br>
     </div>
 
     <button class="button accordion">Manage Departments</button>
