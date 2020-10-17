@@ -1,5 +1,5 @@
 <main>
-    <a href="msmViewMedicalMemberListV.php"><button type="submit" name="" class="button">View Medical Member List</button></a><br>
+    <a href="../../controller/msmviewMemberListC.php"><button type="submit" name="" class="button">View Medical Member List</button></a><br>
     
     <a href="msmRemoveMemberV.php"><button type="submit" name="" class="button">Remove Member</button></a><br>
     
