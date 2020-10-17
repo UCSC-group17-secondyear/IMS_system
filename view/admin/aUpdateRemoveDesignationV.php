@@ -18,17 +18,17 @@
     </div>
 
         <div class="content">
-            <div>
-                <h3>Update or remove a Designation</h3>
-            </div>
-            
-            Enter designation <input type="text" name="designation" placeholder="Designation" required/> <br>
+            <h1>Designation Details</h1>
 
-            Enter description<input type="text" name="designationDescriotion" placeholder="Designation description" required/> <br>
-
-            <button type="submit" name="updateDesignation-submit">Save Updates</button>
-            
-            <button type="submit" name="removeDesignation-submit">Remove Designation</button>
+        <table class="mytable">
+            <tr>
+                <th>Designation</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <?php echo $_SESSION['designation_list']; ?>
+        </table>
         </div>
 
     <?php
