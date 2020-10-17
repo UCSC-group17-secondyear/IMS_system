@@ -12,7 +12,7 @@
     </div> -->
   </div>
   <div class="content">
-    <form action="../../controller/pwdControllerTwo.php" method="POST">
+    <form action="../../controller/pwdController.php" method="POST">
         <h2>Verification Code</h2>
         <p>
           <label>Enter received code</label>
