@@ -19,7 +19,7 @@
         
         <button class="button accordion">View Claim Forms</button>
         <div class="panel">
-            <a href="memSearchByReferenceFormV.php" class="buttonTwo">Search By Ref. Number</a> <br>
+            <a href="memSearchByReferenceFormV.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Search By Ref. Number</a> <br>
             <a href="memClaimFormListV.php" class="buttonTwo">Display Form List</a>
         </div>
 
