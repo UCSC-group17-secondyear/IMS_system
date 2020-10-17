@@ -22,11 +22,13 @@
             <h3>Add a new Designation</h3>
         </div>
 
-        Enter designation <input type="text" name="designation" placeholder="Designation" required/><br>
-
-        Degree Description <input type="text" name="designationDescriotion" placeholder="Enter its description" required/><br>
-        
-        <button type="submit" name="addDesignation-submit">Add Designation</button>
+        <form action="../../controller/aAddDesignationController.php" method="POST">
+            <label for="">Designation Name</label>
+            <input type="text" name="designation" placeholder="Enter designation name" required/><br>
+            <label for="">Description</label>
+            <input type="text" name="description" placeholder="Enter description" required/><br>                    
+            <button type="submit" name="addDesignation-submit">Add Department</button>
+        </form>
     </div>
 
     <?php

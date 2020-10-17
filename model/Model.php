@@ -442,6 +442,68 @@
 
 			return $result;
 		}
+
+		public static function checkDesignationName($designation, $connect) 
+		{	
+			$query = "SELECT * FROM tbl_designation WHERE designation_name ='{$designation}'" ;
+			$result_set = mysqli_query($connect, $query);
+            return $result_set;
+		}
+		
+		public static function enterDesignation($designation, $description, $connect)
+		{
+			$query = "INSERT INTO tbl_designation (designation_name, description) VALUES('$designation','$description')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function viewDesignations($connect)
+		{
+			$query = "SELECT * FROM tbl_designation WHERE is_deleted=0 ORDER BY designation_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+		
+		public static function viewADesign($designation_id, $connect)
+		{
+			$query = "SELECT * FROM tbl_designation WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkDesignThree($designation_id, $designation, $connect)
+		{
+			$query = "SELECT * FROM tbl_designation WHERE designation_name='{$designation}' AND designation_id!={$designation_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;	
+		}
+
+		public static function updateDesignation($designation_id, $designation, $description, $connect)
+		{
+			$query = "UPDATE tbl_designation SET designation_name='{$designation}', description='{$description}' WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}	
+		
+		public static function deleteDesignation($designation_id, $connect)
+
+		{
+			$query = "UPDATE tbl_designation SET is_deleted = 1 WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 		
 	}
 ?>
