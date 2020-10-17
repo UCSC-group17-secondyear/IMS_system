@@ -122,6 +122,32 @@
 
 		}
 
+		public static function checkClaimFormNo($claim_form_no, $user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkWhetherOpd($claim_form_no,$user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} AND opd_form_flag= 1 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+			
+		}
+
+		public static function checkWhetherSurgical($claim_form_no,$user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} AND surgical_form_flag= 1 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+			
+		}
+
 		public static function hall($connect)
 		{
 			$query = "SELECT hall_name FROM tbl_hall";
