@@ -27,7 +27,7 @@
             <input type="text" name="designation" placeholder="Enter designation name" required/><br>
             <label for="">Description</label>
             <input type="text" name="description" placeholder="Enter description" required/><br>                    
-            <button type="submit" name="addDesignation-submit">Add Department</button>
+            <button type="submit" name="addDesignation-submit">Add Designation</button>
         </form>
     </div>
 
