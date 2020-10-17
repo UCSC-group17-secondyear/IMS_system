@@ -25,6 +25,8 @@
         <form action="../../controller/aAddDepartmentController.php" method="POST">
             <label for="">Department Name</label>
             <input type="text" name="dept_name" placeholder="Enter department name" required/><br>
+            <label for="">Department Head</label>
+            <input type="text" name="dept_head" placeholder="Enter department head name" required/><br>
             <label for="">Description</label>
             <input type="text" name="description" placeholder="Enter description" required/><br>                    
             <button type="submit" name="addDepartment-submit">Add Department</button>

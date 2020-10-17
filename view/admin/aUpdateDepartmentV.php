@@ -25,6 +25,8 @@
             <form action="../../controller/aUpdateDepartmentController.php" method="POST">
                 <label for="">Department</label>
                 <input type="text" name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required/><br>
+                <label for="">Department Head</label>
+                <input type="text" name="dept_head" <?php echo 'value="'.$_SESSION['dept_head'].'"' ?> required/><br>
                 <label for="">Description</label>
                 <input type="text" name="description" <?php echo 'value="'.$_SESSION['description'].'"' ?> required/><br>                       
                 <button type="submit" name="updateDepartment-submit">Update Department</button>
