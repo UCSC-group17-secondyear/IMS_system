@@ -122,6 +122,32 @@
 
 		}
 
+		public static function checkClaimFormNo($claim_form_no, $user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkWhetherOpd($claim_form_no,$user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} AND opd_form_flag= 1 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+			
+		}
+
+		public static function checkWhetherSurgical($claim_form_no,$user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} AND surgical_form_flag= 1 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+			
+		}
+
 		public static function hall($connect)
 		{
 			$query = "SELECT hall_name FROM tbl_hall";
@@ -247,5 +273,174 @@
 					
 			return $result_set;
 		}
+
+		public static function enterSemester($semester, $academic_year, $start_date, $end_date, $connect)
+		{
+			$query = "INSERT INTO tbl_semester (semester, academic_year, start_date, end_date ) VALUES('$semester', '$academic_year', '$start_date', '$end_date')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function viewSemesters($connect) 
+		{
+			$query = "SELECT * FROM tbl_semester WHERE is_deleted=0 ORDER BY sem_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function viewASem ($sem_id, $connect) 
+		{
+			$query = "SELECT * FROM tbl_semester WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function updateSemester($sem_id, $semester, $academic_year, $start_date, $end_date, $connect)
+		{
+			$query = "UPDATE tbl_semester SET semester='{$semester}', academic_year='{$academic_year}', start_date='{$start_date}', end_date='{$end_date}' WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteSemester($sem_id, $connect)
+		{
+			$query = "UPDATE tbl_semester SET is_deleted = 1 WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function enterHall($hall_name, $hall_location, $seating_capacity, $ac, $connect)
+		{
+			$query = "INSERT INTO tbl_hall (hall_name, location, seating_capacity, AC ) VALUES('$hall_name', '$hall_location', $seating_capacity, $ac)";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function viewHalls($connect) 
+		{
+			$query = "SELECT * FROM tbl_hall WHERE is_deleted=0 ORDER BY hall_name";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkHallName($hall_name, $connect) 
+		{	
+			// echo $hall_name;
+			$query = "SELECT * FROM tbl_hall WHERE hall_name ='{$hall_name}'" ;
+			$result_set = mysqli_query($connect, $query);
+            return $result_set;
+		}
+
+		public static function viewAHall ($hall_id, $connect) 
+		{
+			$query = "SELECT * FROM tbl_hall WHERE hall_id='{$hall_id}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkHallThree($hall_id, $hall_name, $connect)
+		{
+			$query = "SELECT * FROM tbl_hall WHERE hall_name='{$hall_name}' AND hall_id!={$hall_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;	
+		}
+
+		public static function updateHall($hall_id, $hall_name, $location, $seating_capacity, $ac, $connect)
+		{
+			$query = "UPDATE tbl_hall SET hall_name='{$hall_name}', location='{$location}', seating_capacity='{$seating_capacity}', AC={$ac} WHERE hall_id={$hall_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}	
+
+		public static function deleteHall($hall_id, $connect)
+		{
+			$query = "UPDATE tbl_hall SET is_deleted = 1 WHERE hall_id={$hall_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+			public static function checkDeptName($dept_name, $connect) 
+		{	
+			$query = "SELECT * FROM tbl_department WHERE department ='{$dept_name}'" ;
+			$result_set = mysqli_query($connect, $query);
+            return $result_set;
+		}
+
+		public static function enterDepartment($dept_name, $description, $connect)
+		{
+			$query = "INSERT INTO tbl_department (department, description) VALUES('$dept_name', '$description')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+		
+		public static function viewDepartments($connect) 
+		{
+			$query = "SELECT * FROM tbl_department WHERE is_deleted=0 ORDER BY department_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function viewADept($dept_id, $connect)
+		{
+			$query = "SELECT * FROM tbl_department WHERE department_id='{$dept_id}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+		
+		public static function checkDeptThree($dept_id, $department, $connect)
+		{
+			$query = "SELECT * FROM tbl_department WHERE department='{$department}' AND department_id!={$dept_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;	
+		}
+		
+		public static function updateDepartment($dept_id, $department, $description, $connect)
+		{
+			$query = "UPDATE tbl_department SET department='{$department}', description='{$description}' WHERE department_id={$dept_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}	
+		
+		public static function deleteDepartment($dept_id, $connect)
+		{
+			$query = "UPDATE tbl_department SET is_deleted = 1 WHERE department_id={$dept_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+		
 	}
 ?>

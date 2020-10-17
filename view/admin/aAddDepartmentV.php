@@ -22,11 +22,13 @@
             <h3>Add a new Department</h3>
         </div>
 
-        Enter Department Name <input type="text" id="" name="departmentName" placeholder="Department name" required/>
-        
-        Enter department description <input type="text" name="departmentDescriotion" placeholder="Description" required/>
-        
-        <button type="submit" name="addDepartment-submit">Add Department</button>
+        <form action="../../controller/aAddDepartmentController.php" method="POST">
+            <label for="">Department Name</label>
+            <input type="text" name="dept_name" placeholder="Enter department name" required/><br>
+            <label for="">Description</label>
+            <input type="text" name="description" placeholder="Enter description" required/><br>                    
+            <button type="submit" name="addDepartment-submit">Add Department</button>
+        </form>
     </div>
 
     <?php
