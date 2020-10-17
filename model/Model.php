@@ -381,16 +381,17 @@
 			return $result;
 		}
 
-			public static function checkDeptName($dept_name, $connect) 
+		
+		public static function checkDeptName($dept_name, $connect) 
 		{	
 			$query = "SELECT * FROM tbl_department WHERE department ='{$dept_name}'" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
 
-		public static function enterDepartment($dept_name, $description, $connect)
+		public static function enterDepartment($dept_name, $dept_head, $description, $connect)
 		{
-			$query = "INSERT INTO tbl_department (department, description) VALUES('$dept_name', '$description')";
+			$query = "INSERT INTO tbl_department (department, department_head, description) VALUES('$dept_name', '$dept_head' ,'$description')";
 
 			$result = mysqli_query($connect, $query);
 
@@ -424,9 +425,9 @@
 			return $result_set;	
 		}
 		
-		public static function updateDepartment($dept_id, $department, $description, $connect)
+		public static function updateDepartment($dept_id, $department, $department_head, $description, $connect)
 		{
-			$query = "UPDATE tbl_department SET department='{$department}', description='{$description}' WHERE department_id={$dept_id} LIMIT 1";
+			$query = "UPDATE tbl_department SET department='{$department}', department_head='{$department_head}', description='{$description}' WHERE department_id={$dept_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
