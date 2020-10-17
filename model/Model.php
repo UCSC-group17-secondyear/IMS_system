@@ -122,6 +122,32 @@
 
 		}
 
+		public static function checkClaimFormNo($claim_form_no, $user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkWhetherOpd($claim_form_no,$user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} AND opd_form_flag= 1 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+			
+		}
+
+		public static function checkWhetherSurgical($claim_form_no,$user_id, $connect){
+			$query = "SELECT * FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} AND surgical_form_flag= 1 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+			
+		}
+
 		public static function hall($connect)
 		{
 			$query = "SELECT hall_name FROM tbl_hall";
@@ -355,16 +381,17 @@
 			return $result;
 		}
 
-			public static function checkDeptName($dept_name, $connect) 
+		
+		public static function checkDeptName($dept_name, $connect) 
 		{	
 			$query = "SELECT * FROM tbl_department WHERE department ='{$dept_name}'" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
 
-		public static function enterDepartment($dept_name, $description, $connect)
+		public static function enterDepartment($dept_name, $dept_head, $description, $connect)
 		{
-			$query = "INSERT INTO tbl_department (department, description) VALUES('$dept_name', '$description')";
+			$query = "INSERT INTO tbl_department (department, department_head, description) VALUES('$dept_name', '$dept_head' ,'$description')";
 
 			$result = mysqli_query($connect, $query);
 
@@ -398,9 +425,9 @@
 			return $result_set;	
 		}
 		
-		public static function updateDepartment($dept_id, $department, $description, $connect)
+		public static function updateDepartment($dept_id, $department, $department_head, $description, $connect)
 		{
-			$query = "UPDATE tbl_department SET department='{$department}', description='{$description}' WHERE department_id={$dept_id} LIMIT 1";
+			$query = "UPDATE tbl_department SET department='{$department}', department_head='{$department_head}', description='{$description}' WHERE department_id={$dept_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -410,6 +437,68 @@
 		public static function deleteDepartment($dept_id, $connect)
 		{
 			$query = "UPDATE tbl_department SET is_deleted = 1 WHERE department_id={$dept_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function checkDesignationName($designation, $connect) 
+		{	
+			$query = "SELECT * FROM tbl_designation WHERE designation_name ='{$designation}'" ;
+			$result_set = mysqli_query($connect, $query);
+            return $result_set;
+		}
+		
+		public static function enterDesignation($designation, $description, $connect)
+		{
+			$query = "INSERT INTO tbl_designation (designation_name, description) VALUES('$designation','$description')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function viewDesignations($connect)
+		{
+			$query = "SELECT * FROM tbl_designation WHERE is_deleted=0 ORDER BY designation_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+		
+		public static function viewADesign($designation_id, $connect)
+		{
+			$query = "SELECT * FROM tbl_designation WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkDesignThree($designation_id, $designation, $connect)
+		{
+			$query = "SELECT * FROM tbl_designation WHERE designation_name='{$designation}' AND designation_id!={$designation_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;	
+		}
+
+		public static function updateDesignation($designation_id, $designation, $description, $connect)
+		{
+			$query = "UPDATE tbl_designation SET designation_name='{$designation}', description='{$description}' WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}	
+		
+		public static function deleteDesignation($designation_id, $connect)
+
+		{
+			$query = "UPDATE tbl_designation SET is_deleted = 1 WHERE designation_id={$designation_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

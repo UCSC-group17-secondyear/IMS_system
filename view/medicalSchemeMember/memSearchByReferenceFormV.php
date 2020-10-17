@@ -17,16 +17,19 @@
             require('../medicalSchemeMember/memSideNavV.php');
         ?>
     </div>
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
     <div class="content">
         <div>
             <h4>Search by Reference Number</h4>
         </div>
+        <form action="../../controller/claimFormReferenceController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+            <label for="">Enter Reference Number</label>
+            <input type="text" name="claim_form_no" required> <br>
 
-        <label for="refNUmber">Enter Reference Number</label>
-        <input type="text" value=""> <br>
-
-        <a href="memClaimDetailsReferenceNumberV.php"><button type="submit" name="">Display Form</button></a><br>
+            <button type="submit" name="claim_form_no-submit">Display Form</button>
+        </form>
+      
+        
     </div>
     
     <?php

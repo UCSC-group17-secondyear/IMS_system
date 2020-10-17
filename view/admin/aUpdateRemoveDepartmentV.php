@@ -23,6 +23,7 @@
         <table class="mytable">
             <tr>
                 <th>Department</th>
+                <th>Department Head</th>
                 <th>Description</th>
                 <th>Edit</th>
                 <th>Delete</th>

@@ -1,5 +1,5 @@
 <main>
-    <title>Update Department</title>
+    <title>Update Designation</title>
     <?php
         require '../basic/header.php';
     ?>
@@ -7,7 +7,7 @@
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update Department</li>
+            <li>Update Designation</li>
         </ul>
     </div>
 
@@ -19,17 +19,15 @@
 
     <div class="content">
         <div>
-            <h3>Update Department</h3>
+            <h3>Update Designation</h3>
         </div>
         <div>
-            <form action="../../controller/aUpdateDepartmentController.php" method="POST">
-                <label for="">Department</label>
-                <input type="text" name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required/><br>
-                <label for="">Department Head</label>
-                <input type="text" name="dept_head" <?php echo 'value="'.$_SESSION['dept_head'].'"' ?> required/><br>
+            <form action="../../controller/aUpdateDesignationController.php" method="POST">
+                <label for="">Designation</label>
+                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> required/><br>
                 <label for="">Description</label>
                 <input type="text" name="description" <?php echo 'value="'.$_SESSION['description'].'"' ?> required/><br>                       
-                <button type="submit" name="updateDepartment-submit">Update Department</button>
+                <button type="submit" name="updateDesignation-submit">Update Designation</button>
             </form>
         </div>
     </div>
