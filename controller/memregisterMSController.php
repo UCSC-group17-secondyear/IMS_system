@@ -58,7 +58,7 @@
                 header('Location:../view/medicalSchemeMaintainer/msmRegisterToMedicalSchemeV.php');
             }
             else if ($result['userRole'] == "recordsViewer") {
-                header('Location:../view/recordsViewer/rvRegisterToMedicalSchemeV.php');
+                header('Location:../view/reportViewer/rvRegisterToMedicalSchemeV.php');
             }
             else if ($result['userRole'] == "departmentHead") {
                 header('Location:../view/departmentHead/dhRegisterMedicalSchemeV.php');
