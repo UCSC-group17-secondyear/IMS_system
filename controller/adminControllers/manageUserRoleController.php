@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once('../../model/adminModel/manageUserRolesModel.php');
     require_once('../../config/database.php');
 
@@ -22,9 +23,9 @@
                 $_SESSION['user_role'] .= "<tr>";
                 $_SESSION['user_role'] .= "<td>{$roles['role_name']}</td>";
                 $_SESSION['user_role'] .= "<td>{$roles['description']}</td>";
-
-                header('Location:../../view/admin/aViewUserRolesV.php');
+                $_SESSION['user_role'] .= "</tr>";
             }
+            header('Location:../../view/admin/aViewUserRolesV.php');
         }
         else {
             echo "no user roles in the database";

@@ -25,22 +25,15 @@
         <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
             <label for="">Employee Id</label>
             <input type="text" name="empid" placeholder="Employee Id" required>
-            <label for="">Enter user role</label>
+            <label for="">Select user role</label>
+
             <select name="userRole" id="">
-            <option value="">Select User Role</option>
-            <option value="admin">Admin</option>
-            <option value="academicStaffMemb">Academic Staff Member</option>
-            <option value="attendanceMain">Attendance Maintainer</option>
-            <option value="hallAllocationMain">Hall Allocation Maintainer</option>
-            <option value="mahapolaSchemeMain">Mahapola Scheme Maintainer</option>
-            <option value="medicalSchemeMain">Medical Scheme Maintainer</option>
-            <option value="medicalSchemeMemb">Medical Scheme Member</option>
-            <option value="recordsViewer">Report Viwer</option>
-            <option value="departmentHead">Department Head</option>
-            <option value="medicalOfficer">Medical Officer</option>
+                <option value="">Select User Role</option>
+                <?php echo $_SESSION['userroles'] ?>
             </select>
             <button type="submit" name="setUserRole-submit">Save</button>
         </form>
+
     </div>
 
     <?php
