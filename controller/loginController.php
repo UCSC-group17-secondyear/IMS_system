@@ -52,7 +52,7 @@
 						header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
 					}
 					else if ($key['userRole'] == "recordsViewer") {
-						header('Location:../view/recordsViewer/rvHomeV.php');
+						header('Location:../view/reportViewer/rvHomeV.php');
 					}
 					else if ($key['userRole'] == "departmentHead") {
 						header('Location:../view/departmentHead/dhHomeV.php');
@@ -61,11 +61,11 @@
 						header('Location:../view/medicalOfficer/moHomeV.php');
 					}
 					else {
-						echo "USER";
+						echo "Admin have not yet selected the user role to you.";
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    echo "No row bla bla bla";
+                    echo "No result.";
                 }
             }
             else {
