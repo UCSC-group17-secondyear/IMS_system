@@ -24,9 +24,8 @@
                 $_SESSION['user_role'] .= "<td>{$roles['role_name']}</td>";
                 $_SESSION['user_role'] .= "<td>{$roles['description']}</td>";
                 $_SESSION['user_role'] .= "</tr>";
-
-                header('Location:../../view/admin/aViewUserRolesV.php');
             }
+            header('Location:../../view/admin/aViewUserRolesV.php');
         }
         else {
             echo "no user roles in the database";

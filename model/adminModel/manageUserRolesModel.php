@@ -11,7 +11,7 @@
 		{
 			// $checkquery = "SELECT * FROM userroles WHERE role_name ='{$userrole}'" ;
 
-			// if ($checkquery) {
+			// if (($connect->query($checkquery)) {
 			// 	echo "User role already exists.";
 			// }
 			// else {
