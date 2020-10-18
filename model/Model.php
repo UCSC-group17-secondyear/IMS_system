@@ -496,13 +496,21 @@
 		}	
 		
 		public static function deleteDesignation($designation_id, $connect)
-
 		{
 			$query = "UPDATE tbl_designation SET is_deleted = 1 WHERE designation_id={$designation_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
+		}
+
+		public static function userRoles($connect)
+		{
+			$query = "SELECT role_name FROM userroles";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
 		}
 		
 	}

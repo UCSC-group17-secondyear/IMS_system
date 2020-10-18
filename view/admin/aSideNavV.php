@@ -3,7 +3,7 @@
     <div class="panel">
         <a href="aAddNewUserRoleV.php" class="buttonTwo">Add a new user role</a><br>
         <a href="aRemoveUserRoleV.php" class="buttonTwo">Remove a user role</a><br>
-        <a href="aAssignUserRoleV.php" class="buttonTwo">Assign a user role to a user</a><br>
+        <a href="../../controller/aAssignUserRoleControler.php" class="buttonTwo">Assign a user role to a user</a><br>
         <a href="aUpdateUserRoleV.php" class="buttonTwo">Update the user role of a user</a><br>
     </div>
 
