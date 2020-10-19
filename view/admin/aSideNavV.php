@@ -3,7 +3,7 @@
     <div class="panel">
         <a href="aAddNewUserRoleV.php" class="buttonTwo">Add a new user role</a><br>
         <a href="aRemoveUserRoleV.php" class="buttonTwo">Remove a user role</a><br>
-        <a href="aAssignUserRoleV.php" class="buttonTwo">Assign a user role to a user</a><br>
+        <a href="../../controller/aAssignUserRoleControler.php" class="buttonTwo">Assign a user role to a user</a><br>
         <a href="aUpdateUserRoleV.php" class="buttonTwo">Update the user role of a user</a><br>
     </div>
 
@@ -58,7 +58,7 @@
         <a href="../../controller/aViewDesignationController.php" class="buttonTwo">Update or remove a Designation</a><br>
     </div>
 
-    <a href="../../controller/memControllers/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
 
     <script>
         var acc = document.getElementsByClassName("accordion");
