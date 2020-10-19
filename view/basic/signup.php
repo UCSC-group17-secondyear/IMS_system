@@ -1,82 +1,118 @@
+<?php
+	require "topnav.php";
+?>
+
 <main>
 	<title>Sign Up</title>
-	<?php
-		require "header.php";
-	?>
 
-	<div class="header"></div>
-
-	<div class="side-nav">
-		<div>
-			<h2>IMS of Academic And Publication Division </h2>
-		</div>
-	</div>
-	<div class="content">
+	<div class="signupForm">
 		<form action="../../controller/SignupController.php" method="post">
-			<h2>Sign Up</h2>
-			<p>
-				<label>Enter employee id</label>
-				<input type="text" name="empid" placeholder="Employee ID" required/>
-			</p>
+			<h2>Sign Up Here</h2>
+			<div class="row">
+	            <div class="col-25">
+	              <label>Employee id</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="text" name="empid" required/>
+	            </div>
+	         </div>
 
-			<p>
-				<label>Enter your initials</label>
-				<input type="text" name="initials" placeholder="Initials" required/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Initials</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="text" name="initials" required/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Enter your surname</label>
-				<input type="text" name="sname" placeholder="Surname" required/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Surname</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="text" name="sname" required/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Enter your email</label>
-				<input type="email" name="email" placeholder="Email"/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Mail address</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="email" name="email"/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Enter your mobile number</label>
-				<input type="text" name="mobile" placeholder="Mobile Number" required/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Mobile number</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="text" name="mobile" required/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Enter your telephone number</label>
-				<input type="text" name="tp" placeholder="Telephone number"/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Telephone number</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="text" name="tp" />
+	            </div>
+	        </div>
+	          
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Date of birth</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="date" name="dob" required/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Enter date of birth</label>
-				<input type="date" name="dob" required/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Designation</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="text" name="designation" required/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Enter your designation</label>
-				<input type="text" name="designation" placeholder="Designation" required/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Date of appointment</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="date" name="appointment" required/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Enter date of appointment</label>
-				<input type="date" name="appointment" required/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Password</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="password" name="password" required/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Create a password</label>
-				<input type="password" name="password" placeholder="Password" required/>
-			</p>
+	        <div class="row">
+	            <div class="col-25">
+	              <label>Confirm password</label>
+	            </div>
+	            <div class="col-75">
+	              <input type="password" name="conpassword" required/>
+	            </div>
+	        </div>
 
-			<p>
-				<label>Confirm the password</label>
-				<input type="password" name="conpassword" placeholder="Confirm password" required/>
-			</p>
-
-			<p>
-				<button type="submit" name="signup-submit">Create Account</button>
-			</p>
+         	<button type="submit" class="signupbtn">Signup</button>
+         	<button type="submit" class="cancelbtn">Cancel</button>
 		</form>
 	</div>
-
-	<?php
-		require "footer.php";
-	?>
-
 </main>
+
+<!-- <?php
+	// require 'footer.php';
+?> -->
