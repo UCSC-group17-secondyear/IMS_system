@@ -1,78 +1,125 @@
 <main>
-    <button class="button accordion">Manage User Roles</button>
-    <div class="panel">
-        <a href="aAddNewUserRoleV.php" class="buttonTwo">Add a new user role</a><br>
-        <a href="aRemoveUserRoleV.php" class="buttonTwo">Remove a user role</a><br>
-        <a href="../../controller/aAssignUserRoleControler.php" class="buttonTwo">Assign a user role to a user</a><br>
-        <a href="aUpdateUserRoleV.php" class="buttonTwo">Update the user role of a user</a><br>
+    <div class="sansserif">
+        <ul id="tree_view">
+            <li><button class="tree_list">Manage User Roles</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddNewUserRoleV.php"><li><i class="fa fa-plus-circle"></i>Add a new user role</li></a>
+                    </button>
+                    <button>
+                        <a href="aRemoveUserRoleV.php"><li><i class="fa fa-minus-circle"></i>Remove a user role</li></a
+                            ></button>
+                    <button>
+                        <a href="aAssignUserRoleV.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>
+                    </button>
+                    <button>
+                        <a href="aUpdateUserRoleV.php"><li><i class="fa fa-pencil-square"></i>Update the user role of a user</li></a>
+                    </button>
+                </ul>
+            </li>
+
+            <li>
+                <button type="submit" class="tree_list"><a href="../../controller/userListController.php">Manage Users in IMS System</a></button> <br>
+            </li>
+
+            <li><button class="tree_list">Manage Medical Schemes</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddNewSchemeV.php"><li><i class="fa fa-plus-circle"></i>Add a new scheme</li></a>
+                    </button>
+                    <button>
+                        <a href="aUpdateSchemeV.php"><li><i class="fa fa-minus-circle"></i>Update Policies of a scheme</li></a
+                            ></button>
+                    <button>
+                        <a href="aRemoveSchemeV.php"><li><i class="fa fa-pencil-square-o"></i>Remove a scheme</li></a>
+                    </button>
+                </ul>
+            </li>
+
+            <li><button class="tree_list">Manage Degrees</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>
+                    </button>
+                    <button>
+                        <a href="aUpdateRemoveDegreeV.php"><li><i class="fa fa-minus-circle"></i>Update or remove a degree</li></a>
+                    </button>
+                </ul>
+            </li>
+
+            <li><button class="tree_list">Manage Sessions</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddSessionV.php"><li><i class="fa fa-plus-circle"></i>Add a new Session</li></a>
+                    </button>
+                    <button>
+                        <a href="aUpdateRemoveSessionV.php"><li>    <i class="fa fa-minus-circle"></i>Update or remove a Session</li></a>
+                    </button>
+                </ul>
+            </li>
+
+            <li><button class="tree_list">Manage Sessions Per Month</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddSessionPerMonthV.php"><li><i class="fa fa-plus-circle"></i>Add a new Session Per Month</li></a>
+                    </button>
+                    <button>
+                        <a href="aUpdateRemoveSessionPerMonthV.php"><li><i class="fa fa-minus-circle"></i>Update or remove a Sessions Per Month</li></a>
+                    </button>
+                </ul>
+            </li>
+            <li><button class="tree_list">Manage Semesters</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddSemesterV.php"><li><i class="fa fa-plus-circle"></i>Add a new Semester</li></a>
+                    </button>
+                    <button>
+                        <a href="../../controller/aViewSemesterController.php"><li><i class="fa fa-minus-circle"></i>Update or remove a Semester</li></a>
+                    </button>
+                </ul>
+            </li>
+            <li><button class="tree_list">Manage Halls</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddHallV.php"><li><i class="fa fa-plus-circle"></i>Add a new Hall</li></a>
+                    </button>
+                    <button>
+                        <a href="../../controller/aViewHallController.php"><li><i class="fa fa-minus-circle"></i>Update or remove a Hall</li></a>
+                    </button>
+                </ul>
+            </li>
+            <li><button class="tree_list">Manage Departments</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddDepartmentV.php"><li><i class="fa fa-plus-circle"></i>Add a new Department</li></a>
+                    </button>
+                    <button>
+                        <a href="../../controller/aViewDepartmentController.php"><li>    <i class="fa fa-minus-circle"></i>Update or remove a Department</li></a>
+                    </button>
+                </ul>
+            </li>
+            <li><button class="tree_list">Manage Designations</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="aAddDesignationV.php"><li><i class="fa fa-plus-circle"></i>Add a new Designation</li></a>
+                    </button>
+                    <button>
+                        <a href="../../controller/aViewDesignationController.php"><li><i class="fa fa-minus-circle"></i>Update or remove a Designation</li></a>
+                    </button>
+                </ul>
+            </li>
+        </ul>
     </div>
-
-    <a href="../../controller/userListController.php"><button type="submit" name="" class="button">Manage Users in IMS System</button></a><br>
-
-    <button class="button accordion">Manage Medical Schemes</button>
-    <div class="panel">
-        <a href="aAddNewSchemeV.php" class="buttonTwo">Add a new scheme</a><br>
-        <a href="aUpdateSchemeV.php" class="buttonTwo">Update Policies of a scheme</a><br>
-        <a href="aRemoveSchemeV.php" class="buttonTwo">Remove a scheme</a><br>
-    </div>
-
-    <button class="button accordion">Manage Degrees</button>
-    <div class="panel">
-        <a href="aAddDegreeV.php" class="buttonTwo">Add a new degree</a><br>
-        <a href="aUpdateRemoveDegreeV.php" class="buttonTwo">Update or remove a degree</a><br>
-    </div>
-
-    <button class="button accordion">Manage Sessions</button>
-    <div class="panel">
-        <a href="aAddSessionV.php" class="buttonTwo">Add a new Session</a><br>
-        <a href="aUpdateRemoveSessionV.php" class="buttonTwo">Update or remove a Session</a><br>
-    </div>
-
-    <button class="button accordion">Manage Sessions Per Month</button>
-    <div class="panel">
-        <a href="aAddSessionPerMonthV.php" class="buttonTwo">Add a new Session</a><br>
-        <a href="aUpdateRemoveSessionPerMonthV.php" class="buttonTwo">Update or remove a Sessions</a><br>
-    </div>
-
-    <button class="button accordion">Manage Semesters</button>
-    <div class="panel">
-        <a href="aAddSemesterV.php" class="buttonTwo">Add a new Semester</a><br>
-        <a href="../../controller/aViewSemesterController.php" class="buttonTwo">Update or remove a Semester</a><br>
-    </div>
-
-    <button class="button accordion">Manage Halls</button>
-    <div class="panel">
-        <a href="aAddHallV.php" class="buttonTwo">Add a new Hall</a><br>
-        <a href="../../controller/aViewHallController.php" class="buttonTwo">Update or remove a Hall</a><br>
-    </div>
-
-    <button class="button accordion">Manage Departments</button>
-    <div class="panel">
-        <a href="aAddDepartmentV.php" class="buttonTwo">Add a new Department</a><br>
-        <a href="../../controller/aViewDepartmentController.php" class="buttonTwo">Update or remove a Department</a><br>
-    </div>
-
-    <button class="button accordion">Manage Designations</button>
-    <div class="panel">
-        <a href="aAddDesignationV.php" class="buttonTwo">Add a new Designation</a><br>
-        <a href="../../controller/aViewDesignationController.php" class="buttonTwo">Update or remove a Designation</a><br>
-    </div>
-
-    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
 
     <script>
-        var acc = document.getElementsByClassName("accordion");
+        var toggler = document.getElementsByClassName("tree_list");
         var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
+
+        for (i = 0; i < toggler.length; i++) {
+          toggler[i].addEventListener("click", function() {
+            this.parentElement.querySelector(".tree_nest").classList.toggle("active");
+            this.classList.toggle("tree_list-down");
+          });
         }
     </script>
 </main>

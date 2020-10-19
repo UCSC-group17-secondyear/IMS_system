@@ -1,0 +1,628 @@
+* { 
+    margin: 0px; 
+    padding: 0px; 
+    box-sizing: border-box;
+} 
+
+body { 
+    /*font-size: 120%; */
+    background: #F8F8FF; 
+}
+
+/*-----------------------------Top Navigation Bar-----------------------------*/
+.topnav {
+  background-color: white;
+  box-shadow: 4px 4px 4px grey;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  top: 0;
+  z-index: 1;
+  height: 10%;
+}
+
+.topnav a {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: darkslateblue;
+  margin: 2px;
+}
+
+.topnav a:hover {
+  background-color: cornflowerblue;
+  color: white;
+  /*opacity: 0.7;*/
+}
+
+.topnav a.active {
+  background-color: darkslateblue;
+  color: white;
+}
+
+/*-----------------------------Breadcrumbs-----------------------------*/
+
+ul.breadcrumbs {
+    list-style: none;
+    background-color: white;
+    box-shadow: 4px 4px 4px grey;
+    overflow: hidden;
+    padding: 10px 16px;
+    /*width: 100%;
+    height: 40px;
+    */position: relative;
+    z-index: 0;
+}
+
+ul.breadcrumbs li {
+  display: inline;
+  font-size: 20px;
+}
+
+ul.breadcrumbs li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+ul.breadcrumbs li a {
+    overflow: hidden;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+ul.breadcrumbs li.active {
+    overflow: hidden;
+    color: darkslateblue;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.breadcrumbs li a:hover {
+    overflow: hidden;
+    color: #4CAF50;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+/*-----------------------------Footer-----------------------------*/
+.footer {
+    bottom: 0;
+    background-color: darkslateblue;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+    padding-top: 15px;
+    height: 10%;
+    border-top: 3px solid grey;
+}
+
+/*-----------------------------Home Page Image-----------------------------*/
+.home_image {
+  background-image: url("../img/bg_image.jpg");
+  background-color: darkslateblue;
+  /*opacity: 0.7;*/
+  height: 610px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.heading {
+    padding-top: 20%;
+    padding-left: 40%;
+    padding-bottom: 7%;
+    color: white;
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.loginbtn {
+    background-color: darkslateblue;
+    color: ivory;
+    width: 20%;
+    padding: 15px;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 15%;
+}
+
+.loginbtn:hover {
+    background-color: ivory;
+    color: darkslateblue;
+    font-weight: bold;
+}
+
+/*-------------------------Login Form Style-------------------------*/
+.loginForm {
+  background-color: oldlace;
+  /*max-width: 80%;*/
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  height: 400px;
+  /*border: 3px solid grey;*/
+  box-shadow: 4px 4px 4px grey;
+  /*opacity: 0.5;*/
+}
+
+.loginForm h2 {
+  font-size: 24px;
+  color: darkslateblue;
+  text-align: center;
+  padding: 6px;
+  /*border-bottom: 3px solid grey;*/
+  /*box-shadow: 4px 4px 4px grey;*/
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.loginForm span {
+  margin-left: 30%;
+  height: 40px;
+  color: darkslateblue;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.loginForm input {
+  width: 30%;
+  /*background-color: white;*/
+  height: 40px;
+  margin-top: 25px;
+  margin-right: 10%;
+  font-size: 20px;
+}
+
+.loginForm button {
+  width: 30%;
+  background-color: darkslateblue;
+  color: white;
+  height: 40px;
+  margin-top: 25px;
+  margin-left: 32%;
+}
+
+.loginForm button:hover {
+  background-color: cornflowerblue;
+}
+
+.sentence1 {
+  float: left;
+  margin-left: 3%;
+  padding-top: 10px;
+  font-size: 22px;
+  margin-top: 6%;
+  color: darkslateblue;
+}
+
+.sentence2 {
+  float: right;
+  margin-right: 5%;
+  margin-top: 6%;
+  padding-top: 10px;
+  font-size: 22px;
+}
+
+.sentence1 a, .sentence2 a {
+  color: darkslateblue;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.sentence1 a:hover, .sentence2 a:hover {
+  color: crimson;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/*-------------------------Sign Up Form Style-------------------------*/
+.signupForm {
+  width: 50%;
+  height: 80%;
+  margin: 0px auto;
+  border: 1px solid #B0C4DE;
+  background: ivory;
+  box-shadow: 2px 2px 2px 2px grey;
+  margin-top: 3%;
+  padding-bottom: 5%;
+    /*
+  background-color: darkslateblue;
+  max-width: 35%;
+  margin-left: 30%;
+  margin-top: 10%;
+  height: 350px;
+  border: 3px solid grey;
+  box-shadow: 4px 4px 4px grey;*/
+  /*opacity: 0.5;*/
+}
+
+.signupForm h2 {
+  font-size: 24px;
+  color: darkslateblue;
+  text-align: center;
+  padding: 6px;
+  border-bottom: 3px solid grey;
+  /*box-shadow: 4px 4px 4px grey;*/
+  background-color: ivory;
+}
+
+.signupForm label {
+  /*padding-left: 5%;*/
+  padding: 20px 12px 12px 0;
+  display: inline-block;
+  font-size: 24px;
+  margin-left: 5%;
+}
+
+.signupForm input {
+  width: 80%;
+  /*background-color: white;*/
+  height: 40px;
+  margin-top: 25px;
+  margin-right: 5%;
+  font-size: 24px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col-25 {
+  float: left;
+  width: 35%;
+  /*margin-top: 6px;*/
+}
+
+.col-75 {
+  float: left;
+  width: 65%;
+  /*margin-top: 6px;*/
+}
+
+.signupForm button {
+  color: white;
+  font-size: 22px;
+  width: 40%;
+  float: left;
+  margin-left: 5%;
+  height: 40px;
+  margin-top: 4%;
+}
+
+.signupForm .signupbtn {
+  background-color: darkslateblue;
+}
+
+.signupForm .cancelbtn {
+  background-color: red;
+}
+
+.signupForm .signupbtn:hover {
+  background-color: cornflowerblue;
+} 
+
+.signupForm .cancelbtn:hover {
+  opacity: 0.7;
+}
+
+/*-----------------------------Left nav-tree view-----------------------------*/
+/* Remove default bullets */
+ul, #tree-view {
+    list-style-type: none;
+    text-align: left;
+}
+
+/* Remove margins and padding from the parent ul */
+#tree_view {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the caret/arrow */
+.tree_list {
+  text-align: left;
+  margin-bottom: 0%;
+  margin-top: 0%;
+  border: 2px solid white;
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+  color: white;
+  font-size: 20px;
+  /*font-weight: bold;*/
+  padding-left: 5%;
+  background-color: darkslateblue;
+  width: 90%;
+  padding: 3px;
+}
+
+.tree_list:hover {
+  background-color: cornflowerblue
+  /*opacity: 0.7;*/
+}
+
+.tree_list a{
+  color: white;
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.tree_list::before {
+  content: "\25B6";
+  display: inline-block;
+  margin-right: 10px;
+  color: white;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.tree_list-down::before {
+  transform: rotate(270deg);
+  color: white;
+}
+
+/* Hide the nested list */
+.tree_nest {
+  display: none;
+  font-size: 18px;
+  /*padding-left: 10%;*/
+}
+
+.tree_nest button {
+  text-align: left;
+  margin-bottom: 0%;
+  margin-top: 0%;
+  border: 2px solid darkslateblue;
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+  color: white;
+  font-size: 18px;
+  padding-left: 5%;
+  background-color: white;
+  width: 90%;
+  padding: 3px;
+}
+
+.tree_nest a{
+    color: darkslateblue;
+}
+
+.tree_nest a:hover{
+  font-weight: bold;
+  color: cornflowerblue;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+    display: block;
+}
+
+/*-------------------------Arranging home page of users---------------------*/
+.column {
+  float: left;
+  padding: 10px;
+  height: 600px;
+  box-shadow: 4px 0px grey;
+  padding-top: 10px;
+}
+
+.left, .right {
+  width: 20%;
+}
+
+.middle {
+  width: 60%;
+}
+
+.middle h2 {
+  width: 100%;
+  font-size: 26px;
+  background-color: cornflowerblue;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.middle2 {
+  width: 80%;
+}
+
+/*-------------------------Image styles------------------------*/
+.imgcontainer {
+    text-align: center;
+    margin: 10px 0 10px 0;
+    border-radius: 4px;
+    padding-left: 25%;
+    width: 200px;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+    object-position: center;
+}
+
+.btncontainer button {
+  color: white;
+  font-size: 22px;
+  width: 40%;
+  float: left;
+  margin-left: 25%;
+  height: 40px;
+  margin-top: 4%;
+  background-color: darkslateblue;
+  color: ivory;
+}
+
+.btncontainer button:hover {
+  background-color: cornflowerblue;
+}
+
+/*-------------------------Arranging normal pages of users-------------------*/
+.col {
+  float: left;
+  padding-left: 10px;
+  height: 600px;
+  box-shadow: 4px 0px grey;
+  padding-top: 10px;
+}
+
+.left20 {
+  width: 20%;
+}
+
+.right80 {
+  width: 80%;
+}
+
+.right80 h2 {
+  /*width: 95%;*/
+  font-size: 26px;
+  background-color: cornflowerblue;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.contentForm {
+  background-color: oldlace;
+  /*max-width: 80%;*/
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  height: 400px;
+  /*border: 3px solid grey;*/
+  box-shadow: 4px 4px 4px grey;
+  /*opacity: 0.5;*/
+}
+
+.contentForm h2 {
+  font-size: 24px;
+  color: darkslateblue;
+  text-align: center;
+  padding: 6px;
+  /*border-bottom: 3px solid grey;*/
+  /*box-shadow: 4px 4px 4px grey;*/
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.contentForm input {
+  width: 80%;
+  /*background-color: white;*/
+  height: 40px;
+  margin-top: 25px;
+  margin-right: 10%;
+  font-size: 20px;
+  border: 0px;
+}
+
+.contentForm label {
+  /*padding-left: 5%;*/
+  padding: 20px 12px 12px 0;
+  display: inline-block;
+  font-size: 22px;
+  margin-left: 15%;
+}
+
+.mainbtn {
+  width: 30%;
+  background-color: darkslateblue;
+  color: white;
+  height: 40px;
+  margin-top: 25px;
+  margin-left: 32%;
+  font-size: 18px;
+  border: 0px;
+}
+
+.mainbtn:hover {
+  background-color: cornflowerblue;
+}
+
+.subbtn {
+  width: 30%;
+  background-color: cornflowerblue;
+  color: ivory;
+  height: 40px;
+  margin-top: 10%;
+  margin-left: 15%;
+  border: 0px;
+  font-size: 18px;
+}
+
+.subbtn:hover {
+  background-color: darkslateblue;
+  color: white;
+}
+
+.cancelbtn {
+  width: 30%;
+  background-color: crimson;
+  color: white;
+  height: 40px;
+  margin-top: 10%;
+  border: 0px;
+  font-size: 18px;
+}
+
+.cancelbtn:hover {
+  opacity: 0.7;
+}
+
+
+
+
+.sansserif {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*-------------------------Styling tables-------------------*/
+#tableStyle {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 25px;
+  margin-left: 10%;
+}
+
+#tableStyle td, #tableStyle th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tableStyle tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#tableStyle tr:hover {
+  background-color: #ddd;
+}
+
+#tableStyle th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: navy;
+  color: white;
+}
