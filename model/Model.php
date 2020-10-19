@@ -506,7 +506,16 @@
 
 		public static function userRoles($connect)
 		{
-			$query = "SELECT role_name FROM userroles";
+			$query = "SELECT role_name FROM userroles WHERE is_deleted=1";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function userList($connect)
+		{
+			$query = "SELECT empid FROM users WHERE is_deleted=1";
 
 			$result_set = mysqli_query($connect, $query);
 			
