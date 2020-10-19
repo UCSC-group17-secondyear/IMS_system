@@ -33,33 +33,37 @@
             $bill_issued_date = mysqli_real_escape_string($connect, $_POST['bill_issued_date']);
             $purpose = mysqli_real_escape_string($connect, $_POST['purpose']);
             $bill_amount = mysqli_real_escape_string($connect, $_POST['bill_amount']);
-            $opd_form_flag = mysqli_real_escape_string($connect, $_POST['opd_form_flag']);
-            $surgical_form_flag = mysqli_real_escape_string($connect, $_POST['surgical_form_flag']);
+            $submitted_date = date('y-m-d');
             
+            $file = $_FILES['file'];
+            $file_name = $_FILES['file']['name'];
+            $file_tmp_name = $_FILES['file']['tmp_name'];
+            $file_error = $_FILES['file']['error'];
+            $file_type = $_FILES['file']['type'];      
 
-            // $file = $_FILES('bill');
-            // //$file = mysqli_real_escape_string($connect, $_POST['file']);
+            $file_ext = explode('.',$file_name);
+            $file_actual_ext = strtolower(end($file_ext));
 
-            // $fileName = $_FILES['bill']['name'];
-            // //$fileType = $_FILES['bill']['type'];
+            $allowed = array('jpg','jpeg','png','pdf');
 
-            // $fileName = mysqli_real_escape_string($connect, $_POST['fileName']);
+            if(in_array($file_actual_ext,$allowed))
+              {
+                if($file_error === 0){
+                   $file_name_new = $user_id."-"."opd"."-".$submitted_date."-".uniqid('',true).".".$file_actual_ext;
+                   $file_destination = '../view/img/bill/'.$file_name_new;
+                   move_uploaded_file($file_tmp_name, $file_destination);
+                   $result = Model::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag, $file_name_new, $submitted_date, $connect);
 
-            // $fileExt = explode('.',$fileName);
-            // $fileActualExt = strtolower(end($fileExt));
+                }
+                else{
+                    echo "There was an error uploading your file.";
+                }
+              }
+            else
+              {
+                echo "File type is incorrrect.";
+              }
 
-            // $allowed = array('jpg','jpeg','png','pdf');
-
-            // if(in_array($fileActualExt,$allowed))
-            //   {
-            //     $result = Model::fillOpdForm($user_id, $empid, $department, $patientname, $relationship, $doctor, $trecieveddate, $bissuedate, $purpose, $amount ,$fileName , $connect);
-            //   }
-            // else
-            //   {
-            //     echo "File type is incorrrect.";
-            //   }
-
-            $result = Model::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag, $connect);
 
             if ($result) {
                 header('Location:../view/medicalSchemeMember/memFormSubmitSuccessV.php');
