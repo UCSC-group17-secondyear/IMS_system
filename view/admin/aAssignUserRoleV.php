@@ -33,7 +33,9 @@
             </select>
             <button type="submit" name="setUserRole-submit">Save</button>
         </form>
-
+        <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
+            <button type="submit" name="userroleList-submit">User roles with descriptions</button>
+        </form>
     </div>
 
     <?php
