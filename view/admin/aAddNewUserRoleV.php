@@ -29,7 +29,7 @@
             <button type="submit" name="addUserrole-submit">Add user role</button>
         </form>
         <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
-            <button type="submit" name="userroleList-submit">View Current user roles</button>
+            <button type="submit" name="userroleList-submit">User roles with descriptions</button>
         </form>
     </div>
 
