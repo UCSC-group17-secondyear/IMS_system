@@ -10,13 +10,34 @@
                         <a href="aRemoveUserRoleV.php"><li><i class="fa fa-minus-circle"></i>Remove a user role</li></a
                             ></button>
                     <button>
-                        <a href="aAssignUserRoleV.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>
+                        <a href="../../controller/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>
                     </button>
                     <button>
                         <a href="aUpdateUserRoleV.php"><li><i class="fa fa-pencil-square"></i>Update the user role of a user</li></a>
                     </button>
                 </ul>
             </li>
+
+    <a href="../../controller/userListController.php"><button type="submit" name="" class="button">Manage Users in IMS System</button></a><br>
+
+    <button class="button accordion">Manage Medical Schemes</button>
+    <div class="panel">
+        <a href="aAddNewSchemeV.php" class="buttonTwo">Add a new scheme</a><br>
+        <a href="aUpdateSchemeV.php" class="buttonTwo">Update Policies of a scheme</a><br>
+        <a href="aRemoveSchemeV.php" class="buttonTwo">Remove a scheme</a><br>
+    </div>
+
+    <button class="button accordion">Manage Degrees</button>
+    <div class="panel">
+        <a href="aAddDegreeV.php" class="buttonTwo">Add a new degree</a><br>
+        <a href="../../controller/aViewDegreeController.php" class="buttonTwo">Update or remove a degree</a><br>
+    </div>
+
+    <button class="button accordion">Manage Sessions</button>
+    <div class="panel">
+        <a href="aAddSessionV.php" class="buttonTwo">Add a new Session</a><br>
+        <a href="aUpdateRemoveSessionV.php" class="buttonTwo">Update or remove a Session</a><br>
+    </div>
 
             <li>
                 <button type="submit" class="tree_list"><a href="../../controller/userListController.php">Manage Users in IMS System</a></button> <br>
