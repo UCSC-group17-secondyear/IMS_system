@@ -1,30 +1,28 @@
+<?php
+  require "topnav.php";
+?>
+
 <main>
   <title>Password Reset</title>
-  <?php
-    require "header.php";
-  ?>
 
-  <div class="header"></div>
-
-  <div class="side-nav">
-    <!-- <div>
-      <h2>IMS of Academic And Publication Division </h2>
-    </div> -->
-  </div>
-  <div class="content">
+  <div class="signupForm">
     <form action="../../controller/pwdController.php" method="POST">
-        <h2>Password Reset</h2>
-        <p>
-          <label>Employee ID</label>
-          <input id="empid" value="" name="empid" type="text" placeholder="Employee id" required="required" />
-        </p>
+      <h2>Password Reset</h2>
+      <div class="row">
+        <div class="col-25">
+          <label>Enter your user name</label>
+        </div>
+        <div class="col-75">
+          <input id="empid" value="" name="empid" type="text" placeholder="User name" required="required" /> <br>
+        </div>
+      </div>
 
-        <p>
-          <button type="submit" name="submit_uname">Enter</button>
-        </p>
-      </form>
+      <button type="submit" class="signupbtn">Enter</button>
+      <button type="submit" class="cancelbtn">Cancel</button>
+    </form>
   </div>
-  <?php
-    require "footer.php";
-  ?>
 </main>
+
+<?php
+  require "footer.php";
+?>

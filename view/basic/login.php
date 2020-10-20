@@ -1,40 +1,32 @@
+<?php
+	require "topnav.php";
+?>
+
 <main>
 	<title>Log in</title>
-	<?php
-		require "header.php";
-	?>
+	<!-- <div class="home_image"> -->
+		<div class="loginForm">
+			<form action="../../controller/loginController.php" method="POST">
+				<h2>Login Here</h2>
+				<span class="fa fa-user"></span>
+				<input id="empid" value="" name="empid" type="text" placeholder="Employee id" required="required" /> <br>
 
-	<div class="header"></div>
-
-	<div class="side-nav">
-		<div>
-			<h2>IMS of Academic And Publication Division </h2>
-		</div>
-	</div>
-	<div class="content">
-		<form action="../../controller/loginController.php" method="POST">
-				<h2>Login</h2>
-				<p>
-					<label>Employee ID</label>
-					<input id="empid" value="" name="empid" type="text" placeholder="Employee id" required="required" />
-				</p>
-				<p>
-					<label>Password</label>
-					<input name="password" type="password" placeholder="Password" required="required" />
-				</p>
-				<p>
-					<button type="submit" name="submit">LOGIN</button>
-				</p>
-				<p>
-					<h3>No account yet? <a href="signup.php">Sign Up.</a></h3>
-				</p>
-				<p>
-					<h3><a href="forgotpwdV.php">Forgot pwd?</a></h3>
-				</p>
+				<span class="fa fa-lock"></span>
+				<input name="password" type="password" placeholder="Password" required="required" /> <br>
+				<!-- <div class="loginbtn"> -->
+					<button class="mainbtn" type="submit" name="submit">LOGIN</button>
+				<!-- </div> -->
 			</form>
-	</div>
-
-	<?php
-		require "footer.php";
-	?>
+			<div class="sentence1">
+				<h3>New here? <a href="signup.php">Sign Up.</a></h3>
+			</div>
+			<div class="sentence2">
+				<h3><a href="forgotpwdV.php">Forgot your password?</a></h3>
+			</div>
+		</div>
+	<!-- </div> -->
 </main>
+
+<?php
+	require 'footer.php';
+?>
