@@ -74,8 +74,8 @@
                     <label for="">Bill Amount</label>
                     <input type="text" name="bill_amount" required> <br>
 
-                    <!-- <label for="">Scanned copy of bill</label>
-                    <input type="file" name="bill" required> -->
+                    <label for="">Scanned copy of bill</label>
+                    <input type="file" name="file" required>
                     
                     <button type="submit" name="form-submit">Submit</button><br>
                     

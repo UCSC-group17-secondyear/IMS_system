@@ -124,7 +124,8 @@
                                 received.</label>
             <input type="text" name="nature_of"> <br>
 
-            <!-- <label for="">Scanned Copy of the Form Filled by the Surgeon</label> -->
+            <label for="">Scanned copy of bill</label>
+            <input type="file" name="file" required>
 
             <button type="submit" name="form-submit">Submit</button><br>
             
