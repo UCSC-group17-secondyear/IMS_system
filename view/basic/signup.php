@@ -107,12 +107,12 @@
 	            </div>
 	        </div>
 
-         	<button type="submit" class="signupbtn">Signup</button>
+         	<button type="submit" class="signupbtn" name="signup-submit">Signup</button>
          	<button type="submit" class="cancelbtn">Cancel</button>
 		</form>
 	</div>
 </main>
 
-<!-- <?php
-	// require 'footer.php';
-?> -->
+<?php
+	 require 'footer.php';
+?>
