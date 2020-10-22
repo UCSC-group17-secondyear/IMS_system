@@ -18,9 +18,9 @@
                 </ul>
             </li>
 
-    <a href="../../controller/userListController.php"><button type="submit" name="" class="button">Manage Users in IMS System</button></a><br>
+    <!-- <a href="../../controller/userListController.php"><button type="submit" name="" class="button">Manage Users in IMS System</button></a><br> -->
 
-    <button class="button accordion">Manage Medical Schemes</button>
+    <!-- <button class="button accordion">Manage Medical Schemes</button>
     <div class="panel">
         <a href="aAddNewSchemeV.php" class="buttonTwo">Add a new scheme</a><br>
         <a href="aUpdateSchemeV.php" class="buttonTwo">Update Policies of a scheme</a><br>
@@ -37,7 +37,7 @@
     <div class="panel">
         <a href="aAddSessionV.php" class="buttonTwo">Add a new Session</a><br>
         <a href="aUpdateRemoveSessionV.php" class="buttonTwo">Update or remove a Session</a><br>
-    </div>
+    </div> -->
 
             <li>
                 <button type="submit" class="tree_list"><a href="../../controller/userListController.php">Manage Users in IMS System</a></button> <br>
