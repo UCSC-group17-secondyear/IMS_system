@@ -15,14 +15,14 @@
 <body>
     <header>
         <div class="topnav">
-            <?php
-                if (isset($_SESSION['userId'])) {
-                    echo '<!-- <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Home</a>';
-                    echo '<a href=""><i class="fa fa-fw fa-user-circle"></i>Log Out</a>';
-                }
-                else {
-                    echo '<p class="sansserif"><a href="login.php"><i class="fa fa-fw fa-user-circle"></i>Log In</a></p>';
-                }
-            ?>
+            <a href="../../controller/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>">Home</a>
+				<?php
+					if (isset($_SESSION['userId'])) {
+						echo '<a href="../../controller/logoutController.php">Log Out</a>';
+					}
+					else {
+						echo '<a href="../basic/login.php">Log In</a>';
+					}
+				?>
         </div>
     </header>

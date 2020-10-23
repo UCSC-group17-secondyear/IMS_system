@@ -24,9 +24,12 @@
         
         <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
             <label for="">Employee Id</label>
-            <input type="text" name="empid" placeholder="Employee Id" required>
+            <!-- <input type="text" name="empid" placeholder="Employee Id" required> -->
+            <select name="empid" id="">
+                <option value="">Select User</option>
+                <?php echo $_SESSION['userlist'] ?>
+            </select>
             <label for="">Select user role</label>
-
             <select name="userRole" id="">
                 <option value="">Select User Role</option>
                 <?php echo $_SESSION['userroles'] ?>

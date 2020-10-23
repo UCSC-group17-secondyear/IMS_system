@@ -46,31 +46,37 @@
             $sick_injury = mysqli_real_escape_string($connect, $_POST['sick_injury']);
             $insurer_claims = mysqli_real_escape_string($connect, $_POST['insurer_claims']);
             $nature_of = mysqli_real_escape_string($connect, $_POST['nature_of']);
-            $opd_form_flag = mysqli_real_escape_string($connect, $_POST['opd_form_flag']);
-            $surgical_form_flag = mysqli_real_escape_string($connect, $_POST['surgical_form_flag']);
+            $submitted_date = date('y-m-d');
 
-            // $file = $_FILES('bill');
-            // //$file = mysqli_real_escape_string($connect, $_POST['file']);
+            $file = $_FILES['file'];
+            $file_name = $_FILES['file']['name'];
+            $file_tmp_name = $_FILES['file']['tmp_name'];
+            $file_error = $_FILES['file']['error'];
+            $file_type = $_FILES['file']['type'];      
 
-            // $fileName = $_FILES['bill']['name'];
-            // //$fileType = $_FILES['bill']['type'];
+            $file_ext = explode('.',$file_name);
+            $file_actual_ext = strtolower(end($file_ext));
 
-            // $fileName = mysqli_real_escape_string($connect, $_POST['fileName']);
+            $allowed = array('jpg','jpeg','png','pdf');
 
-            // $fileExt = explode('.',$fileName);
-            // $fileActualExt = strtolower(end($fileExt));
+            if(in_array($file_actual_ext,$allowed))
+              {
+                if($file_error === 0){
+                   $file_name_new = $user_id."-"."surgical"."-".$submitted_date."-".uniqid('',true).".".$file_actual_ext;
+                   $file_destination = '../view/img/bill/'.$file_name_new;
+                   move_uploaded_file($file_tmp_name, $file_destination);
+                   $result = Model::fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $opd_form_flag, $surgical_form_flag, $file_name_new, $submitted_date,$connect);
 
-            // $allowed = array('jpg','jpeg','png','pdf');
+                }
+                else{
+                    echo "There was an error uploading your file.";
+                }
+              }
+            else
+              {
+                echo "File type is incorrrect.";
+              }
 
-            // if(in_array($fileActualExt,$allowed))
-            //    {
-            //     $result = Model::fillSurgicalForm($user_id, $empid, $department, $address,  $patientname, $relationship, $accidentdate, $howoccured, $injuries, $natureofillness, $datecommence, $dateconsult, $doctor, $docaddress, $hospitalizedon, $discharged, $illnessbefore, $illnessbeforyears, $sickinjury, $insurerclaims, $natureof, $fileName, $connect);
-            //    }
-            // else
-            //    {
-            //      echo "File type is incorrrect.";
-            //    }
-            $result = Model::fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $opd_form_flag, $surgical_form_flag, $connect);
 
             if ($result) {
                 header('Location:../view/medicalSchemeMember/memFormSubmitSuccessV.php');
