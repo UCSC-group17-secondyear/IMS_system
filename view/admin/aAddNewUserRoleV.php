@@ -52,8 +52,8 @@
             </div>
         </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
