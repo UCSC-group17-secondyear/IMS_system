@@ -52,7 +52,7 @@
         $pwd = mysqli_real_escape_string($connect, $_POST['pwd']);
         $conpwd = mysqli_real_escape_string($connect, $_POST['conpwd']);
         $uname = $_SESSION['uname'];
-        // echo $uname;
+         //echo $uname;
 
         if ($pwd==$conpwd) {
             $hashed_pwd = sha1($pwd);
