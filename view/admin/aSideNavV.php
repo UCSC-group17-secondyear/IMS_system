@@ -74,7 +74,7 @@
                         <a href="aAddSessionV.php"><li><i class="fa fa-plus-circle"></i>Add a new Session</li></a>
                     </button>
                     <button>
-                        <a href="aUpdateRemoveSessionV.php"><li>    <i class="fa fa-minus-circle"></i>Update or remove a Session</li></a>
+                        <a href="aUpdateRemoveSessionV.php"><li><i class="fa fa-minus-circle"></i>Update or remove a Session type</li></a>
                     </button>
                 </ul>
             </li>
@@ -82,7 +82,7 @@
             <li><button class="tree_list">Manage Sessions Per Month</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="aAddSessionPerMonthV.php"><li><i class="fa fa-plus-circle"></i>Add a new Session Per Month</li></a>
+                        <a href="aAddSessionPerMonthV.php"><li><i class="fa fa-plus-circle"></i>Assign a monthly session</li></a>
                     </button>
                     <button>
                         <a href="aUpdateRemoveSessionPerMonthV.php"><li><i class="fa fa-minus-circle"></i>Update or remove a Sessions Per Month</li></a>

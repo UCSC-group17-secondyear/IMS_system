@@ -65,7 +65,7 @@
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    echo "No result.";
+                    echo "Password is incorrect.";
                 }
             }
             else {

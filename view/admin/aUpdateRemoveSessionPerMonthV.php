@@ -1,41 +1,78 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update or Remove a monthly session</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update or remove a session</li>
+            <li>Update or remove a monthly session</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'aSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Update or remove a session</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Update or remove a monthly session</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter session type</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="text" name="sessionType" placeholder="Session type" required/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter subject</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="subject" placeholder="Subject" required/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter month</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="month" placeholder="Month" required/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter number of sessions per month</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="numOfSessions" placeholder="Sessions per month" required/>
+                            </div>
+                        </div>
+
+                        <button class="mainbtn" type="submit" name="updateSession-submit">Update session</button>
+                    </form>
+                    <form action="../../controller/adminControllers/manageMonthlySessionController.php" method="post">
+                        <!-- <button class="subbtn" type="submit" name="userroleList-submit">View Current Session Types</button> -->
+                        <button type="submit" name="removeSession-submit" class="cancelbtn">Remove session</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        
-        Enter session type <input type="text" name="sessionType" placeholder="Session type" required/> <br>
-        
-        Enter subject <input type="text" name="subject" placeholder="Subject" required/> <br>
-
-        Enter month <input type="text" name="month" placeholder="Month" required/> <br>
-
-        Enter number of sessions per month <input type="text" name="numOfSessions" placeholder="Sessions per month" required/> <br>
-        
-        <button type="submit" name="updateSession-submit">Update session type</button>
-        
-        <button type="submit" name="removeSession-submit">Remove session type</button>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<!-- <?php
+    // require '../basic/footer.php';
+?> -->
