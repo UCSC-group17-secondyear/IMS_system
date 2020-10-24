@@ -37,7 +37,7 @@
                     </form>
                     <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
                         <button class="subbtn" type="submit" name="userroleList-submit">View Current user roles</button>
-                        <a href="aHomeV.php"><button type="submit" class="cancelbtn">Cancel</button></a>
+                        <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn">Cancel</button></a>
                     </form>
                 </div>
             </div>

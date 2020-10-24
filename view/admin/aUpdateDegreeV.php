@@ -1,3 +1,7 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update Degree</title>
     <?php
@@ -7,6 +11,7 @@
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aUpdateRemoveDegreeV.php">Update or Remve Degree</a></li>
             <li>Update Degree</li>
         </ul>
     </div>

@@ -1,38 +1,56 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update Designation</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li>Update Designation</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'aSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Update Designation</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Update Designation</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="../../controller/aUpdateDesignationController.php" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Designation</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> required/><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Description</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="description" <?php echo 'value="'.$_SESSION['description'].'"' ?> required/>
+                            </div>
+                        </div>
+
+                        <button class="mainbtn" type="submit" name="updateDesignation-submit">Update Designation</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div>
-            <form action="../../controller/aUpdateDesignationController.php" method="POST">
-                <label for="">Designation</label>
-                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> required/><br>
-                <label for="">Description</label>
-                <input type="text" name="description" <?php echo 'value="'.$_SESSION['description'].'"' ?> required/><br>                       
-                <button type="submit" name="updateDesignation-submit">Update Designation</button>
-            </form>
-        </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

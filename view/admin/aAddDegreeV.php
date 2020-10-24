@@ -1,37 +1,60 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Add a degree</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li>Add a new degree</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'aSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Add a new degree</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Add a new degree</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Degree Name</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="text" id="" name="degree_name" placeholder="Degree name" required/><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Abbreviation/code</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="text" id="" name="degree_abbriviation" placeholder="Abbriviation" required/><br>
+                            </div>
+                        </div>
+
+                        <button class="mainbtn" type="submit" name="addDegree-submit">Add degree</button>
+                    </form>
+                    <form action="../../controller/adminControllers/manageDegreeController.php" method="post">
+                        <button class="subbtn" type="submit" name="userroleList-submit">View Current Degree List</button>
+                        <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn">Cancel</button></a>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
-            Enter Degree Name <input type="text" id="" name="degree_name" placeholder="Degree name" required/><br>
-
-            Enter Abbreviation/code <input type="text" id="" name="degree_abbriviation" placeholder="Abbriviation" required/><br>
-            
-            <button type="submit" name="addDegree-submit">Add degree</button>
-        </form>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
