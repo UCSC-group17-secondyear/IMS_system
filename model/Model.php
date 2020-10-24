@@ -53,9 +53,18 @@
 			return $result;
 		}
 
-		public static function updatePassword($empid, $hashed_password, $connect)
+		public static function updatePassword($uname, $hashed_password, $connect)
 		{
-			$query = "UPDATE users SET password = '{$hashed_password}' WHERE empid='{$empid}' LIMIT 1";
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE empid='{$uname}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+            return $result;
+		}
+
+		public static function updatePasswordTwo($user_id, $hashed_password, $connect)
+		{
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId='{$user_id}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -561,22 +570,6 @@
 		public static function deleteDegree($degree_id, $connect)
 		{
 			$query = "UPDATE tbl_degrees SET is_deleted = 1 WHERE degree_id={$degree_id} LIMIT 1";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
-		public static function opdFormIds($user_id, $connect){
-		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND opd_form_flag=1";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
-		public static function surgicalFormIds($user_id, $connect){
-		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND surgical_form_flag=1";
 
 			$result = mysqli_query($connect, $query);
 
