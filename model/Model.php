@@ -566,6 +566,22 @@
 
 			return $result;
 		}
+
+		public static function opdFormIds($user_id, $connect){
+		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND opd_form_flag=1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function surgicalFormIds($user_id, $connect){
+		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND surgical_form_flag=1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 		
 	}
 ?>
