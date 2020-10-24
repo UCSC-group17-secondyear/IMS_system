@@ -1,37 +1,49 @@
-<main>
-    <title>Update or Remove a degree</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require '../basic/topnav.php';
+?>
 
-    <div class="header">
+<main>
+    <title>Update or Remove Degree</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update or remove a degree</li>
+            <li>Update or Remove Degree</li>
         </ul>
+
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'aSideNavV.php';
+                ?>
+            </div>
+
+            <div class="col right80">
+                <div>
+                    <h2>Update or Remove Degree</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="../../controller/aUpdateDegreeController.php" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Degree Name</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="text" name="degree_name" <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> required/><br>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="../../controller/adminControllers/manageDegreeController.php" method="post">
+                        <button class="subbtn" type="submit" name="updateDegree-submit">Update Degree</button>
+                        <button type="submit" name="removeDegree-submit" class="cancelbtn">Remove Degree</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-       <h1>Department Details</h1>
-
-        <table class="mytable">
-            <tr>
-                <th>Degree</th>
-                <th>Degree Abbriviation</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            <?php echo $_SESSION['degree_list']; ?>
-        </table>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

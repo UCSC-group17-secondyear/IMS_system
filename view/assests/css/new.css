@@ -508,12 +508,12 @@ img.avatar {
 }
 
 .contentForm {
-  background-color: oldlace;
+  background-color: lightblue;
   /*max-width: 80%;*/
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
-  height: 400px;
+  height: auto;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
   /*opacity: 0.5;*/
@@ -555,6 +555,7 @@ img.avatar {
   height: 40px;
   margin-top: 25px;
   margin-left: 32%;
+  margin-bottom: 2%;
   font-size: 18px;
   border: 0px;
 }
@@ -585,6 +586,8 @@ img.avatar {
   color: white;
   height: 40px;
   margin-top: 10%;
+  margin-bottom: 3%;
+  margin-left: 3%;
   border: 0px;
   font-size: 18px;
 }

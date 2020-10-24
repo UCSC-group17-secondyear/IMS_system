@@ -90,4 +90,8 @@
             echo "Employee id is invalid.";
         }
     }
+
+    else if (isset($_POST['cancel-submit'])) {
+        header('Location:../../view/admin/aHomeV.php');
+    }
 ?>

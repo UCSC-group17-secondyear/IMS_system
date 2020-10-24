@@ -1,46 +1,77 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update Hall</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li>Update Hall</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'aSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Update Hall</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Update Hall</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="../../controller/aUpdateHallController.php" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Hall Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="hall_name" <?php echo 'value="'.$_SESSION['hall_name'].'"' ?> required/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Hall Location</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="hall_location" <?php echo 'value="'.$_SESSION['location'].'"' ?> required/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Seating Capacity</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="seating_capacity" <?php echo 'value="'.$_SESSION['seating_capacity'].'"' ?> required/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>AC availability</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="ac"required>
+                                    <option <?php echo 'value="'.$_SESSION['AC'].'"' ?>><?php echo $_SESSION['AC'] ?></option>
+                                    <option value="1">A/C</option>
+                                    <option value="0">Non A/C</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="mainbtn" type="submit" name="updateHall-submit">Add Semester</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div>
-            <form action="../../controller/aUpdateHallController.php" method="POST">
-                <label for="">Hall Name</label>
-                <input type="text" name="hall_name" <?php echo 'value="'.$_SESSION['hall_name'].'"' ?> required/><br>
-                <label for="">Hall Location</label>
-                <input type="text" name="hall_location" <?php echo 'value="'.$_SESSION['location'].'"' ?> required/><br>
-                <label for="">Seating Capacity</label>
-                <input type="text" name="seating_capacity" <?php echo 'value="'.$_SESSION['seating_capacity'].'"' ?> required/><br>
-                <label for="">AC availability</label>
-                <select name="ac"required>
-                    <option <?php echo 'value="'.$_SESSION['AC'].'"' ?>><?php echo $_SESSION['AC'] ?></option>
-                    <option value="1">A/C</option>
-                    <option value="0">Non A/C</option>
-                </select>                       
-                <button type="submit" name="updateHall-submit">Add Semester</button>
-            </form>
-        </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

@@ -1,39 +1,44 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update or Remove a semester</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li>Add a new Semester</li>
         </ul>
+
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'aSideNavV.php';
+                ?>
+            </div>
+
+            <div class="col right80">
+                <div>
+                    <h2>Semester Details</h2>
+                </div>
+
+                <table id="tableStyle" class="mytable">
+                    <tr>
+                        <th>Semester</th>
+                        <th>Academic Year</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <?php echo $_SESSION['semester_list']; ?>
+                </table>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <h1>Semester Details</h1>
-
-        <table class="mytable">
-            <tr>
-                <th>Semester</th>
-                <th>Academic Year</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            <?php echo $_SESSION['semester_list']; ?>
-        </table>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
