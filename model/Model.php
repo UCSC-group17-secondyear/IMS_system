@@ -535,7 +535,7 @@
 
 		public static function viewDegrees($connect)
 		{
-			$query = "SELECT * FROM tbl_degrees WHERE is_deleted=0 ORDER BY degree_id";
+			$query = "SELECT * FROM tbl_degree WHERE is_deleted=0 ORDER BY degree_id";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -544,7 +544,7 @@
 		
 		public static function viewADegree($degree_id, $connect)
 		{
-			$query = "SELECT * FROM tbl_degrees WHERE degree_id='{$degree_id}' LIMIT 1";
+			$query = "SELECT * FROM tbl_degree WHERE degree_id='{$degree_id}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -553,7 +553,7 @@
 
 		public static function checkDegreeThree($degree_id, $degree_name, $connect)
 		{
-			$query = "SELECT * FROM tbl_degrees WHERE degree_name='{$degree_name}' AND degree_id!={$degree_id} LIMIT 1";
+			$query = "SELECT * FROM tbl_degree WHERE degree_name='{$degree_name}' AND degree_id!={$degree_id} LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -562,7 +562,7 @@
 		
 		public static function updateDegree($degree_id, $degree_name, $degree_abbriviation, $connect)
 		{
-			$query = "UPDATE tbl_degrees SET degree_name='{$degree_name}', degree_abbriviation='{$degree_abbriviation}' WHERE degree_id={$degree_id} LIMIT 1";
+			$query = "UPDATE tbl_degree SET degree_name='{$degree_name}', degree_abbriviation='{$degree_abbriviation}' WHERE degree_id={$degree_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -571,7 +571,7 @@
 
 		public static function deleteDegree($degree_id, $connect)
 		{
-			$query = "UPDATE tbl_degrees SET is_deleted = 1 WHERE degree_id={$degree_id} LIMIT 1";
+			$query = "UPDATE tbl_degree SET is_deleted = 1 WHERE degree_id={$degree_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
