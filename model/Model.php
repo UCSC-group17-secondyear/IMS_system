@@ -228,6 +228,7 @@
 			return $result;
 		}
 
+//.............................................. Medical Scheme Maintainer ...........................................................//
 		public static function registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $member_type, $connect)
 		{
 			$query = "INSERT INTO tbl_user_flag (user_id, department, healthcondition, civilstatus, schemename, member_type) VALUES('$user_id', '$department', '$health_condition', '$civil_status', '$scheme_name', '$member_type')";
@@ -273,6 +274,7 @@
 					
 			return $result_set;
 		}
+//....................................................................................................................................//
 
 		public static function getmemberdetails($userid, $connect)
 		{
