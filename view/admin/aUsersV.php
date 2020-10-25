@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'aSideNavV.php';
+                    require '../admin/aSideNavV.php';
                 ?>
             </div>
 
@@ -23,7 +23,7 @@
                     <h2>Users in IMS System</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle">
                     <tr>
                         <th>Employee Id</th>
                         <th>Initials</th>
@@ -44,6 +44,6 @@
     </div>
 </main>
 
-<!-- <?php
-    // require '../basic/footer.php';
-?> -->
+<?php
+    require "../basic/footer.php";
+?>

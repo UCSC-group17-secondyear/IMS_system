@@ -65,7 +65,7 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="addHall-submit">Add Semester</button>
+                        <button class="mainbtn" type="submit" name="addHall-submit">Add Hall</button>
                     </form>
                 </div>
             </div>

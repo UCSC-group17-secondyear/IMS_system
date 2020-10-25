@@ -11,7 +11,7 @@
 
     if (isset($_POST['submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-
+        // echo $user_id;
         $userInfo = array('password'=>20, 'conpassword'=>20);
 		
 		foreach ($userInfo as $info=>$maxLen) 
@@ -32,7 +32,7 @@
         if (empty($errors)) {
             $hashed_password = sha1($password);
 
-            $result = Model::updatePassword($user_id, $hashed_password, $connect);
+            $result = Model::updatePasswordTwo($user_id, $hashed_password, $connect);
 
             if ($result) {
                 echo "Successfully updated";

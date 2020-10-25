@@ -24,14 +24,18 @@
             <h4>Mark Mahapola Selected Students</h4>
         </div>
 
-        <form action="" method="POST">
-            <!-- <input type="text" id="studentname" name="student" value="studentname"> -->
-            <label for="studentname">Search by Student Name</label><br>
-            <input type="text" id="studentName">
+        <form action="../../controller/stuMahapolaDetailsNameController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+            <h2>Search by Student Name</h2><br>
+
+            <label >Intials</label><br>
+            <input type="text" name="student_initials">
+
+            <label >Surname</label><br>
+            <input type="text" name="student_surname">
         </form>
         <br>
-        <a href="mmStudentDetailsV.php" ><button type="submit" name="" >Display Student's Details</button></a><br>
-            <!-- mekedi js function eka check krla tamai display kranna one -->
+        <button type="submit" name="mark-mahapola-submit" >Display Student's Details</button></a><br>
+            
     </div>
     
     <?php

@@ -1,15 +1,13 @@
 <main>
-    <title>Update Successfull</title>
+    <title>Delete Claim Form</title>
 
     <?php
         require('../basic/header.php');
     ?>
-
+        
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memUpdateClaimFormsV.php">Select Form</a></li>
-            <li>Form</li>
         </ul>
     </div>
 
@@ -20,9 +18,9 @@
     </div>
     
     <div class="content">
-        <p>Your Form has been Updated Succesfully.</p>
-
-        <a href="memUpdateClaimFormsV.php"><button type="submit" name="">OK</button></a><br>
+        <div>
+            <h4>Claim Form Deleted Succesfully</h4>
+        </div>
     </div>
     
     <?php

@@ -1,33 +1,35 @@
+<?php
+  require "topnav.php";
+?>
+
 <main>
-  <title>Reset Password</title>
-  <?php
-    require "header.php";
-  ?>
+    <title>Reset Password</title>
 
-  <div class="header"></div>
+    <div class="signupForm" style="margin-top:195px; margin-bottom:195px;">
+        <form action="../../controller/pwdController.php" method="POST">
+          <h2>Reset Password</h2>
 
-  <div class="side-nav">
-    <!-- <div>
-      <h2>IMS of Academic And Publication Division </h2>
-    </div> -->
-  </div>
-  <div class="content">
-    <form action="../../controller/pwdController.php" method="POST">
-        <h2>Reset Password</h2>
-        <p>
-          <input type="password" placeholder="Enter password" name="pwd" required/>
-        </p>
-        
-        <p>
-          <input type="password" placeholder="Confirm Password" name="conpwd" required/>
-        </p>
-        
-        <p>
-          <button type="submit" name="savepwd">Save Password</button>
-        </p>
-      </form>
-  </div>
-  <?php
-    require "footer.php";
-  ?>
+          <div class="row">
+              <div class="col-25">
+                  <label>Enter Password</label>
+              </div>
+              <div class="col-75">
+                  <input type="password" placeholder="Enter password" name="pwd" required/>
+              </div>
+
+              <div class="col-25">
+                  <label>Confirm Password</label>
+              </div>
+              <div class="col-75">
+                  <input type="password" placeholder="Confirm Password" name="conpwd" required/>
+              </div>
+          </div>
+          <button type="submit" name="savepwd" class="signupbtn">Save Password</button>
+        </form>
+        <button type="submit" class="cancelbtn"><a href="homePageV.php" style="text-decoration: none; color:white">Cancel</a></button>
+    </div>
 </main>
+
+<?php
+  require "footer.php";
+?>
