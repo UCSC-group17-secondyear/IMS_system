@@ -1,27 +1,30 @@
-<main>
-    <title>Scheme Details</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require "../basic/topnav.php";
+?>
 
-    <div class="header">
+<main>
+  <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
             <li>Medical Scheme Details</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php 
-            require '../departmentHead/dhSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'dhSideNavV.php';
+                ?>
+            </div>
 
-    <?php
-        require '../basic/viewClaimDetails.php';
-    ?>
-    
-    <?php
-        require_once('../basic/footer.php');
-    ?>
+            <div class="col right80">
+                <div>
+                    <h2>Medical Scheme Details</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
