@@ -532,7 +532,7 @@ img.avatar {
   margin-bottom: 10px;
 }
 
-.contentForm input {
+.contentForm input, select {
   width: 80%;
   /*background-color: white;*/
   height: 40px;
