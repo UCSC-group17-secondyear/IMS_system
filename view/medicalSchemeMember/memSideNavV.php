@@ -12,7 +12,7 @@
             <a href="../../controller/surgicalFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Surgical Hospitalization Form</a>
         </div>
         
-        <a href="memUpdateClaimFormsV.php"><button type="submit" name="" class="button">Update Claim
+        <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Update Claim
                 Form</button></a><br>
         
         <!-- <a href="memViewClaimFormsV.php" ><button type="submit" name="" class="button">View Claim Forms</button></a><br> -->
