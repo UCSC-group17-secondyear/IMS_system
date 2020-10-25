@@ -1,32 +1,40 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Booking Details</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li>View Booking Details</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../academicStaffMember/asmSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'asmSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Booking</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Booking</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form>
+                        <a href="asmBookingUpdateSaveV.php"><button class="subbtn" type="submit" name="bookingUpdateSave-submit">Save Updates</button></a><br>
+                        
+                        <a href="asmBookingRemoveV.php"><button class="subbtn" type="submit" name="bookingRemove-submit">Remove</button></a>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <a href="asmBookingUpdateSaveV.php"><button type="submit" name="bookingUpdateSave-submit">Save Updates</button></a><br>
-        <a href="asmBookingRemoveV.php"><button type="submit" name="bookingRemove-submit">Remove</button></a>
     </div>
-    
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+    
+<?php
+    require '../basic/footer.php';
+?>

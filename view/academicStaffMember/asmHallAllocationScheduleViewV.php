@@ -1,43 +1,46 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Hall Allocation Schedule</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li>Hall Allocation Schedule</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../academicStaffMember/asmSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'asmSideNavV.php';
+                ?>
+            </div>
+            <div class="col right80">
+                <div>
+                    <h2>Hall Allocation Schedule</h2>
+                </div>
 
-    <div class="content">
-        <div>
-            <h3>Hall Allocation Schedule</h3>
+                <table id="tableStyle">
+                    <tr>
+                        <th>Date</th>
+                        <th>Time Duration</th>
+                        <th>Hall Name</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <a href="asmViewHallAllocationScheduleV.php"><button class="mainbtn" type="submit" name="">OK</button></a>
+            </div>
         </div>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Time Duration</th>
-                <th>Hall Name</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <a href="asmViewHallAllocationScheduleV.php"><button type="submit" name="">OK</button></a>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

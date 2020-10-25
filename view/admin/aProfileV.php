@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../admin/aSideNavV.php';
+                    require 'aSideNavV.php';
                 ?>
             </div>
 
