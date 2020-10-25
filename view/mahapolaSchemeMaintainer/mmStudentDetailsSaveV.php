@@ -10,7 +10,6 @@
             <li><a href="mmHomeV.php">Home</a></li>
             <li><a href="mmMarkMahapolaSelectedStudentsV.php">Mark Mahapola Selected Students</a></li> 
             <li><a href="mmStudentDetailsV.php">Student Details</a></li>
-            <li>Saved</li>
         </ul>
     </div>
 

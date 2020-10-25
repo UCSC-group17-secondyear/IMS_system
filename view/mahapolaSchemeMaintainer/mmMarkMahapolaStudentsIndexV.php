@@ -19,15 +19,16 @@
             <h4>Mark Mahapola Selected Students</h4>
         </div>
 
-        <form action="" method="POST">
-            <!-- <input type="radio" id="studentindex" name="student" value="studentindex"> -->
-            <label for="studentindex">Search by Student Index</label><br>
-            <input type="text" id="studentIndex"><br>
+        <form action="../../controller/stuMahapolaDetailsIndexController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+        
+            <label for="">Search by Student Index</label><br>
+            <input type="text" name="student_index" required><br>
+
+            <button type="submit" name="mahapola-mark-submit" >Display Student's Details</button></a><br>
         </form>
 
         <br>
-        <a href="mmStudentDetailsV.php" ><button type="submit" name="" >Display Student's Details</button></a><br>
-        <!-- mekedi js function eka check krla tamai display kranna one -->
+    
     </div>
     
     <?php
