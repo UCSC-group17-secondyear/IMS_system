@@ -12,7 +12,7 @@
             <a href="../../controller/surgicalFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Surgical Hospitalization Form</a>
         </div>
         
-        <a href="memUpdateClaimFormsV.php"><button type="submit" name="" class="button">Update Claim
+        <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Update Claim
                 Form</button></a><br>
         
         <!-- <a href="memViewClaimFormsV.php" ><button type="submit" name="" class="button">View Claim Forms</button></a><br> -->
@@ -20,7 +20,7 @@
         <button class="button accordion">View Claim Forms</button>
         <div class="panel">
             <a href="memSearchByReferenceFormV.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Search By Ref. Number</a> <br>
-            <a href="memClaimFormListV.php" class="buttonTwo">Display Form List</a>
+            <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Display Form List</a>
         </div>
 
         <script>

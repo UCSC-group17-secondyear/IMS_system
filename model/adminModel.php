@@ -22,14 +22,14 @@
 			// }
 		}
 
-		public static function viewUserRoles($connect)
-		{
-			$query = "SELECT * FROM userroles WHERE is_deleted=0";
+		// public static function viewUserRoles($connect)
+		// {
+		// 	$query = "SELECT * FROM userroles WHERE is_deleted=0";
 
-			$result_set = mysqli_query($connect, $query);
+		// 	$result_set = mysqli_query($connect, $query);
 
-			return $result_set;
-		}
+		// 	return $result_set;
+		// }
 
 		public static function removeUserrole($userrole, $connect)
 		{

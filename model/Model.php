@@ -53,9 +53,18 @@
 			return $result;
 		}
 
-		public static function updatePassword($empid, $hashed_password, $connect)
+		public static function updatePassword($uname, $hashed_password, $connect)
 		{
-			$query = "UPDATE users SET password = '{$hashed_password}' WHERE empid='{$empid}' LIMIT 1";
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE empid='{$uname}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+            return $result;
+		}
+
+		public static function updatePasswordTwo($user_id, $hashed_password, $connect)
+		{
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId='{$user_id}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -106,16 +115,16 @@
 			return $result_set;
 		}
 
-		public static function fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag,  $connect){
-			$query = "INSERT INTO tbl_claimform (user_id, patient_name, relationship,  doctor_name, treatment_received_date, bill_issued_date, purpose, bill_amount, opd_form_flag, surgical_form_flag) VALUES ( $user_id ,  '$patient_name' ,'$relationship', '$doctor_name' , '$treatment_received_date' ,'$bill_issued_date', '$purpose' , '$bill_amount', 1, 0) ";
+		public static function fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag, $file_name_new, $submitted_date,$connect){
+			$query = "INSERT INTO tbl_claimform (user_id, patient_name, relationship,  doctor_name, treatment_received_date, bill_issued_date, purpose, bill_amount, opd_form_flag, surgical_form_flag, file_name, submitted_date) VALUES ( $user_id ,  '$patient_name' ,'$relationship', '$doctor_name' , '$treatment_received_date' ,'$bill_issued_date', '$purpose' , '$bill_amount', 1, 0, '$file_name_new','$submitted_date') ";
 
 			$result = mysqli_query($connect, $query);
 			return $result;
 		}
 
-		public static function fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $opd_form_flag, $surgical_form_flag, $connect){
-			$query = "INSERT INTO tbl_claimform (user_id, address, patient_name, relationship, accident_date, how_occured, injuries, nature_of_illness, commence_date, first_consult_date , doctor_name, doctor_address, hospitalized_date, discharged_date, illness_before, illness_before_years, sick_injury, insurer_claims, nature_of, opd_form_flag, surgical_form_flag) 
-					  VALUES ( $user_id ,'$address','$patient_name','$relationship','$accident_date','$how_occured','$injuries','$nature_of_illness','$commence_date','$first_consult_date','$doctor_name','$doctor_address','$hospitalized_date','$discharged_date','$illness_before','$illness_before_years','$sick_injury','$insurer_claims','$nature_of', 0, 1)";
+		public static function fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $opd_form_flag, $surgical_form_flag, $file_name_new, $submitted_date,$connect){
+			$query = "INSERT INTO tbl_claimform (user_id, address, patient_name, relationship, accident_date, how_occured, injuries, nature_of_illness, commence_date, first_consult_date , doctor_name, doctor_address, hospitalized_date, discharged_date, illness_before, illness_before_years, sick_injury, insurer_claims, nature_of, opd_form_flag, surgical_form_flag, file_name, submitted_date) 
+					  VALUES ( $user_id ,'$address','$patient_name','$relationship','$accident_date','$how_occured','$injuries','$nature_of_illness','$commence_date','$first_consult_date','$doctor_name','$doctor_address','$hospitalized_date','$discharged_date','$illness_before','$illness_before_years','$sick_injury','$insurer_claims','$nature_of', 0, 1, '$file_name_new','$submitted_date')";
 					  
 			$result = mysqli_query($connect, $query);
 			return $result;
@@ -496,9 +505,121 @@
 		}	
 		
 		public static function deleteDesignation($designation_id, $connect)
-
 		{
 			$query = "UPDATE tbl_designation SET is_deleted = 1 WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function userRoles($connect)
+		{
+			$query = "SELECT role_name FROM userroles WHERE is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function userList($connect)
+		{
+			$query = "SELECT empid FROM users WHERE is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function viewDegrees($connect)
+		{
+			$query = "SELECT * FROM tbl_degrees WHERE is_deleted=0 ORDER BY degree_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+		
+		public static function viewADegree($degree_id, $connect)
+		{
+			$query = "SELECT * FROM tbl_degrees WHERE degree_id='{$degree_id}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkDegreeThree($degree_id, $degree_name, $connect)
+		{
+			$query = "SELECT * FROM tbl_degrees WHERE degree_name='{$degree_name}' AND degree_id!={$degree_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;	
+		}
+		
+		public static function updateDegree($degree_id, $degree_name, $degree_abbriviation, $connect)
+		{
+			$query = "UPDATE tbl_degrees SET degree_name='{$degree_name}', degree_abbriviation='{$degree_abbriviation}' WHERE degree_id={$degree_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}	
+
+		public static function deleteDegree($degree_id, $connect)
+		{
+			$query = "UPDATE tbl_degrees SET is_deleted = 1 WHERE degree_id={$degree_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function opdFormIds($user_id, $connect){
+		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND opd_form_flag=1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function surgicalFormIds($user_id, $connect){
+		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND surgical_form_flag=1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function updateSurgicalForm($user_id, $claim_form_no,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of,$file_name_new, $submitted_date,$connect){
+			$query = "UPDATE tbl_claimform SET address='{$address}', patient_name='{$patient_name}', relationship='{$relationship}', accident_date='{$accident_date}', how_occured='{$how_occured}', injuries='{$injuries}', nature_of_illness='{$nature_of_illness}', commence_date='{$commence_date}', first_consult_date='{$first_consult_date}', doctor_name='{$doctor_name}', doctor_address='{$doctor_address}', hospitalized_date='{$hospitalized_date}', discharged_date='{$discharged_date}', 
+														illness_before='{$illness_before}', illness_before_years='{$illness_before_years}', sick_injury='{$sick_injury}', insurer_claims='{$insurer_claims}', nature_of='{$nature_of}', file_name= '{$file_name_new}' WHERE user_id={$user_id} AND claim_form_no={$claim_form_no} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+
+		}
+
+		public static function updateOpdForm($user_id, $claim_form_no, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_new, $submitted_date, $connect){
+			$query = "UPDATE tbl_claimform SET patient_name='{$patient_name}', relationship='{$relationship}', relationship='{$relationship}', doctor_name='{$doctor_name}', treatment_received_date='{$treatment_received_date}', bill_issued_date='{$bill_issued_date}', purpose='{$purpose}', bill_amount='{$bill_amount}', file_name= '{$file_name_new}' WHERE user_id={$user_id} AND claim_form_no={$claim_form_no} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getSubmitDate($claim_form_no, $user_id, $connect){
+			$query = "SELECT submitted_date FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteClaimForm($claim_form_no, $user_id, $connect){
+			$query = "DELETE FROM tbl_claimform  WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

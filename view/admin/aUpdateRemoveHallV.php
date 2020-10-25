@@ -1,39 +1,44 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update or Remove a hall</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li>Update or remove a Hall</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
-        
-    <div class="content">
-        <h1>Hall Details</h1>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'aSideNavV.php';
+                ?>
+            </div>
 
-        <table class="mytable">
-            <tr>
-                <th>Hall Name</th>
-                <th>Seating Capacity</th>
-                <th>Location</th>
-                <th>AC</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            <?php echo $_SESSION['hall_list']; ?>
-        </table>
-    </div>
+            <div class="col right80">
+                <div>
+                    <h2>Hall Details</h2>
+                </div>
 
-    <?php
-        require '../basic/footer.php';
-    ?>
+                <table id="tableStyle" class="mytable">
+                    <tr>
+                        <th>Hall Name</th>
+                        <th>Seating Capacity</th>
+                        <th>Location</th>
+                        <th>AC</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <?php echo $_SESSION['hall_list']; ?>
+                </table>
+            </div>
+        </div>
+    </div>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

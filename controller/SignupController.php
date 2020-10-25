@@ -8,6 +8,7 @@
 	
 	if (isset($_POST['signup-submit'])) 
 	{	
+		// echo "hello";
 		$userInfo = array('empid'=>8, 'initials'=>10, 'sname'=>50, 'email'=>100,'mobile'=>10, 'tp'=>10, 'dob'=>10,'designation'=>50, 'appointment'=>10, 'password'=>20, 'conpassword'=>20);
 		
 		foreach ($userInfo as $info=>$maxLen) 

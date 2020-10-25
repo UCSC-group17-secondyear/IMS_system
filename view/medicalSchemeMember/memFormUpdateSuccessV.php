@@ -20,8 +20,8 @@
     </div>
     
     <div class="content">
-        <p>Your Form has been Submitted Succesfully.</p>
-        <!-- form eka updat kalat passe mekay redirect wenne -->
+        <p>Your Form has been Updated Succesfully.</p>
+
         <a href="memUpdateClaimFormsV.php"><button type="submit" name="">OK</button></a><br>
     </div>
     

@@ -1,20 +1,19 @@
-<main>
-	<?php
-		require "header.php";
-	?>
-	<div class="header"></div>
-	<div class="side-nav">
-		
-	</div>
-	<div class="banner">
-		<div style="text-align: center;">
-			<h2>IMS of Academic And Publication Division </h2>
+<?php
+	require "topnav.php";
+?>
+
+<main>	
+	<div class="home_image">
+		<div class="heading">
+			<h2>Information Management System</h2>
+			<h3>Academic and Publications Division - UCSC</h3>
+			<a href="login.php">
+				<button type="submit" class="loginbtn"><i class="fa fa-fw fa-user-circle"></i>Login</button>
+			</a>
 		</div>
 	</div>
-
-		<?php
-			require 'footer.php';
-		?>
 </main>
 
-
+<?php
+	require 'footer.php';
+?>

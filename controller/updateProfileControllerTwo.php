@@ -49,16 +49,6 @@
             $result = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect);
 
             if ($result) {
-                // header('Location:../view/hallAllocationMaintainer/hamProfileV.php');
-                // header('Location:../view/basic/profileUpdateSuccess.php');
-
-                $to_email = "$email";
-                $subject = "Changes";
-                $body = "Admin change your details. Thank you.";
-                $headers = "From: ims.ucsc@gmail.com";
-
-                $sendMail = mail($to_email, $subject, $body, $headers);
-
                 echo "Changes updated successfully.";
             }
             else {

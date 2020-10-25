@@ -11,7 +11,7 @@
         $result = Model::deleteDesignation($designation_id, $connect);
 
         if ($result) {
-            echo "Department successfully deleted.";
+            echo "Designation successfully deleted.";
         }
         else{
             echo "Database query failed";

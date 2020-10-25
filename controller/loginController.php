@@ -52,7 +52,7 @@
 						header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
 					}
 					else if ($key['userRole'] == "recordsViewer") {
-						header('Location:../view/recordsViewer/rvHomeV.php');
+						header('Location:../view/reportViewer/rvHomeV.php');
 					}
 					else if ($key['userRole'] == "departmentHead") {
 						header('Location:../view/departmentHead/dhHomeV.php');
@@ -65,7 +65,7 @@
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    echo "No result.";
+                    echo "Password is incorrect.";
                 }
             }
             else {
