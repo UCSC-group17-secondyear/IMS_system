@@ -1,28 +1,40 @@
-<main>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require "../basic/topnav.php";
+?>
 
-    <div class="header">
+<main>
+  <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
-            <li>Memebership Requesting Forms</li>
+            <li>Memebership Request Forms</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../departmentHead/dhSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'dhSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Memebership Requesting Forms</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Memebership Requesting Forms</h2>
+                </div>
+
+                <table id="tableStyle" class="mytable">
+                    <tr>
+                        <th>Employee No</th>
+                        <th>Initials</th>
+                        <th>Surname</th>
+                        <th>Department</th>
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
