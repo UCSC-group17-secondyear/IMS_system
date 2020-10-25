@@ -39,5 +39,9 @@
                
             }
         }
+
+        else{
+            header('Location:../view/medicalSchemeMember/memClaimFormListV.php');
+        }
  
 ?>
