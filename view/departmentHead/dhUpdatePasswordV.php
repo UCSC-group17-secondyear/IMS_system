@@ -1,68 +1,55 @@
-<main>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require '../basic/topnav.php';
+?>
 
-    <div class="header">
+<main>
+    <title>Update Password</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="dhHomeV.php">Home</a></li>
+            <li><a href="dhHome.php">Home</a></li>
             <li><a href="dhProfileV.php">Profile</a></li>
             <li>Update Password</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../departmentHead/dhSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require '../departmentHead/dhSideNav.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Update Profile</h3>
-        </div>
+            <div class="col right80">
+                <div>
+                    <h2>Update Password</h2>
+                </div>
 
-        <div>
-            <form action="../../controller/updatePasswordControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
-                <label for="">Employee Id</label>
-                <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
+                <div class="contentForm">
+                    <form action="../../controller/updatePasswordControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                              <label for="">New Password: </label>
+                            </div>
+                            <div class="col-75">
+                              <input type="password" name="password" required> <br>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-25">
+                              <label for="">Confirm Password: </label>
+                            </div>
+                            <div class="col-75">
+                              <input type="password" name="conpassword" required> <br>
+                            </div>
+                        </div>
 
-                <label for="">Initials of the name</label>
-                <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"' ?> disabled> <br>
-
-                <label for="">Surname</label>
-                <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"' ?> disabled> <br>
-
-                <label for="">Email</label>
-                <input type="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"' ?> disabled> <br>
-
-                <label for="">Mobile Number</label>
-                <input type="text" name="mobile" <?php echo 'value="'.$_SESSION['mobile'].'"' ?> disabled> <br>
-
-                <label for="">Telephone Number</label>
-                <input type="text" name="tp" <?php echo 'value="'.$_SESSION['tp'].'"' ?> disabled> <br>
-
-                <label for="">Date of Birth</label>
-                <input type="text" name="dob" <?php echo 'value="'.$_SESSION['dob'].'"' ?> disabled> <br>
-
-                <label for="">Designation</label>
-                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled> <br>
-
-                <label for="">Appointment Date</label>
-                <input type="text" name="appointment" <?php echo 'value="'.$_SESSION['appointment'].'"' ?> disabled> <br> 
-
-                <label for="">New Password: </label>
-                <input type="password" name="password" required> <br>
-
-                <label for="">Confirm Password: </label>
-                <input type="password" name="conpassword" required> <br>
-
-                <button type="submit" name="submit">Save Password</button>
-            </form>
+                        <button type="submit" name="submit" class="mainbtn">Save Password</button>
+                    </form>
+                    <a href="dhHome.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
+                </div>
+                
+            </div>
         </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
