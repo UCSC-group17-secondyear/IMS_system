@@ -1,11 +1,9 @@
 <main>
-    <link rel="stylesheet" type="text/css" href="../assests/css/main.css">
-
-    <div class="content">
-        <div>
-            <h3>Scheme Details</h3>
-        </div>
-
+    <div>
+        <h2>Scheme Details</h2>
+    </div>
+    <div class="contentForm">
+      <form>
         <button type="button" class="collapsible">Scheme 1</button>
         <div class="collapse">
           <p>Contribution for the period of one year is RS.2,580/-</p>
