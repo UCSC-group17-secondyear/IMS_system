@@ -17,7 +17,17 @@
 	        <div class="header">
 				<img src="../img/ims.jpg" alt="ims" class="logo">
 				<div class="options">
-						<a href="../../controller/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>">Home</a>
+						<?php
+							if (isset($_SESSION['userId'])) {
+						?>
+								<a href="../../controller/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>">Home</a>
+						<?php
+							}
+							else {
+								echo '<a href="../basic/homePageV.php">Home</a>';
+							}
+						?>
+						
 						<?php
 							if (isset($_SESSION['userId'])) {
 
