@@ -1,69 +1,118 @@
+<?php
+    require "../basic/topnav.php";
+?>
+
 <main>
     <title>OPD Claim Details</title>
-
-<?php
-    require('../basic/header.php');
-    
-?>
- 
-            <div class="header">
+    <div class="sansserif">
+            
                 <ul class="breadcrumbs">
-                    <li><a href="memHomeV.php?user_id=<?php echo $_SESSION['user_id'] ?>">Home</a></li>
-                    <li>OPD Claim Details</li>
+                    <li><a href="memHomeV.php">Home</a></li>
                 </ul>
-            </div>
-
-            <div class="side-nav">
+        <div class="row">
+            <div class="col left20">
                 <?php 
-                    require('../medicalSchemeMember/memSideNavV.php');
+                    require('memSideNavV.php');
                 ?>
             </div>
 
-            <div class="content">
+            <div class="col right80">
                 <div>                                                                  
                     <h2>OPD Claim Details</h2>
                 </div>
 
-                <form action="memOpdClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
-                    
-                    <label for="">User Id</label>
-                    <input type="text" name="userId" <?php echo 'value="'.$_SESSION['userId'].'"' ?> disabled> <br> 
+                <div class="contentForm">
+                        <form action="memOpdClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
+                        
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">User Id</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="userId" <?php echo 'value="'.$_SESSION['userId'].'"' ?> disabled> <br> 
+                            </div>
+                        </div>
 
-                    <label for="">Claim Form No</label>
-                    <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> disabled> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Claim Form No</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Patient Name</label>
-                    <input type="text" name="patient_name" <?php echo 'value="'.$_SESSION['patient_name'].'"'?> disabled> <br>
+                        <div class="row">
+                            <div class="col-25">  
+                                <label for="">Patient Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="patient_name" <?php echo 'value="'.$_SESSION['patient_name'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Relationship</label>
-                    <input type="text" name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"'?> disabled> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Relationship</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Doctor Name</label>
-                    <input type="text" name="doctor_name" <?php echo 'value="'.$_SESSION['doctor_name'].'"'?> disabled> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Doctor Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="doctor_name" <?php echo 'value="'.$_SESSION['doctor_name'].'"'?> disabled> <br>
+                            </div>
+                        </div> 
 
-                    <label for="">Treatment Received Date</label>
-                    <input type="text" name="treatment_received_date" <?php echo 'value="'.$_SESSION['treatment_received_date'].'"'?> disabled> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Treatment Received Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="treatment_received_date" <?php echo 'value="'.$_SESSION['treatment_received_date'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Bill Issued Date</label>
-                    <input type="text" name="bill_issued_date" <?php echo 'value="'.$_SESSION['bill_issued_date'].'"'?> disabled> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Bill Issued Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="bill_issued_date" <?php echo 'value="'.$_SESSION['bill_issued_date'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Purpose</label>
-                    <input type="text" name="purpose" <?php echo 'value="'.$_SESSION['purpose'].'"'?> disabled> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Purpose</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="purpose" <?php echo 'value="'.$_SESSION['purpose'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Bill Amount</label>
-                    <input type="text" name="bill_amount" <?php echo 'value="'.$_SESSION['bill_amount'].'"'?> disabled> <br>
-                    
-                    
-                </form>
-
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Bill Amount</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="bill_amount" <?php echo 'value="'.$_SESSION['bill_amount'].'"'?> disabled> <br>
+                            </div>
+                        </div>
+                            
+                        </form>
+                </div>
             </div>
-
-            <div class="right-side-bar">
-                <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-            </div>
-            
-            <?php
-                require_once('../basic/footer.php');
-            ?>
+        </div>
+    </div>
 
 </main>
+
+<?php
+    require_once('../basic/footer.php');
+?>
