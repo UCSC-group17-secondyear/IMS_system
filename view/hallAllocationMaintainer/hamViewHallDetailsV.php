@@ -1,44 +1,47 @@
-<main>
-    <title>View hall details</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require '../basic/topnav.php';
+?>
 
-    <div class="header">
+<main>
+    <title>View Hall Details</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>View hall details</li>
+            <li>Hall Details</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
-        
-    <div class="content">   
-        <div>
-            <h3>Details</h3>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
+
+            <div class="col right80">
+                <div>
+                    <h2>Hall Details</h2>
+                </div>
+
+                <table id="tableStyle">
+                    <tr>
+                        <th>Name</th>
+                        <th>AC / Non AC</th>
+                        <th>Capacity</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <a href="hamHallDetailsV.php"><button type="submit" name="">Ok</button></a>
+            </div>
         </div>
-        <br>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>AC / Non AC</th>
-                <th>Capacity</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <br>
-        <a href="hamHallDetailsV.php"><button type="submit" name="">Ok</button></a>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

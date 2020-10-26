@@ -515,7 +515,7 @@ img.avatar {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
-  height: 400px;
+  height: auto;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
   /*opacity: 0.5;*/
