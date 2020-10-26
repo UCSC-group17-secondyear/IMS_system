@@ -1,14 +1,17 @@
+<?php
+    require "../basic/topnav.php";
+?>
+
 <main>
     <title>Update Booking</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li>Update Booking</li>
         </ul>
+    
+
     </div>
 
     <div class="side-nav">
