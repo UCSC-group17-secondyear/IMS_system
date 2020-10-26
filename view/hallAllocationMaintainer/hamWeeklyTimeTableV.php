@@ -1,43 +1,47 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Weekly Time Table</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
             <li>Weekly Time Table</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Weekly Time Table</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Weekly Time Table</h2>
+                </div>
+
+                <table id="tableStyle">
+                    <tr>
+                        <th>Date</th>
+                        <th>Time Duration</th>
+                        <th>Hall Name</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                
+                <a href="hamHomeV.php"><button class="mainbtn" type="submit" name="">OK</button></a>
+            </div>
         </div>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Time Duration</th>
-                <th>Hall Name</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <a href="hamHomeV.php"><button type="submit" name="">OK</button></a> 
-        <!-- if lecturer registered as a medical scheme member then redirect to the lecturer home page without "Register to the medical scheme button"  -->
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

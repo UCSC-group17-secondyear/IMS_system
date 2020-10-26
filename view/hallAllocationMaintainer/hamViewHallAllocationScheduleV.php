@@ -1,32 +1,47 @@
-<main>
-    <title>Hall allocation schedule</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require '../basic/topnav.php';
+?>
 
-    <div class="header">
+<main>
+    <title>View Hall Allocation Schedule</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
             <li>Hall allocation schedule</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
-        
-    <div class="content">   
-        <div>
-            <h3>Hall Allocation Schedule</h3>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
+
+            <div class="col right80">
+                <div>
+                    <h2>Hall Allocation Schedule</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="" name="enterDate" required/>
+                            </div>
+
+                            <a href="hamHallAllocationScheduleViewV.php"><button class="mainbtn" type="submit" name="displayschedule-submit">Display Schedule</button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        Enter Date
-        <input type="date" id="" name="enterDate"><br>
-        <a href="hamHallAllocationScheduleViewV.php"><button type="submit" name="displayschedule-submit">Display Schedule</button></a>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
