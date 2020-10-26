@@ -1,28 +1,40 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>TT is saved</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
-        <!-- <ul class="breadcrumbs">
+    <div class="sansserif">
+        <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Saved TT successfully</li>
-        </ul> -->
-    </div>
-        
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
+            <li>Saved TT</li>
+        </ul>
 
-    <div class="content">
-        <p>The Time table has been saved successfully</p>
-        <a href="hamManageWeeklyTimeTableV.php"><button type="submit" name="">Ok</button></a>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
 
-    <?php
-        require '../basic/footer.php';
-    ?>
+            <div class="col right80">
+                <div>
+                    <h2>Update / Remove Booking</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form>
+                        <h3>The Time table has been saved successfully</h3>
+
+                        <a href="hamManageWeeklyTimeTableV.php"><button class="mainbtn" type="submit" name="">Ok</button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
