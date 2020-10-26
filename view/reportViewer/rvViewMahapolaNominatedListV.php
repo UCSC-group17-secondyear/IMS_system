@@ -1,39 +1,52 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
-    <title>Mahapola Nominated List</title>
+    <title>View Mahapola Nominated List</title>
 
-    <?php
-        require '../basic/header.php';
-    ?>
-
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>Mahapola Nominated List</li>
+            <li>View Mahapola Nominated List</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require 'rvSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'rvSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h4>View Mahapola Nominated Student List</h4>
+            <div class="col right80">
+                <div>
+                    <h2>View Mahapola Nominated List</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="" method="POST">
+                    <div class="row">
+                            <div class="col-25">
+                              <label>Enter Degree</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="degree" id="">
+                                    <option value="">Select Degree</option>
+                                    <option value="CS">CS</option>
+                                    <option value="IS">IS</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="" method="post">
+                        <a href="rvNominatedListV.php"><button class="subbtn" type="submit" name="">Display Student List</button></a>
+                    </form>
+                </div>
+            </div>
         </div>
-        <input type="text" value="" placeholder="Enter batch no"> <br><br>
-        <select name="degree" id="">
-            <option value="">Select Degree</option>
-            <option value="CS">CS</option>
-            <option value="IS">IS</option>
-        </select>
-        <br>
-        <br>
-        <a href="rvNominatedListV.php"><button type="submit" name="">Display Student List</button></a><br>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

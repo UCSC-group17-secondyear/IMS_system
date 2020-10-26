@@ -1,29 +1,36 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
+    <title>Report Viewer Home Page</title>
 
-    <?php
-        require '../basic/header.php';
-    ?>
+    <div class="sansserif">
+        <ul class="breadcrumbs">
+            <li class="active">Report Viewer Page</li>
+        </ul>
 
-    <div class="header">
-        <!-- Breadcrumbs -->
+        <div class="row">
+            <div class="column left">
+                <?php
+                    require 'rvSideNavV.php';
+                ?>
+            </div>
+            <div class="column middle">
+                <h2>Report Viewer Page</h2>
+            </div>
+            <div class="column right">
+                <div class="imgcontainer">
+                    <img src="../assests/img/profile.png" alt="Avatar" style="width:100%">
+                </div>
+                <div class="btncontainer">
+                    <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require 'rvSideNavV.php';
-        ?>
-    </div>
-
-    <div class="banner">
-        <h2>Report Viewer</h2>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-
 </main>
+
+<?php
+    require "../basic/footer.php";
+?>
