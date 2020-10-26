@@ -17,28 +17,7 @@
                     </button>
                 </ul>
             </li>
-
-    <!-- <a href="../../controller/userListController.php"><button type="submit" name="" class="button">Manage Users in IMS System</button></a><br> -->
-
-    <!-- <button class="button accordion">Manage Medical Schemes</button>
-    <div class="panel">
-        <a href="aAddNewSchemeV.php" class="buttonTwo">Add a new scheme</a><br>
-        <a href="aUpdateSchemeV.php" class="buttonTwo">Update Policies of a scheme</a><br>
-        <a href="aRemoveSchemeV.php" class="buttonTwo">Remove a scheme</a><br>
-    </div>
-
-    <button class="button accordion">Manage Degrees</button>
-    <div class="panel">
-        <a href="aAddDegreeV.php" class="buttonTwo">Add a new degree</a><br>
-        <a href="../../controller/aViewDegreeController.php" class="buttonTwo">Update or remove a degree</a><br>
-    </div>
-
-    <button class="button accordion">Manage Sessions</button>
-    <div class="panel">
-        <a href="aAddSessionV.php" class="buttonTwo">Add a new Session</a><br>
-        <a href="aUpdateRemoveSessionV.php" class="buttonTwo">Update or remove a Session</a><br>
-    </div> -->
-
+            
             <li>
                 <button type="submit" class="tree_list"><a href="../../controller/userListController.php">Manage Users in IMS System</a></button> <br>
             </li>
@@ -63,7 +42,7 @@
                         <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>
                     </button>
                     <button>
-                        <a href="aUpdateRemoveDegreeV.php"><li><i class="fa fa-minus-circle"></i>Update or remove a degree</li></a>
+                        <a href="../../controller/aViewDegreeController.php"><li><i class="fa fa-minus-circle"></i>Update or remove a degree</li></a>
                     </button>
                 </ul>
             </li>
