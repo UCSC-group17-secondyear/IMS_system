@@ -1,40 +1,64 @@
 <main>
-    <a href="hamWeeklyTimeTableV.php"><button type="submit" name="" class="button">View Weekly Time Table</button></a><br>
+    <div class="sansserif">
+        <ul id="tree_view">
+            <li>
+                <a href="hamWeeklyTimeTableV.php"><button type="submit" class="tree_list">View Weekly Time Table</button></a> <br>
+            </li>
 
-    <a href="hamViewHallAllocationScheduleV.php"><button type="submit" name="" class="button">View Hall Allocation Schedule</button></a><br>
+            <li>
+                <a href="hamViewHallAllocationScheduleV.php"><button type="submit" class="tree_list">View Hall Allocation Schedule</button></a><br>
+            </li>
 
-    <a href="hamViewSchemeDetailsV.php"><button type="submit" name="" class="button">View Scheme Details</button></a><br>
+            <li>
+                <a href="hamViewSchemeDetailsV.php"><button type="submit" class="tree_list">View Scheme Details</button></a><br>
+            </li>
 
-    <a href="hamHallDetailsV.php"><button type="submit" name="" class="button">View Hall Details</button></a><br>
+            <li>
+                <a href="hamViewSchemeDetailsV.php"><button type="submit" class="tree_list">View Scheme Details</button></a><br>
+            </li>
 
-    <button class="button accordion">Manage Weekly Time Table</button>
-        <div class="panel">
-            <a href="hamEnterTimeTableV.php" class="buttonTwo"> Enter Time Table</a>
-            <a href="hamUpdateTimeTableV.php" class="buttonTwo"> Update/Remove TimeTable</a>
+            <li>
+                <a href="hamHallDetailsV.php"><button type="submit" class="tree_list">View Hall Details</button></a> <br>
+            </li>
+
+            <li><button class="tree_list">Manage Weekly Time Table</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="hamEnterTimeTableV.php"><li><i class="fa fa-plus-circle"></i>Enter Time Table</li></a>
+                    </button>
+
+                    <button>
+                        <a href="hamUpdateTimeTableV.php"><li><i class="fa fa-plus-circle"></i>Update/Remove TimeTable</li></a>
+                    </button>
+                </ul>
+            </li>
+
+            <li><button class="tree_list">Manage Booking</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Add a Booking</li></a>
+                    </button>
+                    <button>
+                        <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">My Bookings</a>
+                    </button>
+                </ul>
+            </li>
+
+            <li>
+                <button type="submit" class="tree_list"><a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a></button> <br>
+            </li>
         </div>
-
-    <button class="button accordion">Manage Booking</button>
-    <div class="panel">
-        <a href="hamAddBookingV.php" class="buttonTwo">Add a Booking</a> <br>
-            <a href="hamUpdateBookingV.php" class="buttonTwo">Update/ Remove Booking</a>
-    </div>
-
-    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+    </ul>
 
     <script>
-        var acc = document.getElementsByClassName("accordion");
+        var toggler = document.getElementsByClassName("tree_list");
         var i;
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
+        for (i = 0; i < toggler.length; i++) {
+          toggler[i].addEventListener("click", function() {
+            this.parentElement.querySelector(".tree_nest").classList.toggle("active");
+            this.classList.toggle("tree_list-down");
+          });
         }
     </script>
 </main>
