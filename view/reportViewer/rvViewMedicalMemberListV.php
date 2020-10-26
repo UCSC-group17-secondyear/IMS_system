@@ -1,45 +1,66 @@
-<main>
-    <title>View Medical Scheme Memberlist</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require '../basic/topnav.php';
+?>
 
-    <div class="header">
+<main>
+    <title>View Medical Member List</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>Medical Scheme Memberlist</li>
+            <li>View Medical Member List</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require 'rvSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'rvSideNavV.php';
+                ?>
+            </div>
 
-    <div class="cotent">
-        <div>
-            <h3>Select a Scheme</h3>
+            <div class="col right80">
+                <div>
+                    <h2>View Medical Member List</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Select a Scheme</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="scheme" id="">
+                                    <option value="">Select a Scheme</option>
+                                    <option value="scheme1">Scheme 1</option>
+                                    <option value="scheme2">Scheme 2</option>
+                                    <option value="scheme3">Scheme 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Member Type</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="memberType" id="">
+                                    <option value="">Select a Member Type</option>
+                                    <option value="academic">Academic</option>
+                                    <option value="non-academic">Non - Academic</option>
+                                    <option value="temporary">Temporary</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="" method="post">
+                        <a href="rvMedicalMemberlistV.php"><button class="subbtn" type="submit" name="viewMedicalMemberlist-submit">Select</button></a>
+                    </form>
+                </div>
+            </div>
         </div>
-        <select name="scheme" id="">
-            <option value="">Select a Scheme</option>
-            <option value="scheme1">Scheme 1</option>
-            <option value="scheme2">Scheme 2</option>
-            <option value="scheme3">Scheme 3</option>
-        </select>
-        <br>
-        <select name="memberType" id="">
-            <option value="">Select a Member Type</option>
-            <option value="academic">Academic</option>
-            <option value="non-academic">Non - Academic</option>
-            <option value="temporary">Temporary</option>
-        </select>
-        <br>
-
-        <a href="rvMedicalMemberlistV.php"><button type="submit" name="viewMedicalMemberlist-submit">Select</button></a>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
