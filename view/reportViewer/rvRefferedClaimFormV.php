@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>View Claim Details</title>
+    <title>View Claim Reffered Forms</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>View Claim Details</li>
+            <li>View Claim Reffered Forms</li>
         </ul>
 
         <div class="row">
@@ -20,7 +20,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>View Claim Details</h2>
+                    <h2>View Claim Reffered Forms</h2>
                 </div>
 
                 <div class="contentForm">

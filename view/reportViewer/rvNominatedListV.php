@@ -1,31 +1,46 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Mahapola Nominated List</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
             <li>Mahapola Nominated List</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require 'rvSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'rvSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h4>Student List</h4>
+            <div class="col right80">
+                <div>
+                    <h2>Mahapola Nominated List</h2>
+                </div>
+
+                <table id="tableStyle">
+                    <tr>
+                        <th>Lorem ipsum</th>
+                        <th>dolor sit</th>
+                        <th>amet consectetur</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <!-- pdf generate karanna -->
+            </div>
         </div>
-        <!-- pdf ekak generate kranna -->
-        <a href="rvViewMahapolaNominatedListV.php"><button type="submit" name="">Back</button></a><br>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
