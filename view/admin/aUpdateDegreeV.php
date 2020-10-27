@@ -4,41 +4,55 @@
 
 <main>
     <title>Update Degree</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li><a href="aUpdateRemoveDegreeV.php">Update or Remve Degree</a></li>
             <li>Update Degree</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'aSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Update Degree</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Update Degree</h2>
+                </div>
+                
+                <div class="contentForm">
+                    <form action="../../controller/aUpdateDegreeController.php" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Degree</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="degree_name" <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> required/><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Degree Abbriviation</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="degree_abbriviation" <?php echo 'value="'.$_SESSION['degree_abbriviation'].'"' ?> required/><br>
+                            </div>
+                        </div>
+                                    
+                        <button type="submit" name="updateDegree-submit" class="mainbtn">Update Degree</button>
+                    </form>
+                    <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn" style="margin-left: 310px;">Cancel</button></a>
+                </div>
+
+            </div>
         </div>
-        <div>
-            <form action="../../controller/aUpdateDegreeController.php" method="POST">
-                <label for="">Degree</label>
-                <input type="text" name="degree_name" <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> required/><br>
-                <label for="">Degree Abbriviation</label>
-                <input type="text" name="degree_abbriviation" <?php echo 'value="'.$_SESSION['degree_abbriviation'].'"' ?> required/><br>
-                                       
-                <button type="submit" name="updateDegree-submit">Update Degree</button>
-            </form>
-        </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

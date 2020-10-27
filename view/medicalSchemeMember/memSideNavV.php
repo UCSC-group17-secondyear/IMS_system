@@ -21,7 +21,7 @@
             </li>
 
             <li>
-                <button type="submit" class="tree_list"><a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Claim Form</a></button> <br>
+                <button type="submit" class="tree_list"><a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Update / Delete Claim Form</a></button> <br>
             </li>
 
             <li><button class="tree_list">View Claim Forms</button>
