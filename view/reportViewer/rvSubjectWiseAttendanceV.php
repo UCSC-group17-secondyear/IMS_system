@@ -1,40 +1,85 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
+    <title>View Subject-wise Attendance</title>
 
-    <?php
-        require '../basic/header.php';
-    ?>
-
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>Attendance</li>
-            <li>Subjectwise Attendance</li>
+            <li>View Subject-wise Attendance</li>
         </ul>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'rvSideNavV.php';
+                ?>
+            </div>
 
-    <div class="side-nav">
-        <?php
-            require 'rvSideNavV.php';
-        ?>
-    </div>
+            <div class="col right80">
+                <div>
+                    <h2>View Subject-wise Attendance</h2>
+                </div>
 
-    <div class="content">
-        <div>
-            <h3>Subject Wise Attendance</h3>
+                <div class="contentForm">
+                    <form action="" method="POST">
+                    <div class="row">
+                    <form action="rvStudentWiseAttendanceV.php" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Academic Year</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="academic_year" placeholder="Academic Year"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Degree</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="degree" placeholder="Degree"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Semester</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="semester" placeholder="Semester"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Subject</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="subject" placeholder="Subject"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Start Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" name="start_date" placeholder="Start Date"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter End Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" name="end_date" placeholder="End Date"/>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="" method="post">
+                        <a href="#"><button class="subbtn" type="submit" name="select-submit">Display Attendance</button></a>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <form action="rvSubjectWiseAttendanceV.php" method="post">
-            <input type="text" name="academic_year" placeholder="Academic Year" required />
-            <input type="text" name="degree" placeholder="Degree" required />
-            <input type="text" name="semester" placeholder="Semester" required />
-            <input type="text" name="subject" placeholder="Subject" required />
-            <input type="date" name="start_date" placeholder="Start Date" required />
-            <input type="date" name="end_date" placeholder="End Date" required />
-            <button type="submit" name="select-submit" href="#">Display Attendance</button>
-        </form>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
