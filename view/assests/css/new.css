@@ -30,18 +30,18 @@ body {
   font-size: 20px;
   font-weight: bold;
   border-radius: 10px;
-  background-color: darkslateblue;
+  background-color: #065b7a;
   margin: 2px;
 }
 
 .topnav a:hover {
-  background-color: cornflowerblue;
+  background-color: #1177d1;
   color: white;
   /*opacity: 0.7;*/
 }
 
 .topnav a.active {
-  background-color: darkslateblue;
+  background-color: #1177d1;
   color: white;
 }
 
@@ -93,16 +93,17 @@ ul.breadcrumbs li a:hover {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color: cornflowerblue;
+    background-color: #065b7a;
     color: white;
 }
 
 /*-----------------------------Footer-----------------------------*/
 .footer {
     bottom: 0;
-    background-color: darkslateblue;
+    position: absolute;
+    background-color: #065b7a;
     color: white;
-    font-size: 22px;
+    font-size: 18px;
     text-align: center;
     /* position: absolute; */
     flex-shrink: 0;
@@ -112,7 +113,7 @@ ul.breadcrumbs li a:hover {
     height: 10%;
     border-top: 3px solid grey;
     /* margin-top: 35px; */
-    margin-bottom: auto;
+    margin-bottom: 0%;
 }
 
 /*-----------------------------Home Page Image-----------------------------*/
@@ -355,13 +356,19 @@ ul, #tree-view {
   font-size: 20px;
   /*font-weight: bold;*/
   padding-left: 5%;
-  background-color: darkslateblue;
+  background-color: #065b7a;
   width: 90%;
   padding: 3px;
 }
 
+.tree_list.active {
+  color: #fff;
+  background-color: #1177d1;
+  border-color: #1177d1;
+}
+
 .tree_list:hover {
-  background-color: cornflowerblue
+  background-color: #1177d1;
   /*opacity: 0.7;*/
 }
 
@@ -416,7 +423,8 @@ ul, #tree-view {
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
 .active {
-    display: block;
+  display: block;
+  border: 0;
 }
 
 /*-------------------------Arranging home page of users---------------------*/
@@ -473,12 +481,14 @@ img.avatar {
   margin-left: 25%;
   height: 40px;
   margin-top: 4%;
-  background-color: darkslateblue;
+  background-color: #065b7a;
   color: ivory;
+  border: 0px;
 }
 
 .btncontainer button:hover {
   background-color: cornflowerblue;
+  border: 0px;
 }
 
 /*-------------------------Arranging normal pages of users-------------------*/
@@ -501,7 +511,7 @@ img.avatar {
 .right80 h2 {
   /*width: 95%;*/
   font-size: 26px;
-  background-color: cornflowerblue;
+  background-color: #065b7a;
   color: white;
   text-align: center;
   padding: 10px;
@@ -514,7 +524,7 @@ img.avatar {
   /*max-width: 80%;*/
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 5%;
+  margin-top: 1%;
   height: auto;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
@@ -538,7 +548,7 @@ img.avatar {
   height: 40px;
   margin-top: 25px;
   margin-right: 10%;
-  font-size: 20px;
+  font-size: 18px;
   border: 0px;
 }
 
@@ -546,7 +556,7 @@ img.avatar {
   /*padding-left: 5%;*/
   padding: 20px 12px 12px 0;
   display: inline-block;
-  font-size: 22px;
+  font-size: 18px;
   margin-left: 15%;
 }
 
@@ -580,7 +590,7 @@ img.avatar {
 
 .mainbtn {
   width: 30%;
-  background-color: darkslateblue;
+  background-color: #065b7a;
   color: white;
   height: 40px;
   margin-top: 25px;
@@ -592,12 +602,12 @@ img.avatar {
 }
 
 .mainbtn:hover {
-  background-color: cornflowerblue;
+  background-color: #1177d1;
 }
 
 .subbtn {
   width: 30%;
-  background-color: cornflowerblue;
+  background-color: #1177d1;
   color: ivory;
   height: 40px;
   margin-top: 10%;
@@ -617,7 +627,8 @@ img.avatar {
   background-color: crimson;
   color: white;
   height: 40px;
-  margin-top: 10%;
+  margin-top: 3%;
+  margin-left: 3%;
   border: 0px;
   font-size: 18px;
   margin-bottom: 3%;

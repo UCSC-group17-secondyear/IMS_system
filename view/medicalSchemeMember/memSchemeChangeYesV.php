@@ -1,33 +1,37 @@
+<?php
+    require "../basic/topnav.php";
+?>
+
 <main>
     <title>Scheme Change</title>
+    <div class="sansserif">   
+            
+                <ul class="breadcrumbs">
+                    <li><a href="memHomeV.php">Home</a></li>
+                    <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
+                    <li>Scheme Changed</li>
+                </ul>
+            
+            <div class="row">
+            <div class="col left20">
+                <?php 
+                    require('memSideNavV.php');
+                ?>
+            </div>
 
-    <?php
-        require('../basic/header.php');
-    ?>
-        
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
-            <li>Scheme Changed</li>
-        </ul>
-    </div>
+            <div class="col right80">
+                <div class="contentForm">
+                    
+                        <h2>You are assigned to Scheme 3</h2>
 
-    <div class="side-nav">
-        <?php 
-            require('../medicalSchemeMember/memSideNavV.php');
-        ?>
-    </div>
-
-    <div class="content">
-        <div>
-            <p>You are assigned to scheme 3.</p>
-        </div>
-
-        <a href="memCurrentMemberDetailsV.php"><button type="submit" name="">OK</button></a><br>
+                    <a href="memCurrentMemberDetailsV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                </div>
+            </div>
+            </div>
     </div>
     
-    <?php
-        require_once('../basic/footer.php');
-    ?>
 </main>
+
+<?php
+    require_once('../basic/footer.php');
+?>
