@@ -1,48 +1,103 @@
 <main>
-    <button class="button accordion">Manage Students' Details</button>
-        <div class="panel">
-            <a href="amEnterStudentDetailsV.php"><button type="submit" name="" class="buttonTwo">Enter Details</button></a><br>
-            <a href="amDeleteUpdateStudentV.php"><button type="submit" name="" class="buttonTwo">Delete/Update Details </button></a><br>
-        </div>
+    <div class="sansserif">
+        <ul id="tree_view">
+            <li><button class="tree_list">Manage Students' Details</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="amEnterStudentDetailsV.php">
+                            <li><i class="fa fa-plus-circle"></i>Enter Details</li>
+                        </a>
+                    </button>
+                    <button>
+                        <a href="amDeleteUpdateStudentV.php">
+                            <li><i class="fa fa-pencil-square-o"></i>Delete/Update Details</li>
+                        </a>
+                    </button>
+                </ul>
+            </li>
 
-    <button class="button accordion">Manage Subjects' Details</button>
-        <div class="panel">
-            <a href="amEnterSubjectDetails.php"><button type="submit" name="" class="buttonTwo">Enter Details</button></a><br>
-            <a href="amDeleteUpdateSubjectV.php"><button type="submit" name="" class="buttonTwo">Delete/Update Details </button></a><br>
-        </div>
-        
-    <button class="button accordion">Manage Attendance</button>
-        <div class="panel">
-            <a href="amEnterUpdateAttendaceSelectV.php"><button type="submit" name="" class="buttonTwo">Enter/Update </button></a><br>
-            <a href="amDeleteAttendaceSearchV.php"><button type="submit" name="" class="buttonTwo">Delete </button></a><br>
-        </div>
+            <li><button class="tree_list">Manage Subjects' Details</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="amEnterSubjectDetails.php">
+                            <li><i class="fa fa-plus-circle"></i>Enter Details</li>
+                        </a>
+                    </button>
+                    <button>
+                        <a href="amDeleteUpdateSubjectV.php">
+                            <li><i class="fa fa-pencil-square-o"></i>Delete/Update Details</li>
+                        </a>
+                    </button>
+                </ul>
+            </li>
 
-    <button class="button accordion">View Attendance</button>
-        <div class="panel">
-            <a href="amStudentWiseAttendanceV.php"><button type="submit" name="" class="buttonTwo"> Student Wise </button></a><br>
-            <a href="amMonthWiseAttendanceV.php"><button type="submit" name="" class="buttonTwo"> Month Wise </button></a><br>
-            <a href="amSubjectWiseAttendanceV.php"><button type="submit" name="" class="buttonTwo"> Subject Wise </button></a><br>
-            <a href="amBatchWiseAttendanceV.php"><button type="submit" name="" class="buttonTwo"> Batch Wise </button></a><br>
-            <a href="amSemesterWiseAttendanceV.php"><button type="submit" name="" class="buttonTwo"> Semester Wise </button></a><br>
-        </div>
+            <li><button class="tree_list">Manage Attendance</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="amEnterUpdateAttendaceSelectV.php">
+                            <li><i class="fa fa-plus-circle"></i>Enter/Update</li>
+                        </a>
+                    </button>
+                    <button>
+                        <a href="amDeleteAttendaceSearchV.php">
+                            <li><i class="fa fa-minus-circle"></i>Delete</li>
+                        </a>
+                    </button>
+                </ul>
+            </li>
 
-    <a href="amMedicalSchemDetailsV.php"><button type="submit" name="" class="button">View Scheme Details</button></a><br>
+            <li><button class="tree_list">View Attendance</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="amStudentWiseAttendanceV.php">
+                            <li><i class="fa fa-check-circle"></i>Student Wise</li>
+                        </a>
+                    </button>
+                    <button>
+                        <a href="amMonthWiseAttendanceV.php">
+                            <li><i class="fa fa-check-circle"></i>Month Wise</li>
+                        </a>
+                    <button>
+                        <a href="amSubjectWiseAttendanceV.php">
+                            <li><i class="fa fa-check-circle"></i>Subject Wise</li>
+                        </a>
+                    </button>
+                    <button>
+                        <a href="amBatchWiseAttendanceV.php">
+                            <li><i class="fa fa-check-circle"></i>Batch Wise</li>
+                        </a>
+                    </button>
+                    <button>
+                        <a href="amSemesterWiseAttendanceV.php">
+                            <li><i class="fa fa-check-circle"></i>Semester Wise</li>
+                        </a>
+                    </button>
+                </ul>
+            </li>
 
-    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+            <li>
+                <button type="submit" name="" class="tree_list">
+                    <a href="amMedicalSchemDetailsV.php">View Scheme Details</a>
+                </button>
+            </li>
+
+            <li>
+                <button type="submit" name="" class="tree_list">
+                    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a>
+                </button>
+            </li>
+        </ul>
+    </div>
 
     <script>
-        var acc = document.getElementsByClassName("accordion");
+        var toggler = document.getElementsByClassName("tree_list");
         var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
+
+        for (i = 0; i < toggler.length; i++) {
+          toggler[i].addEventListener("click", function() {
+            this.parentElement.querySelector(".tree_nest").classList.toggle("active");
+            this.classList.toggle("tree_list-down");
+          });
         }
     </script>
 </main>
