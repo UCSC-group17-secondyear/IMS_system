@@ -423,7 +423,8 @@ ul, #tree-view {
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
 .active {
-    display: block;
+  display: block;
+  border: 0;
 }
 
 /*-------------------------Arranging home page of users---------------------*/
@@ -480,12 +481,14 @@ img.avatar {
   margin-left: 25%;
   height: 40px;
   margin-top: 4%;
-  background-color: darkslateblue;
+  background-color: #065b7a;
   color: ivory;
+  border: 0px;
 }
 
 .btncontainer button:hover {
   background-color: cornflowerblue;
+  border: 0px;
 }
 
 /*-------------------------Arranging normal pages of users-------------------*/
@@ -599,12 +602,12 @@ img.avatar {
 }
 
 .mainbtn:hover {
-  background-color: cornflowerblue;
+  background-color: #1177d1;
 }
 
 .subbtn {
   width: 30%;
-  background-color: cornflowerblue;
+  background-color: #1177d1;
   color: ivory;
   height: 40px;
   margin-top: 10%;
