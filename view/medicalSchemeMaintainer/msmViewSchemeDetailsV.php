@@ -1,27 +1,36 @@
-<main>
-    <title>Medical Scheme Details</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require '../basic/topnav.php';
+?>
 
-    <div class="header">
+<main>
+    <title>View Scheme Details</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li>Scheme Details</li>
+            <li>View Scheme Details</li>
         </ul>
+
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'msmSideNavV.php';
+                ?>
+            </div>
+
+            <div class="col right80">
+                <div>
+                    <h2>View Scheme Details</h2>
+                </div>
+
+                <div class="contentForm">
+                    
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require 'msmSideNavV.php';
-        ?>
-    </div>
-
-    <?php
-        require '../basic/viewClaimDetails.php';
-    ?>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

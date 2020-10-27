@@ -1,33 +1,37 @@
-<main>
-    <title>Form</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require '../basic/topnav.php';
+?>
 
-    <div class="header">
+<main>
+    <title>Medical Forms</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li>Form</li>
+            <li>Medical Forms</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../medicalSchemeMaintainer/msmSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'msmSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Form</h3>
-        </div>
-            <!-- database eken form eka pennanna -->
+            <div class="col right80">
+                <div>
+                    <h2>Medical Forms</h2>
+                </div>
+
+                <div class="contentForm">
+                    <!-- database eken form eka pennanna -->
             <!-- pdf eka generate krnna ona -->
-        <a href="msmViewFormListV.php"><button type="submit" name="medicalSchemeForm-submit">OK</button></a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

@@ -25,7 +25,7 @@
 
                 <div class="contentForm">
                     <form action="" method="POST">
-                    <div class="row">
+                        <div class="row">
                             <div class="col-25">
                               <label>Enter Degree</label>
                             </div>
