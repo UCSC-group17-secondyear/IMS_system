@@ -1,40 +1,37 @@
-<main>
-    <title>Member Details</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+<?php
+    require '../basic/topnav.php';
+?>
 
-    <div class="header">
+<main>
+    <title>View Member Details</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li>Member Details</li>
+            <li>View Member Details</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require 'msmSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'msmSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Member Details</h3>
+            <div class="col right80">
+                <div>
+                    <h2>View Member Details</h2>
+                </div>
+                <table id="tableStyle">
+                    <tr>
+                        <th>Employee ID</th>
+                    <?php echo $_SESSION['member'] ?>
+                </table>
+            </div>
         </div>
-        <table class="mytable">
-            <tr>
-                <th>Employee ID</th>
-            <?php echo $_SESSION['member'] ?>
-        </table>
-
-        <script>
-            function myFunction() {
-                alert("The employee has been removed successfully.");
-            }
-        </script>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
