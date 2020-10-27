@@ -1,96 +1,173 @@
+<?php
+    require "../basic/topnav.php";
+?>
+
 <main>
     <title>OPD Form</title>
-
-<?php
-    require('../basic/header.php');
-    
-?>
- 
-            <div class="header">
+    <div class="sansserif">
+                    
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li>OPD Form</li>
                 </ul>
-            </div>
-
-            <div class="side-nav">
-                <?php 
-                    require('../medicalSchemeMember/memSideNavV.php');
-                ?>
-            </div>
-
-            <div class="content">
-                <div>
-                    <h2>OPD Form</h2>
-                </div>
-
-                <form action="../../controller/opdFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
                     
-                    <label for="">Emp Id</label>
-                    <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
+        <div class="row">
+                    <div class="col left20">
+                        <?php 
+                            require('memSideNavV.php');
+                        ?>
+                    </div>
 
-                    <label for="">Initials</label>
-                    <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"'?> disabled> <br>
+                <div class="col right80">
+                        <div>
+                            <h2>OPD Form</h2>
+                        </div>
 
-                    <label for="">Name</label>
-                    <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"'?> disabled> <br>
+                    <div class="contentForm">
+                        <form action="../../controller/opdFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
+                            
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Emp Id</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Designation</label>
-                    <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"'?> disabled> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Initials</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Department</label>
-                    <select name="department" id="" required>
-                        <option value="">Select Option</option>
-                        <option value="CS">CS</option>
-                        <option value="IS">IS</option>
-                        <option value="SE">SE</option>
-                    </select> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Designation</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"'?> disabled> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Enter Patient's Name</label>
-                    <input type="text" name="patient_name" required> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Department</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="department" id="" required>
+                                    <option value="">Select Option</option>
+                                    <option value="CS">CS</option>
+                                    <option value="IS">IS</option>
+                                    <option value="SE">SE</option>
+                                </select> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Select relationship</label>
-                    <select name="relationship" id="" required>
-                        <option value="myself">Myself</option>
-                        <option value="husband">Husband</option>
-                        <option value="wife">Wife</option>
-                        <option value="daughter">Daughter</option>
-                        <option value="son">Son</option>
-                    </select> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Enter Patient's Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="patient_name" required> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Name of the Doctor</label>
-                    <input type="text" name="doctor_name"  required> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Select relationship</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="relationship" id="" required>
+                                    <option value="myself">Myself</option>
+                                    <option value="husband">Husband</option>
+                                    <option value="wife">Wife</option>
+                                    <option value="daughter">Daughter</option>
+                                    <option value="son">Son</option>
+                                </select> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Treatment Recieved Date</label>
-                    <input type="date" name="treatment_received_date"  required> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Name of the Doctor</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="doctor_name"  required> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Bill Issued Date</label>
-                    <input type="date" name="bill_issued_date" required><br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Treatment Recieved Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" name="treatment_received_date"  required> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Purpose</label>
-                    <input type="text" name="purpose"  required> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Bill Issued Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" name="bill_issued_date" required><br>
+                            </div>
+                        </div>
 
-                    <label for="">Bill Amount</label>
-                    <input type="text" name="bill_amount" required> <br>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Purpose</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="purpose"  required> <br>
+                            </div>
+                        </div>
 
-                    <label for="">Scanned copy of bill</label>
-                    <input type="file" name="file" required>
-                    
-                    <button type="submit" name="form-submit">Submit</button><br>
-                    
-                </form>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Bill Amount</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="bill_amount" required> <br>
+                            </div>
+                        </div>
 
-                <p>Download the form to be filled by the surgeon and get if field before you fill the surgical
-                    hospitalization form.</p>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Scanned copy of bill</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="file" name="file" required>
+                            </div>
+                        </div>
+
+                            <button class="mainbtn" type="submit" name="form-submit">Submit</button><br>
+                            
+                        </form>
+                        <br>
+                        <p>Download the form to be filled by the surgeon and get if field before you fill the surgical
+                            hospitalization form.</p>
+                    </div>
+
+                
             </div>
-
-            <div class="right-side-bar">
-                <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-            </div>
-            
-            <?php
-                require_once('../basic/footer.php');
-            ?>
-
+        </div>
+    </div>       
+        
 </main>
+
+<?php
+    require_once('../basic/footer.php');
+?>
