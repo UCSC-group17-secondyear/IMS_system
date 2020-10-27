@@ -1,28 +1,36 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
-    <title>Booking is updated</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+    <title>Remove a booking</title>
 
-    <div class="header">
-        <!-- <ul class="breadcrumbs">
+    <div class="sansserif">
+        <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Updated a booking successfully</li>
-        </ul> -->
-    </div>
+            <li>Remove a booking</li>
+        </ul>
 
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <p>Your booking has been updated successfully.</p>
-        <a href="hamUpdateBookingV.php"><button type="submit" name="bookingUpdateSuccess-submit">OK</button></a><br>
-    </div>
+            <div class="col right80">
+                <div class="contentForm">
+                    <form>
+                        <h3>Your booking has been updated successfully.</h3>
 
-    <?php
-        require '../basic/footer.php';
-    ?>
+                        <a href="hamUpdateBookingV.php"><button class="mainbtn" type="submit" name="bookingUpdateSuccess-submit">OK</button></a><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

@@ -1,42 +1,45 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Hall allocation Schedule</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
             <li>Hall allocation Schedule</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Schedule</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Schedule</h2>
+                </div>
+                <table id="tableStyle">
+                    <tr>
+                        <th>Date</th>
+                        <th>Time Duration</th>
+                        <th>Hall Name</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <a href="hamViewHallAllocationScheduleV.php"><button type="submit" name="">OK</button></a>
+            </div>
         </div>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Time Duration</th>
-                <th>Hall Name</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <a href="hamViewHallAllocationScheduleV.php"><button type="submit" name="">OK</button></a>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

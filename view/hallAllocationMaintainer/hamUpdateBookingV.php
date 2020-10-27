@@ -1,33 +1,46 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update Booking</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
             <li>Update Booking</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Update / Remove Booking</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Update / Remove Booking</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter booking id</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="" name="bookingId"><br>
+                            </div>
+                        </div>
+                        <a href="hamBookingDetailsV.php"><button type="submit" name="updateBooking-submit">OK</button></a>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        Enter booking id : <input type="text" id="" name="bookingId"><br>
-
-        <a href="hamBookingDetailsV.php"><button type="submit" name="updateBooking-submit">OK</button></a>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

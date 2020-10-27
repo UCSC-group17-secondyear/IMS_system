@@ -1,31 +1,37 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
-    <title>Redistration is successful</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+    <title>Remove a booking</title>
 
-    <div class="header">
-        <!-- <ul class="breadcrumbs">
-            <li><a href="hamHomeV.php">Home</a></li>
-            <li>Redistration is successful</li>
-        </ul> -->
+    <div class="sansserif">
+        <ul class="breadcrumbs">
+            <!-- <li><a href="hamHomeV.php">Home</a></li>
+            <li>Remove a booking</li> -->
+        </ul>
+
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
+
+            <div class="col right80">
+                <div class="contentForm">
+                    <form>
+                        <h3>Your membership form has been sent for the approval. You will be inform about the membership later.<br>
+                        Thank you.</h3>
+
+                        <a href="hamHomeV.php"><button class="mainbtn" type="submit" name="registerSuccess-submit">OK</button></a><br>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">   
-        <p>
-            Your membership form has been sent for the approval. You will be inform about the membership later.
-        </p> <br>
-        <p>Thank you..</p>
-        <a href="hamHomeV.php"><button type="submit" name="registerSuccess-submit">OK</button></a><br>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
