@@ -1,36 +1,40 @@
+<?php
+    require "../basic/topnav.php";
+?>
+
 <main>
     <title>Form List</title>
+    <div class="sansserif">
+            <ul class="breadcrumbs">
+                <li><a href="memHomeV.php">Home</a></li>
+                <li>Form List</li>
+            </ul>
+            
+            <div class="row">
+                <div class="col left20">
+                    <?php
+                        require 'memSideNavV.php';
+                    ?>
+                </div>
+                
+                <div class="col right80">
+                    <div>
+                        <h2>Claim Form List</h2>
+                    </div>
+                    
+                    <table id="tableStyle">
+                        <tr>
+                            <th>Claim Form No</th>
+                            <th></th>
+                        </tr>
 
-    <?php
-        require('../basic/header.php');
-    ?>
-        
-    <div class="header">
-        <!-- <ul class="breadcrumb">
-            <li><a href="memHomeV.php">Home</a></li>
-            <li>Form List</li>
-        </ul> -->
+                        <?php echo $_SESSION['claim_form_no']; ?>
+                    </table>
+                </div>
+            </div>
     </div>
-
-    <div class="side-nav">
-        <?php 
-            require('../medicalSchemeMember/memSideNavV.php');
-        ?>
-    </div>
-    
-    <div class="content">
-        <div>
-            <h4>Claim Form List</h4>
-        </div>
-        
-        <table class="mytable">
-            <?php echo $_SESSION['claim_form_no']; ?>
-        </table>
-        
-
-    </div>
-    
-    <?php
-        require_once('../basic/footer.php');
-    ?>
 </main>
+
+<?php
+    require_once('../basic/footer.php');
+?>

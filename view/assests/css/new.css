@@ -585,6 +585,7 @@ img.avatar {
   height: 40px;
   margin-top: 25px;
   margin-left: 32%;
+  margin-bottom: 3%;
   font-size: 18px;
   border: 0px;
   cursor: pointer;
@@ -603,6 +604,7 @@ img.avatar {
   margin-left: 15%;
   border: 0px;
   font-size: 18px;
+  margin-bottom: 3%;
 }
 
 .subbtn:hover {
@@ -618,6 +620,7 @@ img.avatar {
   margin-top: 10%;
   border: 0px;
   font-size: 18px;
+  margin-bottom: 3%;
 }
 
 .cancelbtn:hover {
