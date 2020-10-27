@@ -1,29 +1,36 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update Profile</title>
 
-    <?php
-        require '../basic/header.php';
-    ?>
-
-    <div class="header">
-        <!-- <ul class="breadcrumbs">
+    <div class="sansserif">
+        <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Profie updated successfully</li>
-        </ul> -->
-    </div>
+            <li>Update Profile</li>
+        </ul>
 
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <p>Your profile has been updated successfully..</p>
-        <a href="hamProfileV.php"><button type="submit">OK</button></a>
-    </div>
+            <div class="col right80">
+                <div class="contentForm">
+                    <form>
+                        <h3>Your profile has been updated successfully.</h3>
 
-    <?php
-        require '../basic/footer.php';
-    ?>
+                        <a href="hamProfileV.php"><button class="mainbtn" type="submit">OK</button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

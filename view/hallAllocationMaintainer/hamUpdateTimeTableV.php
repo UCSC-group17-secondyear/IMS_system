@@ -1,49 +1,86 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Update time table</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
             <li>Update time table</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../hallAllocationMaintainer/hamSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'hamSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Update/Remove Weekly Time Table</h3>
+            <div class="col right80">
+                <div>
+                    <h2>Update/Remove Weekly Time Table</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Subject Name</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="text" id="" name="subject_name" placeholder="Subject name" required/><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Subject Code</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="text" id="" name="subject_code" placeholder="Subject code" required/><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Hall</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="text" id="" name="hall" placeholder="Hall" required/><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Start time</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="time" id="" name="s_time" placeholder="Starting_time" required/><br>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>End time</label>
+                            </div>
+                            <div class="col-75">
+                              <input type="time" id="" name="e_time" placeholder="Ending_time" required/><br>
+                            </div>
+                        </div>
+                        <a href="hamSaveUpdateTimeTableV.php"><button class="mainbtn" type="submit" name="">Save Updates</button></a>
+                    </form>
+                    <form>
+                        <a href="hamRemoveTimeTableV.php"><button class="cancelbtn" type="submit" name="">Remove</button></a>
+                    </form>
+                </div>
+            </div>
         </div>
-        <br>
-
-        <form action="" method="POST">
-            <label for="subjectName">Subject Name:</label>
-            <input type="text" value=""> <br>
-            <label for="subjectCode">Subject Code:</label>
-            <input type="text" value=""> <br>
-            <label for="hall">Hall</label>
-            <input type="text" value=""> <br>
-            <label for="startTime">Start time:</label>
-            <input type="time" value=""> <br>
-            <label for="endTime">End Time:</label>
-            <input type="time" value=""> <br>
-        </form>
-        <!-- meka database eken update wela enna ona -->
-
-        <a href="hamSaveUpdateTimeTableV.php"><button type="submit" name="">Save Updates</button></a>
-        <br>
-        <br>
-        <a href="hamRemoveTimeTableV.php"><button type="submit" name="">Remove</button></a>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<!-- <?php
+    // require '../basic/footer.php';
+?> -->
