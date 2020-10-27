@@ -1,13 +1,13 @@
 <main>
     <div class="sansserif">
         <ul id="tree_view">
-            <li><button class="tree_list">>View Student Attendance Reports</button>
+            <li><button class="tree_list">View Student Attendance Reports</button>
                 <ul class="tree_nest">
                     <button>
                         <a href="rvStudentWiseAttendanceV.php"><li><i class="fa fa-plus-circle"></i>View Attendance Student Wise</li></a>
                     </button>
                     <button>
-                        <a href="rvMonthWiseAttendanceV.php"><li><i class="fa fa-minus-circle"></i>View Attendance Montth Wise</li></a></button>
+                        <a href="rvMonthWiseAttendanceV.php"><li><i class="fa fa-minus-circle"></i>View Attendance Month Wise</li></a></button>
                     </button>
                     <button>
                         <a href="rvSubjectWiseAttendanceV.php"><li><i class="fa fa-pencil-square-o"></i>View Attendance Subject Wise</li></a>
@@ -20,20 +20,30 @@
                     </button>
                 </ul>
             </li>
-            <li>
-                <button type="submit" class="tree_list"><a href="">View Mahapola Nominated Student List</a></button> <br>
+            <li><button class="tree_list">View Forms of the Medical Scheme</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="#" name="membership-submit"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
+                    </button>
+                    <button>
+                        <a href="#" name="refferedClaim-submit"><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
+                    </button>
+                    <button>
+                        <a href="#" name="requestedClaim-submit"><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
+                    </button>
+                </ul>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="">View Reports in Mahapola Scheme</a></button> <br>
+                <button type="submit" class="tree_list"><a href="rvViewMahapolaNominatedListV.php">View Mahapola Nominated Student List</a></button> <br>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="">View Member list of Medical Scheme</a></button> <br>
+                <button type="submit" class="tree_list"><a href="rvViewReportsMahapolaSchemeV.php">View Reports in Mahapola Scheme</a></button> <br>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="">View Forms of the Medical Scheme</a></button> <br>
+                <button type="submit" class="tree_list"><a href="rvMedicalMemberlistV.php">View Member list of Medical Scheme</a></button> <br>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="">View Claim Details</a></button> <br>
+                <button type="submit" class="tree_list"><a href="rvViewClaimDetailsV.php">View Claim Details</a></button> <br>
             </li>
             <li>
                 <button type="submit" class="tree_list"><a href="../../controller/memControllers/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a></button> <br>
