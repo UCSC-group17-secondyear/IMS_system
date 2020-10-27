@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../reportViewer/rvSideNavV.php';
+                    require 'rvSideNavV.php';
                 ?>
             </div>
 
