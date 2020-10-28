@@ -100,7 +100,7 @@ ul.breadcrumbs li a:hover {
 /*-----------------------------Footer-----------------------------*/
 .footer {
     bottom: 0;
-    position: absolute;
+    /* position: absolute; */
     background-color: #065b7a;
     color: white;
     font-size: 18px;
@@ -113,7 +113,7 @@ ul.breadcrumbs li a:hover {
     height: 10%;
     border-top: 3px solid grey;
     /* margin-top: 35px; */
-    margin-bottom: 0%;
+    margin-bottom: auto;
 }
 
 /*-----------------------------Home Page Image-----------------------------*/
@@ -162,7 +162,7 @@ ul.breadcrumbs li a:hover {
   margin-right: 10%;
   margin-top: 5%;
   margin-bottom: 162px;
-  height: 400px;
+  height: 420px;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
   /*opacity: 0.5;*/
