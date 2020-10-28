@@ -1,44 +1,87 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>View Subject Wise Attendance</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="homePageV.php">Home</a></li>
-            <li><a href="amHomeV.php">Attendance Maintainer Page</a></li>
-            <li>View Subject Wise Attendance</li>
-        </ul>
-    </div>
+    <ul class="breadcrumbs">
+        <li><a href="homePageV.php">Home</a></li>
+        <li><a href="amHomeV.php">Attendance Maintainer Page</a></li>
+        <li>View Subject Wise Attendance</li>
+    </ul>
 
-    <div class="side-nav">
-        <?php
-            require '../attendanceMaintainer/amSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <div>
-            <h3>Subject Wise Attendance</h3>
+    <div class="row">
+        <div class="col left20">
+            <?php
+                require 'amSideNavV.php';
+            ?>
         </div>
 
-        Enter Academic Year<input type="text" name="academic_year" placeholder="Academic Year" required/> <br>
-        
-        Enter Degree<input type="text" name="degree" placeholder="Degree" required/> <br>
-        
-        Enter Semester<input type="text" name="semester" placeholder="Semester" required/> <br>
-        
-        Enter Subject<input type="text" name="subject" placeholder="Subject" required/> <br>
-        
-        Enter Start Date<input type="date" name="start_date" placeholder="Start Date" required/> <br>
-        
-        Enter End Date<input type="date" name="end_date" placeholder="End Date" required/> <br>
-        
-        <button type="submit" name="select-submit" href="amDisplayAttendanceV.php">Display Attendance</button>
+        <div class="col right80">
+            <div>
+                <h2>Subject Wise Attendance</h2>
+            </div>
+            <div class="contentForm">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter Academic Year</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="academic_year" placeholder="Academic Year" required/> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter Degree</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="degree" placeholder="Degree" required/> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter Semester</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="semester" placeholder="Semester" required/> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter Subject</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="subject" placeholder="Subject" required/> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter Start Date</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" name="start_date" placeholder="Start Date" required/> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter End Date</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" name="end_date" placeholder="End Date" required/> <br>
+                        </div>
+                    </div>
+                    <button class="mainbtn" type="submit" name="select-submit" href="amDisplayAttendanceV.php">Display Attendance</button>
+                </form>
+                <form>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">Cancel</button>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<!-- <?php
+    // require '../basic/footer.php';
+?> -->

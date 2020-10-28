@@ -1,39 +1,73 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Delete Attendance</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-            <li>Delete Attendance</li>
-        </ul>
-    </div>
+    <ul class="breadcrumbs">
+        <li><a href="amHomeV.php">Home</a></li>
+        <li>Delete Attendance</li>
+    </ul>
 
-    <div class="side-nav">
-        <?php
-            require '../attendanceMaintainer/amSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <div>
-            <h3>Delete Attendance</h3>
+     <div class="row">
+        <div class="col left20">
+            <?php
+                require 'amSideNavV.php';
+            ?>
         </div>
 
-        Enter date <input type="date" name="date" placeholder="Date" required/> <br>
+        <div class="col right80">
+            <div>
+                <h2>Delete Attendance</h2>
+            </div>
+            <div class="contentForm">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter date</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" name="date" placeholder="Date" required/> <br>
+                        </div>
+                    </div>
 
-        Enter academic year <input type="text" name="academic_year" placeholder="Academic Year" required/> <br>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter academic year</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="academic_year" placeholder="Academic Year" required/> <br>
+                        </div>
+                    </div>
 
-        Enter degree <input type="text" name="degree" placeholder="Degree" required/> <br>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter degree</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="degree" placeholder="Degree" required/> <br>
+                        </div>
+                    </div>
 
-        Enter subject <input type="text" name="subject" placeholder="Subject" required/> <br>
-
-        <button type="submit" name="select-submit" href="amDeleteAttendaceV.php">Select</button>    
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter subject</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="subject" placeholder="Subject" required/> <br>
+                        </div>
+                    </div>
+                    <button class="mainbtn" type="submit" name="select-submit" href="amDeleteAttendaceV.php">Select</button>
+                </form>
+                <form>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">Cancel</button>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
