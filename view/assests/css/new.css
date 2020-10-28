@@ -244,7 +244,7 @@ ul.breadcrumbs li a:hover {
   height: 80%;
   margin: 0px auto;
   border: 1px solid #B0C4DE;
-  background: ivory;
+  background-color: #ced4da;
   box-shadow: 2px 2px 2px 2px grey;
   margin-top: 3%;
   padding-bottom: 5%;
@@ -520,7 +520,7 @@ img.avatar {
 }
 
 .contentForm {
-  background-color: oldlace;
+  background-color: #ced4da;
   /*max-width: 80%;*/
   margin-left: 10%;
   margin-right: 10%;
@@ -595,7 +595,7 @@ img.avatar {
   height: 40px;
   margin-top: 25px;
   margin-left: 32%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   font-size: 18px;
   border: 0px;
   cursor: pointer;
@@ -627,7 +627,7 @@ img.avatar {
   background-color: crimson;
   color: white;
   height: 40px;
-  margin-top: 3%;
+  margin-top: 1%;
   margin-left: 3%;
   border: 0px;
   font-size: 18px;
