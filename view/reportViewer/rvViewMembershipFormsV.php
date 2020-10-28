@@ -3,24 +3,24 @@
 ?>
 
 <main>
-    <title>Remove Member</title>
+    <title>View Medical Membership Forms</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="msmHomeV.php">Home</a></li>
-            <li>Remove Member</li>
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li>View Medical Membership Forms</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'msmSideNavV.php';
+                    require 'rvSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div>
-                    <h2>Remove Member</h2>
+                    <h2>View Medical Membership Forms</h2>
                 </div>
 
                 <div class="contentForm">
