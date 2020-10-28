@@ -4,7 +4,6 @@
 
 <main>
 	<title>Log in</title>
-	<!-- <div class="home_image"> -->
 		<div class="loginForm">
 			<form action="../../controller/loginController.php" method="POST">
 				<h2>Login Here</h2>
@@ -24,7 +23,6 @@
 				<h3><a href="forgotpwdV.php">Forgot your password?</a></h3>
 			</div>
 		</div>
-	<!-- </div> -->
 </main>
 
 <?php

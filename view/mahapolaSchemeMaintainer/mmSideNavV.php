@@ -1,35 +1,50 @@
 <main>
-    <!-- <a href="mmMarkMahapolaSelectedStudentsV.php" ><button type="submit" name="" class="button">Mark Mahapola Selected Students</button></a><br> -->
-    <button class="button accordion">Mark Mahapola Selected Students</button>
-        <div class="panel">
-            <a href="mmMarkMahapolaStudentsIndexV.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Search By Index Number</a> <br>
-            <a href="mmMarkMahapolaStudentsNameV.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">Search By Student Name</a> 
-        </div>
+     <div class="sansserif">
+        <ul id="tree_view">
+            
+            <li><button class="tree_list">Mark Mahapola Selected Students</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="mmMarkMahapolaStudentsIndexV.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-pencil-square-o"></i>Search By Index Number</li></a>
+                    </button>
+                    <button>
+                        <a href="mmMarkMahapolaStudentsNameV.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-pencil-square-o"></i>Search By Student Name</li></a>
+                    </button>
+                </ul>
+            </li>
 
-    <a href="mmViewMahapolaNominatedListV.php" ><button type="submit" name="" class="button">View Mahapola Nominated Student List</button></a><br>
+            <li>
+                <button type="submit" class="tree_list"><a href="mmViewMahapolaNominatedListV.php">View Mahapola Nominated Student List</a></button> <br>
+            </li>
 
-    <a href="mmViewReportsMahapolaSchemeV.php" ><button type="submit" name="" class="button">View Reports in Mahapola Scheme</button></a><br>
+            <li>
+                <button type="submit" class="tree_list"><a href="mmViewReportsMahapolaSchemeV.php">View Reports in Mahapola Scheme</a></button> <br>
+            </li>
 
-    <a href="#" ><button type="submit" name="" class="button">View Attendance Student Records</button></a><br>
-    <!-- attendance maintainerge ui flow eke aran demu -->
-    <a href="mmViewSchemeDetailsV.php" ><button type="submit" name="" class="button">View Scheme Details</button></a><br>
-    
-    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Register to the Staff Medical Scheme</button></a>
+            <li>
+                <button type="submit" class="tree_list"><a href="#">View Attendance Student Records</a></button> <br>
+            </li>
 
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
+            <li>
+                <button type="submit" class="tree_list"><a href="mmViewSchemeDetailsV.php">View Scheme Detailss</a></button> <br>
+            </li>
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>  
+            <li>
+                <button type="submit" class="tree_list"><a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a></button> <br>
+            </li>
+        </ul>
+     </div>  
+     
+        <script>
+            var toggler = document.getElementsByClassName("tree_list");
+            var i;
+
+            for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".tree_nest").classList.toggle("active");
+                this.classList.toggle("tree_list-down");
+                });
+            }
+        </script>
+        
 </main>
