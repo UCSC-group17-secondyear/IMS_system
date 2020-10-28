@@ -1,45 +1,44 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
+    <title>Students</title>
 
-    <title>Users</title>
+    <ul class="breadcrumbs">
+        <li><a href="aHomeV.php">Home</a></li>
+        <li><a href="amDeleteUpdateStudentV.php">Select student</a></li>
+        <li>Student Detail</li>
+    </ul>
 
-    <?php
-        require '../basic/header.php';
-    ?>
+    <div class="row">
+        <div class="col left20">
+            <?php
+                require 'asmSideNavV.php';
+            ?>
+        </div>
 
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="amDeleteUpdateStudentV.php">Select student</a></li>
-            <li>Student Detail</li>
-        </ul>
+        <div class="col right80">
+            <div>
+                <h2>Students in IMS System</h2>
+            </div>
+            <table id="tableStyle">
+                <tr>
+                    <th>Index Number</th>
+                    <th>Registration number</th>
+                    <th>Initials</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Academic year</th>
+                    <th>Degree</th>
+                </tr>
+                <?php echo $_SESSION['std_info'] ?>
+            </table>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require 'amSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <h1>Students in IMS System</h1>
-
-        <table class="mytable">
-            <tr>
-                <th>Index Number</th>
-                <th>Registration number</th>
-                <th>Initials</th>
-                <th>Surname</th>
-                <th>Email</th>
-                <th>Academic year</th>
-                <th>Degree</th>
-            </tr>
-            
-            <?php echo $_SESSION['std_info'] ?>
-        </table>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-
 </main>
+
+
+<?php
+    require '../basic/footer.php';
+?>
