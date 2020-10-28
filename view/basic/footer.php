@@ -1,4 +1,4 @@
-    		<div class="footer">
+            <div class="footer">
                 <h5><i class="fa fa-graduation-cap"></i> © 2020, All rights reserved by University of Colombo School of Computing</h5> <br>
     	        <!-- <i class="fa fa-university"></i> University of Colombo School of Computing <br> -->
     	        <h5><i class="fa fa-fw fa-envelope-o"></i>Address: No. 35, Reid Avenue, Colombo 7, SRI LANKA</h5> <br>
