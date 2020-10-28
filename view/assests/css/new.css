@@ -240,7 +240,7 @@ ul.breadcrumbs li a:hover {
 
 /*-------------------------Sign Up Form Style-------------------------*/
 .signupForm {
-  width: 50%;
+  width: 70%;
   height: 80%;
   margin: 0px auto;
   border: 1px solid #B0C4DE;
@@ -262,12 +262,12 @@ ul.breadcrumbs li a:hover {
 
 .signupForm h2 {
   font-size: 24px;
-  color: darkslateblue;
+  color: white;
   text-align: center;
   padding: 6px;
   border-bottom: 3px solid grey;
   /*box-shadow: 4px 4px 4px grey;*/
-  background-color: ivory;
+  background-color: #065b7a;
 }
 
 .signupForm label {
@@ -312,11 +312,11 @@ ul.breadcrumbs li a:hover {
   float: left;
   margin-left: 5%;
   height: 40px;
-  margin-top: 4%;
+  margin-top: 2%;
 }
 
 .signupForm .signupbtn {
-  background-color: darkslateblue;
+  background-color: #065b7a;
 }
 
 .signupForm .cancelbtn {
@@ -324,7 +324,7 @@ ul.breadcrumbs li a:hover {
 }
 
 .signupForm .signupbtn:hover {
-  background-color: cornflowerblue;
+  background-color: #1177d1;
 } 
 
 .signupForm .cancelbtn:hover {
@@ -447,7 +447,7 @@ ul, #tree-view {
 .middle h2 {
   width: 100%;
   font-size: 26px;
-  background-color: cornflowerblue;
+  background-color: #065b7a;
   color: white;
   text-align: center;
   padding: 10px;
