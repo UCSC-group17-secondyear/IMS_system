@@ -5,12 +5,12 @@
                 <ul class="tree_nest">
                     <button>
                         <a href="amEnterStudentDetailsV.php">
-                            <li><i class="fa fa-plus-circle"></i>Enter Details</li>
+                            <li><i class="fa fa-plus-circle"></i>Enter Students' Details</li>
                         </a>
                     </button>
                     <button>
                         <a href="amDeleteUpdateStudentV.php">
-                            <li><i class="fa fa-pencil-square-o"></i>Delete/Update Details</li>
+                            <li><i class="fa fa-pencil-square-o"></i>Delete/Update Students' Details</li>
                         </a>
                     </button>
                 </ul>
@@ -20,12 +20,12 @@
                 <ul class="tree_nest">
                     <button>
                         <a href="amEnterSubjectDetails.php">
-                            <li><i class="fa fa-plus-circle"></i>Enter Details</li>
+                            <li><i class="fa fa-plus-circle"></i>Enter Subjects' Details</li>
                         </a>
                     </button>
                     <button>
                         <a href="amDeleteUpdateSubjectV.php">
-                            <li><i class="fa fa-pencil-square-o"></i>Delete/Update Details</li>
+                            <li><i class="fa fa-pencil-square-o"></i>Delete/Update Subjects' Details</li>
                         </a>
                     </button>
                 </ul>
@@ -35,12 +35,12 @@
                 <ul class="tree_nest">
                     <button>
                         <a href="amEnterUpdateAttendaceSelectV.php">
-                            <li><i class="fa fa-plus-circle"></i>Enter/Update</li>
+                            <li><i class="fa fa-plus-circle"></i>Enter/Update Attendance</li>
                         </a>
                     </button>
                     <button>
                         <a href="amDeleteAttendaceSearchV.php">
-                            <li><i class="fa fa-minus-circle"></i>Delete</li>
+                            <li><i class="fa fa-minus-circle"></i>Delete Attendance</li>
                         </a>
                     </button>
                 </ul>
@@ -50,26 +50,26 @@
                 <ul class="tree_nest">
                     <button>
                         <a href="amStudentWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Student Wise</li>
+                            <li><i class="fa fa-check-circle"></i>Student Wise Attendance</li>
                         </a>
                     </button>
                     <button>
                         <a href="amMonthWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Month Wise</li>
+                            <li><i class="fa fa-check-circle"></i>Month Wise Attendance</li>
                         </a>
                     <button>
                         <a href="amSubjectWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Subject Wise</li>
+                            <li><i class="fa fa-check-circle"></i>Subject Wise Attendance</li>
                         </a>
                     </button>
                     <button>
                         <a href="amBatchWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Batch Wise</li>
+                            <li><i class="fa fa-check-circle"></i>Batch Wise Attendance</li>
                         </a>
                     </button>
                     <button>
                         <a href="amSemesterWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Semester Wise</li>
+                            <li><i class="fa fa-check-circle"></i>Semester Wise Attendance</li>
                         </a>
                     </button>
                 </ul>
@@ -80,7 +80,6 @@
                     <button type="submit" name="" class="tree_list">
                     View Scheme Details</button>
                 </a>
-                
             </li>
 
             <li>
