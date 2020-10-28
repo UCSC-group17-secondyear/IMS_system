@@ -1,35 +1,35 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Nominated List</title>
-    <?php
-        require('../basic/header.php');    
-    ?>
-
+        <div class="sansserif">
         
-    <div class="header">
-        <ul class="breadcrumb">
-            <li><a href="mmHomeV.php">Home</a></li>
-            <li><a href="mmViewMahapolaNominatedListV.php">View Mahapola Nominated List</a></li>
-            <li>Nominated List</li>
-        </ul>
-    </div>
+                <ul class="breadcrumbs">
+                    <li><a href="mmHomeV.php">Home</a></li>
+                </ul>
+        
+            <div class="row">
+                <div class="col left20">
+                    <?php 
+                        require('mmSideNavV.php');
+                    ?>
+                </div>
 
-    <div class="side-nav">
-        <?php 
-            require('../mahapolaSchemeMaintainer/mmSideNavV.php');
-        ?>
-    </div>
+                <div class="col right80">
+                    <div>
+                        <h2>Nominated Student List</h2>
+                    </div>
 
-    <div class="content">
-        <div>
-            <h4>Student List</h4>
+                    <div class="contentForm"></div>
+
+                    <a href="mmViewMahapolaNominatedListV.php" ><button class="subbtn" type="submit" name="" >Back</button></a><br>
+                </div>
+            </div>
         </div>
-
-        <!-- pdf ekak generate kranna -->
-
-        <a href="mmViewMahapolaNominatedListV.php" ><button type="submit" name="" >Back</button></a><br>
-    </div>
-    
-    <?php
-        require_once('../basic/footer.php');
-    ?>
 </main>
+
+<?php
+    require_once('../basic/footer.php');
+?>
