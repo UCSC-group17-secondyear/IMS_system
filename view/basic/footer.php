@@ -5,7 +5,8 @@
     	        <!-- <i class="fa fa-fw fa-phone"></i>Telephone: +94-11-2581245/7 <br>
     	    	<i class="fa fa-fw fa-fax"></i>Fax: +94-11-2587239 <br>
     	        <i class="fa fa-fw fas fa-envelope"></i>Email: info@ucsc.cmb.ac.lk <br> -->
-    	    </div>
+            </div>
+            <!-- </div>  -->
             <!-- <div class="visionAndmission">
                 <h5>Our Vision</h5>
                 <h6>Be a Global Leader in Computing, Advancing the Frontiers of</h6>
