@@ -3,14 +3,12 @@
 ?>
 
 <main>
-    <title>Schemem Details</title>
+    <title>Profile Updated</title>
         <div class="sansserif">
-            
                 <ul class="breadcrumbs">
                     <li><a href="mmHomeV.php">Home</a></li>
-                    <li>View Scheme Details</li>
                 </ul>
-            
+        
             <div class="row">
                 <div class="col left20">
                     <?php 
@@ -19,11 +17,12 @@
                 </div>
 
                 <div class="col right80">
-                    <?php
-                        require '../basic/viewClaimDetails.php';
-                    ?>
+                    <div class="content">
+                        <h2>Your profile has been updated successfully...</h2>
+
+                        <a href="mmHomeV.php"><button class="subbtn" type="submit">OK</button></a>
+                    </div>
                 </div>
-            </div>
         </div>
 </main>
 
