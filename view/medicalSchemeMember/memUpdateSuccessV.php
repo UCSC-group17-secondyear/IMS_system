@@ -1,33 +1,37 @@
+<?php
+    require "../basic/topnav.php";
+?>
+
 <main>
     <title>Update SUccessfull</title>
+        <div class="sansserif">
+                
+                    <ul class="breadcrumbs">
+                        <li><a href="memHomeV.php">Home</a></li>
+                        <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
+                        <li>Update Success</li>
+                    </ul>
+            <div class="row">    
 
-    <?php
-        require('../basic/header.php');
-    ?>
-        
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
-            <li>Update Success</li>
-        </ul>
-    </div>
+                <div class="col left20">
+                    <?php 
+                        require('memSideNavV.php');
+                    ?>
+                </div>
 
-    <div class="side-nav">
-        <?php 
-            require('../medicalSchemeMember/memSideNavV.php');
-        ?>
-    </div>
+                <div class="col right80">
+                    <div class="content">
+                        <h2>Your membership renewal form has been sent for the apporoval.You will be informed about the membership
+                            later.<br>Thank You...</h2>
+                        
 
-   <div class="content">
-        <p>Your membership renewal form has been sent for the apporoval.You will be informed about the membership
-            later.</p><br>
-        <p>Thank You...</p>
-
-        <a href="memHomeV.php"><button type="submit" name="updateSuccess-submit">OK</button></a><br>
-    </div>
-    
-    <?php
-        require_once('../basic/footer.php');
-    ?>
+                        <a href="memHomeV.php"><button class="mainbtn" type="submit" name="updateSuccess-submit">OK</button></a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
 </main>
+
+<?php
+    require_once('../basic/footer.php');
+?>

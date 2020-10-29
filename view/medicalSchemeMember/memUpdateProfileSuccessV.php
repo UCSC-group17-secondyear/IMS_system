@@ -1,31 +1,36 @@
+<?php
+    require "../basic/topnav.php";
+?>
+
 <main>
     <title>Update Successfull</title>
+    <div class="sansserif">
+            
+                <ul class="breadcrumbs">
+                    <li><a href="memHomeV.php">Home</a></li>
+                    <li><a href="memProfileV.php">Profile</a></li>
+                    <li>Update Success</li>
+                </ul>
+            
+        <div class="row">
+            
+                <div class="col left20">
+                    <?php 
+                        require('memSideNavV.php');
+                    ?>
+                </div>
 
-    <?php
-        require('../basic/header.php');
-    ?>
+            <div class="col right80">
+                <div class="contentForm">
+                    <h2>Your profile has been updated successfully..</h2>
 
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memProfileV.php">Profile</a></li>
-            <li>Update Success</li>
-        </ul>
+                    <a href="memHomeV.php"><button class="mainbtn" type="submit">OK</button></a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php 
-            require('../medicalSchemeMember/memSideNavV.php');
-        ?>
-    </div>
-
-    <div class="content">
-        <p>Your profile has been updated successfully..</p>
-
-        <a href="memProfileV.php"><button type="submit">OK</button></a>
-    </div>
-    
-    <?php
-        require_once('../basic/footer.php');
-    ?>
 </main>
+
+<?php
+    require_once('../basic/footer.php');
+?>

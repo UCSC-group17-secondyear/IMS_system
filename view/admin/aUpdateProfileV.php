@@ -24,7 +24,7 @@
                     <h2>Update Profile</h2>
                 </div>
 
-                <div class="profileForm" style="margin-top:-1px">
+                <div class="profileForm" style="margin-top:-5px; height:560px;">
                     <form action="../../controller/updateProfileControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <label for="">Employee Id</label>
                         <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> required> <br>

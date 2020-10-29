@@ -38,11 +38,19 @@
 			exit();
 		}
 
+		// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+		// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+		if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',$password))){
+			$errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
+			echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
+		}
+
 		$checkEmpid = Model::checkEmpid($empid, $connect);
 
 		if (mysqli_num_rows($checkEmpid) == 1) 
 		{
 			$errors[] = 'Employee id already exists.';
+			echo "Employee id already exists.";
 		}
 
 		if (empty($errors)) 

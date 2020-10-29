@@ -100,7 +100,7 @@ ul.breadcrumbs li a:hover {
 /*-----------------------------Footer-----------------------------*/
 .footer {
     bottom: 0;
-    position: absolute;
+    /* position: absolute; */
     background-color: #065b7a;
     color: white;
     font-size: 18px;
@@ -113,7 +113,7 @@ ul.breadcrumbs li a:hover {
     height: 10%;
     border-top: 3px solid grey;
     /* margin-top: 35px; */
-    margin-bottom: 0%;
+    margin-bottom: auto;
 }
 
 /*-----------------------------Home Page Image-----------------------------*/
@@ -162,7 +162,7 @@ ul.breadcrumbs li a:hover {
   margin-right: 10%;
   margin-top: 5%;
   margin-bottom: 162px;
-  height: 400px;
+  height: 420px;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
   /*opacity: 0.5;*/
@@ -240,11 +240,11 @@ ul.breadcrumbs li a:hover {
 
 /*-------------------------Sign Up Form Style-------------------------*/
 .signupForm {
-  width: 50%;
+  width: 70%;
   height: 80%;
   margin: 0px auto;
   border: 1px solid #B0C4DE;
-  background: ivory;
+  background-color: #ced4da;
   box-shadow: 2px 2px 2px 2px grey;
   margin-top: 3%;
   padding-bottom: 5%;
@@ -262,12 +262,12 @@ ul.breadcrumbs li a:hover {
 
 .signupForm h2 {
   font-size: 24px;
-  color: darkslateblue;
+  color: white;
   text-align: center;
   padding: 6px;
   border-bottom: 3px solid grey;
   /*box-shadow: 4px 4px 4px grey;*/
-  background-color: ivory;
+  background-color: #065b7a;
 }
 
 .signupForm label {
@@ -312,11 +312,11 @@ ul.breadcrumbs li a:hover {
   float: left;
   margin-left: 5%;
   height: 40px;
-  margin-top: 4%;
+  margin-top: 2%;
 }
 
 .signupForm .signupbtn {
-  background-color: darkslateblue;
+  background-color: #065b7a;
 }
 
 .signupForm .cancelbtn {
@@ -324,7 +324,7 @@ ul.breadcrumbs li a:hover {
 }
 
 .signupForm .signupbtn:hover {
-  background-color: cornflowerblue;
+  background-color: #1177d1;
 } 
 
 .signupForm .cancelbtn:hover {
@@ -447,7 +447,7 @@ ul, #tree-view {
 .middle h2 {
   width: 100%;
   font-size: 26px;
-  background-color: cornflowerblue;
+  background-color: #065b7a;
   color: white;
   text-align: center;
   padding: 10px;
@@ -520,7 +520,7 @@ img.avatar {
 }
 
 .contentForm {
-  background-color: oldlace;
+  background-color: #ced4da;
   /*max-width: 80%;*/
   margin-left: 10%;
   margin-right: 10%;
@@ -595,7 +595,7 @@ img.avatar {
   height: 40px;
   margin-top: 25px;
   margin-left: 32%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   font-size: 18px;
   border: 0px;
   cursor: pointer;
@@ -627,7 +627,7 @@ img.avatar {
   background-color: crimson;
   color: white;
   height: 40px;
-  margin-top: 3%;
+  margin-top: 1%;
   margin-left: 3%;
   border: 0px;
   font-size: 18px;
