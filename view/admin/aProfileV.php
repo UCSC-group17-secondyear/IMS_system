@@ -22,7 +22,7 @@
                 <div>
                     <h2>Profile</h2>
                 </div>
-                <div class="profileForm" style="margin-top: 1px;">
+                <div class="profileForm">
                     <form action="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <label for="">Employee Id</label>
                         <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
