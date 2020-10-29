@@ -147,6 +147,8 @@
                             </div>
                         </div> 
                         <button class="mainbtn" type="submit" name="addScheme-submit">Add new scheme</button>
+                    </form>
+                    <form>
                         <a href="aHomeV.php"><button type="submit" class="cancelbtn">Cancel</button></a>
                     </form>
                 </div>
