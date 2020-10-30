@@ -15,7 +15,6 @@
                     </button>
                 </ul>
             </li>
-
             <li><button class="tree_list">Manage Subjects' Details</button>
                 <ul class="tree_nest">
                     <button>
@@ -30,7 +29,6 @@
                     </button>
                 </ul>
             </li>
-
             <li><button class="tree_list">Manage Attendance</button>
                 <ul class="tree_nest">
                     <button>
@@ -45,7 +43,6 @@
                     </button>
                 </ul>
             </li>
-
             <li><button class="tree_list">View Attendance</button>
                 <ul class="tree_nest">
                     <button>
@@ -74,18 +71,16 @@
                     </button>
                 </ul>
             </li>
-
             <li>
                 <a href="amMedicalSchemDetailsV.php">
-                    <button type="submit" name="" class="tree_list">
-                    View Scheme Details</button>
+                    <button type="submit" name="" class="tree_list"> View Scheme Details
+                    </button>
                 </a>
             </li>
-
             <li>
-                <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">
-                    <button type="submit" name="" class="tree_list">Register to the Staff Medical Scheme</button>
-                </a>
+                <button type="submit" class="tree_list">
+                    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a>
+                </button> <br>
             </li>
         </ul>
     </div>

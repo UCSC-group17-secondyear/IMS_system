@@ -2,25 +2,30 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="hamWeeklyTimeTableV.php"><button type="submit" class="tree_list">View Weekly Time Table</button></a> <br>
+                <button type="submit" class="tree_list">
+                    <a href="hamWeeklyTimeTableV.php">View Weekly Time Table</a>
+                </button> <br>
             </li>
-
             <li>
-                <a href="hamViewHallAllocationScheduleV.php"><button type="submit" class="tree_list">View Hall Allocation Schedule</button></a><br>
+                <button type="submit" class="tree_list">
+                    <a href="hamViewHallAllocationScheduleV.php">View Hall Allocation Schedule</a>
+                </button> <br>
             </li>
-
             <li>
-                <a href="hamViewSchemeDetailsV.php"><button type="submit" class="tree_list">View Scheme Details</button></a><br>
+                <button type="submit" class="tree_list">
+                    <a href="hamViewSchemeDetailsV.php">View Scheme Details</a>
+                </button> <br>
             </li>
-
             <li>
-                <a href="hamViewSchemeDetailsV.php"><button type="submit" class="tree_list">View Scheme Details</button></a><br>
+                <button type="submit" class="tree_list">
+                    <a href="hamViewSchemeDetailsV.php">View Scheme Details</a>
+                </button> <br>
             </li>
-
             <li>
-                <a href="hamHallDetailsV.php"><button type="submit" class="tree_list">View Hall Details</button></a> <br>
+                <button type="submit" class="tree_list">
+                    <a href="hamHallDetailsV.php">View Hall Details</a>
+                </button> <br>
             </li>
-
             <li><button class="tree_list">Manage Weekly Time Table</button>
                 <ul class="tree_nest">
                     <button>
@@ -32,7 +37,6 @@
                     </button>
                 </ul>
             </li>
-
             <li><button class="tree_list">Manage Booking</button>
                 <ul class="tree_nest">
                     <button>
@@ -43,9 +47,10 @@
                     </button>
                 </ul>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a>
+                </button> <br>
             </li>
         </div>
     </ul>

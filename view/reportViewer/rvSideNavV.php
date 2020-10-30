@@ -34,19 +34,29 @@
                 </ul>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="rvViewMahapolaNominatedListV.php">View Mahapola Nominated Student List</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="rvViewMahapolaNominatedListV.php">View Mahapola Nominated Student List</a>
+                </button> <br>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="rvViewReportsMahapolaSchemeV.php">View Reports in Mahapola Scheme</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="rvViewReportsMahapolaSchemeV.php">View Reports in Mahapola Scheme</a>
+                </button> <br>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="rvMedicalMemberlistV.php">View Member list of Medical Scheme</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="rvMedicalMemberlistV.php">View Member list of Medical Scheme</a>
+                </button> <br>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="rvViewClaimDetailsV.php">View Claim Details</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="rvViewClaimDetailsV.php">View Claim Details</a>
+                </button> <br>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="../../controller/memControllers/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a>
+                </button> <br>
             </li>
         </ul>
     </div>

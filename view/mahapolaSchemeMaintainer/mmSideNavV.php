@@ -12,25 +12,30 @@
                     </button>
                 </ul>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="mmViewMahapolaNominatedListV.php">View Mahapola Nominated Student List</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="mmViewMahapolaNominatedListV.php">View Mahapola Nominated Student List</a>
+                </button> <br>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="mmViewReportsMahapolaSchemeV.php">View Reports in Mahapola Scheme</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="mmViewReportsMahapolaSchemeV.php">View Reports in Mahapola Scheme</a>
+                </button> <br>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="#">View Attendance Student Records</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="#">View Attendance Student Records</a>
+                </button> <br>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="mmViewSchemeDetailsV.php">View Scheme Detailss</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="mmViewSchemeDetailsV.php">View Scheme Detailss</a>
+                </button> <br>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a></button> <br>
+                <button type="submit" class="tree_list">
+                    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a>
+                </button> <br>
             </li>
         </ul>
      </div>  
