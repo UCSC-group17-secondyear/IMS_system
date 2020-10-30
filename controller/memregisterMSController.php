@@ -72,6 +72,6 @@
         }
         
     }else {
-        echo "record 1 is not ok";
+        echo "records are not ok";
     }
 ?>
