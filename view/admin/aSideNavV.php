@@ -17,13 +17,11 @@
                     </button>
                 </ul>
             </li>
-            
             <li>
                 <a href="../../controller/userListController.php">
                     <button type="submit" class="tree_list">Manage Users in IMS System</button>
                 </a> <br>
             </li>
-
             <li><button class="tree_list">Manage Medical Schemes</button>
                 <ul class="tree_nest">
                     <button>
