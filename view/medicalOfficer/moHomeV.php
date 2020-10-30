@@ -13,7 +13,7 @@
         <div class="row">
             <div class="column left">
                 <?php
-                    require 'aSideNavV.php';
+                    require 'moSideNavV.php';
                 ?>
             </div>
             <div class="column middle">

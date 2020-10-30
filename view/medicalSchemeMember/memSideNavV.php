@@ -2,11 +2,15 @@
      <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <button type="submit" class="tree_list"><a href="memRenewMembershipV.php">Renew Membership</a></button> <br>
+                <a href="memRenewMembershipV.php">
+                    <button type="submit" class="tree_list">Renew Membership</button>
+                </a>
             </li>
 
             <li>
-                <button type="submit" class="tree_list"><a href="memViewSchemeDetailsV.php">View Medical Scheme Details</a></button> <br>
+                <a href="memViewSchemeDetailsV.php">
+                    <button type="submit" class="tree_list">View Medical Scheme Details</button>
+                </a>
             </li>
 
             <li><button class="tree_list">Fill Claim Forms</button>
@@ -21,7 +25,9 @@
             </li>
 
             <li>
-                <button type="submit" class="tree_list"><a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Update / Delete Claim Form</a></button> <br>
+                <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                    <button type="submit" class="tree_list">Update / Delete Claim Form</button>
+                </a>
             </li>
 
             <li><button class="tree_list">View Claim Forms</button>
@@ -34,9 +40,10 @@
                     </button>
                 </ul>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="memGetClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">Get Claim Details</a></button> <br>
+                <a href="memGetClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                    <button type="submit" class="tree_list">Get Claim Details</button>
+                </a>
             </li>
         </ul>
      </div>  

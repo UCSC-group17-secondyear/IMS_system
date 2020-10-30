@@ -1,14 +1,14 @@
 <?php
-    require '../basic/topnav.php';
+    require "../basic/topnav.php";
 ?>
 
 <main>
-    <title>Register to medical scheme</title>
+    <title>Register to Medical Scheme</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Register to medical scheme</li>
+            <li>Registration to medical scheme</li>
         </ul>
 
         <div class="row">
@@ -17,7 +17,6 @@
                     require 'hamSideNavV.php';
                 ?>
             </div>
-
             <div class="col right80">
                 <div>
                     <?php
@@ -29,6 +28,6 @@
     </div>
 </main>
 
-<!-- <?php
-    // require '../basic/footer.php';
-?> -->
+<?php
+    require '../basic/footer.php';
+?>
