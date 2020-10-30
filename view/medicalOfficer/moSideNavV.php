@@ -1,25 +1,33 @@
 <main>
-    <a href="moClaimReqestingFormsV.php"><button type="submit" name="" class="button">View Claim Requesting
-            Forms</button></a><br>
-    <button class="button accordion">View Reffered Claim Forms</button>
-    <div class="panel">
-        <a href="moApprovedClaimFormsV.php" class="buttonTwo">Approved claim forms</a>
-        <a href="moRejectedClaimFormsV.php" class="buttonTwo">Rejected claim forms</a>
+    <div class="sansserif">
+        <ul id="tree_view">
+            <li>
+                <a href="moClaimReqestingFormsV.php">
+                    <button type="submit" class="tree_list">View Claim Requesting Forms</button>
+                </a>
+            </li>
+            <li><button class="tree_list">View Reffered Claim Forms</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="moApprovedClaimFormsV.php" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Approved claim forms</li></a>
+                    </button>
+                    <button>
+                        <a href="moRejectedClaimFormsV.php" class="buttonTwo"><li><i class="fa fa-minus-circle"></i>Rejected claim forms</li></a>
+                    <button>
+                </ul>
+            </li>
+        </ul>
     </div>
 
     <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
+        var toggler = document.getElementsByClassName("tree_list");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+          toggler[i].addEventListener("click", function() {
+            this.parentElement.querySelector(".tree_nest").classList.toggle("active");
+            this.classList.toggle("tree_list-down");
+          });
+        }
     </script>
 </main>
