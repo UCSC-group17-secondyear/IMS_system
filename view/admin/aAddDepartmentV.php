@@ -53,6 +53,14 @@
                         </div>
                         <button class="mainbtn" type="submit" name="addDepartment-submit">Add Department</button>
                     </form>
+                    <form>
+                        <button type="submit" class="subbtn">
+                            <a href="#">View current departments</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -66,6 +66,12 @@
                         </div>
                         <button class="mainbtn" type="submit" name="addSemester-submit">Add Semester</button>
                     </form>
+                    <form action="" method="POST">
+                        <button class="subbtn" type="submit" name="">View Previous Semesters</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
