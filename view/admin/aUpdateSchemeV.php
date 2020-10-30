@@ -37,9 +37,13 @@
                         <button class="mainbtn" type="submit" name="getscheme-submit">Get Scheme Details</button>
                     </form>
 
-                    <form action="../../controller/adminControllers/manageScehemesController.php" method="post">
-                        <button class="subbtn" type="submit" name="schemeList-submit">View Current schemes</button>
-                        <a href="aHomeV.php"><button name="cancel-submit" type="submit" class="cancelbtn">Cancel</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="schemeList-submit">
+                            <a href="../../controller/adminControllers/manageScehemesController.php"> View Current schemes</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

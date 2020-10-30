@@ -45,9 +45,13 @@
 
                         <button class="mainbtn" type="submit" name="addDegree-submit">Add degree</button>
                     </form>
-                    <form action="../../controller/adminControllers/manageDegreeController.php" method="post">
-                        <button class="subbtn" type="submit" name="userroleList-submit">View Current Degree List</button>
-                        <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn">Cancel</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="userroleList-submit">
+                            <a href="../../controller/adminControllers/manageDegreeController.php"> View Current Degree List</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

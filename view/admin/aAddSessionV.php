@@ -36,9 +36,13 @@
 
                         <button class="mainbtn" type="submit" name="addSession-submit">Add session type</button>
                     </form>
-                    <form action="../../controller/adminControllers/manageSessionTypesController.php" method="post">
-                        <button class="subbtn" type="submit" name="userroleList-submit">View Current Session Types</button>
-                        <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn">Cancel</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="userroleList-submit">
+                            <a href="../../controller/adminControllers/manageSessionTypesController.php"> View Current Session Types</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>
