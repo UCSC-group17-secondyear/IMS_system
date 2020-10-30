@@ -7,8 +7,8 @@
                         <a href="aAddNewUserRoleV.php"><li><i class="fa fa-plus-circle"></i>Add a new user role</li></a>
                     </button>
                     <button>
-                        <a href="aRemoveUserRoleV.php"><li><i class="fa fa-minus-circle"></i>Remove a user role</li></a
-                            ></button>
+                        <a href="aRemoveUserRoleV.php"><li><i class="fa fa-minus-circle"></i>Remove a user role</li></a>
+                    </button>
                     <button>
                         <a href="../../controller/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>
                     </button>
@@ -20,7 +20,7 @@
             <li>
                 <a href="../../controller/userListController.php">
                     <button type="submit" class="tree_list">Manage Users in IMS System</button>
-                </a> <br>
+                </a>
             </li>
             <li><button class="tree_list">Manage Medical Schemes</button>
                 <ul class="tree_nest">
@@ -109,9 +109,9 @@
                 </ul>
             </li>
             <li>
-                <button type="submit" class="tree_list">
-                    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a>
-                </button> <br>
+                <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                    <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
+                </a>
             </li>
         </ul>
     </div>

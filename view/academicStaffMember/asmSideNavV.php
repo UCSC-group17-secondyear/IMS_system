@@ -32,9 +32,9 @@
                 </ul>
             </li>
             <li>
-                <button type="submit" class="tree_list">
-                    <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a>
-                </button> <br>
+                <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                    <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
+                </a>
             </li>
         </ul>
     </div>
