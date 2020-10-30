@@ -3,16 +3,16 @@
         <ul id="tree_view">
             <li>
                 <a href="moClaimReqestingFormsV.php">
-                    <button type="submit" name="" class="button">View Claim Requesting Forms</button>
-                </a><br>
+                    <button type="submit" class="tree_list">View Claim Requesting Forms</button>
+                </a>
             </li>
             <li><button class="tree_list">View Reffered Claim Forms</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="moApprovedClaimFormsV.php" class="buttonTwo"><i class="fa fa-plus-circle"></i>Approved claim forms</a>
+                        <a href="moApprovedClaimFormsV.php" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Approved claim forms</li></a>
                     </button>
                     <button>
-                        <a href="moRejectedClaimFormsV.php" class="buttonTwo"><i class="fa fa-minus-circle"></i>Rejected claim forms</a>
+                        <a href="moRejectedClaimFormsV.php" class="buttonTwo"><li><i class="fa fa-minus-circle"></i>Rejected claim forms</li></a>
                     <button>
                 </ul>
             </li>

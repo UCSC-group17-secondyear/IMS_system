@@ -6,25 +6,21 @@
                     <button type="submit" name="" class="tree_list">View Weekly Time Table</button>
                 </a><br>
             </li>
-
             <li>
                 <a href="asmViewHallAllocationScheduleV.php">
                     <button type="submit" name="" class="tree_list">View Hall Allocation Schedule</button>
                 </a>    
             </li>
-
             <li>
                 <a href="asmViewSchemeDetailsV.php">
                     <button type="submit" name="" class="tree_list">View Scheme Details</button>
                 </a>    
             </li>
-
             <li>
                 <a href="asmHallDetailsV.php">
                     <button type="submit" name="" class="tree_list">View Hall Details</button>
                 </a>    
             </li>
-
             <li><button class="tree_list">Manage Booking</button>
                 <ul class="tree_nest">
                     <button>
@@ -35,10 +31,9 @@
                     </button>
                 </ul>
             </li>
-
             <li>
                 <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">
-                    <button type="submit" name="" class="tree_list">Register to the Staff Medical Scheme</button>
+                    <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>
         </ul>

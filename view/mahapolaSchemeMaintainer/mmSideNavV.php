@@ -1,7 +1,6 @@
 <main>
      <div class="sansserif">
         <ul id="tree_view">
-            
             <li><button class="tree_list">Mark Mahapola Selected Students</button>
                 <ul class="tree_nest">
                     <button>
@@ -12,25 +11,30 @@
                     </button>
                 </ul>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="mmViewMahapolaNominatedListV.php">View Mahapola Nominated Student List</a></button> <br>
+                <a href="mmViewMahapolaNominatedListV.php">    
+                    <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
+                </a>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="mmViewReportsMahapolaSchemeV.php">View Reports in Mahapola Scheme</a></button> <br>
+                <a href="mmViewReportsMahapolaSchemeV.php">
+                    <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
+                </a>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="#">View Attendance Student Records</a></button> <br>
+                <a href="#">
+                    <button type="submit" class="tree_list">View Attendance Student Records</button>
+                </a>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="mmViewSchemeDetailsV.php">View Scheme Detailss</a></button> <br>
+                <a href="mmViewSchemeDetailsV.php">
+                    <button type="submit" class="tree_list">View Scheme Detailss</button>
+                </a>
             </li>
-
             <li>
-                <button type="submit" class="tree_list"><a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a></button> <br>
+                <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                    <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
+                </a>
             </li>
         </ul>
      </div>  

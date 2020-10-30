@@ -34,19 +34,29 @@
                 </ul>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="rvViewMahapolaNominatedListV.php">View Mahapola Nominated Student List</a></button> <br>
+                <a href="rvViewMahapolaNominatedListV.php">
+                    <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
+                </a>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="rvViewReportsMahapolaSchemeV.php">View Reports in Mahapola Scheme</a></button> <br>
+                <a href="rvViewReportsMahapolaSchemeV.php">
+                    <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
+                </a>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="rvMedicalMemberlistV.php">View Member list of Medical Scheme</a></button> <br>
+                <a href="rvMedicalMemberlistV.php">
+                    <button type="submit" class="tree_list">View Member list of Medical Scheme</button>
+                </a>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="rvViewClaimDetailsV.php">View Claim Details</a></button> <br>
+                <a href="rvViewClaimDetailsV.php">
+                    <button type="submit" class="tree_list">View Claim Details</button>
+                </a>
             </li>
             <li>
-                <button type="submit" class="tree_list"><a href="../../controller/memControllers/registerMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">Register to the Staff Medical Scheme</a></button> <br>
+                <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                    <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
+                </a>
             </li>
         </ul>
     </div>
