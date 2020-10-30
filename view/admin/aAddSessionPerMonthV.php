@@ -72,9 +72,13 @@
 
                         <button class="mainbtn" type="submit" name="addMSession-submit">Add session</button>
                     </form>
-                    <form action="../../controller/adminControllers/manageMonthlySessionController.php" method="post">
-                        <!-- <button class="subbtn" type="submit" name="userroleList-submit">View Current Session Types</button> -->
-                        <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn">Cancel</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="../../controller/adminControllers/manageMonthlySessionController.php">View Current Session Types</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -82,6 +86,6 @@
     </div>
 </main>
 
-<!-- <?php
-    // require '../basic/footer.php';
-?> -->
+<?php
+    require '../basic/footer.php';
+?>
