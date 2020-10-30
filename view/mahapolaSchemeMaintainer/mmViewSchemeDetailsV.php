@@ -3,30 +3,32 @@
 ?>
 
 <main>
-    <title>Schemem Details</title>
-        <div class="sansserif">
-            
-                <ul class="breadcrumbs">
-                    <li><a href="mmHomeV.php">Home</a></li>
-                    <li>View Scheme Details</li>
-                </ul>
-            
-            <div class="row">
-                <div class="col left20">
-                    <?php 
-                        require('mmSideNavV.php');
-                    ?>
-                </div>
+    <title>View Medical Scheme Details</title>
 
-                <div class="col right80">
+    <div class="sansserif">
+        <ul class="breadcrumbs">
+            <li><a href="mmHomeV.php">Home</a></li>
+            <li>View Medical Scheme Details</li>
+        </ul>
+
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'mmSideNavV.php';
+                ?>
+            </div>
+
+            <div class="col right80">
+                <div>
                     <?php
                         require '../basic/viewClaimDetails.php';
                     ?>
                 </div>
             </div>
         </div>
+    </div>
 </main>
 
 <?php
-    require_once('../basic/footer.php');
+    require '../basic/footer.php';
 ?>
