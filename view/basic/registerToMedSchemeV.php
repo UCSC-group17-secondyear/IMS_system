@@ -5,7 +5,6 @@
 
     <div class="contentForm">
     <form action="../../controller/memregisterMSControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
-        
         <div class="row">
             <div class="col-25">
                 <label>Employee ID</label>
@@ -108,6 +107,6 @@
                 </select>
             </div>
         </div>
-
         <button class="mainbtn" type="submit" name="registerMS-submit">Register</button>
+    </form>
 </main>

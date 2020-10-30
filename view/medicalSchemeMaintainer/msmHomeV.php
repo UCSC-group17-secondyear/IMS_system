@@ -9,7 +9,6 @@
         <ul class="breadcrumbs">
             <li class="active">Medical Scheme Maintainer Page</li>
         </ul>
-
         <div class="row">
             <div class="column left">
                 <?php
@@ -20,13 +19,11 @@
                 <h2>Medical Scheme Maintainer Page</h2>
             </div>
             <div class="column right">
-                <!-- <div class="card"> -->
-                    <div class="imgcontainer">
-                        <img src="../assests/img/profile.png" alt="Avatar" style="width:100%">
-                    </div>
-                    <div class="btncontainer">
-                        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>
-                    </div>
+                <div class="imgcontainer">
+                    <img src="../assests/img/profile.png" alt="Avatar" style="width:100%">
+                </div>
+                <div class="btncontainer">
+                    <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>
                 </div>
             </div>
         </div>
