@@ -1,30 +1,36 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
-    <title>ApprovedClaim Forms</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+    <title>View Approved Claim Forms</title>
 
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="homePageV.php">Home</a></li>
-            <li><a href="medicalOfficerV.php">Medical Officer's Page</a></li>
-            <li>Approved Claim Forms</li>
+            <li><a href="moHomeV.php">Home</a></li>
+            <li>View Approved Claim Forms</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php
-            require '../medicalOfficer/moSideNavV.php';
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'moSideNavV.php';
+                ?>
+            </div>
 
-    <div class="content">
-        <div>
-            <h3>Approved Claim Forms</h3>
+            <div class="col right80">
+                <div>
+                    <h2>View Approved Claim Forms</h2>
+                </div>
+
+                <div class="contentForm">
+                    
+                </div>
+            </div>
         </div>
     </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
