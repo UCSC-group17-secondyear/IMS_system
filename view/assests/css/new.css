@@ -629,7 +629,7 @@ img.avatar {
   color: white;
   height: 40px;
   margin-top: 25px;
-  margin-left: 32%;
+  margin-left: 35%;
   margin-bottom: 2%;
   font-size: 18px;
   border: 0px;
@@ -655,6 +655,11 @@ img.avatar {
   border: 0;
 }
 
+.subbtn a {
+  color: white;
+  text-decoration: none;
+}
+
 .subbtn:hover {
   background-color: #065b7a;
   color: white;
@@ -672,6 +677,11 @@ img.avatar {
   font-size: 18px;
   margin-bottom: 3%;
   border: 0;
+}
+
+.cancelbtn a {
+  text-decoration: none;
+  color: white;
 }
 
 .cancelbtn:hover {

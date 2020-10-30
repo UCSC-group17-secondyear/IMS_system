@@ -64,8 +64,15 @@
                                 </select> 
                             </div>
                         </div>
-
                         <button class="mainbtn" type="submit" name="addHall-submit">Add Hall</button>
+                    </form>
+                    <form>
+                        <button type="submit" class="subbtn">
+                            <a href="#">View current halls</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>
