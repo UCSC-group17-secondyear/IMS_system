@@ -163,7 +163,7 @@ ul.breadcrumbs li a:hover {
   /*max-width: 80%;*/
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 5%;
+  margin-top: 162px;
   margin-bottom: 162px;
   height: auto;
   /*border: 3px solid grey;*/
@@ -187,7 +187,7 @@ ul.breadcrumbs li a:hover {
 .loginForm h2 {
   font-size: 26px;
   color: white;
-  background-color: #065b7a;
+  background-color: #374144;
   text-align: center;
   padding: 10px;
   /*border-bottom: 3px solid grey;*/
@@ -523,7 +523,8 @@ img.avatar {
 .col {
   float: left;
   padding-left: 10px;
-  height: 600px;
+  min-height: 600px;
+  height: auto;
   box-shadow: 4px 0px grey;
   padding-top: 10px;
 }
@@ -589,7 +590,7 @@ img.avatar {
 }
 
 .profileForm {
-  background-color: oldlace;
+  background-color: #ced4da;
   /* max-width: 500px; */
   margin-left: 10%;
   margin-right: 10%;
@@ -686,7 +687,7 @@ img.avatar {
   border-collapse: collapse;
   width: 90%;
   margin-top: 25px;
-  margin-left: 10%;
+  margin-left: 50px;
 }
 
 #tableStyle td, #tableStyle th {
