@@ -3,7 +3,7 @@
 ?>
 
 <main>
-    <title>View Scheme Details</title>
+    <title>View Medical Scheme Details</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">

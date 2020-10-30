@@ -16,11 +16,11 @@
     <div class="sansserif">
         <header>
             <div class="topnav">
+                    <!-- <img src="../assests/img/cover.png" alt="" style="width: 10%;"> -->
                     <?php
                         if (isset($_SESSION['userId'])) {
                     ?>
-                            <a href="../../controller/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>"><i class="fa fa fa-home"></i>Home
-                            </a>
+                    <a href="../../controller/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>"><i class="fa fa fa-home"></i>Home</a>
                     <?php
                         }
                         else {

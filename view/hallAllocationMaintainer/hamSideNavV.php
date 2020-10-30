@@ -18,12 +18,6 @@
                     <button type="submit" class="tree_list">View Scheme Details</button>
                 </a><br>
             </li>
-
-            <li>
-                <a href="hamViewSchemeDetailsV.php">
-                    <button type="submit" class="tree_list">View Scheme Details</button>
-                </a><br>
-            </li>
             <li>
                 <a href="hamHallDetailsV.php">
                     <button type="submit" class="tree_list">View Hall Details</button>
