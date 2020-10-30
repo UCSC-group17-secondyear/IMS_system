@@ -548,6 +548,8 @@ img.avatar {
   margin-left: 10px;
 }
 
+/*-------------------------Content Form-------------------*/
+
 .contentForm {
   background-color: #ced4da;
   /*max-width: 80%;*/
@@ -589,6 +591,8 @@ img.avatar {
   margin-left: 15%;
 }
 
+/*-------------------------Profile Form-------------------*/
+
 .profileForm {
   background-color: #ced4da;
   /* max-width: 500px; */
@@ -616,6 +620,8 @@ img.avatar {
   width: 100%;
   border: 2px solid #2980b9;
 } 
+
+/*-------------------------Buttons-------------------*/
 
 .mainbtn {
   width: 30%;
