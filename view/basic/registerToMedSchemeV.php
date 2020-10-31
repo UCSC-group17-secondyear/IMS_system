@@ -107,6 +107,15 @@
                 </select>
             </div>
         </div>
+
         <button class="mainbtn" type="submit" name="registerMS-submit">Register</button>
+    </form>
+    <form>
+        <button class="subbtn" type="submit" name="schemedetails-submit">
+            <a href="../basic/schemeDetailsV.php"> View Scheme Details</a>
+        </button>
+        <button type="submit" class="cancelbtn">
+            <a href="aHomeV.php">Cancel</a>
+        </button>
     </form>
 </main>
