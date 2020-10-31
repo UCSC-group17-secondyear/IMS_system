@@ -148,9 +148,14 @@
                         </div> 
                         <button class="mainbtn" type="submit" name="addScheme-submit">Add new scheme</button>
                     </form>
-                    <!-- <form> -->
-                        <a href="aHomeV.php"><button type="submit" class="cancelbtn" style="margin-left: 310px;">Cancel</button></a>
-                    <!-- </form> -->
+                    <form>
+                        <a href="aViewSchemeDetailsV.php">
+                            <button class="subbtn" type="submit">View Current Schemes</button>
+                        </a>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

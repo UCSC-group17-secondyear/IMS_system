@@ -64,7 +64,7 @@
                         <button class="mainbtn" type="submit" name="updateSession-submit">Update session</button>
                     </form>
                     <form action="../../controller/adminControllers/manageMonthlySessionController.php" method="post">
-                        <!-- <button class="subbtn" type="submit" name="userroleList-submit">View Current Session Types</button> -->
+                        <button class="subbtn" type="submit" name="">View Current Session Types</button>
                         <button type="submit" name="removeSession-submit" class="cancelbtn">Remove session</button>
                     </form>
                 </div>
@@ -73,6 +73,6 @@
     </div>
 </main>
 
-<!-- <?php
-    // require '../basic/footer.php';
-?> -->
+<?php
+    require '../basic/footer.php';
+?>

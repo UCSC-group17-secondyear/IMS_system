@@ -117,6 +117,10 @@
 
                                 <button class="mainbtn" type="submit" name="update-form">Update Form</button>
                             </form>
+
+                            <form action="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                                <button type="submit" name="cancel-submit" class="cancelbtn" class="mainbtn">Cancel</button>
+                            </form>
                         </div>
                     </div>
                 </div>
