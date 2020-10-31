@@ -458,7 +458,8 @@ ul, #tree-view {
 .column {
   float: left;
   padding: 10px;
-  height: 600px;
+  min-height: 600px;
+  height: auto;
   box-shadow: 4px 0px grey;
   padding-top: 10px;
 }
