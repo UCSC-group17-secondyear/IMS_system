@@ -24,8 +24,8 @@
                     
                     <table id="tableStyle">
                         <tr>
-                            <th>Claim Form No</th>
-                            <th></th>
+                            <th id="">Claim Form No</th>
+                            <th id=""></th>
                         </tr>
 
                         <?php echo $_SESSION['claim_form_no']; ?>

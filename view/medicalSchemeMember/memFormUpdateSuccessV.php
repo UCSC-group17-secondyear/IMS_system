@@ -18,9 +18,9 @@
             </div>
             
             <div class="col right80">
-                <p>Your Form has been Updated Succesfully.</p>
+                <h2>Your Form has been Updated Succesfully.</h2>
 
-                <a href="memUpdateClaimFormsV.php"><button type="submit" name="">OK</button></a><br>
+                <a href="memHomeV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
             </div>
         </div>
 </main>

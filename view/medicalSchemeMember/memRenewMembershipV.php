@@ -26,13 +26,13 @@
 
             <div class="contentForm">
                 <div>
-                    <h4>Change Scheme</h4>
+                    <h2>Change Scheme</h2>
                 </div>
 
-                <a href="memSchemeChangeYesV.php"><button class="mainbtn" type="submit" name="">Yes</button></a><br>
+                <a href="memSchemeChangeYesV.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="mainbtn" type="submit" name="">Yes</button></a><br>
                 <!-- experience eka 2 years wadinam auto scheme 3 walat yanawa.natnam scheme eka select kranna page eka -->
                 <!-- if ekakin check krala selectScheme.php & schemeChangeYes.php walin ekakat yanwa -->
-                <a href="memCurrentMemberDetailsV.php"><button class="mainbtn" type="submit" name="">No</button></a><br>
+                <a href="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="mainbtn" type="submit" name="member-btn">No</button></a><br>
             </div>
             </div>
         </div>

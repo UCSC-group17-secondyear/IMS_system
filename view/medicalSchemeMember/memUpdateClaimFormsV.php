@@ -26,9 +26,9 @@
                 <div class="contentForm">
                     <table id="tableStyle">
                         <tr>
-                            <th>Claim Form No</th>
-                            <th>Update</th>
-                            <th>Delete</th>
+                            <th id="">Claim Form No</th>
+                            <th id="">Update</th>
+                            <th id="">Delete</th>
                         </tr>
                         <?php echo $_SESSION['claim_form_no']; ?>
                     </table>

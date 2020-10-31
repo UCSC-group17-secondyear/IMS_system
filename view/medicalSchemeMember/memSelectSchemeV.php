@@ -19,30 +19,31 @@
                         ?>
                     </div>
 
-                    <div class="col right80">
+                <div class="col right80">
                         <div>
                             <h2>Select a Scheme</h2>
                         </div>
 
                     <div class="contentForm">
-                        <div class="row">
-                            <div class="col-25">
-                                <label for=""></label>
+                        <form action="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for=""></label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="scheme" id="">
+                                        <option value="">Select Scheme</option>
+                                        <option value="scheme1">Scheme 1</option>
+                                        <option value="scheme2">Scheme 2</option>
+                                        <option value="scheme3">Scheme 3</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <select name="scheme" id="">
-                                    <option value="">Select Scheme</option>
-                                    <option value="scheme1">Scheme 1</option>
-                                    <option value="scheme2">Scheme 2</option>
-                                    <option value="scheme3">Scheme 3</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                        <br><br>
 
-                        <a href="memCurrentMemberDetailsV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                            <button class="mainbtn" type="submit" name="member-btn">OK</button><br>
+                        </form>
                     </div>
+                </div>
             </div>
         </div>
 </main>
