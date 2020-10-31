@@ -30,11 +30,49 @@
                               <label>Enter Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" id="" name="enterDate" required/>
+                                <input type="date" id="" name="enterDate"/>
                             </div>
                         </div>
 
-                        <a href="asmHallAllocationScheduleViewV.php"><button class="mainbtn" name="displayschedule-submit">Display Schedule</button></a>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Or Enter Date Range</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Starting Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="" name="startDate" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter Ending Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="" name="endDate" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Hall</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="" name="enterDate"/>
+                            </div>
+                        </div>
+
+                        <button class="subbtn" name="displayschedule-submit">
+                            <a href="asmHallAllocationScheduleViewV.php">Display Schedule</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="asmHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

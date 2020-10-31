@@ -36,7 +36,12 @@
                     </tr>
                 </table>
 
-                <a href="asmHallDetailsV.php"><button type="submit" name="">Ok</button></a>
+                <button class="subbtn" type="submit" name="">
+                    <a href="asmHallDetailsV.php">View another hall</a>
+                </button>
+                <button class="cancelbtn" type="submit" name="">
+                    <a href="asmHomeV.php">Cancel</a>
+                </button>
             </div>
         </div>
     </div>

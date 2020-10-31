@@ -12,11 +12,6 @@
                 </a>    
             </li>
             <li>
-                <a href="asmViewSchemeDetailsV.php">
-                    <button type="submit" name="" class="tree_list">View Scheme Details</button>
-                </a>    
-            </li>
-            <li>
                 <a href="asmHallDetailsV.php">
                     <button type="submit" name="" class="tree_list">View Hall Details</button>
                 </a>    
@@ -24,12 +19,21 @@
             <li><button class="tree_list">Manage Booking</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Add a Booking</li></a>
+                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">
+                            <li><i class="fa fa-plus-circle"></i>Add a Booking</li>
+                        </a>
                     </button>
                     <button>
-                        <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">My Bookings</a>
+                        <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">
+                            <li><i class="fa fa-user"></i>My Bookings</li>
+                        </a>
                     </button>
                 </ul>
+            </li>
+            <li>
+                <a href="asmViewSchemeDetailsV.php">
+                    <button type="submit" name="" class="tree_list">View Scheme Details</button>
+                </a>    
             </li>
             <li>
                 <a href="../../controller/memregisterMSController.php?user_id=<?php echo $_SESSION['userId'] ?>">
