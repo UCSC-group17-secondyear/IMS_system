@@ -44,9 +44,13 @@
 
                         <button class="mainbtn" type="submit" name="addUserrole-submit">Add user role</button>
                     </form>
-                    <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
-                        <button class="subbtn" type="submit" name="userroleList-submit">View Current user roles</button>
-                        <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn">Cancel</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="userroleList-submit">
+                            <a href="../../controller/adminControllers/manageUserRoleController.php">View Current user roles</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

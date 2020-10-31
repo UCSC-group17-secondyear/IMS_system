@@ -73,7 +73,15 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="submit">Book</button>
+                        <button class="mainbtn" type="submit" name="submit">Book</button>
+                    </form>
+                    <form>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">View my bookings</a>
+                        </button>
+                        <button class="cancelbtn" type="submit" name="">
+                            <a href="asmHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>
