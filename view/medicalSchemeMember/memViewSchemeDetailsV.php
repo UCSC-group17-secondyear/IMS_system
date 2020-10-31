@@ -20,7 +20,7 @@
 
             <div class="col right80">
                     <?php
-                        require '../basic/viewClaimDetails.php';
+                        require '../basic/schemeDetails.php';
                     ?>
             </div>
         </div>

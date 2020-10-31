@@ -115,7 +115,7 @@
             <a href="../basic/schemeDetailsV.php"> View Scheme Details</a>
         </button>
         <button type="submit" class="cancelbtn">
-            <a href="aHomeV.php">Cancel</a>
+            <a href="#">Cancel</a>
         </button>
     </form>
 </main>
