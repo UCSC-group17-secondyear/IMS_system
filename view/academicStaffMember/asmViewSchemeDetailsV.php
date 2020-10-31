@@ -20,9 +20,20 @@
 
             <div class="col right80">
                 <div>
+                    <h2>Scheme Details</h2>
+                </div>
+                <div class="contentForm">
                     <?php
                         require '../basic/viewClaimDetails.php';
                     ?>
+                    <form>
+                        <button type="submit" class="subbtn">
+                            <a href="">Register to medical scheme</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="asmHomeV.php">Back</a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

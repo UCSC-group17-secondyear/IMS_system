@@ -642,6 +642,11 @@ img.avatar {
   font-weight: bold;
 }
 
+.mainbtn a {
+  color: white;
+  text-decoration: none;
+}
+
 .subbtn {
   width: 30%;
   background-color: #1177d1;
