@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>Register to Medical Scheme</title>
+    <title>View Member</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
-            <li>Registration to medical scheme</li>
+            <li>View Member</li>
         </ul>
 
         <div class="row">
@@ -20,56 +20,99 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Register to Staff Medical Scheme</h2>
+                    <h2>View Member</h2>
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/dhviewMemberFormC.php" method="post">  <!-- Menna methenanin mee inna userge a qwe...
-                    view karana userge user id eka yawannone mata-->
-                        <p>   
-                            <label>Employee ID: </label>
-                            <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled>
-                        </p>
-                        <p>
-                            <label>Your initials: </label>
-                            <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"' ?> disabled/>
-                        </p>
-                        <p>
-                            <label>Your surname: </label>
-                            <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"' ?> disabled/>
-                        </p>
-                        <p>
-                            <label>Your E-mail: </label>
-                            <input type="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"' ?> disabled/>
-                        </p>
-                        <p>
-                            <label>Designation: </label>
-                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled> <br>
-                        </p>
-                        <p>  
-                            <label>Enter department</label>
-                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['department'].'"' ?> disabled> <br>
-                        </p>
-                        <p>   
-                            <label>Health condition: </label>
-                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['healthcondition'].'"' ?> disabled> <br>
-                        </p>
-                        <p>
-                            <label>Civil status</label>
-                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['civilstatus'].'"' ?> disabled> <br>
-                        </p>
-                        <p>   
-                            <label>Medical Scheme Type: </label>
-                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled> <br>
-                        </p>
-                        <p>   
-                            <label>Member Type: </label>
-                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['member_type'].'"' ?> disabled> <br>
-                        </p>
-                        <p>
-                            <button type="submit" name="acceptmr-submit" class="mainbtn">Accept</button> <br>
-                            <button type="submit" name="declinemr-submit" class="mainbtn">Decline</button>
-                        </p>
+                    <form action="../../controller/dhviewMemberFormC.php" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Employee ID: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Initials: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"' ?> disabled/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Surname: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"' ?> disabled/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>E-mail: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"' ?> disabled/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Designation: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled> <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Department: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['department'].'"' ?> disabled> <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Health condition: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['healthcondition'].'"' ?> disabled> <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Civil status: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['civilstatus'].'"' ?> disabled> <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Medical Scheme Type: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled> <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Member Type: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['member_type'].'"' ?> disabled> <br>
+                            </div>
+                        </div>
+                    </form>
+                    <form>
+                        <button class="subbtn" type="submit" name="acceptmr-submit">
+                            <a href="#">Accept</a>
+                        </button>
+                        <button type="submit" class="cancelbtn" name="declinemr-submit">
+                            <a href="#">Decline</a>
+                        </button>
                     </form>
                 </div>
             </div>
