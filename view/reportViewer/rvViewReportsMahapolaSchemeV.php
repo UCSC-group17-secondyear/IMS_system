@@ -67,8 +67,13 @@
                             </div>
                         </div>
                     </form>
-                    <form action="" method="post">
-                        <a href="mmDisplayReportV.php"><button class="subbtn" type="submit" name="updateDegree-submit">Display Report</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="select-submit">
+                            <a href="#">Display Report</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="rvHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

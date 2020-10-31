@@ -83,8 +83,13 @@
                             </div>
                         </div>
                     </form>
-                    <form action="" method="post">
-                        <a href="#"><button class="subbtn" type="submit" name="select-submit">Display Attendance</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="select-submit">
+                            <a href="#">Display Attendance</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="rvHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

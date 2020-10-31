@@ -24,7 +24,7 @@
                 </div>
                 <div class="contentForm">
                     <?php
-                        require '../basic/viewClaimDetails.php';
+                        require '../basic/schemeDetailsV.php';
                     ?>
                     <form>
                         <button type="submit" class="subbtn">

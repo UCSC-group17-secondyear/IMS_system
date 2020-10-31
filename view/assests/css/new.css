@@ -458,8 +458,7 @@ ul, #tree-view {
 .column {
   float: left;
   padding: 10px;
-  min-height: 600px;
-  height: auto;
+  height: 600px;
   box-shadow: 4px 0px grey;
   padding-top: 10px;
 }
@@ -733,4 +732,11 @@ img.avatar {
   background-color: #1177d1;
   color: white;
   width: auto;
+}
+
+#tableStyle td a {
+  background-color: #065b7a;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
 }
