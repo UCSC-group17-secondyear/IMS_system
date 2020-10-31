@@ -38,7 +38,12 @@
                                 </select>
                             </div>
                         </div>
-                        <a href="asmViewHallDetailsV.php"><button class="mainbtn" type="submit" name="">Display Details</button></a>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="asmViewHallDetailsV.php">Display Details</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="asmHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>
