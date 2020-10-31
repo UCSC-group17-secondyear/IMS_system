@@ -31,7 +31,7 @@
                         <input type="year" value=""> <br>
                     </div>
             
-                    <button class="mainbtn" type="submit" name="year-claim-submit">Display Claim Details</button>
+                    <button class="subbtn" type="submit" name="year-claim-submit">Display Claim Details</button>
                 </form>
             </div>
         </div>
