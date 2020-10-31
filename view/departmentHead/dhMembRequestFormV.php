@@ -29,6 +29,7 @@
                         <th>Department</th>
                         <th></th>
                     </tr>
+                    <?php echo $_SESSION['memberrequestforms'] ?>
                 </table>
             </div>
         </div>
