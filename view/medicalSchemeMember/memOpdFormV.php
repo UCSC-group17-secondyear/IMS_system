@@ -25,140 +25,147 @@
                     <div class="contentForm">
                         <form action="../../controller/opdFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
                             
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Emp Id</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Emp Id</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Initials</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Initials</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"'?> disabled> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"'?> disabled> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Name</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"'?> disabled> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"'?> disabled> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Designation</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Designation</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"'?> disabled> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"'?> disabled> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Department</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Department</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="department" id="" required>
+                                        <option value="">Select Option</option>
+                                        <option value="CS">CS</option>
+                                        <option value="IS">IS</option>
+                                        <option value="SE">SE</option>
+                                    </select> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <select name="department" id="" required>
-                                    <option value="">Select Option</option>
-                                    <option value="CS">CS</option>
-                                    <option value="IS">IS</option>
-                                    <option value="SE">SE</option>
-                                </select> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Enter Patient's Name</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Enter Patient's Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="patient_name" required> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" name="patient_name" required> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Select relationship</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Select relationship</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="relationship" id="" required>
+                                        <option value="myself">Myself</option>
+                                        <option value="husband">Husband</option>
+                                        <option value="wife">Wife</option>
+                                        <option value="daughter">Daughter</option>
+                                        <option value="son">Son</option>
+                                    </select> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <select name="relationship" id="" required>
-                                    <option value="myself">Myself</option>
-                                    <option value="husband">Husband</option>
-                                    <option value="wife">Wife</option>
-                                    <option value="daughter">Daughter</option>
-                                    <option value="son">Son</option>
-                                </select> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Name of the Doctor</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Name of the Doctor</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="doctor_name"  required> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" name="doctor_name"  required> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Treatment Recieved Date</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Treatment Recieved Date</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="date" name="treatment_received_date"  required> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="date" name="treatment_received_date"  required> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Bill Issued Date</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Bill Issued Date</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="date" name="bill_issued_date" required><br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="date" name="bill_issued_date" required><br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Purpose</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Purpose</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="purpose"  required> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" name="purpose"  required> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Bill Amount</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Bill Amount</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="bill_amount" required> <br>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" name="bill_amount" required> <br>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Scanned copy of bill</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Scanned copy of bill</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="file" name="file" required>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="file" name="file" required>
-                            </div>
-                        </div>
 
-                            <button class="mainbtn" type="submit" name="form-submit">Submit</button><br>
-                            
+                                <button class="mainbtn" type="submit" name="form-submit">Submit</button><br>
+                                
                         </form>
+                            
+                                <form action="memHomeV.php" method="post">
+                                    <button type="submit" name="cancel-submit" class="cancelbtn" class="mainbtn">Cancel</button>
+                                </form>
+                            
+                        
+                        
                         <br>
                         <p>Download the form to be filled by the surgeon and get if field before you fill the surgical
-                            hospitalization form.</p>
+                            hospitalization form.</p><br>
                     </div>
 
                 
