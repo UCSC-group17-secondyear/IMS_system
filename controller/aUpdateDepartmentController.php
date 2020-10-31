@@ -16,6 +16,7 @@
                 $_SESSION['dept_id'] = $result['department_id'];
                 $_SESSION['department'] = $result['department'];
                 $_SESSION['dept_head'] = $result['department_head'];
+                $_SESSION['dept_head_email'] = $result['department_head_email'];
                 $_SESSION['description'] = $result['description'];
 
                 header('Location:../view/admin/aUpdateDepartmentV.php');
@@ -30,6 +31,7 @@
         $dept_id = $_SESSION['dept_id'];
         $department = mysqli_real_escape_string($connect, $_POST['department']);
         $department_head = mysqli_real_escape_string($connect, $_POST['dept_head']);
+        $department_head_email = mysqli_real_escape_string($connect, $_POST['dept_head_email']);
         $description = mysqli_real_escape_string($connect, $_POST['description']);
 
         $checkDept = Model::checkDeptThree($dept_id, $department, $connect);
@@ -38,7 +40,7 @@
             echo "This department already exists.";
         }
         else {
-            $result = Model::updateDepartment($dept_id, $department, $department_head, $description, $connect);
+            $result = Model::updateDepartment($dept_id, $department, $department_head, $department_head_email, $description, $connect);
 
             if ($result) {
                 echo "Succesfully updated.";
