@@ -38,8 +38,13 @@
                             </div>
                         </div>
                     </form>
-                    <form action="" method="post">
-                        <a href="rvNominatedListV.php"><button class="subbtn" type="submit" name="">Display Student List</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="select-submit">
+                            <a href="rvNominatedListV.php">Display Student List</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="rvHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>
