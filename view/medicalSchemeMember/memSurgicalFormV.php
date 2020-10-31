@@ -286,9 +286,13 @@
 
                                 <button class="mainbtn" type="submit" name="form-submit">Submit</button><br>  
                             </form>
+
+                                <form action="memHomeV.php" method="post">
+                                    <button type="submit" name="cancel-submit" class="cancelbtn" class="mainbtn">Cancel</button>
+                                </form>
                             <br>
                             <p>Download the form to be filled by the surgeon and get if field before you fill the surgical hospitalization form.</p>
-
+                            <br>
                         </div>
                     </div>
             </div>
