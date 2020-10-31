@@ -2,7 +2,7 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="dhMembRequestFormV.php">
+                <a href="../../controller/dhMemeberRequestFormC.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">View Memebership Request Forms</button>
                 </a>
             </li>

@@ -26,10 +26,13 @@
             
             $result = Model::registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $member_type, $connect);
 
+            $resultttt = Model::dept($department, $connect);
+            $data = mysqli_fetch_array($resultttt);
+
             if ($result) {
-                $to_email = $_SESSION['email'];
+                $to_email = $data['department_head_email'];
                 $subject = "Membership Request";
-                $body = "I have requested the membership for the Medical Scheme.";
+                $body =  $_SESSION['empid'] . " have requested the membership for the Medical Scheme.";
                 $headers = "From: ims.ucsc@gmail.com";
 
                 $sendMail = mail($to_email, $subject, $body, $headers);
