@@ -47,7 +47,7 @@
                     </form>
                     <form>
                         <button class="subbtn" type="submit" name="userroleList-submit">
-                            <a href="../../controller/adminControllers/manageDegreeController.php"> View Current Degree List</a>
+                            <a href="aViewDegreesV.php"> View Current Degree List</a>
                         </button>
                         <button type="submit" class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>
