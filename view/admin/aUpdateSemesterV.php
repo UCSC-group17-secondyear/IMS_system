@@ -59,10 +59,8 @@
                             <input type="date" name="end_date" <?php echo 'value="'.$_SESSION['end_date'].'"' ?> required/> <br>
                         </div>
                     </div>
-                    <button class="mainbtn" type="submit" name="addSemester-submit">Update Semester</button>
-                </form>
-                <form>
-                    <button class="cancelbtn" type="submit" name="cancel-submit">Update Semester</button>
+                    <button class="subbtn" type="submit" name="addSemester-submit">Update Semester</button>
+                    <button type="submit" name="cancel-submit" class="cancelbtn"><a href="aHomeV.php">Cancel</a></button>
                 </form>
             </div>
         </div>

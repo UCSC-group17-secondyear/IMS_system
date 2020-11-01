@@ -29,7 +29,7 @@
                         <th>Seating Capacity</th>
                         <th>Location</th>
                         <th>AC</th>
-                        <th>Edit</th>
+                        <th>Update</th>
                         <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['hall_list']; ?>

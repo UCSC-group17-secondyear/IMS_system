@@ -64,7 +64,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="mainbtn" type="submit" name="updateHall-submit">Add Semester</button>
+                        <button class="mainbtn" type="submit" name="updateHall-submit">Update Hall</button>
                     </form>
                 </div>
             </div>
