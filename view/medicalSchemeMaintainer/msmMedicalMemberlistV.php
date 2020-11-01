@@ -32,7 +32,12 @@
                     <?php echo $_SESSION['member_info'] ?>
                 </table>
                 <form action="" method="post">
-                    <a href="msmViewMedicalMemberlistV.php"><button class="subbtn" type="submit" name="MedicalMemberlist-submit">OK</button></a>
+                    <button class="subbtn" type="submit" name="MedicalMemberlist-submit">
+                        <a href="msmViewMedicalMemberlistV.php">OK</a>
+                    </button>
+                    <button type="submit" class="cancelbtn">
+                        <a href="#">Cancel</a>
+                    </button>
                 </form>
             </div>
         </div>

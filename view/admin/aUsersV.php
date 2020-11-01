@@ -23,7 +23,7 @@
                     <h2>Users in IMS System</h2>
                 </div>
 
-                <table id="tableStyle" style="margin-left: 65px;">
+                <table id="tableStyle">
                     <tr>
                         <th>Employee Id</th>
                         <th>Initials</th>

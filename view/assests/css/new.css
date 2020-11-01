@@ -733,3 +733,10 @@ img.avatar {
   color: white;
   width: auto;
 }
+
+#tableStyle td a {
+  background-color: #065b7a;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
