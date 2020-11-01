@@ -325,6 +325,15 @@ ul.breadcrumbs li a:hover {
   /*margin-top: 6px;*/
 }
 
+.col-75 a {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.col-75 a:hover {
+  color: #1177d1;
+}
+
 .signupForm button {
   color: white;
   font-size: 22px;
@@ -458,7 +467,8 @@ ul, #tree-view {
 .column {
   float: left;
   padding: 10px;
-  height: 600px;
+  min-height: 600px;
+  height: auto;
   box-shadow: 4px 0px grey;
   padding-top: 10px;
 }

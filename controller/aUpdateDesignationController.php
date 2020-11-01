@@ -46,5 +46,23 @@
 
     }
     
+    elseif (isset($_POST['updateDesignation'])) {
+        $designation = mysqli_real_escape_string($connect, $_POST['designation']);
+
+        $results = Model::viewADesignUsingName($designation, $connect);
+
+        if ($results) {
+            if (mysqli_num_rows($results)==1) {
+                $result = mysqli_fetch_assoc($results);
+                $_SESSION['designation_id'] = $result['designation_id'];
+                $_SESSION['designation'] = $result['designation_name'];
+                $_SESSION['description'] = $result['description'];
+                header('Location:../view/admin/aUpdateDesignationV.php');
+            }
+        }
+        else {
+            echo "Database query failed.";
+        }
+    }
 
 ?>

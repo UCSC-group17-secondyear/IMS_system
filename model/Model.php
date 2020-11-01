@@ -312,9 +312,36 @@
 			return $result_set;
 		}
 
+		public static function semYear($connect)
+		{
+			$query = "SELECT academic_year FROM tbl_semester";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function semName($connect)
+		{
+			$query = "SELECT semester FROM tbl_semester";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
 		public static function viewASem ($sem_id, $connect) 
 		{
 			$query = "SELECT * FROM tbl_semester WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function viewASemUsingName($academic_year, $semester, $connect)
+		{
+			$query = "SELECT * FROM tbl_semester WHERE semester='{$semester}' AND academic_year='{$academic_year}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -368,6 +395,15 @@
 		public static function viewAHall ($hall_id, $connect) 
 		{
 			$query = "SELECT * FROM tbl_hall WHERE hall_id='{$hall_id}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function viewAHallUsingName($hall, $connect)
+		{
+			$query = "SELECT * FROM tbl_hall WHERE hall_name='{$hall}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -436,6 +472,15 @@
 			return $result_set;
 		}
 		
+		public static function viewADeptUsingName($department, $connect)
+		{
+			$query = "SELECT * FROM tbl_department WHERE department='{$department}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
 		public static function checkDeptThree($dept_id, $department, $connect)
 		{
 			$query = "SELECT * FROM tbl_department WHERE department='{$department}' AND department_id!={$dept_id} LIMIT 1";
@@ -469,6 +514,15 @@
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
+
+		public static function designation($connect)
+		{
+			$query = "SELECT designation_name FROM tbl_designation";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
 		
 		public static function enterDesignation($designation, $description, $connect)
 		{
@@ -491,6 +545,15 @@
 		public static function viewADesign($designation_id, $connect)
 		{
 			$query = "SELECT * FROM tbl_designation WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function viewADesignUsingName($designation, $connect)
+		{
+			$query = "SELECT * FROM tbl_designation WHERE designation_name='{$designation}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
