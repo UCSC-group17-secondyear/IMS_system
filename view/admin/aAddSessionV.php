@@ -38,7 +38,7 @@
                     </form>
                     <form>
                         <button class="subbtn" type="submit" name="userroleList-submit">
-                            <a href="../../controller/adminControllers/manageSessionTypesController.php"> View Current Session Types</a>
+                            <a href="aViewSessionTypesV.php"> View Current Session Types</a>
                         </button>
                         <button type="submit" class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>

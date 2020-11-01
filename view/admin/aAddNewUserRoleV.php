@@ -46,7 +46,7 @@
                     </form>
                     <form>
                         <button class="subbtn" type="submit" name="userroleList-submit">
-                            <a href="../../controller/adminControllers/manageUserRoleController.php">View Current user roles</a>
+                            <a href="aViewUserRolesPopupV.php">View Current user roles</a>
                         </button>
                         <button type="submit" class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>

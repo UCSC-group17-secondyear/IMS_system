@@ -4,6 +4,9 @@
             <li><button class="tree_list">Manage User Roles</button>
                 <ul class="tree_nest">
                     <button>
+                        <a href="../../controller/adminControllers/manageUserRoleController.php"><li><i class="fa fa-user"></i>View user role list</li></a>
+                    </button>
+                    <button>
                         <a href="aAddNewUserRoleV.php"><li><i class="fa fa-plus-circle"></i>Add a new user role</li></a>
                     </button>
                     <button>
@@ -17,13 +20,18 @@
                     </button>
                 </ul>
             </li>
+
             <li>
                 <a href="../../controller/userListController.php">
                     <button type="submit" class="tree_list">Manage Users in IMS System</button>
                 </a>
             </li>
+
             <li><button class="tree_list">Manage Medical Schemes</button>
                 <ul class="tree_nest">
+                    <button>
+                        <a href="aViewSchemeDetailsV.php"><li><i class="fa fa-plus-circle"></i>View schemes</li></a>
+                    </button>
                     <button>
                         <a href="aAddNewSchemeV.php"><li><i class="fa fa-plus-circle"></i>Add a new scheme</li></a>
                     </button>
@@ -38,6 +46,9 @@
 
             <li><button class="tree_list">Manage Degrees</button>
                 <ul class="tree_nest">
+                    <button name="viewDegrees" type="submit">
+                        <a href="aViewDegreesV.php"><li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
+                    </button>
                     <button>
                         <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>
                     </button>
@@ -48,7 +59,10 @@
             </li>
 
             <li><button class="tree_list">Manage Sessions</button>
-                <ul class="tree_nest">
+                <ul class="tree_nest">  
+                    <button>
+                        <a href="aViewSessionTypesV.php"><li><i class="fa fa fa-check-circle"></i>View Session Types</li></a>
+                    </button>
                     <button>
                         <a href="aAddSessionV.php"><li><i class="fa fa-plus-circle"></i>Add a new Session</li></a>
                     </button>
