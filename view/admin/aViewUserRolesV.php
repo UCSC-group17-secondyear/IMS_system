@@ -26,8 +26,6 @@
                     <tr>
                         <th>User role</th>
                         <th>Description</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['user_role'] ?>
                 </table>

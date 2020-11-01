@@ -103,7 +103,7 @@
 	                            <label for="">Password: </label>
 	                        </div>
 	                        <div class="col-75">
-	                            <span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
+	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
 	                        </div>
 	                    </div>                                                                                                                                                                                                                                                                        
                         <button type="submit" name="submit" class="mainbtn">Save Updates</button>                    
