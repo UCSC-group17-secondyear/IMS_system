@@ -770,6 +770,22 @@
 			return $result;
 		}
 //......................................................................................................................................//
+
+		public static function getDegreeId($student_index, $connect){
+			$query = "SELECT degeree_id FROM tbl_student_degree WHERE student_index={$student_index} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getDegreeName($degree_id, $connect){
+			$query = "SELECT degree_name FROM tbl_degree WHERE degree_id={$degree_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 		
 	}
 ?>
