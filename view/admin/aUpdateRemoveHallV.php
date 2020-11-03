@@ -20,7 +20,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Hall Details</h2>
+                    <h2>Update or Remove Halls</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable">
