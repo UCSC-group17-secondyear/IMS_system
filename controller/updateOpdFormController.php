@@ -18,7 +18,7 @@
 		
 		foreach ($userInfo as $info=>$maxLen) 
 		{
-            // echo $_POST[$info];
+            
 			if (strlen(trim($_POST[$info])) >  $maxLen) 
 			{
                 $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
@@ -27,7 +27,7 @@
         
         
         if (empty($errors)) {
-            //$empid = mysqli_real_escape_string($connect, $_POST['empid']);
+            
             $patient_name = mysqli_real_escape_string($connect, $_POST['patient_name']);
             $relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
             $doctor_name = mysqli_real_escape_string($connect, $_POST['doctor_name']);
@@ -35,7 +35,7 @@
             $bill_issued_date = mysqli_real_escape_string($connect, $_POST['bill_issued_date']);
             $purpose = mysqli_real_escape_string($connect, $_POST['purpose']);
             $bill_amount = mysqli_real_escape_string($connect, $_POST['bill_amount']);
-            //$submitted_date = date('y-m-d');
+            $submitted_date = date('y-m-d');
             
             $file = $_FILES['file'];
             $file_name = $_FILES['file']['name'];

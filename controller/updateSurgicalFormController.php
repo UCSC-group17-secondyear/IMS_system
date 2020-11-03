@@ -22,7 +22,7 @@
 		
 		foreach ($userInfo as $info=>$maxLen) 
 		{
-            // echo $_POST[$info];
+           
 			if (strlen(trim($_POST[$info])) >  $maxLen) 
 			{
                 $errors[] = $info . ' must be less than ' . $maxLen . ' characters';

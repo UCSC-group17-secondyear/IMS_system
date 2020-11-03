@@ -209,8 +209,11 @@
                                     <input type="text" name="nature_of" <?php echo 'value="'.$_SESSION['nature_of'].'"' ?> disabled> <br>
                                 </div>
                             </div>
-
                             </form>
+                            
+                            <button class="mainbtn" type="submit" name="">
+                                <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
+                            </button>
                         </div>
                     </div> 
             </div>
