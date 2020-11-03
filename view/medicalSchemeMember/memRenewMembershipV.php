@@ -20,20 +20,23 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2>Renew Membership</h2>
-                </div>
+                    <div>
+                        <h2>Renew Membership</h2>
+                    </div>
 
-            <div class="contentForm">
-                <div>
-                    <h2>Change Scheme</h2>
+                <div class="contentForm">
+                    <div>
+                        <h2>Change Scheme</h2>
+                    </div>
+                    
+                        <form action="../../controller/checkExperienceYearController.php?user_id=<?php echo $_SESSION['userId']?>" method="POST">
+                            <button class="mainbtn" type="submit" name="yes-submit">Yes</button>
+                        </form>
+                      
+                        <form action="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                            <button class="mainbtn" type="submit" name="submit">No</button>
+                        </form>
                 </div>
-
-                <a href="memSchemeChangeYesV.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="mainbtn" type="submit" name="">Yes</button></a><br>
-                <!-- experience eka 2 years wadinam auto scheme 3 walat yanawa.natnam scheme eka select kranna page eka -->
-                <!-- if ekakin check krala selectScheme.php & schemeChangeYes.php walin ekakat yanwa -->
-                <a href="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="mainbtn" type="submit" name="member-btn">No</button></a><br>
-            </div>
             </div>
         </div>
     </div>
