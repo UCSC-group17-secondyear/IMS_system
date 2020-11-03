@@ -77,6 +77,9 @@
             <li><button class="tree_list">Manage Sessions Per Month</button>
                 <ul class="tree_nest">
                     <button>
+                        <a href="aViewSessionPerMonthV.php"><li><i class="fa fa-check-circle"></i>View sessions of a subject</li></a>
+                    </button>
+                    <button>
                         <a href="aAddSessionPerMonthV.php"><li><i class="fa fa-plus-circle"></i>Assign a monthly session</li></a>
                     </button>
                     <button>
