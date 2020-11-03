@@ -51,10 +51,16 @@
                         <button class="mainbtn" type="submit" name="setUserRole-submit">Save role</button>
                     </form>
                     <form>
-                        <button class="subbtn" type="submit" name="userroleList-submit">
-                            <a href="../../controller/adminControllers/manageUserRoleController.php">View Current user roles</a> 
-                        </button>
-
+                        <button id="subBtn" class="subbtn">View Current user roles</button>
+                        <div id="subModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <?php
+                                    require 'aViewUserRolesPopupV.php';
+                                ?>
+                            </div>
+                        </div>
+                        
                         <button id="myBtn" class="cancelbtn">Cancel</button>
                         <div id="myModal" class="modal">
                             <div class="modal-content">
@@ -65,8 +71,9 @@
                                 </button>
                             </div>
                         </div>
-
-                        <!-- <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn">Cancel</button></a> -->
+                        <!-- <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button> -->
                     </form>
                 </div>
             </div>
@@ -75,16 +82,19 @@
 
     <script type="text/javascript">
         var modal = document.getElementById("myModal");
-
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
-
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
-
         // When the user clicks on the button, open the modal
         btn.onclick = function() {
           modal.style.display = "block";
+        }
+
+        // var modal2 = document.getElementById("subModal");
+        // var btn2 = document.getElementById("subBtn");
+        document.getElementById("subBtn").onclick = function() {
+            document.getElementById("subModal").style.display = "block";
         }
 
         // When the user clicks on <span> (x), close the modal
@@ -99,7 +109,7 @@
           }
         }
     </script>
-
+    
 </main>
 
 <?php
