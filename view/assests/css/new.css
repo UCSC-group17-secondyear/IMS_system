@@ -583,6 +583,19 @@ img.avatar {
   margin-bottom: 10px;
 }
 
+.contentForm h3 {
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 22px;
+  text-decoration: underline;
+}
+
+.contentForm h4 {
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
 .contentForm input, select {
   width: 80%;
   /*background-color: white;*/
@@ -599,6 +612,7 @@ img.avatar {
   display: inline-block;
   font-size: 18px;
   margin-left: 15%;
+  text-align: justify;
 }
 
 /*-------------------------Profile Form-------------------*/
