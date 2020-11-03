@@ -49,6 +49,29 @@
             echo "query failed";
         }
     }
+
+    elseif (isset($_POST['updateSemester'])) {
+        $academic_year = mysqli_real_escape_string($connect, $_POST['academic_year']);
+        $semester = mysqli_real_escape_string($connect, $_POST['semester']);
+
+        $results = Model::viewASemUsingName($academic_year, $semester, $connect);
+
+        if ($results) {
+            if (mysqli_num_rows($results)==1) {
+                $result = mysqli_fetch_assoc($results);
+                $_SESSION['sem_id'] = $result['sem_id'];
+                $_SESSION['semester'] = $result['semester'];
+                $_SESSION['academic_year'] = $result['academic_year'];
+                $_SESSION['start_date'] = $result['start_date'];
+                $_SESSION['end_date'] = $result['end_date'];
+
+                header('Location:../view/admin/aUpdateSemesterV.php');
+            }
+        }
+        else {
+            echo "Database query failed.";
+        }
+    }
     
 
 ?>

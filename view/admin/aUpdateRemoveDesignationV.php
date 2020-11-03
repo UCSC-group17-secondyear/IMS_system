@@ -27,7 +27,7 @@
                     <tr>
                         <th>Designation</th>
                         <th>Description</th>
-                        <th>Edit</th>
+                        <th>Update</th>
                         <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['designation_list']; ?>

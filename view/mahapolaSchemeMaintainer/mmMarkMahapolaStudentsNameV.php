@@ -31,7 +31,7 @@
                                     <label >Intials</label><br>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_initials">
+                                    <input type="text" name="student_initials" required>
                                 </div>
                             </div>
 
@@ -40,13 +40,13 @@
                                     <label >Surname</label><br>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_surname">
+                                    <input type="text" name="student_surname" required>
                                 </div>
                             </div>
+
+                            <button class="mainbtn" type="submit" name="mark-mahapola-submit" >Display Student's Details</button></a><br>
                         </form>
-                        <br>
-                        <button class="mainbtn" type="submit" name="mark-mahapola-submit" >Display Student's Details</button></a><br>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 ?>
 
 <main>
-    <title>Update Designation</title>
+    <title>Updated a designation</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
@@ -20,31 +20,33 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update Designation</h2>
+                    <h2>Update a Designation</h2>
                 </div>
 
                 <div class="contentForm">
                     <form action="../../controller/aUpdateDesignationController.php" method="POST">
+                        
                         <div class="row">
                             <div class="col-25">
-                              <label>Designation</label>
+                                <label>Enter designation</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> required/><br>
+                                <select name="designation"required>
+                                <option value="">Select designation: </option>
+                                <?php echo $_SESSION['desg'] ?>
+                                </select>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Description</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="description" <?php echo 'value="'.$_SESSION['description'].'"' ?> required/>
-                            </div>
-                        </div>
-
-                        <button class="subbtn" type="submit" name="updateDesignation-submit">Update Designation</button>
-                        <button type="submit" name="cancel-submit" class="cancelbtn"><a href="aHomeV.php">Cancel</a></button>
+                    
+                        <button class="mainbtn" type="submit" name="updateDesignation">Update Designation</button>
+                    </form>
+                    <form>
+                        <button type="submit" class="subbtn">
+                            <a href="../../controller/aViewDesignationController.php">View current departments</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>
