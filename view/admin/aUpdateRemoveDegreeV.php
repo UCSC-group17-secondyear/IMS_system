@@ -32,6 +32,9 @@
                     </tr>
                     <?php echo $_SESSION['degree_list']; ?>
                 </table>
+                <button class="mainbtn" type="submit">
+                    <a href="aHomeV.php">Back</a>
+                </button>
             </div>
         </div>
     </div>
