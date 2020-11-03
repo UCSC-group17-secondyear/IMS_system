@@ -159,7 +159,7 @@
 
 		public static function hall($connect)
 		{
-			$query = "SELECT hall_name FROM tbl_hall";
+			$query = "SELECT hall_name FROM tbl_hall WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
@@ -249,7 +249,7 @@
 
 		public static function department($connect)
 		{
-			$query = "SELECT department FROM tbl_department";
+			$query = "SELECT department FROM tbl_department WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
@@ -258,7 +258,7 @@
 
 		public static function scheme($connect)
 		{
-			$query = "SELECT schemename FROM tbl_medicalscheme";
+			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
 			
 			$result_set = mysqli_query($connect, $query);
 			
@@ -314,7 +314,7 @@
 
 		public static function semYear($connect)
 		{
-			$query = "SELECT academic_year FROM tbl_semester";
+			$query = "SELECT academic_year FROM tbl_semester WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
@@ -323,7 +323,7 @@
 
 		public static function semName($connect)
 		{
-			$query = "SELECT semester FROM tbl_semester";
+			$query = "SELECT semester FROM tbl_semester WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
@@ -360,6 +360,15 @@
 		public static function deleteSemester($sem_id, $connect)
 		{
 			$query = "UPDATE tbl_semester SET is_deleted = 1 WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteSemUsingName($academic_year, $semester, $connect)
+		{
+			$query = "UPDATE tbl_semester SET is_deleted = 1 WHERE semester='{$semester}' AND academic_year='{$academic_year}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -437,6 +446,14 @@
 			return $result;
 		}
 
+		public static function deleteHallUsingName($hall, $connect)
+		{
+			$query = "UPDATE tbl_hall SET is_deleted = 1 WHERE hall_name='{$hall}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 		
 		public static function checkDeptName($dept_name, $connect) 
 		{	
@@ -508,6 +525,15 @@
 			return $result;
 		}
 
+		public static function deleteDeptUsingName($department, $connect)
+		{
+			$query = "UPDATE tbl_department SET is_deleted = 1 WHERE department='{$department}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
 		public static function checkDesignationName($designation, $connect) 
 		{	
 			$query = "SELECT * FROM tbl_designation WHERE designation_name ='{$designation}'" ;
@@ -517,7 +543,7 @@
 
 		public static function designation($connect)
 		{
-			$query = "SELECT designation_name FROM tbl_designation";
+			$query = "SELECT designation_name FROM tbl_designation WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
@@ -581,6 +607,15 @@
 		public static function deleteDesignation($designation_id, $connect)
 		{
 			$query = "UPDATE tbl_designation SET is_deleted = 1 WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteDesignUsingName($designation, $connect)
+		{
+			$query = "UPDATE tbl_designation SET is_deleted = 1 WHERE designation_name='{$designation}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

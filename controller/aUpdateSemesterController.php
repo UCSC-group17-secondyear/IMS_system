@@ -72,6 +72,20 @@
             echo "Database query failed.";
         }
     }
+
+    elseif (isset($_POST['deleteSemester'])) {
+        $academic_year = mysqli_real_escape_string($connect, $_POST['academic_year']);
+        $semester = mysqli_real_escape_string($connect, $_POST['semester']);
+
+        $result = Model::deleteSemUsingName($academic_year, $semester, $connect);
+
+        if ($result) {
+            echo "Semester successfully deleted.";
+        }
+        else{
+            echo "Database query failed";
+        }
+    }
     
 
 ?>

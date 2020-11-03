@@ -31,14 +31,15 @@
                                 <label>Enter Hall</label>
                             </div>
                             <div class="col-75">
-                                <select name="hall"required>
+                                <select name="hall" required>
                                 <option value="">Select hall: </option>
                                 <?php echo $_SESSION['halls'] ?>
                                 </select>
                             </div>
                         </div>
                     
-                        <button class="mainbtn" type="submit" name="updateHall">Update Hall</button>
+                        <button class="subbtn" type="submit" name="updateHall">Update Hall</button>
+                        <button class="cancelbtn" type="submit" name="deleteHall" onclick="return confirm('Are you sure?');">Delete Hall</button>
                     </form>
 
                     <form>

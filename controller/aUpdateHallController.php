@@ -72,6 +72,19 @@
             echo "Database query failed.";
         }
     }
+
+    elseif (isset($_POST['deleteHall'])) {
+        $hall = mysqli_real_escape_string($connect, $_POST['hall']);
+
+        $result = Model::deleteHallUsingName($hall, $connect);
+
+        if ($result) {
+            echo "Hall successfully deleted.";
+        }
+        else{
+            echo "Database query failed";
+        }
+    }
     
 
 ?>
