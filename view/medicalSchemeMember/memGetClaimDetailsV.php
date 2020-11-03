@@ -30,8 +30,7 @@
                     <div class="col-75">
                         <input type="year" value=""> <br>
                     </div>
-            
-                    <button class="subbtn" type="submit" name="year-claim-submit">Display Claim Details</button>
+                <button class="subbtn" name="year-claim">Dispaly Claim Details</button>
                 </form>
             </div>
         </div>

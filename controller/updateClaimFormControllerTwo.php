@@ -11,13 +11,7 @@
         $result_set = Model::checkClaimFormNo($claim_form_no, $user_id, $connect);
         $result_opd = Model::checkWhetherOpd($claim_form_no,$user_id,$connect);
         $result_surgical = Model::checkWhetherSurgical($claim_form_no,$user_id,$connect);
-        $submit_date = Model::getSubmitDate($claim_form_no,$user_id, $connect);
-
-        // $cur_date = date('y-m-d');
-        // $to_date = strtotime($submit_date);
-        // $diff = date_diff($cur_date, $to_date);
-        // echo $diff;
-
+        //$submit_date = Model::getSubmitDate($claim_form_no,$user_id, $connect);
 
                 if(mysqli_num_rows($result_opd)==1){
                                 
