@@ -49,7 +49,8 @@
                             </div>
                         </div>
                     
-                        <button class="mainbtn" type="submit" name="updateSemester">Update Semester</button>
+                        <button class="subbtn" type="submit" name="updateSemester">Update Semester</button>
+                        <button class="cancelbtn" type="submit" name="deleteSemester" onclick="return confirm('Are you sure?');">Delete Semester</button>
                     </form>
                     <form>
                         <button type="submit" class="subbtn">
