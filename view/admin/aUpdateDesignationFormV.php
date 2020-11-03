@@ -38,7 +38,8 @@
                             </div>
                         </div>
                     
-                        <button class="mainbtn" type="submit" name="updateDesignation">Update Designation</button>
+                        <button class="subbtn" type="submit" name="updateDesignation">Update Designation</button>
+                        <button class="cancelbtn" type="submit" name="deleteDesignation" onclick="return confirm('Are you sure?');">Delete Designation</button>
                     </form>
                     <form>
                         <button type="submit" class="subbtn">

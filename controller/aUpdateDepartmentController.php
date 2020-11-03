@@ -72,6 +72,19 @@
             echo "Database query failed.";
         }
     }
+
+    elseif (isset($_POST['deleteDepartment'])) {
+        $department = mysqli_real_escape_string($connect, $_POST['department']);
+
+        $result = Model::deleteDeptUsingName($department, $connect);
+
+        if ($result) {
+            echo "Department successfully deleted.";
+        }
+        else{
+            echo "Database query failed";
+        }
+    }
     
 
 ?>
