@@ -144,10 +144,17 @@
                         </div> 
                         <button class="mainbtn" type="submit" name="addScheme-submit">Add new scheme</button>
                     </form>
+                    
                     <form>
-                        <button class="subbtn" type="submit">
-                            <a href="aViewSchemeDetailsV.php">View Current Schemes</a>
-                        </button>
+                        <button id="subBtn" class="subbtn">View Available Schemes</button>
+                        <div id="subModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <?php
+                                    require 'aSchemesPopupV.php';
+                                ?>
+                            </div>
+                        </div>
 
                         <button id="myBtn" class="cancelbtn">Cancel</button>
                         <div id="myModal" class="modal">
@@ -163,6 +170,7 @@
                             <a href="aHomeV.php">Cancel</a>
                         </button> -->
                     </form>
+
                 </div>
             </div>
         </div>

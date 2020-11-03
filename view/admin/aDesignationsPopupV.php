@@ -6,8 +6,8 @@
  -->
     <table id="tableStyle">
         <tr>
-            <th>User role</th>
-                        <th>Description</th>
+            <th>Designation Name</th>
+            <th>Designation description</th>
         </tr>
     </table>
 </main>
