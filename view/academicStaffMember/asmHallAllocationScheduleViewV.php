@@ -8,6 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
+            <li><a href="asmViewHallAllocationScheduleV.php">Hall Allocation Date</a></li>
             <li>Hall Allocation Schedule</li>
         </ul>
 
@@ -35,7 +36,12 @@
                     </tr>
                 </table>
 
-                <a href="asmViewHallAllocationScheduleV.php"><button class="mainbtn" type="submit" name="">OK</button></a>
+                <button class="subbtn" type="submit" name="">
+                    <a href="asmViewHallAllocationScheduleV.php">Select another date</a>
+                </button>
+                <button class="cancelbtn" type="submit">
+                    <a href="asmHomeV.php">Leave Page</a>
+                </button>
             </div>
         </div>
     </div>
