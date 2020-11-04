@@ -65,4 +65,17 @@
         }
     }
 
+    elseif (isset($_POST['deleteDesignation'])) {
+        $designation = mysqli_real_escape_string($connect, $_POST['designation']);
+
+        $result = Model::deleteDesignUsingName($designation, $connect);
+
+        if ($result) {
+            echo "Designation successfully deleted.";
+        }
+        else{
+            echo "Database query failed";
+        }
+    }
+
 ?>

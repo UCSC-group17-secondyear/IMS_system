@@ -38,7 +38,8 @@
                             </div>
                         </div>
                     
-                        <button class="mainbtn" type="submit" name="updateDepartment">Update Department</button>
+                        <button class="subbtn" type="submit" name="updateDepartment">Update Department</button>
+                        <button class="cancelbtn" type="submit" name="deleteDepartment" onclick="return confirm('Are you sure?');">Delete Department</button>
                     </form>
                     
                     <form>
