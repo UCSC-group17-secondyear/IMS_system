@@ -38,23 +38,25 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="subbtn" type="submit" name="">
-                            <a href="asmViewHallDetailsV.php">Display Details</a>
-                        </button>
-                        <button id="myBtn" class="cancelbtn">Cancel</button>
-                        <div id="myModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <h1>Are you sure you want to leave the page?</h1>
-                                <button class="mainbtn">
-                                    <a href="asmHomeV.php">Yes</a>
-                                </button>
-                            </div>
-                        </div>
+                        
+                        
                         <!-- <button type="submit" class="cancelbtn">
                             <a href="asmHomeV.php">Cancel</a>
                         </button> -->
                     </form>
+                    <button class="subbtn" type="submit" name="">
+                        <a href="asmViewHallDetailsV.php">Display Details</a>
+                    </button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h1>Are you sure you want to leave the page?</h1>
+                            <button class="mainbtn">
+                                <a href="asmHomeV.php">Yes</a>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,16 +73,18 @@
           modal.style.display = "block";
         }
 
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
         // var modal2 = document.getElementById("subModal");
         // var btn2 = document.getElementById("subBtn");
         document.getElementById("subBtn").onclick = function() {
             document.getElementById("subModal").style.display = "block";
         }
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
+        
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {

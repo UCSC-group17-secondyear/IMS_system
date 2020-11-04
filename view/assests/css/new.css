@@ -793,6 +793,7 @@ img.avatar {
 .modal-content {
   background-color: #fefefe;
   margin-top: 0; /* 15% from the top and centered */
+  margin-bottom: 10px;
   border: 2px solid #888;
   width: auto;
   text-align: justify;
