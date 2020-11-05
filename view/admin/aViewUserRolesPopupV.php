@@ -7,7 +7,11 @@
     <table id="tableStyle">
         <tr>
             <th>User role</th>
-                        <th>Description</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
         </tr>
     </table>
 </main>

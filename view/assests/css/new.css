@@ -770,7 +770,7 @@ img.avatar {
   
 }
 
-.close {
+.close, .subclose {
   color: #aaa;
   float: right;
   font-size: 35px;
@@ -782,7 +782,7 @@ img.avatar {
 }
 
 .close:hover,
-.close:focus {
+.close:focus, .subclose:hover, .subclose:focus {
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -792,7 +792,7 @@ img.avatar {
 
 .modal-content {
   background-color: #fefefe;
-  margin-top: 0; /* 15% from the top and centered */
+  margin-top: 10px; /* 15% from the top and centered */
   margin-bottom: 10px;
   border: 2px solid #888;
   width: auto;
