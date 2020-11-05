@@ -32,7 +32,7 @@
             <li><button class="tree_list">Manage Medical Schemes</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="aViewSchemeDetailsV.php"><li><i class="fa fa-medkit"></i>View schemes</li></a>
+                        <a href="../../controller/adminControllers/aViewSchemesC.php"><li><i class="fa fa-medkit"></i>View schemes</li></a>
                     </button>
                     <button>
                         <a href="aAddNewSchemeV.php"><li><i class="fa fa-plus-circle"></i>Add a new scheme</li></a>
