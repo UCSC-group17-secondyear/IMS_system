@@ -98,7 +98,7 @@
                                     <label>Civil status</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="civil_status" <?php echo 'value="'.$_SESSION['civil_status'].'"' ?> required>
+                                    <select name="civilstatus" <?php echo 'value="'.$_SESSION['civilstatus'].'"' ?> required>
                                         <option value="">...</option>
                                         <option value="married">Married</option>
                                         <option value="unmarried">Unmarried</option>
@@ -123,7 +123,7 @@
                                     <label>Member Type</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="member_type" id="membertype" <?php echo 'value="'.$_SESSION['department'].'"' ?> required>
+                                    <select name="member_type" id="membertype" <?php echo 'value="'.$_SESSION['member_type'].'"' ?> required>
                                         <option value="">Select Type</option>
                                         <?php echo $_SESSION['member_type'] ?>
                                     </select>

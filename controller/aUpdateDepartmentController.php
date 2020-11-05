@@ -50,6 +50,41 @@
         }
 
     }
+
+    elseif (isset($_POST['updateDepartment'])) {
+        $department = mysqli_real_escape_string($connect, $_POST['department']);
+
+        $results = Model::viewADeptUsingName($department, $connect);
+
+        if ($results) {
+            if (mysqli_num_rows($results)==1) {
+                $result = mysqli_fetch_assoc($results);
+                $_SESSION['dept_id'] = $result['department_id'];
+                $_SESSION['department'] = $result['department'];
+                $_SESSION['dept_head'] = $result['department_head'];
+                $_SESSION['dept_head_email'] = $result['department_head_email'];
+                $_SESSION['description'] = $result['description'];
+
+                header('Location:../view/admin/aUpdateDepartmentV.php');
+            }
+        }
+        else {
+            echo "Database query failed.";
+        }
+    }
+
+    elseif (isset($_POST['deleteDepartment'])) {
+        $department = mysqli_real_escape_string($connect, $_POST['department']);
+
+        $result = Model::deleteDeptUsingName($department, $connect);
+
+        if ($result) {
+            echo "Department successfully deleted.";
+        }
+        else{
+            echo "Database query failed";
+        }
+    }
     
 
 ?>

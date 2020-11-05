@@ -325,6 +325,15 @@ ul.breadcrumbs li a:hover {
   /*margin-top: 6px;*/
 }
 
+.col-75 a {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.col-75 a:hover {
+  color: #1177d1;
+}
+
 .signupForm button {
   color: white;
   font-size: 22px;
@@ -574,6 +583,19 @@ img.avatar {
   margin-bottom: 10px;
 }
 
+.contentForm h3 {
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 22px;
+  text-decoration: underline;
+}
+
+.contentForm h4 {
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
 .contentForm input, select {
   width: 80%;
   /*background-color: white;*/
@@ -590,6 +612,7 @@ img.avatar {
   display: inline-block;
   font-size: 18px;
   margin-left: 15%;
+  text-align: justify;
 }
 
 /*-------------------------Profile Form-------------------*/
@@ -733,4 +756,53 @@ img.avatar {
   background-color: #1177d1;
   color: white;
   width: auto;
+}
+
+#tableStyle td a {
+  background-color: #065b7a;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  
+}
+
+.close, .subclose {
+  color: #aaa;
+  float: right;
+  font-size: 35px;
+  
+  /*background-color: grey;*/
+  padding: 5px;
+  margin-left: 15px;
+  margin-top: 2px;
+}
+
+.close:hover,
+.close:focus, .subclose:hover, .subclose:focus {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #065b7a;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin-top: 10px; /* 15% from the top and centered */
+  margin-bottom: 10px;
+  border: 2px solid #888;
+  width: auto;
+  text-align: justify;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.modal-content h1 {
+  font-size: 20px;
+  margin-top: 20px;
+  padding-left: 3%;
+  padding-right: 3%;
 }

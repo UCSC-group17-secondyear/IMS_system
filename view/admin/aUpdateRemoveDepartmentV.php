@@ -29,11 +29,16 @@
                         <th>Department Head</th>
                         <th>Department Head's Email</th>
                         <th>Description</th>
-                        <th>Edit</th>
+                        <th>Update</th>
                         <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['dept_list']; ?>
                 </table>
+                <form>
+                    <button class="mainbtn">
+                        <a href="aHomeV.php">Back</a> 
+                    </button>
+                </form>
             </div>
         </div>
     </div>

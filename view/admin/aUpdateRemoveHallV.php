@@ -20,7 +20,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Hall Details</h2>
+                    <h2>Update or Remove Halls</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable">
@@ -29,7 +29,7 @@
                         <th>Seating Capacity</th>
                         <th>Location</th>
                         <th>AC</th>
-                        <th>Edit</th>
+                        <th>Update</th>
                         <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['hall_list']; ?>

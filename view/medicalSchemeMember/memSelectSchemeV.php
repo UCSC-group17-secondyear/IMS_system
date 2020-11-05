@@ -31,7 +31,7 @@
                                     <label for=""></label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="scheme" id="">
+                                    <select name="scheme" id="" required>
                                         <option value="">Select Scheme</option>
                                         <option value="scheme1">Scheme 1</option>
                                         <option value="scheme2">Scheme 2</option>

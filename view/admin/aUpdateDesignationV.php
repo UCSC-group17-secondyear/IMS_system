@@ -43,7 +43,8 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="updateDesignation-submit">Update Designation</button>
+                        <button class="subbtn" type="submit" name="updateDesignation-submit">Update Designation</button>
+                        <button type="submit" name="cancel-submit" class="cancelbtn"><a href="aHomeV.php">Cancel</a></button>
                     </form>
                 </div>
             </div>

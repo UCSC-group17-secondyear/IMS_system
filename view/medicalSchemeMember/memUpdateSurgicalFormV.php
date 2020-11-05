@@ -223,8 +223,13 @@
                                 
                             </form>
 
-                            <form action="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
-                                <button type="submit" name="cancel-submit" class="cancelbtn" class="mainbtn">Cancel</button>
+                            <form >
+                                <button class="subbtn" type="submit" name="userroleList-submit">
+                                    <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId']?>">View Claim Form List</a>
+                                </button>
+                                <button type="submit" class="cancelbtn">
+                                    <a href="memHomeV.php">Cancel</a>
+                                </button>
                             </form>
                         </div>
                     </div>
