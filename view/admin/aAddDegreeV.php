@@ -45,32 +45,27 @@
 
                         <button class="mainbtn" type="submit" name="addDegree-submit">Add degree</button>
                     </form>
-                    
-                    <form>
-                        <button id="subBtn" class="subbtn">View Current Degree List</button>
-                        <div id="subModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <?php
-                                    require 'aDegreesPopupV.php';
-                                ?>
-                            </div>
-                        </div>
+                    <button id="subBtn" class="subbtn">View Available Degree List</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                </div>
 
-                        <button id="myBtn" class="cancelbtn">Cancel</button>
-                        <div id="myModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <h1>Are you sure you want to leave the page?</h1>
-                                <button class="mainbtn">
-                                    <a href="aHomeV.php">Yes</a>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- <button type="submit" class="cancelbtn">
-                            <a href="aHomeV.php">Cancel</a>
-                        </button> -->
-                    </form>
+                <div id="subModal" class="modal">
+                    <div class="modal-content">
+                        <span class="subclose">&times;</span>
+                        <?php
+                            require 'aDegreesPopupV.php';
+                        ?>
+                    </div>
+                </div>
+                
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h1>Are you sure you want to leave the page?</h1>
+                        <button class="mainbtn">
+                            <a href="aHomeV.php">Yes</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -86,16 +81,19 @@
         btn.onclick = function() {
           modal.style.display = "block";
         }
-
-        // var modal2 = document.getElementById("subModal");
-        // var btn2 = document.getElementById("subBtn");
-        document.getElementById("subBtn").onclick = function() {
-            document.getElementById("subModal").style.display = "block";
-        }
-
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
           modal.style.display = "none";
+        }
+
+        var submodal = document.getElementById("subModal");
+        var subbtn = document.getElementById("subBtn");
+        var subspan = document.getElementsByClassName("subclose")[0];
+        subbtn.onclick = function() {
+          submodal.style.display = "block";
+        }
+        subspan.onclick = function() {
+          submodal.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it

@@ -98,8 +98,10 @@
                     </div>
                     <button type="submit" name="submit" class="mainbtn">Save Updates</button>
 
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
-                    <div id="myModal" class="modal">
+                    <button id="myBtn" class="cancelbtn">
+                        <a href="aUsersV.php">Cancel</a>
+                    </button>
+                    <!-- <div id="myModal" class="modal">
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <h1>Are you sure you want to leave the page?</h1>
@@ -107,7 +109,7 @@
                                 <a href="aHomeV.php">Yes</a>
                             </button>
                         </div>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </div>
