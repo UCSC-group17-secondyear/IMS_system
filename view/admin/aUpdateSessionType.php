@@ -3,12 +3,13 @@
 ?>
 
 <main>
-    <title>Update or Remove a session</title>
+    <title>Update session type</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update or remove a session type</li>
+            <li><a href="aUpdateRemoveSessionV.php">Update or remove a session type</a></li>
+            <li>Update session type</li>
         </ul>
 
         <div class="row">
@@ -20,38 +21,37 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update or remove a session type</h2>
+                    <h2>Update session type</h2>
                 </div>
 
                 <div class="contentForm">
                     <form action="../../controller/adminControllers/manageSessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Select session type</label>
+                              <label>Session type name</label>
                             </div>
                             <div class="col-75">
                               <input type="text" name="sessionType" placeholder="Session type" required/> <br>
                             </div>
                         </div>
                     </form>
-
-                    <button class="subbtn" type="submit" name="updateSession-submit">
-                        <a href="aUpdateSessionType.php">Update session type</a>
+                    
+                    <button class="subbtn" type="submit" name="updateSession-submit"> Save Updates</a>
                     </button>
                     
-                    <button id="myBtn" class="cancelbtn">Remove session type</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button>
                     
                     <!-- <button type="submit" name="removeSession-submit" class="cancelbtn">Remove session type</button> -->
                 </div>
                 <div id="myModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <h1>Are you sure you want to remove the session type?</h1>
-                                <button class="mainbtn">
-                                    <a href="aHomeV.php">Yes</a>
-                                </button>
-                            </div>
-                        </div>
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h1>Are you sure you want to leave without updating?</h1>
+                        <button class="mainbtn">
+                            <a href="aUpdateRemoveSessionV.php">Yes</a>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
