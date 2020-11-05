@@ -54,8 +54,14 @@
 		}
 
 		if (empty($errors)) 
-		{
-			$result = Model::signUp($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $hashed_password, $connect);
+		{	
+			if ($designation == 'lecturer') {
+				$userRole = 'academicStaffMemb';
+			}
+			elseif ($designation == 'non-academic-staff') {
+				$userRole = 'nonAcademicStaffMemb';
+			}
+			$result = Model::signUp($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $userRole, $appointment, $hashed_password, $connect);
 
             if ($result == true) 
             {

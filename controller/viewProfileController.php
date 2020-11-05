@@ -32,6 +32,9 @@
             else if ($result['userRole'] == "academicStaffMemb") {
                 header('Location:../view/academicStaffMember/asmProfileV.php');
             }
+            else if ($result['userRole'] == "nonAcademicStaffMemb") {
+                header('Location:../view/nonAcademicStaffMember/nasmProfileV.php');
+            }
             else if ($result['userRole'] == "attendanceMain") {
                 header('Location:../view/attendanceMaintainer/amProfileV.php');
             }

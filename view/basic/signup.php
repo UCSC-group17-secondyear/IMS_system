@@ -76,7 +76,11 @@
 	              <label>Designation</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="text" name="designation" required/>
+				  <select name="designation" required>
+                    <option value="">...</option>
+                    <option value="lecturer">Lecturer</option>
+                    <option value="non-academic-staff">Non Academic Staff Member</option>
+                  </select>
 	            </div>
 	        </div>
 
