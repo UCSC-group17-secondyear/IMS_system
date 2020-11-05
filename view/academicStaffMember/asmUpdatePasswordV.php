@@ -44,7 +44,10 @@
                     </div>
                     <button type="submit" name="submit" class="subbtn">Save Password</button>
                 </form>
-                <a href="asmHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
+                <form>
+                    <a href="asmHomeV.php"><button type="submit" class="cancelbtn">Cancel</button></a>
+                </form>
+                
             </div>
         </div>
     </div>
