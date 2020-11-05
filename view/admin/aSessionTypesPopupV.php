@@ -7,8 +7,6 @@
     <table id="tableStyle">
         <tr>
             <th>Session Type</th>
-            <th>Edit</th>
-            <th>Delete</th>
         </tr>
     </table>
 </main>
