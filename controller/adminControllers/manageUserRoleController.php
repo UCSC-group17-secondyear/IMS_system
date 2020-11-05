@@ -91,7 +91,7 @@
         }
     }
 
-    else if (isset($_POST['cancel-submit'])) {
-        header('Location:../../view/admin/aHomeV.php');
-    }
+    // else if (isset($_POST['cancel-submit'])) {
+    //     header('Location:../../view/admin/aHomeV.php');
+    // }
 ?>
