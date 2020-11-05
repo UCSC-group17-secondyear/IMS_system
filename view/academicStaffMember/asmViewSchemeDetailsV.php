@@ -27,8 +27,8 @@
                         require '../basic/schemeDetailsV.php';
                     ?>
                 <button type="submit" class="subbtn">
-                        <a href="">Register to medical scheme</a>
-                    </button>
+                    <a href="">Register to medical scheme</a>
+                </button>
                 <button id="myBtn" class="cancelbtn">Cancel</button>
                 <div id="myModal" class="modal">
                     <div class="modal-content">

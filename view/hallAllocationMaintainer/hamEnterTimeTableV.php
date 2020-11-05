@@ -69,7 +69,12 @@
                               <input type="time" id="" name="e_time" placeholder="Ending_time" required/><br>
                             </div>
                         </div>
-                        <a href="hamSaveEnterTimeTableV.php"><button class="mainbtn" type="submit" name="">Save</button></a>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="#">Save</a>
+                        </button>
+                        <button class="cancelbtn" type="submit">
+                            <a href="hamHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

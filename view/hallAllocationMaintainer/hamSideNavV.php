@@ -14,7 +14,7 @@
             </li>
 
             <li>
-                <a href="hamViewSchemeDetailsV.php">
+                <a href="hamSchemDetailsV.php">
                     <button type="submit" class="tree_list">View Scheme Details</button>
                 </a><br>
             </li>
