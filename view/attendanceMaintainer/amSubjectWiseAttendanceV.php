@@ -6,8 +6,7 @@
     <title>View Subject Wise Attendance</title>
 
     <ul class="breadcrumbs">
-        <li><a href="homePageV.php">Home</a></li>
-        <li><a href="amHomeV.php">Attendance Maintainer Page</a></li>
+        <li><a href="amhomePageV.php">Home</a></li>
         <li>View Subject Wise Attendance</li>
     </ul>
 
@@ -72,10 +71,10 @@
                             <input type="date" name="end_date" placeholder="End Date" required/> <br>
                         </div>
                     </div>
-                    <button class="mainbtn" type="submit" name="select-submit" href="amDisplayAttendanceV.php">Display Attendance</button>
-                </form>
-                <form>
-                    <button class="cancelbtn" type="submit" name="cancel-submit">Cancel</button>
+                    <button class="subbtn" type="submit" name="select-submit" href="amDisplayAttendanceV.php">Display Attendance</button>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">
+                        <a href="amHomeV.php">Cancel</a> 
+                    </button>
                 </form>
             </div>
         </div>

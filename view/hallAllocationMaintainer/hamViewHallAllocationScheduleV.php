@@ -33,7 +33,12 @@
                                 <input type="date" id="" name="enterDate" required/>
                             </div>
 
-                            <a href="hamHallAllocationScheduleViewV.php"><button class="mainbtn" type="submit" name="displayschedule-submit">Display Schedule</button></a>
+                            <button class="subbtn" type="submit" name="displayschedule-submit">
+                                <a href="hamHallAllocationScheduleViewV.php">Display Schedule</a>
+                            </button>
+                            <button class="cancelbtn" type="submit">
+                                <a href="hamHomeV.php">Cancel</a>
+                            </button>
                         </div>
                     </form>
                 </div>

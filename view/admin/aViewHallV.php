@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>Update or Remove a designation</title>
+    <title>Halls List</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update or remove a Designation</li>
+            <li>Halls List</li>
         </ul>
 
         <div class="row">
@@ -20,17 +20,19 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Designation Details</h2>
+                    <h2>Halls List</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable">
                     <tr>
-                        <th>Designation</th>
-                        <th>Description</th>
+                        <th>Hall Name</th>
+                        <th>Seating Capacity</th>
+                        <th>Location</th>
+                        <th>AC</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>
-                    <?php echo $_SESSION['designation_list']; ?>
+                    <?php echo $_SESSION['hall_list']; ?>
                 </table>
             </div>
         </div>

@@ -70,10 +70,12 @@
                               <input type="time" id="" name="e_time" placeholder="Ending_time" required/><br>
                             </div>
                         </div>
-                        <a href="hamSaveUpdateTimeTableV.php"><button class="mainbtn" type="submit" name="">Save Updates</button></a>
-                    </form>
-                    <form>
-                        <a href="hamRemoveTimeTableV.php"><button class="cancelbtn" type="submit" name="">Remove</button></a>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="#">Save Updates</a>
+                        </button>
+                        <button class="cancelbtn" type="submit" name="">
+                            <a href="#">Remove</a>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -81,6 +83,6 @@
     </div>
 </main>
 
-<!-- <?php
-    // require '../basic/footer.php';
-?> -->
+<?php
+    require '../basic/footer.php';
+?>

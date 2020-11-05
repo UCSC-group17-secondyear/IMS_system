@@ -28,7 +28,7 @@
                             <label>Eenter date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="date" placeholder="Date" required/> <br>
+                            <input type="date" name="date" placeholder="Date"> <br>
                         </div>
                     </div>
 
@@ -37,7 +37,7 @@
                             <label>Eenter academic year</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="academic_year" placeholder="Academic Year" required/> <br>
+                            <input type="text" name="academic_year" placeholder="Academic Year"> <br>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
                             <label>Eenter degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="degree" placeholder="Degree" required/> <br>
+                            <input type="text" name="degree" placeholder="Degree"> <br>
                         </div>
                     </div>
 
@@ -55,13 +55,13 @@
                             <label>Eenter subject</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject" placeholder="Subject" required/> <br>
+                            <input type="text" name="subject" placeholder="Subject"> <br>
                         </div>
                     </div>
-                    <button class="mainbtn" type="submit" name="select-submit" href="amEnterUpdateAttendaceV.php">Select</button>
-                </form>
-                <form>
-                    <button class="cancelbtn" type="submit" name="cancel-submit">Cancel</button>
+                    <button class="subbtn" type="submit" name="select-submit" href="amEnterUpdateAttendaceV.php">Select</button>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">
+                        <a href="amHomeV.php">Cancel</a> 
+                    </button>
                 </form>
             </div>
         </div>

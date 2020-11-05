@@ -29,3 +29,7 @@
         </div>
     </div>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>
