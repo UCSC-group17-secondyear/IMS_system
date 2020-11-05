@@ -7,14 +7,14 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="amHomeV.php">Home</a></li>
             <li>View Medical Scheme Details</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'aSideNavV.php';
+                    require 'amSideNavV.php';
                 ?>
             </div>
 
@@ -42,10 +42,6 @@
                     <?php echo $_SESSION['scheme_list']; ?>
                 </table>
                 <form>
-                    <button class="mainbtn">
-                        <a href="aHomeV.php">Back</a> 
-                    </button>
-                </form>
             </div>
         </div>
     </div>

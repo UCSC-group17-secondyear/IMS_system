@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>Update or Remove a department</title>
+    <title>Departments List</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update or remove a Department</li>
+            <li>Departments List</li>
         </ul>
 
         <div class="row">
@@ -20,7 +20,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Department Details</h2>
+                    <h2>Departments List</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable">
@@ -34,11 +34,6 @@
                     </tr>
                     <?php echo $_SESSION['dept_list']; ?>
                 </table>
-                <form>
-                    <button class="mainbtn">
-                        <a href="aHomeV.php">Back</a> 
-                    </button>
-                </form>
             </div>
         </div>
     </div>

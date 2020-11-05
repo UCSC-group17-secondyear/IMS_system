@@ -61,7 +61,7 @@ ul.breadcrumbs {
 
 ul.breadcrumbs li {
   display: inline;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 ul.breadcrumbs li+li:before {
@@ -294,7 +294,7 @@ ul.breadcrumbs li a:hover {
   /*padding-left: 5%;*/
   padding: 20px 12px 12px 0;
   display: inline-block;
-  font-size: 24px;
+  font-size: 18px;
   margin-left: 5%;
 }
 
@@ -304,7 +304,8 @@ ul.breadcrumbs li a:hover {
   height: 40px;
   margin-top: 25px;
   margin-right: 5%;
-  font-size: 24px;
+  font-size: 18px;
+  padding-left: 15px;
 }
 
 .row:after {
@@ -469,16 +470,19 @@ ul, #tree-view {
   padding: 10px;
   min-height: 600px;
   height: auto;
-  box-shadow: 4px 0px grey;
+  /*box-shadow: 4px 0px grey;*/
   padding-top: 10px;
 }
 
 .left, .right {
   width: 20%;
+  border-right: 5px solid grey;
 }
 
 .middle {
   width: 60%;
+  /*border-left: 5px solid grey;*/
+  border-right: 5px solid grey;
 }
 
 .middle h2 {
@@ -604,6 +608,7 @@ img.avatar {
   margin-right: 10%;
   font-size: 18px;
   border: 0px;
+  padding-left: 15px;
 }
 
 .contentForm label {
@@ -643,6 +648,7 @@ img.avatar {
   display: block; */
   width: 100%;
   border: 2px solid #2980b9;
+  padding-left: 15px;
 } 
 
 /*-------------------------Buttons-------------------*/

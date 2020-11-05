@@ -19,7 +19,7 @@
             $_SESSION['semester_list'] .= "<td><a href=\"../../controller/aDeleteSemesterController.php?sem_id={$record['sem_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
             $_SESSION['semester_list'] .= "</tr>";
 
-            header('Location:../view/admin/aUpdateRemoveSemesterV.php');
+            header('Location:../view/admin/aViewSemesterV.php');
         }
     }
     else {

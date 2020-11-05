@@ -27,47 +27,23 @@
                     <form action="../../controller/adminControllers/manageSessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter session type</label>
+                              <label>Select session type</label>
                             </div>
                             <div class="col-75">
                               <input type="text" name="sessionType" placeholder="Session type" required/> <br>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter subject</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" name="subject" placeholder="Subject" required/> <br>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Month</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" name="month" placeholder="Month" required/>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter number of sessions per semester</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" name="numOfSessions" placeholder="Sessions per semester" required/>
-                            </div>
-                        </div>
                     </form>
-                    <form>
-                        <button class="subbtn" type="submit" name="updateSession-submit">
-                            <a href="../../controller/adminControllers/manageDegreesC.php">Update session type</a>
-                        </button>
-                        
-                        <button id="myBtn" class="cancelbtn">Remove session type</button>
-                        <div id="myModal" class="modal">
+
+                    <button class="subbtn" type="submit" name="updateSession-submit">
+                        <a href="aUpdateSessionType.php">Update session type</a>
+                    </button>
+                    
+                    <button id="myBtn" class="cancelbtn">Remove session type</button>
+                    
+                    <!-- <button type="submit" name="removeSession-submit" class="cancelbtn">Remove session type</button> -->
+                </div>
+                <div id="myModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
                                 <h1>Are you sure you want to remove the session type?</h1>
@@ -76,9 +52,6 @@
                                 </button>
                             </div>
                         </div>
-                        <!-- <button type="submit" name="removeSession-submit" class="cancelbtn">Remove session type</button> -->
-                    </form>
-                </div>
             </div>
         </div>
     </div>
