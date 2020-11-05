@@ -2,7 +2,7 @@
      <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="memRenewMembershipV.php">
+                <a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Renew Membership</button>
                 </a><br>
             </li>

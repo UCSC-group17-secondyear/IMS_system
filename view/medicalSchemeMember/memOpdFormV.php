@@ -8,6 +8,7 @@
                     
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
+                    <li>OPD Form</li>
                 </ul>
                     
         <div class="row">
@@ -66,12 +67,10 @@
                                     <label for="">Department</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="department" id="" required>
-                                        <option value="">Select Option</option>
-                                        <option value="CS">CS</option>
-                                        <option value="IS">IS</option>
-                                        <option value="SE">SE</option>
-                                    </select> <br>
+                                    <select name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required>
+                                        <option value="">Select department: </option>
+                                        <?php echo $_SESSION['department'] ?>
+                                    </select>
                                 </div>
                             </div>
 
