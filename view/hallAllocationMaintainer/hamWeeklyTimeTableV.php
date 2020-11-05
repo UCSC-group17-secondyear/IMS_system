@@ -35,8 +35,6 @@
                         <td></td>
                     </tr>
                 </table>
-                
-                <a href="hamHomeV.php"><button class="mainbtn" type="submit" name="">OK</button></a>
             </div>
         </div>
     </div>
