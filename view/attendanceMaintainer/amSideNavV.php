@@ -83,7 +83,7 @@
                 </ul>
             </li>
             <li>
-                <a href="amMedicalSchemDetailsV.php">
+                <a href="amSchemDetailsV.php">
                     <button type="submit" name="" class="tree_list"> View Scheme Details
                     </button>
                 </a>
