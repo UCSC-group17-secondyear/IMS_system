@@ -34,7 +34,7 @@
                         </form>
                       
                         <form action="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
-                            <button class="mainbtn" type="submit" name="submit">No</button>
+                            <button class="mainbtn" type="submit" name="no-submit">No</button>
                         </form>
                 </div>
             </div>

@@ -79,7 +79,7 @@
                                 <div class="col-75">
                                     <select name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required>
                                         <option value="">Select department: </option>
-                                        <?php echo $_SESSION['deps'] ?>
+                                        <?php echo $_SESSION['department'] ?>
                                     </select>
                                 </div>
                             </div>
@@ -111,24 +111,10 @@
                                     <label>Medical Scheme Type</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="scheme_name" id="schemename" <?php echo 'value="'.$_SESSION['scheme_name'].'"' ?> required>
-                                        <option value="">Select Scheme</option>
-                                        <?php echo $_SESSION['scheme'] ?>
-                                    </select>
+                                    <input name="scheme" type="text" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Member Type</label>
-                                </div>
-                                <div class="col-75">
-                                    <select name="member_type" id="membertype" <?php echo 'value="'.$_SESSION['member_type'].'"' ?> required>
-                                        <option value="">Select Type</option>
-                                        <?php echo $_SESSION['member_type'] ?>
-                                    </select>
-                                </div>
-                            </div>
                             <button class="mainbtn" type="submit" name="update-submit">Update Details</button>
                         </form> 
                     </div>

@@ -21,6 +21,11 @@
             $_SESSION['sname'] = $result['sname'];
             $_SESSION['designation'] = $result['designation'];
 
+            while ($dept = mysqli_fetch_array($depts)) {
+                $_SESSION['department'] .= "<option value='".$dept['department']."'>".$dept['department']."</option>";
+                
+            }
+
             header('Location:../view/medicalSchemeMember/memOpdFormV.php');
                                     
         }

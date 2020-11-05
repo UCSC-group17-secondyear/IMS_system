@@ -17,7 +17,7 @@
             $_SESSION['designation_list'] .= "<td><a href=\"../../controller/aDeleteDesignationController.php?designation_id={$record['designation_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
             $_SESSION['designation_list'] .= "</tr>";
 
-            header('Location:../view/admin/aUpdateRemoveDesignationV.php');
+            header('Location:../view/admin/aViewDesignationV.php');
         }
     }
     else {

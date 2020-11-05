@@ -55,7 +55,7 @@
                         <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/aViewDegreeController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a degree</li></a>
+                        <a href="aRemoveUpdateDegreeV.php"><li><i class="fa fa-pencil-square"></i>Update or remove a degree</li></a>
                     </button>
                 </ul>
             </li>

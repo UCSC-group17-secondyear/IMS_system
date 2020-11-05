@@ -3,12 +3,11 @@
 ?>
 
 <main>
-    <title>Add a degree</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Add a new degree</li>
+            <li>Update or Remove Degree</li>
         </ul>
 
         <div class="row">
@@ -20,54 +19,36 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Add a new degree</h2>
-                </div>
-
-                <div class="contentForm">
-                    <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Degree Name</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="" name="degree_name" placeholder="Degree name" required/><br>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Abbreviation/code</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="" name="degree_abbriviation" placeholder="Abbriviation" required/><br>
-                            </div>
-                        </div>
-
-                        <button class="mainbtn" type="submit" name="addDegree-submit">Add degree</button>
-                    </form>
-                    <button id="subBtn" class="subbtn">View Available Degree List</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
-                </div>
-
-                <div id="subModal" class="modal">
-                    <div class="modal-content">
-                        <span class="subclose">&times;</span>
-                        <?php
-                            require 'aDegreesPopupV.php';
-                        ?>
-                    </div>
+                    <h2>Update or Remove Degree</h2>
                 </div>
                 
+                <div class="contentForm">
+                    <form action="../../controller/aUpdateDegreeController.php" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Select degree</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="degree_name" <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> required/><br>
+                            </div>
+                        </div>
+                    </form>
+
+                    <button id="subBtn" class="subbtn">
+                        <a href="aUpdateDegreeV.php">Update Degree</a>
+                    </button>
+
+                    <button id="myBtn" class="cancelbtn">Remove Degree</button>
+                </div>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <h1>Are you sure you want to leave the page?</h1>
+                        <h1>Are you sure you want to remove the selected degree?</h1>
                         <button class="mainbtn">
                             <a href="aHomeV.php">Yes</a>
                         </button>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -82,19 +63,16 @@
         btn.onclick = function() {
           modal.style.display = "block";
         }
+
+        // var modal2 = document.getElementById("subModal");
+        // var btn2 = document.getElementById("subBtn");
+        document.getElementById("subBtn").onclick = function() {
+            document.getElementById("subModal").style.display = "block";
+        }
+
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
           modal.style.display = "none";
-        }
-
-        var submodal = document.getElementById("subModal");
-        var subbtn = document.getElementById("subBtn");
-        var subspan = document.getElementsByClassName("subclose")[0];
-        subbtn.onclick = function() {
-          submodal.style.display = "block";
-        }
-        subspan.onclick = function() {
-          submodal.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it

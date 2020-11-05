@@ -821,6 +821,62 @@
 
 			return $result;
 		}
+
+		public static function getDateDiffFromJoin($user_id,$connect){
+			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment )FROM users WHERE userId={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getMeidcalMemDetails($user_id, $connect){
+			$query = "SELECT * FROM users WHERE userId={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getMeidcalMemDetailsOne($user_id, $connect){
+			$query = "SELECT * FROM tbl_user_flag WHERE user_id={$user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getSchemes($connect){
+			$query = "SELECT * FROM tbl_schemes WHERE is_deleted=0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getSchemeName($user_id, $connect){
+			$query = "SELECT schemename FROM tbl_medicalscheme WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function updatememDetails($user_id, $department,$health_condition, $civil_status, $scheme_name, $connect){
+			$query = "UPDATE tbl_user_flag SET department='{$department}' ,healthcondition='{$health_condition}', civilstatus='{$civil_status}', schemename='{$scheme_name}' WHERE user_id={$user_id} ";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function updateScheme($user_id, $scheme_name, $connect){
+			$query = "UPDATE tbl_medicalscheme SET schemename='{$scheme_name}' WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 		
 	}
 ?>

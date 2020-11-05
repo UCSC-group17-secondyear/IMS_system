@@ -41,30 +41,6 @@
                         <button class="subbtn" type="submit" name="updateHall">Update Hall</button>
                         <button class="cancelbtn" type="submit" name="deleteHall" onclick="return confirm('Are you sure?');">Delete Hall</button>
                     </form>
-
-                    <form>
-                        <button id="subBtn" class="subbtn">View current halls</button>
-                        <div id="subModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <?php
-                                    require 'aHallsPopupV.php';
-                                ?>
-                            </div>
-                        </div>
-
-                        <button id="myBtn" class="cancelbtn">Cancel</button>
-                        <div id="myModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <h1>Are you sure that you want to leave the page?</h1>
-                                <button class="mainbtn">
-                                    <a href="aHomeV.php">Yes</a>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
                     <!-- <form>
                         <button type="submit" class="subbtn">
                             <a href="../../controller/aViewHallController.php">View current Halls</a>

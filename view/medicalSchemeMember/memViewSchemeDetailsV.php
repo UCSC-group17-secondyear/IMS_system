@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li>View Scheme Details</li>
+                    <li>Medical Scheme Details</li>
                 </ul>
             
         <div class="row">

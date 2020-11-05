@@ -4,6 +4,11 @@
             <li><button class="tree_list">Manage Students' Details</button>
                 <ul class="tree_nest">
                     <button>
+                        <a href="amViewStudentDetailsV.php">
+                            <li><i class="fa fa-user-circle-o"></i>View Students' Details</li>
+                        </a>
+                    </button>
+                    <button>
                         <a href="amEnterStudentDetailsV.php">
                             <li><i class="fa fa-plus-circle"></i>Enter Students' Details</li>
                         </a>
@@ -15,8 +20,14 @@
                     </button>
                 </ul>
             </li>
+
             <li><button class="tree_list">Manage Subjects' Details</button>
                 <ul class="tree_nest">
+                    <button>
+                        <a href="amViewSubjects.php">
+                            <li><i class="fa fa-book"></i>View Subjects' List</li>
+                        </a>
+                    </button>
                     <button>
                         <a href="amEnterSubjectDetails.php">
                             <li><i class="fa fa-plus-circle"></i>Enter Subjects' Details</li>
@@ -72,7 +83,7 @@
                 </ul>
             </li>
             <li>
-                <a href="amMedicalSchemDetailsV.php">
+                <a href="amSchemDetailsV.php">
                     <button type="submit" name="" class="tree_list"> View Scheme Details
                     </button>
                 </a>
