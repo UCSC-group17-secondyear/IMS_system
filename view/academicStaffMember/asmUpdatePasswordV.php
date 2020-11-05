@@ -42,8 +42,7 @@
                           <input type="password" name="conpassword" required> <br>
                         </div>
                     </div>
-
-                    <button type="submit" name="submit" class="mainbtn">Save Password</button>
+                    <button type="submit" name="submit" class="subbtn">Save Password</button>
                 </form>
                 <a href="aHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
             </div>
