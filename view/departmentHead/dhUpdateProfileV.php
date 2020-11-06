@@ -5,26 +5,27 @@
 <main>
     <title>Update Profile</title>
 
-    <ul class="breadcrumbs">
-        <li><a href="amHomeV.php">Home</a></li>
-        <li><a href="amProfileV.php">My Profile</a></li>
-        <li>Update Profile</li>
-    </ul>
+    <div class="sansserif">
+        <ul class="breadcrumbs">
+            <li><a href="dhHomeV.php">Home</a></li>
+            <li><a href="dhProfileV.php">My Profile</a></li>
+            <li>Update Profile</li>
+        </ul>
 
-    <div class="row">
-        <div class="col left20">
-            <?php
-                require 'amSideNavV.php';
-            ?>
-        </div>
-
-        <div class="col right80">
-            <div style="margin-top:-10px">
-                <h2>Update Profile</h2>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require '../departmentHead/dhSideNavV.php';
+                ?>
             </div>
 
-            <div class="signupForm">
-                <form action="../../controller/updateProfileControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+            <div class="col right80">
+                <div style="margin-top:-10px">
+                    <h2>Update Profile</h2>
+                </div>
+
+                <div class="signupForm">
+                    <form action="../../controller/updateProfileControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Employee Id</label>
@@ -107,9 +108,10 @@
 	                    </div>                                                                                                                                                                                                                                                                        
                         <button type="submit" name="submit" class="mainbtn">Save Updates</button>                    
                     </form>
-                    <a href="amProfileV.php">
+                    <a href="dhProfileV.php">
                         <button type="submit" class="cancelbtn">Cancel</button>
                     </a>
+                </div>
             </div>
         </div>
     </div>

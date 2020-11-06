@@ -6,15 +6,15 @@
     <title>Update Password</title>
 
     <ul class="breadcrumbs">
-        <li><a href="asmHomeV.php">Home</a></li>
-        <li><a href="asmProfileV.php">Profile</a></li>
+        <li><a href="nasmHomeV.php">Home</a></li>
+        <li><a href="nasmProfileV.php">Profile</a></li>
         <li>Update Password</li>
     </ul>
 
     <div class="row">
         <div class="col left20">
             <?php
-                require 'asmSideNavV.php';
+                require 'nasmSideNavV.php';
             ?>
         </div>
 
@@ -44,10 +44,7 @@
                     </div>
                     <button type="submit" name="submit" class="subbtn">Save Password</button>
                 </form>
-                <form>
-                    <a href="asmHomeV.php"><button type="submit" class="cancelbtn">Cancel</button></a>
-                </form>
-                
+                <a href="nasmHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
             </div>
         </div>
     </div>

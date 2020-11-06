@@ -7,15 +7,15 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="dhHome.php">Home</a></li>
-            <li><a href="dhProfileV.php">Profile</a></li>
+            <li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amProfileV.php">Profile</a></li>
             <li>Update Password</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../departmentHead/dhSideNavV.php';
+                    require '../attendanceMaintainer/amSideNavV.php';
                 ?>
             </div>
 
@@ -46,10 +46,15 @@
 
                         <button type="submit" name="submit" class="mainbtn">Save Password</button>
                     </form>
-                    <a href="dhHome.php"><button type="submit" class="cancelbtn">Cancel</button></a>
+                    <a href="amHomeV.php"><button type="submit" class="cancelbtn">Cancel</button></a>
                 </div>
                 
             </div>
         </div>
     </div>
 </main>
+
+<?php
+    require "../basic/footer.php";
+?>
+
