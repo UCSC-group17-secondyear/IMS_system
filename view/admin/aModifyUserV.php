@@ -8,7 +8,7 @@
     <ul class="breadcrumbs">
         <li><a href="aHomeV.php">Home</a></li>
         <li><a href="aUsersV.php">Users list</a></li>
-        <li>Modify User</li>
+        <li class="active">Modify User</li>
     </ul>
 
     <div class="row">

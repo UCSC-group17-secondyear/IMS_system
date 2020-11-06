@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">My Profile</a></li>
-            <li>Update Profile</li>
+            <li class="active">Update Profile</li>
         </ul>
 
         <div class="row">
