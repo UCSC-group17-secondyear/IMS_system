@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="asmHomeV.php">Home</a></li>
-        <li>Removed a Booking</li>
+        <li class="active">Removed a Booking</li>
     </ul>
     <div class="row">
     <div class="col left20">

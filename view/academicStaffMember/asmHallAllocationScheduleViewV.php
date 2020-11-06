@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li><a href="asmViewHallAllocationScheduleV.php">Hall Allocation Date</a></li>
-            <li>Hall Allocation Schedule</li>
+            <li class="active">Hall Allocation Schedule</li>
         </ul>
 
         <div class="row">
