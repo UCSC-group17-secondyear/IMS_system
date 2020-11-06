@@ -8,8 +8,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memProfileV.php">My Profile</a></li>
-            <li>Update Profile</li>
+            <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">My Profile</a></li>
+            <li class="active">Update Profile</li>
         </ul>
 
         <div class="row">
