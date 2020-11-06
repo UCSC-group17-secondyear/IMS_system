@@ -7,8 +7,8 @@
 
     <ul class="breadcrumbs">
         <li><a href="nasmHomeV.php">Home</a></li>
-        <li><a href="nasmProfileV.php">Profile</a></li>
-        <li>Update Password</li>
+        <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">My Profile</a></li>
+        <li class="active">Update Password</li>
     </ul>
 
     <div class="row">
@@ -42,9 +42,13 @@
                           <input type="password" name="conpassword" required> <br>
                         </div>
                     </div>
+                    
                     <button type="submit" name="submit" class="subbtn">Save Password</button>
-                </form>
-                <a href="nasmHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
+                    <button type="submit" class="cancelbtn">
+                        <a href="nasmHome.php">Cancel</a>
+                    </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

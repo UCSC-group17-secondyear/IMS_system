@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>TT is saved</title>
+    <title>Time table saved</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Saved TT</li>
+            <li class="active">Time table saved</li>
         </ul>
 
         <div class="row">

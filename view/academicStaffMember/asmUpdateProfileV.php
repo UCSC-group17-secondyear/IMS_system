@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li><a href="asmProfileV.php">My Profile</a></li>
-            <li>Update Profile</li>
+            <li class="active">Update Profile</li>
         </ul>
 
         <div class="row">
@@ -20,7 +20,7 @@
             </div>
 
             <div class="col right80">
-                <div style="margin-top:-10px">
+                <div>
                     <h2>Update Profile</h2>
                 </div>
 
@@ -106,11 +106,12 @@
 	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
 	                        </div>
 	                    </div>                                                                                                                                                                                                                                                                        
-                        <button type="submit" name="submit" class="mainbtn">Save Updates</button>                    
+                        
+						<button type="submit" name="submit" class="subbtn">Save Updates</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="asmHome.php">Cancel</a>
+                        </button>
                     </form>
-                    <a href="asmProfileV.php">
-                        <button type="submit" class="cancelbtn">Cancel</button>
-                    </a>
                 </div>
             </div>
         </div>

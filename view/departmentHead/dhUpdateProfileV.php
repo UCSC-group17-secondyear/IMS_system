@@ -8,19 +8,19 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
-            <li><a href="dhProfileV.php">My Profile</a></li>
-            <li>Update Profile</li>
+            <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">My Profile</a></li>
+            <li class="active">Update Profile</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../departmentHead/dhSideNavV.php';
+                    require 'dhSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
-                <div style="margin-top:-10px">
+                <div>
                     <h2>Update Profile</h2>
                 </div>
 
@@ -105,12 +105,13 @@
 	                        <div class="col-75">
 	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
 	                        </div>
-	                    </div>                                                                                                                                                                                                                                                                        
-                        <button type="submit" name="submit" class="mainbtn">Save Updates</button>                    
+	                    </div>
+                        
+						<button type="submit" name="submit" class="subbtn">Save Updates</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="dhHome.php">Cancel</a>
+                        </button>
                     </form>
-                    <a href="dhProfileV.php">
-                        <button type="submit" class="cancelbtn">Cancel</button>
-                    </a>
                 </div>
             </div>
         </div>

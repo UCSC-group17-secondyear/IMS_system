@@ -7,7 +7,7 @@
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <!-- <li><a href="aAddNewUserRoleV.php">Add user role</a></li> -->
-            <li>User Roles List</li>
+            <li class="active">User Roles List</li>
         </ul>
 
         <div class="row">

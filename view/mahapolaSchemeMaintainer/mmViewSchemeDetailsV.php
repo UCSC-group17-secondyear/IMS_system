@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="mmHomeV.php">Home</a></li>
-            <li>View Medical Scheme Details</li>
+            <li class="active">Medical Scheme Details</li>
         </ul>
 
         <div class="row">
@@ -21,7 +21,7 @@
             <div class="col right80">
                 <div>
                     <?php
-                        require '../basic/schemeDetailsV.php';
+                        require '../basic/viewClaimDetails.php';
                     ?>
                 </div>
             </div>

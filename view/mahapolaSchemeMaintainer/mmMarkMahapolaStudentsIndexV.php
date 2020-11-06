@@ -5,11 +5,10 @@
 <main>
     <title>Mark Mahapola Slected Students</title>
         <div class="sansserif">
-
-                <ul class="breadcrumbs">
-                    <li><a href="mmHomeV.php">Home</a></li>
-                    <li>Mark Mahapola Selected Students</li>
-                </ul>
+            <ul class="breadcrumbs">
+                <li><a href="mmHomeV.php">Home</a></li>
+                <li class="active">Mark Mahapola Selected Students</li>
+            </ul>
 
             <div class="row">
                 <div class="col left20">

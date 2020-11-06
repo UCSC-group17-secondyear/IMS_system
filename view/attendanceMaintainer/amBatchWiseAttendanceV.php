@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li>View Batch Wise Attendance</li>
+        <li class="active">View Batch Wise Attendance</li>
     </ul>
     <div class="row">
         <div class="col left20">

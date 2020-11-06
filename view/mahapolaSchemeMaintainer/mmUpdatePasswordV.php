@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="mmHomeV.php">Home</a></li>
             <li><a href="mmProfileV.php">Profile</a></li>
-            <li>Update Password</li>
+            <li class="active">Update Password</li>
         </ul>
 
         <div class="row">
@@ -24,7 +24,7 @@
                     <h2>Update Password</h2>
                 </div>
 
-                <div class="contentForm">
+                <div class="signupForm">
                     <form action="../../controller/updatePasswordControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
                             <div class="col-25">
@@ -44,11 +44,12 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="submit" class="mainbtn">Save Password</button>
+                        <button type="submit" name="submit" class="subbtn">Save Password</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="mmHome.php">Cancel</a>
+                        </button>
                     </form>
-                    <a href="mmHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -57,4 +58,3 @@
 <?php
     require "../basic/footer.php";
 ?>
-

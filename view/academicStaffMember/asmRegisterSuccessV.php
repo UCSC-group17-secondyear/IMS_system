@@ -5,7 +5,7 @@
 <main>
     <ul class="breadcrumbs">
         <li><a href="asmHomeV.php">Home</a></li>
-        <li>Registration Approval</li>
+        <li class="active">Registration Approval</li>
     </ul>
 
     <div class="row">
