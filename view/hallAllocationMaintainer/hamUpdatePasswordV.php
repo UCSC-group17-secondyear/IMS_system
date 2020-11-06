@@ -7,15 +7,15 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="moHomeV.php">Home</a></li>
-            <li><a href="moProfileV.php">Profile</a></li>
+            <li><a href="hamHomeV.php">Home</a></li>
+            <li><a href="hamProfileV.php">Profile</a></li>
             <li>Update Password</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../medicalOfficer/moSideNavV.php';
+                    require '../hallAllocationMaintainer/hamSideNavV.php';
                 ?>
             </div>
 
@@ -46,7 +46,7 @@
 
                         <button type="submit" name="submit" class="subbtn">Save Password</button>
                         <button type="submit" class="cancelbtn">
-                            <a href="moHome.php">Cancel</a>
+                            <a href="hamHome.php">Cancel</a>
                         </button>
                     </form>
                 </div>

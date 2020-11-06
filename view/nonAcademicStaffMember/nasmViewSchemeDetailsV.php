@@ -1,26 +1,27 @@
 <?php
-    require "../basic/topnav.php";
+    require '../basic/topnav.php';
 ?>
 
 <main>
-    <title>Register to Medical Scheme</title>
+    <title>View Medical Scheme Details</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="msmHomeV.php">Home</a></li>
-            <li>Register to the medical scheme</li>
+            <li><a href="nasmHomeV.php">Home</a></li>
+            <li>View Medical Scheme Details</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'msmSideNavV.php';
+                    require 'nasmSideNavV.php';
                 ?>
             </div>
+
             <div class="col right80">
                 <div>
                     <?php
-                        require '../basic/registerToMedSchemeV.php';
+                        require '../basic/schemeDetailsV.php';
                     ?>
                 </div>
             </div>

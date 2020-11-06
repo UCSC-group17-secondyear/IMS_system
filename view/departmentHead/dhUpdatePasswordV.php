@@ -44,12 +44,17 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="submit" class="mainbtn">Save Password</button>
+                        <button type="submit" name="submit" class="subbtn">Save Password</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="dhHome.php">Cancel</a>
+                        </button>
                     </form>
-                    <a href="dhHome.php"><button type="submit" class="cancelbtn">Cancel</button></a>
                 </div>
-                
             </div>
         </div>
     </div>
 </main>
+
+<?php
+    require "../basic/footer.php";
+?>

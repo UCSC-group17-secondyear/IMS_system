@@ -45,11 +45,12 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="submit" class="mainbtn">Save Password</button>
+                        <button type="submit" name="submit" class="subbtn">Save Password</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="memHome.php">Cancel</a>
+                        </button>
                     </form>
-                    <a href="memHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
                 </div>
-                
             </div>
         </div>
     </div>
