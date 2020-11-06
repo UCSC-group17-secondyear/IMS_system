@@ -109,7 +109,7 @@
                         
 						<button type="submit" name="submit" class="subbtn">Save Updates</button>
                         <button type="submit" class="cancelbtn">
-                            <a href="moHome.php">Cancel</a>
+                            <a href="moHomeV.php">Cancel</a>
                         </button>
                     </form>
                 </div>

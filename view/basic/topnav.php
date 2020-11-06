@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMS Home Page</title>
+    <title>IMS System</title>
     <link rel="stylesheet" type="text/css" href="../assests/css/new.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,7 +16,7 @@
     <div class="sansserif">
         <header>
             <div class="topnav">
-                    <!-- <img src="../assests/img/cover.png" alt="" style="width: 10%;"> -->
+                    <img src="../assests/img/cover1.png" alt="" style="width: 18%; margin-left: 3px; margin-top:1px">
                     <?php
                         if (isset($_SESSION['userId'])) {
                     ?>

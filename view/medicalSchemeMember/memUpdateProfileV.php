@@ -108,10 +108,11 @@
 	                    </div>
                         
 						<button type="submit" name="submit" class="subbtn">Save Updates</button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="memHome.php">Cancel</a>
-                        </button>
-                    </form>
+                        
+					</form>
+					<button type="submit" class="cancelbtn">
+                            <a href="memHomeV.php">Cancel</a>
+                    </button>
                 </div>
             </div>
         </div>

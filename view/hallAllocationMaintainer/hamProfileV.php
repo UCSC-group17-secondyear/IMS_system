@@ -8,13 +8,13 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li class="active">My Profile</li>
+            <li>My Profile</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'aSideNavV.php';
+                    require 'hamSideNavV.php';
                 ?>
             </div>
 
@@ -22,8 +22,8 @@
                 <div>
                     <h2>Profile</h2>
                 </div>
-                <div class="signupForm">
-                    <form action="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                <div class="signupForm" >
+                	<form action="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Employee Id</label>
@@ -95,10 +95,10 @@
 	                        <div class="col-75">
 	                            <input type="text" name="appointment" <?php echo 'value="'.$_SESSION['appointment'].'"' ?> disabled> <br>
 	                        </div>
-	                    </div>
+	                    </div>                                                                                                                                                                                                                                                                                            
                         <button type="submit" name="submit" class="mainbtn">Update Profile</button>
-                    </form>
-                    <a href="asmHomeV.php">
+					</form>  
+					<a href="hamHomeV.php">
                         <button type="submit" class="cancelbtn">Cancel</button>
                     </a>
                 </div>
@@ -108,5 +108,5 @@
 </main>
 
 <?php
-    require "../basic/footer.php";
+    require '../basic/footer.php';
 ?>
