@@ -41,7 +41,6 @@
                     </tr>
                     <?php echo $_SESSION['scheme_list']; ?>
                 </table>
-                <form>
             </div>
         </div>
     </div>

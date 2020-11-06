@@ -41,11 +41,6 @@
                     </tr>
                     <?php echo $_SESSION['scheme_list']; ?>
                 </table>
-                <form>
-                    <button class="mainbtn">
-                        <a href="aHomeV.php">Back</a> 
-                    </button>
-                </form>
             </div>
         </div>
     </div>
