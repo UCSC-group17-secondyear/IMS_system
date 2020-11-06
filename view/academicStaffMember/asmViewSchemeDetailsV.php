@@ -22,11 +22,27 @@
                 <div>
                     <h2>Scheme Details</h2>
                 </div>
-                <div class="contentForm">
-                    <?php
-                        require '../basic/schemeDetailsV.php';
-                    ?>
-                <button type="submit" class="subbtn">
+
+                <table id="tableStyle" class="mytable">
+                    <tr>
+                        <th>Scheme Name</th>
+                        <th>Maximum Room Charge</th>
+                        <th>Hospital Charges</th>
+                        <th>Annual Premium</th>
+                        <th>Monthly Premium</th>
+                        <th>Gvt No Paying Ward</th>
+                        <th>Gvt Child Birth Cover</th>
+                        <th>Travel Expenses Cover</th>
+                        <th>Annual Limit</th>
+                        <th>Consultant Fee</th>
+                        <th>Investigations Cost</th>
+                        <th>Spectacles Cost</th>
+                        <th>Eleigibility Conditions</th>
+                    </tr>
+                    <?php echo $_SESSION['scheme_list']; ?>
+                </table>
+                
+                <!-- <button type="submit" class="subbtn">
                     <a href="">Register to medical scheme</a>
                 </button>
                 <button id="myBtn" class="cancelbtn">Cancel</button>
@@ -39,11 +55,11 @@
                         </button>
                     </div>
                 </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var modal = document.getElementById("myModal");
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
@@ -73,7 +89,7 @@
             modal.style.display = "none";
           }
         }
-    </script>
+    </script> -->
 </main>
 
 <?php
