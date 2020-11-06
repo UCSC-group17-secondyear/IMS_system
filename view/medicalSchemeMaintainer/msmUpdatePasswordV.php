@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
             <li><a href="msProfileV.php">Profile</a></li>
-            <li>Update Password</li>
+            <li class="active">Update Password</li>
         </ul>
 
         <div class="row">
