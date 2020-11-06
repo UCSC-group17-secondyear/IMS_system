@@ -9,7 +9,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li>Renew Membership</li>
+                    <li class="active">Renew Membership</li>
                 </ul>
             
         <div class="row">
