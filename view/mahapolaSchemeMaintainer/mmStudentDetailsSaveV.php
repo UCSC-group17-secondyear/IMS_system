@@ -5,10 +5,9 @@
 <main>
     <title>Saved</title>
         <div class="sansserif">
-                <ul class="breadcrumbs">
-                    <li><a href="mmHomeV.php">Home</a></li>
-                    <li><a href="mmMarkMahapolaSelectedStudentsV.php">Mark Mahapola Selected Students</a></li> 
-                </ul>
+            <ul class="breadcrumbs">
+                <li><a href="mmHomeV.php">Home</a></li>
+            </ul>
            
             <div class="row">
                 <div class="col left20">
@@ -22,7 +21,7 @@
                         <h2>Saved Successfully</h2>
                     </div>
                     <div class="contentForm">
-                        <a href="mmHomeV.php" ><button class="subbtn" type="submit" name="" >OK</button></a><br>
+                        <a href="mmHomeV.php" ><button class="mainbtn" type="submit" name="" >OK</button></a><br>
                     </div>
                 </div>
             </div>

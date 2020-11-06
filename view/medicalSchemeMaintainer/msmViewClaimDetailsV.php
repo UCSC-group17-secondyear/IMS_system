@@ -7,7 +7,7 @@
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li>Claim Details</li>
+            <li class="active">Claim Details</li>
         </ul>
     </div>
 

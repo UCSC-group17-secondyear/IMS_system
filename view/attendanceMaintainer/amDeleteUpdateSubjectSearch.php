@@ -8,7 +8,7 @@
     <ul class="breadcrumbs">
         <li><a href="homePageV.php">Home</a></li>
         <li><a href="amHomeV.php">Attendance Maintainer Page</a></li>
-        <li>Delete or Update Subject Details</li>
+        <li class="active">Delete or Update Subject Details</li>
     </ul>
 
     <div class="row">

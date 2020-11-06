@@ -18,9 +18,13 @@
             </div>
             
             <div class="col right80">
-                <div>
-                    <h4>Claim Form Deleted Succesfully</h4>
-                </div>
+                <form action="memHomeV.php" class="contentForm">
+                    <div>
+                        <h2>Claim Form Deleted Succesfully</h2>
+                    </div>
+
+                    <button class="mainbtn">OK</button>
+                </form>
             </div>
         </div>
     </div>

@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
-            <li>View Booking Details</li>
+            <li class="active">View Booking Details</li>
         </ul>
 
         <div class="row">

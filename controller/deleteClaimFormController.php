@@ -12,7 +12,7 @@
             $result = Model::deleteClaimForm($claim_form_no,$user_id, $connect);
     
             if ($result) {
-                header('Location:../view/medicalSchemeMember/memHomeV.php');
+                header('Location:../view/medicalSchemeMember/memDeleteClaimFormSuccessV.php');
             }
            
         }

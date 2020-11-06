@@ -7,8 +7,8 @@
         <div class="sansserif">
                 
                     <ul class="breadcrumbs">
-                        <li><a href="memHomeV.php?user_id=<?php echo $_SESSION['user_id'] ?>">Home</a></li>
-                        <li>Update OPD Form</li>
+                        <li><a href="memHomeV.php">Home</a></li>
+                        <li class="active">Update OPD Form</li>
                     </ul>
                 
             <div class="row">

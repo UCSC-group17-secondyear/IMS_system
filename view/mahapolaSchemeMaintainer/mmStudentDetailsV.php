@@ -5,11 +5,10 @@
 <main>
     <title>Student Details</title>
         <div class="sansserif">
-            
-                <ul class="breadcrumbs">
-                    <li><a href="mmHomeV.php">Home</a></li>
-                    <li>Student Details</li>
-                </ul>
+            <ul class="breadcrumbs">
+                <li><a href="mmHomeV.php">Home</a></li>
+                <li class="active">Student Details</li>
+            </ul>
             
             <div class="row">
                 <div class="col left20">

@@ -7,6 +7,7 @@
         <div class="sasnserif">
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
+                    <li class="active">Claim Details</li>
                 </ul>
            
         <div class="row">

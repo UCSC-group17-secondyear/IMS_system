@@ -8,7 +8,8 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
+                    <li><a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">Renew Membership</a></li>
+                    <li class="active">Change Scheme</li>
                 </ul>
             
             <div class="row">

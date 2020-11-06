@@ -8,8 +8,9 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memProfileV.php">Profile</a></li>
-            <li>Update Password</li>
+            <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">My Profile</a></li>
+            <li><a href="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Profile</a></li>
+            <li class="active">Update Password</li>
         </ul>
 
         <div class="row">
@@ -44,11 +45,12 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="submit" class="mainbtn">Save Password</button>
+                        <button type="submit" name="submit" class="subbtn">Save Password</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="memHomeV.php">Cancel</a>
+                        </button>
                     </form>
-                    <a href="memHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
                 </div>
-                
             </div>
         </div>
     </div>

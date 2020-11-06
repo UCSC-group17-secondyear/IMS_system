@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li>View Semester Wise Attendance</li>
+        <li class="active">View Semester Wise Attendance</li>
     </ul>
 
     <div class="row">

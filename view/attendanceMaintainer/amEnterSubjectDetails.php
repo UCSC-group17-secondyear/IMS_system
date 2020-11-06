@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li>Enter Subjects' Details</li>
+        <li class="active">Enter Subjects' Details</li>
     </ul>
 
     <div class="row">

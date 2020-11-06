@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="aHomeV.php">Home</a></li>
-        <li>Add a new session type</li>
+        <li class="active">Add a new session type</li>
     </ul>
 
     <div class="row">
