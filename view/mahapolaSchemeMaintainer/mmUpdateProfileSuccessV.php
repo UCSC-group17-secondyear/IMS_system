@@ -7,6 +7,7 @@
         <div class="sansserif">
                 <ul class="breadcrumbs">
                     <li><a href="mmHomeV.php">Home</a></li>
+                    <li class="active">Profile Updated</li>
                 </ul>
         
             <div class="row">
@@ -20,7 +21,7 @@
                     <div class="content">
                         <h2>Your profile has been updated successfully...</h2>
 
-                        <a href="mmHomeV.php"><button class="subbtn" type="submit">OK</button></a>
+                        <a href="mmHomeV.php"><button class="mainbtn" type="submit">OK</button></a>
                     </div>
                 </div>
         </div>

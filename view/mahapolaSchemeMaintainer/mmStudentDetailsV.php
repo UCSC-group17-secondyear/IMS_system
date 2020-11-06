@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="mmHomeV.php">Home</a></li>
-                    <li>Student Details</li>
+                    <li class="active">Student Details</li>
                 </ul>
             
             <div class="row">
