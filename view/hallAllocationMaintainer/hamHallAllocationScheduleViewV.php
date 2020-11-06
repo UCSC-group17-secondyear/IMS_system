@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
             <li><a href="hamViewHallAllocationScheduleV.php">Hall allocation Schedule</a></li>
-            <li>Schedule</li>
+            <li class="active">Schedule</li>
         </ul>
 
         <div class="row">

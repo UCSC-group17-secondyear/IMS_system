@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>View Batch-wise Attendance</li>
+            <li class="active">View Batch-wise Attendance</li>
         </ul>
         <div class="row">
             <div class="col left20">

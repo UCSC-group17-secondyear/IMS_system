@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>TT is updated</title>
+    <title>Time Table updated</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Updated TT</li>
+            <li class="active">Time table Updated</li>
         </ul>
 
         <div class="row">
