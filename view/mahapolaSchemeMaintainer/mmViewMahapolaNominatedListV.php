@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="mmHomeV.php">Home</a></li>
-                    <li>View Mahapola Nominated List</li>
+                    <li class="active">Mahapola Nominated List</li>
                 </ul>
             
         <div class="row">
