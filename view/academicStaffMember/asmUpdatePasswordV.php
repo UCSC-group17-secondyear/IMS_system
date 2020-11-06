@@ -42,12 +42,13 @@
                           <input type="password" name="conpassword" required> <br>
                         </div>
                     </div>
+                    
                     <button type="submit" name="submit" class="subbtn">Save Password</button>
-                </form>
-                <form>
-                    <a href="asmHomeV.php"><button type="submit" class="cancelbtn">Cancel</button></a>
-                </form>
-                
+                        <button type="submit" class="cancelbtn">
+                            <a href="dhHome.php">Cancel</a>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
