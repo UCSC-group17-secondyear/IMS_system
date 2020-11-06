@@ -32,8 +32,11 @@
 		else if ($result['userRole'] == "medicalSchemeMain") {
 			header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
 		}
+		else if ($result['userRole'] == "medicalSchemeMemb") {
+			header('Location:../view/medicalSchemeMember/memHomeV.php');
+		}
 		else if ($result['userRole'] == "recordsViewer") {
-			header('Location:../view/recordsViewer/rvHomeV.php');
+			header('Location:../view/reportViewer/rvHomeV.php');
 		}
 		else if ($result['userRole'] == "departmentHead") {
 			header('Location:../view/departmentHead/dhHomeV.php');

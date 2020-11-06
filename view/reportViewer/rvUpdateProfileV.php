@@ -108,10 +108,11 @@
 	                    </div>
                         
 						<button type="submit" name="submit" class="subbtn">Save Updates</button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="rvHome.php">Cancel</a>
+                        
+					</form>
+						<button type="submit" class="cancelbtn">
+                            <a href="rvHomeV.php">Cancel</a>
                         </button>
-                    </form>
                 </div>
             </div>
         </div>
