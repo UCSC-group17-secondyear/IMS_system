@@ -16,7 +16,7 @@
     <div class="sansserif">
         <header>
             <div class="topnav">
-                    <!-- <img src="../assests/img/cover.png" alt="" style="width: 10%;"> -->
+                    <img src="../assests/img/cover1.png" alt="" style="width: 18%; margin-left: 3px; margin-top:1px">
                     <?php
                         if (isset($_SESSION['userId'])) {
                     ?>

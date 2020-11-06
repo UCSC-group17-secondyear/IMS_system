@@ -36,10 +36,6 @@
                     </tr>
                 </table>
                 <form>
-                    <button type="submit" class="mainbtn">
-                        <a href="asmHomeV.php">OK</a>
-                    </button>
-                </form>
             </div>
         </div>
     </div>

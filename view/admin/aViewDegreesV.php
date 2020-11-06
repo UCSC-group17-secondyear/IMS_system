@@ -31,9 +31,6 @@
                         <th>Delete</th>
                     </tr>
                 </table>
-                <button class="mainbtn" type="submit">
-                    <a href="aHomeV.php">Back</a>
-                </button>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@
 				</div>
 				<div class="col-50r">
 					<div class="logocontainer">
-                        <img src="../assests/img/cover.png" style="width:90%">
+                        <img src="../assests/img/1default.png" style="width:80%">
                     </div>
 	              	<div class="sentence1">
 						<h3><a href="forgotpwdV.php">Forgot your password?</a></h3> <br>
