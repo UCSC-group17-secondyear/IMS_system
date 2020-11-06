@@ -47,8 +47,11 @@
             else if ($result['userRole'] == "medicalSchemeMain") {
                 header('Location:../view/medicalSchemeMaintainer/msmUpdateProfileV.php');
             }
+            else if ($result['userRole'] == "medicalSchemeMemb") {
+                header('Location:../view/medicalSchemeMember/memUpdateProfileV.php');
+            }
             else if ($result['userRole'] == "recordsViewer") {
-                header('Location:../view/recordsViewer/recordsUpdateViwerProfileUI.php');
+                header('Location:../view/reportViewer/rvUpdateProfileV.php');
             }
             else if ($result['userRole'] == "departmentHead") {
                 header('Location:../view/departmentHead/dhUpdateProfileV.php');

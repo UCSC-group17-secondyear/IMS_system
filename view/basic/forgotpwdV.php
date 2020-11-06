@@ -5,7 +5,7 @@
 <main>
   <title>Password Reset</title>
 
-  <div class="signupForm" style="margin-top:227px; margin-bottom:227px;">
+  <div class="contentForm" style="margin-top:227px; margin-bottom:227px;">
     <form action="../../controller/pwdController.php" method="POST">
       <h2>Password Reset</h2>
       <div class="row">
@@ -17,9 +17,10 @@
         </div>
       </div>
 
-      <button type="submit" class="signupbtn" name="submit_uname">Enter</button>
+      <button type="submit" class="subbtn" name="submit_uname">Enter</button>
+      <button type="submit" class="cancelbtn"><a href="login.php" style="text-decoration: none; color:white">Cancel</a></button>
     </form>
-    <button type="submit" class="cancelbtn"><a href="homePageV.php" style="text-decoration: none; color:white">Cancel</a></button>
+    
   </div>
 </main>
 

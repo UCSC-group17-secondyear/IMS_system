@@ -46,8 +46,11 @@
             else if ($result['userRole'] == "medicalSchemeMain") {
                 header('Location:../view/medicalSchemeMaintainer/msmUpdatePasswordV.php');
             }
+            else if ($result['userRole'] == "medicalSchemeMemb") {
+                header('Location:../view/medicalSchemeMember/memUpdatePasswordV.php');
+            }
             else if ($result['userRole'] == "recordsViewer") {
-                header('Location:../view/recordsViewer/rvPasswordUI.php');
+                header('Location:../view/reportViewer/rvUpdatePasswordV.php');
             }
             else if ($result['userRole'] == "departmentHead") {
                 header('Location:../view/departmentHead/dhUpdatePasswordV.php');

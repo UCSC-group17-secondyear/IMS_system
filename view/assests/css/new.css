@@ -187,7 +187,7 @@ ul.breadcrumbs li a:hover {
 .loginForm h2 {
   font-size: 26px;
   color: white;
-  background-color: #374144;
+  background-color: #1177d1;
   text-align: center;
   padding: 10px;
   /*border-bottom: 3px solid grey;*/
@@ -231,11 +231,12 @@ ul.breadcrumbs li a:hover {
 
 .sentence1 {
   float: left;
-  margin-left: 3%;
-  padding-top: 10px;
+  margin-left: 15%;
+  /*padding-top: 10px;*/
   font-size: 18px;
-  margin-top: 6%;
+  /*margin-top: 6%;*/
   color: #065b7a;
+  margin-bottom: 10px;
 }
 
 /*.sentence2 {
@@ -507,6 +508,14 @@ ul, #tree-view {
     width: 200px;
 }
 
+.logocontainer {
+  text-align: center;
+  /*margin: 10px 0 10px 0;*/
+  /*border-radius: 4px;*/
+  padding-left: 15%;
+  /*width: 100%;*/
+}
+
 /* Avatar image */
 img.avatar {
     width: 40%;
@@ -578,12 +587,12 @@ img.avatar {
 
 .contentForm h2 {
   font-size: 24px;
-  color: darkslateblue;
+  background-color: #065b7a;
   text-align: center;
   padding: 6px;
   /*border-bottom: 3px solid grey;*/
   /*box-shadow: 4px 4px 4px grey;*/
-  background-color: white;
+  color: white;
   margin-bottom: 10px;
 }
 
