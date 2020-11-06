@@ -145,18 +145,19 @@
                         <button class="mainbtn" type="submit" name="addScheme-submit">Add new scheme</button>
                     </form>
 
-                    <button id="subBtn" class="subbtn">View available schemes</button>
+                    <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>
                     <button id="myBtn" class="cancelbtn">Cancel</button> 
                 </div>
 
-                <div id="subModal" class="modal">
+
+                <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
                         <span class="subclose">&times;</span>
                         <?php
-                            require 'aSchemesPopupV.php';
+                            // require 'aSchemesPopupV.php';
                         ?>
                     </div>
-                </div>
+                </div> -->
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
