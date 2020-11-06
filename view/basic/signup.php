@@ -96,14 +96,16 @@
 	        <div class="row">
 	            <div class="col-25">
 	              <label>Password</label>
+
 				</div>
 	            <div class="col-75">
 	              <input type="password" name="password" required/>
+	              <p>Password is required minimum eight characters, at least one uppercase letter, one lowercase letter, one number, and one special character(only @$!%*?&)</p>
 	            </div>
 			</div>
-			<div class="row">
-				<b><p>Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character(only @$!%*?&)</p></b>
-			</div>
+			<!-- <div class="row">
+				<b><p>Password is required minimum eight characters, at least one uppercase letter, one lowercase letter, one number, and one special character(only @$!%*?&)</p></b>
+			</div> -->
 
 	        <div class="row">
 	            <div class="col-25">
@@ -115,7 +117,9 @@
 	        </div>
 
          	<button type="submit" class="signupbtn" name="signup-submit">Signup</button>
-         	<button type="submit" class="cancelbtn">Cancel</button>
+         	<button type="submit" class="cancelbtn">
+	         	<a href="homePageV.php">Cancel</a>
+	         </button>
 		</form>
 	</div>
 </main>
