@@ -8,7 +8,7 @@
                     
                         <ul class="breadcrumbs">
                             <li><a href="memHomeV.php">Home</a></li>
-                            <li>Surgical Hospitalization Form</li>
+                            <li class="active">Surgical Hospitalization Form</li>
                         </ul>
                    
             <div class="row">
@@ -288,7 +288,7 @@
 
                             <form>
                                 <button class="subbtn" type="submit" name="userroleList-submit">
-                                    <a href="memClaimFormListV.php"> View Claim Form List</a>
+                                    <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
                                 </button>
                                 <button type="submit" class="cancelbtn">
                                     <a href="memHomeV.php">Cancel</a>

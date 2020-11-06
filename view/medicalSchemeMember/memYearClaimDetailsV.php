@@ -8,8 +8,8 @@
                 
                     <ul class="breadcrumbs">
                         <li><a href="memHomeV.php">Home</a></li>
-                        <li><a href="memGetClaimDetailsV.php">Enter Year</a></li>
-                        <li>Claim Details</li>
+                        <li><a href="memGetClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">Enter Year</a></li>
+                        <li class="active">Claim Details</li>
                     </ul>
                 
             <div class="row">

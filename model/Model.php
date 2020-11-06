@@ -18,9 +18,9 @@
             return $result_set;
 		}
 
-		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $password, $connect) 
+		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $userRole, $appointment, $password, $connect) 
 		{
-			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, designation, appointment, password) VALUES('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$designation', '$appointment', '$password')";
+			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, designation, appointment, userRole, password) VALUES('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$designation', '$appointment', '$userRole','$password')";
 			
 			if($connect->query($query))
 				return true;

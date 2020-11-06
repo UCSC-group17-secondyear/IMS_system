@@ -7,14 +7,14 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="memHomeV.php">Home</a></li>
-            <li class="active">My Profile</li>
+            <li><a href="nasmHomeV.php">Home</a></li>
+            <li>My Profile</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'memSideNavV.php';
+                    require 'nasmSideNavV.php';
                 ?>
             </div>
 
@@ -46,8 +46,6 @@
                     </form>
                 </div>
             </div>
-
-
         </div>
     </div>
 </main>
@@ -55,8 +53,3 @@
 <?php
     require "../basic/footer.php";
 ?>
-
-
-
-
-

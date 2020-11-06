@@ -38,6 +38,9 @@
 					}
 					else if ($key['userRole'] == "academicStaffMemb") {
 						header('Location:../view/academicStaffMember/asmHomeV.php');
+                    }
+                    else if ($key['userRole'] == "nonAcademicStaffMemb") {
+						header('Location:../view/nonAcademicStaffMember/nasmHomeV.php');
 					}
 					else if ($key['userRole'] == "attendanceMain") {
 						header('Location:../view/attendanceMaintainer/amHomeV.php');

@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../departmentHead/dhSideNav.php';
+                    require '../departmentHead/dhSideNavV.php';
                 ?>
             </div>
 
@@ -46,7 +46,7 @@
 
                         <button type="submit" name="submit" class="mainbtn">Save Password</button>
                     </form>
-                    <a href="dhHome.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
+                    <a href="dhHome.php"><button type="submit" class="cancelbtn">Cancel</button></a>
                 </div>
                 
             </div>

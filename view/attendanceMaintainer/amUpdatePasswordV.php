@@ -7,16 +7,15 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">My Profile</a></li>
-            <li><a href="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Profile</a></li>
-            <li class="active">Update Password</li>
+            <li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amProfileV.php">Profile</a></li>
+            <li>Update Password</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'memSideNavV.php';
+                    require '../attendanceMaintainer/amSideNavV.php';
                 ?>
             </div>
 
@@ -47,7 +46,7 @@
 
                         <button type="submit" name="submit" class="mainbtn">Save Password</button>
                     </form>
-                    <a href="memHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
+                    <a href="amHomeV.php"><button type="submit" class="cancelbtn">Cancel</button></a>
                 </div>
                 
             </div>
@@ -58,3 +57,4 @@
 <?php
     require "../basic/footer.php";
 ?>
+

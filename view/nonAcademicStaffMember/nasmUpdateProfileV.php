@@ -7,15 +7,15 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="dhHomeV.php">Home</a></li>
-            <li><a href="dhProfileV.php">My Profile</a></li>
+            <li><a href="nasmHomeV.php">Home</a></li>
+            <li><a href="nasmProfileV.php">My Profile</a></li>
             <li>Update Profile</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../departmentHead/dhSideNavV.php';
+                    require 'nasmSideNavV.php';
                 ?>
             </div>
 
