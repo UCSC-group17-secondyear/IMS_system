@@ -8,7 +8,7 @@
     <ul class="breadcrumbs">
         <li><a href="asmHomeV.php">Home</a></li>
         <li><a href="asmProfileV.php">Profile</a></li>
-        <li>Update Password</li>
+        <li class="active">Update Password</li>
     </ul>
 
     <div class="row">
@@ -42,10 +42,13 @@
                           <input type="password" name="conpassword" required> <br>
                         </div>
                     </div>
-
-                    <button type="submit" name="submit" class="mainbtn">Save Password</button>
-                </form>
-                <a href="aHomeV.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
+                    
+                    <button type="submit" name="submit" class="subbtn">Save Password</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="asmHome.php">Cancel</a>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

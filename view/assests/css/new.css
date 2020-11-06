@@ -28,7 +28,6 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 20px;
-  font-weight: bold;
   border-radius: 10px;
   background-color: #065b7a;
   margin: 2px;
@@ -37,6 +36,7 @@ body {
 .topnav a:hover {
   background-color: #1177d1;
   color: white;
+  font-weight: bold;
   /*opacity: 0.7;*/
 }
 
@@ -61,7 +61,7 @@ ul.breadcrumbs {
 
 ul.breadcrumbs li {
   display: inline;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 ul.breadcrumbs li+li:before {
@@ -81,7 +81,7 @@ ul.breadcrumbs li a {
 
 ul.breadcrumbs li.active {
     overflow: hidden;
-    color: darkslateblue;
+    color: #065b7a;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -95,6 +95,7 @@ ul.breadcrumbs li a:hover {
     text-decoration: none;
     background-color: #065b7a;
     color: white;
+    font-weight: bold;
 }
 
 /*-----------------------------Footer-----------------------------*/
@@ -119,7 +120,7 @@ ul.breadcrumbs li a:hover {
 /*-----------------------------Home Page Image-----------------------------*/
 .home_image {
   background-image: url("../img/bg_image.jpg");
-  background-color: darkslateblue;
+  background-color: #065b7a;
   /*opacity: 0.7;*/
   height: 610px;
   background-position: center;
@@ -139,102 +140,121 @@ ul.breadcrumbs li a:hover {
 }
 
 .loginbtn {
-    background-color: darkslateblue;
+    background-color: #065b7a;
     color: ivory;
     width: 20%;
     padding: 15px;
     font-size: 18px;
     margin-top: 20px;
     margin-left: 15%;
+    border: 0;
 }
 
 .loginbtn:hover {
-    background-color: ivory;
-    color: darkslateblue;
+    background-color: #1177d1;
+    color: white;
     font-weight: bold;
+    border: 0;
 }
 
 /*-------------------------Login Form Style-------------------------*/
 .loginForm {
-  background-color: oldlace;
+  background-color: #ced4da;
   /*max-width: 80%;*/
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 162px;
   margin-bottom: 162px;
-  height: 420px;
+  height: auto;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
   /*opacity: 0.5;*/
 }
 
+.col-50l {
+  float: left;
+  width: 50%;
+  box-shadow: 4px 0px grey;
+  /*margin-top: 6px;*/
+}
+
+.col-50r {
+  float:right;
+  width: 50%;
+  /*margin-top: 6px;*/
+}
+
 .loginForm h2 {
-  font-size: 24px;
-  color: darkslateblue;
+  font-size: 26px;
+  color: white;
+  background-color: #374144;
   text-align: center;
-  padding: 6px;
+  padding: 10px;
   /*border-bottom: 3px solid grey;*/
   /*box-shadow: 4px 4px 4px grey;*/
-  background-color: white;
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 
 .loginForm span {
-  margin-left: 30%;
+  margin-left: 10%;
   height: 40px;
-  color: darkslateblue;
+  color: #065b7a;
   font-size: 20px;
   margin-right: 5px;
 }
 
 .loginForm input {
-  width: 30%;
+  width: 70%;
   /*background-color: white;*/
   height: 40px;
   margin-top: 25px;
   margin-right: 10%;
-  font-size: 20px;
+  font-size: 18px;
+  border: 0;
+  padding-left: 3%;
 }
 
 .loginForm button {
   width: 30%;
-  background-color: darkslateblue;
+  background-color: #065b7a;
   color: white;
   height: 40px;
   margin-top: 25px;
   margin-left: 32%;
+  margin-bottom: 5%;
 }
 
 .loginForm button:hover {
-  background-color: cornflowerblue;
+  background-color: #1177d1;
+  font-weight: bold;
 }
 
 .sentence1 {
   float: left;
   margin-left: 3%;
   padding-top: 10px;
-  font-size: 22px;
+  font-size: 18px;
   margin-top: 6%;
-  color: darkslateblue;
+  color: #065b7a;
 }
 
-.sentence2 {
+/*.sentence2 {
   float: right;
   margin-right: 5%;
   margin-top: 6%;
   padding-top: 10px;
   font-size: 22px;
-}
+}*/
 
-.sentence1 a, .sentence2 a {
-  color: darkslateblue;
-  font-size: 22px;
+.sentence1 a {
+  color: #065b7a;
+  font-size: 18px;
   text-decoration: none;
 }
 
-.sentence1 a:hover, .sentence2 a:hover {
+.sentence1 a:hover {
   color: crimson;
-  font-weight: bold;
+  font-size: 20px;
   text-decoration: underline;
 }
 
@@ -274,7 +294,7 @@ ul.breadcrumbs li a:hover {
   /*padding-left: 5%;*/
   padding: 20px 12px 12px 0;
   display: inline-block;
-  font-size: 24px;
+  font-size: 18px;
   margin-left: 5%;
 }
 
@@ -284,7 +304,8 @@ ul.breadcrumbs li a:hover {
   height: 40px;
   margin-top: 25px;
   margin-right: 5%;
-  font-size: 24px;
+  font-size: 18px;
+  padding-left: 15px;
 }
 
 .row:after {
@@ -305,6 +326,15 @@ ul.breadcrumbs li a:hover {
   /*margin-top: 6px;*/
 }
 
+.col-75 a {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.col-75 a:hover {
+  color: #1177d1;
+}
+
 .signupForm button {
   color: white;
   font-size: 22px;
@@ -317,18 +347,22 @@ ul.breadcrumbs li a:hover {
 
 .signupForm .signupbtn {
   background-color: #065b7a;
+  border: 0;
 }
 
 .signupForm .cancelbtn {
   background-color: red;
+  border: 0;
 }
 
 .signupForm .signupbtn:hover {
   background-color: #1177d1;
+  font-weight: bold;
 } 
 
 .signupForm .cancelbtn:hover {
   opacity: 0.7;
+  font-weight: bold;
 }
 
 /*-----------------------------Left nav-tree view-----------------------------*/
@@ -369,6 +403,7 @@ ul, #tree-view {
 
 .tree_list:hover {
   background-color: #1177d1;
+  font-weight: bold;
   /*opacity: 0.7;*/
 }
 
@@ -401,7 +436,7 @@ ul, #tree-view {
   text-align: left;
   margin-bottom: 0%;
   margin-top: 0%;
-  border: 2px solid darkslateblue;
+  border: 2px solid #065b7a;
   cursor: pointer;
   user-select: none; /* Prevent text selection */
   color: white;
@@ -414,11 +449,13 @@ ul, #tree-view {
 
 .tree_nest a{
     color: darkslateblue;
+    text-decoration: none;
+    font-size: 20px;
 }
 
 .tree_nest a:hover{
   font-weight: bold;
-  color: cornflowerblue;
+  color: #065b7a;
 }
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
@@ -431,17 +468,21 @@ ul, #tree-view {
 .column {
   float: left;
   padding: 10px;
-  height: 600px;
-  box-shadow: 4px 0px grey;
+  min-height: 600px;
+  height: auto;
+  /*box-shadow: 4px 0px grey;*/
   padding-top: 10px;
 }
 
 .left, .right {
   width: 20%;
+  border-right: 5px solid grey;
 }
 
 .middle {
   width: 60%;
+  /*border-left: 5px solid grey;*/
+  border-right: 5px solid grey;
 }
 
 .middle h2 {
@@ -489,13 +530,15 @@ img.avatar {
 .btncontainer button:hover {
   background-color: cornflowerblue;
   border: 0px;
+  font-weight: bold;
 }
 
 /*-------------------------Arranging normal pages of users-------------------*/
 .col {
   float: left;
   padding-left: 10px;
-  height: 600px;
+  min-height: 600px;
+  height: auto;
   box-shadow: 4px 0px grey;
   padding-top: 10px;
 }
@@ -518,6 +561,8 @@ img.avatar {
   margin-right: 10px;
   margin-left: 10px;
 }
+
+/*-------------------------Content Form-------------------*/
 
 .contentForm {
   background-color: #ced4da;
@@ -542,6 +587,19 @@ img.avatar {
   margin-bottom: 10px;
 }
 
+.contentForm h3 {
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 22px;
+  text-decoration: underline;
+}
+
+.contentForm h4 {
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
 .contentForm input, select {
   width: 80%;
   /*background-color: white;*/
@@ -550,6 +608,7 @@ img.avatar {
   margin-right: 10%;
   font-size: 18px;
   border: 0px;
+  padding-left: 15px;
 }
 
 .contentForm label {
@@ -558,10 +617,13 @@ img.avatar {
   display: inline-block;
   font-size: 18px;
   margin-left: 15%;
+  text-align: justify;
 }
 
+/*-------------------------Profile Form-------------------*/
+
 .profileForm {
-  background-color: oldlace;
+  background-color: #ced4da;
   /* max-width: 500px; */
   margin-left: 10%;
   margin-right: 10%;
@@ -586,7 +648,10 @@ img.avatar {
   display: block; */
   width: 100%;
   border: 2px solid #2980b9;
+  padding-left: 15px;
 } 
+
+/*-------------------------Buttons-------------------*/
 
 .mainbtn {
   width: 30%;
@@ -594,15 +659,22 @@ img.avatar {
   color: white;
   height: 40px;
   margin-top: 25px;
-  margin-left: 32%;
+  margin-left: 35%;
   margin-bottom: 2%;
   font-size: 18px;
   border: 0px;
   cursor: pointer;
+  border: 0;
 }
 
 .mainbtn:hover {
   background-color: #1177d1;
+  font-weight: bold;
+}
+
+.mainbtn a {
+  color: white;
+  text-decoration: none;
 }
 
 .subbtn {
@@ -610,16 +682,23 @@ img.avatar {
   background-color: #1177d1;
   color: ivory;
   height: 40px;
-  margin-top: 10%;
+  margin-top: 2%;
   margin-left: 15%;
   border: 0px;
   font-size: 18px;
   margin-bottom: 3%;
+  border: 0;
+}
+
+.subbtn a {
+  color: white;
+  text-decoration: none;
 }
 
 .subbtn:hover {
-  background-color: darkslateblue;
+  background-color: #065b7a;
   color: white;
+  font-weight: bold;
 }
 
 .cancelbtn {
@@ -632,10 +711,17 @@ img.avatar {
   border: 0px;
   font-size: 18px;
   margin-bottom: 3%;
+  border: 0;
+}
+
+.cancelbtn a {
+  text-decoration: none;
+  color: white;
 }
 
 .cancelbtn:hover {
   opacity: 0.7;
+  font-weight: bold;
 }
 
 
@@ -650,9 +736,9 @@ img.avatar {
 #tableStyle {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 80%;
+  width: 90%;
   margin-top: 25px;
-  margin-left: 10%;
+  margin-left: 50px;
 }
 
 #tableStyle td, #tableStyle th {
@@ -662,6 +748,7 @@ img.avatar {
 
 #tableStyle tr:nth-child(even) {
   background-color: #f2f2f2;
+
 }
 
 #tableStyle tr:hover {
@@ -672,6 +759,56 @@ img.avatar {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: navy;
+  background-color: #1177d1;
   color: white;
+  width: auto;
+}
+
+#tableStyle td a {
+  background-color: #065b7a;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  
+}
+
+.close, .subclose {
+  color: #aaa;
+  float: right;
+  font-size: 35px;
+  
+  /*background-color: grey;*/
+  padding: 5px;
+  margin-left: 15px;
+  margin-top: 2px;
+}
+
+.close:hover,
+.close:focus, .subclose:hover, .subclose:focus {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #065b7a;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin-top: 10px; /* 15% from the top and centered */
+  margin-bottom: 10px;
+  border: 2px solid #888;
+  width: auto;
+  text-align: justify;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.modal-content h1 {
+  font-size: 20px;
+  margin-top: 20px;
+  padding-left: 3%;
+  padding-right: 3%;
 }

@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>View Scheme Details</title>
+    <title>View Medical Scheme Details</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li>View Scheme Details</li>
+            <li class="active">View Medical Scheme Details</li>
         </ul>
 
         <div class="row">
@@ -20,11 +20,9 @@
 
             <div class="col right80">
                 <div>
-                    <h2>View Scheme Details</h2>
-                </div>
-
-                <div class="contentForm">
-                    
+                    <?php
+                        require '../basic/schemeDetailsV.php';
+                    ?>
                 </div>
             </div>
         </div>

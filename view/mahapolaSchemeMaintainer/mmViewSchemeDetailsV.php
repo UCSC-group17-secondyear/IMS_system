@@ -1,28 +1,34 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
-    <title>Schemem Details</title>
+    <title>View Medical Scheme Details</title>
 
-    <?php
-        require('../basic/header.php');        
-    ?>
-
-    <div class="header">
+    <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="mmHomeV.php">Home</a></li>
-            <li>View Scheme Details</li>
+            <li class="active">Medical Scheme Details</li>
         </ul>
-    </div>
 
-    <div class="side-nav">
-        <?php 
-            require('../mahapolaSchemeMaintainer/mmSideNavV.php');
-        ?>
-    </div>
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'mmSideNavV.php';
+                ?>
+            </div>
 
-    <?php
-        require '../basic/viewClaimDetails.php';
-    ?>
-    
-    <?php
-        require_once('../basic/footer.php');
-    ?>
+            <div class="col right80">
+                <div>
+                    <?php
+                        require '../basic/viewClaimDetails.php';
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
+<?php
+    require '../basic/footer.php';
+?>

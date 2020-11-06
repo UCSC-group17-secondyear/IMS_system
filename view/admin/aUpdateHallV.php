@@ -8,7 +8,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update Hall</li>
+            <li><a href="aUpdateRemoveHallV.php">Halls List</a></li>
+            <li class="active">Update Hall</li>
         </ul>
 
         <div class="row">
@@ -64,7 +65,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="mainbtn" type="submit" name="updateHall-submit">Add Semester</button>
+                        <button class="mainbtn" type="submit" name="updateHall-submit">Update Hall</button>
                     </form>
                 </div>
             </div>

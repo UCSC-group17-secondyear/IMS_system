@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Hall Details</li>
+            <li class="active">Hall Details</li>
         </ul>
 
         <div class="row">
@@ -38,7 +38,12 @@
                                 </select>
                             </div>
                         </div>
-                        <a href="hamViewHallDetailsV.php"><button class="mainbtn" type="submit" name="">Display Details</button></a>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="hamViewHallDetailsV.php">Display Details</a>
+                        </button>
+                        <button class="cancelbtn" type="submit">
+                            <a href="hamHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

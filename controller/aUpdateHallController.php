@@ -50,6 +50,41 @@
         }
 
     }
+
+    elseif (isset($_POST['updateHall'])) {
+        $hall = mysqli_real_escape_string($connect, $_POST['hall']);
+
+        $results = Model::viewAHallUsingName($hall, $connect);
+
+        if ($results) {
+            if (mysqli_num_rows($results)==1) {
+                $result = mysqli_fetch_assoc($results);
+                $_SESSION['hall_id'] = $result['hall_id'];
+                $_SESSION['hall_name'] = $result['hall_name'];
+                $_SESSION['seating_capacity'] = $result['seating_capacity'];
+                $_SESSION['location'] = $result['location'];
+                $_SESSION['AC'] = $result['AC'];
+
+                header('Location:../view/admin/aUpdateHallV.php');
+            }
+        }
+        else {
+            echo "Database query failed.";
+        }
+    }
+
+    elseif (isset($_POST['deleteHall'])) {
+        $hall = mysqli_real_escape_string($connect, $_POST['hall']);
+
+        $result = Model::deleteHallUsingName($hall, $connect);
+
+        if ($result) {
+            echo "Hall successfully deleted.";
+        }
+        else{
+            echo "Database query failed";
+        }
+    }
     
 
 ?>

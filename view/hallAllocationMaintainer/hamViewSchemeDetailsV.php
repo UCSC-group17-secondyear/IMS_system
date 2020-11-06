@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>View Scheme Details</title>
+    <title>View Medical Scheme Details</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>View Medical Schemeetails</li>
+            <li class="active">View Medical Scheme Details</li>
         </ul>
 
         <div class="row">
@@ -21,7 +21,7 @@
             <div class="col right80">
                 <div>
                     <?php
-                        require '../basic/viewClaimDetails.php';
+                        require '../basic/schemeDetailsV.php';
                     ?>
                 </div>
             </div>

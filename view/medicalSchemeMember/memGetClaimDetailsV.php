@@ -7,6 +7,7 @@
         <div class="sasnserif">
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
+                    <li class="active">Claim Details</li>
                 </ul>
            
         <div class="row">
@@ -30,8 +31,7 @@
                     <div class="col-75">
                         <input type="year" value=""> <br>
                     </div>
-            
-                    <button class="mainbtn" type="submit" name="year-claim-submit">Display Claim Details</button>
+                <button class="subbtn" name="year-claim">Dispaly Claim Details</button>
                 </form>
             </div>
         </div>

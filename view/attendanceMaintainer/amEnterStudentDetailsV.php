@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li>Enter Students' Details</li>
+        <li class="active">Enter Students' Details</li>
     </ul>
 
     <div class="row">
@@ -94,10 +94,10 @@
                             </select> <br>
                         </div>
                     </div>
-                    <button class="mainbtn" type="submit" name="addStudent-submit">Enter Student</button>
-                </form>
-                <form>
-                    <button class="cancelbtn" type="submit" name="cancel-submit">Cancel</button>
+                    <button class="subbtn" type="submit" name="addStudent-submit">Enter Student</button>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">
+                        <a href="amHomeV.php">Cancel</a>
+                    </button>
                 </form>
             </div>
         </div>

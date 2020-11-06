@@ -7,8 +7,8 @@
         <div class="sansserif">
                     
                         <ul class="breadcrumbs">
-                            <li><a href="memHomeV.php?user_id=<?php echo $_SESSION['user_id'] ?>">Home</a></li>
-                            <li>Surgical Claim Details</li>
+                            <li><a href="memHomeV.php">Home</a></li>
+                            <li class="active">Surgical Claim Details</li>
                         </ul>
                     
             <div class="row">
@@ -209,8 +209,11 @@
                                     <input type="text" name="nature_of" <?php echo 'value="'.$_SESSION['nature_of'].'"' ?> disabled> <br>
                                 </div>
                             </div>
-
                             </form>
+                            
+                            <button class="mainbtn" type="submit" name="">
+                                <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
+                            </button>
                         </div>
                     </div> 
             </div>

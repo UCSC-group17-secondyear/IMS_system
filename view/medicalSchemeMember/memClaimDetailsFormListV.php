@@ -10,7 +10,7 @@
         <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
             <li><a href="memClaimFormListV.php">Claim Forms</a></li>
-            <li>Selected Form</li>
+            <li class="active">Selected Form</li>
         </ul>
     </div>
 

@@ -9,7 +9,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li>Renew Membership</li>
+                    <li class="active">Renew Membership</li>
                 </ul>
             
         <div class="row">
@@ -20,20 +20,23 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2>Renew Membership</h2>
-                </div>
+                    <div>
+                        <h2>Renew Membership</h2>
+                    </div>
 
-            <div class="contentForm">
-                <div>
-                    <h4>Change Scheme</h4>
+                <div class="contentForm">
+                    <div>
+                        <h2>Change Scheme</h2>
+                    </div>
+                    
+                        <form action="../../controller/checkExperienceYearController.php?user_id=<?php echo $_SESSION['userId']?>" method="POST">
+                            <button class="mainbtn" type="submit" name="yes-submit">Yes</button>
+                        </form>
+                      
+                        <form action="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                            <button class="mainbtn" type="submit" name="no-submit">No</button>
+                        </form>
                 </div>
-
-                <a href="memSchemeChangeYesV.php"><button class="mainbtn" type="submit" name="">Yes</button></a><br>
-                <!-- experience eka 2 years wadinam auto scheme 3 walat yanawa.natnam scheme eka select kranna page eka -->
-                <!-- if ekakin check krala selectScheme.php & schemeChangeYes.php walin ekakat yanwa -->
-                <a href="memCurrentMemberDetailsV.php"><button class="mainbtn" type="submit" name="">No</button></a><br>
-            </div>
             </div>
         </div>
     </div>

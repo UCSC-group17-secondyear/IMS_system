@@ -26,10 +26,13 @@
             
             $result = Model::registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $member_type, $connect);
 
+            $resultttt = Model::dept($department, $connect);
+            $data = mysqli_fetch_array($resultttt);
+
             if ($result) {
-                $to_email = $_SESSION['email'];
+                $to_email = $data['department_head_email'];
                 $subject = "Membership Request";
-                $body = "I have requested the membership for the Medical Scheme.";
+                $body =  $_SESSION['empid'] . " have requested the membership for the Medical Scheme.";
                 $headers = "From: ims.ucsc@gmail.com";
 
                 $sendMail = mail($to_email, $subject, $body, $headers);
@@ -37,6 +40,38 @@
             } else {
                 echo "Failed result";
             }
+        }
+    }
+    if (isset($_POST['viewschemedetails-submit'])) {
+        if ($result['userRole'] == "admin") {
+            header('Location:../view/admin/aViewSchemeDetailsV.php');
+        }
+        else if ($result['userRole'] == "academicStaffMemb") {
+            header('Location:../view/academicStaffMember/asmViewSchemeDetailsV.php');
+        }
+        else if ($result['userRole'] == "attendanceMain") {
+            header('Location:../view/attendanceMaintainer/amViewSchemeDetailsV.php');
+        }
+        else if ($result['userRole'] == "hallAllocationMain") {
+            header('Location:../view/hallAllocationMaintainer/hamViewSchemeDetailsV.php');
+        }
+        else if ($result['userRole'] == "mahapolaSchemeMain") {
+            header('Location:../view/mahapolaSchemeMaintainer/mmViewSchemeDetailsV.php');
+        }
+        else if ($result['userRole'] == "medicalSchemeMain") {
+            header('Location:../view/medicalSchemeMaintainer/msmViewSchemeDetailsV.php');
+        }
+        else if ($result['userRole'] == "recordsViewer") {
+            header('Location:../view/reportViewer/rvViewSchemeDetailsV.php');
+        }
+        else if ($result['userRole'] == "departmentHead") {
+            header('Location:../view/departmentHead/dhViewSchemeDetailsV.php');
+        }
+        else if ($result['userRole'] == "medicalSchemeMember") {
+            header('Location:../view/medicalSchemeMember/moViewSchemeDetailsV.php');
+        }
+        else {
+            echo "USER";
         }
     }
 ?>

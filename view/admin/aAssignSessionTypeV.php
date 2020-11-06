@@ -1,37 +1,114 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
     <title>Add a session type</title>
-    <?php
-        require '../basic/header.php';
-    ?>
 
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li>Add a new session type</li>
-        </ul>
-    </div>
+    <ul class="breadcrumbs">
+        <li><a href="aHomeV.php">Home</a></li>
+        <li class="active">Add a new session type</li>
+    </ul>
 
-    <div class="side-nav">
-        <?php
-            require '../admin/aSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <div>
-            <h3>Assign sessions to subjects</h3>
+    <div class="row">
+        <div class="col left20">
+            <?php
+                require 'aSideNavV.php';
+            ?>
         </div>
-        
-        Enter session type <input type="text" name="sessionType" placeholder="Session type" required/> <br>
 
-        Enter subject <input type="text" name="subject" placeholder="Subject" required/> <br>
+        <div class="col right80">
+            <div>
+                <h2>Assign sessions to subjects</h2>
+            </div>
+            <div class="contentForm">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter session type</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="sessionType" placeholder="Session type" required/> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter subject</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="subject" placeholder="Subject" required/> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter number of sessions per smester</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="numOfSessions" placeholder="Number of sessions per smester" required/> <br>
+                        </div>
+                    </div>
+                    <button class="mainbtn" type="submit" name="assignSession-submit">Assign session</button>
+                </form>
+                
+                <form>
+                        <button id="subBtn" class="subbtn">View Subject List</button>
+                        <div id="subModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <?php
+                                    require 'aSubjectsPopupV.php';
+                                ?>
+                            </div>
+                        </div>
 
-        Enter number of sessions per smester <input type="text" name="numOfSessions" placeholder="Number of sessions per smester" required/> <br>
+                        <button id="myBtn" class="cancelbtn">Cancel</button>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h1>Are you sure you want to leave the page?</h1>
+                                <button class="mainbtn">
+                                    <a href="aHomeV.php">Yes</a>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-        <button type="submit" name="assignSession-submit">Assign session</button>
+            </div>
+        </div>
     </div>
 
-    <?php
-        require '../basic/footer.php';
-    ?>
+    <script type="text/javascript">
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+
+        // var modal2 = document.getElementById("subModal");
+        // var btn2 = document.getElementById("subBtn");
+        document.getElementById("subBtn").onclick = function() {
+            document.getElementById("subModal").style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+    </script>
+
 </main>
+<?php
+    require '../basic/footer.php';
+?>

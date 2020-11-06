@@ -18,9 +18,9 @@
             return $result_set;
 		}
 
-		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $password, $connect) 
+		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $userRole, $appointment, $password, $connect) 
 		{
-			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, designation, appointment, password) VALUES('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$designation', '$appointment', '$password')";
+			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, designation, appointment, userRole, password) VALUES('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$designation', '$appointment', '$userRole','$password')";
 			
 			if($connect->query($query))
 				return true;
@@ -159,7 +159,7 @@
 
 		public static function hall($connect)
 		{
-			$query = "SELECT hall_name FROM tbl_hall";
+			$query = "SELECT hall_name FROM tbl_hall WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
@@ -238,9 +238,18 @@
 			return $result;
 		}
 
+		public static function dept($department, $connect)
+		{
+			$query = "SELECT department_head_email FROM tbl_department WHERE department='{$department}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
 		public static function department($connect)
 		{
-			$query = "SELECT department FROM tbl_department";
+			$query = "SELECT department FROM tbl_department WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
@@ -249,7 +258,7 @@
 
 		public static function scheme($connect)
 		{
-			$query = "SELECT schemename FROM tbl_medicalscheme";
+			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
 			
 			$result_set = mysqli_query($connect, $query);
 			
@@ -274,7 +283,7 @@
 					
 			return $result_set;
 		}
-//....................................................................................................................................//
+//......................................................................................................................................//
 
 		public static function getmemberdetails($userid, $connect)
 		{
@@ -303,9 +312,36 @@
 			return $result_set;
 		}
 
+		public static function semYear($connect)
+		{
+			$query = "SELECT academic_year FROM tbl_semester WHERE is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function semName($connect)
+		{
+			$query = "SELECT semester FROM tbl_semester WHERE is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
 		public static function viewASem ($sem_id, $connect) 
 		{
 			$query = "SELECT * FROM tbl_semester WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function viewASemUsingName($academic_year, $semester, $connect)
+		{
+			$query = "SELECT * FROM tbl_semester WHERE semester='{$semester}' AND academic_year='{$academic_year}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -324,6 +360,15 @@
 		public static function deleteSemester($sem_id, $connect)
 		{
 			$query = "UPDATE tbl_semester SET is_deleted = 1 WHERE sem_id={$sem_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteSemUsingName($academic_year, $semester, $connect)
+		{
+			$query = "UPDATE tbl_semester SET is_deleted = 1 WHERE semester='{$semester}' AND academic_year='{$academic_year}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -365,6 +410,15 @@
 			return $result_set;
 		}
 
+		public static function viewAHallUsingName($hall, $connect)
+		{
+			$query = "SELECT * FROM tbl_hall WHERE hall_name='{$hall}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
 		public static function checkHallThree($hall_id, $hall_name, $connect)
 		{
 			$query = "SELECT * FROM tbl_hall WHERE hall_name='{$hall_name}' AND hall_id!={$hall_id} LIMIT 1";
@@ -392,6 +446,14 @@
 			return $result;
 		}
 
+		public static function deleteHallUsingName($hall, $connect)
+		{
+			$query = "UPDATE tbl_hall SET is_deleted = 1 WHERE hall_name='{$hall}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 		
 		public static function checkDeptName($dept_name, $connect) 
 		{	
@@ -400,9 +462,9 @@
             return $result_set;
 		}
 
-		public static function enterDepartment($dept_name, $dept_head, $description, $connect)
+		public static function enterDepartment($dept_name, $dept_head, $dept_head_email, $description, $connect)
 		{
-			$query = "INSERT INTO tbl_department (department, department_head, description) VALUES('$dept_name', '$dept_head' ,'$description')";
+			$query = "INSERT INTO tbl_department (department, department_head, department_head_email, description) VALUES('$dept_name', '$dept_head', '$dept_head_email' ,'$description')";
 
 			$result = mysqli_query($connect, $query);
 
@@ -427,6 +489,15 @@
 			return $result_set;
 		}
 		
+		public static function viewADeptUsingName($department, $connect)
+		{
+			$query = "SELECT * FROM tbl_department WHERE department='{$department}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
 		public static function checkDeptThree($dept_id, $department, $connect)
 		{
 			$query = "SELECT * FROM tbl_department WHERE department='{$department}' AND department_id!={$dept_id} LIMIT 1";
@@ -436,9 +507,9 @@
 			return $result_set;	
 		}
 		
-		public static function updateDepartment($dept_id, $department, $department_head, $description, $connect)
+		public static function updateDepartment($dept_id, $department, $department_head, $department_head_email, $description, $connect)
 		{
-			$query = "UPDATE tbl_department SET department='{$department}', department_head='{$department_head}', description='{$description}' WHERE department_id={$dept_id} LIMIT 1";
+			$query = "UPDATE tbl_department SET department='{$department}', department_head='{$department_head}', department_head_email='{$department_head_email}', description='{$description}' WHERE department_id={$dept_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -454,11 +525,29 @@
 			return $result;
 		}
 
+		public static function deleteDeptUsingName($department, $connect)
+		{
+			$query = "UPDATE tbl_department SET is_deleted = 1 WHERE department='{$department}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
 		public static function checkDesignationName($designation, $connect) 
 		{	
 			$query = "SELECT * FROM tbl_designation WHERE designation_name ='{$designation}'" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
+		}
+
+		public static function designation($connect)
+		{
+			$query = "SELECT designation_name FROM tbl_designation WHERE is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
 		}
 		
 		public static function enterDesignation($designation, $description, $connect)
@@ -488,6 +577,15 @@
 			return $result_set;
 		}
 
+		public static function viewADesignUsingName($designation, $connect)
+		{
+			$query = "SELECT * FROM tbl_designation WHERE designation_name='{$designation}' LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
 		public static function checkDesignThree($designation_id, $designation, $connect)
 		{
 			$query = "SELECT * FROM tbl_designation WHERE designation_name='{$designation}' AND designation_id!={$designation_id} LIMIT 1";
@@ -509,6 +607,15 @@
 		public static function deleteDesignation($designation_id, $connect)
 		{
 			$query = "UPDATE tbl_designation SET is_deleted = 1 WHERE designation_id={$designation_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteDesignUsingName($designation, $connect)
+		{
+			$query = "UPDATE tbl_designation SET is_deleted = 1 WHERE designation_name='{$designation}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -579,7 +686,7 @@
 		}
 
 		public static function opdFormIds($user_id, $connect){
-		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND opd_form_flag=1";
+		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND opd_form_flag=1 AND is_deleted=0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -587,7 +694,7 @@
 		}
 
 		public static function surgicalFormIds($user_id, $connect){
-		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND surgical_form_flag=1";
+		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND surgical_form_flag=1 AND is_deleted=0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -596,7 +703,7 @@
 
 		public static function updateSurgicalForm($user_id, $claim_form_no,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of,$file_name_new, $submitted_date,$connect){
 			$query = "UPDATE tbl_claimform SET address='{$address}', patient_name='{$patient_name}', relationship='{$relationship}', accident_date='{$accident_date}', how_occured='{$how_occured}', injuries='{$injuries}', nature_of_illness='{$nature_of_illness}', commence_date='{$commence_date}', first_consult_date='{$first_consult_date}', doctor_name='{$doctor_name}', doctor_address='{$doctor_address}', hospitalized_date='{$hospitalized_date}', discharged_date='{$discharged_date}', 
-														illness_before='{$illness_before}', illness_before_years='{$illness_before_years}', sick_injury='{$sick_injury}', insurer_claims='{$insurer_claims}', nature_of='{$nature_of}', file_name= '{$file_name_new}' WHERE user_id={$user_id} AND claim_form_no={$claim_form_no} LIMIT 1";
+														illness_before='{$illness_before}', illness_before_years='{$illness_before_years}', sick_injury='{$sick_injury}', insurer_claims='{$insurer_claims}', nature_of='{$nature_of}', file_name= '{$file_name_new}', submitted_date= '$submitted_date' WHERE user_id={$user_id} AND claim_form_no={$claim_form_no} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -605,15 +712,15 @@
 		}
 
 		public static function updateOpdForm($user_id, $claim_form_no, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_new, $submitted_date, $connect){
-			$query = "UPDATE tbl_claimform SET patient_name='{$patient_name}', relationship='{$relationship}', relationship='{$relationship}', doctor_name='{$doctor_name}', treatment_received_date='{$treatment_received_date}', bill_issued_date='{$bill_issued_date}', purpose='{$purpose}', bill_amount='{$bill_amount}', file_name= '{$file_name_new}' WHERE user_id={$user_id} AND claim_form_no={$claim_form_no} LIMIT 1";
+			$query = "UPDATE tbl_claimform SET patient_name='{$patient_name}',  relationship='{$relationship}', doctor_name='{$doctor_name}', treatment_received_date='{$treatment_received_date}', bill_issued_date='{$bill_issued_date}', purpose='{$purpose}', bill_amount='{$bill_amount}', file_name= '{$file_name_new}' , submitted_date= '$submitted_date' WHERE user_id={$user_id} AND claim_form_no={$claim_form_no} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
 		}
 
-		public static function getSubmitDate($claim_form_no, $user_id, $connect){
-			$query = "SELECT submitted_date FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id}";
+		public static function getSubmitDateDiff($claim_form_no, $user_id,$connect){
+			$query = "SELECT DATEDIFF(CURRENT_DATE(), submitted_date )FROM tbl_claimform WHERE claim_form_no={$claim_form_no} AND user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -621,7 +728,7 @@
 		}
 
 		public static function deleteClaimForm($claim_form_no, $user_id, $connect){
-			$query = "DELETE FROM tbl_claimform  WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} LIMIT 1";
+			$query = "UPDATE tbl_claimform SET is_deleted=1 WHERE claim_form_no={$claim_form_no} AND user_id={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -646,6 +753,125 @@
 
 		public static function markStudentMahapola($student_index,$mahapola_category, $mahapola_eligibility, $connect){
 			$query = "UPDATE tbl_student SET mahapola_category={'$mahapola_category'} , mahapola_eligibility={'$mahapola_eligibility'} WHERE student_index={'$student_index'} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+//..................................................... Department Head ................................................................//
+		public static function getDeptUsingId($user_id, $connect)
+		{
+			$query = "SELECT department FROM tbl_user_flag WHERE user_id={$user_id}";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function getDepartmentForms($department, $connect)
+		{
+			$query = "SELECT u.*, uf.department FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND uf.department = '{$department}' AND NOT uf.membership_status=1 ORDER BY u.userId";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function requestaccept($user_id, $connect)
+		{
+			$query = "UPDATE tbl_user_flag SET membership_status=1 WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function requestdecline($user_id, $connect)
+		{
+			$query = "UPDATE tbl_user_flag SET healthcondition = '', civilstatus = '', member_type = '', schemename = '', department = '' WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function funct($user_id, $connect)
+		{
+			$query = "SELECT u.*, uf.healthcondition, uf.civilstatus, uf.membership_status, uf.member_type, uf.schemename, uf.department FROM tbl_user_flag uf, users u WHERE u.userId = uf.user_id AND uf.user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+//......................................................................................................................................//
+
+		public static function getDegreeId($student_index, $connect){
+			$query = "SELECT degeree_id FROM tbl_student_degree WHERE student_index={$student_index} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getDegreeName($degree_id, $connect){
+			$query = "SELECT degree_name FROM tbl_degree WHERE degree_id={$degree_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getDateDiffFromJoin($user_id,$connect){
+			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment )FROM users WHERE userId={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getMeidcalMemDetails($user_id, $connect){
+			$query = "SELECT * FROM users WHERE userId={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getMeidcalMemDetailsOne($user_id, $connect){
+			$query = "SELECT * FROM tbl_user_flag WHERE user_id={$user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getSchemes($connect){
+			$query = "SELECT * FROM tbl_schemes WHERE is_deleted=0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getSchemeName($user_id, $connect){
+			$query = "SELECT schemename FROM tbl_medicalscheme WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function updatememDetails($user_id, $department,$health_condition, $civil_status, $scheme_name, $connect){
+			$query = "UPDATE tbl_user_flag SET department='{$department}' ,healthcondition='{$health_condition}', civilstatus='{$civil_status}', schemename='{$scheme_name}' WHERE user_id={$user_id} ";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function updateScheme($user_id, $scheme_name, $connect){
+			$query = "UPDATE tbl_medicalscheme SET schemename='{$scheme_name}' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 

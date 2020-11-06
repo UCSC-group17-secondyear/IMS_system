@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li>Select Form</li>
+                    <li class="active">Update Claim Form</li>
                 </ul>
             
         <div class="row">
@@ -26,9 +26,10 @@
                 <div class="contentForm">
                     <table id="tableStyle">
                         <tr>
-                            <th>Claim Form No</th>
-                            <th>Update</th>
-                            <th>Delete</th>
+                            <th id="">S/O</th>
+                            <th id="">Claim Form No</th>
+                            <th id="">Update</th>
+                            <th id="">Delete</th>
                         </tr>
                         <?php echo $_SESSION['claim_form_no']; ?>
                     </table>

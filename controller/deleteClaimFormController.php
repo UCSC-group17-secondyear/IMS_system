@@ -12,11 +12,8 @@
             $result = Model::deleteClaimForm($claim_form_no,$user_id, $connect);
     
             if ($result) {
-                header('Location:../view/medicalSchemeMember/memUpdateClaimFormsV.php?msg=book_deleted');
+                header('Location:../view/medicalSchemeMember/memDeleteClaimFormSuccessV.php');
             }
-            else {
-                header('Location:../view/medicalSchemeMember/memUpdateClaimFormsV.php?err=delete_failed');
-            }
-    
+           
         }
 ?>

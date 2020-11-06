@@ -1,29 +1,27 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
-    <title>Booking Update</title>
-    <?php
-        require '../basic/header.php';
-    ?>
+    <ul class="breadcrumbs">
+        <li><a href="asmHomeV.php">Home</a></li>
+        <li class="active">Updated a Booking</li>
+    </ul>
 
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
-            <li>Updated a Booking</li>
-        </ul>
+    <div class="row">
+        <div class="col left20">
+            <?php
+                require 'asmSideNavV.php';
+            ?>
+        </div>
+
+        <div class="col right80">
+            <div class="contentForm">
+                <form>
+                    <p>Your booking has been updated successfully.</p>
+                    <a href="asmUpdateBookingV.php"><button class="mainbtn" type="submit" name="bookingUpdateSuccess-submit">OK</button></a><br>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require '../academicStaffMember/asmSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <p>Your booking has been updated successfully.</p>
-        <a href="asmUpdateBookingV.php"><button type="submit" name="bookingUpdateSuccess-submit">OK</button></a><br>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-
 </main>

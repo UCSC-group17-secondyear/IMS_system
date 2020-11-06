@@ -8,7 +8,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Hall allocation Schedule</li>
+            <li><a href="hamViewHallAllocationScheduleV.php">Hall allocation Schedule</a></li>
+            <li class="active">Schedule</li>
         </ul>
 
         <div class="row">
@@ -34,7 +35,6 @@
                         <td></td>
                     </tr>
                 </table>
-                <a href="hamViewHallAllocationScheduleV.php"><button type="submit" name="">OK</button></a>
             </div>
         </div>
     </div>

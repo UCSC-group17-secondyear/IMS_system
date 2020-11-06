@@ -20,6 +20,7 @@
             while($row_o = mysqli_fetch_assoc($result_opd)){
 
                 $_SESSION['claim_form_no'] .= "<tr>";
+                $_SESSION['claim_form_no'] .= "<td>O</td>";
                 $_SESSION['claim_form_no'] .= "<td>{$row_o['claim_form_no']}</td>";
                 $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/claimFormListControllerTwo.php?claim_form_no={$row_o['claim_form_no']}&user_id={$user_id}\">View Form</a></td>";
 
@@ -32,6 +33,7 @@
             while($row_s = mysqli_fetch_assoc($result_surgical)){
 
                 $_SESSION['claim_form_no'] .= "<tr>";
+                $_SESSION['claim_form_no'] .= "<td>S</td>";
                 $_SESSION['claim_form_no'] .= "<td>{$row_s['claim_form_no']}</td>";
                 $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/claimFormListControllerTwo.php?claim_form_no={$row_s['claim_form_no']}&user_id={$user_id}\">View Form</a></td>";
 

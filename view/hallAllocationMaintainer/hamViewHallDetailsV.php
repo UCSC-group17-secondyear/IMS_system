@@ -8,7 +8,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Hall Details</li>
+            <li><a href="hamHallDetailsV.php">View Hall Details</a></li>
+            <li class="active">Hall Details</li>
         </ul>
 
         <div class="row">
@@ -35,8 +36,6 @@
                         <td></td>
                     </tr>
                 </table>
-
-                <a href="hamHallDetailsV.php"><button type="submit" name="">Ok</button></a>
             </div>
         </div>
     </div>

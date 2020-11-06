@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li>View Month Wise Attendance</li>
+        <li class="active">View Month Wise Attendance</li>
     </ul>
 
     <div class="row">
@@ -28,7 +28,7 @@
                             <label>Enter calendar year</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" name="calander_year" placeholder="Calander Year" required/> <br>
+                            <input type="number" name="calander_year" placeholder="Calander Year" /> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -36,7 +36,7 @@
                             <label>Enter month</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="month" placeholder="Month" required/> <br>
+                            <input type="text" name="month" placeholder="Month" /> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -44,7 +44,7 @@
                             <label>Enter Degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="degree" placeholder="Degree" required/> <br>
+                            <input type="text" name="degree" placeholder="Degree" /> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -52,7 +52,7 @@
                             <label>Enter Academic Year</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="academic_year" placeholder="Academic Year" required/> <br>
+                            <input type="text" name="academic_year" placeholder="Academic Year" /> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -60,7 +60,7 @@
                             <label>Enter Subject</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject" placeholder="Subject" required/> <br>
+                            <input type="text" name="subject" placeholder="Subject" /> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -68,13 +68,13 @@
                             <label>Enter Start Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="start_date" placeholder="Start Date" required/> <br>
+                            <input type="date" name="start_date" placeholder="Start Date" /> <br>
                         </div>
                     </div>
-                    <button class="mainbtn" type="submit" name="select-submit" href="amDisplayAttendanceV.php">Display Attendance</button>
-                </form>
-                <form>
-                    <button class="cancelbtn" type="submit" name="cancel-submit">Cancel</button>
+                    <button class="subbtn" type="submit" name="select-submit" href="amDisplayAttendanceV.php">Display Attendance</button>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">
+                        <a href="amHomeV.php">Cancel</a> 
+                    </button>
                 </form>
             </div>
         </div>

@@ -8,6 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
+                    <li class="active">OPD claim Details</li>
                 </ul>
         <div class="row">
             <div class="col left20">
@@ -106,6 +107,10 @@
                         </div>
                             
                         </form>
+                        
+                        <button class="mainbtn" type="submit" name="">
+                            <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
+                        </button>
                 </div>
             </div>
         </div>

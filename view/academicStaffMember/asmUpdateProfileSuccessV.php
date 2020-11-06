@@ -1,31 +1,28 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
-    <title>Profile Update Success</title>
+    <ul class="breadcrumbs">
+        <li><a href="asmHomeV.php">Home</a></li>
+        <li class="active">Success Massage</li>
+    </ul>
 
-    <?php
-        require '../basic/header.php';
-    ?>
+    <div class="row">
+        <div class="col left20">
+            <?php
+                require 'asmSideNavV.php';
+            ?>
+        </div>
 
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
-            <li>Success Massage</li>
-        </ul>
+        <div class="col right80">
+            <div class="contentForm">
+                <form>
+                    <p>Your profile has been updated successfully..</p>
+
+                    <a href="asmProfileV.php"><button class="mainbtn" type="submit">OK</button></a>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require '../academicStaffMember/asmSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <p>Your profile has been updated successfully..</p>
-
-        <a href="asmProfileV.php"><button type="submit">OK</button></a>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-
 </main>

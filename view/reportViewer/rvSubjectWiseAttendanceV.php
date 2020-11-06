@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>View Subject-wise Attendance</li>
+            <li class="active">View Subject-wise Attendance</li>
         </ul>
         <div class="row">
             <div class="col left20">
@@ -75,8 +75,13 @@
                             </div>
                         </div>
                     </form>
-                    <form action="" method="post">
-                        <a href="#"><button class="subbtn" type="submit" name="select-submit">Display Attendance</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="select-submit">
+                            <a href="#">Display Attendance</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="rvHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

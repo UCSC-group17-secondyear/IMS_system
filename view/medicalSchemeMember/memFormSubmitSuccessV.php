@@ -7,7 +7,7 @@
 
         <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memFillClaimFormsV.php">Select Form Type</a></li>
+            <li class="active">Form Submitted</li>
         </ul>
 
         <div class="row">
@@ -18,9 +18,9 @@
             </div>
             
             <div class="col right80">
-                <p>Your form has been submitted succesfully.</p>
+                <h2>Your form has been submitted succesfully.</h2>
 
-                <a href="memHomeV.php"><button type="submit" name="">OK</button></a><br>
+                <a href="memHomeV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
             </div>
         </div>
 </main>

@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Enter time table</li>
+            <li class="active">Enter time table</li>
         </ul>
         <div class="row">
             <div class="col left20">
@@ -69,7 +69,12 @@
                               <input type="time" id="" name="e_time" placeholder="Ending_time" required/><br>
                             </div>
                         </div>
-                        <a href="hamSaveEnterTimeTableV.php"><button class="mainbtn" type="submit" name="">Save</button></a>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="#">Save</a>
+                        </button>
+                        <button class="cancelbtn" type="submit">
+                            <a href="hamHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

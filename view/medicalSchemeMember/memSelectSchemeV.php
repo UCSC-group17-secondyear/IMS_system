@@ -9,7 +9,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="memHomeV.php">Home</a></li>
                         <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
-                        <li>Select Scheme</li>
+                        <li class="active">Select Scheme</li>
                     </ul>
                
             <div class="row">
@@ -19,30 +19,29 @@
                         ?>
                     </div>
 
-                    <div class="col right80">
+                <div class="col right80">
                         <div>
                             <h2>Select a Scheme</h2>
                         </div>
 
                     <div class="contentForm">
-                        <div class="row">
-                            <div class="col-25">
-                                <label for=""></label>
+                        <form action="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId']?>&scheme_name=<?php echo $_SESSION['scheme_name']?>" method="POST">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for=""></label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="scheme_name" id="" required>
+                                        <option value="">Select Scheme</option>
+                                        <?php echo $_SESSION['scheme_name'] ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <select name="scheme" id="">
-                                    <option value="">Select Scheme</option>
-                                    <option value="scheme1">Scheme 1</option>
-                                    <option value="scheme2">Scheme 2</option>
-                                    <option value="scheme3">Scheme 3</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                        <br><br>
 
-                        <a href="memCurrentMemberDetailsV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                            <button class="mainbtn" type="submit" name="submit-scheme">OK</button><br>
+                        </form>
                     </div>
+                </div>
             </div>
         </div>
 </main>

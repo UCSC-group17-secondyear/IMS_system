@@ -8,6 +8,7 @@
                     
                         <ul class="breadcrumbs">
                             <li><a href="memHomeV.php">Home</a></li>
+                            <li class="active">Surgical Hospitalization Form</li>
                         </ul>
                    
             <div class="row">
@@ -67,12 +68,10 @@
                                     <label for="">Department</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="department" id="" required>
-                                        <option valu="">Select Option</option>
-                                        <option value="CS">CS</option>
-                                        <option value="IS">IS</option>
-                                        <option value="SE">SE</option>
-                                    </select> <br>
+                                    <select name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required>
+                                        <option value="">Select department: </option>
+                                        <?php echo $_SESSION['department'] ?>
+                                    </select>
                                 </div>
                             </div>
 
@@ -286,10 +285,21 @@
 
                                 <button class="mainbtn" type="submit" name="form-submit">Submit</button><br>  
                             </form>
-                            <br>
-                            <p>Download the form to be filled by the surgeon and get if field before you fill the surgical hospitalization form.</p>
 
-                        </div>
+                            <form>
+                                <button class="subbtn" type="submit" name="userroleList-submit">
+                                    <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
+                                </button>
+                                <button type="submit" class="cancelbtn">
+                                    <a href="memHomeV.php">Cancel</a>
+                                </button>
+                            </form>    
+                        
+                        
+                            <br>
+                            <h2>Download the form to be filled by the surgeon and get if field before you fill the surgical
+                                hospitalization form.</h2><br>
+                            </div>
                     </div>
             </div>
         </div>

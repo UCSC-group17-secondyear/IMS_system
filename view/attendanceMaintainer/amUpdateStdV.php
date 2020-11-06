@@ -6,9 +6,9 @@
     <title>Modify Students</title>
 
     <ul class="breadcrumbs">
-        <li><a href="aHomeV.php">Home</a></li>
-        <li><a href="aUsersV.php">Students table</a></li>
-        <li>Modify Students</li>
+        <li><a href="amHomeV.php">Home</a></li>
+        <!-- <li><a href="aUsersV.php">Students table</a></li> -->
+        <li class="active">Modify Students</li>
     </ul>
     <div class="row">
         <div class="col left20">
@@ -79,9 +79,10 @@
                             <input type="text" name="degree" <?php echo 'value="'.$_SESSION['degree'].'"' ?> required> <br>
                         </div>
                     </div>
-                    <button class="mainbtn" type="submit" name="saveStd-submit">Save Updates</button>
-                </form><form>
-                    <button class="cancelbtn" type="submit" name="cancel-submit">Cancel</button>
+                    <button class="subbtn" type="submit" name="saveStd-submit">Save Updates</button>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">
+                        <a href="amHomeV.php">Cancel</a> 
+                    </button>
                 </form>
             </div>
         </div>

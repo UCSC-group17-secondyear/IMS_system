@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Weekly Time Table</li>
+            <li class="active">Weekly Time Table</li>
         </ul>
 
         <div class="row">
@@ -35,8 +35,6 @@
                         <td></td>
                     </tr>
                 </table>
-                
-                <a href="hamHomeV.php"><button class="mainbtn" type="submit" name="">OK</button></a>
             </div>
         </div>
     </div>

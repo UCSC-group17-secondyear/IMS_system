@@ -7,7 +7,7 @@
     <div class="sansserif">
             <ul class="breadcrumbs">
                 <li><a href="memHomeV.php">Home</a></li>
-                <li>Form List</li>
+                <li class="active">Form List</li>
             </ul>
             
             <div class="row">
@@ -24,8 +24,9 @@
                     
                     <table id="tableStyle">
                         <tr>
-                            <th>Claim Form No</th>
-                            <th></th>
+                            <th id="">S/O</th>
+                            <th id="">Claim Form No</th>
+                            <th id=""></th>
                         </tr>
 
                         <?php echo $_SESSION['claim_form_no']; ?>

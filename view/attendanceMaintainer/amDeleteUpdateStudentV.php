@@ -3,11 +3,11 @@
 ?>
 
 <main>
-    <title>Delete/Update Student Details</title>
+    <title>Search Student</title>
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li>Delete or Update Student Details</li>
+        <li class="active">Search Student</li>
     </ul>
 
     <div class="row">
@@ -19,7 +19,7 @@
 
         <div class="col right80">
             <div>
-                <h2>Update or Delete Students' Details</h2>
+                <h2>Search Student</h2>
             </div>
             <div class="contentForm">
                 <form action="../../controller/amControllers/updateRemoveStdC.php" method="post">
@@ -31,10 +31,10 @@
                             <input type="text" name="index_no" placeholder="Student Index No" required/><br>
                         </div>
                     </div>
-                    <button class="mainbtn" type="submit" name="getStudent-submit">Enter</button>
-                </form>
-                <form>
-                    <button class="cancelbtn" type="submit" name="cancel-submit">Cancel</button>
+                    <button class="subbtn" type="submit" name="getStudent-submit">Enter</button>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">
+                        <a href="amHomeV.php">Cancel</a>
+                    </button>
                 </form>
             </div>
         </div>

@@ -8,8 +8,8 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
-                    <li>Scheme Changed</li>
+                    <li><a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">Renew Membership</a></li>
+                    <li class="active">Change Scheme</li>
                 </ul>
             
             <div class="row">
@@ -23,8 +23,9 @@
                 <div class="contentForm">
                     
                         <h2>You are assigned to Scheme 3</h2>
-
-                    <a href="memCurrentMemberDetailsV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                    <form action="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                        <button class="mainbtn" type="submit" name="member-btn">OK</button>
+                    </form>
                 </div>
             </div>
             </div>

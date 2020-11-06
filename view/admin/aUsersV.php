@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>User List</li>
+            <li class="active">User List</li>
         </ul>
 
         <div class="row">
@@ -23,7 +23,7 @@
                     <h2>Users in IMS System</h2>
                 </div>
 
-                <table id="tableStyle" style="margin-left: 65px;">
+                <table id="tableStyle">
                     <tr>
                         <th>Employee Id</th>
                         <th>Initials</th>

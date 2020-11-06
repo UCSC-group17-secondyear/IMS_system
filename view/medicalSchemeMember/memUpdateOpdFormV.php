@@ -7,7 +7,8 @@
         <div class="sansserif">
                 
                     <ul class="breadcrumbs">
-                        <li><a href="memHomeV.php?user_id=<?php echo $_SESSION['user_id'] ?>">Home</a></li>
+                        <li><a href="memHomeV.php">Home</a></li>
+                        <li class="active">Update OPD Form</li>
                     </ul>
                 
             <div class="row">
@@ -117,6 +118,15 @@
 
                                 <button class="mainbtn" type="submit" name="update-form">Update Form</button>
                             </form>
+
+                            <form>
+                                <button class="subbtn" type="submit" name="userroleList-submit">
+                                    <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId']?>">View Claim Form List</a>
+                                </button>
+                                <button type="submit" class="cancelbtn">
+                                    <a href="memHomeV.php">Cancel</a>
+                                </button>
+                            </form> 
                         </div>
                     </div>
                 </div>

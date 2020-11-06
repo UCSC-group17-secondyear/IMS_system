@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>View Reports in Mahapola Scheme</li>
+            <li class="active">View Reports in Mahapola Scheme</li>
         </ul>
 
         <div class="row">
@@ -67,8 +67,13 @@
                             </div>
                         </div>
                     </form>
-                    <form action="" method="post">
-                        <a href="mmDisplayReportV.php"><button class="subbtn" type="submit" name="updateDegree-submit">Display Report</button></a>
+                    <form>
+                        <button class="subbtn" type="submit" name="select-submit">
+                            <a href="#">Display Report</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="rvHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

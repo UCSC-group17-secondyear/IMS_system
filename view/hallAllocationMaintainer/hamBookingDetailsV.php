@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li>Booking Details</li>
+            <li class="active">Booking Details</li>
         </ul>
 
         <div class="row">
@@ -78,6 +78,6 @@
     </div>
 </main>
 
-<!-- <?php
-    // require '../basic/footer.php';
-?> -->
+<?php
+    require '../basic/footer.php';
+?>

@@ -1,29 +1,38 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
 <main>
+    <title>Medical Officer Home Page</title>
 
-    <?php
-        require '../basic/header.php';
-    ?>
+    <div class="sansserif">
+        <ul class="breadcrumbs">
+            <li class="active">Medical Officer Page</li>
+        </ul>
 
-    <div class="header">
-        <!-- Breadcrumbs -->
+        <div class="row">
+            <div class="column left">
+                <?php
+                    require 'moSideNavV.php';
+                ?>
+            </div>
+            <div class="column middle">
+                <h2>Medical Officer Page</h2>
+            </div>
+            <div class="column right">
+                <!-- <div class="card"> -->
+                    <div class="imgcontainer">
+                        <img src="../assests/img/profile.png" alt="Avatar" style="width:100%">
+                    </div>
+                    <div class="btncontainer">
+                        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="side-nav">
-        <?php
-            require '../medicalOfficer/moSideNavV.php';
-        ?>
-    </div>
-
-    <div class="banner">
-        <h2>Medical User</h2>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-
 </main>
+
+<?php
+    require "../basic/footer.php";
+?>

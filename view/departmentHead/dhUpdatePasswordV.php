@@ -9,13 +9,13 @@
         <ul class="breadcrumbs">
             <li><a href="dhHome.php">Home</a></li>
             <li><a href="dhProfileV.php">Profile</a></li>
-            <li>Update Password</li>
+            <li class="active">Update Password</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../departmentHead/dhSideNav.php';
+                    require '../departmentHead/dhSideNavV.php';
                 ?>
             </div>
 
@@ -44,12 +44,17 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="submit" class="mainbtn">Save Password</button>
+                        <button type="submit" name="submit" class="subbtn">Save Password</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="dhHome.php">Cancel</a>
+                        </button>
                     </form>
-                    <a href="dhHome.php"><button type="submit" class="cancelbtn"  style="margin-left:310px;">Cancel</button></a>
                 </div>
-                
             </div>
         </div>
     </div>
 </main>
+
+<?php
+    require "../basic/footer.php";
+?>

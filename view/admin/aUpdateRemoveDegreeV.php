@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update or Remove Degree</li>
+            <li class="active">Update or Remove Degree</li>
         </ul>
 
         <div class="row">
@@ -32,6 +32,9 @@
                     </tr>
                     <?php echo $_SESSION['degree_list']; ?>
                 </table>
+                <button class="mainbtn" type="submit">
+                    <a href="aHomeV.php">Back</a>
+                </button>
             </div>
         </div>
     </div>
