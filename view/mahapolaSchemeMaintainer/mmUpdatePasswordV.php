@@ -24,7 +24,7 @@
                     <h2>Update Password</h2>
                 </div>
 
-                <div class="contentForm">
+                <div class="signupForm">
                     <form action="../../controller/updatePasswordControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
                             <div class="col-25">
