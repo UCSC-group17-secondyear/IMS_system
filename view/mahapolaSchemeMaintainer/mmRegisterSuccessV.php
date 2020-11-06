@@ -5,10 +5,9 @@
 <main>
     <title>Register Success</title>
         <div class="sansserif">
-            
-                <ul class="breadcrumbs">
-                    <li><a href="mmHomeV.php">Home</a></li>
-                </ul>
+            <!-- <ul class="breadcrumbs">
+                <li><a href="mmHomeV.php">Home</a></li>
+            </ul> -->
             
             <div class="row">
                 <div class="col left20">

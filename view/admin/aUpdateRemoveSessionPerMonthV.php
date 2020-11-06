@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update or remove a monthly session</li>
+            <li class="active">Update or remove a monthly session</li>
         </ul>
 
         <div class="row">

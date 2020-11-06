@@ -7,7 +7,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li>Update or Remove Degree</li>
+            <li class="active">Update or Remove Degree</li>
         </ul>
 
         <div class="row">

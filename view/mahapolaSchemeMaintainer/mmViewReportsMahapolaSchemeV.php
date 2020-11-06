@@ -4,12 +4,11 @@
 
 <main>
     <title>Reports</title>
-        <div class="sansserif">
-                
-                    <ul class="breadcrumbs">
-                        <li><a href="mmHomeV.php">Home</a></li>
-                        <li class="active">Mahapola Scheme Reports</li>
-                    </ul>
+        <div class="sansserif">    
+            <ul class="breadcrumbs">
+                <li><a href="mmHomeV.php">Home</a></li>
+                <li class="active">Mahapola Scheme Reports</li>
+            </ul>
                 
             <div class="row">
                 <div class="col left20">

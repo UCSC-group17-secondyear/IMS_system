@@ -8,7 +8,7 @@
     <ul class="breadcrumbs">
         <li><a href="aHomeV.php">Home</a></li>
         <li><a href="aViewSemesterV.php">Semester Details</a></li>
-        <li>Update Semester</li>
+        <li class="active">Update Semester</li>
     </ul>
 
     <div class="row">

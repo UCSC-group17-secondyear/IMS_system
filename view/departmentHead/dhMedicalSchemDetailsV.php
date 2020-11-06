@@ -6,7 +6,7 @@
   <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
-            <li>Medical Scheme Details</li>
+            <li class="active">Medical Scheme Details</li>
         </ul>
 
         <div class="row">

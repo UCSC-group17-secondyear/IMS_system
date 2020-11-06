@@ -8,7 +8,7 @@
     <ul class="breadcrumbs">
         <li><a href="aHomeV.php">Home</a></li>
         <li><a href="amDeleteUpdateStudentV.php">Select student</a></li>
-        <li>Student Detail</li>
+        <li class="active">Student Detail</li>
     </ul>
 
     <div class="row">

@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
             <li><a href="amProfileV.php">Profile</a></li>
-            <li>Update Password</li>
+            <li class="active">Update Password</li>
         </ul>
 
         <div class="row">
@@ -44,11 +44,12 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="submit" class="mainbtn">Save Password</button>
+                        <button type="submit" name="submit" class="subbtn">Save Password</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="amHome.php">Cancel</a>
+                        </button>
                     </form>
-                    <a href="amHomeV.php"><button type="submit" class="cancelbtn">Cancel</button></a>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -57,4 +58,3 @@
 <?php
     require "../basic/footer.php";
 ?>
-
