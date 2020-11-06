@@ -46,7 +46,11 @@
                         <input type="text" name="appointment" <?php echo 'value="'.$_SESSION['appointment'].'"' ?> required> <br>                    
                         <label for="">Password: </label>
                         <span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
-                        <button type="submit" name="submit" class="mainbtn">Save Updates</button>
+                        
+                        <button type="submit" name="submit" class="subbtn">Save Updates</button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="rvHome.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

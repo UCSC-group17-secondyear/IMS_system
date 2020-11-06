@@ -47,7 +47,7 @@
 
                         <button type="submit" name="submit" class="subbtn">Save Password</button>
                         <button type="submit" class="cancelbtn">
-                            <a href="dhHome.php">Cancel</a>
+                            <a href="memHome.php">Cancel</a>
                         </button>
                     </form>
                 </div>
