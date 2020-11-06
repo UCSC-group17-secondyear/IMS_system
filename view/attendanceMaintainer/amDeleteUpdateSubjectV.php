@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">home</a></li>
-        <li>Update or Remove a subject</li>
+        <li class="active">Update or Remove a subject</li>
     </ul>
 
     <div class="row">

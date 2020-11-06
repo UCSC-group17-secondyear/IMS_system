@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li>Delete Attendance</li>
+        <li class="active">Delete Attendance</li>
     </ul>
 
      <div class="row">
