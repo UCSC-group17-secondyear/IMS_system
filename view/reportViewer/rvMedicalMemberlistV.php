@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="rvHomeV.php">Home</a></li>
-            <li>Medical Scheme Member List</li>
+            <li class="active">Medical Scheme Member List</li>
         </ul>
 
         <div class="row">

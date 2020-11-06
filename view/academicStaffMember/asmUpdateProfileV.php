@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li><a href="asmProfileV.php">My Profile</a></li>
-            <li>Update Profile</li>
+            <li class="active">Update Profile</li>
         </ul>
 
         <div class="row">
@@ -20,7 +20,7 @@
             </div>
 
             <div class="col right80">
-                <div style="margin-top:-10px">
+                <div>
                     <h2>Update Profile</h2>
                 </div>
 

@@ -8,14 +8,14 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aProfileV.php">My Profile</a></li>
-            <li>Update Profile</li>
+            <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">My Profile</a></li>
+            <li class="active">Update Profile</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../admin/aSideNavV.php';
+                    require 'aSideNavV.php';
                 ?>
             </div>
 

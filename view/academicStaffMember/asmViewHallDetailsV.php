@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li><a href="asmHallDetailsV.php">View Hall Details</a></li>
-            <li>Hall Details</li>
+            <li class="active">Hall Details</li>
         </ul>
 
         <div class="row">

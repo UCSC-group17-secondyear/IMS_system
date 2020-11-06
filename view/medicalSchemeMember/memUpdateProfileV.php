@@ -20,7 +20,7 @@
             </div>
 
             <div class="col right80">
-                <div style="margin-top:-10px">
+                <div>
                     <h2>Update Profile</h2>
                 </div>
 
@@ -107,7 +107,7 @@
 	                        </div>
 	                    </div>
                         
-                        <button type="submit" name="submit" class="subbtn">Save Password</button>
+						<button type="submit" name="submit" class="subbtn">Save Updates</button>
                         <button type="submit" class="cancelbtn">
                             <a href="memHome.php">Cancel</a>
                         </button>

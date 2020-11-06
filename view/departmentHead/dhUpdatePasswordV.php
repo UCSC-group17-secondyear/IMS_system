@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="dhHome.php">Home</a></li>
             <li><a href="dhProfileV.php">Profile</a></li>
-            <li>Update Password</li>
+            <li class="active">Update Password</li>
         </ul>
 
         <div class="row">

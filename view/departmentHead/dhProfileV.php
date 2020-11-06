@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
-            <li>My Profile</li>
+            <li class="active">My Profile</li>
         </ul>
 
         <div class="row">
@@ -95,7 +95,7 @@
 	                        <div class="col-75">
 	                            <input type="text" name="appointment" <?php echo 'value="'.$_SESSION['appointment'].'"' ?> disabled> <br>
 	                        </div>
-	                    </div>                                                                                                                                                                                                                                                                                            
+	                    </div>
                         <button type="submit" name="submit" class="mainbtn">Update Profile</button>
                     </form>
                     <a href="dhHomeV.php">

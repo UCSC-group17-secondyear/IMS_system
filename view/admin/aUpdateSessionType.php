@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li><a href="aUpdateRemoveSessionV.php">Update or remove a session type</a></li>
-            <li>Update session type</li>
+            <li class="active">Update session type</li>
         </ul>
 
         <div class="row">

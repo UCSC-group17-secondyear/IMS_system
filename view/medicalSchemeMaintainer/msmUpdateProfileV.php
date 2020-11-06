@@ -8,19 +8,19 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li><a href="msmProfileV.php">My Profile</a></li>
-            <li>Update Profile</li>
+            <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">My Profile</a></li>
+            <li class="active">Update Profile</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require '../medicalSchemeMaintainer/aSideNavV.php';
+                    require 'msmSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
-                <div style="margin-top:-10px">
+                <div>
                     <h2>Update Profile</h2>
                 </div>
 
@@ -107,7 +107,7 @@
 	                        </div>
 	                    </div>
                         
-                        <button type="submit" name="submit" class="subbtn">Save Updates</button>
+						<button type="submit" name="submit" class="subbtn">Save Updates</button>
                         <button type="submit" class="cancelbtn">
                             <a href="msmHome.php">Cancel</a>
                         </button>
