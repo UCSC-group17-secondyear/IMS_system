@@ -103,17 +103,12 @@
 	                            <label for="">Password: </label>
 	                        </div>
 	                        <div class="col-75">
-	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
+	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a>
 	                        </div>
-                        
-                        <button type="submit" name="submit" class="subbtn">Save Updates</button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="mmHome.php">Cancel</a>
-                        </button>
-                    </form>
-                    <a href="mmProfileV.php">
-                        <button type="submit" class="cancelbtn">Cancel</button>
-                    </a>                    
+                        </div>
+                        <button type="submit" name="submit" class="mainbtn">Save Updates</button>
+                        <button type="submit" class="cancelbtn"><a href="mmProfileV.php">Cancel</a></button>
+                    </form>                                        
                 </div>
             </div>
         </div>

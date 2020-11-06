@@ -62,7 +62,7 @@
 					}
 					else if ($key['userRole'] == "medicalOfficer") {
 						header('Location:../view/medicalOfficer/moHomeV.php');
-					}
+                    }
 					else {
 						echo "Admin have not yet selected the user role to you.";
 					}

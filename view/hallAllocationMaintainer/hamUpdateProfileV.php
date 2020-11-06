@@ -103,13 +103,13 @@
 	                            <label for="">Password: </label>
 	                        </div>
 	                        <div class="col-75">
-	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
+	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a>
 	                        </div>
 	                    </div>
                         
 						<button type="submit" name="submit" class="subbtn">Save Updates</button>
                         <button type="submit" class="cancelbtn">
-                            <a href="hamHome.php">Cancel</a>
+                            <a href="hamHomeV.php">Cancel</a>
                         </button>
                     </form>
                 </div>
