@@ -27,51 +27,7 @@
 
                     <div class="contentForm">
                         <form action="../../controller/currentMemberDetailsControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Employee ID</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled>
-                                </div>
-                                </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Your initials</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"' ?> disabled/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Your surname</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"' ?> disabled/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Your E-mail</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"' ?> disabled/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Designation</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled>
-                                </div>
-                            </div>
-
+                            
                             <div class="row">
                                 <div class="col-25">
                                     <label>Health condition</label>

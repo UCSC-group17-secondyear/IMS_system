@@ -31,10 +31,7 @@
             $civil_status = $_POST['civilstatus'];
             $scheme_name = mysqli_real_escape_string($connect, $_SESSION['scheme']);
             
-            
-
-            $result_one = Model::updatememDetails($user_id, $department,$health_condition,$civil_status,$scheme_name, $connect);
-            
+            $result_one = Model::updatememDetails($user_id, $health_condition,$civil_status,$scheme_name, $connect);
             $result_two = Model::updateScheme($user_id, $scheme_name, $connect);
             
 
