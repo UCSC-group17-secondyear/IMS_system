@@ -16,7 +16,6 @@
                   
                 $result_one = mysqli_fetch_assoc($result_opd);
 
-                $_SESSION['user_id'] = $result_one['user_id'];
                 $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
                 $_SESSION['patient_name'] = $result_one['patient_name'];
                 $_SESSION['relationship'] = $result_one['relationship'];
@@ -34,7 +33,6 @@
                 
                 $result_one = mysqli_fetch_assoc($result_surgical);
 
-                $_SESSION['user_id'] = $result_one['user_id'];
                 $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
                 $_SESSION['patient_name'] = $result_one['patient_name'];
                 $_SESSION['relationship'] = $result_one['relationship'];
