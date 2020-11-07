@@ -1,5 +1,5 @@
 <main>
-    <title>Claim Details</title>
+    <title>Delete Claim Form</title>
 
     <?php
         require('../basic/header.php');
@@ -8,8 +8,6 @@
     <div class="header">
         <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="memSearchByReferenceFormV.php">Search By Reference</a></li>
-            <li>Form</li>
         </ul>
     </div>
 
@@ -18,13 +16,11 @@
             require('../medicalSchemeMember/memSideNavV.php');
         ?>
     </div>
-
+    
     <div class="content">
         <div>
-            <h4>Claim Details</h4>
+            <h4>Claim Form Deleted Succesfully</h4>
         </div>
-        <!-- pdf ekak widiyat generate kranna one claim details -->
-        <a href="memSearchByReferenceFormV.php"><button type="submit" name="">OK</button></a><br>
     </div>
     
     <?php
