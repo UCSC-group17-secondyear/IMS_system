@@ -10,10 +10,11 @@
 			<h2>Sign Up Here</h2>
 			<div class="row">
 	            <div class="col-25">
-	              <label>Employee id</label>
+	              <label>User name</label>
 	            </div>
 	            <div class="col-75">
 	              <input type="text" name="empid" required/>
+	              <p>Give the first three letters of the private email given to you by UCSC.</p>
 	            </div>
 	         </div>
 
@@ -37,7 +38,7 @@
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Mail address</label>
+	              <label>E-mail address</label>
 	            </div>
 	            <div class="col-75">
 	              <input type="email" name="email"/>
