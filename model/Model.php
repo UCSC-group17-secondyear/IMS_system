@@ -20,10 +20,29 @@
 
 		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $userRole, $appointment, $password, $connect) 
 		{
-			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, designation, appointment, userRole, password) VALUES('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$designation', '$appointment', '$userRole','$password')";
+			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, designation, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$designation', '$appointment', '$userRole','$password')";
 			
-			if($connect->query($query))
-				return true;
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getUId($empid, $connect)
+		{
+			$query = "SELECT userId FROM users WHERE empid='{$empid}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function setRole($user_id, $asm_flag, $connect)
+		{
+			$query = "INSERT INTO tbl_user_flag (user_id, asm_flag) VALUES($user_id, $asm_flag)";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
 		}
 
 		public static function view($user_id, $connect)
@@ -878,8 +897,9 @@
 			return $result;
 		}
 
-		public static function getSubmitDate($user_id, $claim_form_no, $connect){
-			$query = "SELECT submitted_date FROM tbl_claimform WHERE user_id={$user_id} AND claim_form_no={$claim_form_no} LIMIT 1";
+		public static function changeUserRole($user_id, $connect)
+		{
+			$query = "SELECT ham_flag, mo_flag, dh_flag, msm_flag, mem_flag, a_flag, rv_flag, am_flag, mm_flag, asm_flag FROM tbl_user_flag WHERE user_id={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

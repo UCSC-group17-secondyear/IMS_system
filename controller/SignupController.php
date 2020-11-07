@@ -2,13 +2,9 @@
 	session_start();
 	require_once('../config/database.php');
 	require_once('../model/Model.php');
-	// include 'model/Model.php';
-	// include 'config/database.php';
-
 	
 	if (isset($_POST['signup-submit'])) 
 	{	
-		// echo "hello";
 		$userInfo = array('empid'=>8, 'initials'=>10, 'sname'=>50, 'email'=>100,'mobile'=>10, 'tp'=>10, 'dob'=>10,'designation'=>50, 'appointment'=>10, 'password'=>20, 'conpassword'=>20);
 		
 		foreach ($userInfo as $info=>$maxLen) 
@@ -61,15 +57,29 @@
 			elseif ($designation == 'non-academic-staff') {
 				$userRole = 'nonAcademicStaffMemb';
 			}
-			$result = Model::signUp($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $userRole, $appointment, $hashed_password, $connect);
+			
+			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $userRole, $appointment, $hashed_password, $connect);
 
             if ($result == true) 
             {
+				$result1 = Model::getUId($empid, $connect);
+				if ($result1) {
+					if(mysqli_num_rows($result1)==1){
+						$result2 = mysqli_fetch_assoc($result1);
+						$user_id = $result2['userId'];
+
+						if ($designation == 'lecturer') {
+							$asm_flag = 1;
+						}
+						$result3 = Model::setRole($user_id, $asm_flag, $connect);
+					}
+				}
+				
                 header('Location:../view/basic/login.php');
             }
             else 
             {
-                $errors[] = 'Failed to add the user.';
+                echo 'Failed to add the user.';
             }
 		}
 	}
