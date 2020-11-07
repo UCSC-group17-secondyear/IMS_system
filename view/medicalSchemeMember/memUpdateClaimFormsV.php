@@ -28,6 +28,7 @@
                         <tr>
                             <th id="">S/O</th>
                             <th id="">Claim Form No</th>
+                            <th id="">Submitted Date</th>
                             <th id="">Update</th>
                             <th id="">Delete</th>
                         </tr>
