@@ -74,18 +74,6 @@
 
                             <div class="row">
                                 <div class="col-25">
-                                    <label>Enter department</label>
-                                </div>
-                                <div class="col-75">
-                                    <select name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required>
-                                        <option value="">Select department: </option>
-                                        <?php echo $_SESSION['department'] ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
                                     <label>Health condition</label>
                                 </div>
                                 <div class="col-75">
@@ -99,7 +87,7 @@
                                 </div>
                                 <div class="col-75">
                                     <select name="civilstatus" <?php echo 'value="'.$_SESSION['civilstatus'].'"' ?> required>
-                                        <option value="">...</option>
+                                        <!-- <option value="">...</option> -->
                                         <option value="married">Married</option>
                                         <option value="unmarried">Unmarried</option>
                                     </select>

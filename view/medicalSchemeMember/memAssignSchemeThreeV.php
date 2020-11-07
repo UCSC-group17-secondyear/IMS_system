@@ -22,10 +22,7 @@
                     </div>
 
                 <div class="col right80">
-                        <div>
-                            
-                        </div>
-
+                    
                     <div class="contentForm">
                         <form action="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId']?>" method="POST">
                             <h2>You are assigned to Scheme 3</h2>

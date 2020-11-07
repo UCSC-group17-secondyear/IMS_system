@@ -65,18 +65,6 @@
 
                             <div class="row">
                                 <div class="col-25">
-                                    <label for="">Department</label>
-                                </div>
-                                <div class="col-75">
-                                    <select name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required>
-                                        <option value="">Select department: </option>
-                                        <?php echo $_SESSION['department'] ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
                                     <label for="">Address</label>
                                 </div>
                                 <div class="col-75">
