@@ -24,7 +24,49 @@
                         <h2>Claim Details</h2>
                     </div>
                     
-                    <a href="memGetClaimDetailsV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                    <div class="contentForm">
+                        <form action="" method="post">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Scheme</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="scheme_name"  disabled> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">  
+                                    <label for="">Initial Amount</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="initial_amount"  disabled> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Already Used Amount</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="used_amount" disabled> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Remaining Amount</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="remain_amount" disabled> <br>
+                                </div>
+                            </div> 
+                        </form>
+                        
+                        <button class="mainbtn" type="submit" name="">
+                            <a href="">OK</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
