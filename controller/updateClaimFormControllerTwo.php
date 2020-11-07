@@ -11,13 +11,11 @@
         $result_set = Model::checkClaimFormNo($claim_form_no, $user_id, $connect);
         $result_opd = Model::checkWhetherOpd($claim_form_no,$user_id,$connect);
         $result_surgical = Model::checkWhetherSurgical($claim_form_no,$user_id,$connect);
-        //$submit_date = Model::getSubmitDate($claim_form_no,$user_id, $connect);
 
                 if(mysqli_num_rows($result_opd)==1){
                                 
                     $result_one = mysqli_fetch_assoc($result_opd);
 
-                    $_SESSION['user_id'] = $result_one['user_id'];
                     $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
                     $_SESSION['patient_name'] = $result_one['patient_name'];
                     $_SESSION['relationship'] = $result_one['relationship'];
@@ -26,7 +24,6 @@
                     $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
                     $_SESSION['purpose'] = $result_one['purpose'];
                     $_SESSION['bill_amount'] = $result_one['bill_amount'];
-                    $_SESSION['submitted_date'] = $result_one['submitted_date'];
 
                     header('Location:../view/medicalSchemeMember/memUpdateOpdFormV.php');
 
@@ -36,7 +33,6 @@
                     
                     $result_one = mysqli_fetch_assoc($result_surgical);
 
-                    $_SESSION['user_id'] = $result_one['user_id'];
                     $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
                     $_SESSION['patient_name'] = $result_one['patient_name'];
                     $_SESSION['relationship'] = $result_one['relationship'];
@@ -55,7 +51,6 @@
                     $_SESSION['sick_injury'] = $result_one['sick_injury'];
                     $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
                     $_SESSION['nature_of'] = $result_one['nature_of'];
-                    $_SESSION['submitted_date'] = $result_one['submitted_date'];
 
                     header('Location:../view/medicalSchemeMember/memUpdateSurgicalFormV.php');
 
