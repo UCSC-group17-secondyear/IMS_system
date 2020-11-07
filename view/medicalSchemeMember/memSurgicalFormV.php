@@ -26,82 +26,7 @@
                         
                         <div class="contentForm">
                             <form action="../../controller/surgicalFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
-                                
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Emp Id</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Initials</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"'?> disabled> <br>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Name</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"'?> disabled> <br>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Designation</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"'?> disabled> <br>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Department</label>
-                                </div>
-                                <div class="col-75">
-                                    <select name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required>
-                                        <option value="">Select department: </option>
-                                        <?php echo $_SESSION['department'] ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Address</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="address" required> <br>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Telephone No</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="tp" <?php echo 'value="'.$_SESSION['tp'].'"' ?> disabled> <br>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Mobile No</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="mobile" <?php echo 'value="'.$_SESSION['mobile'].'"' ?> disabled> <br>
-                                </div>
-                            </div>
-
+                             
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Enter Patient's Name</label>
@@ -294,8 +219,6 @@
                                     <a href="memHomeV.php">Cancel</a>
                                 </button>
                             </form>    
-                        
-                        
                             <br>
                             <h2>Download the form to be filled by the surgeon and get if field before you fill the surgical
                                 hospitalization form.</h2><br>

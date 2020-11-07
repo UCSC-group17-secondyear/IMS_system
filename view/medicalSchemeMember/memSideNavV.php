@@ -30,15 +30,10 @@
                 </a><br>
             </li>
 
-            <li><button class="tree_list">View Claim Forms</button>
-                <ul class="tree_nest">
-                    <button>
-                        <a href="memSearchByReferenceFormV.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-plus-circle"></i>Search By Ref. Number</li></a>
-                    </button>
-                    <button>
-                        <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-plus-circle"></i>Display Form List</li></a>
-                    </button>
-                </ul>
+            <li>
+                <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                    <button type="submit" class="tree_list">View Claim Forms</button>
+                </a><br>
             </li>
 
             <li>

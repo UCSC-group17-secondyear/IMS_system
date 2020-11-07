@@ -14,19 +14,7 @@
 
     if ($result_set) {
         if(mysqli_num_rows($result_set)==1){
-            $result = mysqli_fetch_assoc($result_set);
             
-            $_SESSION['empid'] = $result['empid'];
-            $_SESSION['initials'] = $result['initials'];
-            $_SESSION['sname'] = $result['sname'];
-            $_SESSION['designation'] = $result['designation'];
-            $_SESSION['tp'] = $result['tp'];
-            $_SESSION['mobile'] = $result['mobile'];
-            
-            while ($dept = mysqli_fetch_array($depts)) {
-                $_SESSION['department'] .= "<option value='".$dept['department']."'>".$dept['department']."</option>";
-                
-            }
             header('Location:../view/medicalSchemeMember/memSurgicalFormV.php');
                                     
         }

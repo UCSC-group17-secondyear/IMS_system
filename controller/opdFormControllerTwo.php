@@ -52,7 +52,7 @@
                    $file_name_new = $user_id."-"."opd"."-".$submitted_date."-".uniqid('',true).".".$file_actual_ext;
                    $file_destination = '../view/img/bill/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = Model::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag, $file_name_new, $submitted_date, $connect);
+                   $result = Model::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_new, $submitted_date, $connect);
 
                 }
                 else{
@@ -66,6 +66,13 @@
 
 
             if ($result) {
+                // echo "hello";
+                // $to_email = "jamlannni97@gmail.com";
+                // $subject = "Simple Email Test via PHP";
+                // $body = "Hi,nn This is test email send by PHP Script";
+                // $headers = "From: janithrenuka31@gmail.com";
+
+                // $sendmail = mail($to_email, $subject, $body, $headers);
                 header('Location:../view/medicalSchemeMember/memFormSubmitSuccessV.php');
             }
             else {

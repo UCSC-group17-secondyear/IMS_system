@@ -20,10 +20,15 @@
                 $submit_diff = mysqli_fetch_array($date_diff);
                 $diff = (int)$submit_diff[0];
 
+                $date = Model::getSubmitDate($user_id,$row['claim_form_no'],$connect);
+                $sub_date = mysqli_fetch_array($date);
+                $submitted_date = $sub_date[0];
+
                     if($diff<=2){
                             $_SESSION['claim_form_no'] .= "<tr>";
-                            $_SESSION['claim_form_no'] .= "<td>O</td>";
+                            $_SESSION['claim_form_no'] .= "<td>OPD</td>";
                             $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+                            $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
                             $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/updateClaimFormControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Update Form</a></td>";
                             $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Delete Form</a></td>";
 
@@ -31,8 +36,9 @@
                         }
                     else{
                             $_SESSION['claim_form_no'] .= "<tr>";
-                            $_SESSION['claim_form_no'] .= "<td>O</td>";
+                            $_SESSION['claim_form_no'] .= "<td>OPD</td>";
                             $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+                            $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
                             $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
                             $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Delete Form</a></td>";
 
@@ -49,10 +55,15 @@
                 $submit_diff = mysqli_fetch_array($date_diff);
                 $diff = (int)$submit_diff[0];
 
+                $date = Model::getSubmitDate($user_id,$row['claim_form_no'],$connect);
+                $sub_date = mysqli_fetch_array($date);
+                $submitted_date = $sub_date[0];
+
                     if($diff<=2){
                         $_SESSION['claim_form_no'] .= "<tr>";
-                        $_SESSION['claim_form_no'] .= "<td>S</td>";
+                        $_SESSION['claim_form_no'] .= "<td>Surgical</td>";
                         $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+                        $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
                         $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/updateClaimFormControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Update Form</a></td>";
                         $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Delete Form</a></td>";
 
@@ -60,8 +71,9 @@
                     }
                     else{
                         $_SESSION['claim_form_no'] .= "<tr>";
-                        $_SESSION['claim_form_no'] .= "<td>S</td>";
+                        $_SESSION['claim_form_no'] .= "<td>Surgical</td>";
                         $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+                        $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
                         $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
                         $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Delete Form</a></td>";
 
