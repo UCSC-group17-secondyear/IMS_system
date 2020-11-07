@@ -53,7 +53,7 @@
 					}
 					else if ($key['userRole'] == "medicalSchemeMain") {
 						header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
-					}
+                    }
 					else if ($key['userRole'] == "recordsViewer") {
 						header('Location:../view/reportViewer/rvHomeV.php');
 					}
