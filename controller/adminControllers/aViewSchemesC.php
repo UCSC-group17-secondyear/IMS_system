@@ -22,7 +22,9 @@
             $_SESSION['scheme_list'] .= "<td>{$record['consultantFee']}</td>";
             $_SESSION['scheme_list'] .= "<td>{$record['investigationsCost']}</td>";
             $_SESSION['scheme_list'] .= "<td>{$record['spectaclesCost']}</td>";
-            $_SESSION['scheme_list'] .= "<td>{$record['eleigibilityConditions']}</td>";
+            $_SESSION['scheme_list'] .= "<td>{$record['permanentStaff']} months</td>";
+            $_SESSION['scheme_list'] .= "<td>{$record['contractStaff']} months</td>";
+            $_SESSION['scheme_list'] .= "<td>{$record['temporaryStaff']} months</td>";
             // $_SESSION['scheme_list'] .= "<td><a href=\"../../controller/aUpdateDegreeController.php?degree_id={$record['degree_id']}\">Edit</a></td>";
             // $_SESSION['scheme_list'] .= "<td><a href=\"../../controller/aDeleteDegreeController.php?degree_id={$record['degree_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
             $_SESSION['scheme_list'] .= "</tr>";
