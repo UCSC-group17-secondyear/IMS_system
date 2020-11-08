@@ -8,7 +8,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li class="active">Add a new scheme</li>
+            <li><a href="aUpdateSchemeV.php">Update a scheme</a></li>
+            <li class="active">Update</li>
         </ul>
 
         <div class="row">
@@ -20,7 +21,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Add a new Scheme</h2>
+                    <h2>Update selected Scheme</h2>
                 </div>
 
                 <div class="contentForm" style="margin-bottom: 0px;">
@@ -30,7 +31,7 @@
                                 <label>Enter Scheme Name</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="schemeName"  required/><br>
+                                <input type="text" name="schemeName"  <?php echo 'value="'.$_SESSION['schemeName'].'"' ?> dissabled /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -42,7 +43,7 @@
                               <label>Enter Maximum room charge per day in a hospital</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="maxRoomCharge"  required/><br>
+                                <input type="text" name="maxRoomCharge"  <?php echo 'value="'.$_SESSION['maxRoomCharge'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -50,7 +51,7 @@
                               <label>Non-State Hospital/paying wards of state and semi state hospitals Charges including Room Charges </label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="hospitalCharges" required/><br>
+                                <input type="text" name="hospitalCharges" <?php echo 'value="'.$_SESSION['hospitalCharges'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -58,7 +59,7 @@
                               <label>Enter Annual Premium</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="annualPremium"  required/><br>
+                                <input type="text" name="annualPremium"  <?php echo 'value="'.$_SESSION['annualPremium'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -66,7 +67,7 @@
                               <label>Enter the monthly premium</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="monthlyPremium"  required/><br>
+                                <input type="text" name="monthlyPremium"  <?php echo 'value="'.$_SESSION['monthlyPremium'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -77,7 +78,7 @@
                               <label>Cover for Government Hospital non paying wards per day(only for a Maximum of 30 days per one event)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="gvtNoPayingWard" required/><br>
+                                <input type="text" name="gvtNoPayingWard" <?php echo 'value="'.$_SESSION['gvtNoPayingWard'].'"' ?> /><br>
                             </div>  
                         </div> 
                         <div class="row">
@@ -85,7 +86,7 @@
                               <label>Cover for a Child Birth at Government Hospital nonpaying wards (Normal or Caesarean)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="gvtChildBirthCover" required/><br>
+                                <input type="text" name="gvtChildBirthCover" <?php echo 'value="'.$_SESSION['gvtChildBirthCover'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -93,7 +94,7 @@
                               <label>Cover for the Expenses incurred for travel within Sri Lanka to obtain Emergency Treatment</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="travelExpensesCover" required/><br>
+                                <input type="text" name="travelExpensesCover" <?php echo 'value="'.$_SESSION['travelExpensesCover'].'"' ?> /><br>
                             </div>
                         </div>  
                         <div class="row">
@@ -104,7 +105,7 @@
                               <label>Limit of ANY ONE YEAR/ANY ONE EVENT (including charges related to Echocardiograph, ECG, CT, MRI, X-ray, Ultrasounds Scan, Pathological Lab Test and Stress Test, Hematological and Biochemical Investigations and Isotope Scanning etc.)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="annualLimit"  required/><br>
+                                <input type="text" name="annualLimit"  <?php echo 'value="'.$_SESSION['annualLimit'].'"' ?> /><br>
                             </div>
                         </div> 
                         <div class="row">
@@ -115,7 +116,7 @@
                               <label>Consultant Fee, Cost of drugs (excluding Vitamins, food Supplements ant Routine vaccination)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="consultantFee"  required/><br>
+                                <input type="text" name="consultantFee"  <?php echo 'value="'.$_SESSION['consultantFee'].'"' ?> /><br>
                             </div>
                         </div> 
                         <div class="row">
@@ -123,7 +124,7 @@
                               <label>Cost of investigations under the Recommendation of a medical offer registered in Sri Lanka Medical Council or Sri Lanka Ayurvedic Medical Council. Consultation fees only for Specialist or Medical Officers Registered in Sri Lanka Medical Council or Ayurvedic Doctors registered in Ayurvedic Medical Council, Dental treatment (filling and extraction only) and eye test.</label>
                             </div> 
                             <div class="col-25">
-                                <input type="text" name="investigationsCost" required/><br>
+                                <input type="text" name="investigationsCost" <?php echo 'value="'.$_SESSION['investigationsCost'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -131,7 +132,7 @@
                               <label>Cost of Spectacles recommended by an eye specialist once in 3 years, those who have not claimed within last three (03) years can apply (family members are not covered)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="spectaclesCost" required/><br>
+                                <input type="text" name="spectaclesCost" <?php echo 'value="'.$_SESSION['spectaclesCost'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -142,27 +143,27 @@
                               <label>For permanent staff</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="permanentStaff" required/>
+                                <input type="text" name="permanentStaff" <?php echo 'value="'.$_SESSION['permanentStaff'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-75">
-                              <label>For Contract staf</label>
+                              <label>For contract staff</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="contractStaff" required/>
+                                <input type="text" name="contractStaff" <?php echo 'value="'.$_SESSION['contractStaff'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-75">
-                              <label>For Assignment/Temporary staf</label>
+                              <label>For temporary staff</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="temporaryStaff" required/>
+                                <input type="text" name="temporaryStaff" <?php echo 'value="'.$_SESSION['temporaryStaff'].'"' ?> /><br>
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="addScheme-submit">Add new scheme</button>
+                        <button class="mainbtn" type="submit" name="updateScheme-submit">Save updates</button>
                     </form>
 
                     <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>

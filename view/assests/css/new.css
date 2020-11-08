@@ -629,7 +629,7 @@ img.avatar {
 .contentForm input, select {
   width: 80%;
   /*background-color: white;*/
-  height: 40px;
+  min-height: 40px;
   margin-top: 25px;
   margin-right: 10%;
   font-size: 18px;
@@ -644,7 +644,22 @@ img.avatar {
   display: inline-block;
   font-size: 18px;
   margin-left: 15%;
+  margin-right: 2%;
   text-align: justify;
+}
+
+.longTxt {
+  width: 80%;
+  max-width: 80%;
+  min-width: 80%;
+  /*background-color: white;*/
+  height: 200px;
+  margin-top: 25px;
+  margin-right: 10%;
+  font-size: 18px;
+  border: 0px;
+  padding-left: 15px;
+  border-radius: 10px;
 }
 
 /*-------------------------Profile Form-------------------*/
@@ -765,9 +780,10 @@ img.avatar {
 #tableStyle {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 90%;
+  width: 100%;
   margin-top: 25px;
-  margin-left: 50px;
+  /*margin-left: 5px;*/
+  margin-right: 5px;
 }
 
 #tableStyle td, #tableStyle th {
