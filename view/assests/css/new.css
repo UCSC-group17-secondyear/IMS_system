@@ -131,23 +131,24 @@ ul.breadcrumbs li a:hover {
 }
 
 .heading {
-    padding-top: 20%;
-    padding-left: 40%;
-    padding-bottom: 7%;
-    color: white;
-    font-size: 24px;
-    background: rgba(0, 0, 0, 0.5);
+  padding-top: 20%;
+  padding-left: 40%;
+  padding-bottom: 7%;
+  color: white;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .loginbtn {
-    background-color: #065b7a;
-    color: ivory;
-    width: 20%;
-    padding: 15px;
-    font-size: 18px;
-    margin-top: 20px;
-    margin-left: 15%;
-    border: 0;
+  background-color: #065b7a;
+  color: ivory;
+  width: 20%;
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 15%;
+  border: 0;
+  border-radius: 10px;
 }
 
 .loginbtn:hover {
@@ -168,6 +169,7 @@ ul.breadcrumbs li a:hover {
   height: auto;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
+  border-radius: 10px;
   /*opacity: 0.5;*/
 }
 
@@ -212,6 +214,7 @@ ul.breadcrumbs li a:hover {
   font-size: 18px;
   border: 0;
   padding-left: 3%;
+  border-radius: 10px;
 }
 
 .loginForm button {
@@ -222,6 +225,7 @@ ul.breadcrumbs li a:hover {
   margin-top: 25px;
   margin-left: 32%;
   margin-bottom: 5%;
+  border-radius: 10px;
 }
 
 .loginForm button:hover {
@@ -261,7 +265,7 @@ ul.breadcrumbs li a:hover {
 
 /*-------------------------Sign Up Form Style-------------------------*/
 .signupForm {
-  width: 70%;
+  width: 50%;
   height: 80%;
   margin: 0px auto;
   border: 1px solid #B0C4DE;
@@ -270,15 +274,13 @@ ul.breadcrumbs li a:hover {
   margin-top: 3%;
   padding-bottom: 5%;
   margin-bottom: 35px;
-    /*
-  background-color: darkslateblue;
-  max-width: 35%;
-  margin-left: 30%;
-  margin-top: 10%;
-  height: 350px;
-  border: 3px solid grey;
-  box-shadow: 4px 4px 4px grey;*/
-  /*opacity: 0.5;*/
+  border-radius: 10px;
+}
+
+.signupForm p {
+  margin-top: 10px;
+  width: 80%;
+  text-align: justify;
 }
 
 .signupForm h2 {
@@ -291,12 +293,17 @@ ul.breadcrumbs li a:hover {
   background-color: #065b7a;
 }
 
+.signupForm select {
+  border-radius: 10px;
+}
+
 .signupForm label {
   /*padding-left: 5%;*/
   padding: 20px 12px 12px 0;
   display: inline-block;
   font-size: 18px;
   margin-left: 5%;
+  margin-top: 10px;
 }
 
 .signupForm input {
@@ -307,6 +314,8 @@ ul.breadcrumbs li a:hover {
   margin-right: 5%;
   font-size: 18px;
   padding-left: 15px;
+  border-radius: 10px;
+  border: none;
 }
 
 .row:after {
@@ -317,13 +326,13 @@ ul.breadcrumbs li a:hover {
 
 .col-25 {
   float: left;
-  width: 35%;
+  width: 25%;
   /*margin-top: 6px;*/
 }
 
 .col-75 {
   float: left;
-  width: 65%;
+  width: 75%;
   /*margin-top: 6px;*/
 }
 
@@ -344,6 +353,7 @@ ul.breadcrumbs li a:hover {
   margin-left: 5%;
   height: 40px;
   margin-top: 2%;
+  border-radius: 10px;
 }
 
 .signupForm .signupbtn {
@@ -369,14 +379,14 @@ ul.breadcrumbs li a:hover {
 /*-----------------------------Left nav-tree view-----------------------------*/
 /* Remove default bullets */
 ul, #tree-view {
-    list-style-type: none;
-    text-align: left;
+  list-style-type: none;
+  text-align: left;
 }
 
 /* Remove margins and padding from the parent ul */
 #tree_view {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Style the caret/arrow */
@@ -392,7 +402,8 @@ ul, #tree-view {
   /*font-weight: bold;*/
   padding-left: 5%;
   background-color: #065b7a;
-  width: 90%;
+  width: 95%;
+  height: 55px;
   padding: 3px;
 }
 
@@ -444,14 +455,15 @@ ul, #tree-view {
   font-size: 18px;
   padding-left: 5%;
   background-color: white;
-  width: 90%;
+  width: 95%;
+  height: 55px;
   padding: 3px;
 }
 
 .tree_nest a{
-    color: darkslateblue;
-    text-decoration: none;
-    font-size: 20px;
+  color: darkslateblue;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .tree_nest a:hover{
@@ -493,6 +505,7 @@ ul, #tree-view {
   color: white;
   text-align: center;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .middle2 {
@@ -534,6 +547,7 @@ img.avatar {
   background-color: #065b7a;
   color: ivory;
   border: 0px;
+  border-radius: 10px;
 }
 
 .btncontainer button:hover {
@@ -569,6 +583,7 @@ img.avatar {
   padding: 10px;
   margin-right: 10px;
   margin-left: 10px;
+  border-radius: 10px;
 }
 
 /*-------------------------Content Form-------------------*/
@@ -582,6 +597,7 @@ img.avatar {
   height: auto;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
+  border-radius: 10px;
   /*opacity: 0.5;*/
 }
 
@@ -594,6 +610,7 @@ img.avatar {
   /*box-shadow: 4px 4px 4px grey;*/
   color: white;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .contentForm h3 {
@@ -618,6 +635,7 @@ img.avatar {
   font-size: 18px;
   border: 0px;
   padding-left: 15px;
+  border-radius: 10px;
 }
 
 .contentForm label {
@@ -643,6 +661,7 @@ img.avatar {
   margin-bottom: 35px;
   /*opacity: 0.5;*/
   display: block;
+  border-radius: 10px;
 }
 
 .profileForm label {
@@ -658,6 +677,7 @@ img.avatar {
   width: 100%;
   border: 2px solid #2980b9;
   padding-left: 15px;
+  border-radius: 10px;
 } 
 
 /*-------------------------Buttons-------------------*/
@@ -674,6 +694,7 @@ img.avatar {
   border: 0px;
   cursor: pointer;
   border: 0;
+  border-radius: 10px;
 }
 
 .mainbtn:hover {
@@ -697,6 +718,7 @@ img.avatar {
   font-size: 18px;
   margin-bottom: 3%;
   border: 0;
+  border-radius: 10px;
 }
 
 .subbtn a {
@@ -721,6 +743,7 @@ img.avatar {
   font-size: 18px;
   margin-bottom: 3%;
   border: 0;
+  border-radius: 10px;
 }
 
 .cancelbtn a {
@@ -732,9 +755,6 @@ img.avatar {
   opacity: 0.7;
   font-weight: bold;
 }
-
-
-
 
 .sansserif {
   font-family: Arial, Helvetica, sans-serif;
@@ -771,6 +791,7 @@ img.avatar {
   background-color: #1177d1;
   color: white;
   width: auto;
+  text-align: center;
 }
 
 #tableStyle td a {
@@ -778,11 +799,15 @@ img.avatar {
   text-decoration: none;
   color: white;
   padding: 5px;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
 }
 
 .modal {
   display: none; /* Hidden by default */
-  
+  z-index: -1;
 }
 
 .close, .subclose {
@@ -794,6 +819,7 @@ img.avatar {
   padding: 5px;
   margin-left: 15px;
   margin-top: 2px;
+  border-radius: 10px;
 }
 
 .close:hover,
@@ -820,4 +846,29 @@ img.avatar {
   margin-top: 20px;
   padding-left: 3%;
   padding-right: 3%;
+}
+
+
+/*------------------------SCROLL UP BUTTON---------------------*/
+#myTopBtn {
+  /*display: none;*/
+  /*position: fixed;*/
+  /*bottom: 20px;*/
+  /*right: 30px;*/
+  /*z-index: 99;*/
+  margin-left: 93%;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #1177d1;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#myTopBtn:hover {
+  background-color: #065b7a;
+  font-weight: bold;
 }
