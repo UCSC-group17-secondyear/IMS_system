@@ -37,7 +37,9 @@
                         <th>Consultant Fee</th>
                         <th>Investigations Cost</th>
                         <th>Spectacles Cost</th>
-                        <th>Eleigibility Conditions</th>
+                        <th>Permanent Staff (required service period)</th>
+                        <th>Contact Staff (required service period)</th>
+                        <th>Temporary Staff (required service period)</th>
                     </tr>
                     <?php echo $_SESSION['scheme_list']; ?>
                 </table>
