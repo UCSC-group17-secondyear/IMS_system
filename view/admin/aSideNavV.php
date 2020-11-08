@@ -5,7 +5,9 @@
                 <ul class="tree_nest">
                     <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
                     <button name="userroleList-submit">
-                        <a href="../../controller/adminControllers/manageUserRoleController.php"><li><i class="fa fa-user"></i>View user role list</li></a>
+                        <a href="#">
+                            <li><i class="fa fa-user"></i>View user role list</li>
+                        </a>
                     </button>
                     </form>
                     <button>
