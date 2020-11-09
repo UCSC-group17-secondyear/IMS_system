@@ -72,10 +72,9 @@
 							$asm_flag = 1;
 						}
 						$result3 = Model::setRole($user_id, $asm_flag, $connect);
+						header('Location:../view/basic/login.php');
 					}
 				}
-				
-                header('Location:../view/basic/login.php');
             }
             else 
             {

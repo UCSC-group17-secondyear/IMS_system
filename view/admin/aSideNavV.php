@@ -26,7 +26,7 @@
             </li>
 
             <li>
-                <a href="../../controller/userListController.php">
+                <a href="../../controller/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Manage Users in IMS System</button>
                 </a>
             </li>
