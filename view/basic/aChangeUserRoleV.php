@@ -5,8 +5,9 @@
 <main>
 
     <title>Change User Role</title>
-    <div class="signupForm">
+    <div class="changeroleForm">
         <form action="../../controller/changeUserRoleController.php" method="POST">
+            <h2>Change User Role</h2>
                 <div class="row">
                     <div class="col-25">
                         <label>Select User Role</label>
@@ -57,8 +58,9 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="signupbtn" name="change-role">Change Role</button>
+                <button type="submit" class="signupbtn" name="change-role">Change</button>
         </form>
+                <a href="../../controller/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" class="cancelbtn">Cancel</button></a>
     </div>
 
 </main>

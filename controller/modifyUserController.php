@@ -8,14 +8,14 @@
 
 <?php
 
-    $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
+    $user_id = mysqli_real_escape_string($connect, $_GET['user_id_two']);
 
     $result_set = Model::view($user_id, $connect);
 
     if ($result_set) {
         if (mysqli_num_rows($result_set)==1) {
             $result = mysqli_fetch_assoc($result_set);
-            $_SESSION['userId'] = $result['userId'];
+            $_SESSION['userIdTwo'] = $result['userId'];
             $_SESSION['empid'] = $result['empid'];
             $_SESSION['initials'] = $result['initials'];
             $_SESSION['sname'] = $result['sname'];

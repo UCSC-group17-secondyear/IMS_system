@@ -5,6 +5,7 @@
     
     $_SESSION['user_list'] = '';
     $users = Model::viewList($connect);
+    $id = $_GET['user_id'];
     
     if ($users) {
         while ($user = mysqli_fetch_assoc($users)) {
@@ -18,7 +19,7 @@
             $_SESSION['user_list'] .= "<td>{$user['dob']}</td>";
             $_SESSION['user_list'] .= "<td>{$user['designation']}</td>";
             $_SESSION['user_list'] .= "<td>{$user['appointment']}</td>";
-            $_SESSION['user_list'] .= "<td><a href=\"../../controller/modifyUserController.php?user_id={$user['userId']}\">Edit</a></td>";
+            $_SESSION['user_list'] .= "<td><a href=\"../../controller/modifyUserController.php?user_id_two={$user['userId']}&user_id={$id}\">Edit</a></td>";
             $_SESSION['user_list'] .= "<td><a href=\"../../controller/deleteUserController.php?user_id={$user['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
             $_SESSION['user_list'] .= "</tr>";
             // echo "hello";
