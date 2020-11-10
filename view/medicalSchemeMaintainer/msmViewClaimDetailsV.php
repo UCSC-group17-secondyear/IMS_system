@@ -35,17 +35,52 @@
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label>Medical Member Type</label>
+                                <input type="radio" id="memberWise" name="wise" value="memberwise" style="margin-top: 19px;">
                             </div>
                             <div class="col-75">
-                                <select name="member_type" id="member_type" required>
-                                    <option value="">Select Member Type</option>
-                                    <?php echo $_SESSION['member_type'] ?>
+                                <label for="memberwise" style="margin-left: -30px;margin-top: 10px;text-decoration;">Member-wise Claim Details</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="empId">Enter employee ID</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="empId">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <input type="radio" id="departmentWise" name="wise" value="departmentwise" style="margin-top: 19px;">
+                            </div>
+                            <div class="col-75">
+                                <label for="departmentwise" style="margin-left: -30px;margin-top: 10px;text-decoration;">Department-wise Claim Details</label> <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="empId">Enter Department</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="department" id="department" required>
+                                    <option value="">Select a Department</option>
+                                    <?php echo $_SESSION['department'] ?>
                                 </select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <input type="radio" id="UCSC" name="wise" value="UCSC" style="margin-top: 19px;">
+                            </div>
+                            <div class="col-75">
+                                <label for="UCSC" style="margin-left: -30px;margin-top: 10px;text-decoration;">UCSC Claim Details</label>
+                            </div>
+                        </div>
+                        <button type="submit" name="viewMemberList-submit" class="subbtn">Select</button>                    
+                        <button type="submit" class="cancelbtn">
+                            <a href="msmHomeV.php">Cancel</a>
+                        </button>
                     </form>
-                    
                 </div>
             </div>
         </div>
@@ -55,60 +90,3 @@
 <?php
     require '../basic/footer.php';
 ?>
-
-
-
-
-
-<main>
-    <title>View Claim Details</title>
-    <?php
-        require '../basic/header.php';
-    ?>
-
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">Claim Details</li>
-        </ul>
-    </div>
-
-    <div class="side-nav">
-        <?php
-            require 'msmSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <div>
-            <h3>View Claim Details</h3>
-        </div>
-        <form action="" method="POST">
-            <!-- <label for="year">Enter medical year: </label>
-            <input type="text" id="medicalYear"> <br> <br> -->
-
-            <input type="radio" id="memberWise" name="wise" value="memberwise">
-            <label for="memberwise">Member-wise Claim Details</label> <br>
-            <label for="empId">Enter employee id: </label>
-            <input type="text" id="empId"> <br>
-
-            <input type="radio" id="departmentWise" name="wise" value="departmentwise">
-            <label for="departmentwise">Department-wise Claim Details</label> <br>
-            Department <select name="department" id="department">
-                <option value="">Select a Department</option>
-                <option value="CS">CS</option>
-                <option value="IS">IS</option>
-                <option value="SE">SE</option>
-            </select> <br>
-
-            <input type="radio" id="UCSC" name="wise" value="UCSC">
-            <label for="UCSC">UCSC Claim Details</label>
-        </form>
-
-        <a href="msmClaimDetailsV.php"><button type="submit" name="selectwise-submit">Select</button></a>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-</main>
