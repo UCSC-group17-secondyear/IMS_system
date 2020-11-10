@@ -23,7 +23,7 @@
                 <h2>Modify User</h2>
             </div>
             <div class="signupForm">
-                <form action="../../controller/aUpdateProfileController.php?user_id=<?php echo $_SESSION['userIdTwo'] ?>" method="post">
+                <form action="../../controller/aUpdateProfileController.php?user_id=<?php echo $_SESSION['userIdTwo'] ?>&oldMail=<?php echo $_SESSION['email'] ?>" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label for="">Employee Id</label>
