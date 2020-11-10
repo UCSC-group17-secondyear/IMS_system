@@ -40,7 +40,7 @@
                             $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
                             $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
                             $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
-                            $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Delete Form</a></td>";
+                            $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
 
                             header('Location:../view/medicalSchemeMember/memUpdateClaimFormsV.php'); 
                     }
@@ -75,7 +75,7 @@
                         $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
                         $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
                         $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
-                        $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Delete Form</a></td>";
+                        $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
 
                         header('Location:../view/medicalSchemeMember/memUpdateClaimFormsV.php'); 
                     }
