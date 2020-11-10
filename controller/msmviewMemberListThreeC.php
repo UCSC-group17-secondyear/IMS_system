@@ -5,7 +5,6 @@
 
         $_SESSION['member'] = '';
         $userid = $_GET['std_index'];
-        // echo $empid;
         
         $selected_member = Model::getmemberdetails($userid, $connect);
 
@@ -30,10 +29,10 @@
                 $_SESSION['member'] .= "<td>{$selected_mem['member_type']}</td>";
                 $_SESSION['member'] .= "</tr>";
                 $_SESSION['member'] .= "<tr>";
-                $_SESSION['member'] .= "<td><a href=\"msmviewMemberListFourC.php?std_index={$selected_mem['empid']}\"><button type=\"submit\" class=\"button\">Update</button></a></td>";
+                $_SESSION['member'] .= "<td><a href=\"msmmemberUpdateC.php?std_index={$selected_mem['empid']}\"><button type=\"submit\" class=\"button\">Update</button></a></td>";
                 $_SESSION['member'] .= "</tr>";
                 $_SESSION['member'] .= "<tr>";
-                $_SESSION['member'] .= "<td><a href=\"msmviewMemberListFC.php?std_index={$selected_mem['empid']}\"><button type=\"submit\" class=\"button\">Delete</button></a></td>";
+                $_SESSION['member'] .= "<td><a href=\"msmdeleteMemberC.php?std_index={$selected_mem['empid']}\"><button type=\"submit\" class=\"button\">Delete</button></a></td>";
                 $_SESSION['member'] .= "</tr>";
                 
                 header('Location:../view/medicalSchemeMaintainer/msmViewMemberDetailsV.php');

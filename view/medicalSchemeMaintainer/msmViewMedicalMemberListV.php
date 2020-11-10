@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>View Medical Member List</title>
+    <title>Select Members</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">View Medical Member List</li>
+            <li class="active">Select Members</li>
         </ul>
 
         <div class="row">
@@ -20,7 +20,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>View Medical Member List</h2>
+                    <h2>Select Members</h2>
                 </div>
 
                 <div class="contentForm">
@@ -47,8 +47,11 @@
                                 </select>
                             </div>
                         </div>
+                        <button type="submit" name="viewMemberList-submit" class="subbtn">Select</button>                    
+                        <button type="submit" class="cancelbtn">
+                            <a href="msmHomeV.php">Cancel</a>
+                        </button>
                     </form>
-                    
                 </div>
             </div>
         </div>
