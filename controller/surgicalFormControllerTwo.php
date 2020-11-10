@@ -10,6 +10,7 @@
 
     $errors = array();
     $user_id = '';
+    $moEmail = Model::getMoEmail($connect);
 
     if (isset($_POST['form-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
@@ -80,12 +81,12 @@
 
             if ($result) {
 
-                // $to_email = "jamlannni97@gmail.com";
-                // $subject = "Simple Email Test via PHP";
-                // $body = "Hi,nn This is test email send by PHP Script";
-                // $headers = "From: janithrenuka31@gmail.com";
+                $to_email = $moEmail;
+                $subject = "New claim form submitted.";
+                $body = "New Surgical claim form submited by {$user_id}";
+                $headers = "From: ims.ucsc@gmail.com";
 
-                // mail($to_email, $subject, $body, $headers);
+                mail($to_email, $subject, $body, $headers);
                 header('Location:../view/medicalSchemeMember/memFormSubmitSuccessV.php');
             }
             else {
