@@ -56,6 +56,25 @@
 			$result = mysqli_query($connect, $query);
 
 			return $result;
-		}		
+		}
+		
+		public static function getUId($empid, $connect)
+		{
+			$query = "SELECT userId FROM users WHERE empid='{$empid}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function setRoleByAdmin($user_id, $a_flag, $asm_flag, $am_flag, $ham_flag, $mm_flag, $msm_flag, $mem_flag, $rv_flag, $dh_flag, $mo_flag, $connect)
+		{
+			$query = "UPDATE tbl_user_flag SET ham_flag={$ham_flag}, mo_flag={$mo_flag}, dh_flag={$dh_flag}, msm_flag={$msm_flag}, mem_flag={$mem_flag}, a_flag='{$a_flag}', rv_flag={$rv_flag}, am_flag={$am_flag}, mm_flag={$mm_flag}, asm_flag={$asm_flag} WHERE user_id={$user_id} LIMIT 1";
+		
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
 	}
 ?>

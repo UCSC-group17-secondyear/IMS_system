@@ -318,6 +318,91 @@ ul.breadcrumbs li a:hover {
   border: none;
 }
 
+.changeroleForm {
+  width: 50%;
+  height: 80%;
+  margin: 0px auto;
+  border: 1px solid #B0C4DE;
+  background-color: #ced4da;
+  box-shadow: 2px 2px 2px 2px grey;
+  margin-top: 213px;
+  padding-bottom: 5%;
+  margin-bottom: 213px;
+  border-radius: 10px;
+}
+
+.changeroleForm p {
+  margin-top: 10px;
+  width: 80%;
+  text-align: justify;
+}
+
+.changeroleForm h2 {
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  padding: 6px;
+  border-bottom: 3px solid grey;
+  /*box-shadow: 4px 4px 4px grey;*/
+  background-color: #065b7a;
+}
+
+.changeroleForm select {
+  border-radius: 10px;
+}
+
+.changeroleForm label {
+  /*padding-left: 5%;*/
+  padding: 20px 12px 12px 0;
+  display: inline-block;
+  font-size: 18px;
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+.changeroleForm input {
+  width: 80%;
+  /*background-color: white;*/
+  height: 40px;
+  margin-top: 25px;
+  margin-right: 5%;
+  font-size: 18px;
+  padding-left: 15px;
+  border-radius: 10px;
+  border: none;
+}
+
+.changeroleForm button {
+  color: white;
+  font-size: 22px;
+  width: 40%;
+  float: left;
+  margin-left: 5%;
+  height: 40px;
+  margin-top: 2%;
+  border-radius: 10px;
+}
+
+.changeroleForm .signupbtn {
+  background-color: #065b7a;
+  border: 0;
+}
+
+.changeroleForm .cancelbtn {
+  background-color: red;
+  border: 0;
+}
+
+.changeroleForm .signupbtn:hover {
+  background-color: #1177d1;
+  font-weight: bold;
+} 
+
+.changeroleForm .cancelbtn:hover {
+  opacity: 0.7;
+  font-weight: bold;
+}
+
 .row:after {
   content: "";
   display: table;
@@ -887,4 +972,18 @@ img.avatar {
 #myTopBtn:hover {
   background-color: #065b7a;
   font-weight: bold;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 99%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 2px solid #065b7a; /* Add a grey border */
+  margin-bottom: 5px; /* Add some space below the input */
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 15px;
 }

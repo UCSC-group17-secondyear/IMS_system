@@ -13,7 +13,7 @@
 
     if (isset($_POST['submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-
+        $oldMail = mysqli_real_escape_string($connect, $_GET['oldMail']);
         $userInfo = array('empid'=>8, 'initials'=>10, 'sname'=>50, 'email'=>100,'mobile'=>10, 'tp'=>10, 'dob'=>10,'designation'=>50, 'appointment'=>10);
 		
 		foreach ($userInfo as $info=>$maxLen) 
@@ -49,15 +49,31 @@
             $result = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect);
 
             if ($result) {
+                // echo $oldMail;
+                // echo $email;
+                if ($oldMail!=$email) {
+                    $to_email = "$email";
+                    $subject = "Changes";
+                    $body = "Admin change your details. Thank you.";
+                    $headers = "From: ims.ucsc@gmail.com";
 
-                $to_email = "$email";
-                $subject = "Changes";
-                $body = "Admin change your details. Thank you.";
-                $headers = "From: ims.ucsc@gmail.com";
+                    $sendMail = mail($to_email, $subject, $body, $headers);
 
-                $sendMail = mail($to_email, $subject, $body, $headers);
+                    $to_email_two = "$oldMail";
+                    $sendMail = mail($to_email_two, $subject, $body, $headers);
+                    
+                    echo "Changes updated successfully.";
+                }
+                else{
+                    $to_email = "$email";
+                    $subject = "Changes";
+                    $body = "Admin change your details. Thank you.";
+                    $headers = "From: ims.ucsc@gmail.com";
 
-                echo "Changes updated successfully.";
+                    $sendMail = mail($to_email, $subject, $body, $headers);
+
+                    echo "Changes updated successfully.";
+                }
             }
             else {
                 echo "Failed result";
