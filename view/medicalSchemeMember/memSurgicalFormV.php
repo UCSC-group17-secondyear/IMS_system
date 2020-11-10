@@ -38,6 +38,15 @@
 
                             <div class="row">
                                 <div class="col-25">
+                                    <label for="">Address</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="address" required> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
                                     <label for="">Select relationship</label>
                                 </div>
                                 <div class="col-75">
