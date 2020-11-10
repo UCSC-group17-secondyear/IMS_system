@@ -915,7 +915,7 @@
 		}
 
 		public static function getMoEmail($connect){
-			$query = "SELECT email FROM users WHERE userRole='medicalOfficer' LIMIT 1";
+			$query = "SELECT email FROM users WHERE userRole='medicalOfficer'";
 
 			$result = mysqli_query($connect, $query);
 
