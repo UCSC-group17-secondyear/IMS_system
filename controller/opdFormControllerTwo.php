@@ -64,7 +64,7 @@
                         $headers = "From: imsSystem17@gmail.com";
 
                         mail($to_email, $subject, $body, $headers);
-                        echo "Success..";
+                        echo "Form submitted Successfully..";
                         //header('Location:../view/medicalSchemeMember/memFormSubmitSuccessV.php');
                     }
                     else {
