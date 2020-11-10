@@ -5,9 +5,9 @@
 ?>
 
 <?php
-        if(isset($_GET['year-claim-submit'])){
+        if(isset($_GET['year-claim'])){
 
-
+            header('Location:../view/medicalSchemeMember/memYearClaimDetailsV.php');
             
         }
 ?>

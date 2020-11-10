@@ -10,6 +10,7 @@
 
     $errors = array();
     $user_id = '';
+    $moEmail = Model::getMoEmail($connect);
 
     if (isset($_POST['form-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
@@ -65,7 +66,7 @@
                    $file_name_new = $user_id."-"."surgical"."-".$submitted_date."-".uniqid('',true).".".$file_actual_ext;
                    $file_destination = '../view/img/bill/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = Model::fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $opd_form_flag, $surgical_form_flag, $file_name_new, $submitted_date,$connect);
+                   $result = Model::fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_new, $submitted_date,$connect);
 
                 }
                 else{
@@ -79,6 +80,13 @@
 
 
             if ($result) {
+
+                $to_email = $moEmail;
+                $subject = "New claim form submitted.";
+                $body = "New Surgical claim form submited by {$user_id}";
+                $headers = "From: ims.ucsc@gmail.com";
+
+                mail($to_email, $subject, $body, $headers);
                 header('Location:../view/medicalSchemeMember/memFormSubmitSuccessV.php');
             }
             else {

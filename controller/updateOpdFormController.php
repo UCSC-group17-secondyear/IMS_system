@@ -35,7 +35,7 @@
             $bill_issued_date = mysqli_real_escape_string($connect, $_POST['bill_issued_date']);
             $purpose = mysqli_real_escape_string($connect, $_POST['purpose']);
             $bill_amount = mysqli_real_escape_string($connect, $_POST['bill_amount']);
-            $submitted_date = date('y-m-d');
+            $updated_date = date('y-m-d');
             
             $file = $_FILES['file'];
             $file_name = $_FILES['file']['name'];
@@ -54,7 +54,7 @@
                    $file_name_new = $user_id."-"."opd"."-".$submitted_date."-".uniqid('',true).".".$file_actual_ext;
                    $file_destination = '../view/img/bill/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = Model::updateOpdForm($user_id, $claim_form_no, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $file_name_new, $submitted_date, $connect);
+                   $result = Model::updateOpdForm($user_id, $claim_form_no, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $file_name_new, $updated_date, $connect);
 
                 }
                 else{

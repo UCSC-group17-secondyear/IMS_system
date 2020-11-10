@@ -8,6 +8,7 @@
 
     $errors = array();
     $user_id = '';
+    $moEmail = Model::getMoEmail($connect);
 
     if (isset($_POST['form-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
@@ -52,7 +53,7 @@
                    $file_name_new = $user_id."-"."opd"."-".$submitted_date."-".uniqid('',true).".".$file_actual_ext;
                    $file_destination = '../view/img/bill/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = Model::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $opd_form_flag, $surgical_form_flag, $file_name_new, $submitted_date, $connect);
+                   $result = Model::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_new, $submitted_date, $connect);
 
                 }
                 else{
@@ -66,6 +67,12 @@
 
 
             if ($result) {
+                $to_email = $moEmail;
+                $subject = "New claim form submitted.";
+                $body = "New OPD claim form submited by {$user_id}";
+                $headers = "From: imsSystem17@gmail.com";
+
+                mail($to_email, $subject, $body, $headers);
                 header('Location:../view/medicalSchemeMember/memFormSubmitSuccessV.php');
             }
             else {

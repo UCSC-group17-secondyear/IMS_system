@@ -25,16 +25,7 @@
 
                         <div class="contentForm">
                             <form action="memSurgicalClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
-                                
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">User Id</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="userId" <?php echo 'value="'.$_SESSION['userId'].'"' ?> disabled> <br>
-                                </div>
-                            </div>
-
+                            
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Claim Form No</label>

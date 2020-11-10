@@ -49,15 +49,30 @@
             $result = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect);
 
             if ($result) {
+                
+                if ($_SESSION['email']!=$email) {
+                    $to_email = "$email";
+                    $subject = "Changes";
+                    $body = "Admin change your details. Thank you.";
+                    $headers = "From: ims.ucsc@gmail.com";
 
-                $to_email = "$email";
-                $subject = "Changes";
-                $body = "Admin change your details. Thank you.";
-                $headers = "From: ims.ucsc@gmail.com";
+                    $sendMail = mail($to_email, $subject, $body, $headers);
 
-                $sendMail = mail($to_email, $subject, $body, $headers);
+                    $to_email_two = "$email";
+                    $sendMail = mail($to_email_two, $subject, $body, $headers);
+                    
+                    echo "Changes updated successfully.";
+                }
+                else{
+                    $to_email = "$email";
+                    $subject = "Changes";
+                    $body = "Admin change your details. Thank you.";
+                    $headers = "From: ims.ucsc@gmail.com";
 
-                echo "Changes updated successfully.";
+                    $sendMail = mail($to_email, $subject, $body, $headers);
+
+                    echo "Changes updated successfully.";
+                }
             }
             else {
                 echo "Failed result";

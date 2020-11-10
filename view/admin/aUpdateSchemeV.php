@@ -1,4 +1,5 @@
 <?php
+    // session_start();
     require '../basic/topnav.php';
 ?>
 
@@ -8,7 +9,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li class="active">Update Policies of a scheme</li>
+            <li class="active">Update a scheme</li>
         </ul>
 
         <div class="row">
@@ -20,7 +21,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update Policies of a scheme</h2>
+                    <h2>Update a scheme</h2>
                 </div>
 
                 <div class="contentForm">
@@ -38,7 +39,7 @@
                     </form>
 
                     <button id="subBtn" class="subbtn">View available schemes</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> 
+                    <button id="myBtn" class="cancelbtn">Cancel</button>
                 </div>
 
                 <div id="subModal" class="modal">

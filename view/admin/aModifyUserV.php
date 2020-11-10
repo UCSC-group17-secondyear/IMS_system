@@ -22,8 +22,8 @@
             <div>
                 <h2>Modify User</h2>
             </div>
-            <div class="signupForm" style="margin-top: 15px;">
-                <form action="../../controller/aUpdateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+            <div class="signupForm">
+                <form action="../../controller/aUpdateProfileController.php?user_id=<?php echo $_SESSION['userIdTwo'] ?>" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label for="">Employee Id</label>

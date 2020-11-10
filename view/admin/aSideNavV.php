@@ -5,7 +5,9 @@
                 <ul class="tree_nest">
                     <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
                     <button name="userroleList-submit">
-                        <a href="../../controller/adminControllers/manageUserRoleController.php"><li><i class="fa fa-user"></i>View user role list</li></a>
+                        <a href="#">
+                            <li><i class="fa fa-user"></i>View user role list</li>
+                        </a>
                     </button>
                     </form>
                     <button>
@@ -24,7 +26,7 @@
             </li>
 
             <li>
-                <a href="../../controller/userListController.php">
+                <a href="../../controller/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Manage Users in IMS System</button>
                 </a>
             </li>
@@ -38,7 +40,7 @@
                         <a href="aAddNewSchemeV.php"><li><i class="fa fa-plus-circle"></i>Add a new scheme</li></a>
                     </button>
                     <button>
-                        <a href="aUpdateSchemeV.php"><li><i class="fa fa-pencil-square"></i>Update Policies of a scheme</li></a
+                        <a href="aUpdateSchemeV.php"><li><i class="fa fa-pencil-square"></i>Update a scheme</li></a
                             ></button>
                     <button>
                         <a href="aRemoveSchemeV.php"><li><i class="fa fa-trash"></i>Remove a scheme</li></a>
