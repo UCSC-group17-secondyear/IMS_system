@@ -1,3 +1,65 @@
+<?php
+    require '../basic/topnav.php';
+?>
+
+<main>
+    <title>View Medical Member List</title>
+
+    <div class="sansserif">
+        <ul class="breadcrumbs">
+            <li><a href="msmHomeV.php">Home</a></li>
+            <li class="active">View Medical Member List</li>
+        </ul>
+
+        <div class="row">
+            <div class="col left20">
+                <?php
+                    require 'msmSideNavV.php';
+                ?>
+            </div>
+
+            <div class="col right80">
+                <div>
+                    <h2>View Claim Details</h2>
+                </div>
+
+                <div class="contentForm">
+                    <form action="../../controller/msmviewMemberListTwoC.php" method="POST">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="year">Enter medical year</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="medicalYear">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Medical Member Type</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="member_type" id="member_type" required>
+                                    <option value="">Select Member Type</option>
+                                    <?php echo $_SESSION['member_type'] ?>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<?php
+    require '../basic/footer.php';
+?>
+
+
+
+
+
 <main>
     <title>View Claim Details</title>
     <?php
@@ -22,8 +84,8 @@
             <h3>View Claim Details</h3>
         </div>
         <form action="" method="POST">
-            <label for="year">Enter medical year: </label>
-            <input type="text" id="medicalYear"> <br> <br>
+            <!-- <label for="year">Enter medical year: </label>
+            <input type="text" id="medicalYear"> <br> <br> -->
 
             <input type="radio" id="memberWise" name="wise" value="memberwise">
             <label for="memberwise">Member-wise Claim Details</label> <br>
