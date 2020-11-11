@@ -389,7 +389,7 @@ ul.breadcrumbs li a:hover {
 }
 
 .changeroleForm .cancelbtn {
-  background-color: red;
+  background-color: crimson;
   border: 0;
 }
 
@@ -447,7 +447,7 @@ ul.breadcrumbs li a:hover {
 }
 
 .signupForm .cancelbtn {
-  background-color: red;
+  background-color: crimson;
   border: 0;
 }
 
@@ -986,4 +986,8 @@ img.avatar {
   margin-top: 15px;
   margin-left: 5px;
   margin-right: 15px;
+}
+
+.searchBar {
+  border-radius: 10px;
 }

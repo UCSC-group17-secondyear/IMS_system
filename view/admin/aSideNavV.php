@@ -40,7 +40,9 @@
                         <a href="aAddNewSchemeV.php"><li><i class="fa fa-plus-circle"></i>Add a new scheme</li></a>
                     </button>
                     <button>
-                        <a href="aUpdateSchemeV.php"><li><i class="fa fa-pencil-square"></i>Update a scheme</li></a
+                        <a href="../../controller/adminControllers/aUpdateSchemeC.php">
+                        <!-- <a href="aUpdateSchemeV.php"><li> -->
+                            <i class="fa fa-pencil-square"></i>Update a scheme</li></a
                             ></button>
                     <button>
                         <a href="../../controller/adminControllers/aRemoveSchemeC.php"><li><i class="fa fa-trash"></i>Remove a scheme</li></a>

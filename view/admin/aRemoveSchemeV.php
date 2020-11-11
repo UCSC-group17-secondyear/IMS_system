@@ -27,7 +27,7 @@
                     <form action="../../controller/adminControllers/manageSchemesC.php" method="POST">
                         <div class="row">
                             <div class="col-25">
-                              <label>Select Scheme Name</label>
+                                <label>Select Scheme Name</label>
                             </div>
                             <div class="col-75">
                                 <select name="schemeName" id="">

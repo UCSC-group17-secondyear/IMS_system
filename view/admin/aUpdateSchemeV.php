@@ -31,22 +31,28 @@
                               <label>Select Scheme Name</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="schemeName" placeholder="Scheme Name" required/><br>
+                              <select name="schemeName" id="">
+                                    <option value="">Select Scheme</option>
+                                    <?php echo $_SESSION['schemes'] ?>
+                                </select>
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="getscheme-submit">Get Scheme Details</button>
+                        <button class="subbtn" type="submit" name="getscheme-submit">Get Scheme Details</button>
+                        <button class="cancelbtn" type="submit">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
 
-                    <button id="subBtn" class="subbtn">View available schemes</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <!-- <button id="subBtn" class="subbtn">View available schemes</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
 
-                <div id="subModal" class="modal">
+                <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
                         <span class="subclose">&times;</span>
                         <?php
-                            require 'aSchemesPopupV.php';
+                            // require 'aSchemesPopupV.php';
                         ?>
                     </div>
                 </div>
@@ -58,7 +64,7 @@
                             <a href="aHomeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
