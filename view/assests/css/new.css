@@ -991,3 +991,44 @@ img.avatar {
 .searchBar {
   border-radius: 10px;
 }
+
+
+/*------------------------Passwrod verification---------------------*/
+
+/* The message box is shown when the user clicks on the password field */
+#message, #usernameMSG {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+  width: 80%;
+}
+
+#message p, #usernameMSG p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: #065b7a;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: crimson;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}

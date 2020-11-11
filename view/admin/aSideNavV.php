@@ -53,7 +53,7 @@
             <li><button class="tree_list">Manage Degrees</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/aViewDegreeController.php"><li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
+                        <a href="../../controller/adminControllers/aViewDegreeController.php"><li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
                     </button>
                     <button>
                         <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>

@@ -7,7 +7,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aRemoveUpdateDegreeV.php">Update or remove degree</a></li>
+            <li><a href="aUpdateRemoveDegreeV.php">Degree List</a></li>
             <li class="active">Update Degree</li>
         </ul>
 
@@ -41,18 +41,15 @@
                                 <input type="text" name="degree_abbriviation" placeholder="degree code" required/><br>
                             </div>
                         </div>
-                        <button id="subBtn" class="subbtn" name="updateDegree-submit">Save updates</button>
-
+                        <button id="subBtn" class="subbtn" name="updateDegree-submit" type="submit">Save updates</button>
                         <button class="cancelbtn">
-                            <a href="aRemoveUpdateDegreeV.php">Cancel</a> 
+                            <a href="aUpdateRemoveDegreeV.php">Cancel</a>
                         </button>
                     </form>
 
-                    <!-- <button id="subBtn" class="subbtn" name="updateDegree-submit">Save updates</button>
-
-                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
+                    <!-- <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
-                <!-- <div id="myModal" class="modal">
+                <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h1>Are you sure you want to leave without updating?</h1>
@@ -60,7 +57,7 @@
                             <a href="aRemoveUpdateDegreeV.php">Yes</a>
                         </button>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
