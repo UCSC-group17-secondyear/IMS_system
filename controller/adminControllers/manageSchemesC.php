@@ -62,7 +62,7 @@
     }
 
     else if(isset($_POST['updateScheme-submit'])) {
-        $scheme_id = 1;
+        // $scheme_id = 1;
         $schemeName = $_POST['schemeName'];
         $maxRoomCharge = $_POST['maxRoomCharge'];
         $hospitalCharges = $_POST['hospitalCharges'];
@@ -87,5 +87,21 @@
         else {
             echo "Scheme was not updated";
         }
+    }
+
+    else if(isset($_POST['removeScheme-submit'])) {
+        $schemeName = $_POST['schemeName'];
+        $result_set = adminModel::removeScheme($schemeName, $connect);
+
+        if ($result_set== true) {
+            echo("Scheme is removed successfully");
+        }
+        else {
+            echo "Scheme does not get removed.";
+        }
+    }
+
+    else {
+        echo "no button is submitted";
     }
 ?>

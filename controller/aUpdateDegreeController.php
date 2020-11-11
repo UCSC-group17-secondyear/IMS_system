@@ -17,7 +17,7 @@
                 $_SESSION['degree_name'] = $result['degree_name'];
                 $_SESSION['degree_abbriviation'] = $result['degree_abbriviation'];
 
-                header('Location:../view/admin/aUpdateDegreeV.php');
+                header('Location:../view/admin/aEditDegreeV.php');
             }
         }
         else {
@@ -46,6 +46,9 @@
         }
 
     }
-    
+
+    elseif (isset($_POST['removeDegree-submit'])) {
+        
+    }
 
 ?>
