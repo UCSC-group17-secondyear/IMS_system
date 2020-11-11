@@ -1,12 +1,12 @@
 <?php
 
     session_start();
-    require_once('../config/database.php');
-    require_once('../model/Model.php');
+    require_once('../../config/database.php');
+    require_once('../../model/adminModel/manageDegreesModel.php');
 
     $_SESSION['degree_list'] = '';
 
-    $records = Model::viewDegrees($connect);
+    $records = adminModel::viewDegrees($connect);
 
     if ($records) {
         while ($record = mysqli_fetch_assoc($records)) {
@@ -17,7 +17,7 @@
             $_SESSION['degree_list'] .= "<td><a href=\"../../controller/aDeleteDegreeController.php?degree_id={$record['degree_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
             $_SESSION['degree_list'] .= "</tr>";
 
-            header('Location:../view/admin/aUpdateRemoveDegreeV.php');
+            header('Location:../../view/admin/aUpdateRemoveDegreeV.php');
         }
     }
     else {

@@ -38,16 +38,21 @@
                                 <label for="">Degree code</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="degree_code" placeholder="degree code" required/><br>
+                                <input type="text" name="degree_abbriviation" placeholder="degree code" required/><br>
                             </div>
                         </div>
+                        <button id="subBtn" class="subbtn" name="updateDegree-submit">Save updates</button>
+
+                        <button class="cancelbtn">
+                            <a href="aRemoveUpdateDegreeV.php">Cancel</a> 
+                        </button>
                     </form>
 
-                    <button id="subBtn" class="subbtn">Save updates</button>
+                    <!-- <button id="subBtn" class="subbtn" name="updateDegree-submit">Save updates</button>
 
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
-                <div id="myModal" class="modal">
+                <!-- <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h1>Are you sure you want to leave without updating?</h1>
@@ -55,7 +60,7 @@
                             <a href="aRemoveUpdateDegreeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

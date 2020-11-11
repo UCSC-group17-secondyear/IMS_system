@@ -15,5 +15,14 @@
 					return true;
 			// }
 		}
+
+		public static function viewDegrees($connect)
+		{
+			$query = "SELECT * FROM tbl_degree WHERE is_deleted=0 ORDER BY degree_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
 	}
 ?>
