@@ -163,11 +163,14 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="updateScheme-submit">Save updates</button>
+                        <button class="subbtn" type="submit" name="updateScheme-submit">Save updates</button>
+                        <button class="cancelbtn">
+                            <a href="aUpdateSchemeV.php">Cancel</a>
+                        </button>
                     </form>
 
-                    <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> 
+                    <!-- <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> --> 
                 </div>
                 <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
@@ -177,7 +180,7 @@
                         ?>
                     </div>
                 </div> -->
-                <div id="myModal" class="modal">
+                <!-- <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h1>Are you sure you want to leave the page?</h1>
@@ -185,7 +188,7 @@
                             <a href="aHomeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
+                </div> -->
                 <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>

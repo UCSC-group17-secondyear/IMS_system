@@ -40,10 +40,12 @@
                         <a href="aAddNewSchemeV.php"><li><i class="fa fa-plus-circle"></i>Add a new scheme</li></a>
                     </button>
                     <button>
-                        <a href="aUpdateSchemeV.php"><li><i class="fa fa-pencil-square"></i>Update a scheme</li></a
+                        <a href="../../controller/adminControllers/aUpdateSchemeC.php">
+                        <!-- <a href="aUpdateSchemeV.php"><li> -->
+                            <i class="fa fa-pencil-square"></i>Update a scheme</li></a
                             ></button>
                     <button>
-                        <a href="aRemoveSchemeV.php"><li><i class="fa fa-trash"></i>Remove a scheme</li></a>
+                        <a href="../../controller/adminControllers/aRemoveSchemeC.php"><li><i class="fa fa-trash"></i>Remove a scheme</li></a>
                     </button>
                 </ul>
             </li>
@@ -51,7 +53,7 @@
             <li><button class="tree_list">Manage Degrees</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/aViewDegreeController.php"><li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
+                        <a href="../../controller/adminControllers/aViewDegreeController.php"><li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
                     </button>
                     <button>
                         <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>
