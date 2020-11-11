@@ -24,23 +24,22 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/adminControllers/manageSchemesC.php" method="
-                    st">
+                    <form action="../../controller/adminControllers/manageSchemesC.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                               <label>Select Scheme Name</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="schemeName" placeholder="Scheme Name" required/><br>
+                                <select name="schemeName" id="">
+                                    <option value="">Select Scheme</option>
+                                    <?php echo $_SESSION['schemes'] ?>
+                                </select>
+                              <!-- <input type="text" name="schemeName" placeholder="Scheme Name" required/><br> -->
                             </div>
                         </div>
 
                         <button class="mainbtn" type="submit" name="removeScheme-submit">Remove</button>
                     </form>
-
-                    <!-- <button class="subbtn" type="submit" name="schemeList-submit">
-                            <a href="../../controller/adminControllers/manageSchemesC.php"> View Current schemes</a>
-                        </button> -->
 
                     <button id="subBtn" class="subbtn">View available schemes</button>
                     <button id="myBtn" class="cancelbtn">Cancel</button> 
