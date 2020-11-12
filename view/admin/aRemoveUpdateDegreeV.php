@@ -23,32 +23,34 @@
                 </div>
                 
                 <div class="contentForm">
-                    <form action="../../controller/aUpdateDegreeController.php" method="POST">
+                    <form action="#" method="POST">
                         <div class="row">
                             <div class="col-25">
                                 <label for="">Select degree</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="degree_name" <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> required/><br>
+                                <input type="text" name="degree_name" placeholder="degree name" required/><br>
                             </div>
                         </div>
+                        <button class="subbtn" name="updateDegree-submit" type="submit">Update Degree</button>
+                        <button class="cancelbtn" name="removeDegree-submit" type="submit">Remove Degree</button>
                     </form>
 
-                    <button id="subBtn" class="subbtn">
+                    <!-- <button id="subBtn" class="subbtn">
                         <a href="aUpdateDegreeV.php">Update Degree</a>
                     </button>
 
-                    <button id="myBtn" class="cancelbtn">Remove Degree</button>
+                    <button id="myBtn" class="cancelbtn">Remove Degree</button> -->
                 </div>
-                <div id="myModal" class="modal">
+                <!-- <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h1>Are you sure you want to remove the selected degree?</h1>
-                        <button class="mainbtn">
+                        <button class="mainbtn" name="removeDegree-submit" type="submit">
                             <a href="aHomeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

@@ -1,15 +1,14 @@
 <?php
-    // session_start();
     require '../basic/topnav.php';
 ?>
 
 <main>
-    <title>Update a scheme</title>
-    
+
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li class="active">Update a scheme</li>
+            <li><a href="aUpdateRemoveDegreeV.php">Degree List</a></li>
+            <li class="active">Update Degree</li>
         </ul>
 
         <div class="row">
@@ -21,50 +20,44 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update a scheme</h2>
+                    <h2>Update Degree</h2>
                 </div>
-
+                
                 <div class="contentForm">
-                    <form action="../../controller/adminControllers/manageSchemesC.php" method="post">
+                    <form action="../../controller/aUpdateDegreeController.php" method="POST">
                         <div class="row">
                             <div class="col-25">
-                              <label>Select Scheme Name</label>
+                                <label for="">Degree name</label>
                             </div>
                             <div class="col-75">
-                              <select name="schemeName" id="">
-                                    <option value="">Select Scheme</option>
-                                    <?php echo $_SESSION['schemes'] ?>
-                                </select>
+                                <input type="text" name="degree_name" <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> required/><br>
                             </div>
                         </div>
-
-                        <button class="subbtn" type="submit" name="getscheme-submit">Get Scheme Details</button>
-                        <button class="cancelbtn" type="submit">
-                            <a href="aHomeV.php">Cancel</a>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Degree code</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="degree_abbriviation" placeholder="degree code" required/><br>
+                            </div>
+                        </div>
+                        <button id="subBtn" class="subbtn" name="updateDegree-submit" type="submit">Save updates</button>
+                        <button class="cancelbtn">
+                            <a href="aUpdateRemoveDegreeV.php">Cancel</a>
                         </button>
                     </form>
 
-                    <!-- <button id="subBtn" class="subbtn">View available schemes</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
-                </div>
-
-                <!-- <div id="subModal" class="modal">
-                    <div class="modal-content">
-                        <span class="subclose">&times;</span>
-                        <?php
-                            // require 'aSchemesPopupV.php';
-                        ?>
-                    </div>
+                    <!-- <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <h1>Are you sure you want to leave the page?</h1>
+                        <h1>Are you sure you want to leave without updating?</h1>
                         <button class="mainbtn">
-                            <a href="aHomeV.php">Yes</a>
+                            <a href="aRemoveUpdateDegreeV.php">Yes</a>
                         </button>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -79,19 +72,16 @@
         btn.onclick = function() {
           modal.style.display = "block";
         }
+
+        // var modal2 = document.getElementById("subModal");
+        // var btn2 = document.getElementById("subBtn");
+        document.getElementById("subBtn").onclick = function() {
+            document.getElementById("subModal").style.display = "block";
+        }
+
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
           modal.style.display = "none";
-        }
-
-        var submodal = document.getElementById("subModal");
-        var subbtn = document.getElementById("subBtn");
-        var subspan = document.getElementsByClassName("subclose")[0];
-        subbtn.onclick = function() {
-          submodal.style.display = "block";
-        }
-        subspan.onclick = function() {
-          submodal.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it
