@@ -32,14 +32,6 @@
                     </tr>
                     <?php echo $_SESSION['member_info'] ?>
                 </table>
-                <form action="" method="post">
-                    <button class="subbtn" type="submit">
-                        <a href="msmSelectMembersV.php">OK</a>
-                    </button>
-                    <button type="submit" class="cancelbtn">
-                        <a href="msmSelectMembersV.php">Cancel</a>
-                    </button>
-                </form>
             </div>
         </div>
     </div>

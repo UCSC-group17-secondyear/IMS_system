@@ -22,11 +22,25 @@
                 <div>
                     <h2>View Claim Details</h2>
                 </div>
-
-                <div class="contentForm">
-                        <!-- methnta opd claim details tika danna -->
-                        <!-- methnta surgical claim details tika danna -->
-                </div>
+                <table id="tableStyle">
+                    <tr>
+                        <th>OPD/Surgical</th>
+                        <th>Initials</th>
+                        <th>Surname</th>
+                        <th></th>
+                    </tr>
+                    <?php echo $_SESSION['member_info'] ?>
+                </table>
+                <form action="" method="post">
+                    <button class="subbtn" type="submit">
+                        <a href="msmSelectMembersV.php">OK</a>
+                    </button>
+                    <button type="submit" class="cancelbtn">
+                        <a href="msmSelectMembersV.php">Cancel</a>
+                    </button>
+                </form>
+<!-- methnta opd claim details tika danna -->
+<!-- methnta surgical claim details tika danna -->
             </div>
         </div>
     </div>
