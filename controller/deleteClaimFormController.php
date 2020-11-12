@@ -18,8 +18,8 @@
     
             if ($result) {
                 $to_email = $new_mail;
-                $subject = "New claim form submitted.";
-                $body = "New OPD claim form submited by {$user_id}";
+                $subject = "Claim Form Deleted.";
+                $body = "Claim Form {$claim_form_no} has been deleted by {$user_id}";
                 $headers = "From: imsSystem17@gmail.com";
 
                 mail($to_email, $subject, $body, $headers);

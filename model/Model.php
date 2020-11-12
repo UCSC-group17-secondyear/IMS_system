@@ -99,6 +99,15 @@
 			return $result;
 		}
 
+		public static function setUserRoleTwo($user_id, $userRole, $connect)
+		{
+			$query = "UPDATE users SET userRole = '{$userRole}' WHERE userId={$user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
 		public static function viewList($connect)
 		{
 			$query = "SELECT * FROM users WHERE is_deleted=0 ORDER BY empid";
