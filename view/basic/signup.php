@@ -14,9 +14,8 @@
 	            </div>
 	            <div class="col-75">
 	              	<input id="username" type="text" name="empid" title="The first three letters of the private email given to you by UCSC should be entered" required/>
-
 	              	<div id="usernameMSG">
-				 		<p id="namelength" class="invalid">Length must be <b>3 characters</b></p>
+				 		<p id="namelength" class="invalid" style="height: 7px; padding-bottom: 0px; padding-top: 0px; margin-top: -11px; border-bottom-width: 100px;">Length must be <b>3 characters</b></p>
 					</div>
 	            </div>
 	         </div>

@@ -19,7 +19,7 @@
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="#" name="membership-submit"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
+                        <a href="msmViewMembershipFormsV.php" name="membership-submit"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
                     </button>
                     <button>
                         <a href="#" name="refferedClaim-submit"><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
