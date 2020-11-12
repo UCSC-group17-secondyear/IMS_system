@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>View Form List</title>
+    <title>View Membership Forms</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">View Form List</li>
+            <li class="active">View Membership Forms</li>
         </ul>
 
         <div class="row">
@@ -20,12 +20,18 @@
 
             <div class="col right80">
                 <div>
-                    <h2>View Form List</h2>
+                    <h2>View Membership Forms</h2>
                 </div>
-
-                <div class="contentForm">
-                    
-                </div>
+                <table id="tableStyle">
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Initials</th>
+                        <th>Surname</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                    <?php /* echo $_SESSION['member_info'] */ ?>
+                </table>
             </div>
         </div>
     </div>
