@@ -7,11 +7,25 @@
         $userrole = $_POST['userRole'];
         $description = $_POST['description'];
 
-        $result = adminModel::addUserrole($userrole, $description, $connect);
-
-        if ($result) {
-            echo "user role is added successfully";
+        $roleExists = adminModel::checkRole($userrole, $connect);
+        if ($roleExists) {
+            print($roleExists);
         }
+        // $rows = mysqli_num_rows($roleExists);
+        // echo $roleExists;
+
+        // if (mysqli_num_rows($roleExists) == 0) {
+        //     $result = adminModel::addUserrole($userrole, $description, $connect);
+
+        //     if ($result) {
+        //         header('Location:../../view/admin/aUserRoleAdded.php');
+        //         // echo "user role is added successfully";
+        //     }
+        // // }
+        // else {
+        //     header('Location:../../view/admin/aUserRoleExists.php');
+        //     // echo "user role already exists.";
+        // }
     }
 
     else if(isset($_POST['userroleList-submit'])) {

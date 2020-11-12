@@ -7,26 +7,26 @@
             return $result_set;
 		}
 
+		public static function checkRole($userrole, $connect) 
+		{
+			$query = "SELECT role_id FROM userroles WHERE role_name ='{$userrole}' LIMIT 1";
+			$resultId = $connect->query($query);
+			return $resultId;
+		}
+
 		public static function addUserrole($userrole, $description, $connect) 
 		{
-			// $checkquery = "SELECT * FROM userroles WHERE role_name ='{$userrole}'" ;
-
-			// if (($connect->query($checkquery)) {
-			// 	echo "User role already exists.";
-			// }
-			// else {
-				$query = "INSERT INTO userroles (role_name, description) VALUES('$userrole', '$description')";
-			
-				if($connect->query($query))
-					return true;
-			// }
+			$query = "INSERT INTO userroles (role_name, description) VALUES('$userrole', '$description')";
+		
+			if($connect->query($query))
+				return true;
 		}
 
 		public static function viewUserRoles($connect)
 		{
 			$query = "SELECT * FROM userroles WHERE is_deleted=0";
 
-			$result_set = mysqli_query($connect, $query);
+			$result_set = $connect->query($query);
 
 			return $result_set;
 		}
