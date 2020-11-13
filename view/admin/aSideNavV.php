@@ -27,7 +27,7 @@
 
             <li>
                 <a href="../../controller/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">
-                    <button type="submit" class="tree_list">Manage Users in IMS System</button>
+                    <button type="submit" class="tree_list">Manage Users in IMS</button>
                 </a>
             </li>
 
@@ -65,10 +65,18 @@
             </li>
 
             <li><button class="tree_list">Manage Sessions</button>
-                <ul class="tree_nest">  
-                    <button>
-                        <a href="aViewSessionTypesV.php"><li><i class="fa fa fa-check-circle"></i>View Session Types</li></a>
+                <ul class="tree_nest">
+                    <form action="../../controller/adminControllers/manageSessionsC.php" method="post">
+                    <button name="sessionTypeList-submit">
+                        <a href="#">
+                            <li><i class="fa fa fa-check-circle"></i>View Session Types</li>
+                        </a>
                     </button>
+                    </form>
+
+                    <!-- <button>
+                        <a href="aViewSessionTypesV.php"><li><i class="fa fa fa-check-circle"></i>View Session Types</li></a>
+                    </button> -->
                     <button>
                         <a href="aAddSessionV.php"><li><i class="fa fa-plus-circle"></i>Add a new Session</li></a>
                     </button>
