@@ -430,6 +430,14 @@ ul.breadcrumbs li a:hover {
   color: #1177d1;
 }
 
+.col-75 textarea{
+  margin-top: 25px;
+  width: 516px;
+  height: 74px;
+  border: none;
+  border-radius: 10px;
+}
+
 .signupForm button {
   color: white;
   font-size: 22px;

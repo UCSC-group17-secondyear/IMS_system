@@ -7,7 +7,7 @@
                 </a>
             </li>
             <li>
-                <a href="../../controller/msmviewMemberListC.php">
+                <a href="#">
                     <button type="submit" class="tree_list">Remove Member</button>
                 </a>
             </li>
