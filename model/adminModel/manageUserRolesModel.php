@@ -24,7 +24,7 @@
 
 		public static function viewUserRoles($connect)
 		{
-			$query = "SELECT role_name FROM userroles WHERE is_deleted=0";
+			$query = "SELECT * FROM userroles WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
