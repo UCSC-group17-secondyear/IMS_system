@@ -14,7 +14,7 @@
         $checkDept = Model::checkDeptName($dept_name, $connect);
 
         if (mysqli_num_rows($checkDept)==1) {
-            echo "This hall already exist.";
+            echo "This department already exist.";
         }
         else {
 

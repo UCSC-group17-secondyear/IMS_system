@@ -367,7 +367,7 @@
 		public static function checkHallName($hall_name, $connect) 
 		{	
 			// echo $hall_name;
-			$query = "SELECT * FROM tbl_hall WHERE hall_name ='{$hall_name}'" ;
+			$query = "SELECT * FROM tbl_hall WHERE hall_name ='{$hall_name}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
@@ -428,7 +428,7 @@
 		
 		public static function checkDeptName($dept_name, $connect) 
 		{	
-			$query = "SELECT * FROM tbl_department WHERE department ='{$dept_name}'" ;
+			$query = "SELECT * FROM tbl_department WHERE department ='{$dept_name}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
@@ -507,7 +507,7 @@
 
 		public static function checkDesignationName($designation, $connect) 
 		{	
-			$query = "SELECT * FROM tbl_designation WHERE designation_name ='{$designation}'" ;
+			$query = "SELECT * FROM tbl_designation WHERE designation_name ='{$designation}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
