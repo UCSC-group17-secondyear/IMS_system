@@ -1,18 +1,24 @@
 <?php
 	class adminModel {
-		public static function addScheme ($schemeName, $maxRoomCharge, $hospitalCharges, $annualPremium, $monthlyPremium, $gvtNoPayingWard, $gvtChildBirthCover, $travelExpensesCover, $annualLimit, $consultantFee, $investigationsCost,  $spectaclesCost, $permanentStaff, $contractStaff, $temporaryStaff, $connect) {
-			$checkquery = "SELECT * FROM medicalschemes WHERE schemeName ='{$schemeName}'" ;
+		public static function checkScheme($schemeName, $connect) {
+			$query = "SELECT * FROM medicalschemes WHERE schemeName ='{$schemeName}'" ;
+			$result_set = mysqli_query($connect, $query);
+            return $result_set;
+		}
 
-			if ($checkquery) {
-				echo "Scheme name already exists.";
-			}
-			else {
+		public static function addScheme ($schemeName, $maxRoomCharge, $hospitalCharges, $annualPremium, $monthlyPremium, $gvtNoPayingWard, $gvtChildBirthCover, $travelExpensesCover, $annualLimit, $consultantFee, $investigationsCost,  $spectaclesCost, $permanentStaff, $contractStaff, $temporaryStaff, $connect) {
+			// $checkquery = "SELECT * FROM medicalschemes WHERE schemeName ='{$schemeName}'" ;
+
+			// if ($checkquery) {
+			// 	echo "Scheme name already exists.";
+			// }
+			// else {
 				$query = "INSERT INTO tbl_medicalscheme (schemeName, maxRoomCharge, hospitalCharges, annualPremium, monthlyPremium, gvtNoPayingWard, gvtChildBirthCover, travelExpensesCover, annualLimit, consultantFee, investigationsCost, spectaclesCost, permanentStaff, contractStaff, temporaryStaff) 
 					VALUES('$schemeName', '$maxRoomCharge', '$hospitalCharges', '$annualPremium', '$monthlyPremium', '$gvtNoPayingWard', '$gvtChildBirthCover', '$travelExpensesCover', '$annualLimit', '$consultantFee', '$investigationsCost', '$spectaclesCost', '$permanentStaff', '$contractStaff', '$temporaryStaff')";
 			
-				if($connect->query($query))
-					return true;
-			}
+				$result_set = mysqli_query($connect, $query);
+            	return $result_set;
+			// }
 		}
 
 		public static function viewSchemes($connect) {
@@ -32,7 +38,7 @@
 			WHERE schemeName='$schemeName' AND is_deleted=0 
 			ORDER BY scheme_id";
 
-			$result_set = mysqli_query($connect, $query);
+			$result_set = $connect->query($query);
 
 			return $result_set;
 		}

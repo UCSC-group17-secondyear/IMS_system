@@ -4,13 +4,22 @@
     require_once('../../config/database.php');
 
     if(isset($_POST['addUserrole-submit'])) {
-        $userrole = $_POST['userRole'];
-        $description = $_POST['description'];
+        $userrole = mysqli_real_escape_string($connect, $_POST['userRole']);
+        $description = mysqli_real_escape_string($connect,$_POST['description']);
 
-        $result = adminModel::addUserrole($userrole, $description, $connect);
+        $roleExists = adminModel::checkRole($userrole, $connect);
+        if (mysqli_num_rows($roleExists) == 1) {
+            header('Location:../../view/admin/aUserRoleExists.php');
+        }
+        else {
+            $result = adminModel::addUserrole($userrole, $description, $connect);
 
-        if ($result) {
-            echo "user role is added successfully";
+            if ($result) {
+                header('Location:../../view/admin/aUserRoleAdded.php');
+            }
+            else {
+                header('Location:../../view/admin/aUserRoleNotAdded.php');
+            }
         }
     }
 

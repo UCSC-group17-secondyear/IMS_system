@@ -6,13 +6,21 @@
         $degree_name = $_POST['degree_name'];
         $degree_abbriviation = $_POST['degree_abbriviation'];
 
-        $result = adminModel::addDegree($degree_name, $degree_abbriviation, $connect);
-
-        if ($result) {
-            echo "Degree is added successfully";
+        $checkDegree = adminModel::checkDegree($degree_name, $degree_abbriviation, $connect);
+        
+        if (mysqli_num_rows($checkDegree)==1) {
+            header('Location:../../view/admin/aDegreeExists.php');
         }
+
         else {
-            echo "Degree was not added";
+            $result = adminModel::addDegree($degree_name, $degree_abbriviation, $connect);
+
+            if ($result) {
+                header('Location:../../view/admin/aDegreeAdded.php');
+            }
+            else {
+                header('Location:../../view/admin/aDegreeNotAdded.php');
+            }
         }
     }
 ?>

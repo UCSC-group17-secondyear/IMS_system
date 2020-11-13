@@ -4,29 +4,37 @@
     require_once('../../config/database.php');
 
     if(isset($_POST['addScheme-submit'])) {
-        $schemeName = $_POST['schemeName'];
-        $maxRoomCharge = $_POST['maxRoomCharge'];
-        $hospitalCharges = $_POST['hospitalCharges'];
-        $annualPremium = $_POST['annualPremium']; 
-        $monthlyPremium = $_POST['monthlyPremium'];
-        $gvtNoPayingWard = $_POST['gvtNoPayingWard'];
-        $gvtChildBirthCover = $_POST['gvtChildBirthCover'];
-        $travelExpensesCover = $_POST['travelExpensesCover'];
-        $annualLimit = $_POST['annualLimit'];
-        $consultantFee = $_POST['consultantFee'];
-        $investigationsCost = $_POST['investigationsCost'];
-        $spectaclesCost = $_POST['spectaclesCost'];
-        $permanentStaff = $_POST['permanentStaff'];
-        $contractStaff = $_POST['contractStaff'];
-        $temporaryStaff = $_POST['temporaryStaff'];
+        $schemeName = mysqli_real_escape_string($connect, $_POST['schemeName']);
+        $maxRoomCharge = mysqli_real_escape_string($connect, $_POST['maxRoomCharge']);
+        $hospitalCharges = mysqli_real_escape_string($connect, $_POST['hospitalCharges']);
+        $annualPremium = mysqli_real_escape_string($connect, $_POST['annualPremium']); 
+        $monthlyPremium = mysqli_real_escape_string($connect, $_POST['monthlyPremium']);
+        $gvtNoPayingWard = mysqli_real_escape_string($connect, $_POST['gvtNoPayingWard']);
+        $gvtChildBirthCover = mysqli_real_escape_string($connect, $_POST['gvtChildBirthCover']);
+        $travelExpensesCover = mysqli_real_escape_string($connect, $_POST['travelExpensesCover']);
+        $annualLimit = mysqli_real_escape_string($connect, $_POST['annualLimit']);
+        $consultantFee = mysqli_real_escape_string($connect, $_POST['consultantFee']);
+        $investigationsCost = mysqli_real_escape_string($connect, $_POST['investigationsCost']);
+        $spectaclesCost = mysqli_real_escape_string($connect, $_POST['spectaclesCost']);
+        $permanentStaff = mysqli_real_escape_string($connect, $_POST['permanentStaff']);
+        $contractStaff = mysqli_real_escape_string($connect, $_POST['contractStaff']);
+        $temporaryStaff = mysqli_real_escape_string($connect, $_POST['temporaryStaff']);
 
-        $result = adminModel::addScheme($schemeName, $maxRoomCharge, $hospitalCharges, $annualPremium, $monthlyPremium, $gvtNoPayingWard, $gvtChildBirthCover, $travelExpensesCover, $annualLimit, $consultantFee, $investigationsCost,  $spectaclesCost, $permanentStaff, $contractStaff, $temporaryStaff, $connect);
+        $schemeExists = adminModel::checkScheme($schemeName, $connect);
 
-        if ($result) {
-            echo "Scheme is added successfully";
+        if (mysqli_num_rows($schemeExists)==1) {
+            echo "scheme exists";
+            // header('Location:../../view/admin/aSchemeExists.php');
         }
         else {
-            echo "Scheme was not added";
+            $result = adminModel::addScheme($schemeName, $maxRoomCharge, $hospitalCharges, $annualPremium, $monthlyPremium, $gvtNoPayingWard, $gvtChildBirthCover, $travelExpensesCover, $annualLimit, $consultantFee, $investigationsCost,  $spectaclesCost, $permanentStaff, $contractStaff, $temporaryStaff, $connect);
+
+            if ($result) {
+                echo "Scheme is added successfully";
+            }
+            else {
+                echo "Scheme was not added";
+            }
         }
     }
 
