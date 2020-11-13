@@ -8,6 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
+                    <li><a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
                     <li class="active">OPD claim Details</li>
                 </ul>
         <div class="row">
@@ -23,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                        <form action="memOpdClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
+                        <form action="" method="post" enctype="multipart/form-data">
                         
                         <div class="row">
                             <div class="col-25">
