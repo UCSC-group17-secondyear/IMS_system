@@ -3,11 +3,9 @@
 ?>
 
 <main>
-    <title>Enter Subjects' Details</title>
-
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li class="active">Enter Subjects' Details</li>
+        <li class="active">Add Subject</li>
     </ul>
 
     <div class="row">
@@ -19,7 +17,7 @@
 
         <div class="col right80">
             <div>
-                <h2>Enter Subject Details</h2>
+                <h2>Add Subject</h2>
             </div>
             <div class="contentForm">
                 <form action="" method="post">
@@ -47,11 +45,12 @@
                             <input type="textarea" name="description" placeholder="Description" required/> <br>
                         </div>
                     </div>
-                    <button class="mainbtn" type="submit" name="enterSubject-submit">Enter Subject</button>
+                    <button class="subbtn" type="submit" name="enterSubject-submit">Enter Subject</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button>
                 </form>
 
-                <button id="subBtn" class="subbtn">View Available Subjects List</button>
-                <button id="myBtn" class="cancelbtn">Cancel</button>
+                <!-- <button id="subBtn" class="subbtn">View Available Subjects List</button>
+                <button id="myBtn" class="cancelbtn">Cancel</button> -->
             </div>
 
             <div id="subModal" class="modal">
