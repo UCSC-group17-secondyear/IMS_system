@@ -19,11 +19,9 @@
             </div>
 
             <div class="col right80">
-                <div>
                     <?php
-                        require '../basic/schemeDetailsV.php';
+                        require '../basic/viewClaimDetails.php';
                     ?>
-                </div>
             </div>
         </div>
     </div>
