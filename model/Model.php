@@ -18,9 +18,9 @@
             return $result_set;
 		}
 
-		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $userRole, $appointment, $password, $connect) 
+		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $userRole, $appointment, $password, $connect) 
 		{
-			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, designation, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$designation', '$appointment', '$userRole','$password')";
+			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, aca_or_non, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$aca_or_non', '$appointment', '$userRole','$password')";
 			
 			$result = mysqli_query($connect, $query);
 

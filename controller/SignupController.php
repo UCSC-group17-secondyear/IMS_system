@@ -22,7 +22,7 @@
 		$mobile = mysqli_real_escape_string($connect, $_POST['mobile']);
 		$tp = mysqli_real_escape_string($connect, $_POST['tp']);
 		$dob = mysqli_real_escape_string($connect, $_POST['dob']);
-		$designation = mysqli_real_escape_string($connect, $_POST['designation']);
+		$aca_or_non = mysqli_real_escape_string($connect, $_POST['aca-or-non']);
 		$appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
 		$conpassword = mysqli_real_escape_string($connect, $_POST['conpassword']);
@@ -51,14 +51,14 @@
 
 		if (empty($errors)) 
 		{	
-			if ($designation == 'lecturer') {
+			if ($aca_or_non == 'academic-staff') {
 				$userRole = 'academicStaffMemb';
 			}
-			elseif ($designation == 'non-academic-staff') {
+			elseif ($aca_or_non == 'non-academic-staff') {
 				$userRole = 'nonAcademicStaffMemb';
 			}
 			
-			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $userRole, $appointment, $hashed_password, $connect);
+			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $userRole, $appointment, $hashed_password, $connect);
 
             if ($result == true) 
             {
@@ -68,7 +68,7 @@
 						$result2 = mysqli_fetch_assoc($result1);
 						$user_id = $result2['userId'];
 
-						if ($designation == 'lecturer') {
+						if ($aca_or_non == 'academic-staff') {
 							$asm_flag = 1;
 						}
 						$result3 = Model::setRole($user_id, $asm_flag, $connect);
