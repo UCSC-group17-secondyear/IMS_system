@@ -1,7 +1,7 @@
 <?php
 	class adminModel {
 		public static function checkSessionType($sessionType, $connect){
-			$query = "SELECT * FROM sessionTypes WHERE sessionType ='{$sessionType}' AND is_deleted = 0 LIMIT 1 " ;
+			$query = "SELECT * FROM sessiontypes WHERE sessionType ='{$sessionType}' AND is_deleted = 0" ;
 			
 			$result_set = mysqli_query($connect, $query);
             

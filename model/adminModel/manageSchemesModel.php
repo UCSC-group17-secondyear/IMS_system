@@ -1,7 +1,7 @@
 <?php
 	class adminModel {
 		public static function checkScheme($schemeName, $connect) {
-			$query = "SELECT * FROM medicalschemes WHERE schemeName ='{$schemeName}'" ;
+			$query = "SELECT * FROM tbl_medicalscheme WHERE schemeName ='{$schemeName}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}

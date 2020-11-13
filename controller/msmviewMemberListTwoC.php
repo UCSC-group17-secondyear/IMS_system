@@ -11,20 +11,31 @@
         $members = Model::fetchmembers($scheme, $member_type, $connect);
         
         if ($members) {
-            while ($mem = mysqli_fetch_assoc($members)) {
-                $_SESSION['member_info'] .= "<tr>";
-                $_SESSION['member_info'] .= "<td>{$mem['empid']}</td>";
-                $_SESSION['member_info'] .= "<td>{$mem['initials']}</td>";
-                $_SESSION['member_info'] .= "<td>{$mem['sname']}</td>";
-                $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmviewMemberListThreeC.php?std_index={$mem['userId']}\">View</a>
-                                                <a href=\"../../controller/msmdeleteMemberC.php?std_index={$mem['userId']}\">Delete</a>
-                                            </td>";
-                $_SESSION['member_info'] .= "</tr>";
-                
-                header('Location:../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');
-            }
-        }
-        else {
+            if ({$mem['acceptance_status']} == 0) {
+                while ($mem = mysqli_fetch_assoc($members)) {
+                    $_SESSION['member_info'] .= "<tr>";
+                    $_SESSION['member_info'] .= "<td>{$mem['empid']}</td>";
+                    $_SESSION['member_info'] .= "<td>{$mem['initials']}</td>";
+                    $_SESSION['member_info'] .= "<td>{$mem['sname']}</td>";
+                    $_SESSION['member_info'] .= "<td>Rejected</td>";
+                    $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmviewMemberListThreeC.php?std_index={$mem['userId']}\">View</a></td>";
+                    $_SESSION['member_info'] .= "</tr>";
+                    
+                    header('Location:../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');
+            } else {
+                while ($mem = mysqli_fetch_assoc($members)) {
+                    $_SESSION['member_info'] .= "<tr>";
+                    $_SESSION['member_info'] .= "<td>{$mem['empid']}</td>";
+                    $_SESSION['member_info'] .= "<td>{$mem['initials']}</td>";
+                    $_SESSION['member_info'] .= "<td>{$mem['sname']}</td>";
+                    $_SESSION['member_info'] .= "<td>Accepted</td>";
+                    $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmviewMemberListThreeC.php?std_index={$mem['userId']}\">View</a></td>";
+                    $_SESSION['member_info'] .= "</tr>";
+                    
+                    header('Location:../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');
+                }
+            }  
+        } else {
             echo "Database query failed.";
         }
     } else {
