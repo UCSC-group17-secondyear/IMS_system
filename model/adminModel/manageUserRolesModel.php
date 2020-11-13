@@ -9,9 +9,9 @@
 
 		public static function checkRole($userrole, $connect) 
 		{
-			$query = "SELECT role_id FROM userroles WHERE role_name ='{$userrole}' LIMIT 1";
-			$resultId = $connect->query($query);
-			return $resultId;
+			$query = "SELECT * FROM userroles WHERE role_name ='{$userrole}' ";
+			$result = mysqli_query($connect, $query);
+			return $result;
 		}
 
 		public static function addUserrole($userrole, $description, $connect) 
@@ -24,10 +24,10 @@
 
 		public static function viewUserRoles($connect)
 		{
-			$query = "SELECT * FROM userroles WHERE is_deleted=0";
+			$query = "SELECT role_name FROM userroles WHERE is_deleted=0";
 
-			$result_set = $connect->query($query);
-
+			$result_set = mysqli_query($connect, $query);
+			
 			return $result_set;
 		}
 

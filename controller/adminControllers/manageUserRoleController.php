@@ -4,28 +4,23 @@
     require_once('../../config/database.php');
 
     if(isset($_POST['addUserrole-submit'])) {
-        $userrole = $_POST['userRole'];
-        $description = $_POST['description'];
+        $userrole = mysqli_real_escape_string($connect, $_POST['userRole']);
+        $description = mysqli_real_escape_string($connect,$_POST['description']);
 
         $roleExists = adminModel::checkRole($userrole, $connect);
-        if ($roleExists) {
-            print($roleExists);
+        if (mysqli_num_rows($roleExists) == 1) {
+            header('Location:../../view/admin/aUserRoleExists.php');
         }
-        // $rows = mysqli_num_rows($roleExists);
-        // echo $roleExists;
+        else {
+            $result = adminModel::addUserrole($userrole, $description, $connect);
 
-        // if (mysqli_num_rows($roleExists) == 0) {
-        //     $result = adminModel::addUserrole($userrole, $description, $connect);
-
-        //     if ($result) {
-        //         header('Location:../../view/admin/aUserRoleAdded.php');
-        //         // echo "user role is added successfully";
-        //     }
-        // // }
-        // else {
-        //     header('Location:../../view/admin/aUserRoleExists.php');
-        //     // echo "user role already exists.";
-        // }
+            if ($result) {
+                header('Location:../../view/admin/aUserRoleAdded.php');
+            }
+            else {
+                header('Location:../../view/admin/aUserRoleNotAdded.php');
+            }
+        }
     }
 
     else if(isset($_POST['userroleList-submit'])) {

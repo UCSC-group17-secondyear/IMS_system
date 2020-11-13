@@ -3,15 +3,15 @@
 ?>
 
 <main>
-    <title>Remove a use role</title>
+    <title>Add a new user role</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewUserRoleV.php">Add user role</a></li>
-            <li class="active">Action was success!</li>
+            <li><a href="aAddNewUserRoleV.php">Add User role</a></li>
+            <li class="active">Action Failed!</li>
         </ul>
-    
+
         <div class="row">
             <div class="col left20">
                 <?php
@@ -25,20 +25,21 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>THe user role is added successfully!</h2>
+                        <h2>Sorry! <br>
+                            The user role you entered did not get added.
+                        </h2>
                     </div>
 
-                    <button class="subbtn" type="submit">
-                        <a href="aViewUserRolesV.php">User roles List</a>
+                    <button class="subbtn">
+                        <a href="aAddNewUserRoleV.php">Try again</a> 
                     </button>
-                    <button class="cancelbtn" type="submit">
-                        <a href="aHomeV.php">Leave</a>
+                    <button class="cancelbtn">
+                        <a href="aHomeV.php">Leave</a> 
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    
 </main>
 
 <?php
