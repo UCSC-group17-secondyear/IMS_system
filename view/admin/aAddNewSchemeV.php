@@ -3,8 +3,6 @@
 ?>
 
 <main>
-    <title>Add a new scheme</title>
-]
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>

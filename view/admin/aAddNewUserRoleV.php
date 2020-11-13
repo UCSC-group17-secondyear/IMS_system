@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li class="active">Add a new User role</li>
+            <li class="active">Add User role</li>
         </ul>
 
         <div class="row">
@@ -42,15 +42,18 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="addUserrole-submit">Add user role</button>
-                    </form>
-                    
-                    <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
-                        <button type="submit" name="userroleList-submit" class="subbtn">View Current user roles</button>
+                        <button class="subbtn" type="submit" name="addUserrole-submit">Add user role</button>
                         <button class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a> 
                         </button>
                     </form>
+                    
+                    <!-- <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
+                        <button type="submit" name="userroleList-submit" class="subbtn">View Current user roles</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a> 
+                        </button>
+                    </form> -->
 
                         <!-- <button id="myBtn" class="cancelbtn">Cancel</button>  -->
                 </div>
