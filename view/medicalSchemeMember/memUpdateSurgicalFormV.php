@@ -48,10 +48,20 @@
 
                             <div class="row">
                                 <div class="col-25">
+                                    <label for="">Address</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="address" <?php echo 'value="'.$_SESSION['address'].'"' ?> required> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
                                     <label for="">Relationship</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"' ?> required>
+                                    <select name="relationship" required>
+                                        <option value="<?php echo $_SESSION['relationship'] ?>"><?php echo $_SESSION['relationship'] ?></option>
                                         <option value="myself">Myself</option>
                                         <option value="husband">Husband</option>
                                         <option value="wife">Wife</option>

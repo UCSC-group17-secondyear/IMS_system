@@ -50,7 +50,8 @@
                                     <label for="">Relationship</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"' ?> required>
+                                    <select name="relationship" required>
+                                        <option value="<?php echo $_SESSION['relationship'] ?>"><?php echo $_SESSION['relationship'] ?></option>
                                         <option value="myself">Myself</option>
                                         <option value="husband">Husband</option>
                                         <option value="wife">Wife</option>
