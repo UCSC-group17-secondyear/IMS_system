@@ -883,7 +883,7 @@
 		}
 
 		public static function getSchemeName($user_id, $connect){
-			$query = "SELECT schemename FROM tbl_medicalscheme WHERE user_id={$user_id}";
+			$query = "SELECT schemename FROM tbl_user_flag WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -899,7 +899,7 @@
 		}
 
 		public static function updateScheme($user_id, $scheme_name, $connect){
-			$query = "UPDATE tbl_medicalscheme SET schemename='{$scheme_name}' WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET schemename='{$scheme_name}' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -925,6 +925,14 @@
 
 		public static function getMoEmail($connect){
 			$query = "SELECT email FROM users WHERE userRole='medicalOfficer'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getNextFormNumber($connect){
+			$query = "SELECT MAX(claim_form_no) FROM tbl_claimform";
 
 			$result = mysqli_query($connect, $query);
 

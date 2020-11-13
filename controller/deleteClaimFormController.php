@@ -23,8 +23,8 @@
                 $headers = "From: imsSystem17@gmail.com";
 
                 mail($to_email, $subject, $body, $headers);
-                echo "Deleted successfully...";
-                //header('Location:../view/medicalSchemeMember/memDeleteClaimFormSuccessV.php');
+                //echo "Deleted successfully...";
+                header('Location:../view/medicalSchemeMember/memDeleteClaimFormSuccessV.php');
             }
            
         }
