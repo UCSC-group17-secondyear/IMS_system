@@ -23,18 +23,17 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/claimFormReferenceController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                        <form action="" method="post">
                         
                         <div class="row">
                             <div class="col-25">
                                 <label for="">Enter Ref. Number</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Claim Form..." name="claim_form_no">
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Claim Form..." name="claim_form_no" required>
                             </div>
                         </div>
-
-                            <button class="mainbtn" type="submit" name="claim_form_no-submit">Display Form</button>
+                            <!-- <button class="mainbtn" formaction="../../controller/claimFormReferenceController.php?user_id=<?php echo $_SESSION['userId'] ?>" type="submit" name="claim_form_no-submit">Display Form</button> -->
                         </form>
                     </div>
                     
@@ -43,6 +42,7 @@
                             <th id="">OPD/Surgical</th>
                             <th >Claim Form No</th>
                             <th >Submitted Date</th>
+                            <th >View</th>
                         </tr>
 
                         <?php echo $_SESSION['claim_form_no']; ?>

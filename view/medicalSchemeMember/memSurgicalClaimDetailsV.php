@@ -8,6 +8,7 @@
                     
                         <ul class="breadcrumbs">
                             <li><a href="memHomeV.php">Home</a></li>
+                            <li><a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
                             <li class="active">Surgical Claim Details</li>
                         </ul>
                     
@@ -24,7 +25,7 @@
                         </div>
 
                         <div class="contentForm">
-                            <form action="memSurgicalClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
+                            <form action="" method="post" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-25">
@@ -205,10 +206,32 @@
                             <button class="mainbtn" type="submit" name="">
                                 <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
                             </button>
+                            
                         </div>
+                        <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                     </div> 
             </div>
         </div>
+
+        <script type="text/javascript">
+            var mybutton = document.getElementById("myTopBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+            }
+
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
 </main>
 
 <?php

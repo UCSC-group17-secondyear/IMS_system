@@ -30,7 +30,7 @@
                                 <label for="">Enter Ref. Number</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Claim Form..." name="claim_form_no">
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Claim Form..." name="claim_form_no" required>
                             </div>
                         </div>
                     </form>

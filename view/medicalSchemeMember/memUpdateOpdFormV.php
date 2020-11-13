@@ -8,6 +8,7 @@
                 
                     <ul class="breadcrumbs">
                         <li><a href="memHomeV.php">Home</a></li>
+                        <li><a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
                         <li class="active">Update OPD Form</li>
                     </ul>
                 
@@ -49,7 +50,13 @@
                                     <label for="">Relationship</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"'?> required> <br>
+                                    <select name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"' ?> required>
+                                        <option value="myself">Myself</option>
+                                        <option value="husband">Husband</option>
+                                        <option value="wife">Wife</option>
+                                        <option value="daughter">Daughter</option>
+                                        <option value="son">Son</option>
+                                    </select>
                                 </div>
                             </div>
 

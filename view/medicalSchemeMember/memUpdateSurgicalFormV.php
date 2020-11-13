@@ -8,6 +8,7 @@
    
                     <ul class="breadcrumbs">
                         <li><a href="memHomeV.php">Home</a></li>
+                        <li><a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
                         <li class="active">Update Surgical Hospitalization Form</li>
                     </ul>
                 
@@ -50,7 +51,13 @@
                                     <label for="">Relationship</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"' ?> required> <br>
+                                    <select name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"' ?> required>
+                                        <option value="myself">Myself</option>
+                                        <option value="husband">Husband</option>
+                                        <option value="wife">Wife</option>
+                                        <option value="daughter">Daughter</option>
+                                        <option value="son">Son</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -216,18 +223,40 @@
                             </form>
 
                             <form >
-                                <button class="subbtn" type="submit" name="userroleList-submit">
+                                <button class="subbtn" type="submit" name="">
                                     <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId']?>">View Claim Form List</a>
                                 </button>
                                 <button type="submit" class="cancelbtn">
                                     <a href="memHomeV.php">Cancel</a>
                                 </button>
                             </form>
+                            
                         </div>
+                        <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            var mybutton = document.getElementById("myTopBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+            }
+
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
 </main>
 
 <?php
