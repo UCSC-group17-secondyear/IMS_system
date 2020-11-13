@@ -34,11 +34,14 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="addSession-submit">Add session type</button>
+                        <button class="subbtn" type="submit" name="addSession-submit">Add session type</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Leave</a> 
+                        </button>
                     </form>
 
-                    <button id="subBtn" class="subbtn">View available session types</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <!-- <button id="subBtn" class="subbtn">View available session types</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
 
                    <!--  <form>
                         <button class="subbtn" type="submit" name="sessionTypes-submit">
@@ -50,11 +53,11 @@
                     </form> -->
                 </div>
 
-                <div id="subModal" class="modal">
+                <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
                         <span class="subclose">&times;</span>
                         <?php
-                            require 'aSessionTypesPopupV.php';
+                            // require 'aSessionTypesPopupV.php';
                         ?>
                     </div>
                 </div>
@@ -67,12 +70,12 @@
                             <a href="aHomeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var modal = document.getElementById("myModal");
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
@@ -103,7 +106,7 @@
             modal.style.display = "none";
           }
         }
-    </script>
+    </script> -->
 
 </main>
 

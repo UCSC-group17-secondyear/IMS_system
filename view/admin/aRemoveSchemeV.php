@@ -38,18 +38,21 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="removeScheme-submit">Remove</button>
+                        <button class="subbtn" type="submit" name="removeScheme-submit">Remove</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
 
-                    <button id="subBtn" class="subbtn">View available schemes</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> 
+                    <!-- <button id="subBtn" class="subbtn">View available schemes</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> --> 
                 </div>
 
-                <div id="subModal" class="modal">
+                <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
                         <span class="subclose">&times;</span>
                         <?php
-                            require 'aSchemesPopupV.php';
+                            // require 'aSchemesPopupV.php';
                         ?>
                     </div>
                 </div>
@@ -61,12 +64,12 @@
                             <a href="aHomeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var modal = document.getElementById("myModal");
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
@@ -97,7 +100,7 @@
             modal.style.display = "none";
           }
         }
-    </script>
+    </script> -->
 
 </main>
 
