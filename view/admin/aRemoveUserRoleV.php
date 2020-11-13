@@ -30,9 +30,9 @@
                             </div>
                             <div class="col-75">
                               <select name="userRole" id="">
-                                    <option value=""></option>
+                                    <option value="">Select Role</option>
                                     <?php 
-                                        echo $_SESSION['userroleList']
+                                        echo $_SESSION['roles']
                                     ?>
                                 </select>
                             </div>
