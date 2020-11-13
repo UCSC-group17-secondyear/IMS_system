@@ -751,7 +751,7 @@
 
 		public static function requestaccept($user_id, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET membership_status=1 WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET acceptance_status = 1 WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -760,7 +760,8 @@
 
 		public static function requestdecline($user_id, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET healthcondition = '', civilstatus = '', member_type = '', schemename = '', department = '' WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET acceptance_status = 0 WHERE user_id={$user_id}";
+			// $query = "UPDATE tbl_user_flag SET healthcondition = '', civilstatus = '', member_type = '', schemename = '', department = '' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -825,8 +826,7 @@
 
 		public static function fetchmembers($scheme, $member_type, $connect)
 		{
-			$query = "SELECT * FROM users WHERE userId IN
-				(SELECT user_id FROM tbl_user_flag WHERE schemename = '{$scheme}' AND member_type = '{$member_type}' AND membership_status=1) ORDER BY userId";
+			$query = "SELECT u.*, uf.* FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND uf.schemename = '{$scheme}' AND uf.member_type = '{$member_type}' ORDER BY userId;;
 
 			$result_set = mysqli_query($connect, $query);
 					
