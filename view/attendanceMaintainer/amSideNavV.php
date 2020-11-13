@@ -5,17 +5,17 @@
                 <ul class="tree_nest">
                     <button>
                         <a href="amViewStudentDetailsV.php">
-                            <li><i class="fa fa-user-circle-o"></i>View Students' Details</li>
+                            <li><i class="fa fa-user-circle-o"></i>View Students List</li>
                         </a>
                     </button>
                     <button>
                         <a href="amEnterStudentDetailsV.php">
-                            <li><i class="fa fa-plus-circle"></i>Enter Students' Details</li>
+                            <li><i class="fa fa-plus-circle"></i>Add Students</li>
                         </a>
                     </button>
                     <button>
                         <a href="amDeleteUpdateStudentV.php">
-                            <li><i class="fa fa-pencil-square-o"></i>Delete/Update Students' Details</li>
+                            <li><i class="fa fa-pencil-square-o"></i>Update or Remove Students</li>
                         </a>
                     </button>
                 </ul>
@@ -25,17 +25,17 @@
                 <ul class="tree_nest">
                     <button>
                         <a href="amViewSubjects.php">
-                            <li><i class="fa fa-book"></i>View Subjects' List</li>
+                            <li><i class="fa fa-book"></i>View Subjects List</li>
                         </a>
                     </button>
                     <button>
                         <a href="amEnterSubjectDetails.php">
-                            <li><i class="fa fa-plus-circle"></i>Enter Subjects' Details</li>
+                            <li><i class="fa fa-plus-circle"></i>Add Subjects</li>
                         </a>
                     </button>
                     <button>
                         <a href="amDeleteUpdateSubjectV.php">
-                            <li><i class="fa fa-pencil-square-o"></i>Delete/Update Subjects' Details</li>
+                            <li><i class="fa fa-pencil-square-o"></i>Update or Remove Subjects</li>
                         </a>
                     </button>
                 </ul>
@@ -44,7 +44,7 @@
                 <ul class="tree_nest">
                     <button>
                         <a href="amEnterUpdateAttendaceSelectV.php">
-                            <li><i class="fa fa-plus-circle"></i>Enter/Update Attendance</li>
+                            <li><i class="fa fa-plus-circle"></i>Enter or Update Attendance</li>
                         </a>
                     </button>
                     <button>

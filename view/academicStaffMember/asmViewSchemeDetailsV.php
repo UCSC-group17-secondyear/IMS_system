@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
-            <li class="active">View Medical Scheme Details</li>
+            <li class="active">Scheme Details</li>
         </ul>
 
         <div class="row">
@@ -37,7 +37,9 @@
                         <th>Consultant Fee</th>
                         <th>Investigations Cost</th>
                         <th>Spectacles Cost</th>
-                        <th>Eleigibility Conditions</th>
+                        <th>Permanent Staff (required service period)</th>
+                        <th>Contact Staff (required service period)</th>
+                        <th>Temporary Staff (required service period)</th>
                     </tr>
                     <?php echo $_SESSION['scheme_list']; ?>
                 </table>

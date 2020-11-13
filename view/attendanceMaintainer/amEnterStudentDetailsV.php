@@ -19,7 +19,7 @@
 
         <div class="col right80">
             <div>
-                <h2>Students' Details</h2>
+                <h2>Add Student</h2>
             </div>
             <div class="contentForm">
                 <form action="../../controller/amControllers/addStudentC.php" method="post">
