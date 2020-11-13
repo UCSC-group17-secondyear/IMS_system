@@ -80,12 +80,24 @@
 	            </div>
 	            <div class="col-75">
 				  <select name="aca-or-non" required>
-                    <option value="">...</option>
+                    <option value="">Academic or Non Academic:</option>
                     <option value="academic-staff">Academic Staff Member</option>
                     <option value="non-academic-staff">Non Academic Staff Member</option>
                   </select>
 	            </div>
-	        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-25">
+					<label>Enter designation</label>
+				</div>
+				<div class="col-75">
+					<select name="designation"required>
+						<option value="">Select designation: </option>
+						<?php echo $_SESSION['design'] ?>
+					</select>
+				</div>
+			</div>
 
 	        <div class="row">
 	            <div class="col-25">
