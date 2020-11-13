@@ -16,9 +16,7 @@
                 $_SESSION['member_info'] .= "<td>{$mem['empid']}</td>";
                 $_SESSION['member_info'] .= "<td>{$mem['initials']}</td>";
                 $_SESSION['member_info'] .= "<td>{$mem['sname']}</td>";
-                $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmviewMemberListThreeC.php?std_index={$mem['userId']}\">View</a>
-                                                <a href=\"../../controller/msmdeleteMemberC.php?std_index={$mem['userId']}\">Delete</a>
-                                            </td>";
+                $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmviewMemberListThreeC.php?std_index={$mem['userId']}\">View</a></td>";
                 $_SESSION['member_info'] .= "</tr>";
                 
                 header('Location:../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');

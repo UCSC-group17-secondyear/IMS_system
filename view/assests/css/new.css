@@ -724,12 +724,12 @@ img.avatar {
 }
 
 .contentForm label {
-  /*padding-left: 5%;*/
   padding: 20px 12px 12px 0;
   display: inline-block;
   font-size: 18px;
-  margin-left: 15%;
+  margin-left: 10%;
   margin-right: 2%;
+  margin-top: 4%;
   text-align: justify;
 }
 
@@ -975,17 +975,18 @@ img.avatar {
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 99%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 2px solid #065b7a; /* Add a grey border */
-  margin-bottom: 5px; /* Add some space below the input */
+  background-image: url(../img/icons8-search-64.png);
+  background-size: 30px;
+  background-position: 5px 8px;
+  background-repeat: no-repeat;
+  width: 99%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 2px solid #065b7a;
+  margin-bottom: 15px;
   margin-top: 15px;
-  margin-left: 5px;
-  margin-right: 15px;
+  margin-left: -5px;
+  margin-right: 0px;
 }
 
 .searchBar {

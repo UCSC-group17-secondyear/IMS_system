@@ -22,10 +22,10 @@
                         <a href="msmViewMembershipFormsV.php" name="membership-submit"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
                     </button>
                     <button>
-                        <a href="#" name="refferedClaim-submit"><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
+                        <a href="msmViewRequestedClaimFormV.php" name="requestedClaim-submit"><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
                     </button>
                     <button>
-                        <a href="#" name="requestedClaim-submit"><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
+                        <a href="msmViewRefferedCLaimFormsV.php" name="refferedClaim-submit"><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
                     </button>
                 </ul>
             </li>
