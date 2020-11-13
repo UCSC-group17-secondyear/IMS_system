@@ -227,14 +227,36 @@
                                 <button type="submit" class="cancelbtn">
                                     <a href="memHomeV.php">Cancel</a>
                                 </button>
+                                
                             </form>    
                             <br>
                             <h2>Download the form to be filled by the surgeon and get if field before you fill the surgical
                                 hospitalization form.</h2><br>
-                            </div>
+                        </div>
                     </div>
+                    <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>
+
+        <script type="text/javascript">
+            var mybutton = document.getElementById("myTopBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+            }
+
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
 </main>
 
 <?php
