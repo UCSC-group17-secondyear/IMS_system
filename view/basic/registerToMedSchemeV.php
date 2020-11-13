@@ -22,7 +22,7 @@
                 <label>Health condition</label>
             </div>
             <div class="col-75">
-                <textarea name="health_condition" required></textarea>
+                <input name="health_condition" type="text" required>
             </div>
         </div>
 
