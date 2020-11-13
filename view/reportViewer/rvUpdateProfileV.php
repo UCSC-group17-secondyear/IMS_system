@@ -83,13 +83,16 @@
 	                        </div>
 	                    </div>
                         <div class="row">
-	                        <div class="col-25">
-	                            <label for="">Designation</label>
-	                        </div>
-	                        <div class="col-75">
-	                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> required> <br>
-	                        </div>
-	                    </div>
+							<div class="col-25">
+								<label>Enter designation</label>
+							</div>
+							<div class="col-75">
+								<select name="designation" required>
+									<option value="<?php echo $_SESSION['designation'] ?>"><?php echo $_SESSION['designation'] ?></option>
+									<?php echo $_SESSION['design'] ?>
+								</select>
+							</div>
+						</div>
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Appointment Date</label>
