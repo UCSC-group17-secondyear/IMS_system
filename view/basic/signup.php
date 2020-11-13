@@ -76,12 +76,12 @@
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Designation</label>
+	              <label>Academic or Non-Academic</label>
 	            </div>
 	            <div class="col-75">
-				  <select name="designation" required>
+				  <select name="aca-or-non" required>
                     <option value="">...</option>
-                    <option value="lecturer">Lecturer</option>
+                    <option value="academic-staff">Academic Staff Member</option>
                     <option value="non-academic-staff">Non Academic Staff Member</option>
                   </select>
 	            </div>
