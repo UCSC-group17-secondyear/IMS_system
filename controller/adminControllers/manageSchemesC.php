@@ -23,17 +23,19 @@
         $schemeExists = adminModel::checkScheme($schemeName, $connect);
 
         if (mysqli_num_rows($schemeExists)==1) {
-            echo "scheme exists";
-            // header('Location:../../view/admin/aSchemeExists.php');
+            // echo "scheme exists";
+            header('Location:../../view/admin/aSchemeExists.php');
         }
         else {
             $result = adminModel::addScheme($schemeName, $maxRoomCharge, $hospitalCharges, $annualPremium, $monthlyPremium, $gvtNoPayingWard, $gvtChildBirthCover, $travelExpensesCover, $annualLimit, $consultantFee, $investigationsCost,  $spectaclesCost, $permanentStaff, $contractStaff, $temporaryStaff, $connect);
 
             if ($result) {
-                echo "Scheme is added successfully";
+                header('Location:../../view/admin/aSchemeAdded.php');
+                //echo "Scheme is added successfully";
             }
             else {
-                echo "Scheme was not added";
+                header('Location:../../view/admin/aSchemeNotAdded.php');
+                //echo "Scheme was not added";
             }
         }
     }
