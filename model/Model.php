@@ -18,9 +18,9 @@
             return $result_set;
 		}
 
-		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $userRole, $appointment, $password, $connect) 
+		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $userRole, $appointment, $password, $connect) 
 		{
-			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, aca_or_non, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$aca_or_non', '$appointment', '$userRole','$password')";
+			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, aca_or_non, designation, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$aca_or_non', '$designation', '$appointment', '$userRole','$password')";
 			
 			$result = mysqli_query($connect, $query);
 
@@ -367,7 +367,7 @@
 		public static function checkHallName($hall_name, $connect) 
 		{	
 			// echo $hall_name;
-			$query = "SELECT * FROM tbl_hall WHERE hall_name ='{$hall_name}'" ;
+			$query = "SELECT * FROM tbl_hall WHERE hall_name ='{$hall_name}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
@@ -428,7 +428,7 @@
 		
 		public static function checkDeptName($dept_name, $connect) 
 		{	
-			$query = "SELECT * FROM tbl_department WHERE department ='{$dept_name}'" ;
+			$query = "SELECT * FROM tbl_department WHERE department ='{$dept_name}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
@@ -507,7 +507,7 @@
 
 		public static function checkDesignationName($designation, $connect) 
 		{	
-			$query = "SELECT * FROM tbl_designation WHERE designation_name ='{$designation}'" ;
+			$query = "SELECT * FROM tbl_designation WHERE designation_name ='{$designation}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
@@ -751,7 +751,7 @@
 
 		public static function requestaccept($user_id, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET membership_status=1 WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET acceptance_status = 1 WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -760,7 +760,8 @@
 
 		public static function requestdecline($user_id, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET healthcondition = '', civilstatus = '', member_type = '', schemename = '', department = '' WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET acceptance_status = 0 WHERE user_id={$user_id}";
+			// $query = "UPDATE tbl_user_flag SET healthcondition = '', civilstatus = '', member_type = '', schemename = '', department = '' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -825,8 +826,7 @@
 
 		public static function fetchmembers($scheme, $member_type, $connect)
 		{
-			$query = "SELECT * FROM users WHERE userId IN
-				(SELECT user_id FROM tbl_user_flag WHERE schemename = '{$scheme}' AND member_type = '{$member_type}' AND membership_status=1) ORDER BY userId";
+			$query = "SELECT u.*, uf.* FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND uf.schemename = '{$scheme}' AND uf.member_type = '{$member_type}' ORDER BY userId;;
 
 			$result_set = mysqli_query($connect, $query);
 					
@@ -883,7 +883,7 @@
 		}
 
 		public static function getSchemeName($user_id, $connect){
-			$query = "SELECT schemename FROM tbl_medicalscheme WHERE user_id={$user_id}";
+			$query = "SELECT schemename FROM tbl_user_flag WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -899,7 +899,7 @@
 		}
 
 		public static function updateScheme($user_id, $scheme_name, $connect){
-			$query = "UPDATE tbl_medicalscheme SET schemename='{$scheme_name}' WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET schemename='{$scheme_name}' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -925,6 +925,14 @@
 
 		public static function getMoEmail($connect){
 			$query = "SELECT email FROM users WHERE userRole='medicalOfficer'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getNextFormNumber($connect){
+			$query = "SELECT MAX(claim_form_no) FROM tbl_claimform";
 
 			$result = mysqli_query($connect, $query);
 

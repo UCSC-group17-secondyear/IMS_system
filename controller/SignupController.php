@@ -23,6 +23,7 @@
 		$tp = mysqli_real_escape_string($connect, $_POST['tp']);
 		$dob = mysqli_real_escape_string($connect, $_POST['dob']);
 		$aca_or_non = mysqli_real_escape_string($connect, $_POST['aca-or-non']);
+		$designation = mysqli_real_escape_string($connect, $_POST['designation']);
 		$appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
 		$conpassword = mysqli_real_escape_string($connect, $_POST['conpassword']);
@@ -58,7 +59,7 @@
 				$userRole = 'nonAcademicStaffMemb';
 			}
 			
-			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $userRole, $appointment, $hashed_password, $connect);
+			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $userRole, $appointment, $hashed_password, $connect);
 
             if ($result == true) 
             {
@@ -80,6 +81,19 @@
             {
                 echo 'Failed to add the user.';
             }
+		}
+	}
+
+	if (isset($_GET['desig'])) {
+		$_SESSION['design'] = '';
+		$records = Model::designation($connect);
+
+		if ($records) {
+			while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+			}
+			
+			header('Location:../view/basic/signup.php');
 		}
 	}
 ?>

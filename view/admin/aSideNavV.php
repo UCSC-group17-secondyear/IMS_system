@@ -14,7 +14,7 @@
                         <a href="aAddNewUserRoleV.php"><li><i class="fa fa-plus-circle"></i>Add a new user role</li></a>
                     </button>
                     <button>
-                        <a href="aRemoveUserRoleV.php"><li><i class="fa fa-trash"></i>Remove a user role</li></a>
+                        <a href="../../controller/getRolesController.php"><li><i class="fa fa-trash"></i>Remove a user role</li></a>
                     </button>
                     <button>
                         <a href="../../controller/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>

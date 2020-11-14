@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>View Membership Forms</title>
+    <title>View Claim Reqested Forms</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">View Membership Forms</li>
+            <li class="active">View Claim Reqested Forms</li>
         </ul>
 
         <div class="row">
@@ -20,13 +20,13 @@
 
             <div class="col right80">
                 <div>
-                    <h2>View Membership Forms</h2>
+                    <h2>View Claim Reqested Forms</h2>
                 </div>
                 <div class="contentForm">
                     <form action="" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label for="">Enter Employee ID</label>
+                                <label for="">Enter Reference Number</label>
                             </div>
                             <div class="col-75">
                                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Claim Form..." name="claim_form_no">
@@ -36,10 +36,12 @@
                 </div>
                 <table id="tableStyle">
                     <tr>
+                        <th>OPD/Surgical</th>
+                        <th>Claim Form No</th>
                         <th>Employee ID</th>
-                        <th>Initials</th>
+                        <th>Initial</th>
                         <th>Surname</th>
-                        <th>Form Status</th>
+                        <th>Submitted Date</th>
                         <th></th>
                     </tr>
                 </table>

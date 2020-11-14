@@ -19,11 +19,11 @@
 				</div>
 				<div class="col-50r">
 					<div class="logocontainer">
-                        <!-- <img src="../assests/img/1default.png" style="width:80%"> -->
+                    	<img src="../assests/img/default.png" style="width:40%; margin-top:10px; margin-bottom:20px;">
                     </div>
 	              	<div class="sentence1">
 						<h3><a href="forgotpwdV.php">Forgot your password?</a></h3> <br>
-						<h3>New here? <a href="signup.php">Sign Up.</a>
+						<h3>New here? <a href="../../controller/SignupController.php?desig=99">Sign Up.</a>
 					</div>
 				</div>
 			</div>
