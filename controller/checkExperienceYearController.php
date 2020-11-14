@@ -19,7 +19,8 @@
          $_SESSION['user_id'] = $user_id;
          
          if($date_diff>=730){
-              header('Location:selectSchemeController.php'); 
+             $_SESSION['scheme'] = $name;
+             header('Location:selectSchemeController.php'); 
          }
          else{
              $_SESSION['scheme_name'] = $name;

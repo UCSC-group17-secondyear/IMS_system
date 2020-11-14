@@ -28,7 +28,7 @@
                 $_SESSION['claim_form_no'] .= "<td>OPD</td>";
                 $_SESSION['claim_form_no'] .= "<td>{$row_o['claim_form_no']}</td>";
                 $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
-                //$_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/claimFormListControllerTwo.php?claim_form_no={$row_o['claim_form_no']}&user_id={$user_id}\">View Form</a></td>";
+                $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/claimFormListControllerTwo.php?claim_form_no={$row_o['claim_form_no']}&user_id={$user_id}\">View Form</a></td>";
 
                 header('Location:../view/medicalSchemeMember/memClaimFormListV.php');
                
@@ -47,7 +47,7 @@
                 $_SESSION['claim_form_no'] .= "<td>Surgical</td>";
                 $_SESSION['claim_form_no'] .= "<td>{$row_s['claim_form_no']}</td>";
                 $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
-                //$_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/claimFormListControllerTwo.php?claim_form_no={$row_s['claim_form_no']}&user_id={$user_id}\">View Form</a></td>";
+                $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/claimFormListControllerTwo.php?claim_form_no={$row_s['claim_form_no']}&user_id={$user_id}\">View Form</a></td>";
 
                 header('Location:../view/medicalSchemeMember/memClaimFormListV.php');
                

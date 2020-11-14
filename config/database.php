@@ -1,7 +1,7 @@
 <?php
     $dbserver="localhost";
     $dbuser="root";
-    $dbname="loginsystem";
+    $dbname="ims_system";
     $dbpass="";
 
     /*$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
