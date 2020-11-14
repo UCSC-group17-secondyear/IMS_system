@@ -35,6 +35,7 @@
 
                     $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
                     $_SESSION['patient_name'] = $result_one['patient_name'];
+                    $_SESSION['address'] = $result_one['address'];
                     $_SESSION['relationship'] = $result_one['relationship'];
                     $_SESSION['accident_date'] = $result_one['accident_date'];
                     $_SESSION['how_occured'] = $result_one['how_occured'];

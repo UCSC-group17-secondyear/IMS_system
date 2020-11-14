@@ -42,8 +42,8 @@
                                     <label>Civil status</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="civilstatus" <?php echo 'value="'.$_SESSION['civilstatus'].'"' ?> required>
-                                        <!-- <option value="">...</option> -->
+                                    <select name="civilstatus" required>
+                                        <option value="<?php echo $_SESSION['civilstatus'] ?>"><?php echo $_SESSION['civilstatus'] ?></option>
                                         <option value="married">Married</option>
                                         <option value="unmarried">Unmarried</option>
                                     </select>
