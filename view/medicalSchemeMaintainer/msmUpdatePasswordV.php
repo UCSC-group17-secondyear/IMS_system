@@ -24,7 +24,7 @@
                     <h2>Update Password</h2>
                 </div>
 
-                <div class="contentForm">
+                <div class="signupForm">
                     <form action="../../controller/updatePasswordControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
                             <div class="col-25">
@@ -44,11 +44,11 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="submit" class="subbtn">Save Password</button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="msmHome.php">Cancel</a>
-                        </button>
+                        <button type="submit" name="submit" class="subbtn">Save Password</button>                    
                     </form>
+                    <button type="submit" class="cancelbtn">
+                        <a href="msmHomeV.php">Cancel</a>
+                    </button>
                 </div>
             </div>
         </div>

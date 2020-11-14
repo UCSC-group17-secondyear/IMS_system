@@ -4,13 +4,22 @@
     require_once('../../config/database.php');
 
     if(isset($_POST['addUserrole-submit'])) {
-        $userrole = $_POST['userRole'];
-        $description = $_POST['description'];
+        $userrole = mysqli_real_escape_string($connect, $_POST['userRole']);
+        $description = mysqli_real_escape_string($connect,$_POST['description']);
 
-        $result = adminModel::addUserrole($userrole, $description, $connect);
+        $roleExists = adminModel::checkRole($userrole, $connect);
+        if (mysqli_num_rows($roleExists) == 1) {
+            header('Location:../../view/admin/aUserRoleExists.php');
+        }
+        else {
+            $result = adminModel::addUserrole($userrole, $description, $connect);
 
-        if ($result) {
-            echo "user role is added successfully";
+            if ($result) {
+                header('Location:../../view/admin/aUserRoleAdded.php');
+            }
+            else {
+                header('Location:../../view/admin/aUserRoleNotAdded.php');
+            }
         }
     }
 
@@ -57,7 +66,63 @@
             $result = adminModel::setUserRole($empid, $userRole, $connect);
 
             if ($result) {
-                echo "User role updated successfully..";
+                $result1 = adminModel::getUId($empid, $connect);
+                // $result1 = adminModel::getUId($empid, $connect);
+
+                if ($result1) {
+					if(mysqli_num_rows($result1)==1){
+						$result2 = mysqli_fetch_assoc($result1);
+						$user_id = $result2['userId'];
+                        $a_flag = 0;$asm_flag = 0;$am_flag = 0;$ham_flag = 0;$mm_flag = 0;$msm_flag = 0;$mem_flag = 0;$rv_flag = 0;$dh_flag = 0;$mo_flag = 0;
+                        if ($userRole == "admin") {
+                            $a_flag = 1;
+                            $result3 = adminModel::setRoleByAdminOne($user_id, $a_flag, $connect);
+                        }
+                        else if ($userRole == "academicStaffMemb") {
+                            $asm_flag = 1;
+                            $result3 = adminModel::setRoleByAdminTwo($user_id, $asm_flag, $connect);
+                        }
+                        else if ($userRole == "attendanceMain") {
+                            $am_flag = 1;
+                            $result3 = adminModel::setRoleByAdminThree($user_id, $am_flag, $connect);
+                        }
+                        else if ($userRole == "hallAllocationMain") {
+                            $ham_flag = 1;
+                            $result3 = adminModel::setRoleByAdminFour($user_id, $ham_flag, $connect);
+                        }
+                        else if ($userRole == "mahapolaSchemeMain") {
+                            $mm_flag = 1;
+                            $result3 = adminModel::setRoleByAdminFive($user_id, $mm_flag, $connect);
+                        }
+                        else if ($userRole == "medicalSchemeMain") {
+                            $msm_flag = 1;
+                            $result3 = adminModel::setRoleByAdminSix($user_id, $msm_flag, $connect);
+                        }
+                        else if ($userRole == "medicalSchemeMemb") {
+                            $mem_flag = 1;
+                            $result3 = adminModel::setRoleByAdminSeven($user_id, $mem_flag, $connect);
+                        }
+                        else if ($userRole == "recordsViewer") {
+                            $rv_flag = 1;
+                            $result3 = adminModel::setRoleByAdminEight($user_id, $rv_flag, $connect);
+                        }
+                        else if ($userRole == "departmentHead") {
+                            $dh_flag = 1;
+                            $result3 = adminModel::setRoleByAdminNine($user_id, $dh_flag, $connect);
+                        }
+                        else if ($userRole == "medicalOfficer") {
+                            $mo_flag = 1;
+                            $result3 = adminModel::setRoleByAdminTen($user_id, $mo_flag, $connect);
+                        }
+                        
+                        
+                        
+                        if ($result3) {
+                            echo "User role updated successfully..";
+                        }
+                    }
+				}
+                
             }
             else{
                 echo "Query is incorrect.";

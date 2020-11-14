@@ -11,22 +11,13 @@
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     //echo $user_id;
     $result_set = Model::viewMember($user_id, $connect);
+    $count = Model::getNextFormNumber($connect);
+    $form_count = mysqli_fetch_array($count);
+    $f_count = $form_count[0];
 
     if ($result_set) {
         if(mysqli_num_rows($result_set)==1){
-            $result = mysqli_fetch_assoc($result_set);
-            
-            $_SESSION['empid'] = $result['empid'];
-            $_SESSION['initials'] = $result['initials'];
-            $_SESSION['sname'] = $result['sname'];
-            $_SESSION['designation'] = $result['designation'];
-            $_SESSION['tp'] = $result['tp'];
-            $_SESSION['mobile'] = $result['mobile'];
-            
-            while ($dept = mysqli_fetch_array($depts)) {
-                $_SESSION['department'] .= "<option value='".$dept['department']."'>".$dept['department']."</option>";
-                
-            }
+            $_SESSION['claim_form_no'] = $f_count + 1;
             header('Location:../view/medicalSchemeMember/memSurgicalFormV.php');
                                     
         }

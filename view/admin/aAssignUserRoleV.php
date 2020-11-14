@@ -48,7 +48,10 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="setUserRole-submit">Save role</button>
+                        <button class="subbtn" type="submit" name="setUserRole-submit">Save role</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                     <!-- <form>
                         <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
@@ -56,15 +59,21 @@
                         <a href="aHomeV.php"><button type="submit" name="cancel-submit" class="cancelbtn">Cancel</button></a>
                     </form> -->
 
-                    <button id="subBtn" class="subbtn">View Current user roles</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> 
+                    <!-- <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
+                        <button type="submit" name="userroleList-submit" class="subbtn">View Current user roles</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a> 
+                        </button>
+                    </form> -->
+
+                        <!-- <button id="myBtn" class="cancelbtn">Cancel</button>  -->
                 </div>
 
-                <div id="subModal" class="modal">
+                <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
                         <span class="subclose">&times;</span>
                         <?php
-                            require 'aViewUserRolesPopupV.php';
+                            // require 'aViewUserRolesPopupV.php';
                         ?>
                     </div>
                 </div>
@@ -76,12 +85,12 @@
                             <a href="aHomeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var modal = document.getElementById("myModal");
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
@@ -112,7 +121,7 @@
             modal.style.display = "none";
           }
         }
-    </script>
+    </script> -->
     
 </main>
 

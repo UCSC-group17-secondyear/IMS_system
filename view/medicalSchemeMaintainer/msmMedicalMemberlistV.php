@@ -8,6 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
+            <li><a href="msmSelectMembersV.php">Select Members</a></li>
             <li class="active">Medical Member List</li>
         </ul>
 
@@ -27,18 +28,11 @@
                         <th>Employee ID</th>
                         <th>Initials</th>
                         <th>Surname</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                     <?php echo $_SESSION['member_info'] ?>
                 </table>
-                <form action="" method="post">
-                    <button class="subbtn" type="submit" name="MedicalMemberlist-submit">
-                        <a href="msmViewMedicalMemberlistV.php">OK</a>
-                    </button>
-                    <button type="submit" class="cancelbtn">
-                        <a href="#">Cancel</a>
-                    </button>
-                </form>
             </div>
         </div>
     </div>
@@ -47,54 +41,3 @@
 <?php
     require '../basic/footer.php';
 ?>
-
-
-
-
-
-
-
-
-<main>
-    <?php
-        require '../basic/header.php';
-    ?>
-
-    <div class="header">
-        <ul class="breadcrumbs">
-            <li><a href="msmHomeV.php">Home</a></li>
-            <li>Medical Member List</li>
-        </ul>
-    </div>
-
-    <div class="side-nav">
-        <?php
-            require 'msmSideNavV.php';
-        ?>
-    </div>
-
-    <div class="content">
-        <form action="">
-            <h1>Members in IMS System</h1>
-            <table class="mytable">
-                <tr>
-                    <th>Employee ID</th>
-                    <th>Initials</th>
-                    <th>Surname</th>
-                    <th></th>
-                </tr>
-                <?php echo $_SESSION['member_info'] ?>
-            </table>
-            <br>
-            
-        </form>
-    </div>
-
-    <div class="right-side-bar">
-        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="button">Profile</button></a>
-    </div>
-
-    <?php
-        require '../basic/footer.php';
-    ?>
-</main>

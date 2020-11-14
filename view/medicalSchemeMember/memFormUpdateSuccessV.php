@@ -21,7 +21,7 @@
             <div class="col right80">
                 <h2>Your Form has been Updated Succesfully.</h2>
 
-                <a href="memHomeV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="mainbtn" type="submit" name="">OK</button></a><br>
             </div>
         </div>
 </main>

@@ -53,7 +53,7 @@
 					}
 					else if ($key['userRole'] == "medicalSchemeMain") {
 						header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
-					}
+                    }
 					else if ($key['userRole'] == "recordsViewer") {
 						header('Location:../view/reportViewer/rvHomeV.php');
 					}
@@ -62,7 +62,7 @@
 					}
 					else if ($key['userRole'] == "medicalOfficer") {
 						header('Location:../view/medicalOfficer/moHomeV.php');
-					}
+                    }
 					else {
 						echo "Admin have not yet selected the user role to you.";
 					}

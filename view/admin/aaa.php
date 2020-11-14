@@ -3,28 +3,29 @@
 ?>
 
 <main>
-    <title>View Form List</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">View Form List</li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aAddNewSchemeV.php">Add Scheme</a></li>
+            <li class="active">Available schemes</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'msmSideNavV.php';
+                    require 'aSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div>
-                    <h2>View Form List</h2>
+                    <h2>Schemes List</h2>
                 </div>
 
                 <div class="contentForm">
-                    
+                    <?php
+                        require '../../controller/adminControllers/aViewSchemesC.php';
+                    ?>
                 </div>
             </div>
         </div>

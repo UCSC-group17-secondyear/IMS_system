@@ -11,14 +11,20 @@
         $academic_year = $_POST['academic_year'];
         $degree = $_POST['degree'];
 
-        $result = amModel::addStudent($index_no, $registrstion_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
+        // $stdCheck = amModel::fetchStudent ($index_no, $connect);
+        // if (mysqli_num_rows($stdCheck)==1) {
+        //     echo "this student exists already";
+        // }
+        // else {
+            $result = amModel::addStudent($index_no, $registrstion_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
 
-        if ($result) {
-            echo "user role is added successfully";
-        }
-        else {
-            echo "user role DID not added";
-        }
+            if ($result) {
+                header('Location:../../view/attendanceMaintainer/amStudentAdded.php');
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amStudentNotAdded.php');
+            }
+        // }
     }
     else {
         echo "button not clicked";

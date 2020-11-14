@@ -131,23 +131,24 @@ ul.breadcrumbs li a:hover {
 }
 
 .heading {
-    padding-top: 20%;
-    padding-left: 40%;
-    padding-bottom: 7%;
-    color: white;
-    font-size: 24px;
-    background: rgba(0, 0, 0, 0.5);
+  padding-top: 20%;
+  padding-left: 40%;
+  padding-bottom: 7%;
+  color: white;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .loginbtn {
-    background-color: #065b7a;
-    color: ivory;
-    width: 20%;
-    padding: 15px;
-    font-size: 18px;
-    margin-top: 20px;
-    margin-left: 15%;
-    border: 0;
+  background-color: #065b7a;
+  color: ivory;
+  width: 20%;
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 15%;
+  border: 0;
+  border-radius: 10px;
 }
 
 .loginbtn:hover {
@@ -168,6 +169,7 @@ ul.breadcrumbs li a:hover {
   height: auto;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
+  border-radius: 10px;
   /*opacity: 0.5;*/
 }
 
@@ -187,7 +189,7 @@ ul.breadcrumbs li a:hover {
 .loginForm h2 {
   font-size: 26px;
   color: white;
-  background-color: #374144;
+  background-color: #1177d1;
   text-align: center;
   padding: 10px;
   /*border-bottom: 3px solid grey;*/
@@ -212,6 +214,7 @@ ul.breadcrumbs li a:hover {
   font-size: 18px;
   border: 0;
   padding-left: 3%;
+  border-radius: 10px;
 }
 
 .loginForm button {
@@ -222,6 +225,7 @@ ul.breadcrumbs li a:hover {
   margin-top: 25px;
   margin-left: 32%;
   margin-bottom: 5%;
+  border-radius: 10px;
 }
 
 .loginForm button:hover {
@@ -231,11 +235,12 @@ ul.breadcrumbs li a:hover {
 
 .sentence1 {
   float: left;
-  margin-left: 3%;
-  padding-top: 10px;
+  margin-left: 15%;
+  /*padding-top: 10px;*/
   font-size: 18px;
-  margin-top: 6%;
+  /*margin-top: 6%;*/
   color: #065b7a;
+  margin-bottom: 10px;
 }
 
 /*.sentence2 {
@@ -260,7 +265,7 @@ ul.breadcrumbs li a:hover {
 
 /*-------------------------Sign Up Form Style-------------------------*/
 .signupForm {
-  width: 70%;
+  width: 50%;
   height: 80%;
   margin: 0px auto;
   border: 1px solid #B0C4DE;
@@ -269,15 +274,13 @@ ul.breadcrumbs li a:hover {
   margin-top: 3%;
   padding-bottom: 5%;
   margin-bottom: 35px;
-    /*
-  background-color: darkslateblue;
-  max-width: 35%;
-  margin-left: 30%;
-  margin-top: 10%;
-  height: 350px;
-  border: 3px solid grey;
-  box-shadow: 4px 4px 4px grey;*/
-  /*opacity: 0.5;*/
+  border-radius: 10px;
+}
+
+.signupForm p {
+  margin-top: 10px;
+  width: 80%;
+  text-align: justify;
 }
 
 .signupForm h2 {
@@ -290,12 +293,17 @@ ul.breadcrumbs li a:hover {
   background-color: #065b7a;
 }
 
+.signupForm select {
+  border-radius: 10px;
+}
+
 .signupForm label {
   /*padding-left: 5%;*/
   padding: 20px 12px 12px 0;
   display: inline-block;
   font-size: 18px;
   margin-left: 5%;
+  margin-top: 10px;
 }
 
 .signupForm input {
@@ -306,6 +314,93 @@ ul.breadcrumbs li a:hover {
   margin-right: 5%;
   font-size: 18px;
   padding-left: 15px;
+  border-radius: 10px;
+  border: none;
+}
+
+.changeroleForm {
+  width: 50%;
+  height: 80%;
+  margin: 0px auto;
+  border: 1px solid #B0C4DE;
+  background-color: #ced4da;
+  box-shadow: 2px 2px 2px 2px grey;
+  margin-top: 213px;
+  padding-bottom: 5%;
+  margin-bottom: 213px;
+  border-radius: 10px;
+}
+
+.changeroleForm p {
+  margin-top: 10px;
+  width: 80%;
+  text-align: justify;
+}
+
+.changeroleForm h2 {
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  padding: 6px;
+  border-bottom: 3px solid grey;
+  /*box-shadow: 4px 4px 4px grey;*/
+  background-color: #065b7a;
+}
+
+.changeroleForm select {
+  border-radius: 10px;
+}
+
+.changeroleForm label {
+  /*padding-left: 5%;*/
+  padding: 20px 12px 12px 0;
+  display: inline-block;
+  font-size: 18px;
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+.changeroleForm input {
+  width: 80%;
+  /*background-color: white;*/
+  height: 40px;
+  margin-top: 25px;
+  margin-right: 5%;
+  font-size: 18px;
+  padding-left: 15px;
+  border-radius: 10px;
+  border: none;
+}
+
+.changeroleForm button {
+  color: white;
+  font-size: 22px;
+  width: 40%;
+  float: left;
+  margin-left: 5%;
+  height: 40px;
+  margin-top: 2%;
+  border-radius: 10px;
+}
+
+.changeroleForm .signupbtn {
+  background-color: #065b7a;
+  border: 0;
+}
+
+.changeroleForm .cancelbtn {
+  background-color: crimson;
+  border: 0;
+}
+
+.changeroleForm .signupbtn:hover {
+  background-color: #1177d1;
+  font-weight: bold;
+} 
+
+.changeroleForm .cancelbtn:hover {
+  opacity: 0.7;
+  font-weight: bold;
 }
 
 .row:after {
@@ -316,13 +411,13 @@ ul.breadcrumbs li a:hover {
 
 .col-25 {
   float: left;
-  width: 35%;
+  width: 25%;
   /*margin-top: 6px;*/
 }
 
 .col-75 {
   float: left;
-  width: 65%;
+  width: 75%;
   /*margin-top: 6px;*/
 }
 
@@ -335,6 +430,14 @@ ul.breadcrumbs li a:hover {
   color: #1177d1;
 }
 
+/* .col-75 textarea{
+  margin-top: 25px;
+  width: 516px;
+  height: 74px;
+  border: none;
+  border-radius: 10px;
+} */
+
 .signupForm button {
   color: white;
   font-size: 22px;
@@ -343,6 +446,7 @@ ul.breadcrumbs li a:hover {
   margin-left: 5%;
   height: 40px;
   margin-top: 2%;
+  border-radius: 10px;
 }
 
 .signupForm .signupbtn {
@@ -351,7 +455,7 @@ ul.breadcrumbs li a:hover {
 }
 
 .signupForm .cancelbtn {
-  background-color: red;
+  background-color: crimson;
   border: 0;
 }
 
@@ -368,14 +472,14 @@ ul.breadcrumbs li a:hover {
 /*-----------------------------Left nav-tree view-----------------------------*/
 /* Remove default bullets */
 ul, #tree-view {
-    list-style-type: none;
-    text-align: left;
+  list-style-type: none;
+  text-align: left;
 }
 
 /* Remove margins and padding from the parent ul */
 #tree_view {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Style the caret/arrow */
@@ -391,7 +495,8 @@ ul, #tree-view {
   /*font-weight: bold;*/
   padding-left: 5%;
   background-color: #065b7a;
-  width: 90%;
+  width: 95%;
+  height: 55px;
   padding: 3px;
 }
 
@@ -443,14 +548,15 @@ ul, #tree-view {
   font-size: 18px;
   padding-left: 5%;
   background-color: white;
-  width: 90%;
+  width: 95%;
+  height: 55px;
   padding: 3px;
 }
 
 .tree_nest a{
-    color: darkslateblue;
-    text-decoration: none;
-    font-size: 20px;
+  color: darkslateblue;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .tree_nest a:hover{
@@ -492,6 +598,7 @@ ul, #tree-view {
   color: white;
   text-align: center;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .middle2 {
@@ -505,6 +612,14 @@ ul, #tree-view {
     border-radius: 4px;
     padding-left: 25%;
     width: 200px;
+}
+
+.logocontainer {
+  text-align: center;
+  /*margin: 10px 0 10px 0;*/
+  /*border-radius: 4px;*/
+  padding-left: 15%;
+  /*width: 100%;*/
 }
 
 /* Avatar image */
@@ -525,6 +640,7 @@ img.avatar {
   background-color: #065b7a;
   color: ivory;
   border: 0px;
+  border-radius: 10px;
 }
 
 .btncontainer button:hover {
@@ -544,11 +660,11 @@ img.avatar {
 }
 
 .left20 {
-  width: 20%;
+  width: 15%;
 }
 
 .right80 {
-  width: 80%;
+  width: 85%;
 }
 
 .right80 h2 {
@@ -560,6 +676,7 @@ img.avatar {
   padding: 10px;
   margin-right: 10px;
   margin-left: 10px;
+  border-radius: 10px;
 }
 
 /*-------------------------Content Form-------------------*/
@@ -573,18 +690,20 @@ img.avatar {
   height: auto;
   /*border: 3px solid grey;*/
   box-shadow: 4px 4px 4px grey;
+  border-radius: 10px;
   /*opacity: 0.5;*/
 }
 
 .contentForm h2 {
   font-size: 24px;
-  color: darkslateblue;
+  background-color: #065b7a;
   text-align: center;
   padding: 6px;
   /*border-bottom: 3px solid grey;*/
   /*box-shadow: 4px 4px 4px grey;*/
-  background-color: white;
+  color: white;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .contentForm h3 {
@@ -603,21 +722,37 @@ img.avatar {
 .contentForm input, select {
   width: 80%;
   /*background-color: white;*/
-  height: 40px;
+  min-height: 40px;
   margin-top: 25px;
   margin-right: 10%;
   font-size: 18px;
   border: 0px;
   padding-left: 15px;
+  border-radius: 10px;
 }
 
 .contentForm label {
-  /*padding-left: 5%;*/
   padding: 20px 12px 12px 0;
   display: inline-block;
   font-size: 18px;
-  margin-left: 15%;
+  margin-left: 10%;
+  margin-right: 2%;
+  margin-top: 4%;
   text-align: justify;
+}
+
+.longTxt {
+  width: 80%;
+  max-width: 80%;
+  min-width: 80%;
+  /*background-color: white;*/
+  height: 200px;
+  margin-top: 25px;
+  margin-right: 10%;
+  font-size: 18px;
+  border: 0px;
+  padding-left: 15px;
+  border-radius: 10px;
 }
 
 /*-------------------------Profile Form-------------------*/
@@ -634,6 +769,7 @@ img.avatar {
   margin-bottom: 35px;
   /*opacity: 0.5;*/
   display: block;
+  border-radius: 10px;
 }
 
 .profileForm label {
@@ -649,6 +785,7 @@ img.avatar {
   width: 100%;
   border: 2px solid #2980b9;
   padding-left: 15px;
+  border-radius: 10px;
 } 
 
 /*-------------------------Buttons-------------------*/
@@ -665,6 +802,7 @@ img.avatar {
   border: 0px;
   cursor: pointer;
   border: 0;
+  border-radius: 10px;
 }
 
 .mainbtn:hover {
@@ -688,6 +826,7 @@ img.avatar {
   font-size: 18px;
   margin-bottom: 3%;
   border: 0;
+  border-radius: 10px;
 }
 
 .subbtn a {
@@ -712,6 +851,7 @@ img.avatar {
   font-size: 18px;
   margin-bottom: 3%;
   border: 0;
+  border-radius: 10px;
 }
 
 .cancelbtn a {
@@ -724,9 +864,6 @@ img.avatar {
   font-weight: bold;
 }
 
-
-
-
 .sansserif {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -736,9 +873,10 @@ img.avatar {
 #tableStyle {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 90%;
+  width: 98%;
   margin-top: 25px;
-  margin-left: 50px;
+  margin-left: 5px;
+  margin-right: 2px;
 }
 
 #tableStyle td, #tableStyle th {
@@ -762,6 +900,7 @@ img.avatar {
   background-color: #1177d1;
   color: white;
   width: auto;
+  text-align: center;
 }
 
 #tableStyle td a {
@@ -769,11 +908,15 @@ img.avatar {
   text-decoration: none;
   color: white;
   padding: 5px;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
 }
 
 .modal {
   display: none; /* Hidden by default */
-  
+  z-index: -1;
 }
 
 .close, .subclose {
@@ -785,6 +928,7 @@ img.avatar {
   padding: 5px;
   margin-left: 15px;
   margin-top: 2px;
+  border-radius: 10px;
 }
 
 .close:hover,
@@ -811,4 +955,89 @@ img.avatar {
   margin-top: 20px;
   padding-left: 3%;
   padding-right: 3%;
+}
+
+
+/*------------------------SCROLL UP BUTTON---------------------*/
+#myTopBtn {
+  /*display: none;*/
+  /*position: fixed;*/
+  /*bottom: 20px;*/
+  /*right: 30px;*/
+  /*z-index: 99;*/
+  margin-left: 93%;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #1177d1;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#myTopBtn:hover {
+  background-color: #065b7a;
+  font-weight: bold;
+}
+
+#myInput {
+  background-image: url(../img/icons8-search-64.png);
+  background-size: 30px;
+  background-position: 5px 8px;
+  background-repeat: no-repeat;
+  width: 99%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 2px solid #065b7a;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-left: -5px;
+  margin-right: 0px;
+}
+
+.searchBar {
+  border-radius: 10px;
+}
+
+
+/*------------------------Passwrod verification---------------------*/
+
+/* The message box is shown when the user clicks on the password field */
+#message, #usernameMSG {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+  width: 80%;
+}
+
+#message p, #usernameMSG p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: #065b7a;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: crimson;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
 }

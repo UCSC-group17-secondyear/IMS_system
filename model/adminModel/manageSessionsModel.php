@@ -1,18 +1,31 @@
 <?php
 	class adminModel {
+		public static function checkSessionType($sessionType, $connect){
+			$query = "SELECT * FROM sessiontypes WHERE sessionType ='{$sessionType}' AND is_deleted = 0" ;
+			
+			$result_set = mysqli_query($connect, $query);
+            
+            return $result_set;
+		}
+
 		public static function addSessionType($sessionType, $connect) 
 		{
-			// $checkquery = "SELECT * FROM degrees WHERE degree_abbriviation ='{$degree_abbriviation}'" ;
+			$query = "INSERT INTO sessionTypes (sessionType) VALUES('$sessionType')";
+		
+			$result = mysqli_query($connect, $query);
 
-			// if ($checkquery) {
-			// 	echo "Degree already exists in the database.";
-			// }
-			// else {
-				$query = "INSERT INTO sessionTypes (sessionType) VALUES('$sessionType')";
-			
-				if($connect->query($query))
-					return true;
-			// }
+			return $result;
+		}
+
+		public static function viewSessionTypes($connect) {
+			$query = "SELECT sessionType
+			FROM sessionTypes 
+			WHERE is_deleted=0 
+			ORDER BY sessionTypeId";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
 		}
 	}
 ?>

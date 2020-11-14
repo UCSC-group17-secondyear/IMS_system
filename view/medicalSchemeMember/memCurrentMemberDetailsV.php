@@ -27,63 +27,7 @@
 
                     <div class="contentForm">
                         <form action="../../controller/currentMemberDetailsControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Employee ID</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled>
-                                </div>
-                                </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Your initials</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"' ?> disabled/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Your surname</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"' ?> disabled/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Your E-mail</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"' ?> disabled/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Designation</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Enter department</label>
-                                </div>
-                                <div class="col-75">
-                                    <select name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required>
-                                        <option value="">Select department: </option>
-                                        <?php echo $_SESSION['department'] ?>
-                                    </select>
-                                </div>
-                            </div>
-
+                            
                             <div class="row">
                                 <div class="col-25">
                                     <label>Health condition</label>
@@ -98,8 +42,8 @@
                                     <label>Civil status</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="civilstatus" <?php echo 'value="'.$_SESSION['civilstatus'].'"' ?> required>
-                                        <option value="">...</option>
+                                    <select name="civilstatus" required>
+                                        <option value="<?php echo $_SESSION['civilstatus'] ?>"><?php echo $_SESSION['civilstatus'] ?></option>
                                         <option value="married">Married</option>
                                         <option value="unmarried">Unmarried</option>
                                     </select>

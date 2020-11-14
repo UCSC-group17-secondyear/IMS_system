@@ -26,13 +26,11 @@
                 <table id="tableStyle">
                     <tr>
                         <th>Session Type</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <!-- <th>Edit</th>
+                        <th>Delete</th> -->
                     </tr>
+                    <?php echo $_SESSION['sessionTypes']; ?>
                 </table>
-                <button class="mainbtn" type="submit">
-                    <a href="aHomeV.php">Back</a>
-                </button>
             </div>
         </div>
     </div>

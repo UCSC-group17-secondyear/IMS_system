@@ -19,7 +19,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>User roles in IMS System</h2>
+                    <h2>User roles</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable">
@@ -27,14 +27,11 @@
                         <th>User role</th>
                         <th>Description</th>
                     </tr>
-                    <?php echo $_SESSION['user_role'] ?>
+                    <?php echo $_SESSION['user_role']; ?>
                 </table>
                 <!-- <a href="aAddNewUserRoleV.php">
                     <button class="subbtn" type="submit">Back</button>
                 </a> -->
-                <button class="mainbtn">
-                    <a href="aHomeV.php">Back</a>
-                </button>
             </div>
         </div>
     </div>

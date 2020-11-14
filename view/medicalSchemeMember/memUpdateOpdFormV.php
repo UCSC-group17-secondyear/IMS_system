@@ -8,6 +8,7 @@
                 
                     <ul class="breadcrumbs">
                         <li><a href="memHomeV.php">Home</a></li>
+                        <li><a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
                         <li class="active">Update OPD Form</li>
                     </ul>
                 
@@ -26,15 +27,6 @@
                         <div class="contentForm">
                             <form action="../../controller/updateOpdFormController.php?user_id=<?php echo $_SESSION['userId']?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
                              
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">User Id</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="userId" <?php echo 'value="'.$_SESSION['userId'].'"' ?> disabled> <br> 
-                                </div>
-                            </div>
-
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Claim Form No</label>
@@ -58,7 +50,14 @@
                                     <label for="">Relationship</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"'?> required> <br>
+                                    <select name="relationship" required>
+                                        <option value="<?php echo $_SESSION['relationship'] ?>"><?php echo $_SESSION['relationship'] ?></option>
+                                        <option value="myself">Myself</option>
+                                        <option value="husband">Husband</option>
+                                        <option value="wife">Wife</option>
+                                        <option value="daughter">Daughter</option>
+                                        <option value="son">Son</option>
+                                    </select>
                                 </div>
                             </div>
 

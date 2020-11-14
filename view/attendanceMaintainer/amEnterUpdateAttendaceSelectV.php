@@ -3,8 +3,6 @@
 ?>
 
 <main>
-    <title>Enter or Update Attendance</title>
-
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
         <li class="active">Enter or Update Attendance</li>

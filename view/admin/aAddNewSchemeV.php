@@ -3,8 +3,6 @@
 ?>
 
 <main>
-    <title>Add a new scheme</title>
-]
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
@@ -23,14 +21,14 @@
                     <h2>Add a new Scheme</h2>
                 </div>
 
-                <div class="contentForm" style="margin-bottom: 30px;">
+                <div class="contentForm" style="margin-bottom: 0px;">
                     <form action="../../controller/adminControllers/manageSchemesC.php" method="post">
                         <div class="row">
                             <div class="col-75">
                                 <label>Enter Scheme Name</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="schemeName" placeholder="Scheme Name" required/><br>
+                                <input type="text" name="schemeName"  required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -42,7 +40,7 @@
                               <label>Enter Maximum room charge per day in a hospital</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="maxRoomCharge" placeholder="Maximum room charge per day" required/><br>
+                                <input type="text" name="maxRoomCharge"  required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -50,7 +48,7 @@
                               <label>Non-State Hospital/paying wards of state and semi state hospitals Charges including Room Charges </label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="hospitalCharges" placeholder="Hospital charges" required/><br>
+                                <input type="text" name="hospitalCharges" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -58,7 +56,7 @@
                               <label>Enter Annual Premium</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="annualPremium" placeholder="Annual Premium" required/><br>
+                                <input type="text" name="annualPremium"  required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -66,7 +64,7 @@
                               <label>Enter the monthly premium</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="monthlyPremium" placeholder="Monthly deduction" required/><br>
+                                <input type="text" name="monthlyPremium"  required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -77,7 +75,7 @@
                               <label>Cover for Government Hospital non paying wards per day(only for a Maximum of 30 days per one event)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="gvtNoPayingWard" placeholder="Cover for Government Hospital non paying wards per day" required/><br>
+                                <input type="text" name="gvtNoPayingWard" required/><br>
                             </div>  
                         </div> 
                         <div class="row">
@@ -85,7 +83,7 @@
                               <label>Cover for a Child Birth at Government Hospital nonpaying wards (Normal or Caesarean)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="gvtChildBirthCover" placeholder="Child Birth at Government Hospital nonpaying wards" required/><br>
+                                <input type="text" name="gvtChildBirthCover" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -93,7 +91,7 @@
                               <label>Cover for the Expenses incurred for travel within Sri Lanka to obtain Emergency Treatment</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="travelExpensesCover" placeholder="Expenses incurred for travel" required/><br>
+                                <input type="text" name="travelExpensesCover" required/><br>
                             </div>
                         </div>  
                         <div class="row">
@@ -104,7 +102,7 @@
                               <label>Limit of ANY ONE YEAR/ANY ONE EVENT (including charges related to Echocardiograph, ECG, CT, MRI, X-ray, Ultrasounds Scan, Pathological Lab Test and Stress Test, Hematological and Biochemical Investigations and Isotope Scanning etc.)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="annualLimit" placeholder="Annual Limit" required/><br>
+                                <input type="text" name="annualLimit"  required/><br>
                             </div>
                         </div> 
                         <div class="row">
@@ -115,7 +113,7 @@
                               <label>Consultant Fee, Cost of drugs (excluding Vitamins, food Supplements ant Routine vaccination)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="consultantFee" placeholder="Consultant Fee" required/><br>
+                                <input type="text" name="consultantFee"  required/><br>
                             </div>
                         </div> 
                         <div class="row">
@@ -123,7 +121,7 @@
                               <label>Cost of investigations under the Recommendation of a medical offer registered in Sri Lanka Medical Council or Sri Lanka Ayurvedic Medical Council. Consultation fees only for Specialist or Medical Officers Registered in Sri Lanka Medical Council or Ayurvedic Doctors registered in Ayurvedic Medical Council, Dental treatment (filling and extraction only) and eye test.</label>
                             </div> 
                             <div class="col-25">
-                                <input type="text" name="investigationsCost" placeholder="Cost of investigations" required/><br>
+                                <input type="text" name="investigationsCost" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -131,32 +129,51 @@
                               <label>Cost of Spectacles recommended by an eye specialist once in 3 years, those who have not claimed within last three (03) years can apply (family members are not covered)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="spectaclesCost" placeholder="Cost of Spectacles" required/><br>
+                                <input type="text" name="spectaclesCost" required/><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>3. Eligibility Conditions (required service period to join the scheme in MONTHS)</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-75">
+                              <label>For permanent staff</label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" name="permanentStaff" required/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-75">
-                              <label>Enter Eligibility Conditions</label>
+                              <label>For Contract staf</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="eleigibilityConditions" placeholder="Eligibility Conditions" required/> <br>
+                                <input type="text" name="contractStaff" required/>
                             </div>
-                        </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col-75">
+                              <label>For Assignment/Temporary staf</label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" name="temporaryStaff" required/>
+                            </div>
+                        </div>
+
                         <button class="mainbtn" type="submit" name="addScheme-submit">Add new scheme</button>
                     </form>
 
-                    <button id="subBtn" class="subbtn">View available schemes</button>
+                    <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>
                     <button id="myBtn" class="cancelbtn">Cancel</button> 
                 </div>
-
-                <div id="subModal" class="modal">
+                <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
                         <span class="subclose">&times;</span>
                         <?php
-                            require 'aSchemesPopupV.php';
+                            // require 'aSchemesPopupV.php';
                         ?>
                     </div>
-                </div>
+                </div> -->
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -166,6 +183,7 @@
                         </button>
                     </div>
                 </div>
+                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>
     </div>
@@ -200,6 +218,27 @@
           if (event.target == modal) {
             modal.style.display = "none";
           }
+        }
+
+
+        //Get the button
+        var mybutton = document.getElementById("myTopBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
         }
     </script>
 

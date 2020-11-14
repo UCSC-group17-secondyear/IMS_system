@@ -83,13 +83,16 @@
 	                        </div>
 	                    </div>
                         <div class="row">
-	                        <div class="col-25">
-	                            <label for="">Designation</label>
-	                        </div>
-	                        <div class="col-75">
-	                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> required> <br>
-	                        </div>
-	                    </div>
+							<div class="col-25">
+								<label>Enter designation</label>
+							</div>
+							<div class="col-75">
+								<select name="designation" required>
+									<option value="<?php echo $_SESSION['designation'] ?>"><?php echo $_SESSION['designation'] ?></option>
+									<?php echo $_SESSION['design'] ?>
+								</select>
+							</div>
+						</div>
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Appointment Date</label>
@@ -103,17 +106,12 @@
 	                            <label for="">Password: </label>
 	                        </div>
 	                        <div class="col-75">
-	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a> <br>
+	                            <br><span>******</span> | <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Change Password</a>
 	                        </div>
-                        
-                        <button type="submit" name="submit" class="subbtn">Save Updates</button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="mmHome.php">Cancel</a>
-                        </button>
-                    </form>
-                    <a href="mmProfileV.php">
-                        <button type="submit" class="cancelbtn">Cancel</button>
-                    </a>                    
+                        </div>
+                        <button type="submit" name="submit" class="mainbtn">Save Updates</button>
+                        <button type="submit" class="cancelbtn"><a href="mmProfileV.php">Cancel</a></button>
+                    </form>                                        
                 </div>
             </div>
         </div>

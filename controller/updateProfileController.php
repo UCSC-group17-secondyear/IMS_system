@@ -11,8 +11,9 @@
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     // echo $user_id;
     $result_set = Model::view($user_id, $connect);
+    $records = Model::designation($connect);
 
-    if ($result_set) {
+    if ($result_set && $records) {
         if(mysqli_num_rows($result_set)==1){
             $result = mysqli_fetch_assoc($result_set);
             $_SESSION['userId'] = $result['userId'];
@@ -25,6 +26,10 @@
             $_SESSION['dob'] = $result['dob'];
             $_SESSION['designation'] = $result['designation'];
             $_SESSION['appointment'] = $result['appointment'];
+
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+			}
 
             if ($result['userRole'] == "admin") {
                 header('Location:../view/admin/aUpdateProfileV.php');
@@ -47,8 +52,11 @@
             else if ($result['userRole'] == "medicalSchemeMain") {
                 header('Location:../view/medicalSchemeMaintainer/msmUpdateProfileV.php');
             }
+            else if ($result['userRole'] == "medicalSchemeMemb") {
+                header('Location:../view/medicalSchemeMember/memUpdateProfileV.php');
+            }
             else if ($result['userRole'] == "recordsViewer") {
-                header('Location:../view/recordsViewer/recordsUpdateViwerProfileUI.php');
+                header('Location:../view/reportViewer/rvUpdateProfileV.php');
             }
             else if ($result['userRole'] == "departmentHead") {
                 header('Location:../view/departmentHead/dhUpdateProfileV.php');

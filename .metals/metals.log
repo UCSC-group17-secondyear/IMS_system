@@ -45,3 +45,18 @@
 2020.11.06 12:15:37 INFO  started: Metals version 0.9.4 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
 2020.11.06 12:15:38 INFO  time: initialize in 1.35s
 2020.11.06 12:15:40 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.11.10 11:11:16 INFO  started: Metals version 0.9.4 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2020.11.10 11:11:17 INFO  time: initialize in 1.43s
+2020.11.10 11:11:22 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+Nov 11, 2020 8:12:06 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+Nov 11, 2020 8:12:21 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+Nov 11, 2020 8:12:29 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+Nov 11, 2020 8:12:37 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+Nov 11, 2020 8:12:45 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+Nov 11, 2020 8:13:39 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
