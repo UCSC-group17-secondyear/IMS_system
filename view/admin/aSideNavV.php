@@ -127,9 +127,10 @@
 
             <li><button class="tree_list">Manage Sessions Per Month</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="aViewSessionPerMonthV.php"><li><i class="fa fa-check-circle"></i>View sessions of a subject</li></a>
-                    </button>
+                    <!-- <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post"> -->
+                        <button name="ViewMonthlySessions">
+                            <a href="aViewSessionPerMonthV.php"><li><i class="fa fa-check-circle"></i>View sessions of a subject</li></a>
+                        </button>
 
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <button name="assignSession-submit">
