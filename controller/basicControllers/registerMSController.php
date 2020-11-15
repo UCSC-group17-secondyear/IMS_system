@@ -31,9 +31,9 @@
                 $_SESSION['deps'] .= "<option value='".$record1['department']."'>".$record1['department']."</option>";
             }
 
-            while ($record2 = mysqli_fetch_array($records2)) {
-                $_SESSION['scheme'] .= "<option value='".$record2['schemename']."'>".$record2['schemename']."</option>";
-            }
+            // while ($record2 = mysqli_fetch_array($records2)) {
+            //     $_SESSION['scheme'] .= "<option value='".$record2['schemename']."'>".$record2['schemename']."</option>";
+            // }
 
             while ($record3 = mysqli_fetch_array($records3)) {
                 $_SESSION['member_type'] .= "<option value='".$record3['member_type']."'>".$record3['member_type']."</option>";

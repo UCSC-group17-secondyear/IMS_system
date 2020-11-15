@@ -7,7 +7,7 @@
     <form action="../../controller/basicControllers/registerMSControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
         <div class="row">
             <div class="col-25">
-                <label>Enter department</label>
+                <label>Department</label>
             </div>
             <div class="col-75">
                 <select name="department"required>
@@ -41,18 +41,6 @@
 
         <div class="row">
             <div class="col-25">
-                <label>Medical Scheme Type</label>
-            </div>
-            <div class="col-75">
-                <select name="scheme_name" id="schemename" required>
-                    <option value="">Select Scheme</option>
-                    <?php echo $_SESSION['scheme'] ?>
-                </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-25">
                 <label>Member Type</label>
             </div>
             <div class="col-75">
@@ -62,6 +50,18 @@
                 </select>
             </div>
         </div>
+
+        <!-- <div class="row">
+            <div class="col-25">
+                <label>Medical Scheme Type</label>
+            </div>
+            <div class="col-75">
+                <select name="scheme_name" id="schemename" required>
+                    <option value="">Select Scheme</option>
+                    <?php echo $_SESSION['scheme'] ?>
+                </select>
+            </div>
+        </div> -->
 
         <button class="mainbtn" type="submit" name="registerMS-submit">Register</button>
     </form>

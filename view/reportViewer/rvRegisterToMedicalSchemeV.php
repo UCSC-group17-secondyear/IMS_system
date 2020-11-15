@@ -20,7 +20,7 @@
             <div class="col right80">
                 <div>
                     <?php
-                        require '../basic/registerToMedSchemeV.php';
+                        require '../basic/registerToMedSchemeP1V.php';
                     ?>
                 </div>
             </div>
