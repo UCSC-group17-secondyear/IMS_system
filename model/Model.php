@@ -779,9 +779,9 @@
 //......................................................................................................................................//
 
 //................................................ Medical Scheme Maintainer ...........................................................//
-		public static function registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $member_type, $current_date, $connect)
+		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', schemename='{$scheme_name}', member_type='{$member_type}', currentdate='{$current_date}' WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -822,6 +822,15 @@
 			$result_set = mysqli_query($connect, $query);
 			
 			return $result_set;
+		}
+
+		public static function getservicemonths($user_id,$connect)
+		{
+			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment)FROM users WHERE userId={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
 		}
 
 		public static function fetchmembers($scheme, $member_type, $connect)

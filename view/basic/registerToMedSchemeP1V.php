@@ -4,7 +4,7 @@
     </div>
 
     <div class="contentForm">
-    <form action="../../controller/basicControllers/registerMSController3.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+    <form action="../../controller/basicControllers/registerMSController2.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
         <div class="row">
             <div class="col-25">
                 <label>Department</label>
@@ -24,21 +24,8 @@
             <div class="col-75">
                 <input name="health_condition" type="text" required>
                 <div class="tooltip">?
-                    <span class="tooltiptext">Health</span>
+                    <span class="tooltiptext">Health Conditions</span>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-25">
-                <label>Civil status</label>
-            </div>
-            <div class="col-75">
-                <select name="civil_status" required>
-                    <option value="">Select Civil Status</option>
-                    <option value="married">Married</option>
-                    <option value="unmarried">Unmarried</option>
-                </select>
             </div>
         </div>
 
@@ -56,16 +43,18 @@
 
         <div class="row">
             <div class="col-25">
-                <label>Appoinment Date</label>
+                <label>Civil status</label>
             </div>
             <div class="col-75">
-                <input name="health_condition" type="date" required>
+                <select name="civil_status" required>
+                    <option value="">Select Civil Status</option>
+                    <option value="married">Married</option>
+                    <option value="unmarried">Unmarried</option>
+                </select>
             </div>
         </div>
 
         <button class="mainbtn" type="submit" name="registerNext-submit">Next</button>
-
-        <!-- <button class="mainbtn" type="submit" name="registerMS-submit">Register</button> -->
     </form>
     <form>
         <button class="subbtn" type="submit" name="schemedetails-submit">
