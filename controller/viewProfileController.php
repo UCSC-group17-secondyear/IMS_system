@@ -24,6 +24,7 @@
             $_SESSION['tp'] = $result['tp'];
             $_SESSION['dob'] = $result['dob'];
             $_SESSION['designation'] = $result['designation'];
+            $_SESSION['post'] = $result['post'];
             $_SESSION['appointment'] = $result['appointment'];
 
             if ($result['userRole'] == "admin") {
