@@ -24,6 +24,7 @@
 		$dob = mysqli_real_escape_string($connect, $_POST['dob']);
 		$aca_or_non = mysqli_real_escape_string($connect, $_POST['aca-or-non']);
 		$designation = mysqli_real_escape_string($connect, $_POST['designation']);
+		$post = mysqli_real_escape_string($connect, $_POST['post']);
 		$appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
 		$conpassword = mysqli_real_escape_string($connect, $_POST['conpassword']);
@@ -59,7 +60,7 @@
 				$userRole = 'nonAcademicStaffMemb';
 			}
 			
-			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $userRole, $appointment, $hashed_password, $connect);
+			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
 
             if ($result == true) 
             {

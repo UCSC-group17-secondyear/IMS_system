@@ -87,6 +87,14 @@
 	                        <div class="col-75">
 	                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> disabled> <br>
 	                        </div>
+						</div>
+						<div class="row">
+	                        <div class="col-25">
+	                            <label for="">Post</label>
+	                        </div>
+	                        <div class="col-75">
+	                            <input type="text" name="post" <?php echo 'value="'.$_SESSION['post'].'"' ?> disabled> <br>
+	                        </div>
 	                    </div>
                         <div class="row">
 	                        <div class="col-25">
