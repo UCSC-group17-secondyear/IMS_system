@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li>Register to the medical scheme - Part 1</li>
+            <li><a href="#">Register to the medical scheme - Part 1</li>
             <li class="active">Register to the medical scheme - Part 2</li>
         </ul>
 
