@@ -10,7 +10,7 @@
 			<h2>Sign Up Here</h2>
 			<div class="row">
 	            <div class="col-25">
-	              <label>User name</label>
+	              <label>User name (first three letters of the university mail)</label>
 	            </div>
 	            <div class="col-75">
 	              	<input id="username" type="text" name="empid" title="The first three letters of the private email given to you by UCSC should be entered" required/>
@@ -121,7 +121,7 @@
 				  		<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
 						<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
 				  		<p id="number" class="invalid">A <b>number</b></p>
-				  		<p id="character" class="invalid">one <b>special character</b> (only @$!%*?&)</p>
+				  		<!-- <p id="character" class="invalid">one <b>special character</b> (only @$!%*?&)</p> -->
 				  		<p id="length" class="invalid">Minimum <b>8 characters</b></p>
 					</div>
 	            </div>
