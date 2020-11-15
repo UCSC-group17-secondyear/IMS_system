@@ -18,9 +18,9 @@
             return $result_set;
 		}
 
-		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $userRole, $appointment, $password, $connect) 
+		public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $password, $connect) 
 		{
-			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, aca_or_non, designation, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$aca_or_non', '$designation', '$appointment', '$userRole','$password')";
+			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, aca_or_non, designation, post, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$aca_or_non', '$designation', '$post', '$appointment', '$userRole','$password')";
 			
 			$result = mysqli_query($connect, $query);
 
@@ -63,9 +63,9 @@
 			return $result_set;
 		}
 
-		public static function update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect)
+		public static function update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $post, $appointment, $connect)
 		{
-			$query = "UPDATE users SET empid='{$empid}', initials='{$initials}', sname='{$sname}', email='{$email}', mobile='{$mobile}', tp='{$tp}', dob='{$dob}', designation='{$designation}', appointment='{$appointment}' WHERE userId={$user_id} LIMIT 1";
+			$query = "UPDATE users SET empid='{$empid}', initials='{$initials}', sname='{$sname}', email='{$email}', mobile='{$mobile}', tp='{$tp}', dob='{$dob}', designation='{$designation}', post='{$post}', appointment='{$appointment}' WHERE userId={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -770,6 +770,7 @@
 
 		public static function funct($user_id, $connect)
 		{
+			
 			$query = "SELECT u.*, uf.healthcondition, uf.civilstatus, uf.membership_status, uf.member_type, uf.schemename, uf.department FROM tbl_user_flag uf, users u WHERE u.userId = uf.user_id AND uf.user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
@@ -781,7 +782,7 @@
 //................................................ Medical Scheme Maintainer ...........................................................//
 		public static function registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $member_type, $connect)
 		{
-			$query = "INSERT INTO tbl_user_flag (user_id, department, healthcondition, civilstatus, schemename, member_type) VALUES('$user_id', '$department', '$health_condition', '$civil_status', '$scheme_name', '$member_type')";
+			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', schemename='{$scheme_name}', member_type='{$member_type}' WHERE user_id={$user_id} ";
 
 			$result = mysqli_query($connect, $query);
 
