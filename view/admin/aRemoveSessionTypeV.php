@@ -1,15 +1,12 @@
 <?php
-    // session_start();
     require '../basic/topnav.php';
 ?>
 
 <main>
-    <title>Update a scheme</title>
-    
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li class="active">Update a scheme</li>
+            <li class="active">Remove session types</li>
         </ul>
 
         <div class="row">
@@ -21,45 +18,41 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update a scheme</h2>
+                    <h2>Remove a session type</h2>
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/adminControllers/manageSchemesC.php" method="post">
+                    <form action="../../controller/adminControllers/manageSessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Select Scheme Name</label>
+                              <label>Select session type</label>
                             </div>
                             <div class="col-75">
-                                <select name="schemeName" id="">
+                                <select name="sessionType" id="">
                                     <!-- <option value=""></option> -->
-                                    <?php echo $_SESSION['schemes'] ?>
+                                    <?php echo $_SESSION['sessionTypes'] ?>
                                 </select>
                             </div>
                         </div>
+                        <button class="subbtn" type="submit" name="removeSessionType-submit">Remove session type</button>
 
-                        <button class="subbtn" type="submit" name="getscheme-submit">Get Scheme Details</button>
-                        <button class="cancelbtn" type="submit">
-                            <a href="aHomeV.php">Cancel</a>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a> 
                         </button>
                     </form>
 
-                    <!-- <button id="subBtn" class="subbtn">View available schemes</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
+                    <!-- <button class="subbtn" type="submit" name="removeSessionType-submit">
+                        <a href="aUpdateSessionType.php">Update session type</a>
+                    </button>
+                    
+                    <button id="myBtn" class="cancelbtn">Remove session type</button> -->
+                    
+                    <!-- <button type="submit" name="removeSession-submit" class="cancelbtn">Remove session type</button> -->
                 </div>
-
-                <!-- <div id="subModal" class="modal">
-                    <div class="modal-content">
-                        <span class="subclose">&times;</span>
-                        <?php
-                            // require 'aSchemesPopupV.php';
-                        ?>
-                    </div>
-                </div>
-                <div id="myModal" class="modal">
+                <!-- <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <h1>Are you sure you want to leave the page?</h1>
+                        <h1>Are you sure you want to remove the session type?</h1>
                         <button class="mainbtn">
                             <a href="aHomeV.php">Yes</a>
                         </button>
@@ -79,19 +72,10 @@
         btn.onclick = function() {
           modal.style.display = "block";
         }
+
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
           modal.style.display = "none";
-        }
-
-        var submodal = document.getElementById("subModal");
-        var subbtn = document.getElementById("subBtn");
-        var subspan = document.getElementsByClassName("subclose")[0];
-        subbtn.onclick = function() {
-          submodal.style.display = "block";
-        }
-        subspan.onclick = function() {
-          submodal.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it
