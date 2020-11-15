@@ -38,24 +38,30 @@
                 $result = mysqli_fetch_assoc($result_set);
     
                 $_SESSION['userId'] = $result['userId'];
-                $_SESSION['appointment'] = $result['appointment'];
-                $current_date = date("Y-m-d");
+
+                $date_diff = Model::getservicemonths($user_id,$connect);
+                $submit_diff = mysqli_fetch_array($date_diff);
+                $months = (int)$submit_diff/30;
+
+                $scheme_1_details = Model::getscheme("Scheme 1", $connect);
+                $scheme_2_details = Model::getscheme("Scheme 2", $connect);
+                $scheme_3_details = Model::getscheme("Scheme 3", $connect);
     
                 if ($_SESSION['member_type'] == "Permanent") {
-                    if (($current_date - $_SESSION['appointment']) == ) {
-    
+                    if ($months == ) {
+                        
                     } else {
     
                     }
     
                 } else if ($_SESSION['member_type'] == "Contract") {
-                    if (($current_date - $_SESSION['appointment']) == ) {
+                    if ($months == ) {
     
                     } else {
                         
                     }
                 } else if ($_SESSION['member_type'] == "Temporary") {
-                    if (($current_date - $_SESSION['appointment']) == ) {
+                    if ($months == ) {
                         
                     }
                 }

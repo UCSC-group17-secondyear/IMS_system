@@ -826,7 +826,16 @@
 
 		public static function getservicemonths($user_id,$connect)
 		{
-			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment)FROM users WHERE userId={$user_id}";
+			$query = "SELECT MONTHS_BETWEEN(CURRENT_DATE(), appointment)FROM users WHERE userId={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getscheme($scheme, $connect)
+		{
+			$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = "{$scheme}";
 
 			$result = mysqli_query($connect, $query);
 
