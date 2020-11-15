@@ -4,7 +4,7 @@
     </div>
 
     <div class="contentForm">
-    <form action="../../controller/memregisterMSControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+    <form action="../../controller/basicControllers/registerMSControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
         <div class="row">
             <div class="col-25">
                 <label>Enter department</label>

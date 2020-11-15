@@ -781,7 +781,7 @@
 //................................................ Medical Scheme Maintainer ...........................................................//
 		public static function registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $member_type, $connect)
 		{
-			$query = "INSERT INTO tbl_user_flag (user_id, department, healthcondition, civilstatus, schemename, member_type) VALUES('$user_id', '$department', '$health_condition', '$civil_status', '$scheme_name', '$member_type')";
+			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', schemename='{$scheme_name}', membertype='{$member_type}' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
