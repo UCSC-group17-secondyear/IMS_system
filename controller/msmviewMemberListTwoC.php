@@ -11,7 +11,7 @@
         $members = Model::fetchmembers($scheme, $member_type, $connect);
         
         if ($members) {
-            if ({$mem['acceptance_status']} == 0) {
+            if ($mem['acceptance_status'] == 0) {
                 while ($mem = mysqli_fetch_assoc($members)) {
                     $_SESSION['member_info'] .= "<tr>";
                     $_SESSION['member_info'] .= "<td>{$mem['empid']}</td>";
@@ -20,6 +20,7 @@
                     $_SESSION['member_info'] .= "<td>Rejected</td>";
                     $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmviewMemberListThreeC.php?std_index={$mem['userId']}\">View</a></td>";
                     $_SESSION['member_info'] .= "</tr>";
+                }
                     
                     header('Location:../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');
                 }

@@ -99,6 +99,19 @@
 				</div>
 			</div>
 
+			<div class="row">
+	            <div class="col-25">
+	              <label>Post</label>
+	            </div>
+	            <div class="col-75">
+				  <select name="post" required>
+                    <option value="">Select a Post:</option>
+                    <option value="post1">Post1</option>
+                    <option value="post2">Post2</option>
+                  </select>
+	            </div>
+			</div>
+
 	        <div class="row">
 	            <div class="col-25">
 	              <label>Date of appointment</label>

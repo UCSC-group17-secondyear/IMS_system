@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
+                    <form action="../../controller/asmViewHallController.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                               <label>Select Hall</label>
@@ -32,21 +32,16 @@
                             <div class="col-75">
                                 <select name="hall" id="hall">
                                     <option value="">Select a Hall</option>
-                                    <option value="E401">E401</option>
-                                    <option value="S104">S104</option>
-                                    <option value="W001">W001</option>
+                                    <?php echo $_SESSION['halls'] ?>
                                 </select>
                             </div>
                         </div>
                         
-                        
+                        <button class="mainbtn" type="submit" name="hall-submit">Display Details</button>
                         <!-- <button type="submit" class="cancelbtn">
                             <a href="asmHomeV.php">Cancel</a>
                         </button> -->
                     </form>
-                    <button class="subbtn" type="submit" name="">
-                        <a href="asmViewHallDetailsV.php">Display Details</a>
-                    </button>
                     <button id="myBtn" class="cancelbtn">Cancel</button>
                     <div id="myModal" class="modal">
                         <div class="modal-content">
