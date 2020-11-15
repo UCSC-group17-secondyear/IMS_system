@@ -31,8 +31,8 @@
                               <label>Select Scheme Name</label>
                             </div>
                             <div class="col-75">
-                              <select name="schemeName" id="">
-                                    <option value="">Select Scheme</option>
+                                <select name="schemeName" id="">
+                                    <!-- <option value=""></option> -->
                                     <?php echo $_SESSION['schemes'] ?>
                                 </select>
                             </div>

@@ -15,5 +15,16 @@
 					return true;
 			// }
 		}
+
+		public static function sessionType($connect) {
+			$query = "SELECT sessionType
+			FROM sessionTypes 
+			WHERE is_deleted=0 
+			ORDER BY sessionTypeId";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
 	}
 ?>
