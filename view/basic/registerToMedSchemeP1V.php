@@ -4,7 +4,7 @@
     </div>
 
     <div class="contentForm">
-    <form action="../../controller/basicControllers/registerMSController1Two.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+    <form action="../../controller/basicControllers/registerMSController3.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
         <div class="row">
             <div class="col-25">
                 <label>Department</label>
@@ -20,7 +20,6 @@
         <div class="row">
             <div class="col-25">
                 <label>Health condition</label>
-                
             </div>
             <div class="col-75">
                 <input name="health_condition" type="text" required>
@@ -55,17 +54,14 @@
             </div>
         </div>
 
-        <!-- <div class="row">
+        <div class="row">
             <div class="col-25">
-                <label>Medical Scheme Type</label>
+                <label>Appoinment Date</label>
             </div>
             <div class="col-75">
-                <select name="scheme_name" id="schemename" required>
-                    <option value="">Select Scheme</option>
-                    <?php // echo $_SESSION['scheme'] ?>
-                </select>
+                <input name="health_condition" type="date" required>
             </div>
-        </div> -->
+        </div>
 
         <button class="mainbtn" type="submit" name="registerNext-submit">Next</button>
 
