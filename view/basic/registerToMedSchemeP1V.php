@@ -4,14 +4,14 @@
     </div>
 
     <div class="contentForm">
-    <form action="../../controller/basicControllers/registerMSControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+    <form action="../../controller/basicControllers/registerMSController1Two.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
         <div class="row">
             <div class="col-25">
                 <label>Department</label>
             </div>
             <div class="col-75">
                 <select name="department"required>
-                    <option value="">Select department: </option>
+                    <option value="">Select Department </option>
                     <?php echo $_SESSION['deps'] ?>
                 </select>
             </div>
@@ -23,9 +23,9 @@
                 
             </div>
             <div class="col-75">
-                <div class="tooltip">
-                    <input name="health_condition" type="text" required>
-                    <span class="tooltiptext">Tooltip text</span>
+                <input name="health_condition" type="text" required>
+                <div class="tooltip">?
+                    <span class="tooltiptext">Health</span>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
             </div>
             <div class="col-75">
                 <select name="civil_status" required>
-                    <option value="">...</option>
+                    <option value="">Select Civil Status</option>
                     <option value="married">Married</option>
                     <option value="unmarried">Unmarried</option>
                 </select>
@@ -49,7 +49,7 @@
             </div>
             <div class="col-75">
                 <select name="member_type" id="membertype" required>
-                    <option value="">Select Type</option>
+                    <option value="">Select Member Type</option>
                     <?php echo $_SESSION['member_type'] ?>
                 </select>
             </div>
@@ -62,14 +62,14 @@
             <div class="col-75">
                 <select name="scheme_name" id="schemename" required>
                     <option value="">Select Scheme</option>
-                    <?php echo $_SESSION['scheme'] ?>
+                    <?php // echo $_SESSION['scheme'] ?>
                 </select>
             </div>
         </div> -->
 
         <button class="mainbtn" type="submit" name="registerNext-submit">Next</button>
 
-        <!-- <button class="mainbtn" type="submit" name="registerMS-submit">Register</button>
+        <!-- <button class="mainbtn" type="submit" name="registerMS-submit">Register</button> -->
     </form>
     <form>
         <button class="subbtn" type="submit" name="schemedetails-submit">
@@ -77,6 +77,6 @@
         </button>
         <button type="submit" class="cancelbtn">
             <a href="#">Cancel</a>
-        </button> -->
+        </button>
     </form>
 </main>

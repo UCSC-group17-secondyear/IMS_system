@@ -724,7 +724,7 @@ img.avatar {
   /*background-color: white;*/
   min-height: 40px;
   margin-top: 25px;
-  margin-right: 10%;
+  margin-right: 0px;
   font-size: 18px;
   border: 0px;
   padding-left: 15px;
@@ -1042,13 +1042,15 @@ img.avatar {
   content: "✖";
 }
 
+/*Add a tooltip to the content form*/
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
+  font-weight: bold;
 }
 
 .tooltip .tooltiptext {
+  font-weight: normal;
   visibility: hidden;
   width: 120px;
   background-color: #555;
