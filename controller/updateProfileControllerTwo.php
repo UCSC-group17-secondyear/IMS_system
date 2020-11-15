@@ -44,9 +44,10 @@
             $tp = mysqli_real_escape_string($connect, $_POST['tp']);
             $dob = mysqli_real_escape_string($connect, $_POST['dob']);
             $designation = mysqli_real_escape_string($connect, $_POST['designation']);
+            $post = mysqli_real_escape_string($connect, $_POST['post']);
             $appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
 
-            $result = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect);
+            $result = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $post, $appointment, $connect);
 
             if ($result) {
                 echo "Changes updated successfully.";

@@ -12,7 +12,7 @@
                 </a>    
             </li>
             <li>
-                <a href="asmHallDetailsV.php">
+                <a href="../../controller/asmViewHallController.php">
                     <button type="submit" name="" class="tree_list">View Hall Details</button>
                 </a>    
             </li>
