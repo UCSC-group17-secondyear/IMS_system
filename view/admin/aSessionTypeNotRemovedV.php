@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddSessionV.php">Add Session Type</a></li>
+            <li><a href="aUpdateRemoveSessionV.php">Update or remove Session Type</a></li>
             <li class="active">Action Failed!</li>
         </ul>
 
@@ -23,16 +23,16 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!<br>
-                            The session type is not added.
+                        <h2>Sorry! <br>
+                            The session type is not removed.
                         </h2>
                     </div>
 
                     <button class="mainbtn">
-                        <a href="aAddSessionV.php">Try again</a> 
+                        <a href="aUpdateRemoveSessionV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Exit</a> 
+                        <a href="aHomeV.php">Leave</a> 
                     </button>
                 </div>
             </div>
