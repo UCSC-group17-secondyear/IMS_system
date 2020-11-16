@@ -27,10 +27,10 @@
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter calendar year</label>
+                                <label>Enter calendar year</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="year" placeholder="Calendar Year" required/><br>
+                                <input type="text" name="calendarYear" placeholder="Calendar Year" required/><br>
                             </div>
                         </div>
 

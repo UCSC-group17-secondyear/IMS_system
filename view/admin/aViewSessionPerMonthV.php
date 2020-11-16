@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li class="active">Assign monthly sessions</li>
+            <li class="active">Select Monthly session</li>
         </ul>
 
         <div class="row">
@@ -27,35 +27,63 @@
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter subject</label>
+                                <label>Enter subject</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="subject" placeholder="Subject" required/>
+                                <input type="text" name="subject" placeholder="Subject" required/>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter month</label>
+                                <label>Select session type</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="month" placeholder="Month"><br>
+                                <select name="sessionType" id="">
+                                    <?php echo $_SESSION['sessionTypes'] ?>
+                                </select>
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="viewSSession-submit">View sessions</button>
-                    </form>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter calendar year</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="calendarYear" placeholder="Calendar Year" required/><br>
+                            </div>
+                        </div>
 
-                    <button id="subBtn" class="subbtn">View Subjects List</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
-                    <!-- <form>
-                        <button class="subbtn" type="submit" name="">
-                            <a href="../../controller/adminControllers/manageMonthlySessionController.php">View Subjects List</a>
-                        </button>
-                        <button type="submit" class="cancelbtn">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Select month</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="month">
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="subbtn" type="submit" name="monthlySessionDetails-submit">View sessions</button>
+                        <button class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>
                         </button>
-                    </form> -->
+                    </form>
+
+                    <!-- <button id="subBtn" class="subbtn">View Subjects List</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
                 <div id="subModal" class="modal">
                     <div class="modal-content">
