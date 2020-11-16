@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+	require_once('../../config/database.php');
+    require_once('../../model/Model.php');
 
     $errors = array();
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
@@ -70,34 +70,34 @@
                 }
     
                 if ($result['userRole'] == "admin") {
-                    header('Location:../view/admin/aRegisterToMedicalSchemeP2V.php');
+                    header('Location:../../view/admin/aRegisterToMedicalSchemeP2V.php');
                 }
                 else if ($result['userRole'] == "academicStaffMemb") {
-                    header('Location:../view/academicStaffMember/asmRegisterToMedicalSchemeP2V.php');
+                    header('Location:../../view/academicStaffMember/asmRegisterToMedicalSchemeP2V.php');
                 }
                 else if ($result['userRole'] == "nonAcademicStaffMemb") {
-                    header('Location:../view/nonAcademicStaffMember/nasmRegisterToMedicalSchemeP2V.php');
+                    header('Location:../../view/nonAcademicStaffMember/nasmRegisterToMedicalSchemeP2V.php');
                 }
                 else if ($result['userRole'] == "attendanceMain") {
-                    header('Location:../view/attendanceMaintainer/amRegisterMedicalSchemep2V.php');
+                    header('Location:../../view/attendanceMaintainer/amRegisterMedicalSchemep2V.php');
                 }
                 else if ($result['userRole'] == "hallAllocationMain") {
-                    header('Location:../view/hallAllocationMaintainer/hamRegisterToMedicalSchemeP2V.php');
+                    header('Location:../../view/hallAllocationMaintainer/hamRegisterToMedicalSchemeP2V.php');
                 }
                 else if ($result['userRole'] == "mahapolaSchemeMain") {
-                    header('Location:../view/mahapolaSchemeMaintainer/mmRegisterToMedicalSchemeP2V.php');
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmRegisterToMedicalSchemeP2V.php');
                 }
                 else if ($result['userRole'] == "medicalSchemeMain") {
-                    header('Location:../view/medicalSchemeMaintainer/msmRegisterToMedicalSchemeP2V.php');
+                    header('Location:../../view/medicalSchemeMaintainer/msmRegisterToMedicalSchemeP2V.php');
                 }
                 else if ($result['userRole'] == "recordsViewer") {
-                    header('Location:../view/reportViewer/rvRegisterToMedicalSchemeP2V.php');
+                    header('Location:../../view/reportViewer/rvRegisterToMedicalSchemeP2V.php');
                 }
                 else if ($result['userRole'] == "departmentHead") {
-                    header('Location:../view/departmentHead/dhRegisterMedicalSchemeP2V.php');
+                    header('Location:../../view/departmentHead/dhRegisterMedicalSchemeP2V.php');
                 }
                 else if ($result['userRole'] == "medicalOfficer") {
-                    header('Location:../view/medicalOfficer/moRegisterToMedicalSchemeP2V.php');
+                    header('Location:../../view/medicalOfficer/moRegisterToMedicalSchemeP2V.php');
                 }
                 else {
                     echo "USER";
@@ -111,23 +111,23 @@
     }
     if (isset($_POST['viewschemedetails-submit'])) {
         if ($result['userRole'] == "admin") {
-            header('Location:../view/admin/aViewSchemeDetailsV.php');
+            header('Location:../../view/admin/aViewSchemeDetailsV.php');
         } else if ($result['userRole'] == "academicStaffMemb") {
-            header('Location:../view/academicStaffMember/asmViewSchemeDetailsV.php');
+            header('Location:../../view/academicStaffMember/asmViewSchemeDetailsV.php');
         } else if ($result['userRole'] == "attendanceMain") {
-            header('Location:../view/attendanceMaintainer/amViewSchemeDetailsV.php');
+            header('Location:../../view/attendanceMaintainer/amViewSchemeDetailsV.php');
         } else if ($result['userRole'] == "hallAllocationMain") {
-            header('Location:../view/hallAllocationMaintainer/hamViewSchemeDetailsV.php');
+            header('Location:../../view/hallAllocationMaintainer/hamViewSchemeDetailsV.php');
         } else if ($result['userRole'] == "mahapolaSchemeMain") {
-            header('Location:../view/mahapolaSchemeMaintainer/mmViewSchemeDetailsV.php');
+            header('Location:../../view/mahapolaSchemeMaintainer/mmViewSchemeDetailsV.php');
         } else if ($result['userRole'] == "medicalSchemeMain") {
-            header('Location:../view/medicalSchemeMaintainer/msmViewSchemeDetailsV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewSchemeDetailsV.php');
         } else if ($result['userRole'] == "recordsViewer") {
-            header('Location:../view/reportViewer/rvViewSchemeDetailsV.php');
+            header('Location:../../view/reportViewer/rvViewSchemeDetailsV.php');
         } else if ($result['userRole'] == "departmentHead") {
-            header('Location:../view/departmentHead/dhViewSchemeDetailsV.php');
+            header('Location:../../view/departmentHead/dhViewSchemeDetailsV.php');
         } else if ($result['userRole'] == "medicalSchemeMember") {
-            header('Location:../view/medicalSchemeMember/moViewSchemeDetailsV.php');
+            header('Location:../../view/medicalSchemeMember/moViewSchemeDetailsV.php');
         } else {
             echo "USER";
         }
