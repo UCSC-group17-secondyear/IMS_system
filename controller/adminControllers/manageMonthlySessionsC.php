@@ -14,7 +14,6 @@
 
         if (mysqli_num_rows($checkMonthlySession)==1) {
             header('Location:../../view/admin/aMonthlySessionExists.php');
-            // echo "monthly sesison already exists";
         }
 
         else {
@@ -22,11 +21,9 @@
 
             if ($result) { 
                 header('Location:../../view/admin/aMonthlySessionAdded.php');
-                // echo "Monthly Session is added successfully";
             }
             else {
                 header('Location:../../view/admin/aMonthlySessionNotAdded.php');
-                // echo "Monthly Session was not added";
             }
         }
     }
@@ -36,11 +33,14 @@
 
         $records = adminModel::sessionType($connect);
 
-        if ($records) {
+        if (mysqli_num_rows($records) != 0) {
             while ($record = mysqli_fetch_array($records)) {
                 $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
             }
             header('Location:../../view/admin/aAddSessionPerMonthV.php');
+        }
+        else {
+            header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
         }
     }
 
@@ -67,13 +67,72 @@
             }
         }
         else {
-            echo "sorry there are no sessions assigned yet";
+            header('Location:../../view/admin/aNomSessionsAssignedV.php');
         }
     }
 
-    // elseif(isset($_POST['viewMonthlySessions-submit'])) {
-    //     $_SESSION['monthlySessionTypes'] = '';
+    else if(isset($_POST['getMonthlySessionDetails-submit'])) {
+        $subject = $_POST['subject'];
+        $calendarYear = $_POST['calendarYear'];
+        $month = $_POST['month'];
+        $sessionType = $_POST['sessionType'];
 
-    //     $records = adminModel::viewMonthlySessions($connect);
-    // }
+        $result_set = adminModel::checkMonthlySession($subject, $calendarYear, $month, $sessionType, $connect);
+
+        if ($result_set) {
+            if(mysqli_num_rows($result_set)==1){
+                $result = mysqli_fetch_assoc($result_set);
+                $_SESSION['sessionMid'] = $result['sessionMid'];
+                $_SESSION['subject'] = $result['subject'];
+                $_SESSION['calendarYear'] = $result['calendarYear'];
+                $_SESSION['month'] = $result['month'];
+                $_SESSION['sessionType'] = $result['sessionType'];
+                $_SESSION['numOfSessions'] = $result['numOfSessions'];
+
+                header('Location:../../view/admin/aUpdateRemoveSessionPerMonthFoundV.php');
+            }
+            else {
+                header('Location:../../view/admin/aQueryFailedV.php');
+            }
+        }
+        else {
+            header('Location:../../view/admin/aNomSessionsAssignedV.php');
+        }
+    }
+
+    elseif(isset($_POST['updateMonthlySession-submit'])) {
+        $sessionMid = $_POST['sessionMid'];
+        $subject = $_POST['subject'];
+        $calendarYear = $_POST['calendarYear'];
+        $month = $_POST['month'];
+        $sessionType = $_POST['sessionType'];
+        $numOfSessions = $_POST['numOfSessions'];
+
+        $result_set = adminModel::updateMonthlySession($sessionMid, $subject, $calendarYear, $month, $sessionType, $numOfSessions, $connect);
+
+        if ($result_set) {
+            header('Location:../../view/admin/aMonthlySessionUpdated.php');
+        }
+        else {
+            header('Location:../../view/admin/aMonthlySessionNotUpdated.php');
+        }
+    }
+
+    elseif(isset($_POST['removeMonthlySession-submit'])) {
+        $sessionMid = $_POST['sessionMid'];
+        // $subject = $_POST['subject'];
+        // $calendarYear = $_POST['calendarYear'];
+        // $month = $_POST['month'];
+        // $sessionType = $_POST['sessionType'];
+        // $numOfSessions = $_POST['numOfSessions'];
+
+        $result_set = adminModel::removeMonthlySession($sessionMid, $connect);
+
+        if ($result_set) {
+            header('Location:../../view/admin/aMonthlySessionRemoved.php');
+        }
+        else {
+            header('Location:../../view/admin/aMonthlySessionNotRemoved.php');
+        }
+    }
 ?>

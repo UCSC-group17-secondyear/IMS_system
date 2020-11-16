@@ -839,6 +839,9 @@
 			return $result;
 		}
 
+
+		
+
 		// public static function getscheme($scheme, $connect)
 		// {
 		// 	$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = "{$scheme}";

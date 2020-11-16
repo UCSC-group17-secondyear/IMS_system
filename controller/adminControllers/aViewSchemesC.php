@@ -33,7 +33,7 @@
         }
     }
     else {
-        echo "Database query failed.";
+        header('Location:../../view/admin/aNoSchemesAvailableV.php');
     }
 
 ?>

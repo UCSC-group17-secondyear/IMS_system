@@ -23,7 +23,6 @@
         $schemeExists = adminModel::checkScheme($schemeName, $connect);
 
         if (mysqli_num_rows($schemeExists)==1) {
-            // echo "scheme exists";
             header('Location:../../view/admin/aSchemeExists.php');
         }
         else {
@@ -31,11 +30,9 @@
 
             if ($result) {
                 header('Location:../../view/admin/aSchemeAdded.php');
-                //echo "Scheme is added successfully";
             }
             else {
                 header('Location:../../view/admin/aSchemeNotAdded.php');
-                //echo "Scheme was not added";
             }
         }
     }
@@ -66,9 +63,14 @@
 
                 header('Location:../../view/admin/aUpdateScehemeFoundV.php');
             }
-            echo "more than one row";
+            else {
+                header('Location:../../view/admin/aQueryFailedV.php');
+                // echo "more than one row (duplicate scheme names)";
+            }
         }
-        echo "querry failed!";
+        else {
+            header('Location:../../view/admin/aNoSchemesAvailableV.php');
+        }
     }
 
     else if(isset($_POST['updateScheme-submit'])) {
@@ -92,10 +94,10 @@
         $result = adminModel::updateScheme($schemeName, $maxRoomCharge, $hospitalCharges, $annualPremium, $monthlyPremium, $gvtNoPayingWard, $gvtChildBirthCover, $travelExpensesCover, $annualLimit, $consultantFee, $investigationsCost,  $spectaclesCost, $permanentStaff, $contractStaff, $temporaryStaff, $connect);
 
         if ($result) {
-            echo "Scheme is updated successfully";
+            header('Location:../../view/admin/aSchemeUpdated.php');
         }
         else {
-            echo "Scheme was not updated";
+            header('Location:../../view/admin/aSchemeNotUpdated.php');
         }
     }
 
@@ -104,10 +106,10 @@
         $result_set = adminModel::removeScheme($schemeName, $connect);
 
         if ($result_set== true) {
-            echo("Scheme is removed successfully");
+            header('Location:../../view/admin/aSchemeRemoved.php');
         }
         else {
-            echo "Scheme does not get removed.";
+            header('Location:../../view/admin/aSchemeNotRemoved.php');
         }
     }
 

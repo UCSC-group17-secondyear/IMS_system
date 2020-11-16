@@ -6,8 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddSessionV.php">Add Session Type</a></li>
-            <li class="active">Action Failed!</li>
+            <li class="active">Request Failed!</li>
         </ul>
 
         <div class="row">
@@ -23,15 +22,12 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!<br>
-                            The session type is not added.
+                        <h2>Sorry!
+                            The system failed to complete your request. Try later.
                         </h2>
                     </div>
 
                     <button class="mainbtn">
-                        <a href="aAddSessionV.php">Try again</a> 
-                    </button>
-                    <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>

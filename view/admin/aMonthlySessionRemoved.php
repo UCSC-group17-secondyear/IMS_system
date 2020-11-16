@@ -6,8 +6,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddSessionV.php">Add Session Type</a></li>
-            <li class="active">Action Failed!</li>
+            <li><a href="aUpdateRemoveSessionPerMonthV.php">Update or remove a monthly session</a></li>
+            <li class="active">Action Success!</li>
         </ul>
 
         <div class="row">
@@ -23,13 +23,11 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!<br>
-                            The session type is not added.
-                        </h2>
+                        <h2>Montly session is removed!</h2>
                     </div>
 
-                    <button class="mainbtn">
-                        <a href="aAddSessionV.php">Try again</a> 
+                    <button class="subbtn">
+                        <a href="aUpdateRemoveSessionPerMonthV.php">Remove another</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 

@@ -27,30 +27,37 @@
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label>Enter subject</label>
+                                <label>Session ID</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="subject" placeholder="Subject" required/>
+                                <input type="text" name="sessionMid"  <?php echo 'value="'.$_SESSION['sessionMid'].'"' ?> /><br>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-25">
-                                <label>Select session type</label>
+                                <label>Subject</label>
                             </div>
                             <div class="col-75">
-                                <select name="sessionType" id="">
-                                    <?php echo $_SESSION['sessionTypes'] ?>
-                                </select>
+                                <input type="text" name="subject"  <?php echo 'value="'.$_SESSION['subject'].'"' ?> /><br>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-25">
-                                <label>Enter calendar year</label>
+                                <label>Session type</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="calendarYear" placeholder="Calendar Year" required/><br>
+                                <input type="text" name="sessionType"  <?php echo 'value="'.$_SESSION['sessionType'].'"' ?>/><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Calendar year</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="calendarYear"  <?php echo 'value="'.$_SESSION['calendarYear'].'"' ?> /><br>
                             </div>
                         </div>
 
@@ -76,10 +83,17 @@
                             </div>
                         </div>
 
-                        <button class="subbtn" type="submit" name="getMonthlySessionDetails-submit">Get sessions</button>
-                        <button class="cancelbtn">
-                            <a href="aHomeV.php">Cancel</a>
-                        </button>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Number of sessions</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="numOfSessions"  <?php echo 'value="'.$_SESSION['numOfSessions'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <button class="subbtn" type="submit" name="updateMonthlySession-submit">Save Updates</button>
+                        <button class="cancelbtn" name="removeMonthlySession-submit">Remove</button>
                     </form>
 
                 </div>
