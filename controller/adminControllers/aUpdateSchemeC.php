@@ -14,7 +14,7 @@
         header('Location:../../view/admin/aUpdateSchemeV.php');
     }
     else {
-        echo "Database query failed";
+        header('Location:../../view/admin/aNoSchemesAvailableV.php');
     }
 
 ?>

@@ -1,8 +1,4 @@
 <?php
-	require_once('../config/database.php');
-?>
-
-<?php
 	class Model {
 		public static function getlogin($empid, $password, $connect)
 		{	
@@ -807,18 +803,27 @@
 			return $result_set;
 		}
 
-		public static function scheme($connect)
+		public static function membertype($connect)
 		{
-			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
+			$query = "SELECT member_type FROM tbl_member_type";
 			
 			$result_set = mysqli_query($connect, $query);
 			
 			return $result_set;
 		}
 
-		public static function membertype($connect)
+		public static function healthcondition($connect)
 		{
-			$query = "SELECT member_type FROM tbl_member_type";
+			$query = "SELECT hname FROM tbl_health";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function scheme($connect)
+		{
+			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
 			
 			$result_set = mysqli_query($connect, $query);
 			
@@ -834,14 +839,17 @@
 			return $result;
 		}
 
-		public static function getscheme($scheme, $connect)
-		{
-			$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = "{$scheme}";
 
-			$result = mysqli_query($connect, $query);
+		
 
-			return $result;
-		}
+		// public static function getscheme($scheme, $connect)
+		// {
+		// 	$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = "{$scheme}";
+
+		// 	$result = mysqli_query($connect, $query);
+
+		// 	return $result;
+		// }
 
 		public static function fetchmembers($scheme, $member_type, $connect)
 		{

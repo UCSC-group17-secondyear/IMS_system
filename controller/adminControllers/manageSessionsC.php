@@ -35,6 +35,9 @@
                 header('Location:../../view/admin/aViewSessionTypesV.php');
             }
         }
+        else {
+            header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
+        }
     }
 
     elseif(isset($_POST['getTypeSIdeNave-submit'])) {
@@ -48,7 +51,7 @@
             header('Location:../../view/admin/aRemoveSessionTypeV.php');
         }
         else {
-            echo "Database query failed";
+            header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
         }
     }
 
@@ -59,10 +62,9 @@
 
         if ($removeSessionType) {
             header('Location:../../view/admin/aSessionTypeRemovedV.php');
-            echo "sessionType is removed";
         }
         else {
-            echo "sessionType is not removed";
+            header('Location:../../view/admin/aSessionTypeNotRemovedV.php');
         }
     }
 ?>

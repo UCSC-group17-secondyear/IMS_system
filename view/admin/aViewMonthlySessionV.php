@@ -32,6 +32,12 @@
                     </tr>
                     <?php echo $_SESSION['monthlySession']; ?>
                 </table>
+                <button class="subbtn">
+                    <a href="aViewSessionPerMonthV.php">View another session</a>
+                </button>
+                <button class="cancelbtn">
+                    <a href="aHomeV.php">Exit</a>
+                </button>
             </div>
         </div>
     </div>

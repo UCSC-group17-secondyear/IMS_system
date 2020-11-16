@@ -1,7 +1,7 @@
 <?php
     session_start();
-	require_once('../config/database.php');
-    require_once('../model/Model.php');
+	require_once('../../config/database.php');
+    require_once('../../model/Model.php');
     
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     $result_set = Model::view($user_id, $connect);

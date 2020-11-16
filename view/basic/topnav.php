@@ -7,7 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMS System</title>
+    <title>IMSystem</title>
+    <link rel="icon" href="../assests/img/favicon1.png">
     <link rel="stylesheet" type="text/css" href="../assests/css/new.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

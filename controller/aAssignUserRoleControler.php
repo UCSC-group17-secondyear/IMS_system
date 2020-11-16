@@ -21,7 +21,7 @@
         header('Location:../view/admin/aAssignUserRoleV.php');
     }
     else {
-        echo "Database query failed";
+        header('Location:../view/admin/aQueryFailedV.php');
     }
 
 ?>
