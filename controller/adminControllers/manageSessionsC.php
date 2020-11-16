@@ -35,6 +35,9 @@
                 header('Location:../../view/admin/aViewSessionTypesV.php');
             }
         }
+        else {
+            echo "no records";
+        }
     }
 
     elseif(isset($_POST['getTypeSIdeNave-submit'])) {

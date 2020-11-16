@@ -91,6 +91,12 @@
 
                 header('Location:../../view/admin/aUpdateRemoveSessionPerMonthFoundV.php');
             }
+            else {
+                header('Location:../../view/admin/aQueryFailedV.php');
+            }
+        }
+        else {
+            header('Location:../../view/admin/aNomSessionsAssignedV.php');
         }
     }
 
@@ -105,10 +111,10 @@
         $result_set = adminModel::updateMonthlySession($sessionMid, $subject, $calendarYear, $month, $sessionType, $numOfSessions, $connect);
 
         if ($result_set) {
-            echo "session updated";
+            header('Location:../../view/admin/aMonthlySessionUpdated.php');
         }
         else {
-            echo "session not updated";
+            header('Location:../../view/admin/aMonthlySessionNotUpdated.php');
         }
     }
 
@@ -123,10 +129,10 @@
         $result_set = adminModel::removeMonthlySession($sessionMid, $connect);
 
         if ($result_set) {
-            echo "session is removed";
+            header('Location:../../view/admin/aMonthlySessionRemoved.php');
         }
         else {
-            echo "session not is removed";
+            header('Location:../../view/admin/aMonthlySessionNotRemoved.php');
         }
     }
 ?>

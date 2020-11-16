@@ -95,11 +95,9 @@
 
         if ($result) {
             header('Location:../../view/admin/aSchemeUpdated.php');
-            // echo "Scheme is updated successfully";
         }
         else {
             header('Location:../../view/admin/aSchemeNotUpdated.php');
-            // echo "Scheme was not updated";
         }
     }
 
@@ -108,10 +106,10 @@
         $result_set = adminModel::removeScheme($schemeName, $connect);
 
         if ($result_set== true) {
-            echo("Scheme is removed successfully");
+            header('Location:../../view/admin/aSchemeRemoved.php');
         }
         else {
-            echo "Scheme does not get removed.";
+            header('Location:../../view/admin/aSchemeNotRemoved.php');
         }
     }
 
