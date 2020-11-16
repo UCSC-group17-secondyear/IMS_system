@@ -14,7 +14,6 @@
 
         if (mysqli_num_rows($checkMonthlySession)==1) {
             header('Location:../../view/admin/aMonthlySessionExists.php');
-            // echo "monthly sesison already exists";
         }
 
         else {
@@ -22,11 +21,9 @@
 
             if ($result) { 
                 header('Location:../../view/admin/aMonthlySessionAdded.php');
-                // echo "Monthly Session is added successfully";
             }
             else {
                 header('Location:../../view/admin/aMonthlySessionNotAdded.php');
-                // echo "Monthly Session was not added";
             }
         }
     }
@@ -36,11 +33,14 @@
 
         $records = adminModel::sessionType($connect);
 
-        if ($records) {
+        if (mysqli_num_rows($records) != 0) {
             while ($record = mysqli_fetch_array($records)) {
                 $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
             }
             header('Location:../../view/admin/aAddSessionPerMonthV.php');
+        }
+        else {
+            header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
         }
     }
 
@@ -67,7 +67,7 @@
             }
         }
         else {
-            echo "sorry there are no sessions assigned yet";
+            header('Location:../../view/admin/aNomSessionsAssignedV.php');
         }
     }
 
