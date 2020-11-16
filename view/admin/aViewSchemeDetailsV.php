@@ -38,7 +38,7 @@
                         <th>Investigations Cost</th>
                         <th>Spectacles Cost</th>
                         <th>Permanent Staff (required service period)</th>
-                        <th>Contact Staff (required service period)</th>
+                        <th>Contract Staff (required service period)</th>
                         <th>Temporary Staff (required service period)</th>
                     </tr>
                     <?php echo $_SESSION['scheme_list']; ?>
