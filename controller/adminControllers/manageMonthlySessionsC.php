@@ -71,9 +71,62 @@
         }
     }
 
-    // elseif(isset($_POST['viewMonthlySessions-submit'])) {
-    //     $_SESSION['monthlySessionTypes'] = '';
+    else if(isset($_POST['getMonthlySessionDetails-submit'])) {
+        $subject = $_POST['subject'];
+        $calendarYear = $_POST['calendarYear'];
+        $month = $_POST['month'];
+        $sessionType = $_POST['sessionType'];
 
-    //     $records = adminModel::viewMonthlySessions($connect);
-    // }
+        $result_set = adminModel::checkMonthlySession($subject, $calendarYear, $month, $sessionType, $connect);
+
+        if ($result_set) {
+            if(mysqli_num_rows($result_set)==1){
+                $result = mysqli_fetch_assoc($result_set);
+                $_SESSION['sessionMid'] = $result['sessionMid'];
+                $_SESSION['subject'] = $result['subject'];
+                $_SESSION['calendarYear'] = $result['calendarYear'];
+                $_SESSION['month'] = $result['month'];
+                $_SESSION['sessionType'] = $result['sessionType'];
+                $_SESSION['numOfSessions'] = $result['numOfSessions'];
+
+                header('Location:../../view/admin/aUpdateRemoveSessionPerMonthFoundV.php');
+            }
+        }
+    }
+
+    elseif(isset($_POST['updateMonthlySession-submit'])) {
+        $sessionMid = $_POST['sessionMid'];
+        $subject = $_POST['subject'];
+        $calendarYear = $_POST['calendarYear'];
+        $month = $_POST['month'];
+        $sessionType = $_POST['sessionType'];
+        $numOfSessions = $_POST['numOfSessions'];
+
+        $result_set = adminModel::updateMonthlySession($sessionMid, $subject, $calendarYear, $month, $sessionType, $numOfSessions, $connect);
+
+        if ($result_set) {
+            echo "session updated";
+        }
+        else {
+            echo "session not updated";
+        }
+    }
+
+    elseif(isset($_POST['removeMonthlySession-submit'])) {
+        $sessionMid = $_POST['sessionMid'];
+        // $subject = $_POST['subject'];
+        // $calendarYear = $_POST['calendarYear'];
+        // $month = $_POST['month'];
+        // $sessionType = $_POST['sessionType'];
+        // $numOfSessions = $_POST['numOfSessions'];
+
+        $result_set = adminModel::removeMonthlySession($sessionMid, $connect);
+
+        if ($result_set) {
+            echo "session is removed";
+        }
+        else {
+            echo "session not is removed";
+        }
+    }
 ?>

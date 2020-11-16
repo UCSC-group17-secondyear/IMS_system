@@ -836,7 +836,7 @@
 
 		public static function getscheme($scheme, $connect)
 		{
-			$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = "{$scheme}";
+			$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = '{$scheme}' ";
 
 			$result = mysqli_query($connect, $query);
 

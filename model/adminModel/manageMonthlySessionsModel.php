@@ -45,5 +45,24 @@
 
 			return $result_set;
 		}
+
+		public static function updateMonthlySession($sessionMid, $subject, $calendarYear, $month, $sessionType, $numOfSessions, $connect) {
+
+			$query = "UPDATE sessions_per_month 
+			SET subject='{$subject}', calendarYear='{$calendarYear}', month='{$month}', sessionType='{$sessionType}', numOfSessions='{$numOfSessions}'
+			WHERE sessionMid='{$sessionMid}' ";
+
+			if($connect->query($query))
+				return true;
+		}
+
+		public static function removeMonthlySession($sessionMid, $connect) {
+			$query = "UPDATE sessions_per_month 
+			SET is_deleted=1
+			WHERE sessionMid='{$sessionMid}' ";
+
+			if($connect->query($query))
+				return true;
+		}
 	}
 ?>
