@@ -7,12 +7,14 @@
 ?>
 
 <?php
-
+    $_SESSION['design'] = '';
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id_two']);
+    $_SESSION['userId'] = mysqli_real_escape_string($connect, $_GET['user_id']);
 
     $result_set = Model::view($user_id, $connect);
+    $records = Model::designation($connect);
 
-    if ($result_set) {
+    if ($result_set && $records) {
         if (mysqli_num_rows($result_set)==1) {
             $result = mysqli_fetch_assoc($result_set);
             $_SESSION['userIdTwo'] = $result['userId'];
@@ -24,7 +26,12 @@
             $_SESSION['tp'] = $result['tp'];
             $_SESSION['dob'] = $result['dob'];
             $_SESSION['designation'] = $result['designation'];
+            $_POST['post'] = $result['post'];
             $_SESSION['appointment'] = $result['appointment'];
+
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+			}
 
             header('Location:../view/admin/aModifyUserV.php');
         }

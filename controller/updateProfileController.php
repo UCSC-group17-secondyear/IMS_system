@@ -7,7 +7,7 @@
 ?>
 
 <?php
- 
+    $_SESSION['design'] = '';
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     // echo $user_id;
     $result_set = Model::view($user_id, $connect);

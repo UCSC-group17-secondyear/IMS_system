@@ -23,7 +23,7 @@
                 <h2>Modify User</h2>
             </div>
             <div class="signupForm">
-                <form action="../../controller/aUpdateProfileController.php?user_id=<?php echo $_SESSION['userIdTwo'] ?>&oldMail=<?php echo $_SESSION['email'] ?>" method="post">
+                <form action="../../controller/aUpdateProfileController.php?user_id_Two=<?php echo $_SESSION['userIdTwo'] ?>&oldMail=<?php echo $_SESSION['email'] ?>" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label for="">Employee Id</label>
@@ -81,13 +81,28 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-25">
-                            <label for="">Designation</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> required> <br>
-                        </div>
+						<div class="col-25">
+							<label>Designation</label>
+						</div>
+						<div class="col-75">
+							<select name="designation" required>
+								<option value="<?php echo $_SESSION['designation'] ?>"><?php echo $_SESSION['designation'] ?></option>
+								<?php echo $_SESSION['design'] ?>
+							</select>
+						</div>
                     </div>
+                    <div class="row">
+							<div class="col-25">
+								<label>Post</label>
+							</div>
+							<div class="col-75">
+								<select name="post" required>
+									<option value="<?php echo $_SESSION['post'] ?>"><?php echo $_SESSION['post'] ?></option>
+									<option value="post1">Post 1</option>
+									<option value="post2">Post 2</option>
+								</select>
+							</div>
+						</div>
                     <div class="row">
                         <div class="col-25">
                             <label for="">Appointment Date</label>

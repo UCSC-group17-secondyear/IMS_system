@@ -6,8 +6,6 @@
     $errors = array();
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     $result_set = Model::view($user_id, $connect);
-    $records = Model::scheme($connect);
-    $_SESSION['scheme'] = '';
 
     if (isset($_POST['registerNext-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
@@ -26,15 +24,22 @@
             $health_condition = mysqli_real_escape_string($connect, $_POST['health_condition']);
             $civil_status = mysqli_real_escape_string($connect, $_POST['civil_status']);
 
-            $result_set = Model::registerMS1($user_id, $connect);
+            $medical = Model::registerMS1($user_id, $department, $health_condition, $civil_status, $member_type, $connect);
 
-            $_SESSION['department'] = $department;
-            $_SESSION['member_type'] = $member_type;
-            $_SESSION['health_condition'] = $health_condition;
-            $_SESSION['civil_status'] = $civil_status;
+            if ($medical) {
+                if (mysqli_num_rows($medical) ==1) {
+                    $medical = mysqli_fetch_assoc($medical);
+                    $_SESSION['department'] = $department;
+                    $_SESSION['member_type'] = $member_type;
+                    $_SESSION['health_condition'] = $health_condition;
+                    $_SESSION['civil_status'] = $civil_status;
+                }
+            } else {
+                echo "query failed";
+            }
         }
-
     }
+
     if (isset($_POST['viewschemedetails-submit'])) {
         if ($result['userRole'] == "admin") {
             header('Location:../../view/admin/aViewSchemeDetailsV.php');
