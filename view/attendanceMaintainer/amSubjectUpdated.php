@@ -7,7 +7,7 @@
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
             <li><a href="amDeleteUpdateSubjectV.php">Update or Delete Subjects</a></li>
-            <li class="active">Action Failed!</li>
+            <li class="active">Action Done!</li>
         </ul>
 
         <div class="row">
@@ -23,8 +23,7 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            The subject did not get removed.
+                        <h2>The subject is updated succesdfully.
                         </h2>
                     </div>
 
