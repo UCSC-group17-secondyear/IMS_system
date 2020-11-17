@@ -64,7 +64,7 @@
                         </form>
                         
                         <button class="mainbtn" type="submit" name="">
-                            <a href="">OK</a>
+                            <a href="memHomeV.php">OK</a>
                         </button>
                     </div>
                 </div>
