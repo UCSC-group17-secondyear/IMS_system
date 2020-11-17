@@ -10,9 +10,9 @@
     $records3 = Model::healthcondition($connect);
     $_SESSION['deps'] = '';
     $_SESSION['member_type'] = '';
-    $_SESSION['healthc'] = '';
+    $_SESSION['health_condition'] = '';
     
-    if ($result_set && $records1 && $records2 && records3) {
+    if ($result_set && $records1 && $records2 && $records3) {
         if (mysqli_num_rows($result_set)==1) {
             $result = mysqli_fetch_assoc($result_set);
 
@@ -27,7 +27,7 @@
             }
 
             while ($record3 = mysqli_fetch_array($records3)) {
-                $_SESSION['healthc'] .= "<option value='".$record3['healthc']."'>".$record3['healthc']."</option>";
+                $_SESSION['health_condition'] .= "<option value='".$record3['hname']."'>".$record3['hname']."</option>";
             }
 
             if ($result['userRole'] == "admin") {
