@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>Remove a use role</title>
+    <title>Add a Designation</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewUserRoleV.php">Add user role</a></li>
+            <li><a href="aAddDesignationV.php">Add Designation</a></li>
             <li class="active">Action was success!</li>
         </ul>
     
@@ -25,11 +25,11 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The user role is added successfully!</h2>
+                        <h2>The Designation is added successfully!</h2>
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="aViewUserRolesV.php">User roles List</a>
+                        <a href="aAddDesignationV.php">Add Designation</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="aHomeV.php">Leave</a>

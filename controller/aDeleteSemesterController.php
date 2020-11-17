@@ -11,10 +11,10 @@
         $result = Model::deleteSemester($sem_id, $connect);
 
         if ($result) {
-            echo "Semester successfully deleted.";
+            header('Location:../view/admin/aSemesterDeletedV.php');
         }
         else{
-            echo "Database query failed";
+            header('Location:../view/admin/aSemesterNotDeletedV.php');
         }
 
     }

@@ -14,21 +14,20 @@
         $checkHall = Model::checkHallName($hall_name, $connect);
 
         if (mysqli_num_rows($checkHall)==1) {
-            echo "This hall already exist.";
+            header('Location:../view/admin/aHallExistsTwoV.php');
         }
         else{
 
             $result = Model::enterHall($hall_name, $hall_location, $seating_capacity, $ac, $connect);
         
             if ($result) {
-                echo "Successfully entered hall";
+                header('Location:../view/admin/aHallAddedV.php');
             }
             else{
-                echo "Query failed";
+                header('Location:../view/admin/aHallNotAddedV.php');
             }
         }
 
-        
     }
 
 ?>
