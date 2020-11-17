@@ -6,9 +6,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or Update Attendance</a></li>
-            <li><a href="#">Enter attendance</a></li>
-            <li class="active">Action failed!</li>
+            <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or update attendance</a></li>
+            <li class="active">Action Failed!</li>
         </ul>
 
         <div class="row">
@@ -24,8 +23,7 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
-                            The attendance is not added.
+                        <h2>The attendance is not entered.
                         </h2>
                     </div>
 

@@ -14,7 +14,7 @@
                         </a>
                     </button>
                     <button>
-                        <a href="amDeleteUpdateStudentV.php">
+                        <a href="amDeleteUpdateStudentSearchV.php">
                             <li><i class="fa fa-pencil-square-o"></i>Update or Remove Students</li>
                         </a>
                     </button>
@@ -34,7 +34,7 @@
                         </a>
                     </button>
                     <button>
-                        <a href="amDeleteUpdateSubjectV.php">
+                        <a href="amDeleteUpdateSubjectSearch.php">
                             <li><i class="fa fa-pencil-square-o"></i>Update or Remove Subjects</li>
                         </a>
                     </button>

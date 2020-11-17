@@ -3,10 +3,13 @@
 ?>
 
 <main>
+
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li class="active">Subject Details</li>
+        <li><a href="amStudentWiseAttendanceV.php">Studentwise Attendance</a></li>
+        <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
+        <li class="active">Studentwise Attendance</li>
         </ul>
 
         <div class="row">
@@ -18,14 +21,14 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Subject Details</h2>
+                    <h2>Studentwise Attendance</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable">
                     <tr>
+                        <th>Student Index</th>
                         <th>Subject Code</th>
-                        <th>Subject Name</th>
-                        <th>Description</th>
+                        <th>Attendance</th>
                     </tr>
                 </table>
             </div>
