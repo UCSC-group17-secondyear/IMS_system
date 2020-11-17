@@ -12,7 +12,7 @@
     $_SESSION['member_type'] = '';
     $_SESSION['health_condition'] = '';
     
-    if ($result_set && $records1 && $records2 && records3) {
+    if ($result_set && $records1 && $records2 && $records3) {
         if (mysqli_num_rows($result_set)==1) {
             $result = mysqli_fetch_assoc($result_set);
 
@@ -27,7 +27,7 @@
             }
 
             while ($record3 = mysqli_fetch_array($records3)) {
-                $_SESSION['health_condition'] .= "<option value='".$record3['health_condition']."'>".$record3['health_condition']."</option>";
+                $_SESSION['health_condition'] .= "<option value='".$record3['hname']."'>".$record3['hname']."</option>";
             }
 
             if ($result['userRole'] == "admin") {
@@ -40,7 +40,7 @@
                 header('Location:../../view/nonAcademicStaffMember/nasmRegisterToMedicalSchemeP1V.php');
             }
             else if ($result['userRole'] == "attendanceMain") {
-                header('Location:../../view/attendanceMaintainer/amRegisterMedicalSchemeP1V.php');
+                header('Location:../../view/attendanceMaintainer/amRegisterToMedicalSchemeP1V.php');
             }
             else if ($result['userRole'] == "hallAllocationMain") {
                 header('Location:../../view/hallAllocationMaintainer/hamRegisterToMedicalSchemeP1V.php');
@@ -55,7 +55,7 @@
                 header('Location:../../view/reportViewer/rvRegisterToMedicalSchemeP1V.php');
             }
             else if ($result['userRole'] == "departmentHead") {
-                header('Location:../../view/departmentHead/dhRegisterMedicalSchemeP1V.php');
+                header('Location:../../view/departmentHead/dhRegisterToMedicalSchemeP1V.php');
             }
             else if ($result['userRole'] == "medicalOfficer") {
                 header('Location:../../view/medicalOfficer/moRegisterToMedicalSchemeP1V.php');

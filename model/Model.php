@@ -785,7 +785,7 @@
 //......................................................................................................................................//
 
 //................................................ Medical Scheme Maintainer ...........................................................//
-		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $connect)
+		public static function registerMS1($user_id, $department, $health_condition, $civil_status, $member_type, $connect)
 		{
 			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}' WHERE user_id={$user_id}";
 
@@ -848,17 +848,15 @@
 			return $result;
 		}
 
+		public static function getscheme($scheme, $connect)
+		{
+			$query = "SELECT permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE schemeName = {$scheme}";
 
-		
 
-		// public static function getscheme($scheme, $connect)
-		// {
-		// 	$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = "{$scheme}";
+			$result = mysqli_query($connect, $query);
 
-		// 	$result = mysqli_query($connect, $query);
-
-		// 	return $result;
-		// }
+			return $result;
+		}
 
 		public static function fetchmembers($scheme, $member_type, $connect)
 		{
