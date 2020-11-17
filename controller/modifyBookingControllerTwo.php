@@ -16,14 +16,17 @@
         $check = Model::checkHallTwo($hall, $date, $startTime, $endTime, $booking_id, $connect);
 
         if (mysqli_num_rows($check)==1) {
-            echo "Already booked.";
+            header('Location:../view/academicStaffMember/asmAllReadyBookedTwoV.php');
         }
         else{
             
             $result = Model::updateBook($booking_id, $hall, $date, $startTime, $endTime, $reason, $connect);
 
             if ($result) {
-                echo "Booking Succefull...";
+                header('Location:../view/academicStaffMember/asmUpdatedBookingV.php');
+            }
+            else {
+                header('Location:../view/academicStaffMember/asmNotUpdatedBookingV.php');
             }
 
         }
