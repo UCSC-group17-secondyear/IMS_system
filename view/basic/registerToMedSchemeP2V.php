@@ -16,6 +16,9 @@
                         <option value="">Select Scheme</option>
                         <?php echo $_SESSION['scheme'] ?>
                     </select>
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Please look at the scheme details</span>
+                    </div>
                 </div>
             </div>
 
