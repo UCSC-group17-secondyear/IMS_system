@@ -32,7 +32,7 @@
                         <a href="amEnterSubjectDetails.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Leave</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

@@ -3,12 +3,10 @@
 ?>
 
 <main>
-    <title>View Students' Details</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li class="active">Students' Details</li>
+            <li class="active">Subject Details</li>
         </ul>
 
         <div class="row">
@@ -20,7 +18,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Students' Details</h2>
+                    <h2>Subject Details</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable">

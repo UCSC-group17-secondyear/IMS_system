@@ -32,7 +32,7 @@
                         <a href="amEnterUpdateAttendaceSelectV.php">Add or update another attendance</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Leave</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
