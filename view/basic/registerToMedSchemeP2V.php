@@ -22,6 +22,55 @@
                 </div>
             </div>
 
+            <?php //if ($_SESSION['civil_status'] == "Married") { ?>
+                
+                <div class="row">
+                    <div class="col-25">
+                        <label>Spouse's Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="dependant_name" required/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>Relationship</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="relationship" required/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>Gender</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="gender" required/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>Date of Birth</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="dob" required/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>Health Status</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="health_status" required/>
+                    </div>
+                </div>
+
+            <?php //} ?>
+
         <button class="mainbtn" type="submit" name="registerMS-submit">Register</button>
     </form>
     <form>

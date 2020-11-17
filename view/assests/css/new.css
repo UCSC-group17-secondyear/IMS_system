@@ -731,6 +731,18 @@ img.avatar {
   border-radius: 10px;
 }
 
+.contentForm datalist{
+  width: 80%;
+  /*background-color: white;*/
+  min-height: 40px;
+  margin-top: 25px;
+  margin-right: 0px;
+  font-size: 18px;
+  border: 0px;
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
 .contentForm label {
   padding: 20px 12px 12px 0;
   display: inline-block;
