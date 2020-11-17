@@ -1,8 +1,4 @@
 <?php
-	require_once('../config/database.php');
-?>
-
-<?php
 	class Model {
 		public static function getlogin($empid, $password, $connect)
 		{	
@@ -780,9 +776,9 @@
 //......................................................................................................................................//
 
 //................................................ Medical Scheme Maintainer ...........................................................//
-		public static function registerMS($user_id, $department, $health_condition, $civil_status, $scheme_name, $member_type, $connect)
+		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', schemename='{$scheme_name}', member_type='{$member_type}' WHERE user_id={$user_id} ";
+			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -807,6 +803,24 @@
 			return $result_set;
 		}
 
+		public static function membertype($connect)
+		{
+			$query = "SELECT member_type FROM tbl_member_type";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
+		public static function healthcondition($connect)
+		{
+			$query = "SELECT hname FROM tbl_health";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
 		public static function scheme($connect)
 		{
 			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
@@ -816,14 +830,26 @@
 			return $result_set;
 		}
 
-		public static function membertype($connect)
+		public static function getservicemonths($user_id,$connect)
 		{
-			$query = "SELECT member_type FROM tbl_member_type";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
+			$query = "SELECT MONTHS_BETWEEN(CURRENT_DATE(), appointment)FROM users WHERE userId={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
 		}
+
+
+		
+
+		// public static function getscheme($scheme, $connect)
+		// {
+		// 	$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = "{$scheme}";
+
+		// 	$result = mysqli_query($connect, $query);
+
+		// 	return $result;
+		// }
 
 		public static function fetchmembers($scheme, $member_type, $connect)
 		{

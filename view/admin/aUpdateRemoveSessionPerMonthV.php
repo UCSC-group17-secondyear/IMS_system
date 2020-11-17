@@ -27,15 +27,6 @@
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter session type</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" name="sessionType" placeholder="Session type" required/>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
                                 <label>Enter subject</label>
                             </div>
                             <div class="col-75">
@@ -45,33 +36,52 @@
 
                         <div class="row">
                             <div class="col-25">
-                                <label>Enter month</label>
+                                <label>Select session type</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="month" placeholder="Month" required/>
+                                <select name="sessionType" id="">
+                                    <?php echo $_SESSION['sessionTypes'] ?>
+                                </select>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-25">
-                                <label>Enter number of sessions per month</label>
+                                <label>Enter calendar year</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="numOfSessions" placeholder="Sessions per month" required/>
+                                <input type="text" name="calendarYear" placeholder="Calendar Year" required/><br>
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="updateSession-submit">Update session</button>
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Select month</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="month">
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="subbtn" type="submit" name="getMonthlySessionDetails-submit">Get sessions</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
 
-                    <button id="subBtn" class="subbtn">View Subjects List</button>
-                        
-                    <button id="myBtn" class="cancelbtn">Remove session</button>
-
-                    <!-- <form action="../../controller/adminControllers/manageMonthlySessionController.php" method="post">
-                        <button class="subbtn" type="submit" name="">View Current Session Types</button>
-                        <button type="submit" name="removeSession-submit" class="cancelbtn">Remove session</button>
-                    </form> -->
                 </div>
                 <div id="myModal" class="modal">
                     <div class="modal-content">

@@ -23,6 +23,7 @@
                 }
                     
                     header('Location:../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');
+                }
             } else {
                 while ($mem = mysqli_fetch_assoc($members)) {
                     $_SESSION['member_info'] .= "<tr>";
