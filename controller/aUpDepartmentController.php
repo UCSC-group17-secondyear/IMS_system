@@ -15,5 +15,7 @@
 
         header('Location:../view/admin/aUpdateDepartmentFormV.php');
     }
-
+    else {
+        header('Location:../view/admin/aQueryFailedV.php');
+    }
 ?>

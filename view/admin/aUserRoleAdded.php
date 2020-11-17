@@ -25,7 +25,7 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>THe user role is added successfully!</h2>
+                        <h2>The user role is added successfully!</h2>
                     </div>
 
                     <button class="subbtn" type="submit">

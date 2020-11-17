@@ -2,7 +2,7 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="asmViewSchemeDetailsV.php">
+                <a href="nasmViewSchemeDetailsV.php">
                     <button type="submit" name="" class="tree_list">View Scheme Details</button>
                 </a>    
             </li>

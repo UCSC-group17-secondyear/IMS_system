@@ -14,20 +14,18 @@
         $checkDept = Model::checkDeptName($dept_name, $connect);
 
         if (mysqli_num_rows($checkDept)==1) {
-            echo "This department already exist.";
+            header('Location:../view/admin/aDepartmentExistsTwoV.php');
         }
         else {
-
             $result = Model::enterDepartment($dept_name, $dept_head, $dept_head_email, $connect);
         
             if ($result) {
-                echo "Successfully entered department.";
+                header('Location:../view/admin/aDepartmentAddedV.php');
             }
             else{
-                echo "Query failed";
+                header('Location:../view/admin/aDepartmentNotAddedV.php');
             }
-        }
-        
+        }       
     }
 
 ?>

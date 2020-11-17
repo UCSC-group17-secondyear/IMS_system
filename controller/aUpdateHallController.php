@@ -37,15 +37,15 @@
         $checkHall = Model::checkHallThree($hall_id, $hall_name, $connect);
 
         if (mysqli_num_rows($checkHall)==1) {
-            echo "This hall already exists.";
+            header('Location:../view/admin/aHallExistsV.php');
         }
         else {
             $result = Model::updateHall($hall_id, $hall_name, $location, $seating_capacity, $ac, $connect);
 
             if ($result) {
-                echo "Succesfully updated.";
+                header('Location:../view/admin/aHallUpdatedV.php');
             }else {
-                echo "query failed";
+                header('Location:../view/admin/aHallNotUpdatedV.php');
             }
         }
 
@@ -79,12 +79,11 @@
         $result = Model::deleteHallUsingName($hall, $connect);
 
         if ($result) {
-            echo "Hall successfully deleted.";
+            header('Location:../view/admin/aHallDeletedTwoV.php');
         }
         else{
-            echo "Database query failed";
+            header('Location:../view/admin/aHallNotDeletedTwoV.php');
         }
     }
     
-
 ?>

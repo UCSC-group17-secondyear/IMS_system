@@ -21,7 +21,6 @@
         }
     }
     else {
-        echo "Database query failed.";
+        header('Location:../../view/admin/aNoDegreesAvailableV.php');
     }
-
 ?>

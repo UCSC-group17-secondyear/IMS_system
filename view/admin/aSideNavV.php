@@ -139,8 +139,9 @@
                             </a>
                         </button>
                     </form>
+
                     <button>
-                        <a href="aUpdateRemoveSessionPerMonthV.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Sessions Per Month</li></a>
+                        <a href="aUpdateRemoveSessionPerMonthV.php"><li><i class="fa fa-pencil-square"></i>Update or remove monthly sessions</li></a>
                     </button>
                 </ul>
             </li>

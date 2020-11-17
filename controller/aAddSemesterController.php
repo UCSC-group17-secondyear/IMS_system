@@ -14,10 +14,10 @@
         $result = Model::enterSemester($semester, $academic_year, $start_date, $end_date, $connect);
         
         if ($result) {
-            echo "Successfully entered semester";
+            header('Location:../view/admin/aSemesterAddedV.php');
         }
         else{
-            echo "Query failed";
+            header('Location:../view/admin/aSemesterNotAddedV.php');
         }
     }
 
