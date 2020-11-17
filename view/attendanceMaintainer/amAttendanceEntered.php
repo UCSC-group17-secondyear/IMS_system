@@ -5,7 +5,7 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <<li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amHomeV.php">Home</a></li>
             <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or update attendance</a></li>
             <li class="active">Action Success!</li>
         </ul>
@@ -23,12 +23,12 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The attendance is updated successfully.
+                        <h2>The attendance is entered successfully.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amEnterUpdateAttendaceSelectV.php">Update another attendance</a> 
+                        <a href="amEnterUpdateAttendaceSelectV.php">Mark another attendance</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

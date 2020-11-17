@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-25">
                             <label>Enter academic year</label>
                         </div>
@@ -48,17 +48,19 @@
                         <div class="col-75">
                             <input type="text" name="degree" placeholder="Degree"> <br>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter subject</label>
+                            <label>Enter subject code</label>
                         </div>
                         <div class="col-75">
                             <input type="text" name="subject" placeholder="Subject"> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="select-submit" href="amDeleteAttendaceV.php">Select</button>
+                    <button class="subbtn" type="submit" name="select-submit">
+                        <a href="amDeleteAttendaceV.php">Select</a>
+                    </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
                     </button>
