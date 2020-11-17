@@ -848,17 +848,15 @@
 			return $result;
 		}
 
+		public static function getscheme($scheme, $connect)
+		{
+			$query = "SELECT permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE schemeName = {$scheme}";
 
-		
 
-		// public static function getscheme($scheme, $connect)
-		// {
-		// 	$query = "SELECT permanentStaff,contractStaff,temporaryStaff FROM tbl_medicalscheme WHERE schemeName = "{$scheme}";
+			$result = mysqli_query($connect, $query);
 
-		// 	$result = mysqli_query($connect, $query);
-
-		// 	return $result;
-		// }
+			return $result;
+		}
 
 		public static function fetchmembers($scheme, $member_type, $connect)
 		{
