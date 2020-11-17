@@ -39,21 +39,23 @@
                 <button class="subbtn" type="submit" name="">
                     <a href="asmViewHallAllocationScheduleV.php">Select another date</a>
                 </button>
-                <button id="myBtn" class="cancelbtn">Leave Page</button>
-                    <div id="myModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <h1>Are you sure you want to leave the page?</h1>
-                            <button class="mainbtn">
-                                <a href="asmHomeV.php">Yes</a>
-                            </button>
-                        </div>
+                <button id="myBtn" class="cancelbtn">
+                    <a href="asmHomeV.php">Exit</a>
+                </button>
+                <!-- <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h1>Are you sure you want to leave the page?</h1>
+                        <button class="mainbtn">
+                            <a href="asmHomeV.php">Yes</a>
+                        </button>
                     </div>
+                </div> -->
             </div>
         </div>
     </div>
     
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var modal = document.getElementById("myModal");
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
@@ -83,7 +85,7 @@
             modal.style.display = "none";
           }
         }
-    </script>
+    </script> -->
 
 </main>
 
