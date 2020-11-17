@@ -3,11 +3,11 @@
 ?>
 
 <main>
-    <title>View Semester Wise Attendance</title>
+    <!-- <title>View Semester Wise Attendance</title> -->
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li class="active">View Semester Wise Attendance</li>
+        <li class="active">Semester-wise Attendance</li>
     </ul>
 
     <div class="row">
@@ -19,7 +19,7 @@
 
         <div class="col right80">
             <div>
-                <h2>Semester Wise Attendance</h2>
+                <h2>Get Semester-wise Attendance</h2>
             </div>
             <div class="contentForm">
                 <form action="" method="post">
@@ -63,7 +63,9 @@
                             <input type="text" name="subject" placeholder="Subject" required/> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="select-submit" href="amDisplayAttendanceV.php">Display Attendance</button>
+                    <button class="subbtn" type="submit" name="select-submit">
+                        <a href="amDisplaySemesterAttendanceV.php">Display Attendance</a> 
+                    </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
                     </button>

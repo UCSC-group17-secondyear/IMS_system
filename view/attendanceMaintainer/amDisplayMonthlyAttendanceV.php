@@ -26,15 +26,19 @@
 
                 <table id="tableStyle" class="mytable">
                     <tr>
-                        <th>Student Index</th>
+                        <th>Degree</th>
                         <th>Subject Code</th>
+                        <th>Student Index</th>
                         <th>Attendance</th>
                     </tr>
                 </table>
 
-                <button class="mainbtn">
-                    <a href="amStudentWiseAttendanceV.php">View another studentwise attendance</a>
+                <button class="subbtn">
+                    <a href="amMonthWiseAttendanceV.php">View another monthwise attendance</a>
                 </button>
+                <button class="cancelbtn" type="submit" name="cancel-submit">
+                        <a href="amHomeV.php">Cancel</a> 
+                    </button>
             </div>
         </div>
     </div>

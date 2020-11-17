@@ -1,18 +1,20 @@
 <?php
-    require "../basic/topnav.php";
+    require '../basic/topnav.php';
 ?>
 
 <main>
-  <div class="sansserif">
+    <title>View Medical Scheme Details</title>
+
+    <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="dhHomeV.php">Home</a></li>
+            <li><a href="moHomeV.php">Home</a></li>
             <li class="active">Medical Scheme Details</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'dhSideNavV.php';
+                    require 'moSideNavV.php';
                 ?>
             </div>
 

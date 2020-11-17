@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li>
-                <a href="rvViewClaimDetailsV.php">
+                <a href="rvViewSchemeDetailsV.php">
                     <button type="submit" class="tree_list">View Claim Details</button>
                 </a>
             </li>
