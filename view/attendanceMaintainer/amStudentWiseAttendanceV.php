@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li class="active">View Student Wise Attendance</li>
+        <li class="active">Studentwise Attendance</li>
     </ul>
 
     <div class="row">
@@ -19,7 +19,7 @@
 
         <div class="col right80">
             <div>
-                <h2>Student Wise Attendance</h2>
+                <h2>Studentwise Attendance</h2>
             </div>
             <div class="contentForm">
                 <form action="" method="post">
@@ -32,7 +32,9 @@
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="select-submit" href="amDisplayAttendanceV.php">Enter</button>
+                    <button class="subbtn" type="submit" name="select-submit">
+                        <a href="amGetStdStdwiseAttendanceV.php">Enter</a>
+                    </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
                     </button>
