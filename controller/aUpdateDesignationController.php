@@ -32,15 +32,15 @@
         $checkDesign = Model::checkDesignThree($designation_id, $designation, $connect);
 
         if (mysqli_num_rows($checkDesign)==1) {
-            echo "This designation already exists.";
+            header('Location:../view/admin/aDesignationExistsV.php');
         }
         else {
             $result = Model::updateDesignation($designation_id, $designation, $description, $connect);
 
             if ($result) {
-                echo "Succesfully updated.";
+                header('Location:../view/admin/aDesignationUpdatedV.php');
             }else {
-                echo "query failed";
+                header('Location:../view/admin/aDesignationNotUpdatedV.php');
             }
         }
 
@@ -71,10 +71,10 @@
         $result = Model::deleteDesignUsingName($designation, $connect);
 
         if ($result) {
-            echo "Designation successfully deleted.";
+            header('Location:../view/admin/aDesignationDeletedTwoV.php');
         }
         else{
-            echo "Database query failed";
+            header('Location:../view/admin/aDesignationNotDeletedTwoV.php');
         }
     }
 
