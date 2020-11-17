@@ -37,15 +37,15 @@
         $checkDept = Model::checkDeptThree($dept_id, $department, $connect);
 
         if (mysqli_num_rows($checkDept)==1) {
-            echo "This department already exists.";
+            header('Location:../view/admin/aDepartmentExistsV.php');
         }
         else {
             $result = Model::updateDepartment($dept_id, $department, $department_head, $department_head_email, $description, $connect);
 
             if ($result) {
-                echo "Succesfully updated.";
+                header('Location:../view/admin/aDepartmentUpdatedV.php');
             }else {
-                echo "query failed";
+                header('Location:../view/admin/aDepartmentNotUpdatedV.php');
             }
         }
 
@@ -79,10 +79,10 @@
         $result = Model::deleteDeptUsingName($department, $connect);
 
         if ($result) {
-            echo "Department successfully deleted.";
+            header('Location:../view/admin/aDepartmentDeletedTwoV.php');
         }
         else{
-            echo "Database query failed";
+            header('Location:../view/admin/aDepartmentNotDeletedTwoV.php');
         }
     }
     

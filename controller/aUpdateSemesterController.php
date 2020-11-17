@@ -44,9 +44,9 @@
         $result = Model::updateSemester($sem_id, $semester, $academic_year, $start_date, $end_date, $connect);
 
         if ($result) {
-            echo "Succesfully updated.";
+            header('Location:../view/admin/aSemesterUpdatedV.php');
         }else {
-            echo "query failed";
+            header('Location:../view/admin/aSemesterNotUpdatedV.php');
         }
     }
 
@@ -80,10 +80,10 @@
         $result = Model::deleteSemUsingName($academic_year, $semester, $connect);
 
         if ($result) {
-            echo "Semester successfully deleted.";
+            header('Location:../view/admin/aSemesterDeletedTwoV.php');
         }
         else{
-            echo "Database query failed";
+            header('Location:../view/admin/aSemesterNotDeletedTwoV.php');
         }
     }
     
