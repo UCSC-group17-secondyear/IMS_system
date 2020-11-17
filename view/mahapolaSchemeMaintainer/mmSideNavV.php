@@ -13,7 +13,7 @@
             </li>
             <li>
                 <a href="mmViewMahapolaNominatedListV.php">    
-                    <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
+                    <button type="submit" class="tree_list">View Nominated Student List</button>
                 </a>
             </li>
             <li>
@@ -23,17 +23,17 @@
             </li>
             <li>
                 <a href="#">
-                    <button type="submit" class="tree_list">View Attendance Student Records</button>
+                    <button type="submit" class="tree_list">View Student Attendance</button>
                 </a>
             </li>
             <li>
                 <a href="mmViewSchemeDetailsV.php">
-                    <button type="submit" class="tree_list">View Scheme Detailss</button>
+                    <button type="submit" class="tree_list">View Scheme Details</button>
                 </a>
             </li>
             <li>
                 <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
-                    <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
+                    <button type="submit" class="tree_list">Register to the Staff Medical Scheme</button>
                 </a>
             </li>
         </ul>
