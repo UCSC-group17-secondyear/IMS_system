@@ -4,7 +4,8 @@
     </div>
 
     <div class="contentForm">
-    <form action="../../controller/basicControllers/registerMSController4.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+    <!-- <form action="../../controller/basicControllers/registerMSController4.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post"> -->
+    <form action="../../controller/registerMSController4.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
         <div class="row">
             <div class="row">
                 <div class="col-25">
