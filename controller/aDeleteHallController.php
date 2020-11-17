@@ -11,10 +11,10 @@
         $result = Model::deleteHall($hall_id, $connect);
 
         if ($result) {
-            echo "Hall successfully deleted.";
+            header('Location:../view/admin/aHallDeletedV.php');
         }
         else{
-            echo "Database query failed";
+            header('Location:../view/admin/aHallNotDeletedV.php');
         }
 
     }

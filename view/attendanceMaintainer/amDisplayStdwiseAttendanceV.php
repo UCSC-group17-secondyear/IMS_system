@@ -31,6 +31,10 @@
                         <th>Attendance</th>
                     </tr>
                 </table>
+
+                <button class="mainbtn">
+                    <a href="amStudentWiseAttendanceV.php">View another studentwise attendance</a>
+                </button>
             </div>
         </div>
     </div>

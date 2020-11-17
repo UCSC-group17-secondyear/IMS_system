@@ -38,8 +38,11 @@
                 <button class="subbtn" type="submit" name="">
                     <a href="asmHallDetailsV.php">Select another hall</a>
                 </button>
+                <button class="cancelbtn" type="submit" name="">
+                    <a href="asmHomeV.php">Exit</a>
+                </button>
 
-                <button id="myBtn" class="cancelbtn">Cancel</button>
+                <!-- <button id="myBtn" class="cancelbtn">Cancel</button>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -48,15 +51,12 @@
                             <a href="asmHomeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
-               <!--  <button class="cancelbtn" type="submit" name="">
-                    <a href="asmHomeV.php">Cancel</a>
-                </button> -->
+                </div> -->
             </div>
         </div>
     </div>
 
-     <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var modal = document.getElementById("myModal");
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
@@ -84,7 +84,7 @@
             modal.style.display = "none";
           }
         }
-    </script>
+    </script> -->
 
 </main>
 

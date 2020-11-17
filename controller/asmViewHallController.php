@@ -14,13 +14,11 @@
             while ($record = mysqli_fetch_array($records)) {
                 $_SESSION['halls'] .= "<option value='".$record['hall_name']."'>". $record['hall_name']."</option>";
             }
-
             header('Location:../view/academicStaffMember/asmHallDetailsV.php');
-
         }
     }
 
-    if (isset($_POST['hall-submit'])) {
+    elseif (isset($_POST['hall-submit'])) {
         $hall = mysqli_escape_string($connect, $_POST['hall']);
         $_SESSION['halls'] = '';
 

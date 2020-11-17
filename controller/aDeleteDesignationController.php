@@ -11,10 +11,10 @@
         $result = Model::deleteDesignation($designation_id, $connect);
 
         if ($result) {
-            echo "Designation successfully deleted.";
+            header('Location:../view/admin/aDesignationDeletedV.php');
         }
         else{
-            echo "Database query failed";
+            header('Location:../view/admin/aDesignationNotDeletedV.php');
         }
 
     }
