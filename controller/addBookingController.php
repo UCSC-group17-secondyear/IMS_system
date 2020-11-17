@@ -32,14 +32,14 @@
         $check = Model::checkHall($hall, $date, $startTime, $endTime, $connect);
 
         if (mysqli_num_rows($check)==1) {
-            echo "Already booked.";
+            header('Location:../view/academicStaffMember/asmAllReadyBookedV.php');
         }
         else{
             
             $result = Model::book($user_id, $hall, $date, $startTime, $endTime, $reason, $connect);
 
             if ($result) {
-                echo "Booking Succefull...";
+                header('Location:../view/academicStaffMember/asmBookingAddedV.php');
             }
 
         }

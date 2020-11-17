@@ -15,10 +15,10 @@
         $result = Model::deleteBooking($booking_id, $connect);
 
         if ($result) {
-            header('Location:../view/academicStaffMember/asmViewBookingListV.php?msg=book_deleted');
+            header('Location:../view/academicStaffMember/asmDeletedBookingV.php');
         }
         else {
-            header('Location:../view/academicStaffMember/asmViewBookingListV.php?err=delete_failed');
+            header('Location:../view/academicStaffMember/asmNotDeletedBookingV.php');
         }
 
     }
