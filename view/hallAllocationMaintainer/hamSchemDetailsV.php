@@ -41,7 +41,7 @@
                         <th>Contract Staff (required service period)</th>
                         <th>Temporary Staff (required service period)</th>
                     </tr>
-                    <?php echo $_SESSION['scheme_list']; ?>
+                    <?php //echo $_SESSION['scheme_list']; ?>
                 </table>
             </div>
         </div>
