@@ -11,7 +11,7 @@
             <li class="active">Register to the medical scheme</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom:10px;">
             <div class="col left20">
                 <?php
                     require 'msmSideNavV.php';

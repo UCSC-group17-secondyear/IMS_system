@@ -785,9 +785,18 @@
 //......................................................................................................................................//
 
 //................................................ Medical Scheme Maintainer ...........................................................//
-		public static function registerMS1($user_id, $department, $health_condition, $civil_status, $member_type, $connect)
+		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $scheme, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}' WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}', schemename='{$scheme}' WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public statis function adddependant($user_id, $spouse_name, $spouse_relationship, $spouse_dob, $spouse_healthstatus, $connect)
+		{
+			$query = "INSERT INTO tbl_dependant user_id='{$user_id}', dependant_name='{$spouse_name}', relationship='{$spouse_relationship}', dob='{$spouse_dob}', health_status='{$spouse_healthstatus}'";
 
 			$result = mysqli_query($connect, $query);
 

@@ -5,7 +5,7 @@
 
     <div class="contentForm">
     <!-- <form action="../../controller/basicControllers/registerMSController4.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post"> -->
-    <form action="../../controller/registerMSController4.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+    <form action="../../controller/registerMSController3.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
         <div class="row">
             <div class="row">
                 <div class="col-25">
@@ -22,14 +22,17 @@
                 </div>
             </div>
 
-            <?php if ($_SESSION['civil_status'] == "Married") { ?>
+            <?php
+                if ($_SESSION['civil_status'] == "Married") {
+            ?>
                 <h3 style="text-decoration: none;">Spouse Details</h3>
+
                 <div class="row">
                     <div class="col-25">
                         <label>Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="dependant_name" required/>
+                        <input type="text" name="spouse_name" required/>
                     </div>
                 </div>
 
@@ -38,16 +41,11 @@
                         <label>Relationship</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="relationship" required/>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-25">
-                        <label>Gender</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" name="gender" required/>
+                        <select name="relationship" id="relationship" required>
+                            <option value="">...</option>
+                            <option value="">Husband</option>
+                            <option value="">Wife</option>
+                        </select>
                     </div>
                 </div>
 
@@ -56,7 +54,7 @@
                         <label>Date of Birth</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="dob" required/>
+                        <input type="date" name="dob" required/>
                     </div>
                 </div>
 
@@ -65,18 +63,54 @@
                         <label>Health Status</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="health_status" required/>
+                        <input list="health_status" name="health_status" required>
+                        <datalist id="health_status">
+                            <?php echo $_SESSION['health_status']?>
+                        </datalist>
+                        <div class="tooltip">?
+                            <span class="tooltiptext">Health Conditions</span>
+                        </div>
                     </div>
                 </div>
 
-            <?php } ?>
+                <h3 style="text-decoration: none;">Children Details</h3>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>Number of children</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" name="children_number" required/>
+                    </div>
+                </div>
+
+                <h4 style="text-decoration: none;">Child 1 Details</h4>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" name="child_name" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label>Date of Birth</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="date" name="child_dob" required/>
+                    </div>
+                </div>
+
+            <?php
+                }
+            ?>
 
         <button class="mainbtn" type="submit" name="registerMS-submit">Register</button>
     </form>
     <form>
-        <button class="subbtn" type="submit" name="schemedetails-submit">
-            <a href="../basic/schemeDetailsV.php"> View Scheme Details</a>
-        </button>
+        <button class="subbtn" type="submit" name="schemedetails-submit"> View Scheme Details </button>
         <button type="submit" class="cancelbtn">
             <a href="#">Cancel</a>
         </button>

@@ -12,17 +12,18 @@
     $scheme_2_details = Model::getscheme('Scheme 2', $connect);
     $scheme_3_details = Model::getscheme('Scheme 3', $connect);
     $_SESSION['scheme'] = '';
+    $_SESSION['children'] = '';
 
     if (isset($_POST['registerNext-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
 
-        $userInfo = array('department'=>20, 'member_type'=>15, 'health_condition'=>100, 'civil_status'=>10);
+        // $userInfo = array('department'=>20, 'member_type'=>15, 'health_condition'=>100, 'civil_status'=>10);
 		
-		foreach ($userInfo as $info=>$maxLen) {
-            if (strlen(trim($_POST[$info])) >  $maxLen) {
-                $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
-            }
-        }
+		// foreach ($userInfo as $info=>$maxLen) {
+        //     if (strlen(trim($_POST[$info])) >  $maxLen) {
+        //         $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
+        //     }
+        // }
         
         if (empty($errors)) {
             $department = mysqli_real_escape_string($connect, $_POST['department']);
@@ -30,21 +31,21 @@
             $health_condition = mysqli_real_escape_string($connect, $_POST['health_condition']);
             $civil_status = mysqli_real_escape_string($connect, $_POST['civil_status']);
 
-            $_SESSION['deps'] = $department;
-            $_SESSION['member_type'] = $member_type;
-            $_SESSION['health_condition'] = $health_condition;
-            $_SESSION['civil_status'] = $civil_status;
+            // $_SESSION['deps'] = $department;
+            // $_SESSION['member_type'] = $member_type;
+            // $_SESSION['health_condition'] = $health_condition;
+            // $_SESSION['civil_status'] = $civil_status;
 
-            $medical = Model::registerMS1($user_id, $department, $health_condition, $civil_status, $member_type, $connect);
+            // $medical = Model::registerMS1($user_id, $department, $health_condition, $civil_status, $member_type, $connect);
 
-            if ($medical) {
+            // if ($medical) {
                 $_SESSION['deps'] = $department;
                 $_SESSION['member_type'] = $member_type;
                 $_SESSION['health_condition'] = $health_condition;
                 $_SESSION['civil_status'] = $civil_status;
-            } else {
-                echo "query failed";
-            }
+            // } else {
+            //     echo "query failed";
+            // }
         }
 
         if ($result_set && $scheme_1_details && $scheme_2_details && $scheme_3_details) {
