@@ -8,10 +8,10 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">Register to the medical scheme</li>
+            <li class="active">Register to the medical scheme - Part 2</li>
         </ul>
 
-        <div class="row" style="margin-bottom:10px;">
+        <div class="row">
             <div class="col left20">
                 <?php
                     require 'msmSideNavV.php';
@@ -28,7 +28,7 @@
     </div>
 </main>
 
-<!-- <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+<button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
 
 <script type="text/javascript">
     var mybutton = document.getElementById("myTopBtn");
@@ -38,7 +38,7 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
-</script> -->
+</script>
 
 <?php
     require '../basic/footer.php';
