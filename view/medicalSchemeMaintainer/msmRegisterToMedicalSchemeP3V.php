@@ -20,25 +20,13 @@
             <div class="col right80">
                 <div>
                     <?php
-                        require '../basic/registerToMedSchemeP2V.php';
+                        require '../basic/registerToMedSchemeP3V.php';
                     ?>
                 </div>
             </div>
         </div>
     </div>
 </main>
-
-<!-- <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
-
-<script type="text/javascript">
-    var mybutton = document.getElementById("myTopBtn");
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script> -->
 
 <?php
     require '../basic/footer.php';
