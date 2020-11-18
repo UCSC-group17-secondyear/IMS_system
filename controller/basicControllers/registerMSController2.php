@@ -70,9 +70,11 @@
                 } else if ($_SESSION['member_type'] == "Contract") {
                     if ($months >= $scheme_3['contractStaff']) {
                         $_SESSION['scheme'] .= "<option value='Scheme 3'></option>";
-                    } else if ($months >= $scheme_2['contractStaff']) {
+                    }
+                    if ($months >= $scheme_2['contractStaff']) {
                         $_SESSION['scheme'] .= "<option value='Scheme 2'></option>";
-                    } else if ($months >= $scheme_1['contractStaff']) {
+                    }
+                    if ($months >= $scheme_1['contractStaff']) {
                         $_SESSION['scheme'] .= "<option value='Scheme 1'></option>";
                     }
                     // else {
@@ -81,9 +83,11 @@
                 } else if ($_SESSION['member_type'] == "Permanent") {
                     if ($months >= $scheme_3['permanentStaff']) {
                         $_SESSION['scheme'] .= "<option value='Scheme 3'></option>";
-                    } else if ($months >= $scheme_2['permanentStaff']) {
+                    }
+                    if ($months >= $scheme_2['permanentStaff']) {
                         $_SESSION['scheme'] .= "<option value='Scheme 2'></option>";
-                    } else if ($months >= $scheme_1['permanentStaff']) {
+                    }
+                    if ($months >= $scheme_1['permanentStaff']) {
                         $_SESSION['scheme'] .= "<option value='Scheme 1'></option>";
                     }
                     // else {
