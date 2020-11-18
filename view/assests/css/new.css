@@ -45,6 +45,11 @@ body {
   color: white;
 }
 
+a.disabled {
+  pointer-events: none;
+  cursor: none;
+}
+
 /*-----------------------------Breadcrumbs-----------------------------*/
 
 ul.breadcrumbs {
