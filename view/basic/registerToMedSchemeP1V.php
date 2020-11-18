@@ -22,7 +22,6 @@
                 <label>Health condition</label>
             </div>
             <div class="col-75">
-                <!-- <input name="health_condition" type="text" required> -->
                 <input list="health_condition" name="health_condition" required>
                 <datalist id="health_condition">
                     <?php echo $_SESSION['health_condition']?>
@@ -52,15 +51,12 @@
             <div class="col-75">
                 <select name="civil_status" required>
                     <option value="">Select Civil Status</option>
-                    <option value="married">Married</option>
-                    <option value="unmarried">Unmarried</option>
+                    <?php echo $_SESSION['civil_status'] ?>
                 </select>
             </div>
         </div>
 
-        <a href="../../controller/basicControllers/registerMSController3.php?user_id=<?php echo $_SESSION['userId'] ?>">
-            <button class="mainbtn" type="submit" name="registerNext-submit"> Next</button>
-        </a>
+        <button class="mainbtn" type="submit" name="registerNext-submit"> Next</button>
     </form>
     <form>
         <button class="subbtn" type="submit" name="schemedetails-submit">

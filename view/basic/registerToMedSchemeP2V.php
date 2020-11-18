@@ -22,11 +22,11 @@
                 </div>
             </div>
 
-            <?php //if ($_SESSION['civil_status'] == "Married") { ?>
-                
+            <?php if ($_SESSION['civil_status'] == "Married") { ?>
+                <h3 style="text-decoration: none;">Spouse Details</h3>
                 <div class="row">
                     <div class="col-25">
-                        <label>Spouse's Name</label>
+                        <label>Name</label>
                     </div>
                     <div class="col-75">
                         <input type="text" name="dependant_name" required/>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-            <?php //} ?>
+            <?php } ?>
 
         <button class="mainbtn" type="submit" name="registerMS-submit">Register</button>
     </form>

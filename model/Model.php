@@ -830,6 +830,15 @@
 			return $result_set;
 		}
 
+		public static function civilstatus($connect)
+		{
+			$query = "SELECT csname FROM tbl_civilstatus";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
 		public static function scheme($connect)
 		{
 			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
@@ -841,7 +850,7 @@
 
 		public static function getservicemonths($user_id,$connect)
 		{
-			$query = "SELECT MONTHS_BETWEEN(CURRENT_DATE(), appointment)FROM users WHERE userId={$user_id}";
+			$query = "SELECT MONTHS_BETWEEN(CURRENT_DATE(), appointment)FROM users WHERE userId='{$user_id}'";
 
 			$result = mysqli_query($connect, $query);
 
@@ -850,7 +859,7 @@
 
 		public static function getscheme($scheme, $connect)
 		{
-			$query = "SELECT permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE schemeName = {$scheme}";
+			$query = "SELECT permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE schemeName = '{$scheme}'";
 
 
 			$result = mysqli_query($connect, $query);
