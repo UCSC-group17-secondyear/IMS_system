@@ -8,6 +8,13 @@
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
         $records = Model::hall($connect);
 
+        $answers = Model::getRole($user_id, $connect);
+
+        $answer = mysqli_fetch_assoc($answers);
+
+        $role = $answer['userRole'];
+        $_SESSION['role'] = $role;
+
         $_SESSION['halls'] = '';
 
         if ($records) {
@@ -16,7 +23,12 @@
                 $_SESSION['halls'] .= "<option value='".$record['hall_name']."'>". $record['hall_name']."</option>";
             }
 
-            header('Location:../view/academicStaffMember/asmAddBookingV.php');
+            if ($role == "hallAllocationMain") {
+                header('Location:../view/hallAllocationMaintainer/hamAddBookingV.php');
+            }
+            elseif ($role == "academicStaffMemb") {
+                header('Location:../view/academicStaffMember/asmAddBookingV.php');
+            }
 
         }
     }
@@ -32,14 +44,27 @@
         $check = Model::checkHall($hall, $date, $startTime, $endTime, $connect);
 
         if (mysqli_num_rows($check)==1) {
-            header('Location:../view/academicStaffMember/asmAllReadyBookedV.php');
+            if ($role == "hallAllocationMain") {
+                header('Location:../view/hallAllocationMaintainer/hamAllReadyBookedV.php');
+            }
+            elseif ($role == "academicStaffMemb") {
+                header('Location:../view/academicStaffMember/asmAllReadyBookedV.php');
+            }
+            
         }
         else{
             
             $result = Model::book($user_id, $hall, $date, $startTime, $endTime, $reason, $connect);
 
             if ($result) {
-                header('Location:../view/academicStaffMember/asmBookingAddedV.php');
+
+                if ($_SESSION['role'] == "hallAllocationMain") {
+                    header('Location:../view/hallAllocationMaintainer/hamBookingAddedV.php');
+                }
+                elseif ($_SESSION['role'] == "academicStaffMemb") {
+                    header('Location:../view/academicStaffMember/asmBookingAddedV.php');
+                }
+                
             }
 
         }
