@@ -7,7 +7,7 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
+            <li><a href="hamHomeV.php">Home</a></li>
             <li><a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a></li>
             <li class="active">Action was success!</li>
         </ul>
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'asmSideNavV.php';
+                    require 'hamSideNavV.php';
                 ?>
             </div>
 
@@ -32,7 +32,7 @@
                         <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a>
                     </button>
                     <button class="cancelbtn" type="submit">
-                        <a href="asmHomeV.php">Leave</a>
+                        <a href="hamHomeV.php">Leave</a>
                     </button>
                 </div>
             </div>

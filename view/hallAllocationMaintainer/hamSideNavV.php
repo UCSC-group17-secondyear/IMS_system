@@ -34,15 +34,10 @@
                     </button>
                 </ul>
             </li>
-            <li><button class="tree_list">Manage Booking</button>
-                <ul class="tree_nest">
-                    <button>
-                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Add a Booking</li></a>
-                    </button>
-                    <button>
-                        <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">My Bookings</a>
-                    </button>
-                </ul>
+            <li>
+                <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                    <button type="submit" class="tree_list">Add a Booking</button>
+                </a>
             </li>
             <li>
                 <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
