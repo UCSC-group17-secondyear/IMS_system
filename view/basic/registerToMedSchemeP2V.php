@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <?php //if ($_SESSION['civil_status'] == "Married") { ?>
+            <?php if ($_SESSION['civil_status'] == "Married") { ?>
                 
                 <div class="row">
                     <div class="col-25">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-            <?php //} ?>
+            <?php } ?>
 
         <button class="mainbtn" type="submit" name="registerMS-submit">Register</button>
     </form>
