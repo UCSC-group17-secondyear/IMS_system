@@ -1080,7 +1080,7 @@ img.avatar {
   bottom: 125%;
   left: 50%;
   margin-left: -60px;
-  opacity: 2.5;
+  opacity: 0;
   transition: opacity 0.3s;
 }
 

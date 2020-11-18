@@ -794,9 +794,9 @@
 			return $result;
 		}
 
-		public static function adddependant($user_id, $spouse_name, $spouse_relationship, $spouse_dob, $spouse_healthstatus, $connect)
+		public static function adddependant($user_id, $name, $relationship, $dob, $healthstatus, $connect)
 		{
-			$query = "INSERT INTO tbl_dependant user_id='{$user_id}', dependant_name='{$spouse_name}', relationship='{$spouse_relationship}', dob='{$spouse_dob}', health_status='{$spouse_healthstatus}'";
+			$query = "INSERT INTO tbl_dependant user_id='{$user_id}', dependant_name='{$name}', relationship='{$relationship}', dob='{$dob}', health_status='{$healthstatus}'";
 
 			$result = mysqli_query($connect, $query);
 
