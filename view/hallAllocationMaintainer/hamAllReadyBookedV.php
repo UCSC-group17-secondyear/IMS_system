@@ -3,19 +3,19 @@
 ?>
 
 <main>
-    <title>Added Booking</title>
+    <title>Bookings</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
+            <li><a href="hamHomeV.php">Home</a></li>
             <li><a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a></li>
-            <li class="active">Action was success!</li>
+            <li class="active">Action Failed!</li>
         </ul>
-    
+
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'asmSideNavV.php';
+                    require 'hamSideNavV.php';
                 ?>
             </div>
 
@@ -25,20 +25,21 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The Booking is added successfully!</h2>
+                        <h2>Sorry! <br>
+                            This slot is all ready booked.
+                        </h2>
                     </div>
 
-                    <button class="subbtn" type="submit">
-                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a>
+                    <button class="subbtn">
+                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Try Again</a>
                     </button>
-                    <button class="cancelbtn" type="submit">
-                        <a href="asmHomeV.php">Leave</a>
+                    <button class="cancelbtn">
+                        <a href="hamHomeV.php">Leave</a> 
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    
 </main>
 
 <?php
