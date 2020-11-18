@@ -1,8 +1,8 @@
 <?php
 
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../config/database.php');
+    require_once('../../model/memModel.php');
 
 ?>
 
@@ -31,12 +31,12 @@
             $civil_status = $_POST['civilstatus'];
             $scheme_name = mysqli_real_escape_string($connect, $_SESSION['scheme']);
             
-            $result_one = Model::updatememDetails($user_id, $health_condition,$civil_status,$scheme_name, $connect);
-            $result_two = Model::updateScheme($user_id, $scheme_name, $connect);
+            $result_one = memModel::updatememDetails($user_id, $health_condition,$civil_status,$scheme_name, $connect);
+            $result_two = memModel::updateScheme($user_id, $scheme_name, $connect);
             
 
             if($result_one && $result_two){
-                header('Location:../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
+                header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
                 // echo "one";
             }
         }

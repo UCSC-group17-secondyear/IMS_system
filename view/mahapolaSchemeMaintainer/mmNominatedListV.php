@@ -22,7 +22,14 @@
                         <h2>Nominated Student List</h2>
                     </div>
 
-                    <div class="contentForm"></div>
+                    <div class="contentForm">
+                        <table id="tableStyle">
+                            <tr>
+                                <th>Student Index</th>
+                                <th>Student Name</th>
+                            </tr>
+                        </table>
+                    </div>
 
                     <a href="mmViewMahapolaNominatedListV.php" ><button class="mainbtn" type="submit" name="" >Back</button></a><br>
                 </div>
