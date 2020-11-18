@@ -59,37 +59,36 @@
     
                 $date_diff = Model::getservicemonths($user_id, $connect);
                 $submit_diff = mysqli_fetch_array($date_diff);
-                $months = (int)$submit_diff/30;
+                $months = (int)$submit_diff[0]/30;
                
                 if ($_SESSION['member_type'] == "Temporary") {
                     if ($months >= $scheme_3['temporaryStaff']) {
-                        $_SESSION['scheme'] .= "<option value='Scheme 3'></option>";
+                        $_SESSION['scheme'] .= "<option value='Scheme 3'>Scheme 3</option>";
+                    } else {
+                        // header('Location:../../view/medicalOfficer/moRegisterToMedicalSchemeP2V.php');
                     }
-                    // else {
-                    //     $_SESSION['scheme'] .= "<option value="">Sorry! You are not eligible to select a scheme yet</option>";
-                    // }
                 } else if ($_SESSION['member_type'] == "Contract") {
                     if ($months >= $scheme_3['contractStaff']) {
-                        $_SESSION['scheme'] .= "<option value='Scheme 3'></option>";
+                        $_SESSION['scheme'] .= "<option value='Scheme 3'>Scheme 3</option>";
                     }
                     if ($months >= $scheme_2['contractStaff']) {
-                        $_SESSION['scheme'] .= "<option value='Scheme 2'></option>";
+                        $_SESSION['scheme'] .= "<option value='Scheme 2'>Scheme 2</option>";
                     }
                     if ($months >= $scheme_1['contractStaff']) {
-                        $_SESSION['scheme'] .= "<option value='Scheme 1'></option>";
+                        $_SESSION['scheme'] .= "<option value='Scheme 1'>Scheme 1</option>";
                     }
-                    // else {
-                    //     $_SESSION['scheme'] .= "<option>Sorry! You are not eligible to select a scheme yet</option>";
-                    // }                
+                    if ($months < $scheme_3['contractStaff']) {
+                        // header('Location:../../view/medicalOfficer/moRegisterToMedicalSchemeP2V.php');
+                    }              
                 } else if ($_SESSION['member_type'] == "Permanent") {
                     if ($months >= $scheme_3['permanentStaff']) {
-                        $_SESSION['scheme'] .= "<option value='Scheme 3'></option>";
+                        $_SESSION['scheme'] .= "<option value='Scheme 3'>Scheme 3</option>";
                     }
                     if ($months >= $scheme_2['permanentStaff']) {
-                        $_SESSION['scheme'] .= "<option value='Scheme 2'></option>";
+                        $_SESSION['scheme'] .= "<option value='Scheme 2'>Scheme 2</option>";
                     }
                     if ($months >= $scheme_1['permanentStaff']) {
-                        $_SESSION['scheme'] .= "<option value='Scheme 1'></option>";
+                        $_SESSION['scheme'] .= "<option value='Scheme 1'>Scheme 1</option>";
                     }
                     // else {
                     //     $_SESSION['scheme'] .= "<option value="">Sorry! You are not eligible to select a scheme yet</option>";

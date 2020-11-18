@@ -82,9 +82,15 @@
                     <div class="col-75">
                         <input type="number" name="children_number" required/>
                     </div>
-                </div>
+                </div>                
 
-                <h4 style="text-decoration: none;">Child 1 Details</h4>
+                <?php
+                    $no = children_number;
+                    if($no > 0){
+                        for($i=0; $i<$no; $i++){
+                ?>
+                
+                <h4 style="text-decoration: none;">Child .$i. Details</h4>
 
                 <div class="row">
                     <div class="col-25">
@@ -103,7 +109,9 @@
                     </div>
                 </div>
 
-            <?php
+                <?php
+                        }
+                    }
                 }
             ?>
 

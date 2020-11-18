@@ -794,7 +794,7 @@
 			return $result;
 		}
 
-		public statis function adddependant($user_id, $spouse_name, $spouse_relationship, $spouse_dob, $spouse_healthstatus, $connect)
+		public static function adddependant($user_id, $spouse_name, $spouse_relationship, $spouse_dob, $spouse_healthstatus, $connect)
 		{
 			$query = "INSERT INTO tbl_dependant user_id='{$user_id}', dependant_name='{$spouse_name}', relationship='{$spouse_relationship}', dob='{$spouse_dob}', health_status='{$spouse_healthstatus}'";
 
@@ -859,7 +859,7 @@
 
 		public static function getservicemonths($user_id,$connect)
 		{
-			$query = "SELECT MONTHS_BETWEEN(CURRENT_DATE(), appointment)FROM users WHERE userId='{$user_id}'";
+			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment)FROM users WHERE userId='{$user_id}'";
 
 			$result = mysqli_query($connect, $query);
 
