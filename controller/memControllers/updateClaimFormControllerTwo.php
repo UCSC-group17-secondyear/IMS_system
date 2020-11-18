@@ -1,16 +1,16 @@
 <?php
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../config/database.php');
+    require_once('../../model/memModel.php');
 ?>
 
 <?php
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
         $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
            
-        $result_set = Model::checkClaimFormNo($claim_form_no, $user_id, $connect);
-        $result_opd = Model::checkWhetherOpd($claim_form_no,$user_id,$connect);
-        $result_surgical = Model::checkWhetherSurgical($claim_form_no,$user_id,$connect);
+        $result_set = memModel::checkClaimFormNo($claim_form_no, $user_id, $connect);
+        $result_opd = memModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
+        $result_surgical = memModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
 
                 if(mysqli_num_rows($result_opd)==1){
                                 
@@ -24,8 +24,8 @@
                     $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
                     $_SESSION['purpose'] = $result_one['purpose'];
                     $_SESSION['bill_amount'] = $result_one['bill_amount'];
-
-                    header('Location:../view/medicalSchemeMember/memUpdateOpdFormV.php');
+                    //echo $_SESSION['claim_form_no'];
+                    header('Location:../../view/medicalSchemeMember/memUpdateOpdFormV.php');
 
                 }
 
@@ -52,8 +52,8 @@
                     $_SESSION['sick_injury'] = $result_one['sick_injury'];
                     $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
                     $_SESSION['nature_of'] = $result_one['nature_of'];
-
-                    header('Location:../view/medicalSchemeMember/memUpdateSurgicalFormV.php');
+                    //echo $_SESSION['claim_form_no'];
+                    header('Location:../../view/medicalSchemeMember/memUpdateSurgicalFormV.php');
 
                 }
 

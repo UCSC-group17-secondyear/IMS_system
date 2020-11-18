@@ -16,22 +16,22 @@
             <li><button class="tree_list">Fill Claim Forms</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/opdFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-pencil-square-o"></i>OPD Form</li></a>
+                        <a href="../../controller/memControllers/opdFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-pencil-square-o"></i>OPD Form</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/surgicalFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-pencil-square-o"></i>Surgical Hospitalization Form</li></a>
+                        <a href="../../controller/memControllers/surgicalFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-pencil-square-o"></i>Surgical Hospitalization Form</li></a>
                     </button>
                 </ul>
             </li>
 
             <li>
-                <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Update / Delete Claim Form</button>
                 </a><br>
             </li>
 
             <li>
-                <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">View Claim Forms</button>
                 </a><br>
             </li>

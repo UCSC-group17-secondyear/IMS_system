@@ -23,13 +23,13 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/markMahapolaStuDetailsController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                        <form action="../../controller/mmControllers/markMahapolaStuDetailsController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Student Initials</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_initials" <?php echo 'value="'.$_SESSION['student_initials'].'"' ?> disabled><br>
+                                    <input type="text" name="student_initials"  disabled><br>
                                 </div>
                             </div>
 
@@ -38,7 +38,7 @@
                                 <label for="">Student Surname</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_surname" <?php echo 'value="'.$_SESSION['student_surname'].'"' ?> disabled><br>
+                                    <input type="text" name="student_surname" disabled><br>
                                 </div>
                             </div>
 
@@ -47,7 +47,7 @@
                                     <label for="">Student Index Number</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_index" <?php echo 'value="'.$_SESSION['student_index'].'"' ?> disabled><br>
+                                    <input type="text" name="student_index" disabled><br>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@
                                     <label for="">Degree</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="degree" <?php echo 'value="'.$_SESSION['degree'].'"' ?> disabled><br>
+                                    <input type="text" name="degree" disabled><br>
                                 </div>
                             </div>
 

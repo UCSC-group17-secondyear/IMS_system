@@ -25,7 +25,7 @@
                         </div>
                         
                         <div class="contentForm">
-                            <form action="../../controller/surgicalFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
+                            <form action="../../controller/memControllers/surgicalFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
                              
                             <div class="row">
                                 <div class="col-25">
@@ -222,7 +222,7 @@
 
                             <form>
                                 <button class="subbtn" type="submit" name="userroleList-submit">
-                                    <a href="../../controller/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
+                                    <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
                                 </button>
                                 <button type="submit" class="cancelbtn">
                                     <a href="memHomeV.php">Cancel</a>

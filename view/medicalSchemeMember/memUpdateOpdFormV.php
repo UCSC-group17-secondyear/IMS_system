@@ -8,7 +8,7 @@
                 
                     <ul class="breadcrumbs">
                         <li><a href="memHomeV.php">Home</a></li>
-                        <li><a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
+                        <li><a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
                         <li class="active">Update OPD Form</li>
                     </ul>
                 
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="contentForm">
-                            <form action="../../controller/updateOpdFormController.php?user_id=<?php echo $_SESSION['userId']?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
+                            <form action="../../controller/memControllers/updateOpdFormController.php?user_id=<?php echo $_SESSION['userId']?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
                              
                             <div class="row">
                                 <div class="col-25">
@@ -120,7 +120,7 @@
 
                             <form>
                                 <button class="subbtn" type="submit" name="userroleList-submit">
-                                    <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId']?>">View Claim Form List</a>
+                                    <a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId']?>">View Claim Form List</a>
                                 </button>
                                 <button type="submit" class="cancelbtn">
                                     <a href="memHomeV.php">Cancel</a>

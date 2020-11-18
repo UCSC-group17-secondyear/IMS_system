@@ -1,9 +1,9 @@
 <?php
     session_start();
-    require_once('../config/database.php');
-    require_once('../model/Model.php');
+    require_once('../../config/database.php');
+    require_once('../../model/memModel.php');
 
-        $schemes = Model::getSchemes($connect);
+        $schemes = memModel::getSchemes($connect);
         
         $_SESSION['scheme_name'] = '';
         $cur_scheme = $_SESSION['scheme'];
@@ -14,7 +14,7 @@
                 
             }
             $_SESSION['scheme'] = $cur_scheme;
-            header('Location:../view/medicalSchemeMember/memSelectSchemeV.php');
+            header('Location:../../view/medicalSchemeMember/memSelectSchemeV.php');
         }
         else {
             echo "Database query failed";

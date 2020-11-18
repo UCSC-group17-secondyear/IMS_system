@@ -3,13 +3,15 @@
 ?>
 
 <main>
+    <title>Mahapola Scheme Maintainer Home Page</title>
+
     <div class="sansserif">
             <ul class="breadcrumbs">
                 <li class="active">Mahapola Scheme Maintainer Page</li>
             </ul>
 
         <div class="row">
-            <div class="col left20">
+            <div class="column left">
                 <?php 
                 require('mmSideNavV.php');
                 ?>
@@ -25,7 +27,7 @@
                 </div>
                 <div class="btncontainer">
                     <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>                    </div>
-                </div>
+            </div>
         </div>
     </div>
 </main>
