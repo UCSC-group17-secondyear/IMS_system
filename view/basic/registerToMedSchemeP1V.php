@@ -1,6 +1,6 @@
 <main>
     <div>
-        <h2>Register to Staff Medical Scheme</h2>
+        <h2>Register to Staff Medical Scheme - Part 1</h2>
     </div>
 
     <div class="contentForm">

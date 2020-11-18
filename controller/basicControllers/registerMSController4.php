@@ -7,10 +7,12 @@
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     $result_set = Model::view($user_id, $connect);
 
-    if (isset($_POST['registerNext-submit'])) {
+    if (isset($_POST['register-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
 
-        $userInfo = array('department'=>20, 'member_type'=>15, 'health_condition'=>100, 'civil_status'=>10, 'scheme'=>8);
+        $department = $_SESSION['deps'];
+
+        $userInfo = array('child_name'=>50, 'relationship'=>8, 'child_dob'=>20, 'health_status'=>100);
 		
 		foreach ($userInfo as $info=>$maxLen) {
             if (strlen(trim($_POST[$info])) >  $maxLen) {
@@ -19,18 +21,28 @@
         }
         
         if (empty($errors)) {
-            $child_name = mysqli_real_escape_string($connect, $_POST['child_name']);
-            $child_relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
-            $child_dob = mysqli_real_escape_string($connect, $_POST['child_dob']);
-            $child_healthstatus = mysqli_real_escape_string($connect, $_POST['health_status']);
+            $no = $_SESSION['children_no'];
+            for($i=0; $i<$no; $i++){
+                $child_name = mysqli_real_escape_string($connect, $_POST['child_name']);
+                $child_relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
+                $child_dob = mysqli_real_escape_string($connect, $_POST['child_dob']);
+                $child_healthstatus = mysqli_real_escape_string($connect, $_POST['health_status']);
+                
+                $dependant = Model::adddependant($user_id, $child_name, $child_relationship, $child_dob, $child_healthstatus, $connect);
+                
+                $date_diff = Model::getage($user_id, $child_name, $connect);
+                $submit_diff = mysqli_fetch_array($date_diff);
+                $age = (int)$submit_diff[0];
 
-            $medical = Model::registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $scheme, $connect);
-            $dependant = Model::adddependant($user_id, $child_name, $child_relationship, $child_dob, $child_healthstatus, $connect);
+                if($age >= 18){
+                    $dependant = Model::deletedependant($user_id, $child_name, $connect);
+                }
+            }
 
             $resultttt = Model::dept($department, $connect);
             $data = mysqli_fetch_array($resultttt);
 
-            if ($medical && $dependant) {
+            if ($data) {
                 $to_email = $data['department_head_email'];
                 $subject = "Membership Request";
                 $body =  $_SESSION['empid'] . " have requested the membership for the Medical Scheme.";

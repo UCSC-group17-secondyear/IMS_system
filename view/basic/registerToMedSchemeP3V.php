@@ -1,10 +1,10 @@
 <main>
     <div>
-        <h2>Register to Staff Medical Scheme - Children Details</h2>
+        <h2>Register to Staff Medical Scheme - Part 3</h2>
     </div>
 
     <div class="contentForm">
-        <form action="../../controller/basicControllers/registerMSController4.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+        <form action="../../controller/basicControllers/registerMSController4.php?user_id=<?php echo $_SESSION['userId']?>" method="post">
             <div class="row">
                 <?php
                     $no = $_SESSION['children_no'];
@@ -19,7 +19,7 @@
                         <label>Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="number" name="child_name" required/>
+                        <input type="text" name="child_name" required/>
                     </div>
                 </div>
                 <div class="row">
@@ -35,7 +35,11 @@
                         <label>Relationship</label>
                     </div>
                     <div class="col-75">
-                        <input type="number" name="relationship" required/>
+                        <select name="relationship" id="relationship" required>
+                                <option value="">...</option>
+                                <option value="Son">Son</option>
+                                <option value="Daughter">Daughter</option>
+                            </select>
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +47,7 @@
                         <label>Health Status</label>
                     </div>
                     <div class="col-75">
-                        <input type="number" name="health_status" required/>
+                        <input type="text" name="health_status" required/>
                     </div>
                 </div>
 

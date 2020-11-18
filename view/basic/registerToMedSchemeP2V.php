@@ -1,6 +1,6 @@
 <main>
     <div>
-        <h2>Register to Staff Medical Scheme</h2>
+        <h2>Register to Staff Medical Scheme - Part 2</h2>
     </div>
 
     <div class="contentForm">
@@ -42,8 +42,8 @@
                         <div class="col-75">
                             <select name="relationship" id="relationship" required>
                                 <option value="">...</option>
-                                <option value="">Husband</option>
-                                <option value="">Wife</option>
+                                <option value="Husband">Husband</option>
+                                <option value="Wife">Wife</option>
                             </select>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                             <label>Number of children</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" name="children_no" required/>
+                            <input type="number" min="0" name="children_no" required/>
                         </div>
                     </div>                
 
