@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="" method="POST">
+                        <form action="../../controller/mmControllers/mahapolaNominatedListController.php" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Batch No</label>
@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                     
-                            <button class="mainbtn" type="submit" name="" >Display Student List</button></a><br>
+                            <button class="mainbtn" type="submit" name="display-list" >Display Student List</button></a><br>
                         </form>
                     </div>
             </div>
