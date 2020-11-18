@@ -8,8 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li><a href="msmRegisterToMedicalSchemeP1V.php">Register to the medical scheme - Part 1</li>
-            <li class="active">Register to the medical scheme - Part 2</li>
+            <li class="active">Register to the medical scheme</li>
         </ul>
 
         <div class="row">
@@ -21,7 +20,7 @@
             <div class="col right80">
                 <div>
                     <?php
-                        require '../basic/registerToMedSchemeP1V.php';
+                        require '../basic/registerToMedSchemeP2V.php';
                     ?>
                 </div>
             </div>
