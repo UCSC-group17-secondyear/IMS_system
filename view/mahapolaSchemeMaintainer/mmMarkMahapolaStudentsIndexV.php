@@ -23,13 +23,13 @@
                     </div>
 
                     <div class="contentForm">
-                    <form action="../../controller/stuMahapolaDetailsIndexController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                    <form action="../../controller/mmControllers/stuMahapolaDetailsIndexController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
                         <div class="row">
                             <div class="col-25">
                                 <label for="">Search by Student Index</label><br>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="student_index" required><br>
+                                <input type="text" name="student_index" ><br>
                             </div>
                         </div>
 

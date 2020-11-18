@@ -11,10 +11,10 @@
         $result = Model::deleteDepartment($dept_id, $connect);
 
         if ($result) {
-            echo "Department successfully deleted.";
+            header('Location:../view/admin/aDepartmentDeletedV.php');
         }
         else{
-            echo "Database query failed";
+            header('Location:../view/admin/aDepartmentNotDeletedV.php');
         }
 
     }

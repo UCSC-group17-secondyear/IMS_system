@@ -23,7 +23,7 @@
                 </div>
 
             <div class="contentForm">
-                <form action="../../controller/getMemberYearClaimDetailsController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                <form action="../../controller/memControllers/getMemberYearClaimDetailsController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
                     <div class="col-25">
                         <label for="">Enter Medical Year</label><br><br>
                     </div>

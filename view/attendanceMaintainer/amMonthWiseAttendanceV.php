@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li class="active">View Month Wise Attendance</li>
+        <li class="active">Monthwise Attendance</li>
     </ul>
 
     <div class="row">
@@ -19,7 +19,7 @@
 
         <div class="col right80">
             <div>
-                <h2>Month Wise Attendance</h2>
+                <h2>Monthwise Attendance</h2>
             </div>
             <div class="contentForm">
                 <form action="" method="post">
@@ -28,7 +28,7 @@
                             <label>Enter calendar year</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" name="calander_year" placeholder="Calander Year" /> <br>
+                            <input type="text" name="calander_year" placeholder="Calander Year" /> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -63,15 +63,10 @@
                             <input type="text" name="subject" placeholder="Subject" /> <br>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Start Date</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="date" name="start_date" placeholder="Start Date" /> <br>
-                        </div>
-                    </div>
-                    <button class="subbtn" type="submit" name="select-submit" href="amDisplayAttendanceV.php">Display Attendance</button>
+
+                    <button class="subbtn" type="submit" name="select-submit">
+                        <a href="amDisplayMonthlyAttendanceV.php"> Display Attendance</a>
+                    </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
                     </button>

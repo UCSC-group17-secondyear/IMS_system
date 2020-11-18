@@ -45,8 +45,12 @@
                             <input type="textarea" name="description" placeholder="Description" required/> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="enterSubject-submit">Enter Subject</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <button class="subbtn" type="submit" name="enterSubject-submit">
+                        <a href="amSubjectAdded.php">Enter Subject</a> 
+                    </button>
+                    <button class="cancelbtn">
+                        <a href="amHomeV.php">Cancel</a>
+                    </button>
                 </form>
 
                 <!-- <button id="subBtn" class="subbtn">View Available Subjects List</button>

@@ -15,5 +15,8 @@
 
         header('Location:../view/admin/aRemoveUserRoleV.php');
     }
+    else {
+        header('Location:../view/admin/aNoUserRolesAvailableV.php');
+    }
 
 ?>

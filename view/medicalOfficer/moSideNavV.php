@@ -16,6 +16,11 @@
                     <button>
                 </ul>
             </li>
+            <li>
+                <a href="moMedicalSchemDetailsV.php">
+                    <button type="submit" class="tree_list">View Scheme Details</button>
+                </a>
+            </li>
         </ul>
     </div>
 

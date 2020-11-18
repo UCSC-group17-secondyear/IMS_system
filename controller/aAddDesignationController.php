@@ -12,17 +12,17 @@
         $checkDesignation = Model::checkDesignationName($designation, $connect);
 
         if (mysqli_num_rows($checkDesignation)==1) {
-            echo "This designation already exist.";
+            header('Location:../view/admin/aDesignationExistsTwoV.php');
         }
         else {
 
             $result = Model::enterDesignation($designation, $description, $connect);
         
             if ($result) {
-                echo "Successfully entered designation.";
+                header('Location:../view/admin/aDesignationAddedV.php');
             }
             else{
-                echo "Query failed";
+                header('Location:../view/admin/aDesignationNotAddedV.php');
             }
         }
         

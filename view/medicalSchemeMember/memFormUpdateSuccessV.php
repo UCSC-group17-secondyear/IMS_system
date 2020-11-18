@@ -7,7 +7,7 @@
 
         <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Select Form</a></li>
+            <li><a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Select Form</a></li>
             <li class="active">Form Updated</li>
         </ul>
 
@@ -21,7 +21,7 @@
             <div class="col right80">
                 <h2>Your Form has been Updated Succesfully.</h2>
 
-                <a href="../../controller/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                <a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="mainbtn" type="submit" name="">OK</button></a><br>
             </div>
         </div>
 </main>

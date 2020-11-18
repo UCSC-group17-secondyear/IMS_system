@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-25">
                             <label>Eenter academic year</label>
                         </div>
@@ -46,19 +46,21 @@
                         <div class="col-75">
                             <input type="text" name="degree" placeholder="Degree"> <br>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Eenter subject</label>
+                            <label>Select subject code</label>
                         </div>
                         <div class="col-75">
                             <input type="text" name="subject" placeholder="Subject"> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="select-submit" href="amEnterUpdateAttendaceV.php">Select</button>
+                    <button class="subbtn" type="submit" name="select-submit">
+                        <a href="amEnterAttendaceV.php">Mark Attendance</a>
+                    </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
-                        <a href="amHomeV.php">Cancel</a> 
+                        <a href="amUpdateAttendaceV.php">Update Attendance</a>
                     </button>
                 </form>
             </div>

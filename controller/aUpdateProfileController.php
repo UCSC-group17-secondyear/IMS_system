@@ -12,7 +12,7 @@
     $user_id = '';
 
     if (isset($_POST['submit'])) {
-        $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
+        $user_id = mysqli_real_escape_string($connect, $_GET['user_id_Two']);
         $oldMail = mysqli_real_escape_string($connect, $_GET['oldMail']);
         $userInfo = array('empid'=>8, 'initials'=>10, 'sname'=>50, 'email'=>100,'mobile'=>10, 'tp'=>10, 'dob'=>10,'designation'=>50, 'appointment'=>10);
 		
@@ -44,11 +44,12 @@
             $tp = mysqli_real_escape_string($connect, $_POST['tp']);
             $dob = mysqli_real_escape_string($connect, $_POST['dob']);
             $designation = mysqli_real_escape_string($connect, $_POST['designation']);
+            $post = mysqli_real_escape_string($connect, $_POST['post']);
             $appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
 
-            $result = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect);
+            $results = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $post, $appointment, $connect);
 
-            if ($result) {
+            if ($results) {
                 // echo $oldMail;
                 // echo $email;
                 if ($oldMail!=$email) {
@@ -62,7 +63,7 @@
                     $to_email_two = "$oldMail";
                     $sendMail = mail($to_email_two, $subject, $body, $headers);
                     
-                    echo "Changes updated successfully.";
+                    header('Location:../view/admin/aProfileUpdatedByAdminV.php');
                 }
                 else{
                     $to_email = "$email";
@@ -72,11 +73,11 @@
 
                     $sendMail = mail($to_email, $subject, $body, $headers);
 
-                    echo "Changes updated successfully.";
+                    header('Location:../view/admin/aProfileUpdatedByAdminV.php');
                 }
             }
             else {
-                echo "Failed result";
+                header('Location:../view/admin/aProfileNotUpdatedByAdminV.php');
             }
         }
 

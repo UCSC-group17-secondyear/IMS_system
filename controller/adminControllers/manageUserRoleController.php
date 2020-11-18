@@ -37,7 +37,7 @@
             header('Location:../../view/admin/aViewUserRolesV.php');
         }
         else {
-            echo "no user roles in the database";
+            header('Location:../../view/admin/aNoUserRolesAvailableV.php');
         }
     }
 
@@ -47,10 +47,10 @@
         $result = adminModel::removeUserrole($userrole, $connect);
 
         if ($result) {
-            echo "user role is removed successfully";
+            header('Location:../../view/admin/aUserRoleRemovedV.php');
         }
         else {
-            echo "user role is not deleted";
+            header('Location:../../view/admin/aUserRoleNotRemovedV.php');
         }
     }
 
@@ -115,21 +115,22 @@
                             $result3 = adminModel::setRoleByAdminTen($user_id, $mo_flag, $connect);
                         }
                         
-                        
-                        
                         if ($result3) {
-                            echo "User role updated successfully..";
+                            header('Location:../../view/admin/aUserRoleUpdatedV.php');
+                        }
+                        else {
+                            header('Location:../../view/admin/aUserRoleNotUpdatedV.php');
                         }
                     }
 				}
-                
             }
             else{
-                echo "Query is incorrect.";
+                header('Location:../../view/admin/aQueryFailedV.php');
             }
         }
         else {
-            echo "Employee id is invalid.";
+            header('Location:../../view/admin/aQueryFailedV.php');
+            // echo "Employee id is invalid.";
         }
     }
 
@@ -145,14 +146,15 @@
             $result = adminModel::updateUserRole($empid, $userRole, $connect);
 
             if ($result) {
-                echo "User role updated successfully..";
+                header('Location:../../view/admin/aUserRoleUpdatedV.php');
             }
             else{
-                echo "Query is incorrect.";
+                header('Location:../../view/admin/aQueryFailedV.php');
             }
         }
         else {
-            echo "Employee id is invalid.";
+            header('Location:../../view/admin/aQueryFailedV.php');
+            // echo "Employee id is invalid.";
         }
     }
 

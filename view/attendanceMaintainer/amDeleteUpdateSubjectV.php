@@ -7,7 +7,8 @@
 
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">home</a></li>
-        <li class="active">Update or Remove a subject</li>
+        <li><a href="amDeleteUpdateSubjectSearch.php">Update or Delete Subjects</a></li>
+        <li class="active">Subject Details</li>
     </ul>
 
     <div class="row">
@@ -19,13 +20,13 @@
 
         <div class="col right80">
             <div>
-                <h2>Update or Remove a subject</h2>
+                <h2>Subject Details</h2>
             </div>
             <div class="contentForm">
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Subject Code</label>
+                            <label>Subject Code</label>
                         </div>
                         <div class="col-75">
                             <input type="text" name="subject_code" placeholder="Subject Code" required/> <br>
@@ -34,7 +35,7 @@
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Subject Name</label>
+                            <label>Subject Name</label>
                         </div>
                         <div class="col-75">
                             <input type="text" name="subject_name" placeholder="Subject Name" required/> <br>
@@ -43,17 +44,22 @@
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Description</label>
+                            <label>Description</label>
                         </div>
                         <div class="col-75">
                             <input type="textarea" name="description" placeholder="Description" required/> <br>
                         </div>
                     </div>
 
-                    <button class="mainbtn" type="submit" name="updateSubject-submit">Save Updates</button>
+                    <button class="subbtn" type="submit" name="updateSubject-submit">
+                        <a href="amSubjectUpdated.php">Save Updates</a> 
+                    </button>
+                    <button class="cancelbtn" type="submit" name="rmeoveSubject-submit">
+                        <a href="amSubjectRemoved.php">Remove Subject</a> 
+                    </button>
                 </form>
-                <button id="subBtn" class="subbtn">View Available Subjects List</button>
-                <button id="myBtn" class="cancelbtn">Cancel</button>
+                <!-- <button id="subBtn" class="subbtn">View Available Subjects List</button>
+                <button id="myBtn" class="cancelbtn">Cancel</button> -->
             </div>
 
             <div id="subModal" class="modal">

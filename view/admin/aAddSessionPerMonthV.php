@@ -27,10 +27,10 @@
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter calendar year</label>
+                                <label>Enter calendar year</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="year" placeholder="Calendar Year" required/><br>
+                                <input type="text" name="calendarYear" placeholder="Calendar Year" required/><br>
                             </div>
                         </div>
 
@@ -39,7 +39,21 @@
                               <label>Enter month</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="month" placeholder="Month" required/><br>
+                                <select name="month">
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
+                              <!-- <input type="text" name="month" placeholder="Month" required/><br> -->
                             </div>
                         </div>
 
@@ -57,7 +71,9 @@
                               <label>Enter session type</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="sessionType" placeholder="Session type" required/>
+                                <select name="sessionType" id="">
+                                    <?php echo $_SESSION['sessionTypes'] ?>
+                                </select>
                             </div>
                         </div>
 
@@ -70,19 +86,14 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="addMSession-submit">Add session</button>
-                    </form>
-
-                    <button id="subBtn" class="subbtn">View Subjects List</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
-                    <!-- <form>
-                        <button class="subbtn" type="submit" name="">
-                            <a href="../../controller/adminControllers/manageMonthlySessionController.php">View Current Session Types</a>
-                        </button>
-                        <button type="submit" class="cancelbtn">
+                        <button class="subbtn" type="submit" name="addMSession-submit">Add session</button>
+                        <button class="cancelbtn" type="submit">
                             <a href="aHomeV.php">Cancel</a>
                         </button>
-                    </form> -->
+                    </form>
+
+                    <!-- <button id="subBtn" class="subbtn">View Subjects List</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
                 <div id="subModal" class="modal">
                     <div class="modal-content">

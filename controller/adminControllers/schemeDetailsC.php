@@ -62,14 +62,14 @@
             else {
                 echo "USER";
             }
-
         }
         else{
-            echo "User not Found!";
+            header('Location:../view/medicalOfficer/aQueryFailedV.php');
+            // echo "User not Found!";
         }
     }
     else{
-        echo "Query Unsuccessful";
+        header('Location:../view/medicalOfficer/aQueryFailedV.php');
     }
 
 ?>

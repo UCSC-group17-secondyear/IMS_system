@@ -5,9 +5,8 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or Update Attendance</a></li>
-            <li><a href="#">Update attendance</a></li>
+            <<li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or update attendance</a></li>
             <li class="active">Action Success!</li>
         </ul>
 
@@ -29,10 +28,10 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="amEnterUpdateAttendaceSelectV.php">Add or update another attendance</a> 
+                        <a href="amEnterUpdateAttendaceSelectV.php">Update another attendance</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Leave</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

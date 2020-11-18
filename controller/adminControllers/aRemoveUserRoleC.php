@@ -14,7 +14,7 @@
         header('Location:../../view/admin/aRemoveUserRoleV.php');
     }
     else {
-        echo "Database query failed";
+        header('Location:../../view/admin/aNoUserRolesAvailableV.php');
     }
 
 ?>
