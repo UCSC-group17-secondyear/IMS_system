@@ -3,7 +3,7 @@
 ?>
 
 <main>
-    <title>Register to Medical Scheme</title>
+    <title>Register to Medical Scheme - Part 1</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
