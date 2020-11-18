@@ -7,20 +7,20 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="rvHomeV.php">Home</a></li>
-            <li class="active">Register to the medical scheme - Part 2</li>
+            <li><a href="msmHomeV.php">Home</a></li>
+            <li class="active">Register to the medical scheme - Part 3</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'rvSideNavV.php';
+                    require 'msmSideNavV.php';
                 ?>
             </div>
             <div class="col right80">
                 <div>
                     <?php
-                        require '../basic/registerToMedSchemeP2V.php';
+                        require '../basic/registerToMedSchemeP3V.php';
                     ?>
                 </div>
             </div>
