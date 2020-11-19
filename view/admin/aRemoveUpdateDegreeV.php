@@ -29,7 +29,11 @@
                                 <label for="">Select degree</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="degree_name" placeholder="degree name" required/><br>
+                                <!-- <input type="text" name="degree_name" placeholder="degree name" required/><br> -->
+                                <select name="designation"required>
+                                <option value="">Select degree: </option>
+                                <?php echo $_SESSION['degreeList'] ?>
+                                </select>
                             </div>
                         </div>
                         <button class="subbtn" name="updateDegree-submit" type="submit">Update Degree</button>

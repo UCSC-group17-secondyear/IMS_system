@@ -23,5 +23,13 @@
 
 			return $result_set;
 		}
+
+		public static function getDegreeList($connect) {
+			$query = "SELECT degree_name FROM tbl_degree WHERE is_deleted=0 ORDER BY degree_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
 	}
 ?>
