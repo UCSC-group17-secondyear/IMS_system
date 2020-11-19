@@ -60,16 +60,19 @@
                                 <input type="text" name="description" placeholder="Enter description" required/>
                             </div>
                         </div> -->
-                        <button class="mainbtn" type="submit" name="addDepartment-submit">Add Department</button>
+                        <button class="subbtn" type="submit" name="addDepartment-submit">Add Department</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
-                    <button id="subBtn" class="subbtn">View current departments</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <!-- <button id="subBtn" class="subbtn">View current departments</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
-                <div id="subModal" class="modal">
+                <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
                         <span class="subclose">&times;</span>
                         <?php
-                            require 'aDepartmentsPopupV.php';
+                            // require 'aDepartmentsPopupV.php';
                         ?>
                     </div>
                 </div>
@@ -83,7 +86,7 @@
                             <a href="aHomeV.php">Yes</a>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

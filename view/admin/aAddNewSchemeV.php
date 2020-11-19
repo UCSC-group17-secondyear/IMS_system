@@ -40,7 +40,7 @@
                               <label>Enter Maximum room charge per day in a hospital</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="maxRoomCharge"  required/><br>
+                                <input type="text" name="maxRoomCharge" min="0" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -48,7 +48,7 @@
                               <label>Non-State Hospital/paying wards of state and semi state hospitals Charges including Room Charges </label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="hospitalCharges" required/><br>
+                                <input type="text" name="hospitalCharges" min="0" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -56,7 +56,7 @@
                               <label>Enter Annual Premium</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="annualPremium"  required/><br>
+                                <input type="text" name="annualPremium"  min="0" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -64,7 +64,7 @@
                               <label>Enter the monthly premium</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="monthlyPremium"  required/><br>
+                                <input type="text" name="monthlyPremium" min="0" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -75,7 +75,7 @@
                               <label>Cover for Government Hospital non paying wards per day(only for a Maximum of 30 days per one event)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="gvtNoPayingWard" required/><br>
+                                <input type="text" name="gvtNoPayingWard" min="0" required/><br>
                             </div>  
                         </div> 
                         <div class="row">
@@ -83,7 +83,7 @@
                               <label>Cover for a Child Birth at Government Hospital nonpaying wards (Normal or Caesarean)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="gvtChildBirthCover" required/><br>
+                                <input type="text" name="gvtChildBirthCover" min="0" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -91,7 +91,7 @@
                               <label>Cover for the Expenses incurred for travel within Sri Lanka to obtain Emergency Treatment</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="travelExpensesCover" required/><br>
+                                <input type="text" name="travelExpensesCover" min="0" required/><br>
                             </div>
                         </div>  
                         <div class="row">
@@ -102,7 +102,7 @@
                               <label>Limit of ANY ONE YEAR/ANY ONE EVENT (including charges related to Echocardiograph, ECG, CT, MRI, X-ray, Ultrasounds Scan, Pathological Lab Test and Stress Test, Hematological and Biochemical Investigations and Isotope Scanning etc.)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="annualLimit"  required/><br>
+                                <input type="text" name="annualLimit"  min="0" required/><br>
                             </div>
                         </div> 
                         <div class="row">
@@ -113,7 +113,7 @@
                               <label>Consultant Fee, Cost of drugs (excluding Vitamins, food Supplements ant Routine vaccination)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="consultantFee"  required/><br>
+                                <input type="text" name="consultantFee"  min="0" required/><br>
                             </div>
                         </div> 
                         <div class="row">
@@ -121,7 +121,7 @@
                               <label>Cost of investigations under the Recommendation of a medical offer registered in Sri Lanka Medical Council or Sri Lanka Ayurvedic Medical Council. Consultation fees only for Specialist or Medical Officers Registered in Sri Lanka Medical Council or Ayurvedic Doctors registered in Ayurvedic Medical Council, Dental treatment (filling and extraction only) and eye test.</label>
                             </div> 
                             <div class="col-25">
-                                <input type="text" name="investigationsCost" required/><br>
+                                <input type="text" name="investigationsCost" min="0" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -129,7 +129,7 @@
                               <label>Cost of Spectacles recommended by an eye specialist once in 3 years, those who have not claimed within last three (03) years can apply (family members are not covered)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="spectaclesCost" required/><br>
+                                <input type="text" name="spectaclesCost" min="0" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -140,7 +140,7 @@
                               <label>For permanent staff</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="permanentStaff" required/>
+                                <input type="text" name="permanentStaff" min="0" required/>
                             </div>
                         </div>
                         <div class="row">
@@ -148,7 +148,7 @@
                               <label>For Contract staf</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="contractStaff" required/>
+                                <input type="text" name="contractStaff" min="0" required/>
                             </div>
                         </div>
                         <div class="row">
@@ -156,15 +156,18 @@
                               <label>For Assignment/Temporary staf</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="temporaryStaff" required/>
+                                <input type="text" name="temporaryStaff" min="0" required/>
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="addScheme-submit">Add new scheme</button>
+                        <button class="subbtn" type="submit" name="addScheme-submit">Add new scheme</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
 
-                    <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> 
+                    <!-- <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> --> 
                 </div>
                 <!-- <div id="subModal" class="modal">
                     <div class="modal-content">

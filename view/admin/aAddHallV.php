@@ -48,7 +48,7 @@
                               <label>Seating Capacity</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="seating_capacity" placeholder="Enter seating capacity" required/>
+                                <input type="text" name="seating_capacity" placeholder="Enter seating capacity" min="0" required/>
                             </div>
                         </div>
 
@@ -64,10 +64,13 @@
                                 </select> 
                             </div>
                         </div>
-                        <button class="mainbtn" type="submit" name="addHall-submit">Add Hall</button>
+                        <button class="subbtn" type="submit" name="addHall-submit">Add Hall</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
-                    <button id="subBtn" class="subbtn">View current hall list</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <!-- <button id="subBtn" class="subbtn">View current hall list</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
                 <div id="subModal" class="modal">
                     <div class="modal-content">
