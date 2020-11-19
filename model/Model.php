@@ -88,7 +88,7 @@
 
 		public static function updatePasswordTwo($user_id, $hashed_password, $connect)
 		{
-			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId='{$user_id}' LIMIT 1";
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
