@@ -785,9 +785,18 @@
 //......................................................................................................................................//
 
 //................................................ Medical Scheme Maintainer ...........................................................//
-		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $connect)
+		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $scheme, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}' WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}', schemename='{$scheme}', form_submission_date=CURRENT_DATE() WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function adddependant($user_id, $name, $relationship, $dob, $healthstatus, $connect)
+		{
+			$query = "INSERT INTO tbl_dependant (user_id, dependant_name, relationship, dob, health_status) VALUES ('$user_id', '$name', '$relationship', '$dob', '$healthstatus')";
 
 			$result = mysqli_query($connect, $query);
 
@@ -830,6 +839,15 @@
 			return $result_set;
 		}
 
+		public static function civilstatus($connect)
+		{
+			$query = "SELECT csname FROM tbl_civilstatus";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
 		public static function scheme($connect)
 		{
 			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
@@ -841,7 +859,16 @@
 
 		public static function getservicemonths($user_id,$connect)
 		{
-			$query = "SELECT MONTHS_BETWEEN(CURRENT_DATE(), appointment)FROM users WHERE userId={$user_id}";
+			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment)FROM users WHERE userId='{$user_id}'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getage($user_id, $child_name, $connect)
+		{
+			$query = "SELECT DATEDIFF(CURRENT_DATE(), dob)FROM tbl_dependant WHERE userId='{$user_id}' AND dependant_name='{$child_name}'";
 
 			$result = mysqli_query($connect, $query);
 
@@ -850,7 +877,7 @@
 
 		public static function getscheme($scheme, $connect)
 		{
-			$query = "SELECT permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE schemeName = {$scheme}";
+			$query = "SELECT permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE schemeName = '{$scheme}'";
 
 
 			$result = mysqli_query($connect, $query);

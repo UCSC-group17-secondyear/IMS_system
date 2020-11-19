@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
+                    <li><a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">Renew Membership</a></li>
                     <li class="active">Current Member Details</li>
                 </ul>
             
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/currentMemberDetailsControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                        <form action="../../controller/memControllers/currentMemberDetailsControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                             
                             <div class="row">
                                 <div class="col-25">

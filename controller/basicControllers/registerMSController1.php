@@ -8,11 +8,13 @@
     $records1 = Model::department($connect);
     $records2 = Model::membertype($connect);
     $records3 = Model::healthcondition($connect);
+    $records4 = Model::civilstatus($connect);
     $_SESSION['deps'] = '';
     $_SESSION['member_type'] = '';
-    $_SESSION['healthc'] = '';
+    $_SESSION['health_condition'] = '';
+    $_SESSION['civil_status'] = '';
     
-    if ($result_set && $records1 && $records2 && records3) {
+    if ($result_set && $records1 && $records2 && $records3 && $records4) {
         if (mysqli_num_rows($result_set)==1) {
             $result = mysqli_fetch_assoc($result_set);
 
@@ -27,7 +29,11 @@
             }
 
             while ($record3 = mysqli_fetch_array($records3)) {
-                $_SESSION['healthc'] .= "<option value='".$record3['healthc']."'>".$record3['healthc']."</option>";
+                $_SESSION['health_condition'] .= "<option value='".$record3['hname']."'>".$record3['hname']."</option>";
+            }
+
+            while ($record4 = mysqli_fetch_array($records4)) {
+                $_SESSION['civil_status'] .= "<option value='".$record4['csname']."'>".$record4['csname']."</option>";
             }
 
             if ($result['userRole'] == "admin") {

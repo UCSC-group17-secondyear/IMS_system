@@ -8,7 +8,7 @@
                 
                     <ul class="breadcrumbs">
                         <li><a href="memHomeV.php">Home</a></li>
-                        <li><a href="memRenewMembershipV.php">Renew Membership</a></li>
+                        <li><a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">Renew Membership</a></li>
                         <li class="active">Select Scheme</li>
                     </ul>
                
@@ -25,14 +25,13 @@
                         </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId']?>&scheme_name=<?php echo $_SESSION['scheme_name']?>" method="POST">
+                        <form action="../../controller/memControllers/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId']?>&scheme_name=<?php echo $_SESSION['scheme_name']?>" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for=""></label>
                                 </div>
                                 <div class="col-75">
                                     <select name="scheme_name" id="" required>
-                                        <option>Select Scheme...</option>
                                         <option value=""><?php echo $_SESSION['scheme_name'] ?></option>
                                     </select>
                                 </div>

@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
-                    <li><a href="memProfileV.php">Profile</a></li>
+                    <li><a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Profile</a></li>
                     <li class="active">Update Success</li>
                 </ul>
             
