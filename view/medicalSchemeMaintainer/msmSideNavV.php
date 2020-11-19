@@ -2,7 +2,7 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="../../controller/msmviewMemberListC.php">
+                <a href="../../controller/msmControllers/msmviewMemberList1C.php">
                     <button type="submit" class="tree_list">View Medical Member List</button>
                 </a>
             </li>

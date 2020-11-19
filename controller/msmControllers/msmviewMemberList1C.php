@@ -1,7 +1,7 @@
 <?php
     session_start();
-	require_once('../config/database.php');
-    require_once('../model/Model.php');
+	require_once('../../config/database.php');
+    require_once('../../model/Model.php');
     
     $records1 = Model::scheme($connect);
     $records2 = Model::membertype($connect);
@@ -17,6 +17,6 @@
             $_SESSION['member_type'] .= "<option value='".$record2['member_type']."'>".$record2['member_type']."</option>";
         }
 
-        header('Location:../view/medicalSchemeMaintainer/msmSelectMembersV.php');
+        header('Location:../../view/medicalSchemeMaintainer/msmSelectMembersV.php');
     }
 ?>

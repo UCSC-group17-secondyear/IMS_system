@@ -6,9 +6,7 @@
     $errors = array();
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     $result_set = Model::view($user_id, $connect);
-    $records = Model::healthcondition($connect);
     $_SESSION['children_no'] = '';
-    $_SESSION['health_condition'] = '';
 
     if (isset($_POST['registerNext2-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
@@ -43,10 +41,6 @@
         if ($children_no > 0 && $records) {
             if (mysqli_num_rows($result_set)==1) {
                 $result = mysqli_fetch_assoc($result_set);
-
-                while ($record1 = mysqli_fetch_array($records)) {
-                    $_SESSION['health_condition'] .= "<option value='".$record['hname']."'>".$record['hname']."</option>";
-                }
 
                 if ($result['userRole'] == "admin") {
                     header('Location:../../view/admin/aRegisterToMedicalSchemeP3V.php');

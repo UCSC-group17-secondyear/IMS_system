@@ -839,15 +839,6 @@
 			return $result_set;
 		}
 
-		public static function healthcondition($connect)
-		{
-			$query = "SELECT hname FROM tbl_health";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
 		public static function civilstatus($connect)
 		{
 			$query = "SELECT csname FROM tbl_civilstatus";
@@ -884,16 +875,6 @@
 
 			return $result;
 		}
-
-		public static function fetchmembers($scheme, $member_type, $connect)
-		{
-			$query = "SELECT u.*, uf.* FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND uf.schemename = '{$scheme}' AND uf.member_type = '{$member_type}' ORDER BY userId";
-
-			$result_set = mysqli_query($connect, $query);
-					
-			return $result_set;
-		}
-//......................................................................................................................................//
 
 		public static function getDegreeId($student_index, $connect){
 			$query = "SELECT degeree_id FROM tbl_student_degree WHERE student_index={$student_index} LIMIT 1";

@@ -8,12 +8,10 @@
     $result_set = Model::view($user_id, $connect);
 
     $records = Model::scheme($connect);
-    $records1 = Model::healthcondition($connect);
     $scheme_1_details = Model::getscheme('Scheme 1', $connect);
     $scheme_2_details = Model::getscheme('Scheme 2', $connect);
     $scheme_3_details = Model::getscheme('Scheme 3', $connect);
     $_SESSION['scheme'] = '';
-    $_SESSION['health_status'] = '';
     $_SESSION['children'] = '';
 
     if (isset($_POST['registerNext-submit'])) {
@@ -39,10 +37,6 @@
                 $scheme_3 = mysqli_fetch_assoc($scheme_3_details);
     
                 $_SESSION['userId'] = $result['userId'];
-
-                while ($record1 = mysqli_fetch_array($records1)) {
-                    $_SESSION['health_status'] .= "<option value='".$record1['hname']."'>".$record1['hname']."</option>";
-                }
     
                 $date_diff = Model::getservicemonths($user_id, $connect);
                 $submit_diff = mysqli_fetch_array($date_diff);
