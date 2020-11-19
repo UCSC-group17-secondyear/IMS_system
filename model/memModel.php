@@ -148,7 +148,7 @@
 		}
 
 		public static function getSchemes($connect){
-			$query = "SELECT * FROM tbl_schemes WHERE is_deleted=0";
+			$query = "SELECT * FROM tbl_medicalscheme WHERE is_deleted=0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -197,6 +197,22 @@
 
 		public static function getNextFormNumber($connect){
 			$query = "SELECT MAX(claim_form_no) FROM tbl_claimform";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function checkMemberType($user_id,$connect){
+			$query = "SELECT member_type FROM tbl_user_flag WHERE user_id={$user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getDependantName($user_id, $connect){
+			$query = "SELECT * FROM tbl_dependant WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 

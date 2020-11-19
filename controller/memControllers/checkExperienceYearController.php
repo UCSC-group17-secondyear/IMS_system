@@ -16,8 +16,14 @@
          $appoint_diff = mysqli_fetch_array($diff);
          $date_diff = (int)$appoint_diff[0];
 
+         $mem_type = memModel::checkMemberType($user_id, $connect);
+         $m_type = mysqli_fetch_array($mem_type);
+         $type = $m_type[0];
+         echo $type;
          $_SESSION['user_id'] = $user_id;
-         
+        
+
+
          if($date_diff>=730){
              $_SESSION['scheme'] = $name;
              header('Location:selectSchemeController.php'); 
