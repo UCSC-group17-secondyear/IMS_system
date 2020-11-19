@@ -875,15 +875,6 @@
 			return $result;
 		}
 
-		public static function getage($user_id, $child_name, $connect)
-		{
-			$query = "SELECT DATEDIFF(CURRENT_DATE(), dob)FROM tbl_dependant WHERE userId='{$user_id}' AND dependant_name='{$child_name}'";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
 		public static function getscheme($scheme, $connect)
 		{
 			$query = "SELECT permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE schemeName = '{$scheme}'";
