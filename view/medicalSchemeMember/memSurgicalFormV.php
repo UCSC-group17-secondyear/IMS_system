@@ -32,7 +32,10 @@
                                     <label for="">Enter Patient's Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="patient_name" required> <br>
+                                    <select name="patient_name" id="" required>
+                                        <!-- <option value=""><?php echo $_SESSION['myself'] ?></option> -->
+                                        <option value=""><?php echo $_SESSION['dependant_name'] ?></option> 
+                                    </select>
                                 </div>
                             </div>
 

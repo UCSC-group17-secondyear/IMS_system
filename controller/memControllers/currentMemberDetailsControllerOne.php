@@ -83,7 +83,7 @@
                     
                     $_SESSION['health_condition'] = $result_two['healthcondition'];
                     $_SESSION['civilstatus'] = $result_two['civilstatus'];
-                    $_SESSION['scheme'] = 'scheme 3';
+                    $_SESSION['scheme'] = 'Scheme 3';
                     
                     header('Location:../../view/medicalSchemeMember/memCurrentMemberDetailsV.php');
                     
