@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once('../../model/adminModel/manageDegreesModel.php');
     require_once('../../config/database.php');
 
@@ -21,6 +22,20 @@
             else {
                 header('Location:../../view/admin/aDegreeNotAdded.php');
             }
+        }
+    }
+    elseif(isset($_POST['getDegree-submit'])) {
+        $records = adminModel::getDegreeList($connect);
+        $_SESSION['degreeList'] = '';
+
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degreeList']."'>".$record['degreeList']."</option>";
+            }
+            header('Location:../../view/admin/aRemoveUpdateDegreeV.php');
+        }
+        else {
+            header('Location:../../view/admin/aNoDegreesAvailableV.php');
         }
     }
 ?>
