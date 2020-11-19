@@ -552,7 +552,7 @@ ul, #tree-view {
   user-select: none; /* Prevent text selection */
   color: white;
   font-size: 18px;
-  padding-left: 5%;
+  padding-left: 8%;
   background-color: white;
   width: 95%;
   height: 55px;
