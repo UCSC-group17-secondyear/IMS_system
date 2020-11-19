@@ -160,11 +160,14 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="addScheme-submit">Add new scheme</button>
+                        <button class="subbtn" type="submit" name="addScheme-submit">Add new scheme</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
 
-                    <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> 
+                    <!-- <button id="subBtn" class="subbtn"><a href="../../controller/adminControllers/aViewSchemesC.php">View available schemes</a></button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> --> 
                 </div>
                 <!-- <div id="subModal" class="modal">
                     <div class="modal-content">
