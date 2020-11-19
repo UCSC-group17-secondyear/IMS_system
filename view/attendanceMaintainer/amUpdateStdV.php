@@ -28,7 +28,7 @@
                             <label>Student Index</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="index_no" <?php echo 'value="'.$_SESSION['index_no'].'"' ?> required /> <br>
+                            <input type="text" name="index_no" <?php echo 'value="'.$_SESSION['index_no'].'"' ?> required min="0" /> <br>
                         </div>
                     </div>
                     <div class="row">
