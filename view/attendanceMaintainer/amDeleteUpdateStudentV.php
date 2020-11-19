@@ -29,7 +29,7 @@
                           <label>Enter Student Index No</label>
                         </div>
                         <div class="col-75">
-                          <input type="text" name="index_no" placeholder="Student Index No" required/><br>
+                          <input type="text" name="index_no" placeholder="Student Index No" min="0" required/><br>
                         </div>
                     </div>
 

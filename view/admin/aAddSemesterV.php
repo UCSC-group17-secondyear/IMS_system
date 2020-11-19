@@ -43,7 +43,7 @@
                               <label>Enter Academic Year</label>
                             </div>
                             <div class="col-75">
-                                <input type="year" name="academic_year" placeholder="Academic Year" required/>
+                                <input type="year" name="academic_year" placeholder="Academic Year" min="0"  required/>
                             </div>
                         </div>
 

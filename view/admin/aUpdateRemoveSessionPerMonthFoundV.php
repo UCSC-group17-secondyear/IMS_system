@@ -88,7 +88,7 @@
                                 <label>Number of sessions</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="numOfSessions"  <?php echo 'value="'.$_SESSION['numOfSessions'].'"' ?> /><br>
+                                <input type="text" name="numOfSessions"  <?php echo 'value="'.$_SESSION['numOfSessions'].'"' ?> min="0" /><br>
                             </div>
                         </div>
 

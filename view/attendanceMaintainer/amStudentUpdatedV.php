@@ -31,7 +31,7 @@
                         <a href="amEnterStudentDetailsV.php">Add another student</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Leave</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
