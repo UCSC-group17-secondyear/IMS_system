@@ -26,7 +26,7 @@
                 <form action="../../controller/aUpdateProfileController.php?user_id_Two=<?php echo $_SESSION['userIdTwo'] ?>&oldMail=<?php echo $_SESSION['email'] ?>" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label for="">Employee Id</label>
+                            <label for="">User name</label>
                         </div>
                         <div class="col-75">
                             <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> required> <br>

@@ -82,7 +82,7 @@
                               <label>Enter number of sessions per month</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="numOfSessions" placeholder="Number of sessions per month" required/>
+                              <input type="text" name="numOfSessions" placeholder="Number of sessions per month" min="0" required/>
                             </div>
                         </div>
 
