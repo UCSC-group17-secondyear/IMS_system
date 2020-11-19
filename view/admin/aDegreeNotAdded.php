@@ -7,7 +7,7 @@
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li><a href="aAddDegreeV.php">Add User role</a></li>
-            <li class="active">Action Success!</li>
+            <li class="active">Action Failed!</li>
         </ul>
 
         <div class="row">

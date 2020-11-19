@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
             <li><a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Password</a></li>
-            <li class="active">Action Failed!</li>
+            <li class="active">Action was success!</li>
         </ul>
 
         <div class="row">
@@ -25,9 +25,7 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
-                            The Password you entered did not get updated.
-                        </h2>
+                        <h2>The Password is updated successfully!</h2>
                     </div>
 
                     <button class="subbtn">
