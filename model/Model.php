@@ -812,15 +812,6 @@
 			return $result;
 		}
 
-		public static function deletedependant($user_id, $child_name, $connect)
-		{
-			$query = "DELETE FROM tbl_dependant WHERE user_id = '{$user_id}' AND dependant_name= '{$child_name}'";
-
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
 		public static function dept($department, $connect)
 		{
 			$query = "SELECT department_head_email FROM tbl_department WHERE department='{$department}' LIMIT 1";
@@ -878,15 +869,6 @@
 		public static function getservicemonths($user_id,$connect)
 		{
 			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment)FROM users WHERE userId='{$user_id}'";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
-		public static function getage($user_id, $child_name, $connect)
-		{
-			$query = "SELECT DATEDIFF(CURRENT_DATE(), dob)FROM tbl_dependant WHERE userId='{$user_id}' AND dependant_name='{$child_name}'";
 
 			$result = mysqli_query($connect, $query);
 

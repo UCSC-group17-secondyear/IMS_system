@@ -14,17 +14,12 @@
                 
                 <h4 style="text-decoration: none; padding-top: 20px;">Child <?php echo $i+1; ?> Details</h4>
 
-                <?php
-                        }
-                    }
-                ?>
-
                 <div class="row">
                     <div class="col-25">
                         <label>Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="child_name" required/>
+                        <input type="text" name="child[<?php echo $i?>][child_name]" required/>
                     </div>
                 </div>
                 <div class="row">
@@ -32,7 +27,7 @@
                         <label>Date of Birth</label>
                     </div>
                     <div class="col-75">
-                        <input type="date" name="child_dob" required/>
+                        <input type="date" name="child[<?php echo $i?>][child_dob]" required/>
                     </div>
                 </div>
                 <div class="row">
@@ -40,7 +35,7 @@
                         <label>Relationship</label>
                     </div>
                     <div class="col-75">
-                        <select name="relationship" id="relationship" required>
+                        <select name="child[<?php echo $i?>][relationship]" id="relationship" required>
                                 <option value="">...</option>
                                 <option value="Son">Son</option>
                                 <option value="Daughter">Daughter</option>
@@ -52,23 +47,16 @@
                         <label>Health Status</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="health_status" required/>
+                        <input type="text" name="child[<?php echo $i?>][health_status]" required/>
                     </div>
                 </div>
 
-            <?php
-                $no = $_SESSION['children_no'];
-                if($no > 0){
-                    for($i=0; $i<$no; $i++){
-            ?>
+                <?php
+                        }
+                    }
+                ?>
 
             <button class="mainbtn" type="submit" name="register-submit">Register</button>
-
-            <?php
-                    }
-                }
-            ?>
-            
         </form>
         <form>
             <button class="subbtn" type="submit" name="schemedetails-submit"> View Scheme Details </button>
