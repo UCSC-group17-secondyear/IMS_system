@@ -42,15 +42,18 @@
                                 <input type="text" name="description" placeholder="Enter description" required/>
                             </div>
                         </div>
-                        <button class="mainbtn" type="submit" name="addDesignation-submit">Add Designation</button>
+                        <button class="subbtn" type="submit" name="addDesignation-submit">Add Designation</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
                     <form>
-                        <button id="subBtn" class="subbtn">View Current Designations List</button>
+                        <!-- <button id="subBtn" class="subbtn">View Current Designations List</button>
                         <div id="subModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
                                 <?php
-                                    require 'aDesignationsPopupV.php';
+                                    // require 'aDesignationsPopupV.php';
                                 ?>
                             </div>
                         </div>
@@ -64,7 +67,7 @@
                                     <a href="aHomeV.php">Yes</a>
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>

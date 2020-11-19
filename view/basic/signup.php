@@ -76,11 +76,11 @@
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Academic or Non-Academic</label>
+	              <label>Select member type</label>
 	            </div>
 	            <div class="col-75">
 				  <select name="aca-or-non" required>
-                    <option value="">Academic or Non Academic:</option>
+                    <!-- <option value=""></option> -->
                     <option value="academic-staff">Academic Staff Member</option>
                     <option value="non-academic-staff">Non Academic Staff Member</option>
                   </select>
@@ -89,11 +89,11 @@
 			
 			<div class="row">
 				<div class="col-25">
-					<label>Enter designation</label>
+					<label>Select designation</label>
 				</div>
 				<div class="col-75">
 					<select name="designation"required>
-						<option value="">Select designation: </option>
+						<!-- <option value=""></option> -->
 						<?php echo $_SESSION['design'] ?>
 					</select>
 				</div>
@@ -101,11 +101,11 @@
 
 			<div class="row">
 	            <div class="col-25">
-	              <label>Post</label>
+	              <label>Select Post(if having any/if having many select the one with highest preferrence)</label>
 	            </div>
 	            <div class="col-75">
 				  <select name="post" required>
-                    <option value="">Select a Post:</option>
+                    <!-- <option value=""></option> -->
                     <option value="post1">Post1</option>
                     <option value="post2">Post2</option>
                   </select>

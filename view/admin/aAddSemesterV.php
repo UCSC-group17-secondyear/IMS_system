@@ -64,10 +64,13 @@
                                 <input type="date" name="end_date" placeholder="End date" required/>
                             </div>
                         </div>
-                        <button class="mainbtn" type="submit" name="addSemester-submit">Add Semester</button>
+                        <button class="subbtn" type="submit" name="addSemester-submit">Add Semester</button>
+                        <button class="cancelbtn">
+                            <a href="aHomeV.php">Cancel</a>
+                        </button>
                     </form>
-                    <button id="subBtn" class="subbtn">View Previous Semesters</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <!-- <button id="subBtn" class="subbtn">View Previous Semesters</button>
+                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
                 <div id="subModal" class="modal">
                     <div class="modal-content">
