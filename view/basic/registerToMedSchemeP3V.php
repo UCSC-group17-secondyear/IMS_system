@@ -12,7 +12,12 @@
                         for($i=0; $i<$no; $i++){
                 ?>
                 
-                <h4 style="text-decoration: none; padding-top: 20px;">Child "$i" Details</h4>
+                <h4 style="text-decoration: none; padding-top: 20px;">Child <?php echo $i+1; ?> Details</h4>
+
+                <?php
+                        }
+                    }
+                ?>
 
                 <div class="row">
                     <div class="col-25">
@@ -51,12 +56,19 @@
                     </div>
                 </div>
 
-                <?php
-                        }
-                    }
-                ?>
+            <?php
+                $no = $_SESSION['children_no'];
+                if($no > 0){
+                    for($i=0; $i<$no; $i++){
+            ?>
 
             <button class="mainbtn" type="submit" name="register-submit">Register</button>
+
+            <?php
+                    }
+                }
+            ?>
+            
         </form>
         <form>
             <button class="subbtn" type="submit" name="schemedetails-submit"> View Scheme Details </button>

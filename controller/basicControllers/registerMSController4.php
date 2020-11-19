@@ -12,21 +12,21 @@
 
         $department = $_SESSION['deps'];
 
-        $userInfo = array('child_name'=>50, 'relationship'=>8, 'child_dob'=>20, 'health_status'=>100);
+        // $userInfo = array('child_name'=>50, 'relationship'=>8, 'child_dob'=>20, 'health_status'=>100);
 		
-		foreach ($userInfo as $info=>$maxLen) {
-            if (strlen(trim($_POST[$info])) >  $maxLen) {
-                $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
-            }
-        }
+		// foreach ($userInfo as $info=>$maxLen) {
+        //     if (strlen(trim($_POST[$info])) >  $maxLen) {
+        //         $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
+        //     }
+        // }
         
         if (empty($errors)) {
             $no = $_SESSION['children_no'];
             for($i=0; $i<$no; $i++){
-                $child_name = mysqli_real_escape_string($connect, $_POST['child_name']);
-                $child_relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
-                $child_dob = mysqli_real_escape_string($connect, $_POST['child_dob']);
-                $child_healthstatus = mysqli_real_escape_string($connect, $_POST['health_status']);
+                $child_name = mysqli_real_escape_string($connect, $_POST["child_name.$i"]);
+                $child_relationship = mysqli_real_escape_string($connect, $_POST["relationship.$i"]);
+                $child_dob = mysqli_real_escape_string($connect, $_POST["child_dob.$i"]);
+                $child_healthstatus = mysqli_real_escape_string($connect, $_POST["health_status.$i"]);
                 
                 $dependant = Model::adddependant($user_id, $child_name, $child_relationship, $child_dob, $child_healthstatus, $connect);
                 
