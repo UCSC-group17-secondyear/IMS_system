@@ -43,7 +43,7 @@
                               <label>Enter Maximum room charge per day in a hospital</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="maxRoomCharge"  <?php echo 'value="'.$_SESSION['maxRoomCharge'].'"' ?> /><br>
+                                <input type="text" name="maxRoomCharge"  <?php echo 'value="'.$_SESSION['maxRoomCharge'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -51,7 +51,7 @@
                               <label>Non-State Hospital/paying wards of state and semi state hospitals Charges including Room Charges </label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="hospitalCharges" <?php echo 'value="'.$_SESSION['hospitalCharges'].'"' ?> /><br>
+                                <input type="text" name="hospitalCharges" <?php echo 'value="'.$_SESSION['hospitalCharges'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -59,7 +59,7 @@
                               <label>Enter Annual Premium</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="annualPremium"  <?php echo 'value="'.$_SESSION['annualPremium'].'"' ?> /><br>
+                                <input type="text" name="annualPremium"  <?php echo 'value="'.$_SESSION['annualPremium'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -67,7 +67,7 @@
                               <label>Enter the monthly premium</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="monthlyPremium"  <?php echo 'value="'.$_SESSION['monthlyPremium'].'"' ?> /><br>
+                                <input type="text" name="monthlyPremium"  <?php echo 'value="'.$_SESSION['monthlyPremium'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -78,7 +78,7 @@
                               <label>Cover for Government Hospital non paying wards per day(only for a Maximum of 30 days per one event)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="gvtNoPayingWard" <?php echo 'value="'.$_SESSION['gvtNoPayingWard'].'"' ?> /><br>
+                                <input type="text" name="gvtNoPayingWard" <?php echo 'value="'.$_SESSION['gvtNoPayingWard'].'"' ?> min="0" /><br>
                             </div>  
                         </div> 
                         <div class="row">
@@ -86,7 +86,7 @@
                               <label>Cover for a Child Birth at Government Hospital nonpaying wards (Normal or Caesarean)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="gvtChildBirthCover" <?php echo 'value="'.$_SESSION['gvtChildBirthCover'].'"' ?> /><br>
+                                <input type="text" name="gvtChildBirthCover" <?php echo 'value="'.$_SESSION['gvtChildBirthCover'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -94,7 +94,7 @@
                               <label>Cover for the Expenses incurred for travel within Sri Lanka to obtain Emergency Treatment</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="travelExpensesCover" <?php echo 'value="'.$_SESSION['travelExpensesCover'].'"' ?> /><br>
+                                <input type="text" name="travelExpensesCover" <?php echo 'value="'.$_SESSION['travelExpensesCover'].'"' ?> min="0" /><br>
                             </div>
                         </div>  
                         <div class="row">
@@ -105,7 +105,7 @@
                               <label>Limit of ANY ONE YEAR/ANY ONE EVENT (including charges related to Echocardiograph, ECG, CT, MRI, X-ray, Ultrasounds Scan, Pathological Lab Test and Stress Test, Hematological and Biochemical Investigations and Isotope Scanning etc.)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="annualLimit"  <?php echo 'value="'.$_SESSION['annualLimit'].'"' ?> /><br>
+                                <input type="text" name="annualLimit"  <?php echo 'value="'.$_SESSION['annualLimit'].'"' ?> min="0" /><br>
                             </div>
                         </div> 
                         <div class="row">
@@ -116,7 +116,7 @@
                               <label>Consultant Fee, Cost of drugs (excluding Vitamins, food Supplements ant Routine vaccination)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="consultantFee"  <?php echo 'value="'.$_SESSION['consultantFee'].'"' ?> /><br>
+                                <input type="text" name="consultantFee"  <?php echo 'value="'.$_SESSION['consultantFee'].'"' ?> min="0" /><br>
                             </div>
                         </div> 
                         <div class="row">
@@ -124,7 +124,7 @@
                               <label>Cost of investigations under the Recommendation of a medical offer registered in Sri Lanka Medical Council or Sri Lanka Ayurvedic Medical Council. Consultation fees only for Specialist or Medical Officers Registered in Sri Lanka Medical Council or Ayurvedic Doctors registered in Ayurvedic Medical Council, Dental treatment (filling and extraction only) and eye test.</label>
                             </div> 
                             <div class="col-25">
-                                <input type="text" name="investigationsCost" <?php echo 'value="'.$_SESSION['investigationsCost'].'"' ?> /><br>
+                                <input type="text" name="investigationsCost" <?php echo 'value="'.$_SESSION['investigationsCost'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -132,7 +132,7 @@
                               <label>Cost of Spectacles recommended by an eye specialist once in 3 years, those who have not claimed within last three (03) years can apply (family members are not covered)</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="spectaclesCost" <?php echo 'value="'.$_SESSION['spectaclesCost'].'"' ?> /><br>
+                                <input type="text" name="spectaclesCost" <?php echo 'value="'.$_SESSION['spectaclesCost'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -143,7 +143,7 @@
                               <label>For permanent staff</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="permanentStaff" <?php echo 'value="'.$_SESSION['permanentStaff'].'"' ?> /><br>
+                                <input type="text" name="permanentStaff" <?php echo 'value="'.$_SESSION['permanentStaff'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -151,7 +151,7 @@
                               <label>For contract staff</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="contractStaff" <?php echo 'value="'.$_SESSION['contractStaff'].'"' ?> /><br>
+                                <input type="text" name="contractStaff" <?php echo 'value="'.$_SESSION['contractStaff'].'"' ?> min="0" /><br>
                             </div>
                         </div>
                         <div class="row">
@@ -159,7 +159,7 @@
                               <label>For temporary staff</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="temporaryStaff" <?php echo 'value="'.$_SESSION['temporaryStaff'].'"' ?> /><br>
+                                <input type="text" name="temporaryStaff" <?php echo 'value="'.$_SESSION['temporaryStaff'].'"' ?> min="0" /><br>
                             </div>
                         </div>
 

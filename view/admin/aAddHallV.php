@@ -48,7 +48,7 @@
                               <label>Seating Capacity</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="seating_capacity" placeholder="Enter seating capacity" required/>
+                                <input type="text" name="seating_capacity" placeholder="Enter seating capacity" min="0" required/>
                             </div>
                         </div>
 
