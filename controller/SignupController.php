@@ -87,11 +87,17 @@
 
 	if (isset($_GET['desig'])) {
 		$_SESSION['design'] = '';
+		$_SESSION['posts'] = '';
 		$records = Model::designation($connect);
+		$records2 = Model::getPost($connect);
 
-		if ($records) {
+		if ($records && $records2) {
 			while ($record = mysqli_fetch_array($records)) {
                 $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+			}
+
+			while ($record2 = mysqli_fetch_array($records2)) {
+                $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
 			}
 			
 			header('Location:../view/basic/signup.php');
