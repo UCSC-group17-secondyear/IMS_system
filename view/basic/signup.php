@@ -105,14 +105,8 @@
 	            </div>
 	            <div class="col-75">
 				  <select name="post" required>
-<<<<<<< Updated upstream
-                    <!-- <option value=""></option> -->
-                    <option value="post1">Post1</option>
-                    <option value="post2">Post2</option>
-=======
                     <option value="">Select a Post:</option>
                     <?php echo $_SESSION['posts'] ?>
->>>>>>> Stashed changes
                   </select>
 	            </div>
 			</div>
