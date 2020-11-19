@@ -102,7 +102,7 @@
                                     <label for="">Bill Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="bill_amount" <?php echo 'value="'.$_SESSION['bill_amount'].'"'?> required> <br>
+                                    <input type="number" name="bill_amount" <?php echo 'value="'.$_SESSION['bill_amount'].'"'?> min="0" required> <br>
                                 </div>
                             </div>
 

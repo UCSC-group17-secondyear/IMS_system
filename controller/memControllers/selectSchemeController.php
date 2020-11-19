@@ -6,14 +6,14 @@
         $schemes = memModel::getSchemes($connect);
         
         $_SESSION['scheme_name'] = '';
-        $cur_scheme = $_SESSION['scheme'];
+        
         
         if ($schemes) {
             while ($scheme = mysqli_fetch_array($schemes)) {
-                $_SESSION['scheme_name'] .= "<option value='".$scheme['scheme_name']."'>".$scheme['scheme_name']."</option>";
+                $_SESSION['scheme_name'] .= "<option value='".$scheme['schemeName']."'>".$scheme['schemeName']."</option>";
                 
             }
-            $_SESSION['scheme'] = $cur_scheme;
+
             header('Location:../../view/medicalSchemeMember/memSelectSchemeV.php');
         }
         else {
