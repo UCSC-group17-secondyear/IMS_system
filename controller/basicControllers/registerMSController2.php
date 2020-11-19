@@ -41,7 +41,7 @@
                 $_SESSION['userId'] = $result['userId'];
 
                 while ($record1 = mysqli_fetch_array($records1)) {
-                    $_SESSION['health_status'] .= "<option value='".$record3['hname']."'>".$record3['hname']."</option>";
+                    $_SESSION['health_status'] .= "<option value='".$record1['hname']."'>".$record1['hname']."</option>";
                 }
     
                 $date_diff = Model::getservicemonths($user_id, $connect);
