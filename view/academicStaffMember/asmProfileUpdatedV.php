@@ -29,7 +29,7 @@
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Try Again</a>
+                        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Profile</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="asmHomeV.php">Leave</a>
