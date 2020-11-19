@@ -9,10 +9,11 @@
 		public static function addDegree($degree_name, $degree_abbriviation, $connect) 
 		{
 			$query = "INSERT INTO tbl_degree (degree_name, degree_abbriviation) 
-				VALUES('$degree_name', '$degree_abbriviation')";
+				VALUES ('$degree_name', '$degree_abbriviation')";
 		
-			if($connect->query($query))
-				return true;
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
 		}
 
 		public static function viewDegrees($connect)
@@ -22,6 +23,22 @@
 			$result_set = mysqli_query($connect, $query);
 
 			return $result_set;
+		}
+
+		public static function getDegreeList($connect) {
+			$query = "SELECT degree_name FROM tbl_degree WHERE is_deleted=0 ORDER BY degree_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function removeDegreeList($degree_name, $connect) {
+			$query = "UPDATE tbl_degree SET is_deleted=1 
+			WHERE degree_name = '{$degree_name}'";
+
+			if($connect->query($query))
+				return true;
 		}
 	}
 ?>

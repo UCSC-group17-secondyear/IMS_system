@@ -6,8 +6,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewSchemeV.php">Add Scheme</a></li>
-            <li class="active">Action Failed!</li>
+            <li><a href="aRemoveUpdateDegreeV.phpp">Update or remove degree</a></li>
+            <li class="active">Action Success!</li>
         </ul>
 
         <div class="row">
@@ -23,13 +23,12 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
-                            The scheme did not add.
+                        <h2>Degree is removed successfully!
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="aAddNewSchemeV.php">Try again</a> 
+                        <a href="aRemoveUpdateDegreeV.php">Remove another</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 

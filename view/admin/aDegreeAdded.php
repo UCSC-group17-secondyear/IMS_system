@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddDegreeV.php">Add User role</a></li>
+            <li><a href="aAddDegreeV.php">Add Degree</a></li>
             <li class="active">Action Success!</li>
         </ul>
 
