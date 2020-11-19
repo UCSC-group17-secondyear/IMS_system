@@ -28,7 +28,7 @@
                             <label>Enter Student Index</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="student_index" placeholder="Student Index" /> <br>
+                            <input type="text" name="student_index" placeholder="Student Index" min="0" /> <br>
                         </div>
                     </div>
 

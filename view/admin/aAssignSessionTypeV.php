@@ -44,7 +44,7 @@
                             <label>Enter number of sessions per smester</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="numOfSessions" placeholder="Number of sessions per smester" required/> <br>
+                            <input type="text" name="numOfSessions" placeholder="Number of sessions per smester" min="0" required/> <br>
                         </div>
                     </div>
                     <button class="mainbtn" type="submit" name="assignSession-submit">Assign session</button>
