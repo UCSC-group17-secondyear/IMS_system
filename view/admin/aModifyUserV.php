@@ -98,8 +98,7 @@
 							<div class="col-75">
 								<select name="post" required>
 									<option value="<?php echo $_SESSION['post'] ?>"><?php echo $_SESSION['post'] ?></option>
-									<option value="post1">Post 1</option>
-									<option value="post2">Post 2</option>
+                                    <?php echo $_SESSION['posts'] ?>
 								</select>
 							</div>
 						</div>
