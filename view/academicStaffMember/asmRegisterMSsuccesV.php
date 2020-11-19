@@ -3,13 +3,11 @@
 ?>
 
 <main>
-    <title>Updated Password</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
-            <li><a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Password</a></li>
-            <li class="active">Action was success!</li>
+            <li><a href="#">Register to the Medical scheme</a></li>
+            <li class="active">Action Success!</li>
         </ul>
 
         <div class="row">
@@ -25,14 +23,14 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The Password is updated successfully!</h2>
+                        <h2>Your membership request has been sent for the approval. You will be inform about the approval later. Thank you.</h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Password</a>
+                        <a href="asmHomeV.php">Ok</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="asmHomeV.php">Leave</a> 
+                        <a href="asmHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

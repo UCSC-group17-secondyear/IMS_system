@@ -88,7 +88,7 @@
 
 		public static function updatePasswordTwo($user_id, $hashed_password, $connect)
 		{
-			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId='{$user_id}' LIMIT 1";
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -869,15 +869,6 @@
 		public static function getservicemonths($user_id,$connect)
 		{
 			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment)FROM users WHERE userId='{$user_id}'";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
-		public static function getage($user_id, $child_name, $connect)
-		{
-			$query = "SELECT DATEDIFF(CURRENT_DATE(), dob)FROM tbl_dependant WHERE userId='{$user_id}' AND dependant_name='{$child_name}'";
 
 			$result = mysqli_query($connect, $query);
 

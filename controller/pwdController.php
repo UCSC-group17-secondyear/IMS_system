@@ -54,6 +54,11 @@
         $uname = $_SESSION['uname'];
          //echo $uname;
 
+        if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/',$pwd))){
+			      $errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
+			      echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
+		    }
+
         if ($pwd==$conpwd) {
             $hashed_pwd = sha1($pwd);
             $res = Model::updatePassword($uname, $hashed_pwd, $connect);
