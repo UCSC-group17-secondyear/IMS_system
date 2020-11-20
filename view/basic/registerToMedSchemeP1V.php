@@ -26,8 +26,8 @@
                     <datalist id="health_condition">
                         <?php echo $_SESSION['health_condition']?>
                     </datalist>
-                    <div class="tooltip">?
-                        <span class="tooltiptext">Health Conditions</span>
+                    <div class="tooltip"><i class="fa fa-question-circle"></i>
+                        <span class="tooltiptext">If you have any chronic disease. Please notify it here.</span>
                     </div>
                 </div>
             </div>

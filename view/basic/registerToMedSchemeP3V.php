@@ -47,7 +47,13 @@
                         <label>Health Status</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="child[<?php echo $i?>][health_status]" required/>
+                        <input list="health_status" name="child[<?php echo $i?>][health_status]" required>
+                        <datalist id="health_status">
+                            <?php echo $_SESSION['health_status']?>
+                        </datalist>
+                        <div class="tooltip"><i class="fa fa-question-circle"></i>
+                            <span class="tooltiptext">If he/she have any chronic disease. Please notify it here.</span>
+                        </div>
                     </div>
                 </div>
 
@@ -56,7 +62,7 @@
                     }
                 ?>
 
-            <button class="mainbtn" type="submit" name="register-submit">Register</button>
+            <button class="mainbtn" type="submit" name="register-submit">Request the Membership</button>
         </form>
         <form>
             <button class="subbtn" type="submit" name="schemedetails-submit"> View Scheme Details </button>

@@ -124,25 +124,40 @@ ul.breadcrumbs li a:hover {
 
 /*-----------------------------Home Page Image-----------------------------*/
 .home_image {
-  background-image: url("../img/bg_image.jpg");
+  background-image: url("../img/bg_final.jpg");
   background-color: #065b7a;
   /*opacity: 0.7;*/
-  height: 772px;
+  height: 627.9px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
 }
 
 .heading {
-  padding-top: 20%;
-  padding-left: 40%;
+  padding-top: 12%;
+  padding-left: 3%;
+  padding-right: 3%;
   padding-bottom: 7%;
   color: white;
   font-size: 24px;
-  height: 772px;
+  height: 627.9px;
   background: rgba(0, 0, 0, 0.7);
+}
+
+.heading h2, h3{
+  text-align: center;
+}
+
+.heading button{
+  margin-left: 39%;
+}
+
+.heading img{
+  height: 100px;
+  padding: 5px 5px 2px 5px;
+  margin-left: 45%;
 }
 
 .loginbtn {
