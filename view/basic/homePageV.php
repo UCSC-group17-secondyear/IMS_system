@@ -10,6 +10,7 @@
 
 	<div class="home_image">
 		<div class="heading">
+			<img src="../assests/img/favicon1.png" alt="Logo">
 			<h2>Information Management System</h2>
 			<h3>Academic and Publications Division - UCSC</h3>
 			<a href="login.php">
