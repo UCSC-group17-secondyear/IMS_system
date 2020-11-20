@@ -15,10 +15,10 @@
             }
 		}
 
-		$empid = mysqli_real_escape_string($connect, $_POST['empid']);
+		$EmpId = mysqli_real_escape_string($connect, $_POST['empid']);
 		$initials = mysqli_real_escape_string($connect, $_POST['initials']);
 		$sname = mysqli_real_escape_string($connect, $_POST['sname']);
-		$email = mysqli_real_escape_string($connect, $_POST['email']);
+		$Email = mysqli_real_escape_string($connect, $_POST['email']);
 		$mobile = mysqli_real_escape_string($connect, $_POST['mobile']);
 		$tp = mysqli_real_escape_string($connect, $_POST['tp']);
 		$dob = mysqli_real_escape_string($connect, $_POST['dob']);
@@ -30,17 +30,56 @@
 		$conpassword = mysqli_real_escape_string($connect, $_POST['conpassword']);
 		$hashed_password = sha1($password);
 
-		if ($password != $conpassword) 
-		{
-			header("Location: signupForm.php?error=passwordConfirmationFailed&empid=".$empid."&initials=".$initials."&sname=".$sname."&email=".$email."&mobile=".$mobile."&tp=".$tp."&dob=".$dob."&designation=".$designation."&appointment=".$appointment);
+		if (is_numeric($EmpId)==1) {
+			$errors[] = "Username is invalid";
+			echo "Username is invalid";
 			exit();
 		}
 
-		// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
-		// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-		if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/',$password))){
+		$empid = strtolower($EmpId);
+		$email = strtolower($Email);
+		
+		$firstNumbs = substr($email, 0, -15);
+		$lastMail = substr($email, 3);
+
+		if ($lastMail != "@ucsc.cmb.ac.lk") {
+			$errors[] = "University mail incorrect.";
+			echo "University mail is incorrect.";
+			exit();
+		}
+
+		if ($firstNumbs != $empid) {
+			$errors[] = "Username is incorrect.";
+			echo "Username is incorrect.";
+			exit();
+		}
+
+		if ($password != $conpassword) 
+		{
+			$errors[] = "Password and confirm password are not equal.";
+			echo "Password and confirm password are not equal.";
+			exit();
+		}
+
+		if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
+		{
+			$errors[] = "Mobile number is incorrect.";
+			echo "Mobile number is incorrect.";
+			exit();
+		}
+
+		if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
+		{
+			$errors[] = "Telephone number is incorrect.";
+			echo "Telephone number is incorrect.";
+			exit();
+		}
+
+		if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/',$password)))
+		{
 			$errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
 			echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
+			exit();
 		}
 
 		$checkEmpid = Model::checkEmpid($empid, $connect);
@@ -60,7 +99,7 @@
 				$userRole = 'nonAcademicStaffMemb';
 			}
 			
-			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
+		$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
 
             if ($result == true) 
             {
