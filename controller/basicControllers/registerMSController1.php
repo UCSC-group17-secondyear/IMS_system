@@ -7,11 +7,9 @@
     $result_set = Model::view($user_id, $connect); 
     $records1 = Model::department($connect);
     $records2 = Model::membertype($connect);
-    $records3 = Model::healthcondition($connect);
     $records4 = Model::civilstatus($connect);
     $_SESSION['deps'] = '';
     $_SESSION['member_type'] = '';
-    $_SESSION['health_condition'] = '';
     $_SESSION['civil_status'] = '';
     
     if ($result_set && $records1 && $records2 && $records3 && $records4) {
@@ -26,10 +24,6 @@
 
             while ($record2 = mysqli_fetch_array($records2)) {
                 $_SESSION['member_type'] .= "<option value='".$record2['member_type']."'>".$record2['member_type']."</option>";
-            }
-
-            while ($record3 = mysqli_fetch_array($records3)) {
-                $_SESSION['health_condition'] .= "<option value='".$record3['hname']."'>".$record3['hname']."</option>";
             }
 
             while ($record4 = mysqli_fetch_array($records4)) {
