@@ -19,9 +19,10 @@
         }
 
         if (empty($errors)) {
-            $empid = mysqli_real_escape_string($connect, $_POST['empid']);
+            $EmpId = mysqli_real_escape_string($connect, $_POST['empid']);
             $password = mysqli_real_escape_string($connect, $_POST['password']);
             $hashed_password = sha1($password);
+            $empid = strtolower($EmpId);
 
             $result = Model::getlogin($empid, $hashed_password, $connect);
 
