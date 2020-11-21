@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-75">
                                 <!-- <input type="text" name="degree_name" placeholder="degree name" required/><br> -->
-                                <select name="degree"required>
+                                <select name="degree_name"required>
                                 <option value="">Select degree: </option>
                                 <?php echo $_SESSION['degreeList'] ?>
                                 </select>

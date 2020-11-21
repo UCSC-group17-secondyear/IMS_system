@@ -84,7 +84,7 @@
                     <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
                         <button name="getDegree-submit" type="submit">
                             <a href="#">
-                                <li><i class="fa fa-pencil-square"></i>Update or remove a degree</li></a>
+                                <li><i class="fa fa-pencil-square"></i>Update or remove degrees</li></a>
                         </button>
                     </form>
                 </ul>
