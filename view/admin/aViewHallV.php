@@ -23,7 +23,7 @@
                     <h2>Halls List</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle" class="mytable" style="margin-left: 25%;" >
                     <tr>
                         <th>Hall Name</th>
                         <th>Seating Capacity</th>

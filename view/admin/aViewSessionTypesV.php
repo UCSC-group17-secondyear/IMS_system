@@ -23,7 +23,7 @@
                     <h2>Session Types List</h2>
                 </div>
 
-                <table id="tableStyle">
+                <table id="tableStyle" style="margin-left: 45%;" >
                     <tr>
                         <th>Session Type</th>
                         <!-- <th>Edit</th>
