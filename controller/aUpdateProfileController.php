@@ -25,27 +25,84 @@
             }
         }
         
-        $empid = mysqli_real_escape_string($connect, $_POST['empid']);
-        // echo $empid;
+        $EmpId = mysqli_real_escape_string($connect, $_POST['empid']);
+        
+        $id = str_replace(' ', '', $EmpId);
+		if (!(preg_match('/^[A-Za-z]+$/', $id)))
+		{
+			$errors[] = "Username should be a string";
+			echo "Username should be a string";
+			exit();
+		}
+        
+        $empid = strtolower($EmpId);
+
         $result_set = Model::checkEmpidTwo($empid, $user_id, $connect);
 
         if ($result_set) {
             if(mysqli_num_rows($result_set)==1){
                 $errors[] = 'Employee id already exists.'; 
+                echo "Employee id already exists.";
             }
         }
-        // print_r($result_set);
-        // print_r($errors);
+        
         if (empty($errors)) {
             $initials = mysqli_real_escape_string($connect, $_POST['initials']);
             $sname = mysqli_real_escape_string($connect, $_POST['sname']);
-            $email = mysqli_real_escape_string($connect, $_POST['email']);
+            $Email = mysqli_real_escape_string($connect, $_POST['email']);
             $mobile = mysqli_real_escape_string($connect, $_POST['mobile']);
             $tp = mysqli_real_escape_string($connect, $_POST['tp']);
             $dob = mysqli_real_escape_string($connect, $_POST['dob']);
             $designation = mysqli_real_escape_string($connect, $_POST['designation']);
             $post = mysqli_real_escape_string($connect, $_POST['post']);
             $appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
+
+            $ini = str_replace(' ', '', $initials);
+            if (!(preg_match('/^[A-Za-z]+$/', $ini)))
+            {
+                $errors[] = "Initials should be a string";
+                echo "Initials should be a string";
+                exit();
+            }
+
+            $name = str_replace(' ', '', $sname);
+            if (!(preg_match('/^[A-Za-z]+$/', $name)))
+            {
+                $errors[] = "Surname should be a string";
+                echo "Surname should be a string";
+                exit();
+            }
+
+            $email = strtolower($Email);
+
+            $firstNumbs = substr($email, 0, -15);
+            $lastMail = substr($email, 3);
+
+            if ($lastMail != "@ucsc.cmb.ac.lk") {
+                $errors[] = "University mail incorrect.";
+                echo "University mail is incorrect.";
+                exit();
+            }
+
+            if ($firstNumbs != $empid) {
+                $errors[] = "Username is incorrect.";
+                echo "Username is incorrect.";
+                exit();
+            }
+
+            if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
+            {
+                $errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
+                echo "Mobile number is incorrect. The mobile number should have only ten digits.";
+                exit();
+            }
+
+            if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
+            {
+                $errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
+                echo "Telephone number is incorrect. The telephone number should have only ten digits.";
+                exit();
+            }
 
             $results = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $post, $appointment, $connect);
 

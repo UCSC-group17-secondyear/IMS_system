@@ -30,9 +30,34 @@
 		$conpassword = mysqli_real_escape_string($connect, $_POST['conpassword']);
 		$hashed_password = sha1($password);
 
-		if (is_numeric($EmpId)==1) {
-			$errors[] = "Username is invalid";
-			echo "Username is invalid";
+		$id = str_replace(' ', '', $EmpId);
+		if (!(preg_match('/^[A-Za-z]+$/', $id)))
+		{
+			$errors[] = "Username should be a string";
+			echo "Username should be a string";
+			exit();
+		}
+
+		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
+		{
+			$errors[] = "Initials should be a string";
+			echo "Initials should be a string";
+			exit();
+		}
+
+		$ini = str_replace(' ', '', $initials);
+		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
+		{
+			$errors[] = "Initials should be a string";
+			echo "Initials should be a string";
+			exit();
+		}
+
+		$name = str_replace(' ', '', $sname);
+		if (!(preg_match('/^[A-Za-z]+$/', $name)))
+		{
+			$errors[] = "Surname should be a string";
+			echo "Surname should be a string";
 			exit();
 		}
 
@@ -63,15 +88,15 @@
 
 		if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
 		{
-			$errors[] = "Mobile number is incorrect.";
-			echo "Mobile number is incorrect.";
+			$errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
+			echo "Mobile number is incorrect. The mobile number should have only ten digits.";
 			exit();
 		}
 
 		if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
 		{
-			$errors[] = "Telephone number is incorrect.";
-			echo "Telephone number is incorrect.";
+			$errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
+			echo "Telephone number is incorrect. The telephone number should have only ten digits.";
 			exit();
 		}
 
@@ -99,47 +124,47 @@
 				$userRole = 'nonAcademicStaffMemb';
 			}
 			
-		$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
+			// $result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
 
-            if ($result == true) 
-            {
-				$result1 = Model::getUId($empid, $connect);
-				if ($result1) {
-					if(mysqli_num_rows($result1)==1){
-						$result2 = mysqli_fetch_assoc($result1);
-						$user_id = $result2['userId'];
+            // if ($result == true) 
+            // {
+			// 	$result1 = Model::getUId($empid, $connect);
+			// 	if ($result1) {
+			// 		if(mysqli_num_rows($result1)==1){
+			// 			$result2 = mysqli_fetch_assoc($result1);
+			// 			$user_id = $result2['userId'];
 
-						if ($aca_or_non == 'academic-staff') {
-							$asm_flag = 1;
-						}
-						$result3 = Model::setRole($user_id, $asm_flag, $connect);
-						header('Location:../view/basic/login.php');
-					}
-				}
-            }
-            else 
-            {
-                echo 'Failed to add the user.';
-            }
+			// 			if ($aca_or_non == 'academic-staff') {
+			// 				$asm_flag = 1;
+			// 			}
+			// 			$result3 = Model::setRole($user_id, $asm_flag, $connect);
+			// 			header('Location:../view/basic/login.php');
+			// 		}
+			// 	}
+            // }
+            // else 
+            // {
+            //     echo 'Failed to add the user.';
+            // }
 		}
 	}
 
-	if (isset($_GET['desig'])) {
-		$_SESSION['design'] = '';
-		$_SESSION['posts'] = '';
-		$records = Model::designation($connect);
-		$records2 = Model::getPost($connect);
+	// if (isset($_GET['desig'])) {
+	// 	$_SESSION['design'] = '';
+	// 	$_SESSION['posts'] = '';
+	// 	$records = Model::designation($connect);
+	// 	$records2 = Model::getPost($connect);
 
-		if ($records && $records2) {
-			while ($record = mysqli_fetch_array($records)) {
-                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
-			}
+	// 	if ($records && $records2) {
+	// 		while ($record = mysqli_fetch_array($records)) {
+    //             $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+	// 		}
 
-			while ($record2 = mysqli_fetch_array($records2)) {
-                $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
-			}
+	// 		while ($record2 = mysqli_fetch_array($records2)) {
+    //             $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
+	// 		}
 			
-			header('Location:../view/basic/signup.php');
-		}
-	}
+	// 		header('Location:../view/basic/signup.php');
+	// 	}
+	// }
 ?>
