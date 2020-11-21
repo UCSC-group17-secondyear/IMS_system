@@ -124,47 +124,47 @@
 				$userRole = 'nonAcademicStaffMemb';
 			}
 			
-			// $result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
+			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
 
-            // if ($result == true) 
-            // {
-			// 	$result1 = Model::getUId($empid, $connect);
-			// 	if ($result1) {
-			// 		if(mysqli_num_rows($result1)==1){
-			// 			$result2 = mysqli_fetch_assoc($result1);
-			// 			$user_id = $result2['userId'];
+            if ($result == true) 
+            {
+				$result1 = Model::getUId($empid, $connect);
+				if ($result1) {
+					if(mysqli_num_rows($result1)==1){
+						$result2 = mysqli_fetch_assoc($result1);
+						$user_id = $result2['userId'];
 
-			// 			if ($aca_or_non == 'academic-staff') {
-			// 				$asm_flag = 1;
-			// 			}
-			// 			$result3 = Model::setRole($user_id, $asm_flag, $connect);
-			// 			header('Location:../view/basic/login.php');
-			// 		}
-			// 	}
-            // }
-            // else 
-            // {
-            //     echo 'Failed to add the user.';
-            // }
+						if ($aca_or_non == 'academic-staff') {
+							$asm_flag = 1;
+						}
+						$result3 = Model::setRole($user_id, $asm_flag, $connect);
+						header('Location:../view/basic/login.php');
+					}
+				}
+            }
+            else 
+            {
+                echo 'Failed to add the user.';
+            }
 		}
 	}
 
-	// if (isset($_GET['desig'])) {
-	// 	$_SESSION['design'] = '';
-	// 	$_SESSION['posts'] = '';
-	// 	$records = Model::designation($connect);
-	// 	$records2 = Model::getPost($connect);
+	if (isset($_GET['desig'])) {
+		$_SESSION['design'] = '';
+		$_SESSION['posts'] = '';
+		$records = Model::designation($connect);
+		$records2 = Model::getPost($connect);
 
-	// 	if ($records && $records2) {
-	// 		while ($record = mysqli_fetch_array($records)) {
-    //             $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
-	// 		}
+		if ($records && $records2) {
+			while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+			}
 
-	// 		while ($record2 = mysqli_fetch_array($records2)) {
-    //             $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
-	// 		}
+			while ($record2 = mysqli_fetch_array($records2)) {
+                $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
+			}
 			
-	// 		header('Location:../view/basic/signup.php');
-	// 	}
-	// }
+			header('Location:../view/basic/signup.php');
+		}
+	}
 ?>
