@@ -65,17 +65,22 @@
 						header('Location:../view/medicalOfficer/moHomeV.php');
                     }
 					else {
-						echo "Admin have not yet selected the user role to you.";
+                        header('Location:../view/basic/noUserRoleAssigned.php');
+						// echo "Admin have not yet selected the user role to you.";
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    echo "Password is incorrect.";
+                    header('Location:../view/basic/invalidPwd.php');
+                    // echo "Password is incorrect.";
                 }
             }
             else {
-            	echo "INVALID";
+            	header('Location:../view/basic/invalidUser.php');
+                // echo "INVALID";
             }
         }
     }
-
+    else {
+        header('Location:../view/basic/loginFailed.php');
+    }
 ?>
