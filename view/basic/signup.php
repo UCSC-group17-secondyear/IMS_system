@@ -61,7 +61,10 @@
 	              	<label>MOBILE NUMBER</label>
 	            </div>
 	            <div class="col-75">
-	              	<input type="text" name="mobile" min="0" required/>
+	              	<input id="mobile" type="text" name="mobile" min="0" required/>
+	              	<div id="mobileMSG">
+	              		<p id="mobilelength" class="invalid">There must be <b>ten </b>digits.</p>
+	              	</div>
 	            </div>
 	        </div>
 
@@ -70,7 +73,10 @@
 	              	<label>TELEPHONE NUMBER</label>
 	            </div>
 	            <div class="col-75">
-	              	<input type="text" name="tp" min="0" />
+	              	<input id="tp" type="text" name="tp" min="0" />
+	              	<div id="tpMSG">
+	              		<p id="tplength" class="invalid">There must be <b>ten </b>digits.</p>
+	              	</div>
 	            </div>
 	        </div>
 	          
@@ -197,7 +203,7 @@
           document.documentElement.scrollTop = 0;
         }
 
-		// VALIDATE USER NAME-------------------------------------
+		// VALIDATE USER NAME---------------------------------
 		var myUsername = document.getElementById("username");
 		var uNameLength = document.getElementById("namelength");
 		var ucapital = document.getElementById("ucapital");
@@ -248,7 +254,7 @@
 		}
 		// --------------------------------------------------------
 
-		// VALIDATE INITIALS -------------------------------------
+		// VALIDATE INITIALS ----------------------------------
 		var myInitials = document.getElementById("initials");
 		var innumbers = document.getElementById("innumbers");
 		myInitials.onfocus = function() {
@@ -268,9 +274,9 @@
 		  	}
 		}
 
-		// --------------------------------------------------------
+		// ----------------------------------------------------
 
-		// VALIDATE SURNAME -------------------------------------
+		// VALIDATE SURNAME ---------------------------------
 		var mySurname = document.getElementById("surname");
 		var snumbers = document.getElementById("snumbers");
 		mySurname.onfocus = function() {
@@ -289,9 +295,50 @@
 		    	snumbers.classList.add("valid");
 		  	}
 		}
-		// --------------------------------------------------------
+		// ---------------------------------------------------
 
-		// VALIDATE PASSWORD -------------------------------------
+		// VALIDATE PHONE NUMBER------------------------------
+		var tplength = document.getElementById("tplength");
+		var mytp = document.getElementById("tp");
+		mytp.onfocus = function() {
+		  document.getElementById("tpMSG").style.display = "block";
+		}
+		mytp.onblur = function() {
+		  document.getElementById("tpMSG").style.display = "none";
+		}
+		mytp.onkeyup = function() {
+			if(mytp.value.length == 10) {
+		    	tplength.classList.remove("invalid");
+		    	tplength.classList.add("valid");
+		  	} 
+		  	else {
+		    	tplength.classList.remove("valid");
+		    	tplength.classList.add("invalid");
+		  	}
+		}
+		// ---------------------------------------------------
+
+		// VALIDATE MOBILE NUMBER-----------------------------
+		var mobilelength = document.getElementById("mobilelength");
+		var mymobile = document.getElementById("mobile");
+		mymobile.onfocus = function() {
+		  document.getElementById("mobileMSG").style.display = "block";
+		}
+		mymobile.onblur = function() {
+		  document.getElementById("mobileMSG").style.display = "none";
+		}
+		mymobile.onkeyup = function() {
+			if(mymobile.value.length == 10) {
+		    	mobilelength.classList.remove("invalid");
+		    	mobilelength.classList.add("valid");
+		  	} 
+		  	else {
+		    	mobilelength.classList.remove("valid");
+		    	mobilelength.classList.add("invalid");
+		  	}
+		}
+
+		// VALIDATE PASSWORD -----------------------------------
 		// When the user clicks on the password field, show the message box
 		var myInput = document.getElementById("psw");
 		var letter = document.getElementById("letter");
