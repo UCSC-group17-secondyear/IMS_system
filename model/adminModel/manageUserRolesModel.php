@@ -2,7 +2,7 @@
 	class adminModel {
 		public static function checkEmpid($empid, $connect) 
 		{
-			$query = "SELECT * FROM users WHERE empid ='{$empid}'" ;
+			$query = "SELECT * FROM users WHERE empid ='{$empid}' AND is_deleted=0" ;
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}

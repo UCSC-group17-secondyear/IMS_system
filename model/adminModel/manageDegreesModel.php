@@ -1,7 +1,7 @@
 <?php
 	class adminModel {
 		public static function checkDegree($degree_name, $degree_abbriviation, $connect) {
-			$query = "SELECT * FROM tbl_degree WHERE degree_abbriviation ='{$degree_abbriviation}' AND degree_name ='{$degree_name}' LIMIT 1 " ;
+			$query = "SELECT * FROM tbl_degree WHERE degree_abbriviation ='{$degree_abbriviation}' AND degree_name ='{$degree_name}' AND is_deleted=0 LIMIT 1 " ;
 
 			$result_set = mysqli_query($connect, $query);
 

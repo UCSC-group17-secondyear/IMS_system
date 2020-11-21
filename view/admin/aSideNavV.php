@@ -59,6 +59,23 @@
                 </ul>
             </li>
 
+            <li><button class="tree_list">Manage Posts</button>
+                <ul class="tree_nest">
+                    <form action="../../controller/adminControllers/managePostsC.php" method="post">
+                        <button name="viwePostDetails-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-user"></i>View Posts</li></a>
+                        </button>
+                    </form>
+                        <button>
+                            <a href="aAddPostV.php"><li><i class="fa fa-plus-circle"></i>Add a Post</li></a>
+                        </button>
+                        <button name="viwePostList-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-pencil-square"></i>Remove a Post</li></a>
+                        </button>
+                    
+                </ul>
+            </li>
+
             <!-- <li><button class="tree_list">Manage Posts</button>
                 <ul class="tree_nest">
                     <button>

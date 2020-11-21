@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddDepartmentV.php">Add Department</a></li>
+            <li><a href="aAddPostV.php">Add Post</a></li>
             <li class="active">Action was success!</li>
         </ul>
     
@@ -25,11 +25,11 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The Department is added successfully!</h2>
+                        <h2>The Post is added successfully!</h2>
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="aAddDepartmentV.php">Add Department</a>
+                        <a href="aAddPostV.php">Add another post</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="aHomeV.php">Exit</a>
