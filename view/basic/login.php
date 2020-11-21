@@ -5,7 +5,7 @@
 <main>
 	<title>Log in</title>
 
-	<div style="padding-bottom: 5%;">
+	<div style="padding-bottom: 3%;">
 		<div class="loginForm">
 			<form action="../../controller/loginController.php" method="POST">
 				<h2>Login Here</h2>

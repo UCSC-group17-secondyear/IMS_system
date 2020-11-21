@@ -624,17 +624,16 @@ ul, #tree-view {
   height: auto;
   /*box-shadow: 4px 0px grey;*/
   padding-top: 10px;
+  border-style: solid;
+  border-color: #065b7a;
 }
 
 .left, .right {
   width: 20%;
-  border-right: 5px solid grey;
 }
 
 .middle {
   width: 60%;
-  /*border-left: 5px solid grey;*/
-  border-right: 5px solid grey;
 }
 
 .middle h2 {
