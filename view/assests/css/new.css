@@ -55,6 +55,7 @@ a.disabled {
 ul.breadcrumbs {
     list-style: none;
     background-color: white;
+    border-radius: 10px;
     /*box-shadow: 4px 4px 4px grey;*/
     overflow: hidden;
     padding: 10px 16px;
@@ -76,31 +77,32 @@ ul.breadcrumbs li+li:before {
 }
 
 ul.breadcrumbs li a {
-    overflow: hidden;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    opacity: 0.7;
+  overflow: hidden;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  opacity: 0.7;
 }
 
 ul.breadcrumbs li.active {
-    overflow: hidden;
-    color: #065b7a;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  overflow: hidden;
+  color: #065b7a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 ul.breadcrumbs li a:hover {
-    overflow: hidden;
-    color: #4CAF50;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    background-color: #065b7a;
-    color: white;
-    font-weight: bold;
+  overflow: hidden;
+  color: #4CAF50;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #065b7a;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
 }
 
 /*-----------------------------Footer-----------------------------*/
@@ -319,10 +321,11 @@ ul.breadcrumbs li a:hover {
   font-size: 24px;
   color: white;
   text-align: center;
-  padding: 6px;
+  padding: 10px;
   border-bottom: 3px solid grey;
   /*box-shadow: 4px 4px 4px grey;*/
   background-color: #065b7a;
+  border-radius: 10px;
 }
 
 .signupForm select {

@@ -5,7 +5,7 @@
 <main>
   <title>Password Reset</title>
 
-  <div class="contentForm" style="margin-top:227px; margin-bottom:227px;">
+  <div class="signupForm" style="margin-top:227px; margin-bottom:15%;">
     <form action="../../controller/pwdController.php" method="POST">
       <h2>Password Reset</h2>
       <div class="row">
