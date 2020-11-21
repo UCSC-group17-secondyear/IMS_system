@@ -30,7 +30,7 @@
                                 <label>Medical Scheme Type</label>
                             </div>
                             <div class="col-75">
-                                <select name="schemename" id="schemename" required>
+                                <select name="scheme" id="scheme" required>
                                     <option value="">Select Scheme</option>
                                     <?php echo $_SESSION['scheme'] ?>
                                 </select>
