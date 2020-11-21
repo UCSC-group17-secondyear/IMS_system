@@ -80,7 +80,7 @@
 	            </div>
 	            <div class="col-75">
 				  <select name="aca-or-non" required>
-                    <!-- <option value=""></option> -->
+                    <!-- <option value="">Are you Academic or Non Academic?</option> -->
                     <option value="academic-staff">Academic Staff Member</option>
                     <option value="non-academic-staff">Non Academic Staff Member</option>
                   </select>
@@ -138,6 +138,15 @@
 					</div>
 	            </div>
 			</div>
+			<div class="row">
+				<div class="col-25">
+	              	<input type="checkbox" onclick="showPasswordFunction()">
+				</div>
+				<div class="col-75">
+					<label>Show Password</label>
+				</div>
+			</div>
+			
 			<!-- <div class="row">
 				<b><p>Password is required minimum eight characters, at least one uppercase letter, one lowercase letter, one number, and one special character(only @$!%*?&)</p></b>
 			</div> -->
@@ -265,6 +274,15 @@
 		  
 		  	// Validate length
 		  	
+		}
+
+		function showPasswordFunction() {
+  			var x = document.getElementById("psw");
+  			if (x.type === "password") {
+    			x.type = "text";
+  			} else {
+    			x.type = "password";
+  			}
 		}
     </script>
 

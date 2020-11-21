@@ -38,7 +38,7 @@
             $_SESSION['children_no'] = $children_no;
         }
 
-        if ($children_no > 0) {
+        if ($children_no > 0 && $records) {
             if (mysqli_num_rows($result_set)==1) {
                 $result = mysqli_fetch_assoc($result_set);
 
