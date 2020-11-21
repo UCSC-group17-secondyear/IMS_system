@@ -23,7 +23,7 @@
                     <h2>Semester Details</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle" class="mytable" style="margin-left: 25%;" >
                     <tr>
                         <th>Semester</th>
                         <th>Academic Year</th>
