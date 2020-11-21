@@ -22,7 +22,7 @@
                     <h2>User roles</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle" class="mytable" style="margin-left: 25%;" >
                     <tr>
                         <th>User role</th>
                         <th>Description</th>

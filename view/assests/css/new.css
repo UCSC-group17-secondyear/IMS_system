@@ -55,7 +55,7 @@ a.disabled {
 ul.breadcrumbs {
     list-style: none;
     background-color: white;
-    box-shadow: 4px 4px 4px grey;
+    /*box-shadow: 4px 4px 4px grey;*/
     overflow: hidden;
     padding: 10px 16px;
     /*width: 100%;
@@ -127,7 +127,7 @@ ul.breadcrumbs li a:hover {
   background-image: url("../img/bg_final.jpg");
   background-color: #065b7a;
   /*opacity: 0.7;*/
-  height: 627.9px;
+  height: 710px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -142,7 +142,7 @@ ul.breadcrumbs li a:hover {
   padding-bottom: 7%;
   color: white;
   font-size: 24px;
-  height: 627.9px;
+  height: 710px;
   background: rgba(0, 0, 0, 0.7);
 }
 
@@ -506,7 +506,7 @@ ul, #tree-view {
 /* Style the caret/arrow */
 .tree_list {
   text-align: left;
-  margin-bottom: 0%;
+  margin-bottom: 1%;
   margin-top: 0%;
   border: 2px solid white;
   cursor: pointer;
@@ -676,8 +676,10 @@ img.avatar {
   padding-left: 10px;
   min-height: 600px;
   height: auto;
-  box-shadow: 4px 0px grey;
+  /*box-shadow: 4px 0px grey;*/
   padding-top: 10px;
+  border-color: #065b7a;
+  border-style: solid;
 }
 
 .left20 {
@@ -906,10 +908,11 @@ img.avatar {
 #tableStyle {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 98%;
+  width: auto;
   margin-top: 25px;
   margin-left: 5px;
   margin-right: 2px;
+  min-width: 40%;
 }
 
 #tableStyle td, #tableStyle th {
