@@ -80,7 +80,7 @@
         $result_set = adminModel::checkMonthlySession($subject, $calendarYear, $month, $sessionType, $connect);
 
         if ($result_set) {
-            if(mysqli_num_rows($result_set)==1){
+            if(mysqli_num_rows($result_set) != 0){
                 $result = mysqli_fetch_assoc($result_set);
                 $_SESSION['sessionMid'] = $result['sessionMid'];
                 $_SESSION['subject'] = $result['subject'];
@@ -133,6 +133,21 @@
         }
         else {
             header('Location:../../view/admin/aMonthlySessionNotRemoved.php');
+        }
+    }
+
+    elseif(isset($_POST['sessionTypesList-submit'])) {
+        $records = adminModel::viewSessionTypes($connect);
+        $_SESSION['sessionTypes'] = '';
+
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+            }
+            header('Location:../../view/admin/aUpdateRemoveSessionPerMonthV.php');
+        }
+        else {
+            header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
         }
     }
 ?>

@@ -50,6 +50,14 @@
 			return $result_set;
 		}
 
+		public static function viewuf($user_id, $connect){
+			$query = "SELECT * FROM tbl_user_flag WHERE userId={$user_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
 		public static function checkEmpidTwo($empid, $user_id, $connect)
 		{
 			$query = "SELECT * FROM users WHERE empid='{$empid}' AND userId!={$user_id} LIMIT 1";

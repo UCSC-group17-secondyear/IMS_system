@@ -10,90 +10,105 @@
 			<h2>Sign Up Here</h2>
 			<div class="row">
 	            <div class="col-25">
-	              <label>User name (first three letters of the university mail)</label>
+	              <label>USER NAME (first three letters of the university mail)</label>
 	            </div>
 	            <div class="col-75">
 	              	<input id="username" type="text" name="empid" title="The first three letters of the private email given to you by UCSC should be entered" required/>
 	              	<div id="usernameMSG">
-				 		<p id="namelength" class="invalid" style="height: 7px; padding-bottom: 0px; padding-top: 0px; margin-top: -11px; border-bottom-width: 100px;">Length must be <b>3 characters</b></p>
+				 		<p id="ucapital" class="valid">No <b>capital </b>letters.</p>
+				 		<p id="spaceChar" class="valid">No <b>spaces</b></p>
+				 		<p id="unumbers" class="valid">No <b>numbers</b></p>
+				 		<p id="namelength" class="invalid">Length must be <b>three </b>characters.</p>
 					</div>
 	            </div>
 	         </div>
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Initials</label>
+	              	<label>INITIALS</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="text" name="initials" required/>
+	              	<input id="initials" type="text" name="initials" required/>
+	              	<div id="initialsMSG">
+				 		<p id="innumbers" class="valid">No <b>numbers</b></p>
+					</div>
 	            </div>
 	        </div>
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Surname</label>
+	              	<label>LAST NAME</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="text" name="sname" required/>
+	              	<input id="surname" type="text" name="sname" required/>
+	              	<div id="surnameMSG">
+				 		<p id="snumbers" class="valid">No <b>numbers</b></p>
+					</div>
 	            </div>
 	        </div>
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>E-mail address</label>
+	              	<label>E-MAIL ADDRESS</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="email" name="email"/>
+	              	<input type="email" name="email"/>
 	            </div>
 	        </div>
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Mobile number</label>
+	              	<label>MOBILE NUMBER</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="text" name="mobile" required/>
+	              	<input id="mobile" type="text" name="mobile" min="0" required/>
+	              	<div id="mobileMSG">
+	              		<p id="mobilelength" class="invalid">There must be <b>ten </b>digits.</p>
+	              	</div>
 	            </div>
 	        </div>
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Telephone number</label>
+	              	<label>TELEPHONE NUMBER</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="text" name="tp" />
+	              	<input id="tp" type="text" name="tp" min="0" />
+	              	<div id="tpMSG">
+	              		<p id="tplength" class="invalid">There must be <b>ten </b>digits.</p>
+	              	</div>
 	            </div>
 	        </div>
 	          
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Date of birth</label>
+	              	<label>DATE OF BIRTH</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="date" name="dob" required/>
+	              	<input type="date" name="dob" required/>
 	            </div>
 	        </div>
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Select member type</label>
+	              	<label>MEMBER TYPE</label>
 	            </div>
 	            <div class="col-75">
-				  <select name="aca-or-non" required>
-                    <!-- <option value="">Are you Academic or Non Academic?</option> -->
-                    <option value="academic-staff">Academic Staff Member</option>
-                    <option value="non-academic-staff">Non Academic Staff Member</option>
-                  </select>
+				  	<select name="aca-or-non" required/>
+                    <!-- <option value="">Your Member Type</option> -->
+	                    <option value="academic-staff">Academic Staff Member</option>
+	                    <option value="non-academic-staff">Non Academic Staff Member</option>
+	                  </select>
 	            </div>
 			</div>
 			
 			<div class="row">
 				<div class="col-25">
-					<label>Select designation</label>
+					<label>DESIGNATION</label>
 				</div>
 				<div class="col-75">
 					<select name="designation"required>
-						<!-- <option value=""></option> -->
+						<option value="">Your Designation</option>
 						<?php echo $_SESSION['design'] ?>
 					</select>
 				</div>
@@ -101,11 +116,11 @@
 
 			<div class="row">
 	            <div class="col-25">
-	              <label>Select Post(if having any/if having many select the one with highest preferrence)</label>
+	              <label>POST (If having any. If having many select the one with highest preferrence)</label>
 	            </div>
 	            <div class="col-75">
 				  <select name="post" required>
-                    <option value="">Select a Post:</option>
+                    <option value="">Your Post:</option>
                     <?php echo $_SESSION['posts'] ?>
                   </select>
 	            </div>
@@ -113,7 +128,7 @@
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Date of appointment</label>
+	              <label>DATE OF APPOINTMENT</label>
 	            </div>
 	            <div class="col-75">
 	              <input type="date" name="appointment" required/>
@@ -122,11 +137,11 @@
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Password</label>
+	              <label>PASSWORD</label>
 
 				</div>
 	            <div class="col-75">
-		            <input id="psw" type="password" name="password" title="Must contain at least one number and one uppercase and lowercase letter, one special character(only @$!%*?&) and at least 8 or more characters" required/>
+		            <input id="psw" type="password" name="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
 		            <!-- <p>Password is required minimum eight characters, at least one uppercase letter, one lowercase letter, one number, and one special character(only @$!%*?&)</p> -->
 	             	<div id="message">
 				 		<h3>Password must contain the following:</h3>
@@ -143,7 +158,7 @@
 	              	<input type="checkbox" onclick="showPasswordFunction()">
 				</div>
 				<div class="col-75">
-					<label>Show Password</label>
+					<label>SHOW PASSWORD</label>
 				</div>
 			</div>
 			
@@ -153,7 +168,7 @@
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>Confirm password</label>
+	              <label>CONFIRM PASSWORD</label>
 	            </div>
 	            <div class="col-75">
 	              <input type="password" name="conpassword" required/>
@@ -188,24 +203,48 @@
           document.documentElement.scrollTop = 0;
         }
 
-
-        var myInput = document.getElementById("psw");
-		var letter = document.getElementById("letter");
-		var capital = document.getElementById("capital");
-		var number = document.getElementById("number");
-		var length = document.getElementById("length");
-		var char = document.getElementById("character");
-
+		// VALIDATE USER NAME---------------------------------
 		var myUsername = document.getElementById("username");
 		var uNameLength = document.getElementById("namelength");
+		var ucapital = document.getElementById("ucapital");
+		var space = document.getElementById("spaceChar");
+		var unumbers = document.getElementById("unumbers");
 		myUsername.onfocus = function() {
 		  document.getElementById("usernameMSG").style.display = "block";
 		}
 		myUsername.onblur = function() {
-		  document.getElementById("message").style.display = "none";
+		  document.getElementById("usernameMSG").style.display = "none";
 		}
 		myUsername.onkeyup = function() {
-			if(myUsername.value.length == 3) {
+			var upperCaseLetters = /[A-Z]/g;
+		  	if(myUsername.value.match(upperCaseLetters)) {  
+		    	ucapital.classList.remove("valid");
+		    	ucapital.classList.add("invalid");
+		  	} else {
+		    	ucapital.classList.remove("invalid");
+		    	ucapital.classList.add("valid");
+		  	}
+
+		  	var spaces = /[ ]/g;
+		  	if (myUsername.value.match(spaces)) {
+		  		space.classList.remove("valid");
+		    	space.classList.add("invalid");
+		  	}
+		  	else {
+		    	space.classList.remove("invalid");
+		    	space.classList.add("valid");
+		  	}
+
+		  	var digits = /[0-9]/g;
+		  	if(myUsername.value.match(digits)) {  
+		    	unumbers.classList.remove("valid");
+		    	unumbers.classList.add("invalid");
+		  	} else {
+		    	unumbers.classList.remove("invalid");
+		    	unumbers.classList.add("valid");
+		  	}
+
+		  	if(myUsername.value.length == 3) {
 		    	uNameLength.classList.remove("invalid");
 		    	uNameLength.classList.add("valid");
 		  	} else {
@@ -213,9 +252,101 @@
 		    	uNameLength.classList.add("invalid");
 		  	}
 		}
+		// --------------------------------------------------------
 
+		// VALIDATE INITIALS ----------------------------------
+		var myInitials = document.getElementById("initials");
+		var innumbers = document.getElementById("innumbers");
+		myInitials.onfocus = function() {
+		  document.getElementById("initialsMSG").style.display = "block";
+		}
+		myInitials.onblur = function() {
+		  document.getElementById("initialsMSG").style.display = "none";
+		}
+		myInitials.onkeyup = function() {
+			var digits = /[0-9]/g;
+		  	if(myInitials.value.match(digits)) {  
+		    	innumbers.classList.remove("valid");
+		    	innumbers.classList.add("invalid");
+		  	} else {
+		    	innumbers.classList.remove("invalid");
+		    	innumbers.classList.add("valid");
+		  	}
+		}
 
+		// ----------------------------------------------------
+
+		// VALIDATE SURNAME ---------------------------------
+		var mySurname = document.getElementById("surname");
+		var snumbers = document.getElementById("snumbers");
+		mySurname.onfocus = function() {
+		  document.getElementById("surnameMSG").style.display = "block";
+		}
+		mySurname.onblur = function() {
+		  document.getElementById("surnameMSG").style.display = "none";
+		}
+		mySurname.onkeyup = function() {
+			var digits = /[0-9]/g;
+		  	if(mySurname.value.match(digits)) {  
+		    	snumbers.classList.remove("valid");
+		    	snumbers.classList.add("invalid");
+		  	} else {
+		    	snumbers.classList.remove("invalid");
+		    	snumbers.classList.add("valid");
+		  	}
+		}
+		// ---------------------------------------------------
+
+		// VALIDATE PHONE NUMBER------------------------------
+		var tplength = document.getElementById("tplength");
+		var mytp = document.getElementById("tp");
+		mytp.onfocus = function() {
+		  document.getElementById("tpMSG").style.display = "block";
+		}
+		mytp.onblur = function() {
+		  document.getElementById("tpMSG").style.display = "none";
+		}
+		mytp.onkeyup = function() {
+			if(mytp.value.length == 10) {
+		    	tplength.classList.remove("invalid");
+		    	tplength.classList.add("valid");
+		  	} 
+		  	else {
+		    	tplength.classList.remove("valid");
+		    	tplength.classList.add("invalid");
+		  	}
+		}
+		// ---------------------------------------------------
+
+		// VALIDATE MOBILE NUMBER-----------------------------
+		var mobilelength = document.getElementById("mobilelength");
+		var mymobile = document.getElementById("mobile");
+		mymobile.onfocus = function() {
+		  document.getElementById("mobileMSG").style.display = "block";
+		}
+		mymobile.onblur = function() {
+		  document.getElementById("mobileMSG").style.display = "none";
+		}
+		mymobile.onkeyup = function() {
+			if(mymobile.value.length == 10) {
+		    	mobilelength.classList.remove("invalid");
+		    	mobilelength.classList.add("valid");
+		  	} 
+		  	else {
+		    	mobilelength.classList.remove("valid");
+		    	mobilelength.classList.add("invalid");
+		  	}
+		}
+
+		// VALIDATE PASSWORD -----------------------------------
 		// When the user clicks on the password field, show the message box
+		var myInput = document.getElementById("psw");
+		var letter = document.getElementById("letter");
+		var capital = document.getElementById("capital");
+		var number = document.getElementById("number");
+		var length = document.getElementById("length");
+		var char = document.getElementById("character");
+
 		myInput.onfocus = function() {
 		  document.getElementById("message").style.display = "block";
 		}
@@ -262,20 +393,11 @@
 		    	length.classList.remove("valid");
 		    	length.classList.add("invalid");
 		  	}
-
-		  	// var specialChar = /[@]/g;
-		  	// if(myInput.value.match(specialChar)) {  
-		   //  	specialChar.classList.remove("invalid");
-		   //  	specialChar.classList.add("valid");
-		  	// } else {
-		   //  	specialChar.classList.remove("valid");
-		   //  	specialChar.classList.add("invalid");
-		  	// }
-		  
-		  	// Validate length
-		  	
 		}
+		// --------------------------------------------------------
 
+
+		// DISPLAY PASSWORD -------------------------------------
 		function showPasswordFunction() {
   			var x = document.getElementById("psw");
   			if (x.type === "password") {
