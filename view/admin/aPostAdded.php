@@ -3,13 +3,15 @@
 ?>
 
 <main>
+    <title>Add a Department</title>
+
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddDegreeV.php">Add Degree</a></li>
-            <li class="active">Action Success!</li>
+            <li><a href="aAddPostV.php">Add Post</a></li>
+            <li class="active">Action was success!</li>
         </ul>
-
+    
         <div class="row">
             <div class="col left20">
                 <?php
@@ -23,20 +25,20 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Degree is added successfully!
-                        </h2>
+                        <h2>The Post is added successfully!</h2>
                     </div>
 
-                    <button class="subbtn">
-                        <a href="aAddDegreeV.php">Add another</a> 
+                    <button class="subbtn" type="submit">
+                        <a href="aAddPostV.php">Add another post</a>
                     </button>
-                    <button class="cancelbtn">
-                        <a href="aHomeV.php">Exit</a> 
+                    <button class="cancelbtn" type="submit">
+                        <a href="aHomeV.php">Exit</a>
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    
 </main>
 
 <?php

@@ -6,10 +6,9 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddDegreeV.php">Add Degree</a></li>
-            <li class="active">Action Success!</li>
+            <li class="active">Request Failed!</li>
         </ul>
-
+    
         <div class="row">
             <div class="col left20">
                 <?php
@@ -23,20 +22,22 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Degree is added successfully!
+                        <h2>Sorry! <br>
+                            The Post exists already.
                         </h2>
                     </div>
 
-                    <button class="subbtn">
-                        <a href="aAddDegreeV.php">Add another</a> 
+                    <button class="subbtn" type="submit">
+                        <a href="aViewPostsDetailsV.php">View posts</a>
                     </button>
-                    <button class="cancelbtn">
-                        <a href="aHomeV.php">Exit</a> 
+                    <button class="cancelbtn" type="submit">
+                        <a href="aHomeV.php">Exit</a>
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    
 </main>
 
 <?php

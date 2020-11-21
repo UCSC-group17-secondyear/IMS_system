@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddDegreeV.php">Add Degree</a></li>
+            <li><a href="aRemoveUpdateDegreeV.php">Update or Remove Degree</a></li>
             <li class="active">Action Success!</li>
         </ul>
 
@@ -23,12 +23,12 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Degree is added successfully!
+                        <h2>Degree is updated successfully!
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="aAddDegreeV.php">Add another</a> 
+                        <a href="aRemoveUpdateDegreeV.php">Update another</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 

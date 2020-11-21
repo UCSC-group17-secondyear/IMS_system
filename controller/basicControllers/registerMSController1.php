@@ -12,7 +12,7 @@
     $_SESSION['member_type'] = '';
     $_SESSION['civil_status'] = '';
     
-    if ($result_set && $records1 && $records2 && $records3 && $records4) {
+    if ($result_set && $records1 && $records2 && $records4) {
         if (mysqli_num_rows($result_set)==1) {
             $result = mysqli_fetch_assoc($result_set);
 
