@@ -69,10 +69,11 @@
                         <button>
                             <a href="aAddPostV.php"><li><i class="fa fa-plus-circle"></i>Add a Post</li></a>
                         </button>
+                    <form action="../../controller/adminControllers/managePostsC.php" method="post">
                         <button name="viwePostList-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-pencil-square"></i>Remove a Post</li></a>
+                            <a href="#"><li><i class="fa fa-trash"></i>Remove a Post</li></a>
                         </button>
-                    
+                    </form>
                 </ul>
             </li>
 
@@ -138,7 +139,7 @@
                     <form action="../../controller/adminControllers/manageSessionsC.php" method="post">
                         <button name="getTypeSIdeNave-submit" >
                             <a href="aRemoveSessionTypeV.php">
-                                <li><i class="fa fa-pencil-square"></i>Remove Session types</li>
+                                <li><i class="fa fa-trash"></i>Remove Session types</li>
                             </a>
                         </button>
                     </form>

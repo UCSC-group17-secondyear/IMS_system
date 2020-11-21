@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aRemoveSchemeV.php">Remove Scheme</a></li>
+            <li><a href="aRemovePostV.php">Remove Posts</a></li>
             <li class="active">Action Completed!</li>
         </ul>
 
@@ -23,12 +23,12 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The scheme is removed succcessfully.
+                        <h2>The post is removed succcessfully.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="aRemoveSchemeV.php">Remove another scheme</a> 
+                        <a href="aRemovePostV.php">Remove another post</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 
