@@ -22,7 +22,7 @@
                     <h2>Monthly session details</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
                         <th>Subject</th>
                         <th>Year</th>

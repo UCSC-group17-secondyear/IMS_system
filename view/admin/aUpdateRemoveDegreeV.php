@@ -23,7 +23,7 @@
                     <h2>Degree List</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable" style="margin-left: 25%;" >
+                <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
                         <th>Degree</th>
                         <th>Degree Abbriviation</th>
