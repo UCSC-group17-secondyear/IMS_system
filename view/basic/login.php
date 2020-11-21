@@ -2,8 +2,9 @@
 	require "topnav.php";
 ?>
 
-<main class="login-bg">
+<main>
 	<title>Log in</title>
+
 	<div class="loginForm">
 		<form action="../../controller/loginController.php" method="POST">
 			<h2>Login Here</h2>
@@ -22,7 +23,8 @@
                     </div>
 	              	<div class="sentence1">
 						<h3><a href="forgotpwdV.php">Forgot your password?</a></h3> <br>
-						<h3>New here? <a href="../../controller/SignupController.php?desig=99">Sign Up.</a>
+						<h3>New here? <a href="../../controller/SignupController.php?desig=99">Sign Up.</a></h3>
+
 					</div>
 				</div>
 			</div>

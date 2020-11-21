@@ -194,6 +194,16 @@ ul.breadcrumbs li a:hover {
   /*opacity: 0.5;*/
 }
 
+/*.bg-image {
+  background-image: url("../img/bg_final.jpg");
+  background-color: #065b7a;
+  height: 710px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+*/
 .col-50l {
   float: left;
   width: 50%;
@@ -236,6 +246,7 @@ ul.breadcrumbs li a:hover {
   border: 0;
   padding-left: 3%;
   border-radius: 10px;
+  background-color: white;
 }
 
 .loginForm button {
@@ -325,6 +336,13 @@ ul.breadcrumbs li a:hover {
   font-size: 18px;
   margin-left: 5%;
   margin-top: 10px;
+  padding-left: 5px;
+  text-align: justify;
+  width: 90%;
+  /*border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: white;*/
 }
 
 .signupForm input {
@@ -335,8 +353,11 @@ ul.breadcrumbs li a:hover {
   margin-right: 5%;
   font-size: 18px;
   padding-left: 15px;
+  /*border-style: solid;
+  border-color: black;*/
   border-radius: 10px;
   border: none;
+  background-color: white;
 }
 
 .changeroleForm {
@@ -391,6 +412,7 @@ ul.breadcrumbs li a:hover {
   padding-left: 15px;
   border-radius: 10px;
   border: none;
+  background-color: white;
 }
 
 .changeroleForm button {
@@ -432,13 +454,13 @@ ul.breadcrumbs li a:hover {
 
 .col-25 {
   float: left;
-  width: 25%;
+  width: 30%;
   /*margin-top: 6px;*/
 }
 
 .col-75 {
   float: left;
-  width: 75%;
+  width: 70%;
   /*margin-top: 6px;*/
 }
 
@@ -752,6 +774,7 @@ img.avatar {
   border: 0px;
   padding-left: 15px;
   border-radius: 10px;
+  background-color: white;
 }
 
 .contentForm datalist{
@@ -821,6 +844,7 @@ img.avatar {
   border: 2px solid #2980b9;
   padding-left: 15px;
   border-radius: 10px;
+  background-color: white;
 } 
 
 /*-------------------------Buttons-------------------*/
@@ -1041,7 +1065,7 @@ img.avatar {
 /*------------------------Passwrod verification---------------------*/
 
 /* The message box is shown when the user clicks on the password field */
-#message, #usernameMSG {
+#message, #usernameMSG, #initialsMSG, #surnameMSG {
   display:none;
   background: #f1f1f1;
   color: #000;
