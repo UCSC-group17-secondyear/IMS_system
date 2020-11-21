@@ -116,7 +116,7 @@ ul.breadcrumbs li a:hover {
     z-index: -2;
     width: 100%;
     padding-top: 15px;
-    height: 10%;
+    height: 94px;
     border-top: 3px solid grey;
     /* margin-top: 35px; */
     margin-bottom: auto;
@@ -1093,8 +1093,9 @@ img.avatar {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  top: -5px;
+  /* bottom: 125%; */
+  left: 580%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -1103,8 +1104,8 @@ img.avatar {
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: 20%;
+  left: 0%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;

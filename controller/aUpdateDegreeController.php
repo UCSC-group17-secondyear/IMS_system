@@ -21,7 +21,7 @@
             }
         }
         else {
-            echo "Database query failed.";
+            header('Location:../../view/admin/aQueryFailedV.php');
         }
     }
 
@@ -33,22 +33,17 @@
         $checkDegree = Model::checkDegreeThree($degree_id, $degree_name, $connect);
 
         if (mysqli_num_rows($checkDegree)==1) {
-            echo "This degree already exists.";
+            header('Location:../../view/admin/aDegreeExists.php');
         }
         else {
             $result = Model::updateDegree($degree_id, $degree_name, $degree_abbriviation, $connect);
 
             if ($result) {
-                echo "Succesfully updated.";
+                header('Location:../../view/admin/aDegreeUpdated.php');
             }else {
-                echo "query failed";
+                header('Location:../../view/admin/aDegreeNotUpdated.php');
             }
         }
 
     }
-
-    elseif (isset($_POST['removeDegree-submit'])) {
-        
-    }
-
 ?>

@@ -23,7 +23,7 @@
             }
         }
         else {
-            echo "Database query failed.";
+            header('Location:../../view/admin/aQueryFailedV.php');
         }
     }
 

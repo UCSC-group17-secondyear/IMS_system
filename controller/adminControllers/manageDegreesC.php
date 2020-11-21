@@ -42,13 +42,49 @@
 
     elseif(isset($_POST['removeDegree-submit'])) {
         $degree_name = $_POST['degree_name'];
-        $records = adminModel::removeDegreeList($degree_name, $connect);
+        $records = adminModel::removeDegree($degree_name, $connect);
 
         if ($records) {
             header('Location:../../view/admin/aDegreeRemoved.php');
         }
         else {
             header('Location:../../view/admin/aDegreeNotRemoved.php');
+        }
+    }
+
+    elseif(isset($_POST['updateDegree-submit'])) {
+        $degree_name = $_POST['degree_name'];
+        $result_set = adminModel::getDegree($degree_name, $connect);
+
+        if ($result_set) {
+            if(mysqli_num_rows($result_set)==1) {
+                $result = mysqli_fetch_assoc($result_set);
+                $_SESSION['degree_name'] = $result['degree_name'];
+                $_SESSION['degree_abbriviation'] = $result['degree_abbriviation'];
+
+                header('Location:../../view/admin/aUpdateDegreeFoundV.php');
+            }
+            else {
+                header('Location:../../view/admin/aQueryFailedV.php');
+                // echo "more than one row (duplicate scheme names)";
+            }
+        }
+        else {
+            header('Location:../../view/admin/aNoDegreesAvailableV.php');
+        }
+    }
+
+    elseif(isset($_POST['saveUpdateDegree-submit'])) {
+        $degree_name = $_POST['degree_name'];
+        $degree_abbriviation = $_POST['degree_abbriviation'];
+
+        $result_set = adminModel::updateDegree($degree_name, $degree_abbriviation, $connect);
+
+        if ($result_set) {
+            header('Location:../../view/admin/aDegreeUpdated.php');
+        }
+        else {
+            header('Location:../../view/admin/aDegreeNotUpdated.php');
         }
     }
 ?>
