@@ -28,6 +28,7 @@
                         <th>Employee ID</th>
                         <th>Initials</th>
                         <th>Surname</th>
+                        <th>Department</th>
                         <th>Status</th>
                         <th></th>
                     </tr>
