@@ -1,15 +1,15 @@
 <main>
     <div class="sansserif">
         <ul id="tree_view">
-            <li>
-                <a href="../../controller/msmControllers/msmviewMemberList1C.php">
-                    <button type="submit" class="tree_list">View Medical Member List</button>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <button type="submit" class="tree_list">Remove Member</button>
-                </a>
+            <li><button class="tree_list">Manage Members</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="../../controller/msmControllers/msmviewMemberList1C.php" name="membership-submit"><li><i class="fa fa-users"></i> View Medical Member List</li></a>
+                    </button>
+                    <button>
+                        <a href="../../controller/msmControllers/msmRemoveMembersC.php" name="requestedClaim-submit"><li><i class="fa fa-user-times"></i> Remove Member</li></a>
+                    </button>
+                </ul>
             </li>
             <li>
                 <a href="msmViewClaimDetailsV.php">
