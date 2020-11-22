@@ -109,7 +109,10 @@
                                         
                                 </div>
 
-                                <button class="mainbtn" type="submit" name="mark-submit" >Save</button></a><br>
+                                <button class="subbtn" type="submit" name="mark-submit" >Save</button></a>
+                                <button type="submit" class="cancelbtn">
+                                    <a href="mmHomeV.php">Cancel</a>
+                                </button>
                         </form> 
                     </div>
                 </div>

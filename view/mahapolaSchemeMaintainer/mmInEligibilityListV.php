@@ -7,7 +7,7 @@
         <div class="sansserif">
             <ul class="breadcrumbs">
                 <li><a href="mmHomeV.php">Home</a></li>
-                <li class="active">Mahapola Nominated List</li>
+                <li class="active">Mahapola Ineligibility List</li>
             </ul>
         
             <div class="row">
@@ -19,7 +19,7 @@
 
                 <div class="col right80">
                     <div>
-                        <h2>Nominated Student List</h2>
+                        <h2>Mahapola Ineligibility Student List</h2>
                     </div>
 
                     <div class="">
@@ -31,7 +31,7 @@
                         </table>
                     </div>
                 
-                    <a href="mmViewMahapolaNominatedListV.php" ><button class="subbtn" type="submit" name="" >View Another</button></a>
+                    <a href="mmViewReportsMahapolaSchemeV.php" ><button class="subbtn" type="submit" name="" >View Another</button></a>
                     <a href="mmHomeV.php" ><button class="cancelbtn" type="submit" name="" >Exit</button></a>
                 
                 </div>
