@@ -26,16 +26,13 @@
 
         if(empty($errors)){
 
-            $department = mysqli_real_escape_string($connect, $_POST['department']);
             $health_condition = mysqli_real_escape_string($connect, $_POST['health_condition']);
             $civil_status = $_POST['civilstatus'];
             $scheme_name = mysqli_real_escape_string($connect, $_SESSION['scheme']);
             
             $result_one = memModel::updatememDetails($user_id, $health_condition,$civil_status,$scheme_name, $connect);
-            $result_two = memModel::updateScheme($user_id, $scheme_name, $connect);
             
-
-            if($result_one && $result_two){
+            if($result_one){
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
                 // echo "one";
             }

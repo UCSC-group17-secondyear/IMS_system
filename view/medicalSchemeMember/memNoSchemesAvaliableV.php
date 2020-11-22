@@ -3,19 +3,16 @@
 ?>
 
 <main>
-    <title>Add a Hall</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddHallV.php">Add Hall</a></li>
-            <li class="active">Action was success!</li>
+            <li><a href="memHomeV.php">Home</a></li>
+            <li class="active">Request Failed!</li>
         </ul>
-    
+
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'aSideNavV.php';
+                    require 'memSideNavV.php';
                 ?>
             </div>
 
@@ -25,20 +22,18 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The Hall is added successfully!</h2>
+                        <h2>Sorry!
+                            There are no schemes available in the system.
+                        </h2>
                     </div>
 
-                    <button class="subbtn" type="submit">
-                        <a href="../../controller/aViewHallController.php">Halls list</a>
-                    </button>
-                    <button class="cancelbtn" type="submit">
-                        <a href="aHomeV.php">Leave</a>
+                    <button class="mainbtn">
+                        <a href="memHomeV.php">Leave</a> 
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    
 </main>
 
 <?php
