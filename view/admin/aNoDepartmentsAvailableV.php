@@ -3,15 +3,12 @@
 ?>
 
 <main>
-    <title>Add a Department</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddDepartmentV.php">Add Department</a></li>
-            <li class="active">Action was success!</li>
+            <li class="active">Request Failed!</li>
         </ul>
-    
+
         <div class="row">
             <div class="col left20">
                 <?php
@@ -25,20 +22,21 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The Department is added successfully!</h2>
+                        <h2>Sorry!
+                            There are no departments available in the system.
+                        </h2>
                     </div>
 
-                    <button class="subbtn" type="submit">
-                        <a href="../../controller/aViewDepartmentController.php">Departments list</a>
+                    <button class="subbtn">
+                        <a href="aAddDepartmentV.php">Add a department</a> 
                     </button>
-                    <button class="cancelbtn" type="submit">
-                        <a href="aHomeV.php">Exit</a>
+                    <button class="cancelbtn">
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    
 </main>
 
 <?php
