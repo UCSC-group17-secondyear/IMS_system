@@ -28,7 +28,7 @@
                         <form action="../../controller/memControllers/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId']?>&scheme_name=<?php echo $_SESSION['scheme_name']?>" method="POST">
                             <div class="row">
                                 <div class="col-25">
-                                    <label for=""></label>
+                                    <label for="">Select Scheme</label>
                                 </div>
                                 <div class="col-75">
                                     <select name="scheme_name" id="" required>
@@ -37,8 +37,12 @@
                                 </div>
                             </div>
 
-                            <button class="mainbtn" type="submit" name="submit-scheme">OK</button><br>
+                            <button class="subbtn" type="submit" name="submit-scheme">Submit</button>
+                            <button class="cancelbtn" type="submit" name="">
+                                <a href="memRenewMembershipV.php">Back</a>
+                            </button>
                         </form>
+                            
                     </div>
                 </div>
             </div>

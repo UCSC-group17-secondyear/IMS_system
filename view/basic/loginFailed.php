@@ -15,7 +15,7 @@
             </h2>
         </div>
         <button class="subbtn">
-            <a href="loginFailed.php">Try Again</a>
+            <a href="login.php">Try Again</a>
         </button>
         <button class="cancelbtn">
             <a href="homePageV.php">Exit</a>

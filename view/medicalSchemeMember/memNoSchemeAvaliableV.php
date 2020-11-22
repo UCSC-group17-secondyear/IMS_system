@@ -28,7 +28,7 @@
                             <a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">Back</a>
                         </button>
                         <button type="submit" class="cancelbtn">
-                            <a href="memHomeV.php">Leave</a>
+                            <a href="memHomeV.php">Exit</a>
                         </button>
                     </form>
                 </form>

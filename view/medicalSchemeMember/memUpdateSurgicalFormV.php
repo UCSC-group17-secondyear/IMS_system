@@ -236,6 +236,7 @@
                             </form>
 
                             <form >
+                                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                                 <button class="subbtn" type="submit" name="">
                                     <a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId']?>">View Claim Form List</a>
                                 </button>
@@ -245,7 +246,7 @@
                             </form>
                             
                         </div>
-                        <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+                        
                     </div>
                 </div>
             </div>
