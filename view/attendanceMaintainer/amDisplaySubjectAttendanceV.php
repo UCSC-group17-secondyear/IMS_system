@@ -12,7 +12,7 @@
         <li class="active">Subject-wise Attendance</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
                     require 'amSideNavV.php';
@@ -24,7 +24,7 @@
                     <h2>Subject-wise Attendance</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
                         <th>Student Index</th>
                         <th>Attendance</th>

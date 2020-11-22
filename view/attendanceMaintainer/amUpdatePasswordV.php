@@ -12,7 +12,7 @@
             <li class="active">Update Password</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
                     require '../attendanceMaintainer/amSideNavV.php';

@@ -21,7 +21,10 @@
                         <h2>Saved Successfully</h2>
                     </div>
                     <div class="contentForm">
-                        <a href="mmHomeV.php" ><button class="mainbtn" type="submit" name="" >OK</button></a><br>
+                        <a href="" ><button class="subbtn" type="submit" name="" >Add Another</button></a>
+                        <button type="submit" class="cancelbtn">
+                                <a href="mmHomeV.php">Exit</a>
+                        </button>
                     </div>
                 </div>
             </div>

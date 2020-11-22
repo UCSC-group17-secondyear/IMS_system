@@ -231,13 +231,14 @@
                                     <a href="memHomeV.php">Cancel</a>
                                 </button>
                                 
+                                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                             </form>    
                             <br>
                             <h2>Download the form to be filled by the surgeon and get if field before you fill the surgical
                                 hospitalization form.</h2><br>
                         </div>
                     </div>
-                    <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+                    
             </div>
         </div>
 

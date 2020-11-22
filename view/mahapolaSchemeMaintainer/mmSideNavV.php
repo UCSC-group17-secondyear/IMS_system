@@ -16,6 +16,11 @@
                     <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
                 </a>
             </li>
+            <li>
+                <a href="mmViewReportsMahapolaSchemeV.php">    
+                    <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
+                </a>
+            </li>
             <li><button class="tree_list">View Student Attendance Reports</button>
                 <ul class="tree_nest">
                     <button>

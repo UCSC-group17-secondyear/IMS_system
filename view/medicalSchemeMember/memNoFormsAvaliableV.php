@@ -23,7 +23,7 @@
                         <h2>No Forms Avaliable</h2>
                     </div>
 
-                    <button class="mainbtn">Leave</button>
+                    <button style="background-color:crimson" class="mainbtn">Exit</button>
                 </form>
             </div>
         </div>
