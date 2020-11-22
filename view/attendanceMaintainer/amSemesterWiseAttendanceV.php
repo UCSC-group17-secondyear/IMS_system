@@ -10,7 +10,7 @@
         <li class="active">Semester-wise Attendance</li>
     </ul>
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 4%;" >
         <div class="col left20">
             <?php
                 require 'amSideNavV.php';

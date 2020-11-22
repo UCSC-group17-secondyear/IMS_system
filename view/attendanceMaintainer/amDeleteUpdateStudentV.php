@@ -11,7 +11,7 @@
         <li class="active">Student Details</li>
     </ul>
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 1%;" >
         <div class="col left20">
             <?php
                 require 'amSideNavV.php';
@@ -22,7 +22,7 @@
             <div>
                 <h2>Student Details</h2>
             </div>
-            <div class="contentForm">
+            <div class="contentForm"  style="margin-bottom: 1%;" >
                 <form action="../../controller/amControllers/updateRemoveStdC.php" method="post">
                     <div class="row">
                         <div class="col-25">

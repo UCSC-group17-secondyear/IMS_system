@@ -11,7 +11,7 @@
             <li class="active">Students' Details</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
                     require 'amSideNavV.php';
@@ -23,7 +23,7 @@
                     <h2>Students' Details</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle" class="mytable" style="margin-left: 20%;" >
                     <tr>
                         <th>Index No</th>
                         <th>Registration Number</th>
