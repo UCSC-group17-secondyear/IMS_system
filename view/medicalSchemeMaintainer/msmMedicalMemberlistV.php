@@ -29,8 +29,8 @@
                         <th>Initials</th>
                         <th>Surname</th>
                         <th>Department</th>
-                        <th>Status</th>
-                        <th></th>
+                        <th>View</th>
+                        <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['member_info'] ?>
                 </table>
