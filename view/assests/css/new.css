@@ -1148,3 +1148,34 @@ img.avatar {
   visibility: visible;
   opacity: 1;
 }
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.greenbtn{
+  width: 30%;
+  background-color: greenyellow;
+  color: ivory;
+  font-size: 20px;
+  height: 36px;
+  margin-top: 25px;
+  border: 0px;
+  font-size: 18px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.redbtn{
+  width: 30%;
+  background-color: red;
+  color: ivory;
+  font-size: 20px;
+  height: 36px;
+  margin-top: 25px;
+  border: 0px;
+  font-size: 18px;
+  border: 0;
+  border-radius: 10px;
+}

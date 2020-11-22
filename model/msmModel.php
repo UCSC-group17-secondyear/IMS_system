@@ -38,7 +38,34 @@
 
 		public static function deleteMember($user_id , $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET is_deleted = 1 WHERE userId={$user_id} LIMIT 1";
+			$query = "UPDATE tbl_user_flag SET is_deleted = 1 WHERE user_id={$user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getmail($mem_user_id, $connect)
+		{
+			$query = "SELECT email FROM users WHERE userId={$mem_user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function requestaccept($mem_user_id, $connect)
+		{
+			$query = "UPDATE tbl_user_flag SET membership_status = 1 WHERE user_id={$mem_user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function requestdecline($mem_user_id, $connect)
+		{
+			$query = "UPDATE tbl_user_flag SET membership_status = 0 WHERE user_id={$mem_user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
