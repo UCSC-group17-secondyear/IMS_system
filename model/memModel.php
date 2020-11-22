@@ -146,15 +146,7 @@
 
 			return $result;
 		}
-
-		public static function getSchemes($connect){
-			$query = "SELECT * FROM tbl_medicalscheme WHERE is_deleted=0";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
+		
 		public static function getSchemeName($user_id, $connect){
 			$query = "SELECT schemename FROM tbl_user_flag WHERE user_id={$user_id}";
 
@@ -165,14 +157,6 @@
 
 		public static function updatememDetails($user_id, $health_condition, $civil_status, $scheme_name, $connect){
 			$query = "UPDATE tbl_user_flag SET healthcondition='{$health_condition}', civilstatus='{$civil_status}', schemename='{$scheme_name}' WHERE user_id={$user_id} ";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
-		public static function updateScheme($user_id, $scheme_name, $connect){
-			$query = "UPDATE tbl_user_flag SET schemename='{$scheme_name}' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -213,6 +197,49 @@
 
 		public static function getDependantName($user_id, $connect){
 			$query = "SELECT * FROM tbl_dependant WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function viewSchemes($connect) {
+			$query = "SELECT schemeName, maxRoomCharge, hospitalCharges, annualPremium, monthlyPremium, gvtNoPayingWard, gvtChildBirthCover, travelExpensesCover, annualLimit, consultantFee, investigationsCost, spectaclesCost, permanentStaff, contractStaff, temporaryStaff 
+			FROM tbl_medicalscheme 
+			WHERE is_deleted=0 
+			ORDER BY scheme_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function getMemType($user_id, $connect){
+			$query = "SELECT member_type FROM tbl_user_flag WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getPermanentSchemes($expMonth, $connect){
+			$query = "SELECT * FROM tbl_medicalscheme WHERE permanentStaff<=$expMonth";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getTemporarySchemes($expMonth, $connect){
+			$query = "SELECT * FROM tbl_medicalscheme WHERE temporaryStaff<=$expMonth";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getContractSchemes($expMonth, $connect){
+			$query = "SELECT * FROM tbl_medicalscheme WHERE contractStaff<=$expMonth";
 
 			$result = mysqli_query($connect, $query);
 

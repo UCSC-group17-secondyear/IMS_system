@@ -29,7 +29,7 @@
                         <h2>Change Scheme</h2>
                     </div>
                     
-                        <form action="../../controller/memControllers/checkExperienceYearController.php?user_id=<?php echo $_SESSION['userId']?>" method="POST">
+                        <form action="../../controller/memControllers/selectSchemeController.php?user_id=<?php echo $_SESSION['userId']?>" method="POST">
                             <button class="mainbtn" type="submit" name="yes-submit">Yes</button>
                         </form>
                       

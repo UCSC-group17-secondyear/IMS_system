@@ -8,7 +8,7 @@
             </li>
 
             <li>
-                <a href="memViewSchemeDetailsV.php">
+                <a href="../../controller/memControllers/viewSchemesController.php">
                     <button type="submit" class="tree_list">View Medical Scheme Details</button>
                 </a><br>
             </li>
