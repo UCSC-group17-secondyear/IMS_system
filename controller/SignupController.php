@@ -34,7 +34,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $id)))
 		{
 			$errors[] = "Username should be a string";
-			header('Location:../view/basic/userNameNotString.php');
+			header('Location:../view/basic/aUserNameNotString.php');
 			// echo "Username should be a string";
 			exit();
 		}
@@ -42,7 +42,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
 		{
 			$errors[] = "Initials should be a string";
-			header('Location:../view/basic/userNameNotString.php');
+			header('Location:../view/basic/aUserNameNotString.php');
 			// echo "Initials should be a string";
 			exit();
 		}
@@ -51,7 +51,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
 		{
 			$errors[] = "Initials should be a string";
-			header('Location:../view/basic/userNameNotString.php');
+			header('Location:../view/basic/aUserNameNotString.php');
 			// echo "Initials should be a string";
 			exit();
 		}
@@ -60,7 +60,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $name)))
 		{
 			$errors[] = "Surname should be a string";
-			header('Location:../view/basic/userNameNotString.php');
+			header('Location:../view/basic/aUserNameNotString.php');
 			// echo "Surname should be a string";
 			exit();
 		}
