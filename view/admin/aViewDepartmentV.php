@@ -26,9 +26,9 @@
                 <table id="tableStyle" class="mytable">
                     <tr>
                         <th>Department</th>
+                        <th>Abbriviation</th>
                         <th>Department Head</th>
                         <th>Department Head's Email</th>
-                        <th>Description</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>

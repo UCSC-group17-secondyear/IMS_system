@@ -17,9 +17,13 @@
                 $_SESSION['department'] = $result['department'];
                 $_SESSION['dept_head'] = $result['department_head'];
                 $_SESSION['dept_head_email'] = $result['department_head_email'];
-                $_SESSION['description'] = $result['description'];
+                $_SESSION['abbriviation'] = $result['department_abbriviation'];
 
                 header('Location:../view/admin/aUpdateDepartmentV.php');
+            }
+            else {
+                header('Location:../../view/admin/aQueryFailedV.php');
+                // echo "more than one row (duplicate scheme names)";
             }
         }
         else {
@@ -32,7 +36,7 @@
         $department = mysqli_real_escape_string($connect, $_POST['department']);
         $department_head = mysqli_real_escape_string($connect, $_POST['dept_head']);
         $department_head_email = mysqli_real_escape_string($connect, $_POST['dept_head_email']);
-        $description = mysqli_real_escape_string($connect, $_POST['description']);
+        $abbriviation = mysqli_real_escape_string($connect, $_POST['abbriviation']);
 
         $checkDept = Model::checkDeptThree($dept_id, $department, $connect);
 
@@ -40,7 +44,7 @@
             header('Location:../view/admin/aDepartmentExistsV.php');
         }
         else {
-            $result = Model::updateDepartment($dept_id, $department, $department_head, $department_head_email, $description, $connect);
+            $result = Model::updateDepartment($dept_id, $department, $department_head, $department_head_email, $abbriviation, $connect);
 
             if ($result) {
                 header('Location:../view/admin/aDepartmentUpdatedV.php');
@@ -63,7 +67,7 @@
                 $_SESSION['department'] = $result['department'];
                 $_SESSION['dept_head'] = $result['department_head'];
                 $_SESSION['dept_head_email'] = $result['department_head_email'];
-                $_SESSION['description'] = $result['description'];
+                $_SESSION['abbriviation'] = $result['department_abbriviation'];
 
                 header('Location:../view/admin/aUpdateDepartmentV.php');
             }

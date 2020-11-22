@@ -50,6 +50,14 @@
 			return $result_set;
 		}
 
+		public static function viewuf($user_id, $connect){
+			$query = "SELECT * FROM tbl_user_flag WHERE userId={$user_id} LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
 		public static function checkEmpidTwo($empid, $user_id, $connect)
 		{
 			$query = "SELECT * FROM users WHERE empid='{$empid}' AND userId!={$user_id} LIMIT 1";
@@ -288,6 +296,42 @@
 			return $result;
 		}
 
+		public static function isEmptyDept($connect)
+		{
+			$query = "SELECT COUNT(department_id) FROM tbl_department";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function isEmptyDesig($connect)
+		{
+			$query = "SELECT COUNT(designation_id) FROM tbl_designation";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function isEmptyHall($connect)
+		{
+			$query = "SELECT COUNT(hall_id) FROM tbl_hall";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function isEmptySem($connect)
+		{
+			$query = "SELECT COUNT(sem_id) FROM tbl_semester";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
 		public static function viewSemesters($connect) 
 		{
 			$query = "SELECT * FROM tbl_semester WHERE is_deleted=0 ORDER BY sem_id";
@@ -447,9 +491,9 @@
             return $result_set;
 		}
 
-		public static function enterDepartment($dept_name, $dept_head, $dept_head_email, $connect)
+		public static function enterDepartment($dept_name, $abbr, $dept_head, $dept_head_email, $connect)
 		{
-			$query = "INSERT INTO tbl_department (department, department_head, department_head_email) VALUES('$dept_name', '$dept_head', '$dept_head_email')";
+			$query = "INSERT INTO tbl_department (department, department_abbriviation, department_head, department_head_email) VALUES('$dept_name', '$abbr', '$dept_head', '$dept_head_email')";
 
 			$result = mysqli_query($connect, $query);
 
@@ -492,9 +536,9 @@
 			return $result_set;	
 		}
 		
-		public static function updateDepartment($dept_id, $department, $department_head, $department_head_email, $description, $connect)
+		public static function updateDepartment($dept_id, $department, $department_head, $department_head_email, $abbriviation, $connect)
 		{
-			$query = "UPDATE tbl_department SET department='{$department}', department_head='{$department_head}', department_head_email='{$department_head_email}', description='{$description}' WHERE department_id={$dept_id} LIMIT 1";
+			$query = "UPDATE tbl_department SET department='{$department}', department_head='{$department_head}', department_head_email='{$department_head_email}', department_abbriviation='{$abbriviation}' WHERE department_id={$dept_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

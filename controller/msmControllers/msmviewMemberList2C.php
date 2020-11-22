@@ -6,7 +6,7 @@
     if (isset($_POST['viewMemberList-submit'])) {
         $_SESSION['member_info'] = '';
         
-        $scheme = $_POST['schemename'];
+        $scheme = $_POST['scheme'];
         $member_type = $_POST['member_type'];
         $members = msmModel::fetchmembers($scheme, $member_type, $connect);
         
