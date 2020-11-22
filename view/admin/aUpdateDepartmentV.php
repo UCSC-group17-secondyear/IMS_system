@@ -34,6 +34,15 @@
                                 <input type="text" name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> required/><br>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Department Abbriviation</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="abbriviation" <?php echo 'value="'.$_SESSION['abbriviation'].'"' ?> required/><br>  
+                            </div>
+                        </div>
                             
                         <div class="row">
                             <div class="col-25">
@@ -50,15 +59,6 @@
                             </div>
                             <div class="col-75">
                                 <input type="text" name="dept_head_email" <?php echo 'value="'.$_SESSION['dept_head_email'].'"' ?> required/><br>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Description</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="description" <?php echo 'value="'.$_SESSION['description'].'"' ?> required/><br>  
                             </div>
                         </div>
                                              

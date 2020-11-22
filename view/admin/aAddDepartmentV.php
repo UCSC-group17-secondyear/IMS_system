@@ -36,6 +36,15 @@
 
                         <div class="row">
                             <div class="col-25">
+                              <label>Department Abbriviation</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="abbriviation" placeholder="Enter abbriviation" required/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
                               <label>Department Head</label>
                             </div>
                             <div class="col-75">
@@ -51,15 +60,6 @@
                                 <input type="text" name="dept_head_email" placeholder="Enter department head's email" required/>
                             </div>
                         </div>
-
-                        <!-- <div class="row">
-                            <div class="col-25">
-                              <label>Description</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="description" placeholder="Enter description" required/>
-                            </div>
-                        </div> -->
                         <button class="subbtn" type="submit" name="addDepartment-submit">Add Department</button>
                         <button class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>
