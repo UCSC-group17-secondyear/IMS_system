@@ -1,8 +1,4 @@
 <?php
-	include_once('../config/database.php');
-?>
-
-<?php
 
 	class memModel {
 		public static function scheme($connect)

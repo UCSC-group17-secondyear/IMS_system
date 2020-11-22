@@ -7,7 +7,7 @@
         <li><a href="amHomeV.php">Home</a></li>
         <li class="active">Update or Delete Students</li>
     </ul>
-    <div class="row">
+    <div class="row" style="margin-bottom: 4%;" >
         <div class="col left20">
             <?php
                 require 'amSideNavV.php';

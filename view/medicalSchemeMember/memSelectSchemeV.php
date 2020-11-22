@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-75">
                                     <select name="scheme_name" id="" required>
-                                        <option value=""><?php echo $_SESSION['scheme_name'] ?></option>
+                                        <option value=""><?php echo $_SESSION['schemeName'] ?></option>
                                     </select>
                                 </div>
                             </div>
