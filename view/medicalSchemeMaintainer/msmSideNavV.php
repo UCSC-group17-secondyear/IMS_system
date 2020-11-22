@@ -19,7 +19,7 @@
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/msmControllers/msmRemoveMembersC.php"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
+                        <a href="msmViewMembershipFormsV.php"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
                     </button>
                     <button>
                         <a href="msmViewRequestedClaimFormV.php"><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>

@@ -4,7 +4,6 @@
     require_once('../../model/Model.php');
 
     $user_id = mysqli_real_escape_string($connect, $_GET['mem_index']);
-    $mem_user_id = mysqli_real_escape_string($connect, $_GET['viewed_member']);
     $result_set = Model::view($user_id, $connect);
     $records = Model::viewuf($user_id, $connect);
 
@@ -27,37 +26,4 @@
             header('Location:../../view/medicalSchemeMaintainer/msmViewMemberDetailsV.php');
         } 
     }
-
-    if (isset($_POST['approvemf-submit'])) {
-        $result = msmModel::requestaccept($mem_user_id, $connect);
-
-        if ($result) {
-            $to_email = $_SESSION['email'];
-            $subject = "Membership Acceptance";
-            $body =  "Your request for the membership of Medical scheme have been accepted.";
-            $headers = "From: ims.ucsc@gmail.com";
-
-            $sendMail = mail($to_email, $subject, $body, $headers);
-            echo "Your membership request has been sent for the approval. You will be inform about the approval later. Thank you.";
-        } else {
-            echo "Failed result";
-        }
-    }
-
-    if (isset($_POST['declinemf-submit'])) {
-        $result = msmModel::requestdecline($_SESSION['user_id'], $connect);
-
-        if ($result) {
-            $to_email = $_SESSION['email'];
-            $subject = "Membership Declination";
-            $body =  "Your request for the membership of Medical scheme have been declined because the mentioned department is wrong. Try again.";
-            $headers = "From: ims.ucsc@gmail.com";
-
-            $sendMail = mail($to_email, $subject, $body, $headers);
-            echo "Your membership request has been sent for the approval. You will be inform about the approval later. Thank you.";
-        } else {
-            echo "Failed result";
-        }
-    } 
-
 ?>

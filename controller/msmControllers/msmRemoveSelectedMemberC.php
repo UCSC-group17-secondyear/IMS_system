@@ -3,17 +3,17 @@
     require_once('../../config/database.php');
     require_once('../../model/msmModel.php');
 
-    if (isset($_GET['user_id'])) {
+    if (isset($_GET['mem_delete'])) {
         
-        $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
+        $delete_user_id = mysqli_real_escape_string($connect, $_GET['mem_delete']);
 
-        $result = msmModel::deleteMember($user_id , $connect);
+        $result = msmModel::deleteMember($delete_user_id , $connect);
 
         if ($result) {
-            header('Location: userListController.php?msg=user_deleted');
+            header('Location:../../view/medicalSchemeMaintainer/msmDeletedSuccesV.php');
         }
         else {
-            header('Location: userListController.php?err=delete_failed');
+            header('Location:../../view/medicalSchemeMaintainer/msmDeletedUnsuccesV.php');
         }
     } else{
         echo "User id is not passed to controller.";
