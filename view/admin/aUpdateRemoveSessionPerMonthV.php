@@ -3,8 +3,6 @@
 ?>
 
 <main>
-    <title>Update or Remove a monthly session</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
