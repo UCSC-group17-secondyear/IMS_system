@@ -201,14 +201,19 @@
                                     <input type="text" name="nature_of" <?php echo 'value="'.$_SESSION['nature_of'].'"' ?> disabled> <br>
                                 </div>
                             </div>
+
+                            <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                             </form>
                             
-                            <button class="mainbtn" type="submit" name="">
+                            <button class="subbtn" type="submit" name="">
                                 <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
+                            </button>
+                            <button class="cancelbtn" type="submit" name="">
+                                <a href="memHomeV.php">Exit</a>
                             </button>
                             
                         </div>
-                        <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+                        
                     </div> 
             </div>
         </div>

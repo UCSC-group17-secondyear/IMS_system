@@ -27,8 +27,8 @@
                         </h2>
                     </div>
 
-                    <button class="mainbtn">
-                        <a href="memHomeV.php">Leave</a> 
+                    <button style="background-color:crimson"  class="mainbtn">
+                        <a href="memHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
