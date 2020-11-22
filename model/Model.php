@@ -894,7 +894,7 @@
 
 		public static function scheme($connect)
 		{
-			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
+			$query = "SELECT schemeName FROM tbl_medicalscheme WHERE is_deleted=0";
 			
 			$result_set = mysqli_query($connect, $query);
 			
