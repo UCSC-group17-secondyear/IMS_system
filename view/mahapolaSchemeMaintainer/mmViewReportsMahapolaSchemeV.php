@@ -70,8 +70,10 @@
                                 </div>
                             </div>
 
-                            <button class="mainbtn" type="view-submit" name="" >Display Report</button></a><br>
+                            <!-- <button class="mainbtn" type="view-submit" name="" >Display Report</button></a><br> -->
                         </form>
+                        <a href="" ><button class="subbtn" type="submit" name="display-report" >Display Report</button></a>
+                        <a href="mmHomeV.php" ><button class="cancelbtn" type="submit" name="" >Exit</button></a>
                     </div>
                 </div>
         </div>
