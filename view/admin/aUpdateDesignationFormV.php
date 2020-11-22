@@ -41,14 +41,14 @@
                         <button class="subbtn" type="submit" name="updateDesignation">Update Designation</button>
                         <button class="cancelbtn" type="submit" name="deleteDesignation" onclick="return confirm('Are you sure?');">Delete Designation</button>
                     </form>
-                    <form>
+                    <!-- <form>
                         <button type="submit" class="subbtn">
                             <a href="../../controller/aViewDesignationController.php">View current departments</a>
                         </button>
                         <button type="submit" class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>
                         </button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>
