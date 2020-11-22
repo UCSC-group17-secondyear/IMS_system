@@ -59,7 +59,10 @@
                                 </div>
                             </div>
 
-                            <button class="mainbtn" type="submit" name="update-submit">Update Details</button>
+                            <button class="subbtn" type="submit" name="update-submit">Update Details</button>
+                            <button type="submit" class="cancelbtn">
+                                <a href="memHomeV.php">Cancel</a>
+                            </button>
                         </form> 
                     </div>
                 </div>
