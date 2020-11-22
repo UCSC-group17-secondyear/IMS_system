@@ -11,13 +11,28 @@
         $result_set = memModel::checkClaimFormNo($claim_form_no, $user_id, $connect);
         $result_opd = memModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
         $result_surgical = memModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
+        $result_set = memModel::viewMember($user_id, $connect);
+        $name = mysqli_fetch_array($result_set);
+        $f_count = $form_count[0];
+        $initials = $name[2];
+        $sname = $name[3];
+
+        $dependants = memModel::getDependantName($user_id, $connect);
+        $_SESSION['dependant_name'] = '';
 
                 if(mysqli_num_rows($result_opd)==1){
-                                
+                                        
                     $result_one = mysqli_fetch_assoc($result_opd);
 
                     $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
                     $_SESSION['patient_name'] = $result_one['patient_name'];
+                    $_SESSION['dependant_name']  = "<option value='".$initials.' '.$sname."'>".$initials.' '.$sname."</option>";
+
+                    while ($dependant = mysqli_fetch_array($dependants)) {
+                        $_SESSION['dependant_name'] .= "<option value='".$dependant['dependant_name']."'>".$dependant['dependant_name']."</option>";
+                        
+                    }
+
                     $_SESSION['relationship'] = $result_one['relationship'];
                     $_SESSION['doctor_name'] = $result_one['doctor_name'];
                     $_SESSION['treatment_received_date'] = $result_one['treatment_received_date'];
@@ -30,11 +45,18 @@
                 }
 
                 if(mysqli_num_rows($result_surgical)==1){
-                    
+
                     $result_one = mysqli_fetch_assoc($result_surgical);
 
                     $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
                     $_SESSION['patient_name'] = $result_one['patient_name'];
+                    $_SESSION['dependant_name']  = "<option value='".$initials.' '.$sname."'>".$initials.' '.$sname."</option>";
+
+                    while ($dependant = mysqli_fetch_array($dependants)) {
+                        $_SESSION['dependant_name'] .= "<option value='".$dependant['dependant_name']."'>".$dependant['dependant_name']."</option>";
+                        
+                    }
+
                     $_SESSION['address'] = $result_one['address'];
                     $_SESSION['relationship'] = $result_one['relationship'];
                     $_SESSION['accident_date'] = $result_one['accident_date'];

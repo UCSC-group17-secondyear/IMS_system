@@ -54,9 +54,9 @@
             }
         }
 
-        else{
-            $_SESSION['user_id'] = $user_id;
-            header('Location:../../view/medicalSchemeMember/memClaimFormListV.php');
+        if(mysqli_num_rows($result_surgical)==0 && mysqli_num_rows($result_opd)==0){
+            
+            header('Location:../../view/medicalSchemeMember/memNoFormsAvaliableV.php');
         }
  
 ?>
