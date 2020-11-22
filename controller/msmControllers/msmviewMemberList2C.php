@@ -17,8 +17,8 @@
                 $_SESSION['member_info'] .= "<td>{$mem['initials']}</td>";
                 $_SESSION['member_info'] .= "<td>{$mem['sname']}</td>";
                 $_SESSION['member_info'] .= "<td>{$mem['department']}</td>";
-                $_SESSION['member_info'] .= "<td><a href=\"../msmviewMemberList3C.php?mem_index={$mem['user_id']}\">View</a></td>";
-                $_SESSION['member_info'] .= "<td><a href=\"../msmDeleteMemberC.php?mem_index={$mem['user_id']}\">Delete</a></td>";
+                $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmControllers/msmviewMemberList3C.php?mem_index={$mem['userId']}\">View</a></td>";
+                $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmControllers/msmRemoveSelectedMemberC.php?mem_delete={$mem['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
                 $_SESSION['member_info'] .= "</tr>";
 
                 header('Location:../../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');

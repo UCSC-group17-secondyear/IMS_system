@@ -43,7 +43,7 @@
 
 		public static function view($user_id, $connect)
 		{
-			$query = "SELECT * FROM users WHERE userId={$user_id} LIMIT 1";
+			$query = "SELECT * FROM users WHERE userId='{$user_id}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -51,7 +51,7 @@
 		}
 
 		public static function viewuf($user_id, $connect){
-			$query = "SELECT * FROM tbl_user_flag WHERE userId={$user_id} LIMIT 1";
+			$query = "SELECT * FROM tbl_user_flag WHERE user_id='{$user_id}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
