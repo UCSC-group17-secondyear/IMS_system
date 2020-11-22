@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="mmNominatedListV.php" method="POST">
+                        <form action="../../controller/mmControllers/mahapolaNominatedListController.php" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Batch No</label>
