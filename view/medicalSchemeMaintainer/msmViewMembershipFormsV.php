@@ -29,7 +29,7 @@
                                 <label for="">Enter Employee ID</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Claim Form..." name="claim_form_no">
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Membership Form..." name="membership_form_empid">
                             </div>
                         </div>
                     </form>
@@ -39,10 +39,14 @@
                         <th id="">Employee ID</th>
                         <th>Initials</th>
                         <th>Surname</th>
-                        <th>Status</th>
+                        <th>Department</th>
+                        <th>Health Condition</th>
+                        <th>Civil Status</th>
                         <th>Submission Date</th>
+                        <th>Form Status</th>
                         <th>View</th>
                     </tr>
+                    <?php echo $_SESSION['memberships'] ?>
                 </table>
             </div>
         </div>
@@ -59,14 +63,14 @@
 
             // Loop through all table rows, and hide those who don't match the search query
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
+                td = tr[i].getElementsByTagName("td")[0];
                 if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
                 }
             }
         }

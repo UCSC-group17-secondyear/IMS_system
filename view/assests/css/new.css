@@ -978,6 +978,14 @@ img.avatar {
   text-align: center;
 }
 
+#tableStyle td .green {
+  background-color: greenyellow;
+}
+
+#tableStyle td .red {
+  background-color: red;
+}
+
 .modal {
   display: none; /* Hidden by default */
   z-index: -1;

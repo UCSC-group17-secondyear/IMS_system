@@ -71,5 +71,14 @@
 
 			return $result;
 		}
+
+		public static function fetchmemberships($connect)
+		{
+			$query = "SELECT u.*, uf.* FROM users u, tbl_user_flag uf WHERE u.userId = uf.User_id AND NOT uf.form_submission_date = 'NULL' ORDER BY u.userId;";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
     }
 ?>
