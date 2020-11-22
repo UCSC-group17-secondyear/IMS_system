@@ -32,8 +32,8 @@
                                 </div>
                                 <div class="col-75">
                                     <select name="patient_name" id="" required>
-                                        <!-- <option value=""><?php echo $_SESSION['myself'] ?></option> -->
-                                        <option value=""><?php echo $_SESSION['dependant_name'] ?></option> 
+                                        <option value="">Select Name</option>
+                                        <?php echo $_SESSION['dependant_name'] ?> 
                                     </select>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                     <label for="">Scanned copy of bill</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="file" name="file" required>
+                                    <input type="file" accept=".jpg, .png, .jpeg, .pdf" name="file" required>
                                 </div>
                             </div>
 

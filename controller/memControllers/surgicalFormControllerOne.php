@@ -19,14 +19,14 @@
 
     $dependants = memModel::getDependantName($user_id, $connect);
     $_SESSION['dependant_name'] = '';
-    //$_SESSION['myself'] = '';
 
     if ($result_set) {
         if(mysqli_num_rows($result_set)==1){
             $_SESSION['claim_form_no'] = $f_count + 1;
-            //$_SESSION['myself']  = $initials.' '.$sname;
+            $_SESSION['dependant_name']  = "<option value='".$initials.' '.$sname."'>".$initials.' '.$sname."</option>";
 
             while ($dependant = mysqli_fetch_array($dependants)) {
+                
                 $_SESSION['dependant_name'] .= "<option value='".$dependant['dependant_name']."'>".$dependant['dependant_name']."</option>";
                 
             }
