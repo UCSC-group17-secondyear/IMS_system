@@ -44,7 +44,10 @@
                                 </div>
                             </div>
 
-                            <button class="mainbtn" type="submit" name="mahapola-mark-submit" >Display Student's Details</button></a><br>
+                            <button class="subbtn" type="submit" name="mahapola-mark-submit" >Display Student's Details</button></a>
+                            <button type="submit" class="cancelbtn">
+                                <a href="mmHomeV.php">Cancel</a>
+                            </button>
                         </form>
                     </div>
                 </div>

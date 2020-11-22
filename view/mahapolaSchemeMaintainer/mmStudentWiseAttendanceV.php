@@ -96,3 +96,7 @@
         </div>
     </div>
 </main>
+
+<?php
+    require_once('../basic/footer.php');
+?>
