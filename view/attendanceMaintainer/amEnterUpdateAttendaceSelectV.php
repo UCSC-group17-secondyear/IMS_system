@@ -8,7 +8,7 @@
         <li class="active">Enter or Update Attendance</li>
     </ul>
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 4%;" >
         <div class="col left20">
             <?php
                 require 'amSideNavV.php';
@@ -56,6 +56,20 @@
                             <input type="text" name="subject" placeholder="Subject"> <br>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Mark absent/present</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="mark" required>
+                                <option></option>
+                                <option value="absent" >Mark absent</option>
+                                <option value="present" >Mark present</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <button class="subbtn" type="submit" name="select-submit">
                         <a href="amEnterAttendaceV.php">Mark Attendance</a>
                     </button>
