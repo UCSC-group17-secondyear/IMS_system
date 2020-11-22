@@ -38,7 +38,7 @@
 
                 <table id="tableStyle">
                     <tr>
-                        <th id="">S/O</th>
+                        <th id="">OPD/Surgical</th>
                         <th id="">Claim Form No</th>
                         <th id="">Submitted Date</th>
                         <th id="">Update</th>

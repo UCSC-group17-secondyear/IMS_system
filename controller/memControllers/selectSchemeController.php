@@ -26,7 +26,7 @@
                 
                 $schemes = memModel::getPermanentSchemes($expMonth, $connect);
                 
-                if ($schemes) {
+                if (mysqli_num_rows($schemes)>0) {
                     while ($scheme = mysqli_fetch_array($schemes)) {
                         $_SESSION['schemeName'] .= "<option value='".$scheme['schemeName']."'>".$scheme['schemeName']."</option>";
                         
@@ -44,9 +44,10 @@
             elseif($type == 'Temporary'){
                 
                 $schemes = memModel::getTemporarySchemes($expMonth, $connect);
-                if ($schemes) {
+
+                if (mysqli_num_rows($schemes)>0) {
                     while ($scheme = mysqli_fetch_array($schemes)) {
-                        $_SESSION['scheme_name'] .= "<option value='".$scheme['schemeName']."'>".$scheme['schemeName']."</option>";
+                        $_SESSION['schemeName'] .= "<option value='".$scheme['schemeName']."'>".$scheme['schemeName']."</option>";
                         
                     }
     
@@ -62,9 +63,10 @@
             elseif($type == 'Contract'){
                
                 $schemes = memModel::getContractSchemes($expMonth, $connect);
-                if ($schemes) {
+                
+                if (mysqli_num_rows($schemes)>0) {
                     while ($scheme = mysqli_fetch_array($schemes)) {
-                        $_SESSION['scheme_name'] .= "<option value='".$scheme['schemeName']."'>".$scheme['schemeName']."</option>";
+                        $_SESSION['schemeName'] .= "<option value='".$scheme['schemeName']."'>".$scheme['schemeName']."</option>";
                         
                     }
     
