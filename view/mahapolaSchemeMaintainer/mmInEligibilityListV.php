@@ -7,10 +7,10 @@
         <div class="sansserif">
             <ul class="breadcrumbs">
                 <li><a href="mmHomeV.php">Home</a></li>
-                <li class="active">Mahapola Ineligibility List</li>
+                <li class="active">Mahapola Eligibility List</li>
             </ul>
         
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
                         require('mmSideNavV.php');

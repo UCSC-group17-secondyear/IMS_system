@@ -12,7 +12,7 @@
             <li class="active">Action Failed!</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
             <div class="col left20">
                 <?php
                     require 'memSideNavV.php';

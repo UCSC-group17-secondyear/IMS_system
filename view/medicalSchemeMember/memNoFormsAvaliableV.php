@@ -10,7 +10,7 @@
                 <li><a href="memHomeV.php">Home</a></li>
             </ul>
         
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
             <div class="col left20">
                 <?php 
                     require('memSideNavV.php');

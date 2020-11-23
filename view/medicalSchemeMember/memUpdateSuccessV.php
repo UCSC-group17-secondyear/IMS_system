@@ -11,7 +11,7 @@
                         <li><a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">Renew Membership</a></li>
                         <li class="active">Update Success</li>
                     </ul>
-            <div class="row">    
+            <div class="row" style="margin-bottom: 5%;">    
 
                 <div class="col left20">
                     <?php 

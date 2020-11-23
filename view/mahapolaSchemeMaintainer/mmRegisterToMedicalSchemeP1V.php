@@ -11,7 +11,7 @@
             <li class="active">Register to the medical scheme - Part 1</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;">
             <div class="col left20">
                 <?php
                     require 'mmSideNavV.php';

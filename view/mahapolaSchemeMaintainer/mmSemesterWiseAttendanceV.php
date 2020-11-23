@@ -10,7 +10,7 @@
             <li><a href="mmHomeV.php">Home</a></li>
             <li class="active">View Semester-wise Attendance</li>
         </ul>
-        <div class="row">
+        <div class="row" style="margin-bottom: 4.5%;">
             <div class="col left20">
                 <?php
                     require 'mmSideNavV.php';
@@ -22,7 +22,7 @@
                     <h2>View Semester-wise Attendance</h2>
                 </div>
 
-                <div class="contentForm">
+                <div class="contentForm" style="margin-bottom: 1%;">
                     <div class="row">
                     <form action="mmSemesterWiseAttendanceV.php" method="post">
                         <div class="row">
