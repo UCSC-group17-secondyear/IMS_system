@@ -23,7 +23,7 @@
                     <h2>View Member Details</h2>
                 </div>
                 <div class="contentForm">
-                    <form action="../../controller/msmControllers/msmviewMemberList4C.php?viewed_member=<?php echo $_SESSION['userId'] ?>" method="post">
+                    <form action="../../controller/msmControllers/msmMembershipForms3C.php?viewed_member=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Employee Id</label>
@@ -101,11 +101,11 @@
                             <?php
                                 if($_SESSION['acceptance_status'] == 0){
                             ?>
-                                <button type="submit" class="greenbtn" disabled><a class="disabled">Declined</a></button>
+                                <button type="submit" class="redbtn" disabled><a class="disabled">Declined</a></button>
                             <?php
                                 } else {
                             ?>
-                                <button type="submit" class="redbtn" disabled><a class="disabled">Approved</a></button>
+                                <button type="submit" class="greenbtn" disabled><a class="disabled">Approved</a></button>
                             <?php
                                 }
                             ?>

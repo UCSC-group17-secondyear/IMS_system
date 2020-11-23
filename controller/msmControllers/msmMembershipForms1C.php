@@ -18,7 +18,7 @@
                 $_SESSION['memberships'] .= "<td>{$mem['civilstatus']}</td>";
                 $_SESSION['memberships'] .= "<td>{$mem['form_submission_date']}</td>";
                 $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
-                $_SESSION['memberships'] .= "<td><a href=\"../../controller/msmControllers/msmviewMemberList3C.php?mem_index={$mem['userId']}\">View</a></td>";
+                $_SESSION['memberships'] .= "<td><a href=\"../../controller/msmControllers/msmMembershipForms2C.php?mem_index={$mem['userId']}\">View</a></td>";
                 $_SESSION['memberships'] .= "</tr>";
     
                 header('Location:../../view/medicalSchemeMaintainer/msmViewMembershipFormsV.php');
@@ -34,7 +34,7 @@
                 $_SESSION['memberships'] .= "<td>{$mem['civilstatus']}</td>";
                 $_SESSION['memberships'] .= "<td>{$mem['form_submission_date']}</td>";
                 $_SESSION['memberships'] .= "<td><a class=\"red\">Declined</a></td>";
-                $_SESSION['memberships'] .= "<td><a href=\"../../controller/msmControllers/msmviewMemberList3C.php?mem_index={$mem['userId']}\">View</a></td>";
+                $_SESSION['memberships'] .= "<td><a href=\"../../controller/msmControllers/msmMembershipForms2C.php?mem_index={$mem['userId']}\">View</a></td>";
                 $_SESSION['memberships'] .= "</tr>";
     
                 header('Location:../../view/medicalSchemeMaintainer/msmViewMembershipFormsV.php');
