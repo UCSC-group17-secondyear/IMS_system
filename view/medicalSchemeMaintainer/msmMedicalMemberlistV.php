@@ -29,7 +29,8 @@
                         <th>Initials</th>
                         <th>Surname</th>
                         <th>Department</th>
-                        <th>View</th>
+                        <th>Health Condition</th>
+                        <th>Civil Status</th>
                         <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['member_info'] ?>
