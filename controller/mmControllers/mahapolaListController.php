@@ -9,7 +9,7 @@
 
         if(isset($_POST['display-report'])){
 
-            $reportType = mysqli_escape_string($connect,$_GET['reporttype']);
+            $reportType = mysqli_escape_string($connect,$_POST['reporttype']);
 
             if($reportType =='monthlyEligibiltyList'){
 

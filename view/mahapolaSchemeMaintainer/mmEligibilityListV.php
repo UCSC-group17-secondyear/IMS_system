@@ -10,7 +10,7 @@
                 <li class="active">Mahapola Eligibility List</li>
             </ul>
         
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
                         require('mmSideNavV.php');
@@ -19,7 +19,7 @@
 
                 <div class="col right80">
                     <div>
-                        <h2>Mahapola Ineligibility Student List</h2>
+                        <h2>Mahapola Eligibility Student List</h2>
                     </div>
 
                     <div class="">

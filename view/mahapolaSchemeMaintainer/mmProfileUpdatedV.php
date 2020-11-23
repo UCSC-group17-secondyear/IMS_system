@@ -12,7 +12,7 @@
             <li class="active">Action was success!</li>
         </ul>
     
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
             <div class="col left20">
                 <?php
                     require 'mmSideNavV.php';
@@ -29,7 +29,7 @@
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Try Again</a>
+                        <a href="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="mmHomeV.php">Leave</a>

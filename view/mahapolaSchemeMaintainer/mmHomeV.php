@@ -10,7 +10,7 @@
                 <li class="active">Mahapola Scheme Maintainer Page</li>
             </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
             <div class="column left">
                 <?php 
                 require('mmSideNavV.php');
