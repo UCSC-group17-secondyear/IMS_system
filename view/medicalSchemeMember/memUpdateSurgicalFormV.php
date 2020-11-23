@@ -19,13 +19,13 @@
                     ?>
                 </div>
 
-                <div class="row">
+                <div class="row" style="margin-bottom: 4%;">
                     <div class="col right80">
                         <div>
                             <h2>Surgical Claim Details</h2>
                         </div>
 
-                        <div class="contentForm">
+                        <div class="contentForm" style="margin-bottom: 1%;">
                             <form action="../../controller/memControllers/updateSurgicalFormController.php?user_id=<?php echo $_SESSION['userId'] ?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
                             
                             <div class="row">

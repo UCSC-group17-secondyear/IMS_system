@@ -8,9 +8,10 @@
         
             <ul class="breadcrumbs">
                 <li><a href="memHomeV.php">Home</a></li>
+                <li class="active">Claim Form Deleted</li>
             </ul>
         
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;">
             <div class="col left20">
                 <?php 
                     require('memSideNavV.php');

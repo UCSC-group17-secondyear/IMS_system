@@ -12,7 +12,7 @@
             <li class="active">Action Failed!</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
             <div class="col left20">
                 <?php
                     require 'mmSideNavV.php';
@@ -25,8 +25,7 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
-                            The Password you entered did not get updated.
+                        <h2>Password Updated Successfully.
                         </h2>
                     </div>
 

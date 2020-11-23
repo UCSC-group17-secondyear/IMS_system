@@ -10,7 +10,7 @@
             <li class="active">Medical Scheme Member Page</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;">
             <div class="column left">
                 <?php
                     require 'memSideNavV.php';

@@ -10,7 +10,7 @@
                 <li class="active">Mahapola Nominated List</li>
             </ul>
         
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
                         require('mmSideNavV.php');

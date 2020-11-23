@@ -12,7 +12,7 @@
             <li class="active">Update Password</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
             <div class="col left20">
                 <?php
                     require 'mmSideNavV.php';
@@ -46,7 +46,7 @@
 
                         <button type="submit" name="submit" class="subbtn">Save Password</button>
                         <button type="submit" class="cancelbtn">
-                            <a href="mmHome.php">Cancel</a>
+                            <a href="mmHomeV.php">Cancel</a>
                         </button>
                     </form>
                 </div>

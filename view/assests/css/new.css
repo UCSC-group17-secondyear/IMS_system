@@ -56,7 +56,7 @@ ul.breadcrumbs {
     list-style: none;
     background-color: white;
     border-radius: 10px;
-    /*box-shadow: 4px 4px 4px grey;*/
+    box-shadow: 4px 4px 4px grey;
     overflow: hidden;
     padding: 10px 16px;
     /*width: 100%;
@@ -624,7 +624,7 @@ ul, #tree-view {
   height: auto;
   /*box-shadow: 4px 0px grey;*/
   padding-top: 10px;
-  border-style: solid;
+  /*border-style: solid;*/
   border-color: #065b7a;
 }
 
@@ -634,6 +634,7 @@ ul, #tree-view {
 
 .middle {
   width: 60%;
+  border-style: solid;
 }
 
 .middle h2 {
@@ -703,7 +704,7 @@ img.avatar {
   /*box-shadow: 4px 0px grey;*/
   padding-top: 10px;
   border-color: #065b7a;
-  border-style: solid;
+  /*border-style: solid;*/
 }
 
 .left20 {
@@ -712,6 +713,7 @@ img.avatar {
 
 .right80 {
   width: 85%;
+  border-style: solid;
 }
 
 .right80 h2 {
