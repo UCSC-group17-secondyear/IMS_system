@@ -981,7 +981,7 @@ img.avatar {
 }
 
 #tableStyle td .green {
-  background-color: greenyellow;
+  background-color: green;
 }
 
 #tableStyle td .red {
@@ -1166,7 +1166,7 @@ a.disabled {
 
 .greenbtn{
   width: 30%;
-  background-color: greenyellow;
+  background-color: green;
   color: ivory;
   font-size: 20px;
   height: 36px;

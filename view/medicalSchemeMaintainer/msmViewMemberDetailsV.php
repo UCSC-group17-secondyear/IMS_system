@@ -8,6 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
+            <li><a href="../../controller/msmControllers/msmMembershipForms2C.php?user_id=<?php echo $_SESSION['userId'] ?>">View Membership Forms</a></li>
             <li class="active">View Member Details</li>
         </ul>
 

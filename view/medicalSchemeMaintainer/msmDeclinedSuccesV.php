@@ -22,11 +22,11 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The membership is declined successfully!</h2>
+                        <h2>The Membership is declined successfully!</h2>
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/msmControllers/msmviewMemberList1C.php">View Another List</a>
+                        <a href="../../controller/msmControllers/msmMembershipForms1C.php">Decline Another</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="msmHomeV.php">Exit</a>
