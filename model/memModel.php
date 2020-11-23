@@ -241,5 +241,13 @@
 
 			return $result;
 		}
+
+		public static function getMemStatus($user_id, $connect){
+			$query = "SELECT membership_status FROM tbl_user_flag WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 	}
 ?>

@@ -5,7 +5,7 @@
 
     $_SESSION['scheme_list'] = '';
 
-    $records = memModel::viewSchemes($connect);
+    $records = mmModel::viewSchemes($connect);
 
     if ($records) {
         while ($record = mysqli_fetch_assoc($records)) {

@@ -22,7 +22,7 @@
                     <h2>View Subject-wise Attendance</h2>
                 </div>
 
-                <div class="contentForm">
+                <div class="contentForm" style="margin-bottom: 1%;">
                     <form action="" method="POST">
                     <div class="row">
                     <form action="mmSubjectWiseAttendanceV.php" method="post">

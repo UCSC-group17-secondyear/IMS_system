@@ -12,7 +12,7 @@
                             <li class="active">Surgical Claim Details</li>
                         </ul>
                     
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                     <div class="col left20">
                         <?php 
                             require('memSideNavV.php');
@@ -24,7 +24,7 @@
                             <h2>Surgical Claim Details</h2>
                         </div>
 
-                        <div class="contentForm">
+                        <div class="contentForm" style="margin-bottom: 1%;">
                             <form action="" method="post" enctype="multipart/form-data">
                             
                             <div class="row">
