@@ -11,7 +11,7 @@
                     <li class="active">Update Claim Form</li>
                 </ul>
             
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;">
             <div class="col left20">
                 <?php 
                     require('memSideNavV.php');
@@ -38,7 +38,7 @@
 
                 <table id="tableStyle">
                     <tr>
-                        <th id="">S/O</th>
+                        <th id="">OPD/Surgical</th>
                         <th id="">Claim Form No</th>
                         <th id="">Submitted Date</th>
                         <th id="">Update</th>

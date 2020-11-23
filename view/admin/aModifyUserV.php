@@ -26,7 +26,7 @@
                 <form action="../../controller/aUpdateProfileController.php?user_id_Two=<?php echo $_SESSION['userIdTwo'] ?>&oldMail=<?php echo $_SESSION['email'] ?>" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label for="">Employee Id</label>
+                            <label for="">User name</label>
                         </div>
                         <div class="col-75">
                             <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> required> <br>
@@ -98,8 +98,7 @@
 							<div class="col-75">
 								<select name="post" required>
 									<option value="<?php echo $_SESSION['post'] ?>"><?php echo $_SESSION['post'] ?></option>
-									<option value="post1">Post 1</option>
-									<option value="post2">Post 2</option>
+                                    <?php echo $_SESSION['posts'] ?>
 								</select>
 							</div>
 						</div>

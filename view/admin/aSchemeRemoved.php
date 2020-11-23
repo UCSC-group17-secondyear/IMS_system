@@ -7,7 +7,7 @@
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li><a href="aRemoveSchemeV.php">Remove Scheme</a></li>
-            <li class="active">Action Failed!</li>
+            <li class="active">Action Completed!</li>
         </ul>
 
         <div class="row">

@@ -19,13 +19,13 @@
                     ?>
                 </div>
 
-                <div class="row">
+                <div class="row" style="margin-bottom: 4%;">
                     <div class="col right80">
                         <div>
                             <h2>Surgical Claim Details</h2>
                         </div>
 
-                        <div class="contentForm">
+                        <div class="contentForm" style="margin-bottom: 1%;">
                             <form action="../../controller/memControllers/updateSurgicalFormController.php?user_id=<?php echo $_SESSION['userId'] ?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
                             
                             <div class="row">
@@ -42,7 +42,10 @@
                                     <label for="">Patient Name No</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="patient_name" <?php echo 'value="'.$_SESSION['patient_name'].'"' ?> required> <br>
+                                    <select name="patient_name" id="" required>
+                                        <option value="<?php echo $_SESSION['patient_name'] ?>"><?php echo $_SESSION['patient_name'] ?></option>
+                                        <?php echo $_SESSION['dependant_name'] ?> 
+                                    </select>                                
                                 </div>
                             </div>
 
@@ -224,7 +227,7 @@
                                     <label for="">Scanned copy of bill</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="file" name="file" required>
+                                    <input type="file" accept=".jpg, .png, .jpeg, .pdf" name="file" required>
                                 </div>
                             </div>
 
@@ -233,6 +236,7 @@
                             </form>
 
                             <form >
+                                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                                 <button class="subbtn" type="submit" name="">
                                     <a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId']?>">View Claim Form List</a>
                                 </button>
@@ -242,7 +246,7 @@
                             </form>
                             
                         </div>
-                        <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+                        
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@
                             <li class="active">Surgical Hospitalization Form</li>
                         </ul>
                    
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                     <div class="col left20">
                         <?php 
                             require('memSideNavV.php');
@@ -24,7 +24,7 @@
                             <h2>Surgical Hospitalization Form</h2>
                         </div>
                         
-                        <div class="contentForm">
+                        <div class="contentForm" style="margin-bottom: 1%;">
                             <form action="../../controller/memControllers/surgicalFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
                              
                             <div class="row">
@@ -32,7 +32,10 @@
                                     <label for="">Enter Patient's Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="patient_name" required> <br>
+                                    <select name="patient_name" id="" required>
+                                        <option value="">Select Name</option>
+                                        <?php echo $_SESSION['dependant_name'] ?> 
+                                    </select>
                                 </div>
                             </div>
 
@@ -213,7 +216,7 @@
                                     <label for="">Scanned copy of bill</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="file" name="file" required>
+                                    <input type="file" accept=".jpg, .png, .jpeg, .pdf" name="file" required>
                                 </div>
                             </div>
 
@@ -228,13 +231,14 @@
                                     <a href="memHomeV.php">Cancel</a>
                                 </button>
                                 
+                                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                             </form>    
                             <br>
                             <h2>Download the form to be filled by the surgeon and get if field before you fill the surgical
                                 hospitalization form.</h2><br>
                         </div>
                     </div>
-                    <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+                    
             </div>
         </div>
 

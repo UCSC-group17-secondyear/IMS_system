@@ -15,10 +15,10 @@
             }
 		}
 
-		$empid = mysqli_real_escape_string($connect, $_POST['empid']);
+		$EmpId = mysqli_real_escape_string($connect, $_POST['empid']);
 		$initials = mysqli_real_escape_string($connect, $_POST['initials']);
 		$sname = mysqli_real_escape_string($connect, $_POST['sname']);
-		$email = mysqli_real_escape_string($connect, $_POST['email']);
+		$Email = mysqli_real_escape_string($connect, $_POST['email']);
 		$mobile = mysqli_real_escape_string($connect, $_POST['mobile']);
 		$tp = mysqli_real_escape_string($connect, $_POST['tp']);
 		$dob = mysqli_real_escape_string($connect, $_POST['dob']);
@@ -30,17 +30,91 @@
 		$conpassword = mysqli_real_escape_string($connect, $_POST['conpassword']);
 		$hashed_password = sha1($password);
 
-		if ($password != $conpassword) 
+		$id = str_replace(' ', '', $EmpId);
+		if (!(preg_match('/^[A-Za-z]+$/', $id)))
 		{
-			header("Location: signupForm.php?error=passwordConfirmationFailed&empid=".$empid."&initials=".$initials."&sname=".$sname."&email=".$email."&mobile=".$mobile."&tp=".$tp."&dob=".$dob."&designation=".$designation."&appointment=".$appointment);
+			$errors[] = "Username should be a string";
+			header('Location:../view/basic/aUserNameNotString.php');
+			// echo "Username should be a string";
 			exit();
 		}
 
-		// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
-		// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-		if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',$password))){
-			$errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
-			echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
+		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
+		{
+			$errors[] = "Initials should be a string";
+			header('Location:../view/basic/aUserNameNotString.php');
+			// echo "Initials should be a string";
+			exit();
+		}
+
+		$ini = str_replace(' ', '', $initials);
+		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
+		{
+			$errors[] = "Initials should be a string";
+			header('Location:../view/basic/aUserNameNotString.php');
+			// echo "Initials should be a string";
+			exit();
+		}
+
+		$name = str_replace(' ', '', $sname);
+		if (!(preg_match('/^[A-Za-z]+$/', $name)))
+		{
+			$errors[] = "Surname should be a string";
+			header('Location:../view/basic/aUserNameNotString.php');
+			// echo "Surname should be a string";
+			exit();
+		}
+
+		$empid = strtolower($EmpId);
+		$email = strtolower($Email);
+		
+		$firstNumbs = substr($email, 0, -15);
+		$lastMail = substr($email, 3);
+
+		if ($lastMail != "@ucsc.cmb.ac.lk") {
+			$errors[] = "University mail incorrect.";
+			header('Location:../view/basic/uniMailIncorrect.php');
+			// echo "University mail is incorrect.";
+			exit();
+		}
+
+		if ($firstNumbs != $empid) {
+			$errors[] = "Username is incorrect.";
+			header('Location:../view/basic/userNameIncorrect.php');
+			// echo "Username is incorrect.";
+			exit();
+		}
+
+		if ($password != $conpassword) 
+		{
+			$errors[] = "Password and confirm password are not equal.";
+			header('Location:../view/basic/pwdCpwdNotMatching.php');
+			// echo "Password and confirm password are not equal.";
+			exit();
+		}
+
+		if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
+		{
+			$errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
+			header('Location:../view/basic/mobilePhoneIncorrect.php');
+			// echo "Mobile number is incorrect. The mobile number should have only ten digits.";
+			exit();
+		}
+
+		if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
+		{
+			$errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
+			header('Location:../view/basic/mobilePhoneIncorrect.php');
+			// echo "Telephone number is incorrect. The telephone number should have only ten digits.";
+			exit();
+		}
+
+		if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/',$password)))
+		{
+			$errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
+			header('Location:../view/basic/pwdVerificationFailed.php');
+			// echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
+			exit();
 		}
 
 		$checkEmpid = Model::checkEmpid($empid, $connect);
@@ -48,7 +122,8 @@
 		if (mysqli_num_rows($checkEmpid) == 1) 
 		{
 			$errors[] = 'Employee id already exists.';
-			echo "Employee id already exists.";
+			header('Location:../view/basic/userNameExist.php');
+			// echo "Employee id already exists.";
 		}
 
 		if (empty($errors)) 
@@ -74,24 +149,38 @@
 							$asm_flag = 1;
 						}
 						$result3 = Model::setRole($user_id, $asm_flag, $connect);
-						header('Location:../view/basic/login.php');
+						header('Location:../view/basic/signupSuccess.php');
+						// header('Location:../view/basic/login.php');
 					}
+					else {
+						header('Location:../view/basic/signupFailed.php');
+					}
+				}
+				else {
+					header('Location:../view/basic/signupFailed.php');
 				}
             }
             else 
             {
-                echo 'Failed to add the user.';
+                header('Location:../view/basic/signupFailed.php');
+                // echo 'Failed to add the user.';
             }
 		}
 	}
 
 	if (isset($_GET['desig'])) {
 		$_SESSION['design'] = '';
+		$_SESSION['posts'] = '';
 		$records = Model::designation($connect);
+		$records2 = Model::getPost($connect);
 
-		if ($records) {
+		if ($records && $records2) {
 			while ($record = mysqli_fetch_array($records)) {
                 $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+			}
+
+			while ($record2 = mysqli_fetch_array($records2)) {
+                $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
 			}
 			
 			header('Location:../view/basic/signup.php');

@@ -10,7 +10,7 @@
                 <li class="active">Student Details</li>
             </ul>
             
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
                         require('mmSideNavV.php');
@@ -22,7 +22,7 @@
                         <h2>Student Details</h2>
                     </div>
 
-                    <div class="contentForm">
+                    <div class="contentForm" style="margin-bottom: 1%;">
                         <form action="../../controller/mmControllers/markMahapolaStuDetailsController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
                             <div class="row">
                                 <div class="col-25">
@@ -109,7 +109,10 @@
                                         
                                 </div>
 
-                                <button class="mainbtn" type="submit" name="mark-submit" >Save</button></a><br>
+                                <button class="subbtn" type="submit" name="mark-submit" >Save</button></a>
+                                <button type="submit" class="cancelbtn">
+                                    <a href="mmHomeV.php">Cancel</a>
+                                </button>
                         </form> 
                     </div>
                 </div>

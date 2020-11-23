@@ -9,7 +9,7 @@
         <li><a href="amHomeV.php">Home</a></li>
         <li class="active">Batch-wise Attendance</li>
     </ul>
-    <div class="row">
+    <div class="row" style="margin-bottom: 4%;" >
         <div class="col left20">
             <?php
                 require 'amSideNavV.php';
@@ -27,7 +27,7 @@
                             <label>Enter Batch Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" name="batch_number" placeholder="Batch Number" required/> <br>
+                            <input type="number" name="batch_number" placeholder="Batch Number" min="0" required/> <br>
                         </div>
                     </div>
 

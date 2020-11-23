@@ -12,7 +12,7 @@
                         <li class="active">Claim Details</li>
                     </ul>
                 
-            <div class="row">
+            <div class="row"  style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
                         require('memSideNavV.php');
@@ -62,9 +62,12 @@
                                 </div>
                             </div> 
                         </form>
-                        
-                        <button class="mainbtn" type="submit" name="">
-                            <a href="memHomeV.php">OK</a>
+                    
+                        <button class="subbtn" type="submit" name="">
+                                <a href="memGetClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">View Another</a>
+                        </button>
+                        <button class="cancelbtn" type="submit" name="">
+                                <a href="memHomeV.php">Exit</a>
                         </button>
                     </div>
                 </div>

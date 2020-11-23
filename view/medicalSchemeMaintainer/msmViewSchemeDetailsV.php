@@ -24,7 +24,7 @@
                         <h2>Scheme Details</h2>
                     </div>
 
-                    <table id="tableStyle" class="mytable">
+                    <table id="tableStyle" class="mytable" style="margin-left: -5px;">
                         <tr>
                             <th>Scheme Name</th>
                             <th>Maximum Room Charge</th>

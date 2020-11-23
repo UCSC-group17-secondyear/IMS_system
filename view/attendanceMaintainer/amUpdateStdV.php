@@ -10,7 +10,7 @@
         <!-- <li><a href="aUsersV.php">Students table</a></li> -->
         <li class="active">Modify Students</li>
     </ul>
-    <div class="row">
+    <div class="row" style="margin-bottom: 4%;" >
         <div class="col left20">
             <?php
                 require 'amSideNavV.php';
@@ -28,7 +28,7 @@
                             <label>Student Index</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="index_no" <?php echo 'value="'.$_SESSION['index_no'].'"' ?> required /> <br>
+                            <input type="text" name="index_no" <?php echo 'value="'.$_SESSION['index_no'].'"' ?> required min="0" /> <br>
                         </div>
                     </div>
                     <div class="row">

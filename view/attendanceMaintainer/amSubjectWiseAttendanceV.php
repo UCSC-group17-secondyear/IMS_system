@@ -10,7 +10,7 @@
         <li class="active">Subject-wise Attendance</li>
     </ul>
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 4%;" >
         <div class="col left20">
             <?php
                 require 'amSideNavV.php';
@@ -37,7 +37,7 @@
                             <label>Batch Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="batch_number" placeholder="Batch Numbe" required/> <br>
+                            <input type="text" name="batch_number" placeholder="Batch Numbe" min="0" required/> <br>
                         </div>
                     </div>
 

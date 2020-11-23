@@ -23,7 +23,7 @@
                     <h2>Designation Details</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
                         <th>Designation</th>
                         <th>Description</th>

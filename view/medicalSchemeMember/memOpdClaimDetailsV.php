@@ -11,7 +11,7 @@
                     <li><a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
                     <li class="active">OPD claim Details</li>
                 </ul>
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;">
             <div class="col left20">
                 <?php 
                     require('memSideNavV.php');
@@ -23,7 +23,7 @@
                     <h2>OPD Claim Details</h2>
                 </div>
 
-                <div class="contentForm">
+                <div class="contentForm" style="margin-bottom: 1%;">
                         <form action="" method="post" enctype="multipart/form-data">
                         
                         <div class="row">
@@ -100,8 +100,11 @@
                             
                         </form>
                         
-                        <button class="mainbtn" type="submit" name="">
+                        <button class="subbtn" type="submit" name="">
                             <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
+                        </button>
+                        <button class="cancelbtn" type="submit" name="">
+                            <a href="memHomeV.php">Exit</a>
                         </button>
                 </div>
             </div>

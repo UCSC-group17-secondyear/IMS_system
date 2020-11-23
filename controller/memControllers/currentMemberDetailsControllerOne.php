@@ -69,32 +69,32 @@
             }
         }
 
-        if(isset($_POST['ok-submit'])){
+        // if(isset($_POST['ok-submit'])){
             
-            $user_id = mysqli_real_escape_string($connect, $_SESSION['userId']);
-            $result_set = memModel::getMeidcalMemDetails($user_id, $connect);
-            $result_one = memModel::getMeidcalMemDetailsOne($user_id, $connect);
+        //     $user_id = mysqli_real_escape_string($connect, $_SESSION['userId']);
+        //     $result_set = memModel::getMeidcalMemDetails($user_id, $connect);
+        //     $result_one = memModel::getMeidcalMemDetailsOne($user_id, $connect);
             
-            if ($result_set && $result_one) {
-                if(mysqli_num_rows($result_set)==1){
+        //     if ($result_set && $result_one) {
+        //         if(mysqli_num_rows($result_set)==1){
 
-                    //$result = mysqli_fetch_assoc($result_set);
-                    $result_two = mysqli_fetch_assoc($result_one);
+        //             //$result = mysqli_fetch_assoc($result_set);
+        //             $result_two = mysqli_fetch_assoc($result_one);
                     
-                    $_SESSION['health_condition'] = $result_two['healthcondition'];
-                    $_SESSION['civilstatus'] = $result_two['civilstatus'];
-                    $_SESSION['scheme'] = 'scheme 3';
+        //             $_SESSION['health_condition'] = $result_two['healthcondition'];
+        //             $_SESSION['civilstatus'] = $result_two['civilstatus'];
+        //             $_SESSION['scheme'] = 'Scheme 3';
                     
-                    header('Location:../../view/medicalSchemeMember/memCurrentMemberDetailsV.php');
+        //             header('Location:../../view/medicalSchemeMember/memCurrentMemberDetailsV.php');
                     
-                }
-                else{
-                    echo "User not Found!";
-                }
-            }
-            else{
-                echo "Query Unsuccessful";
-            }
-        }
+        //         }
+        //         else{
+        //             echo "User not Found!";
+        //         }
+        //     }
+        //     else{
+        //         echo "Query Unsuccessful";
+        //     }
+        // }
 
 ?>

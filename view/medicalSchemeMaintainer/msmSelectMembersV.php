@@ -24,13 +24,13 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/msmviewMemberListTwoC.php" method="POST">
+                    <form action="../../controller/msmControllers/msmviewMemberList2C.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                                 <label>Medical Scheme Type</label>
                             </div>
                             <div class="col-75">
-                                <select name="schemename" id="schemename" required>
+                                <select name="scheme" id="scheme" required>
                                     <option value="">Select Scheme</option>
                                     <?php echo $_SESSION['scheme'] ?>
                                 </select>

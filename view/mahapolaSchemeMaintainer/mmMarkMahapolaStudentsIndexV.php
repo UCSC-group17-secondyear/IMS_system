@@ -10,7 +10,7 @@
                 <li class="active">Mark Mahapola Selected Students</li>
             </ul>
 
-            <div class="row">
+            <div class="row" style="margin-bottom: 6%;">
                 <div class="col left20">
                     <?php 
                     require('mmSideNavV.php');
@@ -24,6 +24,7 @@
 
                     <div class="contentForm">
                     <form action="../../controller/mmControllers/stuMahapolaDetailsIndexController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                    <h2>Search by Student Index</h2><br>
                         <div class="row">
                             <div class="col-25">
                                 <label for="">Search by Student Index</label><br>
@@ -33,7 +34,10 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="mahapola-mark-submit" >Display Student's Details</button></a><br>
+                        <button class="subbtn" type="submit" name="mahapola-mark-submit" >Display Student's Details</button>
+                        <button type="submit" class="cancelbtn">
+                                <a href="mmHomeV.php">Cancel</a>
+                        </button>
                     </form>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
             <li class="active">Mahapola Nominated List</li>
         </ul>
             
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;">
             <div class="col left20">
                 <?php 
                     require('mmSideNavV.php');
@@ -47,7 +47,10 @@
                                 </div>
                             </div>
                     
-                            <button class="mainbtn" type="submit" name="display-list" >Display Student List</button></a><br>
+                            <button class="subbtn" type="submit" name="display-list" >Display Student List</button></a>
+                            <button type="submit" class="cancelbtn">
+                                <a href="mmHomeV.php">Cancel</a>
+                            </button>
                         </form>
                     </div>
             </div>

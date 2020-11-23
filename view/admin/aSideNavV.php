@@ -59,6 +59,24 @@
                 </ul>
             </li>
 
+            <li><button class="tree_list">Manage Posts</button>
+                <ul class="tree_nest">
+                    <form action="../../controller/adminControllers/managePostsC.php" method="post">
+                        <button name="viwePostDetails-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-user"></i>View Posts</li></a>
+                        </button>
+                    </form>
+                        <button>
+                            <a href="aAddPostV.php"><li><i class="fa fa-plus-circle"></i>Add a Post</li></a>
+                        </button>
+                    <form action="../../controller/adminControllers/managePostsC.php" method="post">
+                        <button name="viwePostList-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-trash"></i>Remove a Post</li></a>
+                        </button>
+                    </form>
+                </ul>
+            </li>
+
             <!-- <li><button class="tree_list">Manage Posts</button>
                 <ul class="tree_nest">
                     <button>
@@ -81,9 +99,12 @@
                     <button>
                         <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>
                     </button>
-                    <button>
-                        <a href="aRemoveUpdateDegreeV.php"><li><i class="fa fa-pencil-square"></i>Update or remove a degree</li></a>
-                    </button>
+                    <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
+                        <button name="getDegree-submit" type="submit">
+                            <a href="#">
+                                <li><i class="fa fa-pencil-square"></i>Update or remove degrees</li></a>
+                        </button>
+                    </form>
                 </ul>
             </li>
 
@@ -118,7 +139,7 @@
                     <form action="../../controller/adminControllers/manageSessionsC.php" method="post">
                         <button name="getTypeSIdeNave-submit" >
                             <a href="aRemoveSessionTypeV.php">
-                                <li><i class="fa fa-pencil-square"></i>Remove Session types</li>
+                                <li><i class="fa fa-trash"></i>Remove Session types</li>
                             </a>
                         </button>
                     </form>
@@ -140,9 +161,13 @@
                         </button>
                     </form>
 
-                    <button>
-                        <a href="aUpdateRemoveSessionPerMonthV.php"><li><i class="fa fa-pencil-square"></i>Update or remove monthly sessions</li></a>
-                    </button>
+                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
+                        <button name="sessionTypesList-submit">
+                            <a href="aUpdateRemoveSessionPerMonthV.php">
+                                <li><i class="fa fa-pencil-square"></i>Update or remove monthly sessions</li>
+                            </a>
+                        </button>
+                    </form>
                 </ul>
             </li>
             

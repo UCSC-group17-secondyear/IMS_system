@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddDegreeV.php">Add User role</a></li>
+            <li><a href="aAddDegreeV.php">Add Degree</a></li>
             <li class="active">Action Success!</li>
         </ul>
 
@@ -31,7 +31,7 @@
                         <a href="aAddDegreeV.php">Add another</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Leave</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

@@ -9,7 +9,7 @@
             <li class="active">Subject Details</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
                     require 'amSideNavV.php';
@@ -21,7 +21,7 @@
                     <h2>Subject Details</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable">
+                <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
                         <th>Subject Code</th>
                         <th>Subject Name</th>

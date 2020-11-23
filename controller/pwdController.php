@@ -27,9 +27,18 @@
             header('Location:../view/basic/checkRandNumV.php');
           }
           else {
-            echo "mail has not been sent!";
+            header('Location:../view/basic/mailNotSentV.php');
+            // echo "mail has not been sent!";
           }
         }
+        else {
+            header('Location:../view/basic/userNameInCorrectV.php');
+            // echo "query failed";
+        }
+      }
+      else {
+          header('Location:../view/basic/queryFailedV.php');
+          // echo "query failed";
       }
     }
 
@@ -44,7 +53,8 @@
               // include '../view/basic/resetPwdV.php';
         }
         else {
-            echo "Sorry. The number you entered is incorrect!";
+          header('Location:../view/basic/codeIncorrectV.php');
+            // echo "Sorry. The number you entered is incorrect!";
         }
     }
 
@@ -54,6 +64,12 @@
         $uname = $_SESSION['uname'];
          //echo $uname;
 
+        if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/',$pwd))){
+            $errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
+            header('Location:../view/basic/passwordNotSafeV.php');
+			      // echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
+		    }
+
         if ($pwd==$conpwd) {
             $hashed_pwd = sha1($pwd);
             $res = Model::updatePassword($uname, $hashed_pwd, $connect);
@@ -61,8 +77,13 @@
                 echo "Your password has been reset successfully!";
             }
             else {
-                  echo "Password has not been reset!";
+                  header('Location:../view/basic/queryFailedTwoV.php');
+                  // echo "Password has not been reset!";
               }
           }
+    }
+
+    else {
+      echo "button was not clicked";
     }
 ?>

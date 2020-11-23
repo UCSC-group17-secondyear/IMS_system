@@ -19,7 +19,7 @@
                 ?>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                 <div class="col right80">
                     <div>
                         <h2>Current Member Details</h2>
@@ -28,7 +28,7 @@
                     <div class="contentForm">
                         <form action="../../controller/memControllers/currentMemberDetailsControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                             
-                            <div class="row">
+                            <div class="row" >
                                 <div class="col-25">
                                     <label>Health condition</label>
                                 </div>
@@ -59,7 +59,10 @@
                                 </div>
                             </div>
 
-                            <button class="mainbtn" type="submit" name="update-submit">Update Details</button>
+                            <button class="subbtn" type="submit" name="update-submit">Update Details</button>
+                            <button type="submit" class="cancelbtn">
+                                <a href="memHomeV.php">Cancel</a>
+                            </button>
                         </form> 
                     </div>
                 </div>

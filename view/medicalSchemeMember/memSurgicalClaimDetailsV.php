@@ -12,7 +12,7 @@
                             <li class="active">Surgical Claim Details</li>
                         </ul>
                     
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                     <div class="col left20">
                         <?php 
                             require('memSideNavV.php');
@@ -24,7 +24,7 @@
                             <h2>Surgical Claim Details</h2>
                         </div>
 
-                        <div class="contentForm">
+                        <div class="contentForm" style="margin-bottom: 1%;">
                             <form action="" method="post" enctype="multipart/form-data">
                             
                             <div class="row">
@@ -201,14 +201,19 @@
                                     <input type="text" name="nature_of" <?php echo 'value="'.$_SESSION['nature_of'].'"' ?> disabled> <br>
                                 </div>
                             </div>
+
+                            <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                             </form>
                             
-                            <button class="mainbtn" type="submit" name="">
+                            <button class="subbtn" type="submit" name="">
                                 <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
+                            </button>
+                            <button class="cancelbtn" type="submit" name="">
+                                <a href="memHomeV.php">Exit</a>
                             </button>
                             
                         </div>
-                        <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+                        
                     </div> 
             </div>
         </div>

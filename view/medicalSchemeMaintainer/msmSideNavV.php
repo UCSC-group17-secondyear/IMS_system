@@ -1,15 +1,15 @@
 <main>
     <div class="sansserif">
         <ul id="tree_view">
-            <li>
-                <a href="../../controller/msmviewMemberListC.php">
-                    <button type="submit" class="tree_list">View Medical Member List</button>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <button type="submit" class="tree_list">Remove Member</button>
-                </a>
+            <li><button class="tree_list">Manage Members</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="../../controller/msmControllers/msmviewMemberList1C.php"><li><i class="fa fa-users"></i> View Medical Member List</li></a>
+                    </button>
+                    <button>
+                        <a href="../../controller/msmControllers/msmRemoveMembersC.php"><li><i class="fa fa-user-times"></i> Remove Member</li></a>
+                    </button>
+                </ul>
             </li>
             <li>
                 <a href="msmViewClaimDetailsV.php">
@@ -19,13 +19,13 @@
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="msmViewMembershipFormsV.php" name="membership-submit"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
+                        <a href="../../controller/msmControllers/msmMembershipForms1C.php"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
                     </button>
                     <button>
-                        <a href="msmViewRequestedClaimFormV.php" name="requestedClaim-submit"><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
+                        <a href="msmViewRequestedClaimFormV.php"><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
                     </button>
                     <button>
-                        <a href="msmViewRefferedCLaimFormsV.php" name="refferedClaim-submit"><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
+                        <a href="msmViewRefferedCLaimFormsV.php"><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
                     </button>
                 </ul>
             </li>

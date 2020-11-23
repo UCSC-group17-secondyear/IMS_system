@@ -12,7 +12,7 @@
                         <li class="active">Update OPD Form</li>
                     </ul>
                 
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                     <div class="col left20">
                         <?php 
                             require('../medicalSchemeMember/memSideNavV.php');
@@ -24,7 +24,7 @@
                             <h2>OPD Claim Details</h2>
                         </div>
 
-                        <div class="contentForm">
+                        <div class="contentForm" style="margin-bottom: 1%;">
                             <form action="../../controller/memControllers/updateOpdFormController.php?user_id=<?php echo $_SESSION['userId']?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
                              
                             <div class="row">
@@ -41,7 +41,10 @@
                                     <label for="">Patient Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="patient_name" <?php echo 'value="'.$_SESSION['patient_name'].'"'?> required> <br>
+                                    <select name="patient_name" id="" required>
+                                        <option value="<?php echo $_SESSION['patient_name'] ?>"><?php echo $_SESSION['patient_name'] ?></option>
+                                        <?php echo $_SESSION['dependant_name'] ?> 
+                                    </select>             
                                 </div>
                             </div>
 
@@ -102,7 +105,7 @@
                                     <label for="">Bill Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="bill_amount" <?php echo 'value="'.$_SESSION['bill_amount'].'"'?> required> <br>
+                                    <input type="number" name="bill_amount" <?php echo 'value="'.$_SESSION['bill_amount'].'"'?> min="0" required> <br>
                                 </div>
                             </div>
 
@@ -111,7 +114,7 @@
                                     <label for="">Scanned copy of bill</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="file" name="file" required>
+                                    <input type="file" accept=".jpg, .png, .jpeg, .pdf" name="file" required>
                                 </div>
                             </div>
 

@@ -10,7 +10,7 @@
             <li class="active">Action Success!</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
                     require 'amSideNavV.php';
@@ -31,7 +31,7 @@
                         <a href="amEnterStudentDetailsV.php">Add another student</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Leave</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

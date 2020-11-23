@@ -17,7 +17,7 @@
     <div class="sansserif">
         <header>
             <div class="topnav">
-                    <img src="../assests/img/cover.png" alt="" style="width: 16%; margin-left: 3px; margin-top:1px">
+                    <img src="../assests/img/cover_final.png" alt="" style="width: 16%; margin-left: 3px; margin-top:1px">
                     <?php
     					if (isset($_SESSION['userId'])) {
     						echo '<a href="../../controller/logoutController.php"><i class="fa fa-user-circle-o"></i>Log Out</a>';

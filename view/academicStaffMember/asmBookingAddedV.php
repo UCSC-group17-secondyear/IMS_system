@@ -32,7 +32,7 @@
                         <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a>
                     </button>
                     <button class="cancelbtn" type="submit">
-                        <a href="aHomeV.php">Leave</a>
+                        <a href="asmHomeV.php">Leave</a>
                     </button>
                 </div>
             </div>

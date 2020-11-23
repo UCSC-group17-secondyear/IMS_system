@@ -8,10 +8,10 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="mmHomeV.php">Home</a></li>
-            <li class="active">Medical Scheme Details</li>
+            <li class="active">View Medical Scheme Details</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;">
             <div class="col left20">
                 <?php
                     require 'mmSideNavV.php';
@@ -41,7 +41,7 @@
                         <th>Contract Staff (required service period)</th>
                         <th>Temporary Staff (required service period)</th>
                     </tr>
-                    
+                    <?php echo $_SESSION['scheme_list']; ?>
                 </table>
             </div>
         </div>

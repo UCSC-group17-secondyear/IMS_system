@@ -10,7 +10,7 @@
                 <li class="active">Mark Mahapola Selected Students</li>
             </ul>
             
-            <div class="row">
+            <div class="row" style="margin-bottom: 6%;">
                 <div class="col left20">
                     <?php 
                         require('mmSideNavV.php');
@@ -44,7 +44,10 @@
                                 </div>
                             </div>
 
-                            <button class="mainbtn" type="submit" name="mahapola-mark-submit" >Display Student's Details</button></a><br>
+                            <button class="subbtn" type="submit" name="mahapola-mark-submit" >Display Student's Details</button></a>
+                            <button type="submit" class="cancelbtn">
+                                <a href="mmHomeV.php">Cancel</a>
+                            </button>
                         </form>
                     </div>
                 </div>

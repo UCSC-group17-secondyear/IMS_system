@@ -3,8 +3,6 @@
 ?>
 
 <main>
-    <title>Update or Remove a monthly session</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
@@ -83,7 +81,7 @@
                     </form>
 
                 </div>
-                <div id="myModal" class="modal">
+                <!-- <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h1>Are you sure you want to remove the session assign to the subject?</h1>
@@ -97,10 +95,10 @@
                     <div class="modal-content">
                         <span class="subclose">&times;</span>
                         <?php
-                            require 'aSubjectsPopupV.php';
+                            // require 'aSubjectsPopupV.php';
                         ?>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

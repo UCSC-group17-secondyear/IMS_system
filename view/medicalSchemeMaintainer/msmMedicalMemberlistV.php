@@ -28,8 +28,10 @@
                         <th>Employee ID</th>
                         <th>Initials</th>
                         <th>Surname</th>
-                        <th>Status</th>
-                        <th></th>
+                        <th>Department</th>
+                        <th>Health Condition</th>
+                        <th>Civil Status</th>
+                        <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['member_info'] ?>
                 </table>

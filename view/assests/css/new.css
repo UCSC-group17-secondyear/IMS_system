@@ -45,11 +45,17 @@ body {
   color: white;
 }
 
+a.disabled {
+  pointer-events: none;
+  cursor: none;
+}
+
 /*-----------------------------Breadcrumbs-----------------------------*/
 
 ul.breadcrumbs {
     list-style: none;
     background-color: white;
+    border-radius: 10px;
     box-shadow: 4px 4px 4px grey;
     overflow: hidden;
     padding: 10px 16px;
@@ -71,31 +77,32 @@ ul.breadcrumbs li+li:before {
 }
 
 ul.breadcrumbs li a {
-    overflow: hidden;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    opacity: 0.7;
+  overflow: hidden;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  opacity: 0.7;
 }
 
 ul.breadcrumbs li.active {
-    overflow: hidden;
-    color: #065b7a;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  overflow: hidden;
+  color: #065b7a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 ul.breadcrumbs li a:hover {
-    overflow: hidden;
-    color: #4CAF50;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    background-color: #065b7a;
-    color: white;
-    font-weight: bold;
+  overflow: hidden;
+  color: #4CAF50;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #065b7a;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
 }
 
 /*-----------------------------Footer-----------------------------*/
@@ -111,7 +118,7 @@ ul.breadcrumbs li a:hover {
     z-index: -2;
     width: 100%;
     padding-top: 15px;
-    height: 10%;
+    height: 94px;
     border-top: 3px solid grey;
     /* margin-top: 35px; */
     margin-bottom: auto;
@@ -119,24 +126,40 @@ ul.breadcrumbs li a:hover {
 
 /*-----------------------------Home Page Image-----------------------------*/
 .home_image {
-  background-image: url("../img/bg_image.jpg");
+  background-image: url("../img/bg_final.jpg");
   background-color: #065b7a;
   /*opacity: 0.7;*/
-  height: 610px;
+  height: 710px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  margin-bottom: 30px;
+  /* margin-bottom: 12px; */
 }
 
 .heading {
-  padding-top: 20%;
-  padding-left: 40%;
+  padding-top: 12%;
+  padding-left: 3%;
+  padding-right: 3%;
   padding-bottom: 7%;
   color: white;
   font-size: 24px;
-  background: rgba(0, 0, 0, 0.5);
+  height: 710px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.heading h2, h3{
+  text-align: center;
+}
+
+.heading button{
+  margin-left: 39%;
+}
+
+.heading img{
+  height: 100px;
+  padding: 5px 5px 2px 5px;
+  margin-left: 45%;
 }
 
 .loginbtn {
@@ -173,6 +196,16 @@ ul.breadcrumbs li a:hover {
   /*opacity: 0.5;*/
 }
 
+/*.bg-image {
+  background-image: url("../img/bg_final.jpg");
+  background-color: #065b7a;
+  height: 710px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+*/
 .col-50l {
   float: left;
   width: 50%;
@@ -215,6 +248,7 @@ ul.breadcrumbs li a:hover {
   border: 0;
   padding-left: 3%;
   border-radius: 10px;
+  background-color: white;
 }
 
 .loginForm button {
@@ -287,10 +321,11 @@ ul.breadcrumbs li a:hover {
   font-size: 24px;
   color: white;
   text-align: center;
-  padding: 6px;
+  padding: 10px;
   border-bottom: 3px solid grey;
   /*box-shadow: 4px 4px 4px grey;*/
   background-color: #065b7a;
+  border-radius: 10px;
 }
 
 .signupForm select {
@@ -304,6 +339,13 @@ ul.breadcrumbs li a:hover {
   font-size: 18px;
   margin-left: 5%;
   margin-top: 10px;
+  padding-left: 5px;
+  text-align: justify;
+  width: 90%;
+  /*border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: white;*/
 }
 
 .signupForm input {
@@ -314,8 +356,11 @@ ul.breadcrumbs li a:hover {
   margin-right: 5%;
   font-size: 18px;
   padding-left: 15px;
+  /*border-style: solid;
+  border-color: black;*/
   border-radius: 10px;
   border: none;
+  background-color: white;
 }
 
 .changeroleForm {
@@ -370,6 +415,7 @@ ul.breadcrumbs li a:hover {
   padding-left: 15px;
   border-radius: 10px;
   border: none;
+  background-color: white;
 }
 
 .changeroleForm button {
@@ -411,13 +457,13 @@ ul.breadcrumbs li a:hover {
 
 .col-25 {
   float: left;
-  width: 25%;
+  width: 30%;
   /*margin-top: 6px;*/
 }
 
 .col-75 {
   float: left;
-  width: 75%;
+  width: 70%;
   /*margin-top: 6px;*/
 }
 
@@ -485,7 +531,7 @@ ul, #tree-view {
 /* Style the caret/arrow */
 .tree_list {
   text-align: left;
-  margin-bottom: 0%;
+  margin-bottom: 1%;
   margin-top: 0%;
   border: 2px solid white;
   cursor: pointer;
@@ -546,7 +592,7 @@ ul, #tree-view {
   user-select: none; /* Prevent text selection */
   color: white;
   font-size: 18px;
-  padding-left: 5%;
+  padding-left: 8%;
   background-color: white;
   width: 95%;
   height: 55px;
@@ -578,17 +624,17 @@ ul, #tree-view {
   height: auto;
   /*box-shadow: 4px 0px grey;*/
   padding-top: 10px;
+  /*border-style: solid;*/
+  border-color: #065b7a;
 }
 
 .left, .right {
   width: 20%;
-  border-right: 5px solid grey;
 }
 
 .middle {
   width: 60%;
-  /*border-left: 5px solid grey;*/
-  border-right: 5px solid grey;
+  border-style: solid;
 }
 
 .middle h2 {
@@ -655,8 +701,10 @@ img.avatar {
   padding-left: 10px;
   min-height: 600px;
   height: auto;
-  box-shadow: 4px 0px grey;
+  /*box-shadow: 4px 0px grey;*/
   padding-top: 10px;
+  border-color: #065b7a;
+  /*border-style: solid;*/
 }
 
 .left20 {
@@ -665,6 +713,7 @@ img.avatar {
 
 .right80 {
   width: 85%;
+  border-style: solid;
 }
 
 .right80 h2 {
@@ -729,6 +778,7 @@ img.avatar {
   border: 0px;
   padding-left: 15px;
   border-radius: 10px;
+  background-color: white;
 }
 
 .contentForm datalist{
@@ -798,6 +848,7 @@ img.avatar {
   border: 2px solid #2980b9;
   padding-left: 15px;
   border-radius: 10px;
+  background-color: white;
 } 
 
 /*-------------------------Buttons-------------------*/
@@ -885,10 +936,13 @@ img.avatar {
 #tableStyle {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 98%;
+  width: auto;
   margin-top: 25px;
-  margin-left: 5px;
-  margin-right: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-left: 5px;
+  margin-right: 2px; */
+  min-width: 40%;
 }
 
 #tableStyle td, #tableStyle th {
@@ -924,6 +978,14 @@ img.avatar {
   padding-left: 20px;
   padding-right: 20px;
   text-align: center;
+}
+
+#tableStyle td .green {
+  background-color: green;
+}
+
+#tableStyle td .red {
+  background-color: red;
 }
 
 .modal {
@@ -1017,7 +1079,8 @@ img.avatar {
 /*------------------------Passwrod verification---------------------*/
 
 /* The message box is shown when the user clicks on the password field */
-#message, #usernameMSG {
+#message, #usernameMSG, #initialsMSG, 
+#surnameMSG, #tpMSG, #mobileMSG {
   display:none;
   background: #f1f1f1;
   color: #000;
@@ -1072,8 +1135,9 @@ img.avatar {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
+  top: -5px;
+  /* bottom: 125%; */
+  left: 580%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -1082,8 +1146,8 @@ img.avatar {
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: 20%;
+  left: 0%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
@@ -1093,4 +1157,35 @@ img.avatar {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.greenbtn{
+  width: 30%;
+  background-color: green;
+  color: ivory;
+  font-size: 20px;
+  height: 36px;
+  margin-top: 25px;
+  border: 0px;
+  font-size: 18px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.redbtn{
+  width: 30%;
+  background-color: red;
+  color: ivory;
+  font-size: 20px;
+  height: 36px;
+  margin-top: 25px;
+  border: 0px;
+  font-size: 18px;
+  border: 0;
+  border-radius: 10px;
 }

@@ -10,7 +10,7 @@
                 <li class="active">Mahapola Scheme Reports</li>
             </ul>
                 
-            <div class="row">
+            <div class="row" style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
                         require('mmSideNavV.php');
@@ -24,13 +24,13 @@
                         </div>
 
                     <div class="contentForm">
-                        <form action="" method="POST">
+                        <form action="../../controller/mmControllers/mahapolaListController.php" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Report Type</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="reporttype" id="">
+                                    <select name="reporttype" id="reporttype" required>
                                         <option value="">Select Report Type</option>
                                         <option value="monthlyEligibiltyList">Monthly Eligibility List</option>
                                         <option value="monthlyInEligibiltyList">Monthly In-Eligibility List</option>
@@ -69,9 +69,11 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <button class="mainbtn" type="view-submit" name="" >Display Report</button></a><br>
+                            <button class="subbtn" type="submit" name="display-report" >Display Report</button>
+                            <button class="cancelbtn" type="submit" name="" ><a href="mmHomeV.php">Exit</a></button>
                         </form>
+                        <!-- <a href="mmHomeV.php" ><button class="cancelbtn" type="submit" name="" >Exit</button></a> -->
+    
                     </div>
                 </div>
         </div>

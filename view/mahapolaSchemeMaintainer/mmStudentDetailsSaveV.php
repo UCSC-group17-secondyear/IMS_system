@@ -9,7 +9,7 @@
                 <li><a href="mmHomeV.php">Home</a></li>
             </ul>
            
-            <div class="row">
+            <div class="row" style="margin-bottom: 7%;">
                 <div class="col left20">
                     <?php 
                         require('mmSideNavV.php');
@@ -21,7 +21,10 @@
                         <h2>Saved Successfully</h2>
                     </div>
                     <div class="contentForm">
-                        <a href="mmHomeV.php" ><button class="mainbtn" type="submit" name="" >OK</button></a><br>
+                        <a href="" ><button class="subbtn" type="submit" name="" >Add Another</button></a>
+                        <button type="submit" class="cancelbtn">
+                                <a href="mmHomeV.php">Exit</a>
+                        </button>
                     </div>
                 </div>
             </div>

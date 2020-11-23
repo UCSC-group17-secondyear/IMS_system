@@ -4,30 +4,44 @@
             <li><button class="tree_list">Mark Mahapola Selected Students</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="mmMarkMahapolaStudentsIndexV.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-pencil-square-o"></i>Search By Index Number</li></a>
+                        <a href="mmMarkMahapolaStudentsIndexV.php"><li><i class="fa fa-pencil-square-o"></i>Search By Index Number</li></a>
                     </button>
                     <button>
-                        <a href="mmMarkMahapolaStudentsNameV.php?user_id=<?php echo $_SESSION['userId'] ?>"><li><i class="fa fa-pencil-square-o"></i>Search By Student Name</li></a>
+                        <a href="mmMarkMahapolaStudentsNameV.php"><li><i class="fa fa-pencil-square-o"></i>Search By Student Name</li></a>
                     </button>
                 </ul>
             </li>
             <li>
                 <a href="mmViewMahapolaNominatedListV.php">    
-                    <button type="submit" class="tree_list">View Nominated Student List</button>
+                    <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
                 </a>
             </li>
             <li>
-                <a href="mmViewReportsMahapolaSchemeV.php">
+                <a href="mmViewReportsMahapolaSchemeV.php">    
                     <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <button type="submit" class="tree_list">View Student Attendance</button>
-                </a>
+            <li><button class="tree_list">View Student Attendance Reports</button>
+                <ul class="tree_nest">
+                    <button>
+                        <a href="mmStudentWiseAttendanceV.php"><li><i class="fa fa-plus-circle"></i>View Attendance Student Wise</li></a>
+                    </button>
+                    <button>
+                        <a href="mmMonthWiseAttendanceV.php"><li><i class="fa fa-minus-circle"></i>View Attendance Month Wise</li></a></button>
+                    </button>
+                    <button>
+                        <a href="mmSubjectWiseAttendanceV.php"><li><i class="fa fa-pencil-square-o"></i>View Attendance Subject Wise</li></a>
+                    </button>
+                    <button>
+                        <a href="mmBatchWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Batch Wise</li></a>
+                    </button>
+                    <button>
+                        <a href="mmSemesterWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Semester Wise</li></a>
+                    </button>
+                </ul>
             </li>
             <li>
-                <a href="mmViewSchemeDetailsV.php">
+                <a href="../../controller/mmControllers/viewSchemesController.php">
                     <button type="submit" class="tree_list">View Scheme Details</button>
                 </a>
             </li>
