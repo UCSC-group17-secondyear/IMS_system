@@ -11,7 +11,7 @@
             <li class="active">View Student-wise Attendance</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4.5%;">
             <div class="col left20">
                 <?php
                     require 'mmSideNavV.php';
@@ -23,7 +23,7 @@
                     <h2>View Student-wise Attendance</h2>
                 </div>
 
-                <div class="contentForm">
+                <div class="contentForm" style="margin-bottom: 1%;">
                     <div class="row">
                     <form action="mmStudentWiseAttendanceV.php" method="post">
                         <div class="row">
