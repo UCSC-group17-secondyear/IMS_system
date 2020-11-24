@@ -27,7 +27,7 @@
 
                 <table id="tableStyle">
                     <tr>
-                        <th>Employee Id</th>
+                        <th>Username</th>
                         <th>Initials</th>
                         <th>Surname</th>
                         <th>Email</th>

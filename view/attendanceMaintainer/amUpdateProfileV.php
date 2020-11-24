@@ -28,7 +28,7 @@
                     <form action="../../controller/updateProfileControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
 	                        <div class="col-25">
-	                            <label for="">User name</label>
+	                            <label for="">Username</label>
 	                        </div>
 	                        <div class="col-75">
 	                            <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> required> <br>
