@@ -31,7 +31,7 @@
                 </ul>
             </li>
             <li>
-                <a href="asmViewSchemeDetailsV.php">
+                <a href="../../controller/asmControllers/asmViewSchemeDetails.php">
                     <button type="submit" name="" class="tree_list">View Scheme Details</button>
                 </a>    
             </li>
