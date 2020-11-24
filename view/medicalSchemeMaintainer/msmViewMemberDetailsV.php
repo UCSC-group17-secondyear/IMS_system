@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li><a href="../../controller/msmControllers/msmMembershipForms2C.php?user_id=<?php echo $_SESSION['userId'] ?>">View Membership Forms</a></li>
+            <li><a href="../../controller/msmControllers/msmMembershipForms1C.php">View Membership Forms</a></li>
             <li class="active">View Member Details</li>
         </ul>
 
@@ -112,11 +112,39 @@
                             ?>
                             </div>
                         </div>
-
+                    <?php if($_SESSION['membership_status'] != 1) { ?>
                     <form action="../../controller/msmControllers/msmMembershipForms3C.php?viewed_member=<?php echo $_SESSION['userId'] ?>" method="post">
                         <button class="subbtn" type="submit" name="approvemf-submit">Approve</button>
                         <button type="submit" class="cancelbtn" name="declinemf-submit">Decline</button>
                     </form>
+                    <?php } else { ?>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Membership Status</label>
+                            </div>
+                            <div class="col-75">
+                            <?php
+                                if($_SESSION['membership_status'] == 1){
+                            ?>
+                                <button type="submit" class="redbtn" disabled><a class="disabled">Declined</a></button>
+                            <?php
+                                } else {
+                            ?>
+                                <button type="submit" class="greenbtn" disabled><a class="disabled">Approved</a></button>
+                            <?php
+                                }
+                            ?>
+                            </div>
+                        </div>
+                    <form>
+                        <button class="subbtn" type="submit">
+                            <a href="../../controller/msmControllers/msmMembershipForms1C.php">View Another Member</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="msmHomeV.php">Exit</a>
+                        </button>
+                    </form>
+                    <?php }?>
                 </div>
             </div>
         </div>
