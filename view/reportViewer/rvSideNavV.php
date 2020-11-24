@@ -20,6 +20,7 @@
                     </button>
                 </ul>
             </li>
+
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
                 <ul class="tree_nest">
                     <button>
@@ -33,11 +34,13 @@
                     </button>
                 </ul>
             </li>
+
             <li>
                 <a href="rvViewMahapolaNominatedListV.php">
                     <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
                 </a>
             </li>
+
             <li>
                 <a href="rvViewReportsMahapolaSchemeV.php">
                     <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
@@ -48,11 +51,19 @@
                     <button type="submit" class="tree_list">View Member list of Medical Scheme</button>
                 </a>
             </li>
+
             <li>
                 <a href="rvViewSchemeDetailsV.php">
                     <button type="submit" class="tree_list">View Claim Details</button>
                 </a>
             </li>
+
+            <li>
+                <a href="../../controller/rvControllers/viewSchemesController.php">
+                    <button type="submit" class="tree_list">View Medical Scheme Details</button>
+                </a>
+            </li>
+
             <li>
                 <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>

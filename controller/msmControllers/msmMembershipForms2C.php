@@ -22,6 +22,7 @@
             $_SESSION['scheme'] = $record['schemename'];
             $_SESSION['form_submission_date'] = $record['form_submission_date'];
             $_SESSION['acceptance_status'] = $record['acceptance_status'];
+            $_SESSION['membership_status'] = $record['membership_status'];
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewMemberDetailsV.php');
         } 
