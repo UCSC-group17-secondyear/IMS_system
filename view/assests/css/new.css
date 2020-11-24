@@ -988,6 +988,10 @@ img.avatar {
   background-color: red;
 }
 
+#tableStyle td .yellow {
+  background-color: orange;
+}
+
 .modal {
   display: none; /* Hidden by default */
   z-index: -1;
