@@ -1,10 +1,29 @@
 <?php
-	require "topnav.php";
+    session_start();
 ?>
 
-<main>
-	<title>Log in</title>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="icon" href="../assests/img/favicon1.png">
+    <link rel="stylesheet" type="text/css" href="../assests/css/new.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<header>
+        <div class="topnav">
+            <img src="../assests/img/cover_final.png" alt="" style="width: 16%; margin-left: 3px; margin-top:1px">
+            
+			<a href="../basic/homePageV.php"><i class="fa fa fa-home"></i>Home</a>
+    				
+        </div>
+	</header>
+	
 	<div style="padding-bottom: 3%;">
 		<div class="loginForm">
 			<form action="../../controller/loginController.php" method="POST">
@@ -15,8 +34,17 @@
 						<input id="empid" value="" name="empid" type="text" placeholder="User name" required="required" /> <br> <br>
 
 						<span class="fa fa-lock"></span>
-						<input name="password" type="password" placeholder="Password" required="required" /> <br> <br>
-						<button class="mainbtn" type="submit" name="submit">LOGIN</button>
+						<input id="psw" name="password" type="password" placeholder="Password" required="required" /> <br> <br>
+						<div class="row">
+							<div class="col-25">
+								<input type="checkbox" onclick="showPasswordFunction()">
+							</div>
+							<div class="col-75"><br><br>
+								<label>Show Password</label>
+							</div>
+						</div>
+
+						<button class="mainbtn" type="submit" name="submit">LOGIN</button>						
 					</div>
 					<div class="col-50r">
 						<div class="logocontainer">
@@ -31,7 +59,19 @@
 			</form>
 		</div>
 	</div>
-</main>
+
+	<script>
+		// DISPLAY PASSWORD -------------------------------------
+		function showPasswordFunction() {
+  			var x = document.getElementById("psw");
+  			if (x.type === "password") {
+    			x.type = "text";
+  			} else {
+    			x.type = "password";
+  			}
+		}
+	</script>
+</body>
 
 <?php
 	require 'footer.php';

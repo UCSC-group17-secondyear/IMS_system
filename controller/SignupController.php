@@ -39,14 +39,6 @@
 			exit();
 		}
 
-		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
-		{
-			$errors[] = "Initials should be a string";
-			header('Location:../view/basic/aUserNameNotString.php');
-			// echo "Initials should be a string";
-			exit();
-		}
-
 		$ini = str_replace(' ', '', $initials);
 		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
 		{
@@ -180,7 +172,7 @@
 			}
 
 			while ($record2 = mysqli_fetch_array($records2)) {
-                $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
+				$_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
 			}
 			
 			header('Location:../view/basic/signup.php');

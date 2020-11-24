@@ -1,9 +1,27 @@
 <?php
-	require "topnav.php";
+    session_start();
 ?>
 
-<main>
-	<title>Sign Up</title>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="icon" href="../assests/img/favicon1.png">
+    <link rel="stylesheet" type="text/css" href="../assests/css/new.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header>
+        <div class="topnav">
+            <img src="../assests/img/cover_final.png" alt="" style="width: 16%; margin-left: 3px; margin-top:1px">
+            
+			<a href="../basic/homePageV.php"><i class="fa fa fa-home"></i>Home</a>
+    				
+        </div>
+    </header>
 
 	<div class="signupForm">
 		<form action="../../controller/SignupController.php" method="post">
@@ -94,7 +112,7 @@
 	              	<label>MEMBER TYPE</label>
 	            </div>
 	            <div class="col-75">
-				  	<select name="aca-or-non" required/>
+				  	<select name="aca-or-non" required>
                     <!-- <option value="">Your Member Type</option> -->
 	                    <option value="academic-staff">Academic Staff Member</option>
 	                    <option value="non-academic-staff">Non Academic Staff Member</option>
@@ -408,7 +426,7 @@
 		}
     </script>
 
-</main>
+</body>
 
 <?php
 	 require 'footer.php';
