@@ -28,7 +28,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="aAddDegreeV.php">Add another</a> 
+                        <a href="aAddDegreeV.php">Add another</a>
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 
