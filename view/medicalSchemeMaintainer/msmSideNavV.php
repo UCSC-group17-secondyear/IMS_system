@@ -1,6 +1,24 @@
 <main>
     <div class="sansserif">
         <ul id="tree_view">
+            <li><button class="tree_list">Manage Medical Year</button>
+                <ul class="tree_nest">
+                <form action="../../controller/msmControllers/manageMedicalYearC.php" method="post">
+                        <button name="viweMYDetails-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-user"></i> View Medical Year</li></a>
+                        </button>
+                    </form>
+                        <button>
+                            <a href="msmaddMYV.php"><li><i class="fa fa-plus-circle"></i> Add a Medical Year</li></a>
+                        </button>
+                    <form action="../../controller/msmControllers/manageMedicalYearC.php" method="post">
+                        <button name="viweMYList-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-pencil-square-o"></i> Update a Medical Year</li></a>
+                        </button>
+                    </form>
+                </ul>
+            </li>
+
             <li><button class="tree_list">Manage Members</button>
                 <ul class="tree_nest">
                     <button>
@@ -21,13 +39,13 @@
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/msmControllers/msmMembershipForms1C.php"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
+                        <a href="../../controller/msmControllers/msmMembershipForms1C.php"><li><i class="fa fa-plus-circle"></i> Membership Form</li></a>
                     </button>
                     <button>
-                        <a href="msmViewRequestedClaimFormV.php"><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
+                        <a href="msmViewRequestedClaimFormV.php"><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>
                     </button>
                     <button>
-                        <a href="msmViewRefferedCLaimFormsV.php"><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
+                        <a href="msmViewRefferedCLaimFormsV.php"><li><i class="fa fa-minus-circle"></i> Reffered Claim Form</li></a></button>
                     </button>
                 </ul>
             </li>

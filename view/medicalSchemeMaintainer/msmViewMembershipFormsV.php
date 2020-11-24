@@ -43,7 +43,8 @@
                         <th>Health Condition</th>
                         <th>Civil Status</th>
                         <th>Submission Date</th>
-                        <th>Form Status</th>
+                        <th>Approval Status</th>
+                        <th>Membership Status</th>
                         <th>View</th>
                     </tr>
                     <?php echo $_SESSION['memberships'] ?>
