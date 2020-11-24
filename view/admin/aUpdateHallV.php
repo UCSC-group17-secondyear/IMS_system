@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aUpdateRemoveHallV.php">Halls List</a></li>
+            <li><a href="aUpdateHallFormV.php">Update or remove halls</a></li>
             <li class="active">Update Hall</li>
         </ul>
 
@@ -31,7 +31,7 @@
                               <label>Hall Name</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="hall_name" <?php echo 'value="'.$_SESSION['hall_name'].'"' ?> min="0" required/>
+                                <input disabled type="text" name="hall_name" <?php echo 'value="'.$_SESSION['hall_name'].'"' ?> min="0" required/>
                             </div>
                         </div>
 
