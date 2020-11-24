@@ -28,11 +28,11 @@
                     <form action="../../controller/adminControllers/manageSchemesC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Select Scheme Name</label>
+                              <label>Scheme Name</label>
                             </div>
                             <div class="col-75">
                                 <select name="schemeName" id="">
-                                    <!-- <option value=""></option> -->
+                                    <option value="">Select Scheme Name</option>
                                     <?php echo $_SESSION['schemes'] ?>
                                 </select>
                             </div>
