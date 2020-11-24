@@ -17,12 +17,18 @@
                 $_SESSION['memberships'] .= "<td>{$mem['healthcondition']}</td>";
                 $_SESSION['memberships'] .= "<td>{$mem['civilstatus']}</td>";
                 $_SESSION['memberships'] .= "<td>{$mem['form_submission_date']}</td>";
-                if($cf['acceptance_status'] == 1){
+                if($mem['acceptance_status'] == 1){
                     $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"red\">Declined</a></td>";
                 }
-                $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
+                if($mem['membership_status'] == 1){
+                    $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
+                } else if($mem['membership_status'] == 0){
+                    $_SESSION['memberships'] .= "<td><a class=\"red\">Declined</a></td>";
+                } else {
+                    $_SESSION['memberships'] .= "<td><a class=\"yellow\">Not checked</a></td>";
+                }
                 $_SESSION['memberships'] .= "<td><a href=\"../../controller/msmControllers/msmMembershipForms2C.php?mem_index={$mem['userId']}\">View</a></td>";
                 $_SESSION['memberships'] .= "</tr>";
     
