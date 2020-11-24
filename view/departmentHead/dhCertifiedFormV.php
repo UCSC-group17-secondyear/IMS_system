@@ -27,8 +27,10 @@
                         <th>Initials</th>
                         <th>Surname</th>
                         <th>Department</th>
-                        <th></th>
+                        <th>Status</th>
+                        <th>View</th>
                     </tr>
+                    <?php echo $_SESSION['certifiedforms'] ?>
                 </table>
             </div>
         </div>
