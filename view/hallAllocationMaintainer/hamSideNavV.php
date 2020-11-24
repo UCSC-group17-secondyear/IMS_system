@@ -7,22 +7,6 @@
                 </a> <br>
             </li>
 
-            <li>
-                <a href="hamViewHallAllocationScheduleV.php">
-                    <button type="submit" class="tree_list">View Hall Allocation Schedule</button>
-                </a><br>
-            </li>
-
-            <li>
-                <a href="hamSchemDetailsV.php">
-                    <button type="submit" class="tree_list">View Scheme Details</button>
-                </a><br>
-            </li>
-            <li>
-                <a href="hamHallDetailsV.php">
-                    <button type="submit" class="tree_list">View Hall Details</button>
-                </a> <br>
-            </li>
             <li><button class="tree_list">Manage Weekly Time Table</button>
                 <ul class="tree_nest">
                     <button>
@@ -34,11 +18,31 @@
                     </button>
                 </ul>
             </li>
+
+            <li>
+                <a href="hamViewHallAllocationScheduleV.php">
+                    <button type="submit" class="tree_list">View Hall Allocation Schedule</button>
+                </a><br>
+            </li>
+
+            <li>
+                <a href="hamHallDetailsV.php">
+                    <button type="submit" class="tree_list">View Hall Details</button>
+                </a> <br>
+            </li>
+            
             <li>
                 <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Add a Booking</button>
                 </a>
             </li>
+
+            <li>
+                <a href="../../controller/hamControllers/hamViewSchemeDetails.php">
+                    <button type="submit" class="tree_list">View Scheme Details</button>
+                </a><br>
+            </li>
+
             <li>
                 <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Register to the Staff Medical Scheme</button>
