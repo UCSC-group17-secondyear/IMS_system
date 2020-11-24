@@ -83,8 +83,8 @@
                 </ul>
             </li>
             <li>
-                <a href="amSchemDetailsV.php">
-                    <button type="submit" name="" class="tree_list"> View Scheme Details
+                <a href="../../controller/amControllers/amViewSchemeDetails.php">
+                    <button name="" class="tree_list"> View Scheme Details
                     </button>
                 </a>
             </li>
