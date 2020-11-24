@@ -11,11 +11,13 @@
                     </button>
                 </ul>
             </li>
+            
             <li>
                 <a href="msmViewClaimDetailsV.php">
                     <button type="submit" class="tree_list">View Claim Details</button>
                 </a>
             </li>
+
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
                 <ul class="tree_nest">
                     <button>
@@ -29,11 +31,13 @@
                     </button>
                 </ul>
             </li>
+
             <li>
-                <a href="msmViewSchemeDetailsV.php">
+                <a href="../../controller/msmControllers/viewSchemesController.php">
                     <button type="submit" class="tree_list">View Medical Scheme Details</button>
                 </a>
             </li>
+            
             <li>
                 <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
