@@ -903,7 +903,7 @@
 
 		public static function membershipstatus($user_id, $connect)
 		{
-			$query = "SELECT membership_status FROM tbl_user_flag WHERE user_id='{$user_id}'";
+			$query = "SELECT form_submission_date FROM tbl_user_flag WHERE user_id='{$user_id}'";
 			
 			$result_set = mysqli_query($connect, $query);
 			
