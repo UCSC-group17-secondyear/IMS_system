@@ -901,6 +901,15 @@
 			return $result_set;
 		}
 
+		public static function membershipstatus($user_id, $connect)
+		{
+			$query = "SELECT membership_status FROM tbl_user_flag WHERE user_id='{$user_id}'";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
+
 		public static function getservicemonths($user_id,$connect)
 		{
 			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment)FROM users WHERE userId='{$user_id}'";
