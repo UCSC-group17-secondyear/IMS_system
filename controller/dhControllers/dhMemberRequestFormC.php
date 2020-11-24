@@ -10,25 +10,24 @@
     if ($result) {
         if (mysqli_num_rows($result)==1) {
             $rslt = mysqli_fetch_assoc($result);
-            $records = dhModel::getDepartmentForms($rslt['department'], $connect);
+            $headsdepartment = dhModel::getDepartmentForms($rslt['department'], $connect);
             
-            if ($records) {
-                while($record = mysqli_fetch_assoc($records)) {
+            if ($headsdepartment) {
+                while($hd = mysqli_fetch_assoc($headsdepartment)) {
                     $_SESSION['memberrequestforms'] .= "<tr>";
-                    $_SESSION['memberrequestforms'] .= "<td>{$record['empid']}</td>";
-                    $_SESSION['memberrequestforms'] .= "<td>{$record['initials']}</td>";
-                    $_SESSION['memberrequestforms'] .= "<td>{$record['sname']}</td>";
-                    $_SESSION['memberrequestforms'] .= "<td>{$record['department']}</td>";
-                    $_SESSION['memberrequestforms'] .= "<td><a href=\"../../controller/dhviewMemberFormC.php?user_id={$record['userId']}\">View</a></td>";
-                    $_SESSION['memberrequestforms'] .= "</tr>";
-
-                    header('Location:../../view/departmentHead/dhMembRequestFormV.php');
+                    $_SESSION['memberrequestforms'] .= "<td>{$hd['empid']}</td>";
+                    $_SESSION['memberrequestforms'] .= "<td>{$hd['initials']}</td>";
+                    $_SESSION['memberrequestforms'] .= "<td>{$hd['sname']}</td>";
+                    $_SESSION['memberrequestforms'] .= "<td>{$hd['department']}</td>";
+                    $_SESSION['memberrequestforms'] .= "<td><a href=\"../../controller/dhControllers/dhviewMemberForm1C.php?userrr={$hd['userId']}\">View</a></td>";
+                    $_SESSION['memberrequestforms'] .= "</tr>";                    
                 }
+                header('Location:../../view/departmentHead/dhMembRequestFormV.php');
             }else {
                 echo "Database query failed.";
             }
         }  
-    }else {
-        echo "record 1 is not ok";
+    } else {
+        echo "hd 1 is not ok";
     }
 ?>

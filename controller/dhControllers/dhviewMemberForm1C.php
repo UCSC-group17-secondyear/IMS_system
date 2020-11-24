@@ -6,8 +6,8 @@
     $errors = array();
     $user_id = '';
 
-    if(isset($_GET['user_id'])) {
-        $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
+    if(isset($_GET['userrr'])) {
+        $user_id = mysqli_real_escape_string($connect, $_GET['userrr']);
         $_SESSION['user_id'] = $user_id;
         
         $result_set = dhModel::funct($user_id, $connect);
@@ -26,9 +26,9 @@
                 $_SESSION['civilstatus'] = $result['civilstatus'];
                 $_SESSION['scheme'] = $result['schemename'];
                 $_SESSION['member_type'] = $result['member_type'];
-
-                header('Location:../../view/departmentHead/dhViewMemberV.php');
+                $_SESSION['acceptance_status'] = $result['acceptance_status'];
             }
+            header('Location:../../view/departmentHead/dhViewMemberV.php');
         }else {
             echo "query failed";
         }

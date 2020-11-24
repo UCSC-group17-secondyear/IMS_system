@@ -7,7 +7,7 @@
                 </a>
             </li>
             <li>
-                <a href="dhCertifiedFormV.php">
+                <a href="../../controller/dhControllers/dhMemberCertifiedFormC.php?certified_user=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">View Certified Memebership Forms</button>
                 </a>
             </li>

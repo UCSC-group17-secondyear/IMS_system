@@ -18,13 +18,14 @@
                     require 'dhSideNavV.php';
                 ?>
             </div>
+
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The Membership is accepted successfully!</h2>
+                        <h2>The Membership is declined successfully!</h2>
                     </div>
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/dhControllers/dhMemberRequestFormC.php?user=<?php echo $_SESSION['userId'] ?>">Accept another</a>
+                        <a href="../../controller/dhControllers/dhMemberRequestFormC.php?user=<?php echo $_SESSION['userId'] ?>">Decline another</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="dhHomeV.php">Exit</a>
@@ -33,7 +34,6 @@
             </div>
         </div>
     </div>
-    
 </main>
 
 <?php
