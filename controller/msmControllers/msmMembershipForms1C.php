@@ -6,7 +6,7 @@
     $membership_forms = msmModel::fetchmemberships($connect);
     $_SESSION['memberships'] = '';
     
-    if ($membership_forms) {
+    if ($membership_forms > 0) {
         // if($mem['acceptance_status'] == 1){
             while ($mem = mysqli_fetch_assoc($membership_forms)) {
                 if($mem['acceptance_status'] == 1){

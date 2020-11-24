@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li class="active">Update halls</li>
+            <li class="active">Update or remove halls</li>
         </ul>
 
         <div class="row">
@@ -39,7 +39,7 @@
                         </div>
                     
                         <button class="subbtn" type="submit" name="updateHall">Update Hall</button>
-                        <button class="cancelbtn" type="submit" name="deleteHall" onclick="return confirm('Are you sure?');">Delete Hall</button>
+                        <button class="cancelbtn" type="submit" name="deleteHall" onclick="return confirm('Are you sure?');">Remove Hall</button>
                     </form>
                     <!-- <form>
                         <button type="submit" class="subbtn">

@@ -29,7 +29,7 @@
             $_SESSION['civil_status'] = $civil_status;
         }
 
-        if ($result_set && $records1 && $scheme_1_details && $scheme_2_details && $scheme_3_details) {
+        if ($result_set && $records && $scheme_1_details && $scheme_2_details && $scheme_3_details) {
             if (mysqli_num_rows($result_set)==1) {
                 $result = mysqli_fetch_assoc($result_set);
                 $scheme_1 = mysqli_fetch_assoc($scheme_1_details);
