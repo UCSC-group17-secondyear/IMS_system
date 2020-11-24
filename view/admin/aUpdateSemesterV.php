@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="aHomeV.php">Home</a></li>
-        <li><a href="aViewSemesterV.php">Semester Details</a></li>
+        <li><a href="aUpdateSemesterFormV.php">Update Semester</a></li>
         <li class="active">Update Semester</li>
     </ul>
 
@@ -29,10 +29,10 @@
                             <label>Enter Semester</label>
                         </div>
                         <div class="col-75">
-                            <select name="semester" required>
-                                <option <?php echo 'value="'.$_SESSION['semester'].'"' ?>><?php echo $_SESSION['semester'] ?></option>
+                            <select disabled name="semester" required>
+                                <option <?php echo 'value="'.$_SESSION['semester'].'"' ?>><?php echo $_SESSION['semester'] ?></option><!-- 
                                 <option value="FirstSemester">First semester: </option>
-                                <option value="SecondSemester">Second semester: </option>
+                                <option value="SecondSemester">Second semester: </option> -->
                             </select>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             <label>Enter Academic Year</label>
                         </div>
                         <div class="col-75">
-                            <input type="year" name="academic_year" <?php echo 'value="'.$_SESSION['academic_year'].'"' ?> required/> <br>
+                            <input  disabled  type="year" name="academic_year" <?php echo 'value="'.$_SESSION['academic_year'].'"' ?> required/> <br>
                         </div>
                     </div>
                     <div class="row">
