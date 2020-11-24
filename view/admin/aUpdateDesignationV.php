@@ -31,7 +31,7 @@
                               <label>Designation</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="designation" disabled <?php echo 'value="'.$_SESSION['designation'].'"' ?> required/><br>
+                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['designation'].'"' ?> required/><br>
                             </div>
                         </div>
 

@@ -29,7 +29,7 @@
                             <label>Enter Semester</label>
                         </div>
                         <div class="col-75">
-                            <select disabled name="semester" required>
+                            <select name="semester" required>
                                 <option <?php echo 'value="'.$_SESSION['semester'].'"' ?>><?php echo $_SESSION['semester'] ?></option><!-- 
                                 <option value="FirstSemester">First semester: </option>
                                 <option value="SecondSemester">Second semester: </option> -->
