@@ -113,7 +113,7 @@
                             </div>
                         </div>
 
-                    <form>
+                    <form action="../../controller/msmControllers/msmMembershipForms3C.php?viewed_member=<?php echo $_SESSION['userId'] ?>" method="post">
                         <button class="subbtn" type="submit" name="approvemf-submit">Approve</button>
                         <button type="submit" class="cancelbtn" name="declinemf-submit">Decline</button>
                     </form>
