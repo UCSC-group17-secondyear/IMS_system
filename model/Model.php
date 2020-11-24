@@ -800,7 +800,7 @@
 
 		public static function getDepartmentForms($department, $connect)
 		{
-			$query = "SELECT u.*, uf.department FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND uf.department = '{$department}' AND NOT uf.membership_status=1 ORDER BY u.userId";
+			$query = "SELECT u.*, uf.department FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND uf.department = '{$department}' AND NOT uf.membership_status=0 ORDER BY u.userId";
 
 			$result = mysqli_query($connect, $query);
 
@@ -809,7 +809,7 @@
 
 		public static function requestaccept($user_id, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET acceptance_status = 1 WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET acceptance_status = 1 WHERE user_id='{$user_id}'";
 
 			$result = mysqli_query($connect, $query);
 
@@ -818,7 +818,7 @@
 
 		public static function requestdecline($user_id, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET acceptance_status = 0 WHERE user_id={$user_id}";
+			$query = "UPDATE tbl_user_flag SET acceptance_status = 0 WHERE user_id='{$user_id}'";
 			// $query = "UPDATE tbl_user_flag SET healthcondition = '', civilstatus = '', member_type = '', schemename = '', department = '' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
