@@ -19,7 +19,7 @@
             $_SESSION['members'] .= "<td>{$rslt['department']}</td>";
             $_SESSION['members'] .= "<td>{$rslt['schemename']}</td>";
             $_SESSION['members'] .= "<td>{$rslt['member_type']}</td>";
-            $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmControllers/msmRemoveSelectedMemberC.php?mem_delete={$mem['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
+            $_SESSION['members'] .= "<td><a class=\"red\" href=\"../../controller/msmControllers/msmRemoveSelectedMemberC.php?mem_delete={$mem['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
             $_SESSION['members'] .= "</tr>";
 
             header('Location:../../view/medicalSchemeMaintainer/msmRemoveMemberV.php');
