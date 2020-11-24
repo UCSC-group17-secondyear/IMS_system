@@ -15,8 +15,17 @@
 						<input id="empid" value="" name="empid" type="text" placeholder="User name" required="required" /> <br> <br>
 
 						<span class="fa fa-lock"></span>
-						<input name="password" type="password" placeholder="Password" required="required" /> <br> <br>
-						<button class="mainbtn" type="submit" name="submit">LOGIN</button>
+						<input id="psw" name="password" type="password" placeholder="Password" required="required" /> <br> <br>
+						<div class="row">
+							<div class="col-25">
+								<input type="checkbox" onclick="showPasswordFunction()">
+							</div>
+							<div class="col-75"><br><br>
+								<label>Show Password</label>
+							</div>
+						</div>
+
+						<button class="mainbtn" type="submit" name="submit">LOGIN</button>						
 					</div>
 					<div class="col-50r">
 						<div class="logocontainer">
@@ -31,6 +40,18 @@
 			</form>
 		</div>
 	</div>
+
+	<script>
+		// DISPLAY PASSWORD -------------------------------------
+		function showPasswordFunction() {
+  			var x = document.getElementById("psw");
+  			if (x.type === "password") {
+    			x.type = "text";
+  			} else {
+    			x.type = "password";
+  			}
+		}
+	</script>
 </main>
 
 <?php
