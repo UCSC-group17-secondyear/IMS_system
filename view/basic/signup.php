@@ -159,7 +159,8 @@
 
 				</div>
 	            <div class="col-75">
-		            <input id="psw" type="password" name="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+					<input id="psw" type="password" name="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+					<i class="fa fa-eye" id="eye" onclick="toggle()"></i>
 		            <!-- <p>Password is required minimum eight characters, at least one uppercase letter, one lowercase letter, one number, and one special character(only @$!%*?&)</p> -->
 	             	<div id="message">
 				 		<h3>Password must contain the following:</h3>
@@ -171,15 +172,17 @@
 					</div>
 	            </div>
 			</div>
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-25">
 	              	<input type="checkbox" onclick="showPasswordFunction()">
 				</div>
 				<div class="col-75">
 					<label>SHOW PASSWORD</label>
 				</div>
-			</div>
+			</div> -->
 			
+			
+
 			<!-- <div class="row">
 				<b><p>Password is required minimum eight characters, at least one uppercase letter, one lowercase letter, one number, and one special character(only @$!%*?&)</p></b>
 			</div> -->
@@ -416,13 +419,27 @@
 
 
 		// DISPLAY PASSWORD -------------------------------------
-		function showPasswordFunction() {
-  			var x = document.getElementById("psw");
-  			if (x.type === "password") {
-    			x.type = "text";
-  			} else {
-    			x.type = "password";
-  			}
+		// function showPasswordFunction() {
+  		// 	var x = document.getElementById("psw");
+  		// 	if (x.type === "password") {
+    	// 		x.type = "text";
+  		// 	} else {
+    	// 		x.type = "password";
+  		// 	}
+		// }
+
+		var state= false;
+		function toggle(){
+			if(state){
+			document.getElementById("psw").setAttribute("type","password");
+			document.getElementById("eye").style.color='#7a797e';
+			state = false;
+			}
+			else{
+			document.getElementById("psw").setAttribute("type","text");
+			document.getElementById("eye").style.color='#5887ef';
+			state = true;
+			}
 		}
     </script>
 
