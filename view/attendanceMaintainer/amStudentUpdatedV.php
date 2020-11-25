@@ -23,12 +23,12 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The student is added successfully.
+                        <h2>The student is updated successfully.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amEnterStudentDetailsV.php">Add another student</a> 
+                        <a href="amDeleteUpdateStudentSearchV.php">Update another student</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

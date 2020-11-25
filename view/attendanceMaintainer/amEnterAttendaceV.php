@@ -34,7 +34,7 @@
                     <a href="amAttendanceEntered.php">Save Attendance</a>
                 </button>
                 <button class="cancelbtn">
-                    <a href="amHomeV">Cancel</a>
+                    <a href="amHomeV.php">Cancel</a>
                 </button>
             </div>
         </div>

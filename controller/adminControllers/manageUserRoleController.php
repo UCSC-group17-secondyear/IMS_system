@@ -8,7 +8,7 @@
         $description = mysqli_real_escape_string($connect,$_POST['description']);
 
         $roleExists = adminModel::checkRole($userrole, $connect);
-        if (mysqli_num_rows($roleExists) == 1) {
+        if (mysqli_num_rows($roleExists) != 0) {
             header('Location:../../view/admin/aUserRoleExists.php');
         }
         else {

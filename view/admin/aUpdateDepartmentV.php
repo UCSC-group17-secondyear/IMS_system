@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aUpdateDepartmentFormV.php">Update Remove Departments</a></li>
+            <li><a href="../../controller/aViewDepartmentController.php">Departments list</a></li>
             <li class="active">Update Department</li>
         </ul>
 

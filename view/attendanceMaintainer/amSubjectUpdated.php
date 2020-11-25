@@ -28,7 +28,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="amDeleteUpdateSubjectV.php">Try again</a> 
+                        <a href="amDeleteUpdateSubjectV.php">Update another</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 
