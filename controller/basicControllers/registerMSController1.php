@@ -8,13 +8,13 @@
     $records1 = Model::department($connect);
     $records2 = Model::membertype($connect);
     $records4 = Model::civilstatus($connect);
-    $records5 = Model::membershipstatus($user_id, $connect);
+    $records5 = Model::isscheme($user_id, $connect);
     $_SESSION['deps'] = '';
     $_SESSION['member_type'] = '';
     $_SESSION['civil_status'] = '';
     
     if ($result_set && $records1 && $records2 && $records4 && $records5) {
-        if($records5 != 'NULL'){
+        if($records5 == ''){
             if (mysqli_num_rows($result_set)==1) {
                 $result = mysqli_fetch_assoc($result_set);
     
@@ -105,7 +105,5 @@
                 }
             }
         }        
-    }else {
-        echo "records are not ok";
     }
 ?>
