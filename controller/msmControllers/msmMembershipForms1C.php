@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel.php');
+    require_once('../../model/msmModel/msmModel.php');
 
     $membership_forms = msmModel::fetchmemberships($connect);
     $_SESSION['memberships'] = '';

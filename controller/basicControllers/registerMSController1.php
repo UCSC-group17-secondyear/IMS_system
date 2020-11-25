@@ -14,7 +14,7 @@
     $_SESSION['civil_status'] = '';
     
     if ($result_set && $records1 && $records2 && $records4 && $records5) {
-        if($records5 == ''){
+        if($records5 == "x"){
             if (mysqli_num_rows($result_set)==1) {
                 $result = mysqli_fetch_assoc($result_set);
     

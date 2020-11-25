@@ -3,7 +3,7 @@
         <ul id="tree_view">
             <li><button class="tree_list">Manage Medical Year</button>
                 <ul class="tree_nest">
-                <form action="../../controller/msmControllers/manageMedicalYearC.php" method="post">
+                    <form action="../../controller/msmControllers/msmmanageMedicalYearC.php" method="post">
                         <button name="viweMYDetails-submit" type="submit">
                             <a href="#"><li><i class="fa fa-user"></i> View Medical Year</li></a>
                         </button>
@@ -11,7 +11,7 @@
                         <button>
                             <a href="msmaddMYV.php"><li><i class="fa fa-plus-circle"></i> Add a Medical Year</li></a>
                         </button>
-                    <form action="../../controller/msmControllers/manageMedicalYearC.php" method="post">
+                    <form action="../../controller/msmControllers/msmmanageMedicalYearC.php" method="post">
                         <button name="viweMYList-submit" type="submit">
                             <a href="#"><li><i class="fa fa-pencil-square-o"></i> Update a Medical Year</li></a>
                         </button>
@@ -31,7 +31,7 @@
             </li>
             
             <li>
-                <a href="msmViewClaimDetailsV.php">
+                <a href="../../controller/msmControllers/msmViewClaimDetails1C.php">
                     <button type="submit" class="tree_list">View Claim Details</button>
                 </a>
             </li>

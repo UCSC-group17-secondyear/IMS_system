@@ -1,7 +1,7 @@
 <?php
     session_start();
 	require_once('../../config/database.php');
-    require_once('../../model/msmModel.php');
+    require_once('../../model/msmModel/manageMemberModel.php');
     
     $records1 = msmModel::scheme($connect);
     $records2 = msmModel::membertype($connect);
@@ -16,9 +16,6 @@
         while ($record2 = mysqli_fetch_array($records2)) {
             $_SESSION['member_type'] .= "<option value='".$record2['member_type']."'>".$record2['member_type']."</option>";
         }
-
         header('Location:../../view/medicalSchemeMaintainer/msmSelectMembersV.php');
-    } else {
-        echo "ffwggrg";
     }
 ?>
