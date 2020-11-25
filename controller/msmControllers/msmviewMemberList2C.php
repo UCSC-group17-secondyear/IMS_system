@@ -5,7 +5,6 @@
 
     if (isset($_POST['viewMemberList-submit'])) {
         $_SESSION['member_info'] = '';
-        
         $scheme = $_POST['scheme'];
         $member_type = $_POST['member_type'];
         $members = msmModel::fetchmembers($scheme, $member_type, $connect);
@@ -19,16 +18,12 @@
                 $_SESSION['member_info'] .= "<td>{$mem['department']}</td>";
                 $_SESSION['member_info'] .= "<td>{$mem['healthcondition']}</td>";
                 $_SESSION['member_info'] .= "<td>{$mem['civilstatus']}</td>";
-                // $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmControllers/msmMembershipForms2C.php?mem_index={$mem['userId']}\">View</a></td>";
-                $_SESSION['member_info'] .= "<td><a href=\"../../controller/msmControllers/msmRemoveSelectedMemberC.php?mem_delete={$mem['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
+                $_SESSION['member_info'] .= "<td><a class=\"red\" href=\"../../controller/msmControllers/msmRemoveSelectedMemberC.php?mem_delete={$mem['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
                 $_SESSION['member_info'] .= "</tr>";
-
-                header('Location:../../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');
             }
+            header('Location:../../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');
         } else {
             header('Location:../../view/medicalSchemeMaintainer/msmNoMembersV.php');
         }
-    } else {
-        echo "Button not pressed.";
     }
 ?>

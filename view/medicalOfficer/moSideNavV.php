@@ -17,7 +17,7 @@
                 </ul>
             </li>
             <li>
-                <a href="moMedicalSchemDetailsV.php">
+                <a href="../../controller/moControllers/viewSchemesController.php">
                     <button type="submit" class="tree_list">View Scheme Details</button>
                 </a>
             </li>

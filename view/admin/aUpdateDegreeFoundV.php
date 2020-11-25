@@ -29,7 +29,7 @@
                                 <label>Degree Name</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="degree_name"  <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> dissabled /><br>
+                                <input type="text" name="degree_name" <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> dissabled /><br>
                             </div>
                         </div>
                         

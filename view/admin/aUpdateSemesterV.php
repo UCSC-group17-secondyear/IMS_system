@@ -7,7 +7,7 @@
 
     <ul class="breadcrumbs">
         <li><a href="aHomeV.php">Home</a></li>
-        <li><a href="aViewSemesterV.php">Semester Details</a></li>
+        <li><a href="aUpdateSemesterFormV.php">Update Semester</a></li>
         <li class="active">Update Semester</li>
     </ul>
 
@@ -30,9 +30,9 @@
                         </div>
                         <div class="col-75">
                             <select name="semester" required>
-                                <option <?php echo 'value="'.$_SESSION['semester'].'"' ?>><?php echo $_SESSION['semester'] ?></option>
+                                <option <?php echo 'value="'.$_SESSION['semester'].'"' ?>><?php echo $_SESSION['semester'] ?></option><!-- 
                                 <option value="FirstSemester">First semester: </option>
-                                <option value="SecondSemester">Second semester: </option>
+                                <option value="SecondSemester">Second semester: </option> -->
                             </select>
                         </div>
                     </div>

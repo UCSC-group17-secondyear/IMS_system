@@ -12,7 +12,7 @@
 
         $checkMonthlySession = adminModel::checkMonthlySession($subject, $calendarYear, $month, $sessionType, $connect);
 
-        if (mysqli_num_rows($checkMonthlySession)==1) {
+        if (mysqli_num_rows($checkMonthlySession)!= 0) {
             header('Location:../../view/admin/aMonthlySessionExists.php');
         }
 
@@ -54,7 +54,7 @@
 
         $records = adminModel::checkMonthlySession($subject, $calendarYear, $month, $sessionType, $connect);
 
-        if ($records) {
+        if (mysqli_num_rows($records) != 0) {
             while ($record = mysqli_fetch_assoc($records)) {
                 $_SESSION['monthlySession'] .= "<tr>";
                 $_SESSION['monthlySession'] .= "<td>{$record['subject']}</td>";

@@ -8,6 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
+            <li><a href="../../controller/dhControllers/dhMemberRequestFormC.php?user=<?php echo $_SESSION['userId'] ?>">Memebership Request Forms</a></li>
             <li class="active">View Member</li>
         </ul>
 
@@ -24,7 +25,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/dhviewMemberFormC.php" method="post">
+                    <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Employee ID: </label>
@@ -106,14 +107,21 @@
                             </div>
                         </div>
                     </form>
-                    <form>
-                        <button class="subbtn" type="submit" name="acceptmr-submit">
-                            <a href="#">Accept</a>
+                    <?php if($_SESSION['acceptance_status'] == 3) { ?>
+                    <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['userId'] ?>" method="post">
+                        <button class="subbtn" type="submit" name="acceptdms-submit">Accept</button>
+                        <button type="submit" class="cancelbtn" name="declinedms-submit">Decline</button>
+                    </form>
+                    <?php } else { ?>
+                    <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['userId'] ?>" method="post">
+                        <button class="subbtn" type="submit">
+                            <a href="dhHomeV.php">Ok</a>
                         </button>
-                        <button type="submit" class="cancelbtn" name="declinemr-submit">
-                            <a href="#">Decline</a>
+                        <button type="submit" class="cancelbtn">
+                            <a href="dhHomeV.php">Exit</a>
                         </button>
                     </form>
+                    <?php }?>
                 </div>
             </div>
         </div>

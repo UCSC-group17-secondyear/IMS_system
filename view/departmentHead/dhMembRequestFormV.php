@@ -27,7 +27,7 @@
                         <th>Initials</th>
                         <th>Surname</th>
                         <th>Department</th>
-                        <th></th>
+                        <th>View</th>
                     </tr>
                     <?php echo $_SESSION['memberrequestforms'] ?>
                 </table>

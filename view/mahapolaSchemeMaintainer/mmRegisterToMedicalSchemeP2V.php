@@ -28,7 +28,7 @@
     </div>
 </main>
 
-<button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+<!-- <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
 
 <script type="text/javascript">
     var mybutton = document.getElementById("myTopBtn");
@@ -38,7 +38,7 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
-</script>
+</script> -->
 
 <?php
     require '../basic/footer.php';
