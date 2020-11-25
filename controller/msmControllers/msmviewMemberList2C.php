@@ -25,7 +25,5 @@
         } else {
             header('Location:../../view/medicalSchemeMaintainer/msmNoMembersV.php');
         }
-    } else {
-        echo "Button not pressed.";
     }
 ?>
