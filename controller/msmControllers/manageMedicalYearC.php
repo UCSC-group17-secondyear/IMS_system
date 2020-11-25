@@ -55,13 +55,13 @@
     }
 
     elseif(isset($_POST['updateMY-submit'])) {
-        $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
+        $medical_year = mysqli_real_escape_string($connect, $_POST['med_year']);
         $_SESSION['MYdetails'] = '';
 
-        $records = msmModel::viewMedicalYears($medical_year, $connect);
+        $records = msmModel::checkMedicalYear($medical_year, $connect);
 
         if ($records) {
-            if(mysqli_num_rows($records)==1){
+            if(mysqli_num_rows($records) == 1){
                 $record = mysqli_fetch_assoc($records);
                 $_SESSION['medical_year'] = $record['medical_year'];
                 $_SESSION['start_date'] = $record['start_date'];
@@ -74,9 +74,10 @@
 
     elseif(isset($_POST['myupdate-submit'])) {
         $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
-        $_SESSION['MYdetails'] = '';
+        $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
+        $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
 
-        $records = msmModel::updateMedicalYear($medical_year, $connect);
+        $records = msmModel::updateMedicalYear($medical_year, $start_date, $end_date, $connect);
 
         if ($records) {
             header('Location:../../view/medicalSchemeMaintainer/msmMYUpdated.php');

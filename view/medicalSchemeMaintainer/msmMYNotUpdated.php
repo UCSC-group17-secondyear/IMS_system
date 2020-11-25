@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li><a href="msmRemovePostV.php">Remove Medical Scheme</a></li>
+            <li><a href="msmRemovePostV.php">Update Medical Scheme</a></li>
             <li class="active">Action Failed!</li>
         </ul>
 
@@ -21,7 +21,7 @@
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry! <br>
-                            The post is not removed.
+                            The Medical Year is not removed.
                         </h2>
                     </div>
 

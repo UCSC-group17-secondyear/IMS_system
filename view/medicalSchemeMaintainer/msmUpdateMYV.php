@@ -28,7 +28,7 @@
                               <label>Enter Medical Name</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" id="" name="medical_year" <?php echo 'value="'.$_SESSION['medical_year'].'"' ?> required/><br>
+                              <input type="text" id="" name="medical_year" <?php echo 'value="'.$_SESSION['medical_year'].'"' ?> disabled/><br>
                             </div>
                         </div>
                         <div class="row">
