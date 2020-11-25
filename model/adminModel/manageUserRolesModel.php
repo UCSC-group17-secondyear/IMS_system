@@ -9,7 +9,7 @@
 
 		public static function checkRole($userrole, $connect) 
 		{
-			$query = "SELECT * FROM userroles WHERE role_name ='{$userrole}' ";
+			$query = "SELECT * FROM userroles WHERE role_name ='{$userrole}' AND is_deleted = 0 ";
 			$result = mysqli_query($connect, $query);
 			return $result;
 		}
