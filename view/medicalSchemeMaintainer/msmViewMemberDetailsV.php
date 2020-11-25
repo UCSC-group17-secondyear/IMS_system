@@ -124,7 +124,7 @@
                             </div>
                             <div class="col-75">
                             <?php
-                                if($_SESSION['membership_status'] == 1){
+                                if($_SESSION['membership_status'] == 0){
                             ?>
                                 <button type="submit" class="redbtn" disabled><a class="disabled">Declined</a></button>
                             <?php

@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li><a href="msmRemovePostV.php">Remove Medical Year</a></li>
+            <li><a href="msmRemovePostV.php">Update Medical Year</a></li>
             <li class="active">Action Completed!</li>
         </ul>
 

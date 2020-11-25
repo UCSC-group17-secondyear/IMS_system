@@ -27,8 +27,9 @@
 			return $result_set;
 		}
 
-		public static function updateMedicalYear($medical_year, $connect) {
-			$query = "UPDATE tbl_medical_year SET is_deleted = 1 WHERE medical_year = '{$medical_year}' LIMIT 1";
+		public static function updateMedicalYear($medical_year, $start_date, $end_date, $connect)
+		{
+			$query = "UPDATE tbl_medical_year SET start_date = '{$start_date}' AND end_date = '{$end_date}' WHERE medical_year = '{$medical_year}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -109,7 +110,7 @@
 
 		public static function fetchmemberships($connect)
 		{
-			$query = "SELECT u.*, uf.* FROM users u, tbl_user_flag uf WHERE u.userId = uf.User_id AND NOT uf.acceptance_status = 3 AND u.is_deleted = 0 ORDER BY u.userId";
+			$query = "SELECT u.*, uf.* FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND u.is_deleted=0 AND uf.is_deleted=0 ORDER BY uf.user_id";
 
 			$result = mysqli_query($connect, $query);
 
