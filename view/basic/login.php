@@ -34,15 +34,19 @@
 						<input id="empid" value="" name="empid" type="text" placeholder="User name" required="required" /> <br> <br>
 
 						<span class="fa fa-lock"></span>
-						<input id="psw" name="password" type="password" placeholder="Password" required="required" /> <br> <br>
-						<div class="row">
+						<input id="psw" name="password" type="password" placeholder="Password" required="required" />
+						
+        				
+						<i class="fa fa-eye" style="margin-left: -40px;" id="eye" onclick="toggle()"></i>
+    					
+						<!-- <div class="row">
 							<div class="col-25">
 								<input type="checkbox" onclick="showPasswordFunction()">
 							</div>
 							<div class="col-75"><br><br>
 								<label>Show Password</label>
 							</div>
-						</div>
+						</div> -->
 
 						<button class="mainbtn" type="submit" name="submit">LOGIN</button>						
 					</div>
@@ -61,15 +65,30 @@
 	</div>
 
 	<script>
-		// DISPLAY PASSWORD -------------------------------------
-		function showPasswordFunction() {
-  			var x = document.getElementById("psw");
-  			if (x.type === "password") {
-    			x.type = "text";
-  			} else {
-    			x.type = "password";
-  			}
+
+		var state= false;
+		function toggle(){
+			if(state){
+			document.getElementById("psw").setAttribute("type","password");
+			document.getElementById("eye").style.color='#7a797e';
+			state = false;
+			}
+			else{
+			document.getElementById("psw").setAttribute("type","text");
+			document.getElementById("eye").style.color='#5887ef';
+			state = true;
+			}
 		}
+
+		// DISPLAY PASSWORD -------------------------------------
+		// function showPasswordFunction() {
+  		// 	var x = document.getElementById("psw");
+  		// 	if (x.type === "password") {
+    	// 		x.type = "text";
+  		// 	} else {
+    	// 		x.type = "password";
+  		// 	}
+		// }
 	</script>
 </body>
 
