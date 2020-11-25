@@ -1,11 +1,11 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/Model.php');
+    require_once('../../model/msmModel/viewFormsinMSModel.php');
 
     $user_id = mysqli_real_escape_string($connect, $_GET['mem_index']);
-    $result_set = Model::view($user_id, $connect);
-    $records = Model::viewuf($user_id, $connect);
+    $result_set = msmModel::view($user_id, $connect);
+    $records = msmModel::viewuf($user_id, $connect);
 
     if ($result_set && $records) {
         if(mysqli_num_rows($result_set)==1 && mysqli_num_rows($records)==1){

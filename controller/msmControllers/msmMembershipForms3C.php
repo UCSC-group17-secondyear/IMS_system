@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel/msmModel.php');
+    require_once('../../model/msmModel/viewFormsinMSModel.php');
 
     $mem_user_id = mysqli_real_escape_string($connect, $_GET['viewed_member']);
     $mem_email = msmModel::getmail($mem_user_id, $connect);

@@ -37,12 +37,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-25">
-                                <label for="memberwise"><b>Member-wise Claim Details</b></label>
-                            </div>
-                            <div class="col-75">
-                                <input type="radio" id="memberWise" name="wise" value="memberwise" style="margin-top: 19px;">
-                            </div>
+                            <label class="radiolabel" for="memberwise"><b>Member-wise Claim Details</b></label>
+                            <input class="radios" type="radio" id="memberWise" name="wise" value="memberwise">
                         </div>
                         <div class="row">
                             <div class="col-25">
@@ -53,12 +49,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-25">
-                                <label for="departmentwise"><b>Department-wise Claim Details</b></label> <br>
-                            </div>
-                            <div class="col-75">
-                                <input type="radio" id="departmentWise" name="wise" value="departmentwise" style="margin-top: 19px;">
-                            </div>
+                            <label class="radiolabel" for="departmentwise"><b>Department-wise Claim Details</b></label>
+                            <input class="radios" type="radio" id="departmentWise" name="wise" value="departmentwise">
                         </div>
                         <div class="row">
                             <div class="col-25">
@@ -72,12 +64,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-25">
-                                <label for="UCSC"><b>UCSC Claim Details</b></label>
-                            </div>
-                            <div class="col-75">
-                                <input type="radio" id="UCSC" name="wise" value="UCSC" style="margin-top: 19px;">
-                            </div>
+                            <label class="radiolabel" for="UCSC"><b>UCSC Claim Details</b></label>
+                            <input class="radios" type="radio" id="UCSC" name="wise" value="UCSC">
                         </div>
                         <button type="submit" name="viewMemberList-submit" class="subbtn">Select</button>                    
                         <button type="submit" class="cancelbtn">

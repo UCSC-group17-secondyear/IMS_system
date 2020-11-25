@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel/msmModel.php');
+    require_once('../../model/msmModel/viewFormsinMSModel.php');
 
     $membership_forms = msmModel::fetchmemberships($connect);
     $_SESSION['memberships'] = '';
@@ -35,5 +35,7 @@
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewMembershipFormsV.php');
         }
+    } else {
+        header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
     }
 ?>
