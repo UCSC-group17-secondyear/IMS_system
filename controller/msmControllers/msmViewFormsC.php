@@ -47,31 +47,63 @@
 
         $result_forms = msmModel::getClaimForms($connect);
 
-        if(mysqli_num_rows($result_forms)>0){
+        if($result_forms > 0){
             while($rf = mysqli_fetch_assoc($result_forms)) {
                 if ($rf['acceptance_status'] == 3){
-                    $_SESSION['claim_form_no'] .= "<tr>";
-                if ($rf['opd_form_flag'] == 1) {
-                    $_SESSION['claim_form_no'] .= "<td>OPD</td>";
-                } else {
-                    $_SESSION['claim_form_no'] .= "<td>Surgical</td>";
+                    $_SESSION['requested'] .= "<tr>";
+                    if ($rf['opd_form_flag'] == 1) {
+                        $_SESSION['requested'] .= "<td>OPD</td>";
+                    } else {
+                        $_SESSION['requested'] .= "<td>Surgical</td>";
+                    }
+                    $_SESSION['requested'] .= "<td>{$rf['claim_form_no']}</td>";
+                    $_SESSION['requested'] .= "<td>{$rf['empid']}</td>";
+                    $_SESSION['requested'] .= "<td>{$rf['initials']}</td>";
+                    $_SESSION['requested'] .= "<td>{$rf['sname']}</td>";
+                    $_SESSION['requested'] .= "<td>{$rf['submitted_date']}</td>";
+                    $_SESSION['requested'] .= "<td><a href=\"../../controller/memControllers/claimFormListControllerTwo.php?claim_form_no={$rf['claim_form_no']}&user_id={$user_id}\">View</a></td>";
+                    $_SESSION['requested'] .= "</tr>";
                 }
-                
-                
-                $_SESSION['claim_form_no'] .= "<td>{$rf['claim_form_no']}</td>";
-                $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
-                $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/memControllers/claimFormListControllerTwo.php?claim_form_no={$rf['claim_form_no']}&user_id={$user_id}\">View Form</a></td>";
-                }
-
                 header('Location:../../view/medicalSchemeMaintainer/msmViewRequestedClaimFormV.php'); 
             }
         } else {
-            header('Location:../../view/medicalSchemeMaintainer/memNoFormsAvaliableV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
         }
     }
 
     if(isset($_POST['refferedclaim-submit'])) {
+        $_SESSION['reffered'] = '';
+        $reffered_forms = array();
 
+        $reffered_forms = msmModel::getClaimForms($connect);
+
+        if($reffered_forms > 0){
+            while($rcf = mysqli_fetch_assoc($reffered_forms)) {
+                if ($rcf['acceptance_status'] != 3){
+                    $_SESSION['reffered'] .= "<tr>";
+                    if ($rcf['opd_form_flag'] == 1) {
+                        $_SESSION['reffered'] .= "<td>OPD</td>";
+                    } else {
+                        $_SESSION['reffered'] .= "<td>Surgical</td>";
+                    }
+                    $_SESSION['reffered'] .= "<td>{$rcf['claim_form_no']}</td>";
+                    $_SESSION['reffered'] .= "<td>{$rcf['empid']}</td>";
+                    $_SESSION['reffered'] .= "<td>{$rcf['initials']}</td>";
+                    $_SESSION['reffered'] .= "<td>{$rcf['sname']}</td>";
+                    $_SESSION['reffered'] .= "<td>{$rcf['submitted_date']}</td>";
+                    if($rf['acceptance_status'] == 1){
+                        $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
+                    } else {
+                        $_SESSION['memberships'] .= "<td><a class=\"red\">Declined</a></td>";
+                    }
+                    $_SESSION['reffered'] .= "<td><a href=\"../../controller/memControllers/claimFormListControllerTwo.php?claim_form_no={$rf['claim_form_no']}&user_id={$user_id}\">View</a></td>";
+                    $_SESSION['reffered'] .= "</tr>";
+                }
+                header('Location:../../view/medicalSchemeMaintainer/msmViewRefferedCLaimFormsV.php'); 
+            }
+        } else {
+            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
+        }
     }
 
 ?>

@@ -54,7 +54,7 @@
 		}
 
 		public static function getClaimForms($connect) {
-			$query = "SELECT * FROM tbl_user_flag WHERE user_id='{$user_id}' LIMIT 1";
+			$query = "SELECT u.* cf.* FROM tbl_claimform cf, users u WHERE cf.user_id = u.userId AND (cf.opd_form_flag = 1 OR cf.surgical_form_flag = 1) AND cf.is_deleted=0 order by cf.claim_form_no";
 
 			$result = mysqli_query($connect, $query);
 
