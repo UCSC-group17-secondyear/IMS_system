@@ -52,5 +52,13 @@
 
 			return $result;
 		}
+
+		public static function getClaimForms($connect) {
+			$query = "SELECT * FROM tbl_user_flag WHERE user_id='{$user_id}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
     }
 ?>
