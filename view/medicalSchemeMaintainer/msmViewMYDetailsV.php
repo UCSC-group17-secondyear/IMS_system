@@ -7,7 +7,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">View Medical Year</li>
+            <li class="active">View Medical Years</li>
         </ul>
 
         <div class="row">
@@ -19,7 +19,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Available Medical Year</h2>
+                    <h2>Available Medical Years</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable" style="margin-left: 35%;" >

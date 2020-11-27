@@ -781,6 +781,19 @@ img.avatar {
   background-color: white;
 }
 
+.contentForm .radios{
+  margin-top: 2%;
+  padding-top: 80px;
+  margin-bottom: 0px;
+  width: 4.8%;
+}
+
+.contentForm .radiolabel{
+  padding: 0px 0px 30px 0px;
+  margin-top: 0px;
+  font-size: 20px;
+}
+
 .contentForm datalist{
   width: 80%;
   /*background-color: white;*/
@@ -1185,6 +1198,19 @@ a.disabled {
 .redbtn{
   width: 30%;
   background-color: red;
+  color: ivory;
+  font-size: 20px;
+  height: 36px;
+  margin-top: 25px;
+  border: 0px;
+  font-size: 18px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.yellowbtn{
+  width: 30%;
+  background-color: orange;
   color: ivory;
   font-size: 20px;
   height: 36px;
