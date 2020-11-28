@@ -262,13 +262,13 @@
                         if ($_SESSION['acceptance_status'] == 3) {
                     ?>
                         <button class="subbtn" type="submit" name="">
-                            <a href="msmViewRequestedClaimFormV.php"> View Claim Form List</a>
+                            <a href="msmViewRequestedClaimFormV.php"> View Claim Requested Form List</a>
                         </button>
                     <?php
                         } else {
                     ?>
                         <button class="subbtn" type="submit" name="">
-                            <a href="msmViewRefferedClaimFormsV.php"> View Claim Form List</a>
+                            <a href="msmViewRefferedClaimFormsV.php"> View Reffered Claim Form List</a>
                         </button>
                     <?php
                         }
