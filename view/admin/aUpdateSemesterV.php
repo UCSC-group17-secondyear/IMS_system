@@ -41,7 +41,7 @@
                             <label>Enter Academic Year</label>
                         </div>
                         <div class="col-75">
-                            <input  disabled  type="year" name="academic_year" <?php echo 'value="'.$_SESSION['academic_year'].'"' ?> required/> <br>
+                            <input type="year" name="academic_year" <?php echo 'value="'.$_SESSION['academic_year'].'"' ?> required/> <br>
                         </div>
                     </div>
                     <div class="row">

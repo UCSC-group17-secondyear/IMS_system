@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel.php');
+    require_once('../../model/msmModel/manageMemberModel.php');
 ?>
 
 <?php
@@ -23,7 +23,8 @@
             $_SESSION['members'] .= "</tr>";
 
             header('Location:../../view/medicalSchemeMaintainer/msmRemoveMemberV.php');
-            
         }
+    } else {
+        header('Location:../../view/medicalSchemeMaintainer/msmNoMembersV.php');
     }
 ?>

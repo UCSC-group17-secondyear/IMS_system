@@ -7,7 +7,7 @@
         <form action="../../controller/basicControllers/registerMSController2.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
             <div class="row">
                 <div class="col-25">
-                    <label>Department/</label>
+                    <label>Department</label>
                 </div>
                 <div class="col-75">
                     <select name="department"required>

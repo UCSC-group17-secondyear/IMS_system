@@ -22,13 +22,13 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/adminControllers/managePostsC.php" method="POST">
+                    <form action="../../controller/msmControllers/msmmanageMedicalYearC.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                                 <label>Select Medical Year</label>
                             </div>
                             <div class="col-75">
-                                <select name="post_name" id="">
+                                <select name="med_year" id="">
                                     <option value="">Select Medical Year</option>
                                     <?php echo $_SESSION['MYNamesList'] ?>
                                 </select>

@@ -30,16 +30,15 @@
                                 <label for="year">Enter medical year</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="medicalYear">
+                                <select name="my" id="my" required>
+                                    <option value="">Select medical year</option>
+                                    <?php echo $_SESSION['my'] ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-25">
-                                <input type="radio" id="memberWise" name="wise" value="memberwise" style="margin-top: 19px;">
-                            </div>
-                            <div class="col-75">
-                                <label for="memberwise" style="margin-left: -30px;margin-top: 10px;text-decoration;">Member-wise Claim Details</label>
-                            </div>
+                            <label class="radiolabel" for="memberwise"><b>Member-wise Claim Details</b></label>
+                            <input class="radios" type="radio" id="memberWise" name="wise" value="memberwise">
                         </div>
                         <div class="row">
                             <div class="col-25">
@@ -50,12 +49,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-25">
-                                <input type="radio" id="departmentWise" name="wise" value="departmentwise" style="margin-top: 19px;">
-                            </div>
-                            <div class="col-75">
-                                <label for="departmentwise" style="margin-left: -30px;margin-top: 10px;text-decoration;">Department-wise Claim Details</label> <br>
-                            </div>
+                            <label class="radiolabel" for="departmentwise"><b>Department-wise Claim Details</b></label>
+                            <input class="radios" type="radio" id="departmentWise" name="wise" value="departmentwise">
                         </div>
                         <div class="row">
                             <div class="col-25">
@@ -63,18 +58,14 @@
                             </div>
                             <div class="col-75">
                                 <select name="department" id="department" required>
-                                    <option value="">Select a Department</option>
-                                    <?php echo $_SESSION['department'] ?>
+                                    <option value="">Select Department</option>
+                                    <?php echo $_SESSION['departments'] ?>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-25">
-                                <input type="radio" id="UCSC" name="wise" value="UCSC" style="margin-top: 19px;">
-                            </div>
-                            <div class="col-75">
-                                <label for="UCSC" style="margin-left: -30px;margin-top: 10px;text-decoration;">UCSC Claim Details</label>
-                            </div>
+                            <label class="radiolabel" for="UCSC"><b>UCSC Claim Details</b></label>
+                            <input class="radios" type="radio" id="UCSC" name="wise" value="UCSC">
                         </div>
                         <button type="submit" name="viewMemberList-submit" class="subbtn">Select</button>                    
                         <button type="submit" class="cancelbtn">
