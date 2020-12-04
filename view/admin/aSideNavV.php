@@ -34,13 +34,13 @@
             <li><button class="tree_list">Manage Departments</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/aViewDepartmentController.php"><li><i class="fa fa fa-check-circle"></i>View Departments</li></a>
+                        <a href="../../controller/adminControllers/aViewDepartmentController.php"><li><i class="fa fa fa-check-circle"></i>View Departments</li></a>
                     </button>
                     <button>
                         <a href="aAddDepartmentV.php"><li><i class="fa fa-plus-circle"></i>Add a new Department</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/aUpDepartmentController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Department</li></a>
+                        <a href="../../controller/adminControllers/aUpDepartmentController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Department</li></a>
                     </button>
                 </ul>
             </li>
@@ -48,13 +48,13 @@
             <li><button class="tree_list">Manage Designations</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/aViewDesignationController.php"><li><i class="fa fa-user"></i>View Designation</li></a>
+                        <a href="../../controller/adminControllers/aViewDesignationController.php"><li><i class="fa fa-user"></i>View Designation</li></a>
                     </button>
                     <button>
                         <a href="aAddDesignationV.php"><li><i class="fa fa-plus-circle"></i>Add a new Designation</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/aUpDesignationController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Designation</li></a>
+                        <a href="../../controller/adminControllers/aUpDesignationController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Designation</li></a>
                     </button>
                 </ul>
             </li>
@@ -111,13 +111,13 @@
             <li><button class="tree_list">Manage Semesters</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/aViewSemesterController.php"><li><i class="fa fa-graduation-cap"></i>View Semesters</li></a>
+                        <a href="../../controller/adminControllers/aViewSemesterController.php"><li><i class="fa fa-graduation-cap"></i>View Semesters</li></a>
                     </button>
                     <button>
                         <a href="aAddSemesterV.php"><li><i class="fa fa-plus-circle"></i>Add a new Semester</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/aUpSemesterController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Semester</li></a>
+                        <a href="../../controller/adminControllers/aUpSemesterController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Semester</li></a>
                     </button>
                 </ul>
             </li>
@@ -174,13 +174,13 @@
             <li><button class="tree_list">Manage Halls</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/aViewHallController.php"><li><i class="fa fa-building"></i>View Halls</li></a>
+                        <a href="../../controller/adminControllers/aViewHallController.php"><li><i class="fa fa-building"></i>View Halls</li></a>
                     </button>
                     <button>
                         <a href="aAddHallV.php"><li><i class="fa fa-plus-circle"></i>Add a new Hall</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/aUpHallController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Hall</li></a>
+                        <a href="../../controller/adminControllers/aUpHallController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Hall</li></a>
                     </button>
                 </ul>
             </li>
