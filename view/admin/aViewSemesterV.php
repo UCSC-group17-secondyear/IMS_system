@@ -29,7 +29,7 @@
                         <th>Academic Year</th>
                         <th>Start Date</th>
                         <th>End Date</th>
-                        <th>Edit</th>
+                        <th>Update</th>
                         <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['semester_list']; ?>

@@ -1,14 +1,14 @@
 <?php
 
     session_start();
-    require_once('../config/database.php');
-    require_once('../model/Model.php');
+    require_once('../../config/database.php');
+    require_once('../../model/adminModel/manageDepartmentsModel.php');
 
 
     if (isset($_GET['dept_id'])) {
         $dept_id = mysqli_real_escape_string($connect, $_GET['dept_id']);
 
-        $results = Model::viewADept($dept_id, $connect);
+        $results = adminModel::viewADept($dept_id, $connect);
 
         if ($results) {
             if (mysqli_num_rows($results)==1) {
@@ -19,7 +19,7 @@
                 $_SESSION['dept_head_email'] = $result['department_head_email'];
                 $_SESSION['abbriviation'] = $result['department_abbriviation'];
 
-                header('Location:../view/admin/aUpdateDepartmentV.php');
+                header('Location:../../view/admin/aUpdateDepartmentV.php');
             }
             else {
                 header('Location:../../view/admin/aQueryFailedV.php');
@@ -38,18 +38,18 @@
         $department_head_email = mysqli_real_escape_string($connect, $_POST['dept_head_email']);
         $abbriviation = mysqli_real_escape_string($connect, $_POST['abbriviation']);
 
-        $checkDept = Model::checkDeptThree($dept_id, $department, $connect);
+        $checkDept = adminModel::checkDeptThree($dept_id, $department, $connect);
 
         if (mysqli_num_rows($checkDept)==1) {
-            header('Location:../view/admin/aDepartmentExistsV.php');
+            header('Location:../../view/admin/aDepartmentExistsV.php');
         }
         else {
-            $result = Model::updateDepartment($dept_id, $department, $department_head, $department_head_email, $abbriviation, $connect);
+            $result = adminModel::updateDepartment($dept_id, $department, $department_head, $department_head_email, $abbriviation, $connect);
 
             if ($result) {
-                header('Location:../view/admin/aDepartmentUpdatedV.php');
+                header('Location:../../view/admin/aDepartmentUpdatedV.php');
             }else {
-                header('Location:../view/admin/aDepartmentNotUpdatedV.php');
+                header('Location:../../view/admin/aDepartmentNotUpdatedV.php');
             }
         }
 
@@ -58,7 +58,7 @@
     elseif (isset($_POST['updateDepartment'])) {
         $department = mysqli_real_escape_string($connect, $_POST['department']);
 
-        $results = Model::viewADeptUsingName($department, $connect);
+        $results = adminModel::viewADeptUsingName($department, $connect);
 
         if ($results) {
             if (mysqli_num_rows($results)==1) {
@@ -69,7 +69,7 @@
                 $_SESSION['dept_head_email'] = $result['department_head_email'];
                 $_SESSION['abbriviation'] = $result['department_abbriviation'];
 
-                header('Location:../view/admin/aUpdateDepartmentV.php');
+                header('Location:../../view/admin/aUpdateDepartmentV.php');
             }
         }
         else {
@@ -80,13 +80,13 @@
     elseif (isset($_POST['deleteDepartment'])) {
         $department = mysqli_real_escape_string($connect, $_POST['department']);
 
-        $result = Model::deleteDeptUsingName($department, $connect);
+        $result = adminModel::deleteDeptUsingName($department, $connect);
 
         if ($result) {
-            header('Location:../view/admin/aDepartmentDeletedTwoV.php');
+            header('Location:../../view/admin/aDepartmentDeletedTwoV.php');
         }
         else{
-            header('Location:../view/admin/aDepartmentNotDeletedTwoV.php');
+            header('Location:../../view/admin/aDepartmentNotDeletedTwoV.php');
         }
     }
     

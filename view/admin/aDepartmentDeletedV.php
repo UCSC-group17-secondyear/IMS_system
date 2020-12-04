@@ -28,7 +28,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="../../controller/aViewDepartmentController.php">Departments List</a>
+                        <a href="../../controller/adminControllers/aViewDepartmentController.php">Departments List</a>
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 

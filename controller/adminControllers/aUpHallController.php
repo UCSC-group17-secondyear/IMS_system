@@ -1,10 +1,10 @@
 <?php
 
     session_start();
-    require_once('../config/database.php');
-    require_once('../model/Model.php');
+    require_once('../../config/database.php');
+    require_once('../../model/adminModel/manageHallsModel.php');
 
-    $records = Model::hall($connect);
+    $records = adminModel::hall($connect);
     
     $_SESSION['halls'] = '';
 
@@ -13,7 +13,7 @@
             $_SESSION['halls'] .= "<option value='".$record['hall_name']."'>".$record['hall_name']."</option>";
         }
 
-        header('Location:../view/admin/aUpdateHallFormV.php');
+        header('Location:../../view/admin/aUpdateHallFormV.php');
     }
 
 ?>
