@@ -1,14 +1,14 @@
 <?php
 
     session_start();
-    require_once('../config/database.php');
-    require_once('../model/Model.php');
+    require_once('../../config/database.php');
+    require_once('../../model/adminModel/manageHallsModel.php');
 
 
     if (isset($_GET['hall_id'])) {
         $hall_id = mysqli_real_escape_string($connect, $_GET['hall_id']);
 
-        $results = Model::viewAHall($hall_id, $connect);
+        $results = adminModel::viewAHall($hall_id, $connect);
 
         if ($results) {
             if (mysqli_num_rows($results)==1) {
@@ -19,7 +19,7 @@
                 $_SESSION['location'] = $result['location'];
                 $_SESSION['AC'] = $result['AC'];
 
-                header('Location:../view/admin/aUpdateHallV.php');
+                header('Location:../../view/admin/aUpdateHallV.php');
             }
         }
         else {
@@ -34,18 +34,18 @@
         $seating_capacity = mysqli_real_escape_string($connect, $_POST['seating_capacity']);
         $ac = mysqli_real_escape_string($connect, $_POST['ac']);
 
-        $checkHall = Model::checkHallThree($hall_id, $hall_name, $connect);
+        $checkHall = adminModel::checkHallThree($hall_id, $hall_name, $connect);
 
         if (mysqli_num_rows($checkHall)==1) {
-            header('Location:../view/admin/aHallExistsV.php');
+            header('Location:../../view/admin/aHallExistsV.php');
         }
         else {
-            $result = Model::updateHall($hall_id, $hall_name, $location, $seating_capacity, $ac, $connect);
+            $result = adminModel::updateHall($hall_id, $hall_name, $location, $seating_capacity, $ac, $connect);
 
             if ($result) {
-                header('Location:../view/admin/aHallUpdatedV.php');
+                header('Location:../../view/admin/aHallUpdatedV.php');
             }else {
-                header('Location:../view/admin/aHallNotUpdatedV.php');
+                header('Location:../../view/admin/aHallNotUpdatedV.php');
             }
         }
 
@@ -54,7 +54,7 @@
     elseif (isset($_POST['updateHall'])) {
         $hall = mysqli_real_escape_string($connect, $_POST['hall']);
 
-        $results = Model::viewAHallUsingName($hall, $connect);
+        $results = adminModel::viewAHallUsingName($hall, $connect);
 
         if ($results) {
             if (mysqli_num_rows($results)==1) {
@@ -65,7 +65,7 @@
                 $_SESSION['location'] = $result['location'];
                 $_SESSION['AC'] = $result['AC'];
 
-                header('Location:../view/admin/aUpdateHallV.php');
+                header('Location:../../view/admin/aUpdateHallV.php');
             }
         }
         else {
@@ -76,13 +76,13 @@
     elseif (isset($_POST['deleteHall'])) {
         $hall = mysqli_real_escape_string($connect, $_POST['hall']);
 
-        $result = Model::deleteHallUsingName($hall, $connect);
+        $result = adminModel::deleteHallUsingName($hall, $connect);
 
         if ($result) {
-            header('Location:../view/admin/aHallDeletedTwoV.php');
+            header('Location:../../view/admin/aHallDeletedTwoV.php');
         }
         else{
-            header('Location:../view/admin/aHallNotDeletedTwoV.php');
+            header('Location:../../view/admin/aHallNotDeletedTwoV.php');
         }
     }
     

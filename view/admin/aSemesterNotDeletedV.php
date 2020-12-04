@@ -29,7 +29,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="../../controller/aViewSemesterController.php">Semesters List</a> 
+                        <a href="../../controller/adminControllers/aViewSemesterController.php">Semesters List</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 

@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/aAddDepartmentController.php" method="POST">
+                    <form action="../../controller/adminControllers/aAddDepartmentController.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                               <label>Department Name</label>
