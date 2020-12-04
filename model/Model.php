@@ -852,9 +852,9 @@
 			return $result_set;
 		}
 
-		public static function membershipstatus($user_id, $connect)
+		public static function isscheme($user_id, $connect)
 		{
-			$query = "SELECT form_submission_date FROM tbl_user_flag WHERE user_id='{$user_id}'";
+			$query = "SELECT schemename FROM tbl_user_flag WHERE user_id='{$user_id}'";
 			
 			$result_set = mysqli_query($connect, $query);
 			

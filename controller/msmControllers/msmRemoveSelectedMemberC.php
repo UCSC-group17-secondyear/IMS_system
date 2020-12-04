@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel.php');
+    require_once('../../model/msmModel/manageMemberModel.php');
 
     if (isset($_GET['mem_delete'])) {
         
@@ -11,12 +11,8 @@
 
         if ($result) {
             header('Location:../../view/medicalSchemeMaintainer/msmDeletedSuccesV.php');
-        }
-        else {
+        } else {
             header('Location:../../view/medicalSchemeMaintainer/msmDeletedUnsuccesV.php');
         }
-    } else{
-        echo "User id is not passed to controller.";
     }
-
 ?>

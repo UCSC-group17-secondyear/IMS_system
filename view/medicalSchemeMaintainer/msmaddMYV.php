@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/msmControllers/manageMedicalYearC.php" method="post">
+                    <form action="../../controller/msmControllers/msmmanageMedicalYearC.php" method="post">
                         <div class="row">
                             <div class="col-25">
                               <label>Enter Medical Name</label>

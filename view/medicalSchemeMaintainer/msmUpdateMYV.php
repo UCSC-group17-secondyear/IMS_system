@@ -22,29 +22,34 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/msmControllers/manageMedicalYearC.php" method="post">
+                    <form action="../../controller/msmControllers/msmmanageMedicalYearC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Medical Name</label>
+                                <label>Enter Medical Name</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" id="" name="medical_year" <?php echo 'value="'.$_SESSION['medical_year'].'"' ?> required/><br>
+                                <input type="text" id="" name="medical_year"
+                                    <?php echo 'value="'.$_SESSION['medical_year'].'"' ?> disabled /><br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Start Date</label>
+                                <label>Enter Start Date</label>
                             </div>
                             <div class="col-75">
-                              <input type="date" id="" name="start_date" <?php echo 'value="'.$_SESSION['start_date'].'"' ?> required/><br>
+                                <?php if($_SESSION['start_date'] >= date("Y-m-d")) {?>
+                                    <input type="date" id="" name="start_date" <?php echo 'value="'.$_SESSION['start_date'].'"' ?> required /><br>
+                                <?php } else { ?>
+                                    <input type="date" id="" name="start_date" <?php echo 'value="'.$_SESSION['start_date'].'"' ?> disabled /><br>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter End Date</label>
+                                <label>Enter End Date</label>
                             </div>
                             <div class="col-75">
-                              <input type="date" id="" name="end_date" <?php echo 'value="'.$_SESSION['end_date'].'"' ?> required/><br>
+                                <input type="date" id="" name="end_date" <?php echo 'value="'.$_SESSION['end_date'].'"' ?> required /><br>
                             </div>
                         </div>
 

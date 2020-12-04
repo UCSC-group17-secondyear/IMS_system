@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel.php');
+    require_once('../../model/msmModel/manageMemberModel.php');
 
     if (isset($_POST['viewMemberList-submit'])) {
         $_SESSION['member_info'] = '';
@@ -25,7 +25,5 @@
         } else {
             header('Location:../../view/medicalSchemeMaintainer/msmNoMembersV.php');
         }
-    } else {
-        echo "Button not pressed.";
     }
 ?>
