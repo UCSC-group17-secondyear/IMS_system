@@ -1,10 +1,10 @@
 <?php
 
     session_start();
-    require_once('../config/database.php');
-    require_once('../model/Model.php');
+    require_once('../../config/database.php');
+    require_once('../../model/adminModel/manageDesignationsModel.php');
 
-    $records = Model::designation($connect);
+    $records = adminModel::designation($connect);
     
     $_SESSION['desg'] = '';
 
@@ -13,7 +13,7 @@
             $_SESSION['desg'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
         }
 
-        header('Location:../view/admin/aUpdateDesignationFormV.php');
+        header('Location:../../view/admin/aUpdateDesignationFormV.php');
     }
 
 ?>

@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/aAddDesignationController.php" method="POST">
+                    <form action="../../controller/adminControllers/aAddDesignationController.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                               <label>Designation Name</label>

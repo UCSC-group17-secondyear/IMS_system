@@ -1,8 +1,8 @@
 <?php
 
     session_start();
-    require_once('../config/database.php');
-    require_once('../model/Model.php');
+    require_once('../../config/database.php');
+    require_once('../../model/adminModel/manageSemestersModel.php');
 
     if (isset($_POST['addSemester-submit'])) {
         
@@ -11,13 +11,13 @@
         $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
         $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
 
-        $result = Model::enterSemester($semester, $academic_year, $start_date, $end_date, $connect);
+        $result = adminModel::enterSemester($semester, $academic_year, $start_date, $end_date, $connect);
         
         if ($result) {
-            header('Location:../view/admin/aSemesterAddedV.php');
+            header('Location:../../view/admin/aSemesterAddedV.php');
         }
         else{
-            header('Location:../view/admin/aSemesterNotAddedV.php');
+            header('Location:../../view/admin/aSemesterNotAddedV.php');
         }
     }
 
