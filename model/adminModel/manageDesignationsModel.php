@@ -99,6 +99,15 @@
 
 			return $result;
 		}
+
+		public static function getPost($connect)
+		{
+			$query = "SELECT post_name FROM tbl_post WHERE is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+		}
     }
 
 ?>

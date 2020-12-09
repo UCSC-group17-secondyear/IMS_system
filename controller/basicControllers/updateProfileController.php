@@ -1,18 +1,22 @@
 <?php
 
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../model/basicModel/manageProfileModel.php');
+    require_once('../../model/adminModel/manageDesignationsModel.php');
+    require_once('../../config/database.php');
 
 ?>
 
 <?php
- 
+    $_SESSION['design'] = '';
+    $_SESSION['posts'] = '';
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     // echo $user_id;
-    $result_set = Model::view($user_id, $connect);
+    $result_set = basicModel::view($user_id, $connect);
+    $records = adminModel::designation($connect);
+    $records2 = adminModel::getPost($connect);
 
-    if ($result_set) {
+    if ($result_set && $records && $records2) {
         if(mysqli_num_rows($result_set)==1){
             $result = mysqli_fetch_assoc($result_set);
             $_SESSION['userId'] = $result['userId'];
@@ -27,38 +31,46 @@
             $_SESSION['post'] = $result['post'];
             $_SESSION['appointment'] = $result['appointment'];
 
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+            }
+            
+            while ($record2 = mysqli_fetch_array($records2)) {
+				$_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
+			}
+
             if ($result['userRole'] == "admin") {
-                header('Location:../view/admin/aProfileV.php');
+                header('Location:../../view/admin/aUpdateProfileV.php');
             }
             else if ($result['userRole'] == "academicStaffMemb") {
-                header('Location:../view/academicStaffMember/asmProfileV.php');
+                header('Location:../../view/academicStaffMember/asmUpdateProfileV.php');
             }
             else if ($result['userRole'] == "nonAcademicStaffMemb") {
-                header('Location:../view/nonAcademicStaffMember/nasmProfileV.php');
+                header('Location:../../view/nonAcademicStaffMember/nasmUpdateProfileV.php');
             }
             else if ($result['userRole'] == "attendanceMain") {
-                header('Location:../view/attendanceMaintainer/amProfileV.php');
+                header('Location:../../view/attendanceMaintainer/amUpdateProfileV.php');
             }
             else if ($result['userRole'] == "hallAllocationMain") {
-                header('Location:../view/hallAllocationMaintainer/hamProfileV.php');
+                header('Location:../../view/hallAllocationMaintainer/hamUpdateProfileV.php');
             }
             else if ($result['userRole'] == "mahapolaSchemeMain") {
-                header('Location:../view/mahapolaSchemeMaintainer/mmProfileV.php');
+                header('Location:../../view/mahapolaSchemeMaintainer/mmUpdateProfileV.php');
             }
             else if ($result['userRole'] == "medicalSchemeMain") {
-                header('Location:../view/medicalSchemeMaintainer/msmProfileV.php');
+                header('Location:../../view/medicalSchemeMaintainer/msmUpdateProfileV.php');
             }
             else if ($result['userRole'] == "medicalSchemeMemb") {
-                header('Location:../view/medicalSchemeMember/memProfileV.php');
+                header('Location:../../view/medicalSchemeMember/memUpdateProfileV.php');
             }
             else if ($result['userRole'] == "recordsViewer") {
-                header('Location:../view/reportViewer/rvProfileV.php');
+                header('Location:../../view/reportViewer/rvUpdateProfileV.php');
             }
             else if ($result['userRole'] == "departmentHead") {
-                header('Location:../view/departmentHead/dhProfileV.php');
+                header('Location:../../view/departmentHead/dhUpdateProfileV.php');
             }
             else if ($result['userRole'] == "medicalOfficer") {
-                header('Location:../view/medicalOfficer/moProfileV.php');
+                header('Location:../../view/medicalOfficer/moUpdateProfileV.php');
             }
             else {
                 echo "USER";

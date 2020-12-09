@@ -94,14 +94,7 @@
             return $result;
 		}
 
-		public static function updatePasswordTwo($user_id, $hashed_password, $connect)
-		{
-			$query = "UPDATE users SET password = '{$hashed_password}' WHERE userId={$user_id} LIMIT 1";
-
-			$result = mysqli_query($connect, $query);
-
-            return $result;
-		}
+		
 
 		public static function setUserRole($empid, $userRole, $connect)
 		{
@@ -198,14 +191,7 @@
 			
 		}
 
-		public static function getPost($connect)
-		{
-			$query = "SELECT post_name FROM tbl_post WHERE is_deleted=0";
-
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
+		
 
 		public static function checkHall($hall, $date, $startTime, $endTime, $connect)
 		{
