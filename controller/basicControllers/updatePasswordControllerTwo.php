@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../model/basicModel/manageProfileModel.php');
+    require_once('../../config/database.php');
 
 ?>
 
@@ -14,7 +14,7 @@
         $_SESSION['userId'] = $user_id;
         // echo $user_id;
 
-        $answers = Model::getRole($user_id, $connect);
+        $answers = basicModel::getRole($user_id, $connect);
         if ($answers) {
             $answer = mysqli_fetch_assoc($answers);
             $userRole = $answer['userRole'];
@@ -46,114 +46,114 @@
         if (empty($errors)) {
             $hashed_password = sha1($password);
 
-            $result = Model::updatePasswordTwo($user_id, $hashed_password, $connect);
+            $result = basicModel::updatePasswordTwo($user_id, $hashed_password, $connect);
 
             if ($result) {
                     if ($userRole == "admin") {
-                    	header('Location:../view/admin/aPasswordUpdatedV.php');
+                    	header('Location:../../view/admin/aPasswordUpdatedV.php');
 					}
 					else if ($userRole == "academicStaffMemb") {
-						header('Location:../view/academicStaffMember/asmPasswordUpdatedV.php');
+						header('Location:../../view/academicStaffMember/asmPasswordUpdatedV.php');
                     }
                     else if ($userRole == "nonAcademicStaffMemb") {
-						header('Location:../view/nonAcademicStaffMember/nasmPasswordUpdatedV.php');
+						header('Location:../../view/nonAcademicStaffMember/nasmPasswordUpdatedV.php');
 					}
 					else if ($userRole == "attendanceMain") {
-						header('Location:../view/attendanceMaintainer/amPasswordUpdatedV.php');
+						header('Location:../../view/attendanceMaintainer/amPasswordUpdatedV.php');
 					}
 					else if ($userRole == "hallAllocationMain") {
-						header('Location:../view/hallAllocationMaintainer/hamPasswordUpdatedV.php');
+						header('Location:../../view/hallAllocationMaintainer/hamPasswordUpdatedV.php');
 					}
 					else if ($userRole == "mahapolaSchemeMain") {
-						header('Location:../view/mahapolaSchemeMaintainer/mmPasswordUpdatedV.php');
+						header('Location:../../view/mahapolaSchemeMaintainer/mmPasswordUpdatedV.php');
 					}
 					else if ($userRole == "medicalSchemeMain") {
-						header('Location:../view/medicalSchemeMaintainer/msmPasswordUpdatedV.php');
+						header('Location:../../view/medicalSchemeMaintainer/msmPasswordUpdatedV.php');
                     }
                     else if ($userRole == "medicalSchemeMemb") {
-						header('Location:../view/medicalSchemeMember/memPasswordUpdatedV.php');
+						header('Location:../../view/medicalSchemeMember/memPasswordUpdatedV.php');
                     }
 					else if ($userRole == "recordsViewer") {
-						header('Location:../view/reportViewer/rvPasswordUpdatedV.php');
+						header('Location:../../view/reportViewer/rvPasswordUpdatedV.php');
 					}
 					else if ($userRole == "departmentHead") {
-						header('Location:../view/departmentHead/dhPasswordUpdatedV.php');
+						header('Location:../../view/departmentHead/dhPasswordUpdatedV.php');
 					}
 					else if ($userRole == "medicalOfficer") {
-						header('Location:../view/medicalOfficer/moPasswordUpdatedV.php');
+						header('Location:../../view/medicalOfficer/moPasswordUpdatedV.php');
                     }
                 //header('Location:../view/admin/aPasswordUpdatedV.php');
             }
             else {
                     if ($userRole == "admin") {
-                    	header('Location:../view/admin/aPasswordNotUpdatedV.php');
+                    	header('Location:../../view/admin/aPasswordNotUpdatedV.php');
 					}
 					else if ($userRole == "academicStaffMemb") {
-						header('Location:../view/academicStaffMember/asmPasswordNotUpdatedV.php');
+						header('Location:../../view/academicStaffMember/asmPasswordNotUpdatedV.php');
                     }
                     else if ($userRole == "nonAcademicStaffMemb") {
-						header('Location:../view/nonAcademicStaffMember/nasmPasswordNotUpdatedV.php');
+						header('Location:../../view/nonAcademicStaffMember/nasmPasswordNotUpdatedV.php');
 					}
 					else if ($userRole == "attendanceMain") {
-						header('Location:../view/attendanceMaintainer/amPasswordNotUpdatedV.php');
+						header('Location:../../view/attendanceMaintainer/amPasswordNotUpdatedV.php');
 					}
 					else if ($userRole == "hallAllocationMain") {
-						header('Location:../view/hallAllocationMaintainer/hamPasswordNotUpdatedV.php');
+						header('Location:../../view/hallAllocationMaintainer/hamPasswordNotUpdatedV.php');
 					}
 					else if ($userRole == "mahapolaSchemeMain") {
-						header('Location:../view/mahapolaSchemeMaintainer/mmPasswordNotUpdatedV.php');
+						header('Location:../../view/mahapolaSchemeMaintainer/mmPasswordNotUpdatedV.php');
 					}
 					else if ($userRole == "medicalSchemeMain") {
-						header('Location:../view/medicalSchemeMaintainer/msmPasswordNotUpdatedV.php');
+						header('Location:../../view/medicalSchemeMaintainer/msmPasswordNotUpdatedV.php');
                     }
                     else if ($userRole == "medicalSchemeMemb") {
-						header('Location:../view/medicalSchemeMember/memPasswordNotUpdatedV.php');
+						header('Location:../../view/medicalSchemeMember/memPasswordNotUpdatedV.php');
                     }
 					else if ($userRole == "recordsViewer") {
-						header('Location:../view/reportViewer/rvPasswordNotUpdatedV.php');
+						header('Location:../../view/reportViewer/rvPasswordNotUpdatedV.php');
 					}
 					else if ($userRole == "departmentHead") {
-						header('Location:../view/departmentHead/dhPasswordNotUpdatedV.php');
+						header('Location:../../view/departmentHead/dhPasswordNotUpdatedV.php');
 					}
 					else if ($userRole == "medicalOfficer") {
-						header('Location:../view/medicalOfficer/moPasswordNotUpdatedV.php');
+						header('Location:../../view/medicalOfficer/moPasswordNotUpdatedV.php');
                     }
                 //header('Location:../view/admin/aPasswordNotUpdatedV.php');
             }
 		}
 		else {
 			if ($userRole == "admin") {
-                header('Location:../view/admin/aPasswordNotUpdatedV.php');
+                header('Location:../../view/admin/aPasswordNotUpdatedV.php');
 			}
 			else if ($userRole == "academicStaffMemb") {
-				header('Location:../view/academicStaffMember/asmPasswordNotUpdatedV.php');
+				header('Location:../../view/academicStaffMember/asmPasswordNotUpdatedV.php');
             }
         	else if ($userRole == "nonAcademicStaffMemb") {
-				header('Location:../view/nonAcademicStaffMember/nasmPasswordNotUpdatedV.php');
+				header('Location:../../view/nonAcademicStaffMember/nasmPasswordNotUpdatedV.php');
 			}
 			else if ($userRole == "attendanceMain") {
-				header('Location:../view/attendanceMaintainer/amPasswordNotUpdatedV.php');
+				header('Location:../../view/attendanceMaintainer/amPasswordNotUpdatedV.php');
 			}
 			else if ($userRole == "hallAllocationMain") {
-				header('Location:../view/hallAllocationMaintainer/hamPasswordNotUpdatedV.php');
+				header('Location:../../view/hallAllocationMaintainer/hamPasswordNotUpdatedV.php');
 			}
 			else if ($userRole == "mahapolaSchemeMain") {
-				header('Location:../view/mahapolaSchemeMaintainer/mmPasswordNotUpdatedV.php');
+				header('Location:../../view/mahapolaSchemeMaintainer/mmPasswordNotUpdatedV.php');
 			}
 			else if ($userRole == "medicalSchemeMain") {
-				header('Location:../view/medicalSchemeMaintainer/msmPasswordNotUpdatedV.php');
+				header('Location:../../view/medicalSchemeMaintainer/msmPasswordNotUpdatedV.php');
             }
             else if ($userRole == "medicalSchemeMemb") {
-				header('Location:../view/medicalSchemeMember/memPasswordNotUpdatedV.php');
+				header('Location:../../view/medicalSchemeMember/memPasswordNotUpdatedV.php');
             }
 			else if ($userRole == "recordsViewer") {
-				header('Location:../view/reportViewer/rvPasswordNotUpdatedV.php');
+				header('Location:../../view/reportViewer/rvPasswordNotUpdatedV.php');
 			}
 			else if ($userRole == "departmentHead") {
-				header('Location:../view/departmentHead/dhPasswordNotUpdatedV.php');
+				header('Location:../../view/departmentHead/dhPasswordNotUpdatedV.php');
 			}
 			else if ($userRole == "medicalOfficer") {
-				header('Location:../view/medicalOfficer/moPasswordNotUpdatedV.php');
+				header('Location:../../view/medicalOfficer/moPasswordNotUpdatedV.php');
             }
 		}
 
