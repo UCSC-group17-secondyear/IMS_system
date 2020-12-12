@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require_once('../config/database.php');
+	require_once('../model/adminModel/manageDesignationsModel.php');
 	require_once('../model/Model.php');
 	
 	if (isset($_POST['signup-submit'])) 
@@ -163,8 +164,8 @@
 	if (isset($_GET['desig'])) {
 		$_SESSION['design'] = '';
 		$_SESSION['posts'] = '';
-		$records = Model::designation($connect);
-		$records2 = Model::getPost($connect);
+		$records = adminModel::designation($connect);
+		$records2 = adminModel::getPost($connect);
 
 		if ($records && $records2) {
 			while ($record = mysqli_fetch_array($records)) {
