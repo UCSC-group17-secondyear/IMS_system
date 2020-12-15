@@ -6,7 +6,7 @@
 
     <title>Change User Role</title>
     <div class="changeroleForm">
-        <form action="../../controller/changeUserRoleController.php" method="POST">
+        <form action="../../controller/basicControllers/changeUserRoleController.php" method="POST">
             <h2>Change User Role</h2>
                 <div class="row">
                     <div class="col-25">

@@ -9,6 +9,6 @@
 
     session_destroy();
 
-    header('Location:../view/basic/homePageV.php');
+    header('Location:../../view/basic/homePageV.php');
 
 ?>

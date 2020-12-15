@@ -26,7 +26,7 @@
 	
 	<div style="padding-bottom: 3%;">
 		<div class="loginForm">
-			<form action="../../controller/loginController.php" method="POST">
+			<form action="../../controller/basicControllers/loginController.php" method="POST">
 				<h2>Login Here</h2>
 				<div class="row">
 		            <div class="col-50l">
@@ -56,7 +56,7 @@
 	                    </div>
 		              	<div class="sentence1">
 							<h3><a href="forgotpwdV.php">Forgot your password?</a></h3> <br>
-							<h3>New here? <a href="../../controller/SignupController.php?desig=99">Sign Up.</a></h3>
+							<h3>New here? <a href="../../controller/basicControllers/SignupController.php?desig=99">Sign Up.</a></h3>
 						</div>
 					</div>
 				</div>

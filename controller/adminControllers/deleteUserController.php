@@ -1,8 +1,8 @@
 <?php
 
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../model/adminModel/manageUsersModel.php');
+    require_once('../../config/database.php');
 
 ?>
 
@@ -16,7 +16,7 @@
             echo "Cannot delete current user.[Admin]";
         }
         else {
-            $result = Model::deleteUser($user_id, $connect);
+            $result = adminModel::deleteUser($user_id, $connect);
 
             if ($result) {
 

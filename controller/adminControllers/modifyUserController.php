@@ -1,8 +1,8 @@
 <?php
 
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../model/adminModel/manageUsersModel.php');
+    require_once('../../config/database.php');
 
 ?>
 
@@ -12,9 +12,9 @@
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id_two']);
     $_SESSION['userId'] = mysqli_real_escape_string($connect, $_GET['user_id']);
 
-    $result_set = Model::view($user_id, $connect);
-    $records = Model::designation($connect);
-    $records2 = Model::getPost($connect);
+    $result_set = adminModel::view($user_id, $connect);
+    $records = adminModel::designation($connect);
+    $records2 = adminModel::viewPosts($connect);
 
     if ($result_set && $records && $records2) {
         if (mysqli_num_rows($result_set)==1) {
@@ -39,7 +39,7 @@
                 $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
 			}
 
-            header('Location:../view/admin/aModifyUserV.php');
+            header('Location:../../view/admin/aModifyUserV.php');
         }
     }
 
