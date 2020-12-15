@@ -1,9 +1,7 @@
 <?php 
     session_start();
-    // include 'model/Model.php';
-	// include 'config/database.php';
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../model/basicModel/authenticationModel.php');
+    require_once('../../config/database.php');
 ?>
 
 <?php
@@ -24,7 +22,7 @@
             $hashed_password = sha1($password);
             $empid = strtolower($EmpId);
 
-            $result = Model::getlogin($empid, $hashed_password, $connect);
+            $result = basicModel::getlogin($empid, $hashed_password, $connect);
 
             // print_r($result->fetch_assoc());
             if ($result) {
@@ -35,52 +33,52 @@
                     $_SESSION['empid'] = $key['empid'];
 
                     if ($key['userRole'] == "admin") {
-                    	header('Location:../view/admin/aHomeV.php');
+                    	header('Location:../../view/admin/aHomeV.php');
 					}
 					else if ($key['userRole'] == "academicStaffMemb") {
-						header('Location:../view/academicStaffMember/asmHomeV.php');
+						header('Location:../../view/academicStaffMember/asmHomeV.php');
                     }
                     else if ($key['userRole'] == "nonAcademicStaffMemb") {
-						header('Location:../view/nonAcademicStaffMember/nasmHomeV.php');
+						header('Location:../../view/nonAcademicStaffMember/nasmHomeV.php');
 					}
 					else if ($key['userRole'] == "attendanceMain") {
-						header('Location:../view/attendanceMaintainer/amHomeV.php');
+						header('Location:../../view/attendanceMaintainer/amHomeV.php');
 					}
 					else if ($key['userRole'] == "hallAllocationMain") {
-						header('Location:../view/hallAllocationMaintainer/hamHomeV.php');
+						header('Location:../../view/hallAllocationMaintainer/hamHomeV.php');
 					}
 					else if ($key['userRole'] == "mahapolaSchemeMain") {
-						header('Location:../view/mahapolaSchemeMaintainer/mmHomeV.php');
+						header('Location:../../view/mahapolaSchemeMaintainer/mmHomeV.php');
 					}
 					else if ($key['userRole'] == "medicalSchemeMain") {
-						header('Location:../view/medicalSchemeMaintainer/msmHomeV.php');
+						header('Location:../../view/medicalSchemeMaintainer/msmHomeV.php');
                     }
 					else if ($key['userRole'] == "recordsViewer") {
-						header('Location:../view/reportViewer/rvHomeV.php');
+						header('Location:../../view/reportViewer/rvHomeV.php');
 					}
 					else if ($key['userRole'] == "departmentHead") {
-						header('Location:../view/departmentHead/dhHomeV.php');
+						header('Location:../../view/departmentHead/dhHomeV.php');
 					}
 					else if ($key['userRole'] == "medicalOfficer") {
-						header('Location:../view/medicalOfficer/moHomeV.php');
+						header('Location:../../view/medicalOfficer/moHomeV.php');
                     }
 					else {
-                        header('Location:../view/basic/noUserRoleAssigned.php');
+                        header('Location:../../view/basic/noUserRoleAssigned.php');
 						// echo "Admin have not yet selected the user role to you.";
 					}
                 }
                 else if(mysqli_num_rows($result)==0){
-                    header('Location:../view/basic/invalidPwd.php');
+                    header('Location:../../view/basic/invalidPwd.php');
                     // echo "Password is incorrect.";
                 }
             }
             else {
-            	header('Location:../view/basic/invalidUser.php');
+            	header('Location:../../view/basic/invalidUser.php');
                 // echo "INVALID";
             }
         }
     }
     else {
-        header('Location:../view/basic/loginFailed.php');
+        header('Location:../../view/basic/loginFailed.php');
     }
 ?>

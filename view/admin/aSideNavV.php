@@ -17,7 +17,7 @@
                         <a href="../../controller/getRolesController.php"><li><i class="fa fa-trash"></i>Remove a user role</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>
+                        <a href="../../controller/adminControllers/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>
                     </button>
                     <button>
                         <a href="aUpdateUserRoleV.php"><li><i class="fa fa-pencil-square"></i>Update the user role of a user</li></a>
@@ -26,7 +26,7 @@
             </li>
 
             <li>
-                <a href="../../controller/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/adminControllers/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Manage Users in IMS</button>
                 </a>
             </li>

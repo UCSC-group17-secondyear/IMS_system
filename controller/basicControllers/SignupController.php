@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	require_once('../config/database.php');
-	require_once('../model/adminModel/manageDesignationsModel.php');
-	require_once('../model/Model.php');
+	require_once('../../config/database.php');
+	require_once('../../model/adminModel/manageDesignationsModel.php');
+	require_once('../../model/basicModel/authenticationModel.php');
 	
 	if (isset($_POST['signup-submit'])) 
 	{	
@@ -35,7 +35,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $id)))
 		{
 			$errors[] = "Username should be a string";
-			header('Location:../view/basic/aUserNameNotString.php');
+			header('Location:../../view/basic/aUserNameNotString.php');
 			// echo "Username should be a string";
 			exit();
 		}
@@ -44,7 +44,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $ini)))
 		{
 			$errors[] = "Initials should be a string";
-			header('Location:../view/basic/aUserNameNotString.php');
+			header('Location:../../view/basic/aUserNameNotString.php');
 			// echo "Initials should be a string";
 			exit();
 		}
@@ -53,7 +53,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $name)))
 		{
 			$errors[] = "Surname should be a string";
-			header('Location:../view/basic/aUserNameNotString.php');
+			header('Location:../../view/basic/aUserNameNotString.php');
 			// echo "Surname should be a string";
 			exit();
 		}
@@ -66,14 +66,14 @@
 
 		if ($lastMail != "@ucsc.cmb.ac.lk") {
 			$errors[] = "University mail incorrect.";
-			header('Location:../view/basic/uniMailIncorrect.php');
+			header('Location:../../view/basic/uniMailIncorrect.php');
 			// echo "University mail is incorrect.";
 			exit();
 		}
 
 		if ($firstNumbs != $empid) {
 			$errors[] = "Username is incorrect.";
-			header('Location:../view/basic/userNameIncorrect.php');
+			header('Location:../../view/basic/userNameIncorrect.php');
 			// echo "Username is incorrect.";
 			exit();
 		}
@@ -81,7 +81,7 @@
 		if ($password != $conpassword) 
 		{
 			$errors[] = "Password and confirm password are not equal.";
-			header('Location:../view/basic/pwdCpwdNotMatching.php');
+			header('Location:../../view/basic/pwdCpwdNotMatching.php');
 			// echo "Password and confirm password are not equal.";
 			exit();
 		}
@@ -89,7 +89,7 @@
 		if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
 		{
 			$errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
-			header('Location:../view/basic/mobilePhoneIncorrect.php');
+			header('Location:../../view/basic/mobilePhoneIncorrect.php');
 			// echo "Mobile number is incorrect. The mobile number should have only ten digits.";
 			exit();
 		}
@@ -97,7 +97,7 @@
 		if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
 		{
 			$errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
-			header('Location:../view/basic/mobilePhoneIncorrect.php');
+			header('Location:../../view/basic/mobilePhoneIncorrect.php');
 			// echo "Telephone number is incorrect. The telephone number should have only ten digits.";
 			exit();
 		}
@@ -105,17 +105,17 @@
 		if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/',$password)))
 		{
 			$errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
-			header('Location:../view/basic/pwdVerificationFailed.php');
+			header('Location:../../view/basic/pwdVerificationFailed.php');
 			// echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
 			exit();
 		}
 
-		$checkEmpid = Model::checkEmpid($empid, $connect);
+		$checkEmpid = basicModel::checkEmpid($empid, $connect);
 
 		if (mysqli_num_rows($checkEmpid) == 1) 
 		{
 			$errors[] = 'Employee id already exists.';
-			header('Location:../view/basic/userNameExist.php');
+			header('Location:../../view/basic/userNameExist.php');
 			// echo "Employee id already exists.";
 		}
 
@@ -128,11 +128,11 @@
 				$userRole = 'nonAcademicStaffMemb';
 			}
 			
-			$result = Model::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
+			$result = basicModel::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $hashed_password, $connect);
 
             if ($result == true) 
             {
-				$result1 = Model::getUId($empid, $connect);
+				$result1 = basicModel::getUId($empid, $connect);
 				if ($result1) {
 					if(mysqli_num_rows($result1)==1){
 						$result2 = mysqli_fetch_assoc($result1);
@@ -141,21 +141,21 @@
 						if ($aca_or_non == 'academic-staff') {
 							$asm_flag = 1;
 						}
-						$result3 = Model::setRole($user_id, $asm_flag, $connect);
-						header('Location:../view/basic/signupSuccess.php');
+						$result3 = basicModel::setRole($user_id, $asm_flag, $connect);
+						header('Location:../../view/basic/signupSuccess.php');
 						// header('Location:../view/basic/login.php');
 					}
 					else {
-						header('Location:../view/basic/signupFailed.php');
+						header('Location:../../view/basic/signupFailed.php');
 					}
 				}
 				else {
-					header('Location:../view/basic/signupFailed.php');
+					header('Location:../../view/basic/signupFailed.php');
 				}
             }
             else 
             {
-                header('Location:../view/basic/signupFailed.php');
+                header('Location:../../view/basic/signupFailed.php');
                 // echo 'Failed to add the user.';
             }
 		}
@@ -176,7 +176,7 @@
 				$_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
 			}
 			
-			header('Location:../view/basic/signup.php');
+			header('Location:../../view/basic/signup.php');
 		}
 	}
 ?>

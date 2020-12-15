@@ -18,7 +18,7 @@
         <div class="topnav">
             <img src="../assests/img/cover_final.png" alt="" style="width: 16%; margin-left: 3px; margin-top:1px">
             
-			<a href="../../controller/SignupController.php?desig=99"><i class="fa fa-fw fa-user-circle"></i>Sign up</a>
+			<a href="../../controller/basicControllers/SignupController.php?desig=99"><i class="fa fa-fw fa-user-circle"></i>Sign up</a>
     				
         </div>
     </header>

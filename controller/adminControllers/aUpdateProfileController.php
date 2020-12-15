@@ -1,8 +1,9 @@
 <?php
 
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../model/adminModel/manageUsersModel.php');
+    require_once('../../model/basicModel/manageProfileModel.php');
+    require_once('../../config/database.php');
 
 ?>
 
@@ -37,7 +38,7 @@
         
         $empid = strtolower($EmpId);
 
-        $result_set = Model::checkEmpidTwo($empid, $user_id, $connect);
+        $result_set = basicModel::checkEmpidTwo($empid, $user_id, $connect);
 
         if ($result_set) {
             if(mysqli_num_rows($result_set)==1){
@@ -104,7 +105,7 @@
                 exit();
             }
 
-            $results = Model::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $post, $appointment, $connect);
+            $results = adminModel::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $post, $appointment, $connect);
 
             if ($results) {
                 // echo $oldMail;
@@ -120,7 +121,7 @@
                     $to_email_two = "$oldMail";
                     $sendMail = mail($to_email_two, $subject, $body, $headers);
                     
-                    header('Location:../view/admin/aProfileUpdatedByAdminV.php');
+                    header('Location:../../view/admin/aProfileUpdatedByAdminV.php');
                 }
                 else{
                     $to_email = "$email";
@@ -130,11 +131,11 @@
 
                     $sendMail = mail($to_email, $subject, $body, $headers);
 
-                    header('Location:../view/admin/aProfileUpdatedByAdminV.php');
+                    header('Location:../../view/admin/aProfileUpdatedByAdminV.php');
                 }
             }
             else {
-                header('Location:../view/admin/aProfileNotUpdatedByAdminV.php');
+                header('Location:../../view/admin/aProfileNotUpdatedByAdminV.php');
             }
         }
 

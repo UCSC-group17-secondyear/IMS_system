@@ -1,10 +1,10 @@
 <?php
     session_start();
-    require_once('../config/database.php');
-    require_once('../model/Model.php');
+    require_once('../../config/database.php');
+    require_once('../../model/adminModel/manageUserRolesModel.php');
 
-    $records = Model::userRoles($connect);
-    $usernames = Model::userList($connect);
+    $records = adminModel::userRoles($connect);
+    $usernames = adminModel::userList($connect);
 
     $_SESSION['userroles'] = '';
     $_SESSION['userlist'] = '';
@@ -18,10 +18,10 @@
             $_SESSION['userlist'] .= "<option value='".$user['empid']."'>".$user['empid']."</option>";
         }
 
-        header('Location:../view/admin/aAssignUserRoleV.php');
+        header('Location:../../view/admin/aAssignUserRoleV.php');
     }
     else {
-        header('Location:../view/admin/aQueryFailedV.php');
+        header('Location:../../view/admin/aQueryFailedV.php');
     }
 
 ?>
