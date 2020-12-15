@@ -12,19 +12,19 @@
                 </a>    
             </li>
             <li>
-                <a href="../../controller/asmViewHallController.php">
+                <a href="../../controller/asmControllers/asmViewHallController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" name="" class="tree_list">View Hall Details</button>
                 </a>    
             </li>
             <li><button class="tree_list">Manage Booking</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">
+                        <a href="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">
                             <li><i class="fa fa-plus-circle"></i>Add a Booking</li>
                         </a>
                     </button>
                     <button>
-                        <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">
+                        <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">
                             <li><i class="fa fa-user"></i>My Bookings</li>
                         </a>
                     </button>
