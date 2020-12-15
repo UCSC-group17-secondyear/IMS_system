@@ -27,15 +27,20 @@
                 <table id="tableStyle">
                     <tr>
                         <th>Name</th>
-                        <th>AC / Non AC</th>
+                        <th>AC</th>
                         <th>Capacity</th>
+                        <th>Location</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    
+                    <?php echo $_SESSION['halls'] ?>
                 </table>
+
+                <button class="subbtn" type="submit" name="">
+                    <a href="../../controller/asmControllers/asmViewHallController.php">Select another hall</a>
+                </button>
+                <button class="cancelbtn" type="submit" name="">
+                    <a href="hamHomeV.php">Exit</a>
+                </button>
             </div>
         </div>
     </div>

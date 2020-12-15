@@ -1,11 +1,11 @@
 <?php
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../model/basicModel/authenticationModel.php');
+    require_once('../../config/database.php');
 
     if (isset($_POST['submit_uname'])) {
       $uname = $_POST['empid'];
-      $result = Model::checkEmpid($uname, $connect);
+      $result = basicModel::checkEmpid($uname, $connect);
 
       if ($result) {
         if (mysqli_num_rows($result)==1) {
@@ -24,20 +24,20 @@
             $_SESSION['randNum'] = $randNum;
             $_SESSION['uname'] = $uname;
             
-            header('Location:../view/basic/checkRandNumV.php');
+            header('Location:../../view/basic/checkRandNumV.php');
           }
           else {
-            header('Location:../view/basic/mailNotSentV.php');
+            header('Location:../../view/basic/mailNotSentV.php');
             // echo "mail has not been sent!";
           }
         }
         else {
-            header('Location:../view/basic/userNameInCorrectV.php');
+            header('Location:../../view/basic/userNameInCorrectV.php');
             // echo "query failed";
         }
       }
       else {
-          header('Location:../view/basic/queryFailedV.php');
+          header('Location:../../view/basic/queryFailedV.php');
           // echo "query failed";
       }
     }
@@ -49,11 +49,11 @@
         //echo $randNum;
         if ($code==$randNum) 
         {
-            header('Location:../view/basic/resetPwdV.php');
+            header('Location:../../view/basic/resetPwdV.php');
               // include '../view/basic/resetPwdV.php';
         }
         else {
-          header('Location:../view/basic/codeIncorrectV.php');
+          header('Location:../../view/basic/codeIncorrectV.php');
             // echo "Sorry. The number you entered is incorrect!";
         }
     }
@@ -66,18 +66,18 @@
 
         if(!(preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/',$pwd))){
             $errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
-            header('Location:../view/basic/passwordNotSafeV.php');
+            header('Location:../../view/basic/passwordNotSafeV.php');
 			      // echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
 		    }
 
         if ($pwd==$conpwd) {
             $hashed_pwd = sha1($pwd);
-            $res = Model::updatePassword($uname, $hashed_pwd, $connect);
+            $res = basicModel::updatePassword($uname, $hashed_pwd, $connect);
             if ($res) {
                 echo "Your password has been reset successfully!";
             }
             else {
-                  header('Location:../view/basic/queryFailedTwoV.php');
+                  header('Location:../../view/basic/queryFailedTwoV.php');
                   // echo "Password has not been reset!";
               }
           }

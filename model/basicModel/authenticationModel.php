@@ -41,6 +41,15 @@
 			$result_set = mysqli_query($connect, $query);
             return $result_set;
 		}
+
+		public static function updatePassword($uname, $hashed_password, $connect)
+		{
+			$query = "UPDATE users SET password = '{$hashed_password}' WHERE empid='{$uname}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+            return $result;
+		}
     }
 
 ?>

@@ -1,8 +1,9 @@
 <?php
 
     session_start();
-    require_once('../model/Model.php');
-    require_once('../config/database.php');
+    require_once('../../model/asmModel/manageBookingModel.php');
+    require_once('../../model/adminModel/manageHallsModel.php');
+    require_once('../../config/database.php');
 
     if (isset($_POST['submit'])) {
         $booking_id = mysqli_real_escape_string($connect, $_GET['booking_id']);
@@ -13,20 +14,20 @@
         $endTime =  mysqli_real_escape_string($connect, $_POST['endTime']);
         $reason = mysqli_real_escape_string($connect, $_POST['reason']);
 
-        $check = Model::checkHallTwo($hall, $date, $startTime, $endTime, $booking_id, $connect);
+        $check = adminModel::checkHallTwo($hall, $date, $startTime, $endTime, $booking_id, $connect);
 
         if (mysqli_num_rows($check)==1) {
-            header('Location:../view/academicStaffMember/asmAllReadyBookedTwoV.php');
+            header('Location:../../view/academicStaffMember/asmAllReadyBookedTwoV.php');
         }
         else{
             
-            $result = Model::updateBook($booking_id, $hall, $date, $startTime, $endTime, $reason, $connect);
+            $result = asmModel::updateBook($booking_id, $hall, $date, $startTime, $endTime, $reason, $connect);
 
             if ($result) {
-                header('Location:../view/academicStaffMember/asmUpdatedBookingV.php');
+                header('Location:../../view/academicStaffMember/asmUpdatedBookingV.php');
             }
             else {
-                header('Location:../view/academicStaffMember/asmNotUpdatedBookingV.php');
+                header('Location:../../view/academicStaffMember/asmNotUpdatedBookingV.php');
             }
 
         }

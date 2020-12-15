@@ -99,6 +99,24 @@
 
 			return $result;
 		}
+
+		public static function checkHall($hall, $date, $startTime, $endTime, $connect)
+		{
+			$query = "SELECT * FROM tbl_booking WHERE hall_name='{$hall}' AND date='{$date}' AND start_time < '{$endTime}' AND end_time > '{$startTime}' AND is_deleted=0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function checkHallTwo($hall, $date, $startTime, $endTime, $booking_id, $connect)
+		{
+			$query = "SELECT * FROM tbl_booking WHERE hall_name='{$hall}' AND date='{$date}' AND start_time < '{$endTime}' AND end_time > '{$startTime}' AND booking_Id!={$booking_id} AND is_deleted=0 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
     }
 
 ?>
