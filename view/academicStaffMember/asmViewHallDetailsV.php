@@ -36,7 +36,7 @@
                 </table>
 
                 <button class="subbtn" type="submit" name="">
-                    <a href="asmHallDetailsV.php">Select another hall</a>
+                    <a href="../../controller/asmControllers/asmViewHallController.php">Select another hall</a>
                 </button>
                 <button class="cancelbtn" type="submit" name="">
                     <a href="asmHomeV.php">Exit</a>

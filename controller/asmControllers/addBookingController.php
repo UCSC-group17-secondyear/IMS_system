@@ -1,14 +1,15 @@
 <?php
 
     session_start();
-    include('../config/database.php');
-    include('../model/Model.php');
+    include('../../config/database.php');
+    include('../../model/adminModel/manageHallsModel.php');
+    include('../../model/asmModel/manageBookingModel.php');
 
     if (isset($_GET['user_id']) && !isset($_POST['add-book-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-        $records = Model::hall($connect);
+        $records = adminModel::hall($connect);
 
-        $answers = Model::getRole($user_id, $connect);
+        $answers = asmModel::getRole($user_id, $connect);
 
         $answer = mysqli_fetch_assoc($answers);
 
@@ -24,10 +25,10 @@
             }
 
             if ($role == "hallAllocationMain") {
-                header('Location:../view/hallAllocationMaintainer/hamAddBookingV.php');
+                header('Location:../../view/hallAllocationMaintainer/hamAddBookingV.php');
             }
             elseif ($role == "academicStaffMemb") {
-                header('Location:../view/academicStaffMember/asmAddBookingV.php');
+                header('Location:../../view/academicStaffMember/asmAddBookingV.php');
             }
 
         }
@@ -41,28 +42,28 @@
         $endTime =  mysqli_real_escape_string($connect, $_POST['endTime']);
         $reason = mysqli_real_escape_string($connect, $_POST['reason']);
 
-        $check = Model::checkHall($hall, $date, $startTime, $endTime, $connect);
+        $check = adminModel::checkHall($hall, $date, $startTime, $endTime, $connect);
 
         if (mysqli_num_rows($check)==1) {
-            if ($role == "hallAllocationMain") {
-                header('Location:../view/hallAllocationMaintainer/hamAllReadyBookedV.php');
+            if ($_SESSION['role'] == "hallAllocationMain") {
+                header('Location:../../view/hallAllocationMaintainer/hamAllReadyBookedV.php');
             }
-            elseif ($role == "academicStaffMemb") {
-                header('Location:../view/academicStaffMember/asmAllReadyBookedV.php');
+            elseif ($_SESSION['role'] == "academicStaffMemb") {
+                header('Location:../../view/academicStaffMember/asmAllReadyBookedV.php');
             }
             
         }
         else{
             
-            $result = Model::book($user_id, $hall, $date, $startTime, $endTime, $reason, $connect);
+            $result = asmModel::book($user_id, $hall, $date, $startTime, $endTime, $reason, $connect);
 
             if ($result) {
 
                 if ($_SESSION['role'] == "hallAllocationMain") {
-                    header('Location:../view/hallAllocationMaintainer/hamBookingAddedV.php');
+                    header('Location:../../view/hallAllocationMaintainer/hamBookingAddedV.php');
                 }
                 elseif ($_SESSION['role'] == "academicStaffMemb") {
-                    header('Location:../view/academicStaffMember/asmBookingAddedV.php');
+                    header('Location:../../view/academicStaffMember/asmBookingAddedV.php');
                 }
                 
             }
