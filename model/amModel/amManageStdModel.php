@@ -67,12 +67,10 @@
             return $result;
 		}
 
-		public static function deleteStd($std_index, $connect)
+		public static function deleteStd ($index_no, $connect)
 		{
-			$query = "UPDATE tbl_students SET is_std = 1 WHERE index_no='{$std_index}' LIMIT 1";
-
+			$query = "UPDATE tbl_students SET is_std = 1 WHERE index_no='{$index_no}' LIMIT 1";
 			$result = mysqli_query($connect, $query);
-
 			return $result;
 		}
 	}

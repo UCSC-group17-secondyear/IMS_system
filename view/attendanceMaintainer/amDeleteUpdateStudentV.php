@@ -98,9 +98,7 @@
 
                     <button class="subbtn" type="submit" name="updateStudent-submit">Update Student</button>
 
-                    <button class="cancelbtn" type="submit" name="cancel-submit">
-                        <a href="amStudentRemoved.php">Remove Student</a>
-                    </button>
+                    <button class="cancelbtn" type="submit" name="removeStudent-submit">Remove Student</button>
                 </form>
             </div>
         </div>

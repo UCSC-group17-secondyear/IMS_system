@@ -119,7 +119,6 @@
             // email address belongs to another student.
         }
 
-
         if ($mailFlag == 1 && $regNumFlag == 1) {
             header('Location:../../view/attendanceMaintainer/amRegnumEmailReserved.php');
         }
@@ -138,6 +137,20 @@
             else {
                 header('Location:../../view/attendanceMaintainer/amStudentNotUpdatedV.php');
             }
+        }
+    }
+
+    elseif(isset($_POST['removeStudent-submit'])) {
+        $index_no = $_POST['index_no'];
+
+        $result = amModel::deleteStd ($index_no, $connect);
+
+        if ($result) {
+            header('Location:../../view/attendanceMaintainer/amStudentNotUpdatedV.php');
+            echo "student got removed";
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amStudentRemoved.php');
         }
     }
 
