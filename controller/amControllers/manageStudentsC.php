@@ -154,6 +154,32 @@
         }
     }
 
+    elseif(isset($_POST['viewStudents-submit'])) {
+        session_start();
+        $_SESSION['student_list'] = '';
+
+        $records = amModel::viewStudents($connect);
+
+        if ($records) {
+            while ($record = mysqli_fetch_assoc($records)) {
+                $_SESSION['student_list'] .= "<tr>";
+                $_SESSION['student_list'] .= "<td>{$record['index_no']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['    registrstion_no']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['initials']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['last_name']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['email']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['academic_year']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['degree']}</td>";
+                $_SESSION['student_list'] .= "</tr>";
+
+                header('Location:../../view/attendanceMaintainer/amViewStudentDetailsV.php');
+            }
+        }
+        else {
+            echo "no students available in the system";
+        }
+    }
+
     else {
         echo "button not clicked";
     }

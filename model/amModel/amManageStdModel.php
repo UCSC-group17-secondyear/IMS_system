@@ -1,5 +1,12 @@
 <?php
 	class amModel {
+		public static function viewStudents ($connect)
+		{
+			$query = "SELECT * FROM tbl_students WHERE is_std = 0 ORDER BY index_no ASC";
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
 		public static function checkIndex ($index_no, $connect) 
 		{
 			$query = "SELECT index_no FROM tbl_students WHERE index_no = '{$index_no}' and is_std = 0 LIMIT 1";
