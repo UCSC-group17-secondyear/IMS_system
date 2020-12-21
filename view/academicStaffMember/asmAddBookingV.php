@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
                         <div class="row">
                             <div class="col-25">
                               <label>Enter Date</label>
@@ -76,7 +76,7 @@
                         <button class="mainbtn" type="submit" name="add-book-submit">Book</button>
                     </form>
                     <button class="subbtn" type="submit" name="">
-                        <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">View my bookings</a>
+                        <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">View my bookings</a>
                     </button>
                     
                     <button id="myBtn" class="cancelbtn">Cancel</button>

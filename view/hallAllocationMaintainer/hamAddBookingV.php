@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
                         <div class="row">
                             <div class="col-25">
                               <label>Enter Date</label>

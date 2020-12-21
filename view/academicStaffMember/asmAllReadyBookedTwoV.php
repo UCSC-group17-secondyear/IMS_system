@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
-            <li><a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Booking List</a></li>
+            <li><a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Booking List</a></li>
             <li class="active">Action Failed!</li>
         </ul>
 
@@ -31,7 +31,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="../../controller/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Booking List</a>
+                        <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Booking List</a>
                     </button>
                     <button class="cancelbtn">
                         <a href="asmHomeV.php">Leave</a> 

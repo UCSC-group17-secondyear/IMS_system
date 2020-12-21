@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="../../controller/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">User List</a></li>
+            <li><a href="../../controller/adminControllers/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">User List</a></li>
             <li class="active">Action was success!</li>
         </ul>
     
@@ -29,7 +29,7 @@
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">User List</a>
+                        <a href="../../controller/adminControllers/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">User List</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="aHomeV.php">Leave</a>

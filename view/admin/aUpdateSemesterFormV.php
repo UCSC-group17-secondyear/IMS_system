@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/aUpdateSemesterController.php" method="POST">
+                    <form action="../../controller/adminControllers/aUpdateSemesterController.php" method="POST">
                         
                         <div class="row">
                             <div class="col-25">

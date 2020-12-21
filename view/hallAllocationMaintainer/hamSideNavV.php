@@ -26,13 +26,13 @@
             </li>
 
             <li>
-                <a href="hamHallDetailsV.php">
+                <a href="../../controller/asmControllers/asmViewHallController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">View Hall Details</button>
                 </a> <br>
             </li>
             
             <li>
-                <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Add a Booking</button>
                 </a>
             </li>

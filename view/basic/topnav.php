@@ -20,7 +20,7 @@
                     <img src="../assests/img/cover_final.png" alt="" style="width: 16%; margin-left: 3px; margin-top:1px">
                     <?php
     					if (isset($_SESSION['userId'])) {
-    						echo '<a href="../../controller/logoutController.php"><i class="fa fa-user-circle-o"></i>Log Out</a>';
+    						echo '<a href="../../controller/basicControllers/logoutController.php"><i class="fa fa-user-circle-o"></i>Log Out</a>';
     					}
     					else {
     						echo '<a href="../basic/login.php"><i class="fa fa-user-circle-o"></i>Log In</a>';
@@ -30,7 +30,7 @@
                     <?php
                         if (isset($_SESSION['userId'])) {
                     ?> 
-                    <a href="../../controller/changeUserRoleController.php?user_id=<?php echo $_SESSION['userId'] ?>"><i class="fa fa-user"></i>Change User Role</a>
+                    <a href="../../controller/basicControllers/changeUserRoleController.php?user_id=<?php echo $_SESSION['userId'] ?>"><i class="fa fa-user"></i>Change User Role</a>
                     <?php
                         }
                     ?>
@@ -38,7 +38,7 @@
                     <?php
                         if (isset($_SESSION['userId'])) {
                     ?>
-                    <a href="../../controller/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>"><i class="fa fa fa-home"></i>Home</a>
+                    <a href="../../controller/basicControllers/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>"><i class="fa fa fa-home"></i>Home</a>
                     <?php
                         }
                         else {
