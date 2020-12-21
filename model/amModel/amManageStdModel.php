@@ -1,8 +1,26 @@
 <?php
 	class amModel {
-		public static function checkStudent($index_no, $registrstion_no, $connect) 
+		public static function checkIndex ($index_no, $connect) 
 		{
-			$query = "SELECT index_no FROM tbl_students WHERE (index_no = '{$index_no}' or registrstion_no = '{$registrstion_no}') and is_std = 0 LIMIT 1";
+			$query = "SELECT index_no FROM tbl_students WHERE index_no = '{$index_no}' and is_std = 0 LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkRegNum ($registrstion_no, $connect) 
+		{
+			$query = "SELECT index_no FROM tbl_students WHERE registrstion_no = '{$registrstion_no}' and is_std = 0 LIMIT 1";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function checkEmail ($email, $connect) 
+		{
+			$query = "SELECT index_no FROM tbl_students WHERE email = '{$email}' and is_std = 0 LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
