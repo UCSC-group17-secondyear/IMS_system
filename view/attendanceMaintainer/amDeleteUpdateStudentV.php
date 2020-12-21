@@ -23,22 +23,22 @@
                 <h2>Student Details</h2>
             </div>
             <div class="contentForm"  style="margin-bottom: 1%;" >
-                <form action="../../controller/amControllers/updateRemoveStdC.php" method="post">
+                <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                           <label>Enter Student Index No</label>
                         </div>
                         <div class="col-75">
-                          <input type="text" name="index_no" placeholder="Student Index No" min="0" required/><br>
+                            <input type="text" name="index_no"  <?php echo 'value="'.$_SESSION['index_no'].'"' ?> />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                          <label>Enter Student Registration Number</label>
+                            <label>Enter Student Registration Number</label>
                         </div>
                         <div class="col-75">
-                          <input type="text" name="registrstion_no" placeholder="Student Registration No" required/><br>
+                            <input type="text" name="registrstion_no"  <?php echo 'value="'.$_SESSION['registrstion_no'].'"' ?> />
                         </div>
                     </div>
 
@@ -47,7 +47,7 @@
                             <label>Enter Student's Initials</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="initials" placeholder="Initials" required/> <br>
+                            <input type="text" name="initials"  <?php echo 'value="'.$_SESSION['initials'].'"' ?> />
                         </div>
                     </div>
 
@@ -56,7 +56,7 @@
                             <label>Enter Student's Last name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="last_name" placeholder="Last Name" required/> <br>
+                            <input type="text" name="last_name"  <?php echo 'value="'.$_SESSION['last_name'].'"' ?> />
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                             <label>Enter email</label>
                         </div>
                         <div class="col-75">
-                            <input type="email" name="email" placeholder="Mail Address" required/> <br>
+                            <input type="email" name="email"  <?php echo 'value="'.$_SESSION['email'].'"' ?> />
                         </div>
                     </div>
 
@@ -75,10 +75,10 @@
                         </div>
                         <div class="col-75">
                             <select name="academic_year" id="academic_year">
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                                <option value="2016">2016</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select> <br>
                         </div>
                     </div>
@@ -95,9 +95,9 @@
                             </select> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="updateStudent-submit">
-                        <a href="amStudentUpdatedV.php">Update Student</a>
-                    </button>
+
+                    <button class="subbtn" type="submit" name="updateStudent-submit">Update Student</button>
+
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amStudentRemoved.php">Remove Student</a>
                     </button>

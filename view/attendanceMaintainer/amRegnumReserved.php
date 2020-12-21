@@ -24,7 +24,7 @@
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry! <br>
-                            The student did not get updated.
+                            The registration number belongs to another student.
                         </h2>
                     </div>
 

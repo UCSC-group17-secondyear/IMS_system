@@ -67,9 +67,80 @@
             }
             else {
                 header('Location:../../view/attendanceMaintainer/amStudentNotAdded.php');
-            }    
+            }
         }
     }
+
+    elseif(isset($_POST['deleteupdateStudent-submit'])) {
+        $index_no = $_POST['index_no'];
+        $fetchStudent = amModel::fetchStudent ($index_no, $connect);
+        // fetch d=information of the student having the given index
+
+        if (mysqli_num_rows($fetchStudent) == 1) {
+            session_start();
+            $result = mysqli_fetch_assoc($fetchStudent);
+            $_SESSION['index_no'] = $result['index_no'];
+            $_SESSION['registrstion_no'] = $result['registrstion_no'];
+            $_SESSION['initials'] = $result['initials'];
+            $_SESSION['last_name'] = $result['last_name'];
+            $_SESSION['email'] = $result['email'];
+            $_SESSION['academic_year'] = $result['academic_year'];
+            $_SESSION['degree'] = $result['degree'];
+
+            header('Location:../../view/attendanceMaintainer/amDeleteUpdateStudentV.php');
+        }
+        else {
+            echo "The index number does not exists.";
+        }
+    }
+
+    elseif(isset($_POST['updateStudent-submit'])) {
+        $index_no = $_POST['index_no'];
+        $registrstion_no = $_POST['registrstion_no'];
+        $initials = $_POST['initials'];
+        $last_name = $_POST['last_name'];
+        $email = $_POST['email'];
+        $academic_year = $_POST['academic_year'];
+        $degree = $_POST['degree'];
+
+        $regNumFlag = 0;
+        $mailFlag = 0;
+
+        $regNumExist = amModel::regNumExist ($index_no, $registrstion_no, $connect);
+        // check whether the updated registration number exists already for another student
+        if (mysqli_num_rows($regNumExist) == 1) {
+            $regNumFlag = 1;
+            // registration number belongs to another student.
+        }
+        $emailExist = amModel::emailExist ($index_no, $email, $connect);
+        // check whether the updated student email exists for another student
+        if (mysqli_num_rows($emailExist) == 1) {
+            $mailFlag = 1;
+            // email address belongs to another student.
+        }
+
+
+        if ($mailFlag == 1 && $regNumFlag == 1) {
+            header('Location:../../view/attendanceMaintainer/amRegnumEmailReserved.php');
+        }
+        elseif ($mailFlag == 1) {
+            header('Location:../../view/attendanceMaintainer/amEmailReserved.php');
+        }
+        elseif ($regNumFlag == 1) {
+            header('Location:../../view/attendanceMaintainer/amRegnumReserved.php');
+        }
+        else {
+            $result = amModel::updateStd ($index_no, $registrstion_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
+
+            if ($result) {
+                header('Location:../../view/attendanceMaintainer/amStudentUpdatedV.php');
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amStudentNotUpdatedV.php');
+            }
+        }
+    }
+
     else {
         echo "button not clicked";
     }
