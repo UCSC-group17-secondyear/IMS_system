@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/asmViewHallController.php" method="POST">
+                    <form action="../../controller/asmControllers/asmViewHallController.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                               <label>Select Hall</label>

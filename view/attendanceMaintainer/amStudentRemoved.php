@@ -28,7 +28,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="amEnterStudentDetailsV.php">Remove another student</a> 
+                        <a href="amDeleteUpdateStudentSearchV.php">Remove another student</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

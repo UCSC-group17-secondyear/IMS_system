@@ -67,12 +67,11 @@
 
             if ($result) {
                 $result1 = adminModel::getUId($empid, $connect);
-                // $result1 = adminModel::getUId($empid, $connect);
 
                 if ($result1) {
 					if(mysqli_num_rows($result1)==1){
 						$result2 = mysqli_fetch_assoc($result1);
-						$user_id = $result2['userId'];
+						echo $user_id = $result2['userId'];
                         $a_flag = 0;$asm_flag = 0;$am_flag = 0;$ham_flag = 0;$mm_flag = 0;$msm_flag = 0;$mem_flag = 0;$rv_flag = 0;$dh_flag = 0;$mo_flag = 0;
                         if ($userRole == "admin") {
                             $a_flag = 1;

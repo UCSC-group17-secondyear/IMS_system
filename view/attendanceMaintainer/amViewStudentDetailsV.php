@@ -33,6 +33,7 @@
                         <th>Academic Year</th>
                         <th>Degree</th>
                     </tr>
+                    <?php echo $_SESSION['student_list']; ?>
                 </table>
             </div>
         </div>

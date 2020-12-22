@@ -6,7 +6,7 @@
   <title>Check verification code</title>
 
   <div class="signupForm" style="margin-top:227px; margin-bottom:227px;">
-     <form action="../../controller/pwdController.php" method="POST">
+     <form action="../../basicControllers/controller/pwdController.php" method="POST">
         <h2>Verification Code</h2> 
 
         <div class="row">
