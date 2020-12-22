@@ -25,8 +25,9 @@
                     <tr>
                         <th>Subject Code</th>
                         <th>Subject Name</th>
-                        <th>Description</th>
+                        <th>Degree</th>
                     </tr>
+                    <?php echo $_SESSION['subject_list']; ?>
                 </table>
             </div>
         </div>
