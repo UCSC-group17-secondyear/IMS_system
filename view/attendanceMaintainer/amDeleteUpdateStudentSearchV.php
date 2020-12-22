@@ -5,7 +5,7 @@
 <main>
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
-        <li class="active">Update or Delete Students</li>
+        <li class="active">Update or Remove Students</li>
     </ul>
     <div class="row" style="margin-bottom: 4%;" >
         <div class="col left20">
@@ -16,10 +16,10 @@
 
         <div class="col right80">
             <div>
-                <h2>Update or Delete Students</h2>
+                <h2>Update or Remove Students</h2>
             </div>
             <div class="contentForm">
-                <form action="../../controller/amControllers/updateRemoveStdC.php" method="post">
+                <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Student Index Number</label>
@@ -28,9 +28,7 @@
                             <input type="text" name="index_no" placeholder="Student Index No" required/> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="deleteupdateStudent-submit">
-                        <a href="amDeleteUpdateStudentV.php">Select</a>
-                    </button>
+                    <button class="subbtn" type="submit" name="deleteupdateStudent-submit">Select</button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
                     </button>

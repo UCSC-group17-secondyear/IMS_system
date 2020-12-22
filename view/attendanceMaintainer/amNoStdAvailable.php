@@ -6,8 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amDeleteUpdateStudentSearchV.php">Update or Delete Students</a></li>
-            <li class="active">Action Success!</li>
+            <li class="active">Students List</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;" >
@@ -23,12 +22,13 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The student is removed successfully.
+                        <h2>Sorry! <br>
+                            No students details are recorded in the system currently.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amDeleteUpdateStudentSearchV.php">Remove another student</a> 
+                        <a href="amEnterStudentDetailsV.php">Add students</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

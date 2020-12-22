@@ -22,49 +22,49 @@
                 <h2>Add Student</h2>
             </div>
             <div class="contentForm">
-                <form action="../../controller/amControllers/addStudentC.php" method="post">
+                <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
-                          <label>Enter Student Index No</label>
+                            <label>Enter Index Number</label>
                         </div>
                         <div class="col-75">
-                          <input type="text" name="index_no" placeholder="Student Index No" min="0" required/><br>
+                            <input type="text" name="index_no" placeholder="Student Index No" min="0" required/>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                          <label>Enter Student Registration Number</label>
+                            <label>Enter Registration Number</label>
                         </div>
                         <div class="col-75">
-                          <input type="text" name="registrstion_no" placeholder="Student Registration No" required/><br>
+                            <input type="text" name="registrstion_no" placeholder="Student Registration No" required/>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Student's Initials</label>
+                            <label>Enter Initials of the student</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="initials" placeholder="Initials" required/> <br>
+                            <input type="text" name="initials" placeholder="Initials" required/>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Student's Last name</label>
+                            <label>Enter Last name of the student</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="last_name" placeholder="Last Name" required/> <br>
+                            <input type="text" name="last_name" placeholder="Last Name" required/>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter email</label>
+                            <label>Enter email of the student</label>
                         </div>
                         <div class="col-75">
-                            <input type="email" name="email" placeholder="Mail Address" required/> <br>
+                            <input type="email" name="email" placeholder="Mail Address" required/>
                         </div>
                     </div>
 
@@ -74,11 +74,11 @@
                         </div>
                         <div class="col-75">
                             <select name="academic_year" id="academic_year">
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                                <option value="2016">2016</option>
-                            </select> <br>
+                                <option value="1">1</option>
+                                <option value="2">2 </option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
                         </div>
                     </div>
 
@@ -91,10 +91,11 @@
                                 <option value="CS">Computer Science</option>
                                 <option value="IS">Information System</option>
                                 <option value="SE">Software Engineering</option>
-                            </select> <br>
+                            </select>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="addStudent-submit">Enter Student</button>
+
+                    <button class="subbtn" type="submit" name="addStudent-submit">Add Student</button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a>
                     </button>

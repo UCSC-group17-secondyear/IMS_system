@@ -23,13 +23,13 @@
                 <h2>Subject Details</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Subject Code</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject_code" placeholder="Subject Code" required/> <br>
+                            <input type="text" name="subject_code"  <?php echo 'value="'.$_SESSION['subject_code'].'"' ?> />
                         </div>
                     </div>
 
@@ -38,23 +38,21 @@
                             <label>Subject Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject_name" placeholder="Subject Name" required/> <br>
+                            <input type="text" name="subject_name"  <?php echo 'value="'.$_SESSION['subject_name'].'"' ?> />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Description</label>
+                            <label>Degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="textarea" name="description" placeholder="Description" required/> <br>
+                            <input type="text" name="degree"  <?php echo 'value="'.$_SESSION['degree'].'"' ?> />
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="updateSubject-submit">
-                        <a href="amSubjectUpdated.php">Save Updates</a> 
-                    </button>
-                    <button class="cancelbtn" type="submit" name="rmeoveSubject-submit">
+                    <button class="subbtn" type="submit" name="updateSubject-submit">Save Updates</button>
+                    <button class="cancelbtn" type="submit" name="remeoveSubject-submit">
                         <a href="amSubjectRemoved.php">Remove Subject</a> 
                     </button>
                 </form>
