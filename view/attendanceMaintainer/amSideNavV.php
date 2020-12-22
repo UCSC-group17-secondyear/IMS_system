@@ -11,12 +11,6 @@
                         </button>
                     </form>
 
-                    <!-- <button>
-                        <a href="amViewStudentDetailsV.php">
-                            <li><i class="fa fa-user-circle-o"></i>View Students List</li>
-                        </a>
-                    </button> -->
-
                     <button>
                         <a href="amEnterStudentDetailsV.php">
                             <li><i class="fa fa-plus-circle"></i>Add Students</li>
@@ -32,11 +26,14 @@
 
             <li><button class="tree_list">Manage Subjects' Details</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="amViewSubjects.php">
-                            <li><i class="fa fa-book"></i>View Subjects List</li>
-                        </a>
-                    </button>
+                    <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
+                        <button name="viewSubjects-submit">
+                            <a href="#">
+                                <li><i class="fa fa-book"></i>View Subjects List</li>
+                            </a>
+                        </button>
+                    </form>
+                    
                     <button>
                         <a href="amEnterSubjectDetails.php">
                             <li><i class="fa fa-plus-circle"></i>Add Subjects</li>

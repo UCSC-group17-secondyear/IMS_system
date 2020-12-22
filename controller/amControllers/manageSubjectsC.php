@@ -71,6 +71,29 @@
         }
     }
 
+    elseif(isset($_POST['viewSubjects-submit'])) {
+    	session_start();
+        $_SESSION['subjects_list'] = '';
+
+        $records = amModel::viewSubjects ($connect);
+        
+        if ($records) {
+        	while ($record = mysqli_fetch_assoc($records)) {
+                $_SESSION['subject_list'] .= "<tr>";
+                $_SESSION['subject_list'] .= "<td>{$record['$subject_code']}</td>";
+                $_SESSION['subject_list'] .= "<td>{$record['$subject_name']}</td>";
+                $_SESSION['subject_list'] .= "<td>{$record['$degree']}</td>";
+                $_SESSION['subject_list'] .= "</tr>";
+
+                header('Location:../../view/attendanceMaintainer/amViewSubjects.php');
+            }
+        }
+        
+        else {
+        	header('Location:../../view/attendanceMaintainer/amNoSubjectsAvailable.php');
+        }
+    }
+
     else {
     	echo "no button clicked";
     }

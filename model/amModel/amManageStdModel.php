@@ -87,7 +87,7 @@
 		public static function deleteStd ($index_no, $connect)
 		{
 			$query = "UPDATE tbl_students 
-			SET is_std = 1 
+			SET is_std = 1
 			WHERE index_no='{$index_no}' and is_std = 0 
 			LIMIT 1";
 			

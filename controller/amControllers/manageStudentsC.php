@@ -175,7 +175,7 @@
             }
         }
         else {
-            echo "no students available in the system";
+            header('Location:../../view/attendanceMaintainer/amNoStdAvailable.php');
         }
     }
 

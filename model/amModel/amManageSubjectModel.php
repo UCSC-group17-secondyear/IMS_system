@@ -2,7 +2,7 @@
 	class amModel {
 		public static function viewSubjects ($connect)
 		{
-			$query = "SELECT * FROM tbl_students WHERE is_std = 0 ORDER BY index_no ASC";
+			$query = "SELECT * FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_id ASC";
 
 			$result = mysqli_query($connect, $query);
 			return $result;
