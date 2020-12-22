@@ -45,11 +45,8 @@
                             <input type="textarea" name="degree" placeholder="Degree" required/> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="addSubject-submit">
-                        <!-- <a href="amSubjectAdded.php"> -->
-                        Add Subject
-                    <!-- </a>  -->
-                    </button>
+                    <button class="subbtn" type="submit" name="addSubject-submit">Add Subject</button>
+                    
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Cancel</a>
                     </button>

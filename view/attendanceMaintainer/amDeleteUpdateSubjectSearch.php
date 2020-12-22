@@ -19,7 +19,7 @@
                 <h2>Update or Delete Subjects</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Enter subject code</label>
@@ -28,9 +28,7 @@
                             <input type="text" name="subject_code" placeholder="Subject Code" required/> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="deleteupdateSubject-submit">
-                        <a href="amDeleteUpdateSubjectV.php">Select</a>
-                    </button>
+                    <button class="subbtn" type="submit" name="deleteupdateSubject-submit">Select</button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
                     </button>
