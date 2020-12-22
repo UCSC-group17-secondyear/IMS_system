@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/aAddSemesterController.php" method="POST">
+                    <form action="../../controller/adminControllers/aAddSemesterController.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                               <label>Enter Semester</label>

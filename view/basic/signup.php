@@ -24,7 +24,7 @@
     </header>
 
 	<div class="signupForm">
-		<form action="../../controller/SignupController.php" method="post">
+		<form action="../../controller/basicControllers/SignupController.php" method="post">
 			<h2>Sign Up Here</h2>
 			<div class="row">
 	            <div class="col-25">

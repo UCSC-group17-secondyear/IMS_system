@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="../../controller/aUpHallController.php">Update Hall</a></li>
+            <li><a href="../../controller/adminControllers/aUpHallController.php">Update Hall</a></li>
             <li class="active">Request Successful!</li>
         </ul>
 
@@ -28,7 +28,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="../../controller/aViewHallController.php">Halls List</a>
+                        <a href="../../controller/adminControllers/aViewHallController.php">Halls List</a>
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 

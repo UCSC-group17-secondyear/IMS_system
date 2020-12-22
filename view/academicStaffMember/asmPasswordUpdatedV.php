@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
-            <li><a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Password</a></li>
+            <li><a href="../../controller/basicControllers/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Password</a></li>
             <li class="active">Action was success!</li>
         </ul>
 
@@ -29,7 +29,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="../../controller/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Password</a>
+                        <a href="../../controller/basicControllers/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Password</a>
                     </button>
                     <button class="cancelbtn">
                         <a href="asmHomeV.php">Leave</a> 

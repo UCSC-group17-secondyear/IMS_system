@@ -20,7 +20,7 @@
                 <h2>Add Subject</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Subject Code</label>
@@ -39,43 +39,19 @@
                     </div>
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Description</label>
+                            <label>Enter Relavant Degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="textarea" name="description" placeholder="Description" required/> <br>
+                            <input type="textarea" name="degree" placeholder="Degree" required/> <br>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="enterSubject-submit">
-                        <a href="amSubjectAdded.php">Enter Subject</a> 
-                    </button>
+                    <button class="subbtn" type="submit" name="addSubject-submit">Add Subject</button>
+                    
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Cancel</a>
                     </button>
                 </form>
-
-                <!-- <button id="subBtn" class="subbtn">View Available Subjects List</button>
-                <button id="myBtn" class="cancelbtn">Cancel</button> -->
             </div>
-
-            <div id="subModal" class="modal">
-                <div class="modal-content">
-                    <span class="subclose">&times;</span>
-                    <?php
-                        require '../admin/aSubjectsPopupV.php';
-                    ?>
-                </div>
-            </div>
-            
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h1>Are you sure you want to leave the page?</h1>
-                    <button class="mainbtn">
-                        <a href="amHomeV.php">Yes</a>
-                    </button>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -111,7 +87,6 @@
           }
         }
     </script>
-
 </main>
 
 <?php
