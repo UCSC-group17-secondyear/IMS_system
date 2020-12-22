@@ -51,12 +51,8 @@
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="updateSubject-submit">
-                        <!-- <a href="amSubjectUpdated.php"> -->
-                        Save Updates
-                    <!-- </a>  -->
-                    </button>
-                    <button class="cancelbtn" type="submit" name="rmeoveSubject-submit">
+                    <button class="subbtn" type="submit" name="updateSubject-submit">Save Updates</button>
+                    <button class="cancelbtn" type="submit" name="remeoveSubject-submit">
                         <a href="amSubjectRemoved.php">Remove Subject</a> 
                     </button>
                 </form>

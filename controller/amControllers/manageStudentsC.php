@@ -146,11 +146,10 @@
         $result = amModel::deleteStd ($index_no, $connect);
 
         if ($result) {
-            header('Location:../../view/attendanceMaintainer/amStudentNotUpdatedV.php');
-            echo "student got removed";
+            header('Location:../../view/attendanceMaintainer/amStudentRemoved.php');
         }
         else {
-            header('Location:../../view/attendanceMaintainer/amStudentRemoved.php');
+            header('Location:../../view/attendanceMaintainer/amStudentNotRemoved.php');
         }
     }
 

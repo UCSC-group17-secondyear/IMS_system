@@ -48,9 +48,13 @@
             return $result;
 		}
 
-		public static function deleteSubject ($subject_code, $connect)
+		public static function removeSubject ($subject_code, $connect)
 		{
-			$query = "UPDATE tbl_subject SET is_std = 1 WHERE index_no='{$index_no}' LIMIT 1";
+			$query = "UPDATE tbl_subject 
+			SET is_deleted = 1 
+			WHERE subject_code='{$subject_code}' and is_deleted = 0
+			LIMIT 1";
+
 			$result = mysqli_query($connect, $query);
 			return $result;
 		}

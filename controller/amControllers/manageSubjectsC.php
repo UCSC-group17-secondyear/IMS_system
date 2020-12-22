@@ -58,6 +58,19 @@
         }
     }
 
+    elseif(isset($_POST['remeoveSubject-submit'])) {
+    	$subject_code = $_POST['subject_code'];
+
+    	$result = amModel::removeSubject ($subject_code, $connect);
+
+        if ($result) {
+            header('Location:../../view/attendanceMaintainer/amSubjectRemoved.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amSubjectNotRemoved.php');
+        }
+    }
+
     else {
     	echo "no button clicked";
     }
