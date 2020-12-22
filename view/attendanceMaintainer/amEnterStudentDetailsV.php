@@ -22,7 +22,6 @@
                 <h2>Add Student</h2>
             </div>
             <div class="contentForm">
-                <!-- <form action="../../controller/amControllers/addStudentC.php" method="post"> -->
                 <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
