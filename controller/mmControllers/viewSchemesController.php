@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/mmModel.php');
+    require_once('../../model/mmModel/mmModel.php');
 
     $_SESSION['scheme_list'] = '';
 

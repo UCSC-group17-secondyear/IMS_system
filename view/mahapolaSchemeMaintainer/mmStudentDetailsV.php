@@ -23,13 +23,13 @@
                     </div>
 
                     <div class="contentForm" style="margin-bottom: 1%;">
-                        <form action="../../controller/mmControllers/markMahapolaStuDetailsController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                        <form action="../../controller/mmControllers/markMahapolaStuDetailsController.php" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Student Initials</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_initials"  disabled><br>
+                                    <input type="text" name="student_initials" value="<?php echo $_SESSION['stu_initials'] ?>" disabled><br>
                                 </div>
                             </div>
 
@@ -38,7 +38,7 @@
                                 <label for="">Student Surname</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_surname" disabled><br>
+                                    <input type="text" name="student_surname" value="<?php echo $_SESSION['stu_surname'] ?>" disabled><br>
                                 </div>
                             </div>
 
@@ -47,16 +47,16 @@
                                     <label for="">Student Index Number</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_index" disabled><br>
+                                    <input type="text" name="student_index" value="<?php echo $_SESSION['stu_index'] ?>" disabled><br>
                                 </div>
-                            </div>
+                            </div>  
 
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Degree</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="degree" disabled><br>
+                                    <input type="text" name="degree" value="<?php echo $_SESSION['stu_degree'] ?>" disabled><br>
                                 </div>
                             </div>
 
@@ -65,48 +65,33 @@
                                             <label for="">Selected to the Mahapola Scheme</label>
                                         </div>
                                     
-                                        <div class="row">
-                                            <div class="col-25">
-                                                <label for="yes">Yes</label>
-                                            </div>
-                                            <div class="col-75">
-                                                <input type="radio" id="yes" name="mahapola_eligibility" value="yes">
-                                            </div>
-                                        </div>
-                                    
-                                        <div class="row">
-                                            <div class="col-25">
-                                                <label for="no">No</label><br>
-                                            </div>
-                                            <div class="col-75">
-                                                <input type="radio" id="no" name="mahapola_eligibility" value="no">
-                                            </div>
-                                        </div>
+                                        <label class="radio">
+                                            <input type="radio" id="yes" value="1" name="mahapola-nominated" onclick="showHide()" required>
+                                            Yes
+                                            <span></span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" id="no" value="0" name="mahapola-nominated" onclick="showHide()">
+                                            No
+                                            <span></span>
+                                        </label>
                                 </div>
-                                
-                                <div class="row">
-                                    <div>
-                                        <label>Mahapola Scheme Type</label>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="m">M</label>
+
+                                <div id="selectType" class="row" style="display: none">
+                                        <div>
+                                            <label for="">Mahapola Scheme type</label>
                                         </div>
-                                        <div class="col-75">
-                                            <input type="radio" id="m" name="mahapola_category" value="m">
-                                        </div>
-                                    </div>
-                                        
-                                    <div class="row">
-                                        <div class="col-25">
-                                            <label for="o">O</label>
-                                        </div>
-                                        <div class="col-75">
-                                            <input type="radio" id="o" name="mahapola_category" value="o">
-                                        </div>
-                                    </div>
-                                        
+                    
+                                        <label class="radio">
+                                            <input type="radio" id="merit" value="merit" name="mahapola-category" >
+                                             &nbsp;M
+                                            <span></span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" id="ordinary" value="ordinary" name="mahapola-category">
+                                             &nbsp;O
+                                            <span></span>
+                                        </label>    
                                 </div>
 
                                 <button class="subbtn" type="submit" name="mark-submit" >Save</button></a>
@@ -123,3 +108,12 @@
 <?php
     require_once('../basic/footer.php');
 ?>
+
+
+<script>
+    function showHide(){
+        var yes = document.getElementById("yes");
+        var schemeType = document.getElementById("selectType");
+        schemeType.style.display = yes.checked ? "block" : "none";
+    }
+</script>

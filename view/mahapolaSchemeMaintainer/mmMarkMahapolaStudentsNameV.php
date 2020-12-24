@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/mmControllers/stuMahapolaDetailsNameController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                        <form action="../../controller/mmControllers/stuMahapolaDetailsNameController.php" method="POST">
                             <h2>Search by Student Name</h2><br>
 
                             <div class="row">
@@ -31,7 +31,7 @@
                                     <label >Intials</label><br>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_initials" >
+                                    <input type="text" name="student_initials" required>
                                 </div>
                             </div>
 
@@ -40,11 +40,11 @@
                                     <label >Surname</label><br>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="student_surname" >
+                                    <input type="text" name="student_surname" required>
                                 </div>
                             </div>
 
-                            <button class="subbtn" type="submit" name="mahapola-mark-submit" >Display Student's Details</button></a>
+                            <button class="subbtn" type="submit" name="mark-mahapola-name-submit" >Display Student's Details</button></a>
                             <button type="submit" class="cancelbtn">
                                 <a href="mmHomeV.php">Cancel</a>
                             </button>
