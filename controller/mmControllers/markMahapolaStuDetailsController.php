@@ -1,29 +1,34 @@
 <?php
     session_start();
-    require_once('../../model/mmModel.php');
+    require_once('../../model/mmModel/mmModel.php');
     require_once('../../config/database.php');
 
 ?>
 
 <?php
 
-        //$student_index = mysqli_real_escape_string($connect, $_GET['student_index']);
-
         if(isset($_POST['mark-submit'])){
 
-            // $mahapola_eligibility = mysqli_real_escape_string($connect, $_POST['mahapola_eligibility']);
-            // $mahapola_category = mysqli_real_escape_string($connect, $_POST['mahapola_category']);
+            $student_index = $_SESSION['stu_index'];
+            $mahapola_nominated = mysqli_real_escape_string($connect, $_POST['mahapola-nominated']);
+            // echo $student_index;
+            // echo $mahapola_nominated;
 
-            // $result = Model::markStudentMahapola($student_index, $mahapola_category,$mahapola_eligibility,$connect);
+            if($mahapola_nominated=='1'){
+                $mahapola_category = mysqli_real_escape_string($connect, $_POST['mahapola-category']);
+               //echo $mahapola_category;
+            }
 
-            // if($result){
-            //     echo "Marked succesfully";
-            // }
-            // else{
-            //     echo "Query Unsuccsfull";
-            // }
+            $result_mahapola = mmModel::updateMahapolaStuDetails($student_index, $mahapola_nominated, $mahapola_category, $connect);
 
-            header('Location:../../view/mahapolaSchemeMaintainer/mmStudentDetailsSaveV.php');
+            if($result_mahapola){
+                header('Location:../../view/mahapolaSchemeMaintainer/mmStudentDetailsSaveV.php');
+                //echo "Updated";
+            }
+            else{
+                echo "Query Failed";
+            }
+
             
         }
 ?>
