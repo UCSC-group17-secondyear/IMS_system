@@ -12,7 +12,7 @@
                 </ul>
             </li>
             <li>
-                <a href="mmViewMahapolaNominatedListV.php">    
+                <a href="../../controller/mmControllers/mahapolaNominatedListControllerOne.php">    
                     <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
                 </a>
             </li>
