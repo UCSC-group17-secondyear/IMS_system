@@ -25,7 +25,10 @@
                             <label>Enter Student Index Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="index_no" placeholder="Student Index No" required/> <br>
+                            <select name="index_no" id="index_no">
+                                <!-- <option value="">Select student index: </option> -->
+                                <?php echo $_SESSION['stdIndexList'] ?>
+                            </select>
                         </div>
                     </div>
                     <button class="subbtn" type="submit" name="deleteupdateStudent-submit">Select</button>

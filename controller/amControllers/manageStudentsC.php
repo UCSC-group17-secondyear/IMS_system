@@ -2,9 +2,25 @@
     require_once('../../model/amModel/amManageStdModel.php');
     require_once('../../config/database.php');
 
-    if(isset($_POST['addStudent-submit'])) {
+    if(isset($_POST['enterStudents-submit'])) {
+        $records = amModel::getDegreeList($connect);
+        session_start();
+        $_SESSION['degreeList'] = '';
+
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degree_name']."'>".$record['degree_name']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amEnterStudentDetailsV.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amNoDegreesAvailableV.php');
+        }
+    }
+
+    elseif(isset($_POST['addStudent-submit'])) {
         $index_no = $_POST['index_no'];
-        $registrstion_no = $_POST['registrstion_no'];
+        $registration_no = $_POST['registration_no'];
         $initials = $_POST['initials'];
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
@@ -20,7 +36,7 @@
             $indexFlag = 1;
         }
 
-        $checkRegNum = amModel::checkRegNum ($registrstion_no, $connect);
+        $checkRegNum = amModel::checkRegNum ($registration_no, $connect);
         // check whether the student registration number exists already
         if (mysqli_num_rows($checkRegNum) == 1) {
             $regNumFlag = 1;
@@ -60,7 +76,7 @@
             header('Location:../../view/attendanceMaintainer/amEmailExist.php');
         }
         elseif ($errorFlag == 0) {
-            $result = amModel::addStudent($index_no, $registrstion_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
+            $result = amModel::addStudent($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
 
             if ($result) {
                 header('Location:../../view/attendanceMaintainer/amStudentAdded.php');
@@ -68,6 +84,22 @@
             else {
                 header('Location:../../view/attendanceMaintainer/amStudentNotAdded.php');
             }
+        }
+    }
+
+    elseif(isset($_POST['fetchStudents-submit'])) {
+        $records = amModel::viewStudents ($connect);
+        session_start();
+        $_SESSION['stdIndexList'] = '';
+
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['stdIndexList'] .= "<option value='".$record['index_no']."'>".$record['index_no']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amDeleteUpdateStudentSearchV.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amNoStudentsAvailableV.php');
         }
     }
 
@@ -80,7 +112,7 @@
             session_start();
             $result = mysqli_fetch_assoc($fetchStudent);
             $_SESSION['index_no'] = $result['index_no'];
-            $_SESSION['registrstion_no'] = $result['registrstion_no'];
+            $_SESSION['registration_no'] = $result['registration_no'];
             $_SESSION['initials'] = $result['initials'];
             $_SESSION['last_name'] = $result['last_name'];
             $_SESSION['email'] = $result['email'];
@@ -96,7 +128,7 @@
 
     elseif(isset($_POST['updateStudent-submit'])) {
         $index_no = $_POST['index_no'];
-        $registrstion_no = $_POST['registrstion_no'];
+        $registration_no = $_POST['registration_no'];
         $initials = $_POST['initials'];
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
@@ -106,7 +138,7 @@
         $regNumFlag = 0;
         $mailFlag = 0;
 
-        $regNumExist = amModel::regNumExist ($index_no, $registrstion_no, $connect);
+        $regNumExist = amModel::regNumExist ($index_no, $registration_no, $connect);
         // check whether the updated registration number exists already for another student
         if (mysqli_num_rows($regNumExist) == 1) {
             $regNumFlag = 1;
@@ -129,7 +161,7 @@
             header('Location:../../view/attendanceMaintainer/amRegnumReserved.php');
         }
         else {
-            $result = amModel::updateStd ($index_no, $registrstion_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
+            $result = amModel::updateStd ($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
 
             if ($result) {
                 header('Location:../../view/attendanceMaintainer/amStudentUpdatedV.php');
@@ -163,7 +195,7 @@
             while ($record = mysqli_fetch_assoc($records)) {
                 $_SESSION['student_list'] .= "<tr>";
                 $_SESSION['student_list'] .= "<td>{$record['index_no']}</td>";
-                $_SESSION['student_list'] .= "<td>{$record['    registrstion_no']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['    registration_no']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['initials']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['last_name']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['email']}</td>";

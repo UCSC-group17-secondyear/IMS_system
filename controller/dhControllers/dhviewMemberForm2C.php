@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/dhModel.php');
+    require_once('../../model/dhModel/dhViewRequestedFormModel.php');
 
     $userid = mysqli_real_escape_string($connect, $_GET['amiamember']);
     $member_mail = dhModel::getmail($userid, $connect);

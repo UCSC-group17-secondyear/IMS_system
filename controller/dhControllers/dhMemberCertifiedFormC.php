@@ -1,7 +1,7 @@
 <?php
     session_start();
 	require_once('../../config/database.php');
-    require_once('../../model/dhModel.php');
+    require_once('../../model/dhModel/dhViewCertifiedFormModel.php');
     
     $user_id = mysqli_real_escape_string($connect, $_GET['certified_user']);
 
@@ -32,5 +32,7 @@
                 echo "Database query failed.";
             }
         }  
+    } else {
+        header('Location:../../view/departmentHead/dhNoFormsV.php');
     }
 ?>
