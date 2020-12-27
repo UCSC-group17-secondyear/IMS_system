@@ -23,18 +23,18 @@
                     </div>
 
                     <div class="contentForm">
-                    <form action="../../controller/mmControllers/stuMahapolaDetailsIndexController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                    <form action="../../controller/mmControllers/stuMahapolaDetailsIndexController.php" method="POST">
                     <h2>Search by Student Index</h2><br>
                         <div class="row">
                             <div class="col-25">
                                 <label for="">Search by Student Index</label><br>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="student_index" ><br>
+                                <input type="text" name="student_index" required><br>
                             </div>
                         </div>
 
-                        <button class="subbtn" type="submit" name="mahapola-mark-submit" >Display Student's Details</button>
+                        <button class="subbtn" type="submit" name="mark-mahapola-index-submit" >Display Student's Details</button>
                         <button type="submit" class="cancelbtn">
                                 <a href="mmHomeV.php">Cancel</a>
                         </button>

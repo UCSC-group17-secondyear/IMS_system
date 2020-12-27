@@ -74,10 +74,11 @@
                         </div>
                         <div class="col-75">
                             <select name="academic_year" id="academic_year">
-                                <option value="1">1</option>
-                                <option value="2">2 </option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
+                                <!-- <option>Academic Year of the student</option> -->
+                                <option value="1">1st year</option>
+                                <option value="2">2nd year</option>
+                                <option value="3">3rd year</option>
+                                <option value="4">4th year</option>
                             </select>
                         </div>
                     </div>
@@ -88,9 +89,8 @@
                         </div>
                         <div class="col-75">
                             <select name="degree" id="degree">
-                                <option value="CS">Computer Science</option>
-                                <option value="IS">Information System</option>
-                                <option value="SE">Software Engineering</option>
+                                <!-- <option value="">Select degree: </option> -->
+                                <?php echo $_SESSION['degreeList'] ?>
                             </select>
                         </div>
                     </div>

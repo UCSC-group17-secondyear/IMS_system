@@ -54,7 +54,16 @@
 		}
 
 		public static function getClaimForms($connect) {
-			$query = "SELECT u.* cf.* FROM tbl_claimform cf, users u WHERE cf.user_id = u.userId AND (cf.opd_form_flag = 1 OR cf.surgical_form_flag = 1) AND cf.is_deleted=0 order by cf.claim_form_no";
+			$query = "SELECT u.*, cf.* FROM tbl_claimform cf, users u WHERE cf.user_id = u.userId AND (cf.opd_form_flag = 1 OR cf.surgical_form_flag = 1) AND cf.is_deleted=0 order by cf.claim_form_no";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getSelectedForm($claim_form_no, $connect)
+		{
+			$query = "SELECT u.*, cf.* FROM tbl_claimform cf, users u WHERE cf.user_id = u.userId AND cf.claim_form_no = '{$claim_form_no}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

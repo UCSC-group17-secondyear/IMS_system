@@ -8,7 +8,17 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
-            <li><a href="../../controller/dhControllers/dhMemberRequestFormC.php?user=<?php echo $_SESSION['userId'] ?>">Memebership Request Forms</a></li>
+            <?php
+                if ($_SESSION['acceptance_status'] == 3) {
+            ?>
+                <li><a href="dhMembRequestFormV.php">View Requested Form List</a></li>
+            <?php
+                } else {
+            ?>
+                <li><a href="dhCertifiedFormV.php">View Certified Form List</a></li>
+            <?php
+                }
+            ?>
             <li class="active">View Member</li>
         </ul>
 
@@ -106,27 +116,77 @@
                                 <input type="text" name="designation" <?php echo 'value="'.$_SESSION['member_type'].'"' ?> disabled> <br>
                             </div>
                         </div>
-                    </form>
                     <?php if($_SESSION['acceptance_status'] == 3) { ?>
+                        </form>
                     <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['userId'] ?>" method="post">
                         <button class="subbtn" type="submit" name="acceptdms-submit">Accept</button>
                         <button type="submit" class="cancelbtn" name="declinedms-submit">Decline</button>
                     </form>
                     <?php } else { ?>
-                    <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['userId'] ?>" method="post">
-                        <button class="subbtn" type="submit">
-                            <a href="dhHomeV.php">Ok</a>
-                        </button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="dhHomeV.php">Exit</a>
-                        </button>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Acceptance Status</label>
+                            </div>
+                            <div class="col-75">
+                        <?php
+                                if($_SESSION['acceptance_status'] == 0){
+                            ?>
+                                <button type="submit" class="redbtn" disabled><a class="disabled">Declined</a></button>
+                            <?php
+                                } else {
+                            ?>
+                                <button type="submit" class="greenbtn" disabled><a class="disabled">Approved</a></button>
+                            <?php
+                                }
+                            ?>
+                            </div>
+                        </div>
                     </form>
+                    <?php
+                        if ($_SESSION['acceptance_status'] == 3) {
+                    ?>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="dhMembRequestFormV.php"> View Requested Form List</a>
+                        </button>
+                    <?php
+                        } else {
+                    ?>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="dhCertifiedFormV.php"> View Certified Form List</a>
+                        </button>
+                    <?php
+                        }
+                    ?>
+                    <button class="cancelbtn" type="submit" name="">
+                        <a href="msmHomeV.php">Exit</a>
+                    </button>
                     <?php }?>
                 </div>
+                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>
     </div>
 </main>
+
+<script type="text/javascript">
+    var mybutton = document.getElementById("myTopBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 
 <?php
     require '../basic/footer.php';

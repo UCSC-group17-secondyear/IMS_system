@@ -7,7 +7,7 @@
         $membership_forms = msmModel::fetchmemberships($connect);
         $_SESSION['memberships'] = '';
         
-        if ($membership_forms > 0) {
+        if ($membership_forms) {
             while ($mem = mysqli_fetch_assoc($membership_forms)) {
                 $_SESSION['memberships'] .= "<tr>";
                 $_SESSION['memberships'] .= "<td>{$mem['empid']}</td>";
@@ -31,7 +31,7 @@
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"yellow\">Unchecked</a></td>";
                 }
-                $_SESSION['memberships'] .= "<td><a href=\"../../controller/msmControllers/msmMembershipForms2C.php?mem_index={$mem['userId']}\">View</a></td>";
+                $_SESSION['memberships'] .= "<td><a href=\"../../controller/msmControllers/msmMembershipFormsC.php?mem_index={$mem['userId']}\">View</a></td>";
                 $_SESSION['memberships'] .= "</tr>";
 
                 header('Location:../../view/medicalSchemeMaintainer/msmViewMembershipFormsV.php');
@@ -42,12 +42,10 @@
     }
 
     if(isset($_POST['requestedclaim-submit'])) {
-        $_SESSION['claim_form_no'] = '';
-        $result_forms = array();
-
         $result_forms = msmModel::getClaimForms($connect);
+        $_SESSION['requested'] = '';
 
-        if($result_forms > 0){
+        if($result_forms){
             while($rf = mysqli_fetch_assoc($result_forms)) {
                 if ($rf['acceptance_status'] == 3){
                     $_SESSION['requested'] .= "<tr>";
@@ -61,10 +59,11 @@
                     $_SESSION['requested'] .= "<td>{$rf['initials']}</td>";
                     $_SESSION['requested'] .= "<td>{$rf['sname']}</td>";
                     $_SESSION['requested'] .= "<td>{$rf['submitted_date']}</td>";
-                    $_SESSION['requested'] .= "<td><a href=\"../../controller/memControllers/claimFormListControllerTwo.php?claim_form_no={$rf['claim_form_no']}&user_id={$user_id}\">View</a></td>";
-                    $_SESSION['requested'] .= "</tr>";
+                    $_SESSION['requested'] .= "<td><a href=\"../../controller/msmControllers/msmViewClaimFormsC.php?claim_form_no={$rf['claim_form_no']}\">View</a></td>";
+                    $_SESSION['requested'] .= "</tr>"; 
+                echo "asdfggknvevnjv";
                 }
-                header('Location:../../view/medicalSchemeMaintainer/msmViewRequestedClaimFormV.php'); 
+                header('Location:../../view/medicalSchemeMaintainer/msmViewRequestedClaimFormV.php');
             }
         } else {
             header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
@@ -77,7 +76,7 @@
 
         $reffered_forms = msmModel::getClaimForms($connect);
 
-        if($reffered_forms > 0){
+        if($reffered_forms){
             while($rcf = mysqli_fetch_assoc($reffered_forms)) {
                 if ($rcf['acceptance_status'] != 3){
                     $_SESSION['reffered'] .= "<tr>";
@@ -91,15 +90,15 @@
                     $_SESSION['reffered'] .= "<td>{$rcf['initials']}</td>";
                     $_SESSION['reffered'] .= "<td>{$rcf['sname']}</td>";
                     $_SESSION['reffered'] .= "<td>{$rcf['submitted_date']}</td>";
-                    if($rf['acceptance_status'] == 1){
-                        $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
+                    if($rcf['acceptance_status'] == 1){
+                        $_SESSION['reffered'] .= "<td><a class=\"green\">Approved</a></td>";
                     } else {
-                        $_SESSION['memberships'] .= "<td><a class=\"red\">Declined</a></td>";
+                        $_SESSION['reffered'] .= "<td><a class=\"red\">Declined</a></td>";
                     }
-                    $_SESSION['reffered'] .= "<td><a href=\"../../controller/memControllers/claimFormListControllerTwo.php?claim_form_no={$rf['claim_form_no']}&user_id={$user_id}\">View</a></td>";
+                    $_SESSION['reffered'] .= "<td><a href=\"../../controller/msmControllers/msmViewClaimFormsC.php?claim_form_no={$rcf['claim_form_no']}\">View</a></td>";
                     $_SESSION['reffered'] .= "</tr>";
                 }
-                header('Location:../../view/medicalSchemeMaintainer/msmViewRefferedCLaimFormsV.php'); 
+                header('Location:../../view/medicalSchemeMaintainer/msmViewRefferedCLaimFormsV.php');
             }
         } else {
             header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
