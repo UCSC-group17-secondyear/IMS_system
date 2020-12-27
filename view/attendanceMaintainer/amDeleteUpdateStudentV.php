@@ -38,7 +38,7 @@
                             <label>Enter Student Registration Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="registrstion_no"  <?php echo 'value="'.$_SESSION['registrstion_no'].'"' ?> />
+                            <input type="text" name="registration_no"  <?php echo 'value="'.$_SESSION['registration_no'].'"' ?> />
                         </div>
                     </div>
 
