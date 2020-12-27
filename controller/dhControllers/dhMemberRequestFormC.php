@@ -1,7 +1,7 @@
 <?php
     session_start();
 	require_once('../../config/database.php');
-    require_once('../../model/dhModel.php');
+    require_once('../../model/dhModel/dhViewRequestedFormModel.php');
     
     $user_id = mysqli_real_escape_string($connect, $_GET['user']);
 
@@ -23,11 +23,9 @@
                     $_SESSION['memberrequestforms'] .= "</tr>";                    
                 }
                 header('Location:../../view/departmentHead/dhMembRequestFormV.php');
-            }else {
-                echo "Database query failed.";
             }
         }  
     } else {
-        echo "hd 1 is not ok";
+        header('Location:../../view/departmentHead/dhNoFormsV.php');
     }
 ?>

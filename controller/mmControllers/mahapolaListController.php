@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once('../../model/mmModel.php');
+    require_once('../../model/mmModel/mmModel.php');
     require_once('../../config/database.php');
 
 ?>

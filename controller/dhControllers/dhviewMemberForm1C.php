@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once('../../model/dhModel.php');
     require_once('../../config/database.php');
+    require_once('../../model/dhModel/dhViewRequestedFormModel.php');
 
     $errors = array();
     $user_id = '';
@@ -10,7 +10,7 @@
         $user_id = mysqli_real_escape_string($connect, $_GET['userrr']);
         $_SESSION['user_id'] = $user_id;
         
-        $result_set = dhModel::funct($user_id, $connect);
+        $result_set = dhModel::getDetails($user_id, $connect);
 
         if ($result_set) {
             if (mysqli_num_rows($result_set) == 1) {
@@ -29,8 +29,6 @@
                 $_SESSION['acceptance_status'] = $result['acceptance_status'];
             }
             header('Location:../../view/departmentHead/dhViewMemberV.php');
-        }else {
-            echo "query failed";
         }
     }
 ?>

@@ -24,13 +24,15 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/mmControllers/mahapolaNominatedListController.php" method="POST">
+                        <form action="../../controller/mmControllers/mahapolaNominatedListControllerTwo.php" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Batch No</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="batch_no" placeholder="Enter batch no"> 
+                                    <select name="batch_no" id="batch_no" required>
+                                        <option value=""><?php echo $_SESSION['batchNumber'] ?></option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -39,10 +41,8 @@
                                     <label for="">Degree</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="degree" id="degree">
-                                        <option value="">Select Degree</option>
-                                        <option value="CS">CS</option>
-                                        <option value="IS">IS</option>
+                                    <select name="degree" id="degree" required>
+                                        <option value=""><?php echo $_SESSION['degree'] ?></option>
                                     </select>
                                 </div>
                             </div>
