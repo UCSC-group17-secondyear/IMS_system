@@ -1,16 +1,16 @@
 <?php
     session_start();
 	require_once('../../config/database.php');
-    require_once('../../model/Model.php');
+    require_once('../../model/basicModel/registerMSModel.php');
 
     $errors = array();
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $result_set = Model::view($user_id, $connect);
+    $result_set = basicModel::view($user_id, $connect);
 
-    $records = Model::scheme($connect);
-    $scheme_1_details = Model::getscheme('Scheme 1', $connect);
-    $scheme_2_details = Model::getscheme('Scheme 2', $connect);
-    $scheme_3_details = Model::getscheme('Scheme 3', $connect);
+    $records = basicModel::scheme($connect);
+    $scheme_1_details = basicModel::getscheme('Scheme 1', $connect);
+    $scheme_2_details = basicModel::getscheme('Scheme 2', $connect);
+    $scheme_3_details = basicModel::getscheme('Scheme 3', $connect);
     $_SESSION['scheme'] = '';
     $_SESSION['children'] = '';
 
@@ -38,7 +38,7 @@
     
                 $_SESSION['userId'] = $result['userId'];
     
-                $date_diff = Model::getservicemonths($user_id, $connect);
+                $date_diff = basicModel::getservicemonths($user_id, $connect);
                 $submit_diff = mysqli_fetch_array($date_diff);
                 $months = (int)$submit_diff[0]/30;
                

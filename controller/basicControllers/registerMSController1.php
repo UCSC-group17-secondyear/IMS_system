@@ -97,14 +97,11 @@
                 else if ($result['userRole'] == "departmentHead") {
                     header('Location:../../view/departmentHead/dhAlreadyRegisteredV.php');
                 }
-                else if ($result['userRole'] == "medicalOfficer") {
-                    header('Location:../../view/medicalOfficer/moAlreadyRegisteredV.php');
-                }
                 else {
                     echo "USER";
                 }
             }
-        }  else {
+        }  else if ($records5 == 1) {
             if (mysqli_num_rows($result_set) == 1) {
                 $result = mysqli_fetch_assoc($result_set);
 
@@ -134,9 +131,6 @@
                 }
                 else if ($result['userRole'] == "departmentHead") {
                     header('Location:../../view/departmentHead/dhmembershipStatusV.php');
-                }
-                else if ($result['userRole'] == "medicalOfficer") {
-                    header('Location:../../view/medicalOfficer/momembershipStatusV.php');
                 }
                 else {
                     echo "USER";
