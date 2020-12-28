@@ -11,16 +11,27 @@
                         </button>
                     </form>
 
-                    <button>
-                        <a href="amEnterStudentDetailsV.php">
-                            <li><i class="fa fa-plus-circle"></i>Add Students</li>
-                        </a>
-                    </button>
-                    <button>
+                    <form action="../../controller/amControllers/manageStudentsC.php" method="post">
+                        <button name="enterStudents-submit">
+                            <a href="#">
+                                <li><i class="fa fa-user"></i>Add Students</li>
+                            </a>
+                        </button>
+                    </form>
+
+                    <form action="../../controller/amControllers/manageStudentsC.php" method="post">
+                        <button name="fetchStudents-submit">
+                            <a href="#">
+                                <li><i class="fa fa-user"></i>Update or Remove Students</li>
+                            </a>
+                        </button>
+                    </form>
+
+                    <!-- <button>
                         <a href="amDeleteUpdateStudentSearchV.php">
                             <li><i class="fa fa-pencil-square-o"></i>Update or Remove Students</li>
                         </a>
-                    </button>
+                    </button> -->
                 </ul>
             </li>
 

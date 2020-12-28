@@ -29,7 +29,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="amDeleteUpdateSubjectSearch.php">Try again</a> 
+                        <a href="amDeleteUpdateSubjectV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

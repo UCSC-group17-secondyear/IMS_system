@@ -29,10 +29,9 @@
                                 <label for="">Select degree</label>
                             </div>
                             <div class="col-75">
-                                <!-- <input type="text" name="degree_name" placeholder="degree name" required/><br> -->
                                 <select name="degree_name"required>
-                                <option value="">Select degree: </option>
-                                <?php echo $_SESSION['degreeList'] ?>
+                                    <option value="">Select degree: </option>
+                                    <?php echo $_SESSION['degreeList'] ?>
                                 </select>
                             </div>
                         </div>
