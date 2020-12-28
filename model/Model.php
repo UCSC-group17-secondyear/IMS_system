@@ -429,44 +429,6 @@
 			return $result_set;
 		}
 
-		
-
-		public static function membertype($connect)
-		{
-			$query = "SELECT member_type FROM tbl_member_type";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
-		public static function civilstatus($connect)
-		{
-			$query = "SELECT csname FROM tbl_civilstatus";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
-		public static function scheme($connect)
-		{
-			$query = "SELECT schemeName FROM tbl_medicalscheme WHERE is_deleted=0";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
-		public static function isscheme($user_id, $connect)
-		{
-			$query = "SELECT schemename FROM tbl_user_flag WHERE user_id='{$user_id}'";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
 		public static function getservicemonths($user_id,$connect)
 		{
 			$query = "SELECT DATEDIFF(CURRENT_DATE(), appointment)FROM users WHERE userId='{$user_id}'";

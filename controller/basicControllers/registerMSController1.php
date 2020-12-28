@@ -1,20 +1,20 @@
 <?php
     session_start();
 	require_once('../../config/database.php');
-    require_once('../../model/Model.php');
+    require_once('../../model/basicModel/registerMSModel.php');
     
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $result_set = Model::view($user_id, $connect); 
-    $records1 = Model::department($connect);
-    $records2 = Model::membertype($connect);
-    $records4 = Model::civilstatus($connect);
-    $records5 = Model::isscheme($user_id, $connect);
+    $result_set = basicModel::view($user_id, $connect); 
+    $records1 = basicModel::departments($connect);
+    $records2 = basicModel::membertype($connect);
+    $records4 = basicModel::civilstatus($connect);
+    $records5 = basicModel::getmembershipstatus($user_id, $connect);
     $_SESSION['deps'] = '';
     $_SESSION['member_type'] = '';
     $_SESSION['civil_status'] = '';
     
     if ($result_set && $records1 && $records2 && $records4 && $records5) {
-        // if($records5 == "x"){
+        if($records5 == 4){
             if (mysqli_num_rows($result_set)==1) {
                 $result = mysqli_fetch_assoc($result_set);
     
@@ -66,7 +66,7 @@
                     echo "USER";
                 }
             }
-        // } else {
+        } else if ($records5 == 3) {
             if (mysqli_num_rows($result_set) == 1) {
                 $result = mysqli_fetch_assoc($result_set);
 
@@ -104,6 +104,44 @@
                     echo "USER";
                 }
             }
-        // }        
+        }  else {
+            if (mysqli_num_rows($result_set) == 1) {
+                $result = mysqli_fetch_assoc($result_set);
+
+                if ($result['userRole'] == "admin") {
+                    header('Location:../../view/admin/amembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "academicStaffMemb") {
+                    header('Location:../../view/academicStaffMember/asmmembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "nonAcademicStaffMemb") {
+                    header('Location:../../view/nonAcademicStaffMember/nasmmembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "attendanceMain") {
+                    header('Location:../../view/attendanceMaintainer/ammembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "hallAllocationMain") {
+                    header('Location:../../view/hallAllocationMaintainer/hammembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "mahapolaSchemeMain") {
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmmembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "medicalSchemeMain") {
+                    header('Location:../../view/medicalSchemeMaintainer/msmmembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "recordsViewer") {
+                    header('Location:../../view/reportViewer/rvmembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "departmentHead") {
+                    header('Location:../../view/departmentHead/dhmembershipStatusV.php');
+                }
+                else if ($result['userRole'] == "medicalOfficer") {
+                    header('Location:../../view/medicalOfficer/momembershipStatusV.php');
+                }
+                else {
+                    echo "USER";
+                }
+            }
+        }     
     }
 ?>
