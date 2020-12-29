@@ -14,7 +14,8 @@
     $_SESSION['civil_status'] = '';
     
     if ($result_set && $records1 && $records2 && $records4 && $records5) {
-        if($records5 == 4){
+        $membership = mysqli_fetch_assoc($records5);
+        if($membership['membership_status'] == 4){
             if (mysqli_num_rows($result_set)==1) {
                 $result = mysqli_fetch_assoc($result_set);
     
@@ -66,7 +67,7 @@
                     echo "USER";
                 }
             }
-        } else if ($records5 == 3) {
+        } else if ($membership['membership_status'] == 3) {
             if (mysqli_num_rows($result_set) == 1) {
                 $result = mysqli_fetch_assoc($result_set);
 
@@ -101,7 +102,7 @@
                     echo "USER";
                 }
             }
-        }  else if ($records5 == 1) {
+        }  else if ($membership['membership_status'] == 1) {
             if (mysqli_num_rows($result_set) == 1) {
                 $result = mysqli_fetch_assoc($result_set);
 
@@ -136,6 +137,9 @@
                     echo "USER";
                 }
             }
+        }
+        else {
+            echo "0";
         }     
     }
 ?>

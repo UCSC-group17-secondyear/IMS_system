@@ -401,34 +401,6 @@
 			return $result;
 		}
 
-//................................................ Medical Scheme Maintainer ...........................................................//
-		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $scheme, $connect)
-		{
-			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}', schemename='{$scheme}', form_submission_date=CURRENT_DATE() WHERE user_id={$user_id}";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
-		public static function adddependant($user_id, $name, $relationship, $dob, $healthstatus, $connect)
-		{
-			$query = "INSERT INTO tbl_dependant (user_id, dependant_name, relationship, dob, health_status) VALUES ('$user_id', '$name', '$relationship', '$dob', '$healthstatus')";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
-		public static function dept($department, $connect)
-		{
-			$query = "SELECT department_head_email FROM tbl_department WHERE department='{$department}' LIMIT 1";
-
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
 		public static function getDegreeId($student_index, $connect){
 			$query = "SELECT degeree_id FROM tbl_student_degree WHERE student_index={$student_index} LIMIT 1";
 

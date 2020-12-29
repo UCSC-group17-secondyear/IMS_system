@@ -7,7 +7,6 @@
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     $result_set = basicModel::view($user_id, $connect);
 
-    $records = basicModel::scheme($connect);
     $scheme_1_details = basicModel::getscheme('Scheme 1', $connect);
     $scheme_2_details = basicModel::getscheme('Scheme 2', $connect);
     $scheme_3_details = basicModel::getscheme('Scheme 3', $connect);
@@ -29,7 +28,7 @@
             $_SESSION['civil_status'] = $civil_status;
         }
 
-        if ($result_set && $records && $scheme_1_details && $scheme_2_details && $scheme_3_details) {
+        if ($result_set && $scheme_1_details && $scheme_2_details && $scheme_3_details) {
             if (mysqli_num_rows($result_set)==1) {
                 $result = mysqli_fetch_assoc($result_set);
                 $scheme_1 = mysqli_fetch_assoc($scheme_1_details);
