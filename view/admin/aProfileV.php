@@ -30,8 +30,16 @@
                         <button type="submit" class="cancelbtn">Cancel</button>
                     </a>
                 </div>
-            </div>
+                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
 
+                <script type="text/javascript">
+                    var mybutton = document.getElementById("myTopBtn");
+                    function topFunction() {
+                        document.body.scrollTop = 0;
+                        document.documentElement.scrollTop = 0;
+                    }
+                </script>
+            </div>
 
         </div>
     </div>

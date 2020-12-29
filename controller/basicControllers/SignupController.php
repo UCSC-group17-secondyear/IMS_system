@@ -140,8 +140,13 @@
 
 						if ($aca_or_non == 'academic-staff') {
 							$asm_flag = 1;
+							$nasm_flag = 0;
 						}
-						$result3 = basicModel::setRole($user_id, $asm_flag, $connect);
+						if ($aca_or_non == 'non-academic-staff') {
+							$nasm_flag = 1;
+							$asm_flag = 0;
+						}
+						$result3 = basicModel::setRole($user_id, $asm_flag, $nasm_flag, $connect);
 						header('Location:../../view/basic/signupSuccess.php');
 						// header('Location:../view/basic/login.php');
 					}
