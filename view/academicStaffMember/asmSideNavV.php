@@ -2,7 +2,7 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="asmWeeklyTimeTableV.php">
+                <a href="../../controller/asmControllers/asmViewTimeTableController.php">
                     <button type="submit" name="" class="tree_list">View Weekly Time Table</button>
                 </a><br>
             </li>
