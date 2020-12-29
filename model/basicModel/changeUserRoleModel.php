@@ -3,7 +3,7 @@
     class basicModel{
         public static function changeUserRole($user_id, $connect)
 		{
-			$query = "SELECT ham_flag, mo_flag, dh_flag, msm_flag, mem_flag, a_flag, rv_flag, am_flag, mm_flag, asm_flag FROM tbl_user_flag WHERE user_id={$user_id} LIMIT 1";
+			$query = "SELECT ham_flag, mo_flag, dh_flag, msm_flag, mem_flag, a_flag, rv_flag, am_flag, mm_flag, asm_flag, nasm_flag FROM tbl_user_flag WHERE user_id={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
