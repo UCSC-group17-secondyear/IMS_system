@@ -19,7 +19,7 @@
             $_SESSION['time_table'] .= "<td>{$t['academic_year']}</td>";
             $_SESSION['time_table'] .= "</tr>";
 
-            header('Location:../../view/academicStaffMember/asmWeeklyTimeTableV.php');
+            header('Location:../../view/hallAllocationMaintainer/hamWeeklyTimeTableV.php');
         }
     }
 

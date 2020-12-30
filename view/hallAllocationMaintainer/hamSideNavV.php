@@ -2,7 +2,7 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="hamWeeklyTimeTableV.php">
+                <a href="../../controller/hamControllers/hamViewTimeTableController.php">
                     <button type="submit" class="tree_list">View Weekly Time Table</button>
                 </a> <br>
             </li>
