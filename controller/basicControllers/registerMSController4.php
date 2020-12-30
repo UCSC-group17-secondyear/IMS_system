@@ -1,11 +1,11 @@
 <?php
     session_start();
 	require_once('../../config/database.php');
-    require_once('../../model/Model.php');
+    require_once('../../model/basicModel/registerMSModel.php');
 
     $errors = array();
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $result_set = Model::view($user_id, $connect);
+    $result_set = basicModel::view($user_id, $connect);
 
     if (isset($_POST['register-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
@@ -28,12 +28,12 @@
                 $age = $birthdate->diff($today)->y;
 
                 if($age >= 18){
-                    $dependant = Model::adddependant($user_id, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
+                    $dependant = basicModel::adddependant($user_id, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
                 }
             }
         }
         
-        $resultttt = Model::dept($department, $connect);
+        $resultttt = basicModel::dept($department, $connect);
         $data = mysqli_fetch_array($resultttt);
 
         if ($data) {
