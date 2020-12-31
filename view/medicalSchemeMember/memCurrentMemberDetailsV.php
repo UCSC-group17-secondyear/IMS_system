@@ -30,6 +30,15 @@
                             
                             <div class="row" >
                                 <div class="col-25">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input name="name" type="text" <?php echo 'value="'.$_SESSION['name'].'"' ?> disabled>
+                                </div>
+                            </div>
+
+                            <div class="row" >
+                                <div class="col-25">
                                     <label>Health condition</label>
                                 </div>
                                 <div class="col-75">
@@ -42,10 +51,9 @@
                                     <label>Civil status</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="civilstatus" required>
-                                        <option value="<?php echo $_SESSION['civilstatus'] ?>"><?php echo $_SESSION['civilstatus'] ?></option>
-                                        <option value="married">Married</option>
-                                        <option value="unmarried">Unmarried</option>
+                                    <select name="civilstatus" id="civilstatus" onchange="selectStaus()" required>
+                                        <option value="<?php echo $_SESSION['prev_status'] ?>"><?php echo $_SESSION['prev_status'] ?></option>
+                                        <?php echo $_SESSION['c_state'] ?>
                                     </select>
                                 </div>
                             </div>
@@ -58,8 +66,19 @@
                                     <input name="scheme" type="text" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled>
                                 </div>
                             </div>
+                            <br>
 
-                            <button class="subbtn" type="submit" name="update-submit">Update Details</button>
+                            <div id="getCount" class="row">
+                                <div class="col-25">
+                                    <label>Add Children<br>(Number of children)</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="number" min="0" name="add_no_child" value="0" required/>
+                                </div>
+                            </div>
+
+
+                            <button class="subbtn" type="submit" name="mem-det-submit">Update Details</button>
                             <button type="submit" class="cancelbtn">
                                 <a href="memHomeV.php">Cancel</a>
                             </button>
@@ -73,3 +92,16 @@
 <?php
     require_once('../basic/footer.php');
 ?>
+
+<script>
+    function selectStaus(){
+        var status = document.getElementById("civilstatus");
+        if(status.value == "Unmarried"){
+            document.getElementById("getCount").style.visibility = "hidden";
+        }
+        else{
+            document.getElementById("getCount").style.visibility = "visible";
+        }
+        
+    }
+</script>
