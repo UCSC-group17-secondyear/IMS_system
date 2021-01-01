@@ -2,7 +2,7 @@
 
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel.php');
+    require_once('../../model/memModel/memModel.php');
 
 ?>
 

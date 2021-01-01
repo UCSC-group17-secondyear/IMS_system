@@ -10,8 +10,8 @@
 
     $user_id = mysqli_real_escape_string($connect, $_SESSION['user_id']);
 
-    echo $prev_status = $_SESSION['prev_status'];
-    echo $cur_status = $_POST['civilstatus'];
+    $prev_status = $_SESSION['prev_status'];
+    $cur_status = $_POST['civilstatus'];
 
     $result_child = memModel::getChildDetails($user_id, $connect);
     $result_spouse = memModel::getSpouseDetails($user_id, $connect);
@@ -32,7 +32,7 @@
 
     if(isset($_POST['mem-det-submit'])){
 
-        // Unmarried --> Unmarried
+        ///////////////////////////////////////////////////////////////// Unmarried --> Unmarried
         if( $prev_status=='Unmarried' && $cur_status=='Unmarried'){
 
             //echo "Unmarried->Unmarried";
@@ -48,7 +48,7 @@
 
         }
 
-        // Unmarried --> Married
+        ///////////////////////////////////////////////////////////////// Unmarried --> Married
         if( $prev_status=='Unmarried' && $cur_status=='Married'){
 
             //echo "Unmarried->Married";
@@ -65,30 +65,27 @@
             }
         }
 
-        // Married --> Married
+        ///////////////////////////////////////////////////////////////// Married --> Married
         if( $prev_status=='Married' && $cur_status=='Married'){
 
-            echo "Married->Married";
-        }
+            //echo "Married->Married";
+            $civil_status = $_POST['civilstatus'];
+            $_SESSION['num_of_child'] = $_POST['add_no_child'];
+            $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
 
-        // Married --> Unmarried
-        if( $prev_status=='Married' && $cur_status=='Unmarried'){
+            if($result_mem){
 
-            echo "Married->Unmarried";
-        }
+                $spouse = mysqli_fetch_assoc($result_spouse);
+                $_SESSION['child_count'] = mysqli_num_rows($result_child);
 
+                if(mysqli_num_rows($result_spouse)==1){
+                    $_SESSION['spouse_id'] = $spouse['dependant_id'];
+                    $_SESSION['spouse_name'] = $spouse['dependant_name'];
+                    $_SESSION['spouse_health'] = $spouse['health_status'];
+                    $_SESSION['spouse_dob'] = $spouse['dob'];
+                }
 
-
-        $spouse = mysqli_fetch_assoc($result_spouse);
-
-        if(mysqli_num_rows($result_spouse)==1){
-            $_SESSION['spouse_id'] = $spouse['dependant_id'];
-            $_SESSION['spouse_name'] = $spouse['dependant_name'];
-            $_SESSION['spouse_health'] = $spouse['health_status'];
-            $_SESSION['spouse_dob'] = $spouse['dob'];
-        }
-
-        $child  = [];
+                $child  = [];
                 if(mysqli_num_rows($result_child)>0){
                     $i = 0;
                     while($child_s = mysqli_fetch_array($result_child)){
@@ -100,11 +97,28 @@
                         $i++;
                         
                     }       
-                       //print_r($child);
+                       print_r($child);
                        $_SESSION['child'] = $child;
                 }
-                //echo "yes";
-                //header('Location:../../view/medicalSchemeMember/memCurrentMemberDetailsV.php');
+                echo "yes";
+                //header('Location:../../view/medicalSchemeMember/memCurrentMemDependDetailsV.php');
+            }
+        }
+
+        ///////////////////////////////////////////////////////////////// Married --> Unmarried
+        if( $prev_status=='Married' && $cur_status=='Unmarried'){
+
+            //echo "Married->Unmarried";
+            $result_deleted = memModel::deleteDependant($user_id, $connect);
+
+            if($result_deleted){
+                header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
+            }
+            else{
+                echo "Failed result.";
+            }
+        }
+
     }
 
 ?>

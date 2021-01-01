@@ -64,7 +64,7 @@
                     $result_two = mysqli_fetch_assoc($result_set);
                     $result_three = mysqli_fetch_assoc($result);
 
-                    $_SESSION['cur_status'] = $result_two['civilstatus'];
+                    $_SESSION['prev_status'] = $result_two['civilstatus'];
                     $_SESSION['name'] = $result_three['initials']." ".$result_three['sname'];
                     $_SESSION['health_condition'] = $result_two['healthcondition'];
                     $_SESSION['scheme'] = $name;
