@@ -26,12 +26,9 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/memControllers/currentMemberDetailsControllerThree.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                        <form action="../../controller/memControllers/currentMemberDetailsControllerFour.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
 
-                        <?php
-                            if($_SESSION['civilstatus']=='Married'){
-                        ?>
-
+                        
                             <h4>Spouse Details</h4><br>
                             <div class="row" >
                                 <div class="col-25">
@@ -123,29 +120,6 @@
                                    }
                                 }
                             ?>
-                        <?php
-                            }
-                        ?>
-                        
-                        <br>
-                        <br>
-                        
-                        <?php
-                            if($_SESSION['civilstatus']=='Married'){
-                        ?>
-
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label>Add Children<br>(Number of children)</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <input type="number" min="0" name="add_no_child" value="0" required/>
-                                    </div>
-                                </div>
-
-                        <?php
-                            }
-                        ?>
 
                             <button class="subbtn" type="submit" name="renew-submit">Update Details</button>
                             <button type="submit" class="cancelbtn">

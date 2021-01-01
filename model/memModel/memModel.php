@@ -176,7 +176,7 @@
 		}
 
 		public static function getDependantName($user_id, $connect){
-			$query = "SELECT * FROM tbl_dependant WHERE user_id={$user_id}";
+			$query = "SELECT * FROM tbl_dependant WHERE user_id={$user_id} AND is_deleted='0'";
 
 			$result = mysqli_query($connect, $query);
 
@@ -308,6 +308,14 @@
 
 		public static function addSpouseDetails($user_id, $spouse_name, $spouse_relationship,$spouse_dob, $spouse_healthstatus, $connect){
 			$query = "INSERT INTO tbl_dependant (user_id, dependant_name, relationship, dob, health_status) VALUES ('$user_id', '$spouse_name', '$spouse_relationship', '$spouse_dob', '$spouse_healthstatus')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteDependant($user_id, $connect){
+			$query = "UPDATE tbl_dependant SET is_deleted='1' WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
