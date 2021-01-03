@@ -266,8 +266,8 @@
 			return $result;
 		}
 
-		public static function updateSpouseDetails($user_id, $spouse_name,$spouse_health,$spouse_dob, $connect){
-			$query = "UPDATE tbl_dependant SET dependant_name='{$spouse_name}', health_status='{$spouse_health}', dob='{$spouse_dob}' WHERE user_id={$user_id} AND (relationship='Wife' OR relationship='Husband')";
+		public static function updateSpouseDetails($user_id,$spouse_id, $spouse_name,$spouse_health,$spouse_dob, $connect){
+			$query = "UPDATE tbl_dependant SET dependant_name='{$spouse_name}', health_status='{$spouse_health}', dob='{$spouse_dob}' WHERE user_id={$user_id} AND dependant_id={$spouse_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -316,6 +316,22 @@
 
 		public static function deleteDependant($user_id, $connect){
 			$query = "UPDATE tbl_dependant SET is_deleted='1' WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteChild($user_id, $child_id, $connect){
+			$query = "UPDATE tbl_dependant SET is_deleted='1' WHERE user_id={$user_id} AND dependant_id='{$child_id}'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteSpouse($user_id, $spouse_id, $connect){
+			$query = "UPDATE tbl_dependant SET is_deleted='1' WHERE user_id={$user_id} AND dependant_id={$spouse_id}";
 
 			$result = mysqli_query($connect, $query);
 

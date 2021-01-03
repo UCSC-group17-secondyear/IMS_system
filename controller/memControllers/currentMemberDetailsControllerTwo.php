@@ -53,7 +53,6 @@
 
             //echo "Unmarried->Married";
             $civil_status = $_POST['civilstatus'];
-            $_SESSION['num_of_child'] = $_POST['add_no_child'];
             $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
 
             if($result_mem){
@@ -68,9 +67,9 @@
         ///////////////////////////////////////////////////////////////// Married --> Married
         if( $prev_status=='Married' && $cur_status=='Married'){
 
-            //echo "Married->Married";
+            
             $civil_status = $_POST['civilstatus'];
-            $_SESSION['num_of_child'] = $_POST['add_no_child'];
+            //$_SESSION['new_no_child'] = $_POST['new_no_of_child'];
             $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
 
             if($result_mem){
@@ -101,7 +100,7 @@
                        $_SESSION['child'] = $child;
                 }
                 echo "yes";
-                //header('Location:../../view/medicalSchemeMember/memCurrentMemDependDetailsV.php');
+                header('Location:../../view/medicalSchemeMember/memCurrentMemDependDetailsV.php');
             }
         }
 
@@ -110,8 +109,10 @@
 
             //echo "Married->Unmarried";
             $result_deleted = memModel::deleteDependant($user_id, $connect);
+            $civil_status = $_POST['civilstatus'];
+            $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
 
-            if($result_deleted){
+            if($result_deleted && $result_mem){
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
             }
             else{
@@ -119,6 +120,11 @@
             }
         }
 
+
+
+
+
+        
     }
 
 ?>

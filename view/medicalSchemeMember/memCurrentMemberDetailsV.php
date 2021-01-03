@@ -68,16 +68,6 @@
                             </div>
                             <br>
 
-                            <div id="getCount" class="row">
-                                <div class="col-25">
-                                    <label>Add Children<br>(Number of children)</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="number" min="0" name="add_no_child" value="0" required/>
-                                </div>
-                            </div>
-
-
                             <button class="subbtn" type="submit" name="mem-det-submit">Update Details</button>
                             <button type="submit" class="cancelbtn">
                                 <a href="memHomeV.php">Cancel</a>
@@ -93,15 +83,4 @@
     require_once('../basic/footer.php');
 ?>
 
-<script>
-    function selectStaus(){
-        var status = document.getElementById("civilstatus");
-        if(status.value == "Unmarried"){
-            document.getElementById("getCount").style.visibility = "hidden";
-        }
-        else{
-            document.getElementById("getCount").style.visibility = "visible";
-        }
-        
-    }
-</script>
+
