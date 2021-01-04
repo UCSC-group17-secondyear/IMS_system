@@ -74,6 +74,28 @@
                                 </div>
                             </div>
 
+                            <div class="row" >
+                                <div class="col-25">
+                                    <label>Living Status</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="liv_status"  required>
+                                        <option value="">...</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="getCount" class="row">
+                                <div class="col-25">
+                                    <label>Add Children<br>(Number of children)</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="number" min="0" name="add_no_child" value="0" required/>
+                                </div>
+                            </div>
+
                             <button class="subbtn" type="submit" name="spouse-det-submit">Update Details</button>
                             <button type="submit" class="cancelbtn">
                                 <a href="memHomeV.php">Cancel</a>

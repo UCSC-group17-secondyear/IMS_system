@@ -8,7 +8,7 @@
                 
                     <ul class="breadcrumbs">
                         <li><a href="memHomeV.php">Home</a></li>
-                        <li><a href="memGetClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">Enter Year</a></li>
+                        <li><a href="memGetClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">View Claim Details</a></li>
                         <li class="active">Claim Details</li>
                     </ul>
                 
@@ -31,7 +31,7 @@
                                     <label for="">Scheme</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="scheme_name"  disabled> <br>
+                                    <input type="text" name="scheme" <?php echo 'value="'.$_SESSION['scheme'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@
                                     <label for="">Initial Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="initial_amount"  disabled> <br>
+                                    <input type="text" name="initial_amount" <?php echo 'value="'.$_SESSION['initial_amount'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -49,7 +49,7 @@
                                     <label for="">Already Used Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="used_amount" disabled> <br>
+                                    <input type="text" name="used_amount" <?php echo 'value="'.$_SESSION['used_amount'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -58,7 +58,7 @@
                                     <label for="">Remaining Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="remain_amount" disabled> <br>
+                                    <input type="text" name="remain_amount" <?php echo 'value="'.$_SESSION['remain_amount'].'"'?> disabled> <br>
                                 </div>
                             </div> 
                         </form>

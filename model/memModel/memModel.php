@@ -176,7 +176,7 @@
 		}
 
 		public static function getDependantName($user_id, $connect){
-			$query = "SELECT * FROM tbl_dependant WHERE user_id={$user_id}";
+			$query = "SELECT * FROM tbl_dependant WHERE user_id={$user_id} AND is_deleted='0'";
 
 			$result = mysqli_query($connect, $query);
 
@@ -266,8 +266,8 @@
 			return $result;
 		}
 
-		public static function updateSpouseDetails($user_id, $spouse_name,$spouse_health,$spouse_dob, $connect){
-			$query = "UPDATE tbl_dependant SET dependant_name='{$spouse_name}', health_status='{$spouse_health}', dob='{$spouse_dob}' WHERE user_id={$user_id} AND (relationship='Wife' OR relationship='Husband')";
+		public static function updateSpouseDetails($user_id,$spouse_id, $spouse_name,$spouse_health,$spouse_dob, $connect){
+			$query = "UPDATE tbl_dependant SET dependant_name='{$spouse_name}', health_status='{$spouse_health}', dob='{$spouse_dob}' WHERE user_id={$user_id} AND dependant_id={$spouse_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -308,6 +308,30 @@
 
 		public static function addSpouseDetails($user_id, $spouse_name, $spouse_relationship,$spouse_dob, $spouse_healthstatus, $connect){
 			$query = "INSERT INTO tbl_dependant (user_id, dependant_name, relationship, dob, health_status) VALUES ('$user_id', '$spouse_name', '$spouse_relationship', '$spouse_dob', '$spouse_healthstatus')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteDependant($user_id, $connect){
+			$query = "UPDATE tbl_dependant SET is_deleted='1' WHERE user_id={$user_id}";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteChild($user_id, $child_id, $connect){
+			$query = "UPDATE tbl_dependant SET is_deleted='1' WHERE user_id={$user_id} AND dependant_id='{$child_id}'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteSpouse($user_id, $spouse_id, $connect){
+			$query = "UPDATE tbl_dependant SET is_deleted='1' WHERE user_id={$user_id} AND dependant_id={$spouse_id}";
 
 			$result = mysqli_query($connect, $query);
 
