@@ -30,7 +30,7 @@
                         <form action="../../controller/memControllers/addNewChildController.php?user_id=<?php echo $_SESSION['userId']?>" method="post">
                             <div class="row">
                                 <?php
-                                    $no = $_SESSION['new_no_child'];
+                                    $no = $_SESSION['children_no'];
                                     if($no > 0){
                                         for($i=0; $i<$no; $i++){
                                 ?>

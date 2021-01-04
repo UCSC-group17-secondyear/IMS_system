@@ -26,12 +26,9 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/memControllers/currentMemberDetailsControllerThree.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                        <form action="../../controller/memControllers/currentMemberDetailsControllerFour.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
 
-                        <?php
-                            if($_SESSION['civilstatus']=='Married'){
-                        ?>
-
+                        
                             <h4>Spouse Details</h4><br>
                             <div class="row" >
                                 <div class="col-25">
@@ -58,7 +55,20 @@
                                 <div class="col-75">
                                     <input name="spouse_dob" type="date" <?php echo 'value="'.$_SESSION['spouse_dob'].'"' ?> required>
                                 </div>
-                            </div><br>
+                            </div>
+
+                            <div class="row" >
+                                <div class="col-25">
+                                    <label>Living Status</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="spouse_live"  required>
+                                        <option value="">...</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
 
                             <?php
 
@@ -119,33 +129,32 @@
                                     </div>
                                 </div>
 
+                                <div class="row" >
+                                    <div class="col-25">
+                                        <label>Living Status</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <select name="child[<?php echo $i ?>][child_liv_stat]"  required>
+                                            <option value="">...</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                             <?php
                                    }
                                 }
                             ?>
-                        <?php
-                            }
-                        ?>
-                        
-                        <br>
-                        <br>
-                        
-                        <?php
-                            if($_SESSION['civilstatus']=='Married'){
-                        ?>
 
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label>Add Children<br>(Number of children)</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <input type="number" min="0" name="add_no_child" value="0" required/>
-                                    </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label>Add Children<br>(Number of children)</label>
                                 </div>
-
-                        <?php
-                            }
-                        ?>
+                                <div class="col-75">
+                                    <input type="number" min="0" name="new_no_of_child" value="0" required/>
+                                </div>
+                            </div>
 
                             <button class="subbtn" type="submit" name="renew-submit">Update Details</button>
                             <button type="submit" class="cancelbtn">

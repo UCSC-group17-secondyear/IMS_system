@@ -29,12 +29,16 @@
                         </div>
 
                         <div class="col-75">
-                            <input type="year" value=""> 
+                            <select name="medical_year" id="" required>
+                                    <option value=""><?php echo $_SESSION['medical_year'] ?></option>
+                            </select>
                         </div>
+
                         <button class="subbtn" name="year-claim">Dispaly Claim Details</button>
                         <button class="cancelbtn" type="submit" name="">
                             <a href="memHomeV.php">Exit</a>
                         </button>
+
                     </form>                
                 </div>
             </div>

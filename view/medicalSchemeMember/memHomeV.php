@@ -3,11 +3,11 @@
 ?>
 
 <main>
-    <title>Medical Scheme Member Home Page</title>
+    <title>Home</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li class="active">Medical Scheme Member Page</li>
+            <li class="active">Home Page</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;">
@@ -24,7 +24,7 @@
                         <img src="../assests/img/profile.png" alt="Avatar" style="width:100%">
                     </div>
                     <div class="btncontainer">
-                        <a href="../../controller/basicControllers/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>
+                        <a href="../../controller/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>
                     </div>
                 </div>
             </div>

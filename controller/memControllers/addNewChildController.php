@@ -6,7 +6,6 @@
 
 ?>
 <?php
-    $errors = array();
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
 
     if(isset($_POST['add-child'])){
@@ -15,32 +14,22 @@
 
         foreach($child_details as $cd){
 
-            // $userInfo = array($cd['child_name']=>50, $cd['relationship']=>8, $cd['child_dob']=>20, $cd['health_status']=>100);
-    
-            // foreach ($userInfo as $info=>$maxLen) {
-            //     if (strlen(trim($_POST[$info])) >  $maxLen) {
-            //         $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
-            //     }
-            // }
-
-            //if (empty($errors)) {
                 $birthdate = new DateTime($cd['child_dob']);
                 $today   = new DateTime('today');
                 $age = $birthdate->diff($today)->y;
 
-                if($age <= 18){
+                if($age <= 18 && $cd['liv_status'] == 'Yes'){
                     $addNewDependant = memModel::addNewChild($user_id, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
+                
                 }
-            //}
-
-            if($addNewDependant){
-                //echo "Done";
-                header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
-            }
-            else{
-                echo "Failed result";
-            }
         }
-    }
 
+        if($addNewDependant){
+            header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
+        }
+        else{
+            echo "Failed Result";
+        }
+        
+    }
 ?>
