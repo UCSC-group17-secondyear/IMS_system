@@ -37,7 +37,7 @@
             </li>
 
             <li>
-                <a href="memGetClaimDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/memControllers/getMemYearController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Get Claim Details</button>
                 </a><br>
             </li>

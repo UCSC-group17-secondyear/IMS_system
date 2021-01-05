@@ -67,7 +67,7 @@
                                     <label for="">Treatment Recieved Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="treatment_received_date"  required> <br>
+                                    <input type="date" name="treatment_received_date" id="tdate" required/><br>
                                 </div>
                             </div>
 
@@ -76,7 +76,7 @@
                                     <label for="">Bill Issued Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="bill_issued_date" required><br>
+                                    <input type="date" name="bill_issued_date" id="bdate" required><br>
                                 </div>
                             </div>
 
@@ -122,7 +122,13 @@
                     </div>
             </div>
         </div>
-    </div>       
+    </div>   
+
+    <script>
+        $("#tdate").datepicker({
+        maxDate: 0
+        });
+    </script>    
         
 </main>
 
