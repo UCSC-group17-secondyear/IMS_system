@@ -49,3 +49,18 @@
 2020.12.28 13:06:01 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
 Dec 28, 2020 1:32:59 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTraceNotification
+2020.12.30 08:20:27 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2020.12.30 08:20:28 INFO  time: initialize in 1.88s
+2020.12.30 08:20:36 WARN  Build server is not auto-connectable.
+2020.12.30 08:20:36 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2021.01.01 13:29:53 INFO  shutting down Metals
+2021.01.05 11:12:57 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2021.01.05 11:13:01 INFO  time: initialize in 4.34s
+2021.01.05 11:13:08 WARN  Build server is not auto-connectable.
+2021.01.05 11:13:08 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2021.01.05 11:13:23 INFO  shutting down Metals
+2021.01.05 14:43:24 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2021.01.05 14:43:26 INFO  time: initialize in 1.76s
+2021.01.05 14:43:27 WARN  Build server is not auto-connectable.
+2021.01.05 14:43:27 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2021.01.05 21:14:33 INFO  shutting down Metals

@@ -20,7 +20,7 @@
                 <h2>Enter or Update Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
+                <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Enter date</label>

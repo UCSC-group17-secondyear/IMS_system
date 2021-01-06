@@ -3,27 +3,7 @@
     require_once('../../model/amModel/amManageAttendanceModel.php');
     require_once('../../config/database.php');
 
-    if(isset($_POST['addAttendance-submit'])) {
-    	$subject_code = $_POST['subject_code'];
-    	$subject_name = $_POST['subject_name'];
-    	$degree = $_POST['degree'];
-
-    	$checkSubCode = amModel::checkSubCode ($subject_code, $connect);
-    	if (mysqli_num_rows($checkSubCode) == 1) {
-    		header('Location:../../view/attendanceMaintainer/amAttendanceExists.php');
-            // echo "subject_code exists";
-        }
-        else {
-        	$result = amModel::addAttendance ($subject_code, $subject_name, $degree, $connect);
-
-            if ($result) {
-                header('Location:../../view/attendanceMaintainer/amAttendanceAdded.php');
-            }
-            else {
-                header('Location:../../view/attendanceMaintainer/amAttendanceNotAdded.php');
-            }
-        }
-    } elseif(isset($_POST['enterupdateAttendance-submit'])) {
+    if(isset($_POST['enterupdateAttendance-submit'])) {
 
         $records = amModel::getsubjects($connect);
         $_SESSION['subject'] = '';
@@ -60,7 +40,7 @@
 
     	$subject_code = $_POST['subject_code'];
 
-    	$fetchAttendance = amModel::fetchAttendance ($subject_code, $connect);
+    	$fetchAttendance = amModel::fetchAttendance($subject_code, $connect);
 
     	if (mysqli_num_rows($fetchAttendance) == 1) {
     		session_start();
@@ -74,6 +54,26 @@
     		echo "subject_code does not exists";
         }
         
+    } elseif(isset($_POST['addAttendance-submit'])) {
+    	$subject_code = $_POST['subject_code'];
+    	$subject_name = $_POST['subject_name'];
+    	$degree = $_POST['degree'];
+
+    	$checkSubCode = amModel::checkSubCode ($subject_code, $connect);
+    	if (mysqli_num_rows($checkSubCode) == 1) {
+    		header('Location:../../view/attendanceMaintainer/amAttendanceExists.php');
+            // echo "subject_code exists";
+        }
+        else {
+        	$result = amModel::addAttendance ($subject_code, $subject_name, $degree, $connect);
+
+            if ($result) {
+                header('Location:../../view/attendanceMaintainer/amAttendanceAdded.php');
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amAttendanceNotAdded.php');
+            }
+        }
     } elseif(isset($_POST['updateAttendance-submit'])) {
     	$subject_code = $_POST['subject_code'];
     	$subject_name = $_POST['subject_name'];
