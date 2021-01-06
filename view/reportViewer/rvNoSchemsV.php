@@ -21,7 +21,7 @@
                 <div>
                     <div>
                         <h2>Sorry! <br>
-                            No schemes are availabl in the system right now.
+                            No schemes are available in the system right now.
                         </h2>
                     </div>
 

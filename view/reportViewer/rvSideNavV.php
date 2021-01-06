@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li>
-                <a href="rvMedicalMemberlistV.php">
+                <a href="../../controller/rvControllers/rvviewMedicalMemberListC.php">
                     <button type="submit" class="tree_list">View Member list of Medical Scheme</button>
                 </a>
             </li>
@@ -59,7 +59,7 @@
             </li>
 
             <li>
-                <a href="../../controller/rvControllers/viewSchemesController.php">
+                <a href="../../controller/rvControllers/rvviewSchemesController.php">
                     <button type="submit" class="tree_list">View Medical Scheme Details</button>
                 </a>
             </li>

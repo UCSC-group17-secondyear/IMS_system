@@ -6,7 +6,7 @@
                     <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                         <button name="viewStudents-submit">
                             <a href="#">
-                                <li><i class="fa fa-user"></i>View Students List</li>
+                                <li><i class="fa fa-user"></i> View Students List</li>
                             </a>
                         </button>
                     </form>
@@ -14,7 +14,7 @@
                     <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                         <button name="enterStudents-submit">
                             <a href="#">
-                                <li><i class="fa fa-user"></i>Add Students</li>
+                                <li><i class="fa fa-user"></i> Add Students</li>
                             </a>
                         </button>
                     </form>
@@ -22,7 +22,7 @@
                     <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                         <button name="fetchStudents-submit">
                             <a href="#">
-                                <li><i class="fa fa-user"></i>Update or Remove Students</li>
+                                <li><i class="fa fa-user"></i> Update or Remove Students</li>
                             </a>
                         </button>
                     </form>
@@ -40,61 +40,62 @@
                     <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
                         <button name="viewSubjects-submit">
                             <a href="#">
-                                <li><i class="fa fa-book"></i>View Subjects List</li>
+                                <li><i class="fa fa-book"></i> View Subjects List</li>
                             </a>
                         </button>
                     </form>
-                    
                     <button>
                         <a href="amEnterSubjectDetails.php">
-                            <li><i class="fa fa-plus-circle"></i>Add Subjects</li>
+                            <li><i class="fa fa-plus-circle"></i> Add Subjects</li>
                         </a>
                     </button>
                     <button>
                         <a href="amDeleteUpdateSubjectSearch.php">
-                            <li><i class="fa fa-pencil-square-o"></i>Update or Remove Subjects</li>
+                            <li><i class="fa fa-pencil-square-o"></i> Update or Remove Subjects</li>
                         </a>
                     </button>
                 </ul>
             </li>
             <li><button class="tree_list">Manage Attendance</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="amEnterUpdateAttendaceSelectV.php">
-                            <li><i class="fa fa-plus-circle"></i>Enter or Update Attendance</li>
-                        </a>
-                    </button>
-                    <button>
-                        <a href="amDeleteAttendaceSearchV.php">
-                            <li><i class="fa fa-minus-circle"></i>Delete Attendance</li>
-                        </a>
-                    </button>
+                    <form action="../../controller/amControllers/manageAttendanceC.php"></form>
+                        <button name="enterupdateAttendance-submit">
+                            <a href="amEnterUpdateAttendaceSelectV.php">
+                                <li><i class="fa fa-plus-circle"></i> Enter or Update Attendance</li>
+                            </a>
+                        </button>
+                        <button>
+                            <a href="amDeleteAttendaceSearchV.php">
+                                <li><i class="fa fa-minus-circle"></i> Delete Attendance</li>
+                            </a>
+                        </button>
+                    </form>
                 </ul>
             </li>
             <li><button class="tree_list">View Attendance</button>
                 <ul class="tree_nest">
                     <button>
                         <a href="amStudentWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Student Wise Attendance</li>
+                            <li><i class="fa fa-check-circle"></i> Student Wise Attendance</li>
                         </a>
                     </button>
                     <button>
                         <a href="amMonthWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Month Wise Attendance</li>
+                            <li><i class="fa fa-check-circle"></i> Month Wise Attendance</li>
                         </a>
                     <button>
                         <a href="amSubjectWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Subject Wise Attendance</li>
+                            <li><i class="fa fa-check-circle"></i> Subject Wise Attendance</li>
                         </a>
                     </button>
                     <button>
                         <a href="amBatchWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Batch Wise Attendance</li>
+                            <li><i class="fa fa-check-circle"></i> Batch Wise Attendance</li>
                         </a>
                     </button>
                     <button>
                         <a href="amSemesterWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i>Semester Wise Attendance</li>
+                            <li><i class="fa fa-check-circle"></i> Semester Wise Attendance</li>
                         </a>
                     </button>
                 </ul>
