@@ -683,7 +683,7 @@
             </li>
 
             <li>
-                <a href="../../controller/rvControllers/viewSchemesController.php">
+                <a href="../../controller/rvControllers/rvviewSchemesController.php">
                     <button type="submit" class="tree_list">View Medical Scheme Details</button>
                 </a>
             </li>

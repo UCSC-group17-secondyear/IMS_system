@@ -21,7 +21,7 @@
                 <div>
                     <div>
                         <h2>Sorry! <br>
-                            No schemes are available in the system right now.
+                            No Medical Members are available in the system right now.
                         </h2>
                     </div>
 

@@ -22,20 +22,19 @@
                 <div>
                     <h2>Medical Scheme Member List</h2>
                 </div>
-
                 <table id="tableStyle">
                     <tr>
-                        <th>Lorem ipsum</th>
-                        <th>dolor sit</th>
-                        <th>amet consectetur</th>
+                        <th>Employee ID</th>
+                        <th>Initials</th>
+                        <th>Surname</th>
+                        <th>Department</th>
+                        <th>Health Condition</th>
+                        <th>Civil Status</th>
+                        <th>Scheme</th>
+                        <th>Member Type</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php echo $_SESSION['medical_members'] ?>
                 </table>
-                <!-- pdf generate karanna -->
             </div>
         </div>
     </div>
