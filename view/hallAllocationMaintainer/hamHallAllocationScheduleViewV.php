@@ -27,10 +27,10 @@
                     <form action="" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label for="">Date</label>
+                                <label style="padding-top: 12px;" for="">Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" <?php echo 'value="'.$_SESSION['selected_date'].'"'?>>
+                                <input style="margin-top: 13px; margin-bottom: 8px;" type="date" <?php echo 'value="'.$_SESSION['selected_date'].'"'?> disabled>
                             </div>
                         </div>
                     </form>
