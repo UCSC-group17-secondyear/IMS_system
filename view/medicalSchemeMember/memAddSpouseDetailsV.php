@@ -9,7 +9,8 @@
                 <ul class="breadcrumbs">
                     <li><a href="memHomeV.php">Home</a></li>
                     <li><a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">Renew Membership</a></li>
-                    <li class="active">Current Member Details</li>
+                    <li><a href="memCurrentMemberDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">Current Member Details</a></li>
+                    <li class="active">Spouse Details</li>
                 </ul>
             
 
