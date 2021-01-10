@@ -930,6 +930,14 @@ img.avatar {
   border-radius: 10px;
 }
 
+.redbtn{
+  background-color: red;
+}
+
+.greenbtn{
+  background-color: green;
+}
+
 .cancelbtn a {
   text-decoration: none;
   color: white;

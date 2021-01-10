@@ -27,12 +27,14 @@
                     <form action="" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label style="padding-top: 12px;" for="">Date</label>
+                                <label for="">Date</label>
                             </div>
                             <div class="col-75">
-                                <input style="margin-top: 13px; margin-bottom: 8px;" type="date" <?php echo 'value="'.$_SESSION['selected_date'].'"'?> disabled>
+                                <input type="date" <?php echo 'value="'.$_SESSION['selected_date'].'"'?> disabled>
                             </div>
                         </div>
+                        <button class="subbtn redbtn" type="submit" name="#">Allocated Halls</button>
+                        <button class="cancelbtn greenbtn" type="submit">Not Allocated Halls</button>
                     </form>
                 </div>
                 <table id="tableStyle">
