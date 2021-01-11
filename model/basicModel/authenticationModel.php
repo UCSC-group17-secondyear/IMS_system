@@ -26,9 +26,9 @@
 			return $result;
         }
         
-        public static function setRole($user_id, $asm_flag, $connect)
+        public static function setRole($user_id, $asm_flag, $nasm_flag,$connect)
 		{
-			$query = "INSERT INTO tbl_user_flag (user_id, asm_flag) VALUES($user_id, $asm_flag)";
+			$query = "INSERT INTO tbl_user_flag (user_id, asm_flag, nasm_flag) VALUES($user_id, $asm_flag, $nasm_flag)";
 
 			$result = mysqli_query($connect, $query);
 

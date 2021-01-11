@@ -23,53 +23,46 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
+                    <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="POST">
                         <div class="row">
-                            <div class="col-25">
-                              <label>Subject Name</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="" name="subject_name" placeholder="Subject name" required/><br>
-                            </div>
+                          <div class="col-25">
+                              <label>Subject</label>
+                          </div>
+                          <div class="col-75">
+                            <select name="med_year" id="">
+                                <option value="">Select a Subject</option>
+                                <?php echo $_SESSION['subject_with_code'] ?>
+                            </select>
+                          </div>
                         </div>
-
                         <div class="row">
-                            <div class="col-25">
-                              <label>Subject Code</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="" name="subject_code" placeholder="Subject code" required/><br>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
+                          <div class="col-25">
                               <label>Hall</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="" name="hall" placeholder="Hall" required/><br>
-                            </div>
+                          </div>
+                          <div class="col-75">
+                            <select name="med_year" id="">
+                                <option value="">Select a Hall</option>
+                                <?php echo $_SESSION['allhalls']?>
+                            </select>
+                          </div>
                         </div>
-
                         <div class="row">
-                            <div class="col-25">
+                          <div class="col-25">
                               <label>Start time</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="time" id="" name="s_time" placeholder="Starting_time" required/><br>
-                            </div>
+                          </div>
+                          <div class="col-75">
+                              <input type="time" id="" name="s_time" placeholder="Starting_time" required /><br>
+                          </div>
                         </div>
-
-
                         <div class="row">
-                            <div class="col-25">
+                          <div class="col-25">
                               <label>End time</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="time" id="" name="e_time" placeholder="Ending_time" required/><br>
-                            </div>
+                          </div>
+                          <div class="col-75">
+                              <input type="time" id="" name="e_time" placeholder="Ending_time" required /><br>
+                          </div>
                         </div>
-                        <button class="subbtn" type="submit" name="">
+                        <button class="subbtn" type="submit" name="entertt-submit">
                             <a href="#">Save</a>
                         </button>
                         <button class="cancelbtn" type="submit">

@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel.php');
+    require_once('../../model/memModel/memModel.php');
 ?>
 
 <?php
@@ -12,8 +12,8 @@
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
         $result_opd = array();
         $result_surgical = array();
-        $result_opd = memModel::opdFormIds($user_id, $connect);
-        $result_surgical = memModel::surgicalFormIds($user_id, $connect);
+        $result_opd = memModel::opdReqFormIds($user_id, $connect);
+        $result_surgical = memModel::surgicalReqFormIds($user_id, $connect);
         
 
         if(mysqli_num_rows($result_opd)>0){
