@@ -19,9 +19,7 @@
                 header('Location:../../view/medicalSchemeMaintainer/msmViewMYDetailsV.php');
             }
         }
-    }
-
-    elseif(isset($_POST['addMY-submit'])) {
+    } elseif(isset($_POST['addMY-submit'])) {
         $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
         $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
         $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
@@ -40,9 +38,7 @@
                 header('Location:../../view/medicalSchemeMaintainer/msmMYNotAdded.php');
             }
         }
-    }
-    
-    elseif(isset($_POST['viweMYList-submit'])) {
+    } elseif(isset($_POST['viweMYList-submit'])) {
         $records = msmModel::viewMedicalYears($connect);
         $_SESSION['MYNamesList'] = '';
         $count = 0;
@@ -60,9 +56,7 @@
                 header('Location:../../view/medicalSchemeMaintainer/msmUpdateViewMYV.php');
             }
         }
-    }
-
-    elseif(isset($_POST['updateMY-submit'])) {
+    } elseif(isset($_POST['updateMY-submit'])) {
         $medical_year = mysqli_real_escape_string($connect, $_POST['med_year']);
         $_SESSION['MYdetails'] = '';
 
@@ -78,9 +72,7 @@
 
             header('Location:../../view/medicalSchemeMaintainer/msmUpdateMYV.php');
         }
-    } 
-
-    elseif(isset($_POST['myupdate-submit'])) {
+    } elseif(isset($_POST['myupdate-submit'])) {
         $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
         $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
         $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);

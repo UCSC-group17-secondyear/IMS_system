@@ -931,11 +931,30 @@ img.avatar {
 }
 
 .redbtn{
+  width: 30%;
   background-color: red;
+  color: ivory;
+  height: 40px;
+  margin-top: 2%;
+  margin-left: 15%;
+  border: 0px;
+  font-size: 18px;
+  margin-bottom: 3%;
+  border: 0;
+  border-radius: 10px;
 }
 
 .greenbtn{
+  width: 30%;
   background-color: green;
+  color: ivory;
+  height: 36px;
+  margin-top: 25px;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  border: 0px;
+  font-size: 18px;
+  border-radius: 10px;
 }
 
 .cancelbtn a {
@@ -945,8 +964,6 @@ img.avatar {
 
 .cancelbtn:hover {
   background-color: red;
-  /*opacity: 0.7;*/
-  /*font-weight: bold;*/
 }
 
 .sansserif {
