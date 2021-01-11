@@ -28,18 +28,22 @@
 
     $mem_health = mysqli_real_escape_string($connect, $_POST['health_condition']);
     $scheme_name = mysqli_real_escape_string($connect, $_SESSION['scheme']);
-        
+
+    $init_amount = memModel::getInitAmount($scheme_name, $connect);
+    $i_amount = mysqli_fetch_array($init_amount);
+    $amount = $i_amount[0];
+    $cur_year = date("Y");
+    $result_claim_det = memModel::addYearClaimDetails($user_id, $cur_year,$scheme_name, $amount, $connect );
 
     if(isset($_POST['mem-det-submit'])){
+
+        $civil_status = $_POST['civilstatus'];
+        $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
 
         ///////////////////////////////////////////////////////////////// Unmarried --> Unmarried
         if( $prev_status=='Unmarried' && $cur_status=='Unmarried'){
 
-            //echo "Unmarried->Unmarried";
-            $civil_status = $_POST['civilstatus'];
-            $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
-
-            if($result_mem){
+            if($result_mem && $result_claim_det){
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
             }
             else{
@@ -51,13 +55,8 @@
         ///////////////////////////////////////////////////////////////// Unmarried --> Married
         if( $prev_status=='Unmarried' && $cur_status=='Married'){
 
-            //echo "Unmarried->Married";
-            $civil_status = $_POST['civilstatus'];
-            $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
-
-            if($result_mem){
+            if($result_mem && $result_claim_det){
                 header('Location:../../view/medicalSchemeMember/memAddSpouseDetailsV.php');
-                //echo "Done";
             }
             else{
                 echo "Failed result.";
@@ -67,12 +66,7 @@
         ///////////////////////////////////////////////////////////////// Married --> Married
         if( $prev_status=='Married' && $cur_status=='Married'){
 
-            
-            $civil_status = $_POST['civilstatus'];
-            //$_SESSION['new_no_child'] = $_POST['new_no_of_child'];
-            $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
-
-            if($result_mem){
+            if($result_mem && $result_claim_det){
 
                 $spouse = mysqli_fetch_assoc($result_spouse);
                 $_SESSION['child_count'] = mysqli_num_rows($result_child);
@@ -99,20 +93,20 @@
                        print_r($child);
                        $_SESSION['child'] = $child;
                 }
-                echo "yes";
+                //echo "yes";
                 header('Location:../../view/medicalSchemeMember/memCurrentMemDependDetailsV.php');
+            }
+            else{
+                echo "Failed result.";
             }
         }
 
         ///////////////////////////////////////////////////////////////// Married --> Unmarried
         if( $prev_status=='Married' && $cur_status=='Unmarried'){
 
-            //echo "Married->Unmarried";
             $result_deleted = memModel::deleteDependant($user_id, $connect);
-            $civil_status = $_POST['civilstatus'];
-            $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
-
-            if($result_deleted && $result_mem){
+            
+            if($result_deleted && $result_mem && $result_claim_det){
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
             }
             else{
@@ -121,6 +115,9 @@
         }
 
 
+        $init_amount = memModel::getInitAmount($scheme_name, $connect);
+        $cur_year = date("Y");
+        $result_claim_det = memModel::addYearClaimDetails($user_id, $cur_year,$scheme_name, $init_amount, $connect );
 
 
 

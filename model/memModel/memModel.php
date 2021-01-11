@@ -69,16 +69,16 @@
 			
 		}
 
-		public static function opdFormIds($user_id, $connect){
-		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND opd_form_flag=1 AND is_deleted=0";
+		public static function opdReqFormIds($user_id, $connect){
+		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND opd_form_flag=1 AND acceptance_status=2 AND is_deleted=0";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
 		}
 
-		public static function surgicalFormIds($user_id, $connect){
-		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND surgical_form_flag=1 AND is_deleted=0";
+		public static function surgicalReqFormIds($user_id, $connect){
+		    $query = "SELECT claim_form_no FROM tbl_claimform WHERE user_id = {$user_id} AND surgical_form_flag=1 AND acceptance_status=2 AND is_deleted=0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -203,7 +203,7 @@
 		}
 
 		public static function getPermanentSchemes($expMonth, $connect){
-			$query = "SELECT * FROM tbl_medicalscheme WHERE permanentStaff<=$expMonth";
+			$query = "SELECT * FROM tbl_medicalscheme WHERE permanentStaff<=$expMonth AND is_deleted=0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -211,7 +211,7 @@
 		}
 
 		public static function getTemporarySchemes($expMonth, $connect){
-			$query = "SELECT * FROM tbl_medicalscheme WHERE temporaryStaff<=$expMonth";
+			$query = "SELECT * FROM tbl_medicalscheme WHERE temporaryStaff<=$expMonth is_deleted=0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -219,7 +219,7 @@
 		}
 
 		public static function getContractSchemes($expMonth, $connect){
-			$query = "SELECT * FROM tbl_medicalscheme WHERE contractStaff<=$expMonth";
+			$query = "SELECT * FROM tbl_medicalscheme WHERE contractStaff<=$expMonth is_deleted=0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -338,5 +338,20 @@
 			return $result;
 		}
 		
+		public static function getInitAmount($scheme_name, $connect){
+			$query = "SELECT annualLimit FROM tbl_medicalscheme WHERE schemeName='$scheme_name'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function addYearClaimDetails($user_id, $cur_year,$scheme_name, $amount, $connect ){
+			$query = "INSERT INTO tbl_claimdetails (user_id, year, scheme, initial_amount) VALUES ($user_id, '$cur_year', '$scheme_name', '$amount')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 	}
 ?>
