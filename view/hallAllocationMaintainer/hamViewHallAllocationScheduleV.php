@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
+                    <form action="../../controller/hamControllers/hamViewHallAllocScheduleC.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                                 <label>Enter Date</label>
@@ -33,13 +33,10 @@
                                 <input type="date" id="" name="enterDate" required/>
                             </div>
                         </div>
-                            <button class="subbtn" type="submit" name="displayschedule-submit">
-                                <a href="hamHallAllocationScheduleViewV.php">Display Schedule</a>
-                            </button>
-                            <button class="cancelbtn" type="submit">
-                                <a href="hamHomeV.php">Cancel</a>
-                            </button>
-                        
+                        <button class="subbtn" type="submit" name="displayschedule-submit">Display Schedule</button>
+                        <button class="cancelbtn" type="submit">
+                            <a href="hamHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>
