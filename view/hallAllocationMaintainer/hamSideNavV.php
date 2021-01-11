@@ -9,13 +9,15 @@
 
             <li><button class="tree_list">Manage Weekly Time Table</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="hamEnterTimeTableV.php"><li><i class="fa fa-plus-circle"></i>Enter Time Table</li></a>
-                    </button>
+                    <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="post">
+                        <button name="preentertt-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i>Enter Time Table</li></a>
+                        </button>
 
-                    <button>
-                        <a href="hamUpdateTimeTableV.php"><li><i class="fa fa-plus-circle"></i>Update/Remove TimeTable</li></a>
-                    </button>
+                        <button name="updateremovett-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i>Update/Remove TimeTable</li></a>
+                        </button>
+                    </form>
                 </ul>
             </li>
 
