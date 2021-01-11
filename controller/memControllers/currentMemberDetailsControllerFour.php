@@ -58,7 +58,7 @@
                     $result_child = memModel::updateChildDetails($user_id,$cd['child_id'], $cd['child_name'], $cd['child_relation'], $cd['child_dob'], $cd['child_health'], $connect);
 
                 }
-                if($age > 18 && $cd['child_liv_stat'] == 'No'){
+                if($age > 18 || $cd['child_liv_stat'] == 'No'){
                     $result_child = memModel::deleteChild($user_id, $cd['child_id'], $connect);
                 }
             
@@ -76,8 +76,8 @@
                     header('Location:../../view/medicalSchemeMember/memAddNewChildDetailsV.php');
                 }
                 else{
-                    //header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
-                    echo "Done result";
+                    header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
+                    //echo "Done result";
                 }
         }
         else{

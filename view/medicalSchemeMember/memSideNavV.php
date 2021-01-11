@@ -32,7 +32,13 @@
 
             <li>
                 <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">
-                    <button type="submit" class="tree_list">View Claim Forms</button>
+                    <button type="submit" class="tree_list">View Requested Claim Forms</button>
+                </a><br>
+            </li>
+
+            <li>
+                <a href="#">
+                    <button type="submit" class="tree_list">View Reffered Claim Forms</button>
                 </a><br>
             </li>
 
