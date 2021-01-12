@@ -10,6 +10,7 @@
                     <li><a href="memHomeV.php">Home</a></li>
                     <li><a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">Renew Membership</a></li>
                     <li><a href="memCurrentMemberDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">Current Member Details</a></li>
+                    <li><a href="memCurrentMemDependDetailsV.php?user_id=<?php echo $_SESSION['userId'] ?>">Current Depend Details</a></li>
                     <li class="active">Add Child Details</li>
                 </ul>
             
