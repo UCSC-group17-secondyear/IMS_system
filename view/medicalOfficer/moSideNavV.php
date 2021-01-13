@@ -8,12 +8,12 @@
             </li>
             <li><button class="tree_list">View Reffered Claim Forms</button>
                 <ul class="tree_nest">
-                    <button name="approve_list">
-                        <a href="../../controller/moControllers/refferedClaimFormListController.php" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Approved claim forms</li></a>
-                    </button>
-                    <button name="reject_list">
-                        <a href="../../controller/moControllers/refferedClaimFormListController.php" class="buttonTwo"><li><i class="fa fa-minus-circle"></i>Rejected claim forms</li></a>
                     <button>
+                        <a href="../../controller/moControllers/appFormListController.php" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Approved claim forms</li></a>
+                    </button>
+                    <button>
+                        <a href="../../controller/moControllers/rejFormListController.php" class="buttonTwo"><li><i class="fa fa-minus-circle"></i>Rejected claim forms</li></a>
+                    </button>
                 </ul>
             </li>
             <li>
@@ -36,3 +36,4 @@
         }
     </script>
 </main>
+

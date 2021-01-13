@@ -36,6 +36,15 @@
                             </div>
 
                             <div class="row">
+                                <div class="col-25">
+                                    <label for="">Member Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['mem_initials']." ".$_SESSION['mem_sname'].'"'?> disabled> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-25">  
                                     <label for="">Patient Name</label>
                                 </div>
@@ -107,8 +116,8 @@
                                 </div>
                             </div>
 
-                            <button class="subbtn" type="submit" name="accept-submit">Accept</button>
-                            <button type="submit" class="cancelbtn" name="reject-submit">Reject</button>
+                            <button class="subbtn" type="submit" name="accept-submit" onclick="return confirm('Are you sure?')">Accept</button>
+                            <button type="submit" class="cancelbtn" name="reject-submit" onclick="return confirm('Are you sure?')">Reject</button>
                             
                         </form>
                         

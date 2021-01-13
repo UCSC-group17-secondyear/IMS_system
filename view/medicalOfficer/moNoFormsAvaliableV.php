@@ -8,7 +8,7 @@
         
             <ul class="breadcrumbs">
                 <li><a href="moHomeV.php">Home</a></li>
-                <li class="active">No Form Avaliable</li>
+                <li class="active">No Forms Avaliable</li>
             </ul>
         
         <div class="row" style="margin-bottom: 5%;">
@@ -24,7 +24,9 @@
                         <h2>No Forms Avaliable</h2>
                     </div>
 
-                    <button style="background-color:crimson" class="mainbtn">Exit</button>
+                    <a href="moHomeV.php">
+                        <button style="background-color:crimson" type="submit" class="mainbtn">Exit</button>
+                    </a>
                 </form>
             </div>
         </div>
