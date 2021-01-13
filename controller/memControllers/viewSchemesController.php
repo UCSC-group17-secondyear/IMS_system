@@ -1,11 +1,11 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/viewSchemeModel.php');
 
     $_SESSION['scheme_list'] = '';
 
-    $records = memModel::viewSchemes($connect);
+    $records = viewSchemeModel::viewSchemes($connect);
 
     if ($records) {
         while ($record = mysqli_fetch_assoc($records)) {

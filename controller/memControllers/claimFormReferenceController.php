@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 ?>
 
 <?php
@@ -15,9 +15,9 @@
             $claim_form_no = mysqli_real_escape_string($connect, $_POST['claim_form_no']);
             //echo $claim_form_no;
 
-            $result_set = memModel::checkClaimFormNo($claim_form_no, $user_id, $connect);
-            $result_opd = memModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
-            $result_surgical = memModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
+            $result_set = claimFormModel::checkClaimFormNo($claim_form_no, $user_id, $connect);
+            $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
+            $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
             
 
             if(mysqli_num_rows($result_set)==1){

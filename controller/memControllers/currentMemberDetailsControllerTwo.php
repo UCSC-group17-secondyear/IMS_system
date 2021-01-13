@@ -2,6 +2,7 @@
 
     session_start();
     require_once('../../config/database.php');
+    require_once('../../model/memModel/renewModel.php');
     require_once('../../model/memModel/memModel.php');
 
 ?>
@@ -13,8 +14,8 @@
     $prev_status = $_SESSION['prev_status'];
     $cur_status = $_POST['civilstatus'];
 
-    $result_child = memModel::getChildDetails($user_id, $connect);
-    $result_spouse = memModel::getSpouseDetails($user_id, $connect);
+    $result_child = renewModel::getChildDetails($user_id, $connect);
+    $result_spouse = renewModel::getSpouseDetails($user_id, $connect);
     $child_c = mysqli_num_rows($result_child);
     $_SESSION['child_count'] = $child_c;
 
@@ -38,7 +39,7 @@
     if(isset($_POST['mem-det-submit'])){
 
         $civil_status = $_POST['civilstatus'];
-        $result_mem = memModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
+        $result_mem = renewModel::updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect);
 
         ///////////////////////////////////////////////////////////////// Unmarried --> Unmarried
         if( $prev_status=='Unmarried' && $cur_status=='Unmarried'){
@@ -104,7 +105,7 @@
         ///////////////////////////////////////////////////////////////// Married --> Unmarried
         if( $prev_status=='Married' && $cur_status=='Unmarried'){
 
-            $result_deleted = memModel::deleteDependant($user_id, $connect);
+            $result_deleted = renewModel::deleteDependant($user_id, $connect);
             
             if($result_deleted && $result_mem && $result_claim_det){
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
@@ -113,14 +114,6 @@
                 echo "Failed result.";
             }
         }
-
-
-        $init_amount = memModel::getInitAmount($scheme_name, $connect);
-        $cur_year = date("Y");
-        $result_claim_det = memModel::addYearClaimDetails($user_id, $cur_year,$scheme_name, $init_amount, $connect );
-
-
-
         
     }
 

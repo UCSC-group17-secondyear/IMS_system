@@ -1,15 +1,15 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 ?>
 
 <?php
     
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $result_opd = memModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
-    $result_surgical = memModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
+    $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
+    $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
     
         
             if(mysqli_num_rows($result_opd)==1){

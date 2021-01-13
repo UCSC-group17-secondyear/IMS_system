@@ -2,7 +2,7 @@
 
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/renewModel.php');
 
 ?>
 
@@ -32,11 +32,11 @@
             $spouse_dob = mysqli_real_escape_string($connect, $_POST['spouse_dob']);
 
             if($spouse_liv_stat == 'Yes'){
-                $result_spouse = memModel::updateSpouseDetails($user_id,$spouse_id, $spouse_name,$spouse_health,$spouse_dob, $connect);
+                $result_spouse = renewModel::updateSpouseDetails($user_id,$spouse_id, $spouse_name,$spouse_health,$spouse_dob, $connect);
 
             }
             if($spouse_liv_stat == 'No'){
-                $result_spouse = memModel::deleteSpouse($user_id, $spouse_id, $connect);
+                $result_spouse = renewModel::deleteSpouse($user_id, $spouse_id, $connect);
             }
             
             
@@ -55,11 +55,11 @@
             $age = $birthdate->diff($today)->y;
 
                 if($age <= 18 && $cd['child_liv_stat'] == 'Yes'){
-                    $result_child = memModel::updateChildDetails($user_id,$cd['child_id'], $cd['child_name'], $cd['child_relation'], $cd['child_dob'], $cd['child_health'], $connect);
+                    $result_child = renewModel::updateChildDetails($user_id,$cd['child_id'], $cd['child_name'], $cd['child_relation'], $cd['child_dob'], $cd['child_health'], $connect);
 
                 }
                 if($age > 18 || $cd['child_liv_stat'] == 'No'){
-                    $result_child = memModel::deleteChild($user_id, $cd['child_id'], $connect);
+                    $result_child = renewModel::deleteChild($user_id, $cd['child_id'], $connect);
                 }
             
             }
