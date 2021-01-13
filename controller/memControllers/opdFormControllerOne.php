@@ -3,6 +3,7 @@
     session_start();
     require_once('../../config/database.php');
     require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 
 ?>
 
@@ -10,7 +11,7 @@
     
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     $result_set = memModel::viewMember($user_id, $connect);
-    $count = memModel::getNextFormNumber($connect);
+    $count = claimFormModel::getNextFormNumber($connect);
     $name = mysqli_fetch_array($result_set);
     $form_count = mysqli_fetch_array($count);
     $f_count = $form_count[0];
@@ -22,7 +23,7 @@
     $status = $mem_status[0];
     //echo $status;
 
-    $dependants = memModel::getDependantName($user_id, $connect);
+    $dependants = claimFormModel::getDependantName($user_id, $connect);
     $_SESSION['dependant_name'] = '';
 
         if($status==1){

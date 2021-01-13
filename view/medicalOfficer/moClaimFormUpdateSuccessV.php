@@ -3,24 +3,25 @@
 ?>
 
 <main>
-    <title>No Forms Avaliable</title>
+    <title>No Form Avaliable</title>
     <div class="sansserif">
         
             <ul class="breadcrumbs">
-                <li><a href="memHomeV.php">Home</a></li>
+                <li><a href="moHomeV.php">Home</a></li>
+                <li class="active">Update Success</li>
             </ul>
         
         <div class="row" style="margin-bottom: 5%;">
             <div class="col left20">
                 <?php 
-                    require('memSideNavV.php');
+                    require('moSideNavV.php');
                 ?>
             </div>
             
             <div class="col right80">
-                <form action="memHomeV.php" class="contentForm">
+                <form action="moHomeV.php" class="contentForm">
                     <div>
-                        <h2>No Forms Avaliable</h2>
+                        <h2>Form Updated Successfully</h2>
                     </div>
 
                     <button style="background-color:crimson" class="mainbtn">Exit</button>

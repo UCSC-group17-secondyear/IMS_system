@@ -37,7 +37,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="../../controller/memControllers/refferedClaimFormListController.php?user_id=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">View Reffered Claim Forms</button>
                 </a><br>
             </li>
