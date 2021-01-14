@@ -90,5 +90,13 @@
 
 			return $result;
 		}
+
+		public static function checkClaimDetYear($user_id, $cur_year, $connect){
+			$query = "SELECT * FROM tbl_claimdetails WHERE user_id='{$user_id}' AND year='{$cur_year}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 	}
 ?>
