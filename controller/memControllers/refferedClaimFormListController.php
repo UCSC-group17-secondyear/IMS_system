@@ -23,10 +23,10 @@
             $_SESSION['ref_form_no'] .= "<td>{$submitted_date}</td>";
             
             if($_SESSION['form_status'] == 1){
-                $_SESSION['ref_form_no'] .= "<td><a href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted</a></td>";
+                $_SESSION['ref_form_no'] .= "<td><a class=\"green\" href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted</a></td>";
             }
             if($_SESSION['form_status'] == 0){
-                $_SESSION['ref_form_no'] .= "<td><a href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Rejected</a></td>";
+                $_SESSION['ref_form_no'] .= "<td><a class=\"red\" href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Rejected</a></td>";
             }
 
             header('Location:../../view/medicalSchemeMember/memRefClaimFormsV.php');
