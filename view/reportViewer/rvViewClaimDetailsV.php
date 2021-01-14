@@ -24,7 +24,35 @@
                 </div>
 
                 <div class="contentForm">
-                    
+                    <form action="" method="POST">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="">Enter Medical Year</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="medical_year" id="" required>
+                                    <option value=""><?php echo $_SESSION['medical_year'] ?></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="">Enter Medical Year</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="medical_year" id="" required>
+                                    <option value=""><?php echo $_SESSION['medical_year'] ?></option>
+                            </select>
+                        </div>
+                    </div>
+                        
+                        <button class="subbtn" name="year-claim">Dispaly Claim Details</button>
+                        <button class="cancelbtn" type="submit" name="">
+                            <a href="memHomeV.php">Exit</a>
+                        </button>
+
+                    </form> 
                 </div>
             </div>
         </div>

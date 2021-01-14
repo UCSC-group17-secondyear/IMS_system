@@ -34,7 +34,14 @@
     $i_amount = mysqli_fetch_array($init_amount);
     $amount = $i_amount[0];
     $cur_year = date("Y");
-    $result_claim_det = memModel::addYearClaimDetails($user_id, $cur_year,$scheme_name, $amount, $connect );
+
+    $check_has_claim_det_row = memModel::checkClaimDetYear($user_id, $cur_year, $connect);
+    
+    if(mysqli_num_rows($check_has_claim_det_row) == 0){
+
+        $result_claim_det = memModel::addYearClaimDetails($user_id, $cur_year,$scheme_name, $amount, $connect );
+
+    }
 
     if(isset($_POST['mem-det-submit'])){
 
@@ -44,7 +51,7 @@
         ///////////////////////////////////////////////////////////////// Unmarried --> Unmarried
         if( $prev_status=='Unmarried' && $cur_status=='Unmarried'){
 
-            if($result_mem && $result_claim_det){
+            if($result_mem && ($check_has_claim_det_row || $result_claim_det)){
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
             }
             else{
@@ -56,7 +63,7 @@
         ///////////////////////////////////////////////////////////////// Unmarried --> Married
         if( $prev_status=='Unmarried' && $cur_status=='Married'){
 
-            if($result_mem && $result_claim_det){
+            if($result_mem && ($check_has_claim_det_row || $result_claim_det)){
                 header('Location:../../view/medicalSchemeMember/memAddSpouseDetailsV.php');
             }
             else{
@@ -67,7 +74,7 @@
         ///////////////////////////////////////////////////////////////// Married --> Married
         if( $prev_status=='Married' && $cur_status=='Married'){
 
-            if($result_mem && $result_claim_det){
+            if($result_mem && ($check_has_claim_det_row || $result_claim_det)){
 
                 $spouse = mysqli_fetch_assoc($result_spouse);
                 $_SESSION['child_count'] = mysqli_num_rows($result_child);
@@ -107,7 +114,7 @@
 
             $result_deleted = renewModel::deleteDependant($user_id, $connect);
             
-            if($result_deleted && $result_mem && $result_claim_det){
+            if($result_deleted && $result_mem && ($check_has_claim_det_row || $result_claim_det)){
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
             }
             else{

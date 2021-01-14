@@ -125,7 +125,7 @@
 		}
 
 		public static function getReferredForms($user_id, $connect){
-			$query = "SELECT * FROM tbl_claimform WHERE user_id={$user_id} AND (acceptance_status='0' OR acceptance_status='1')";
+			$query = "SELECT * FROM tbl_claimform WHERE user_id={$user_id} AND (acceptance_status='0' OR acceptance_status='1') ORDER BY submitted_date DESC";
 
 			$result = mysqli_query($connect, $query);
 
