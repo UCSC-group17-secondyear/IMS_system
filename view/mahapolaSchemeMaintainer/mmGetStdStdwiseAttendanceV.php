@@ -7,7 +7,8 @@
 
     <ul class="breadcrumbs">
         <li><a href="mmHomeV.php">Home</a></li>
-        <li class="active">Studentwise Attendance</li>
+        <li><a href="mmStudentWiseAttendanceV.php">Studentwise Attendance</a></li>
+        <li class="active">Filter student details</li>
     </ul>
 
     <div class="row" style="margin-bottom: 4%;" >
@@ -19,21 +20,39 @@
 
         <div class="col right80">
             <div>
-                <h2>Studentwise Attendance</h2>
+                <h2>Filter student details to get attendance</h2>
             </div>
             <div class="contentForm">
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Student Index</label>
+                            <label>Select subject/s</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="student_index" placeholder="Student Index" min="0" /> <br>
+                            <input type="text" name="subject_code" placeholder="Student Code" /> <br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Start date</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" name="startDate"/> <br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>End date</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" name="endDate"/> <br>
                         </div>
                     </div>
 
                     <button class="subbtn" type="submit" name="select-submit">
-                        <a href="mmGetStdStdwiseAttendanceV.php">Enter</a>
+                        <a href="mmDisplayStdwiseAttendanceV.php">Enter</a>
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="mmHomeV.php">Cancel</a> 

@@ -1,13 +1,15 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/moModel/claimFormModel.php');
+    require_once('../../model/rvModel/claimFormModel.php');
 ?>
 
 <?php
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
     $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$connect);
     $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$connect);
+    $_SESSION['opd'] = mysqli_num_rows($result_opd);
+    $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
 
     if(mysqli_num_rows($result_opd)==1){
                   
@@ -26,9 +28,9 @@
         $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
         $_SESSION['purpose'] = $result_one['purpose'];
         $_SESSION['bill_amount'] = $result_one['bill_amount'];
-        $_SESSION['file_name'] = $result_one['file_name'];
+        $_SESSION['a_status'] = $result_one['acceptance_status'];
 
-        header('Location:../../view/medicalOfficer/moReqOpdFormV.php');
+        header('Location:../../view/reportViewer/rvViewRefClaimFormV.php');
 
     }
 
@@ -59,9 +61,9 @@
         $_SESSION['sick_injury'] = $result_one['sick_injury'];
         $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
         $_SESSION['nature_of'] = $result_one['nature_of'];
-        $_SESSION['file_name'] = $result_one['file_name'];
+        $_SESSION['a_status'] = $result_one['acceptance_status'];
 
-        header('Location:../../view/medicalOfficer/moReqSurgicalFormV.php');
+        header('Location:../../view/reportViewer/rvViewRefClaimFormV.php');
 
     }
 

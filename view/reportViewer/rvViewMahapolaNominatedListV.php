@@ -24,24 +24,30 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Degree</label>
+                    <form action="../../controller/rvControllers/mahapolaNominatedListC2.php" method="POST">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Batch No</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="batch_no" id="batch_no" required>
+                                        <option value=""><?php echo $_SESSION['batchNumber'] ?></option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <select name="degree" id="">
-                                    <option value="">Select Degree</option>
-                                    <option value="CS">CS</option>
-                                    <option value="IS">IS</option>
-                                </select>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Degree</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="degree" id="degree" required>
+                                        <option value=""><?php echo $_SESSION['degree'] ?></option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <form>
-                        <button class="subbtn" type="submit" name="select-submit">
-                            <a href="rvNominatedListV.php">Display Student List</a>
-                        </button>
+
+                        <button class="subbtn" type="submit" name="display-list" >Display Student List</button></a>    
                         <button type="submit" class="cancelbtn">
                             <a href="rvHomeV.php">Cancel</a>
                         </button>

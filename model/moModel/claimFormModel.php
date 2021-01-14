@@ -50,6 +50,30 @@
 
             return $result;
         }
+
+        public static function getApporvedForms($connect){
+            $query = "SELECT * FROM tbl_claimform WHERE acceptance_status='1' ORDER BY submitted_date DESC";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getRejectedForms($connect){
+            $query = "SELECT * FROM tbl_claimform WHERE acceptance_status='0' ORDER BY submitted_date DESC";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getMemberName($user_id,$connect ){
+            $query = "SELECT initials, sname FROM users WHERE userId='{$user_id}' LIMIT 1";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
     }
     
 ?>

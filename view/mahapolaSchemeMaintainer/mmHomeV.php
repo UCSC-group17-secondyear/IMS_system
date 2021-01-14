@@ -7,7 +7,7 @@
 
     <div class="sansserif">
             <ul class="breadcrumbs">
-                <li class="active">Mahapola Scheme Maintainer Page</li>
+                <li class="active">Home</li>
             </ul>
 
         <div class="row" style="margin-bottom: 5%;">

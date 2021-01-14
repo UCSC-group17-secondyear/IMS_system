@@ -6,14 +6,14 @@
     <title>Nominated List</title>
         <div class="sansserif">
             <ul class="breadcrumbs">
-                <li><a href="mmHomeV.php">Home</a></li>
+                <li><a href="rvHomeV.php">Home</a></li>
                 <li class="active">Mahapola Nominated List</li>
             </ul>
         
             <div class="row" style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
-                        require('mmSideNavV.php');
+                        require('rvSideNavV.php');
                     ?>
                 </div>
 
@@ -24,16 +24,14 @@
 
                     <div class="contentForm">
                         <form action="" method="post">
-                        
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Enter Student Index</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Enter Student Index</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Student..." name="nominated_stu" required>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Student..." name="nominated_stu" required>
-                            </div>
-                        </div>
-                            <!-- <button class="mainbtn" formaction="../../controller/claimFormReferenceController.php?user_id=<?php echo $_SESSION['userId'] ?>" type="submit" name="claim_form_no-submit">Display Form</button> -->
                         </form>
                     </div>
 
@@ -48,10 +46,10 @@
                         </table>
                     </div>
                     
-                    <form action="../../controller/mmControllers/mahapolaNominatedListControllerOne.php" method="POST">
+                    <form action="../../controller/rvControllers/mahapolaNominatedListC1.php" method="POST">
                         <button class="subbtn" type="submit" name="display-list" >View Another</button></a>
                         <button type="submit" class="cancelbtn">
-                            <a href="mmHomeV.php">Exit</a>
+                            <a href="rvHomeV.php">Exit</a>
                         </button>
                     </form>
                 </div>
