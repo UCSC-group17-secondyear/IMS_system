@@ -1,7 +1,7 @@
 <?php
     class claimFormModel {
         public static function getRefClaimForms($connect){
-            $query = "SELECT * FROM tbl_claimform WHERE (acceptance_status='0' OR acceptance_status='1')";
+            $query = "SELECT * FROM tbl_claimform WHERE (acceptance_status='0' OR acceptance_status='1') ORDER BY submitted_date DESC";
 
             $result = mysqli_query($connect, $query);
 
@@ -35,7 +35,7 @@
         }
 
         public static function getReqClaimForms($connect){
-            $query = "SELECT * FROM tbl_claimform WHERE acceptance_status='2' AND (DATEDIFF(CURRENT_DATE(), submitted_date )) > 2";
+            $query = "SELECT * FROM tbl_claimform WHERE acceptance_status='2' AND (DATEDIFF(CURRENT_DATE(), submitted_date )) > 2 ORDER BY submitted_date DESC";
 
             $result = mysqli_query($connect, $query);
 

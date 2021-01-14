@@ -23,7 +23,7 @@
                     <h2>View Claim Requested Forms</h2>
                 </div>
 
-                <div class="contentForm">
+                
                 <div class="contentForm">
                     <form action="" method="post">
                         <div class="row">
@@ -45,7 +45,6 @@
                         <?php echo $_SESSION['req_form_no']; ?>
                 </table>
 
-                </div>
             </div>
         </div>
     </div>

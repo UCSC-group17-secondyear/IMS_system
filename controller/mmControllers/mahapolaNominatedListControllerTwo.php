@@ -29,7 +29,7 @@
             }
         }
         else{
-            echo "No records";
+            header('Location:../../view/mahapolaSchemeMaintainer/mmNoStudentListRecordsV.php');
         }
        
     }
