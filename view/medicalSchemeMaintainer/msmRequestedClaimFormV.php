@@ -3,27 +3,25 @@
 ?>
 
 <main>
-    <title>View Claim Requested Forms</title>
+    <title>View Claim Reqested Forms</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="rvHomeV.php">Home</a></li>
-            <li class="active">View Claim Requested Forms</li>
+            <li><a href="msmHomeV.php">Home</a></li>
+            <li class="active">View Claim Reqested Forms</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'rvSideNavV.php';
+                    require 'msmSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div>
-                    <h2>View Claim Requested Forms</h2>
+                    <h2>View Claim Reqested Forms</h2>
                 </div>
-
-                
                 <div class="contentForm">
                     <form action="" method="post">
                         <div class="row">
@@ -36,7 +34,6 @@
                         </div>
                     </form>
                 </div>
-
                 <table id="tableStyle">
                     <tr>
                         <th id="">Claim Form No</th>
@@ -44,35 +41,34 @@
                     </tr>
                         <?php echo $_SESSION['req_form_no']; ?>
                 </table>
-
             </div>
         </div>
     </div>
+</main>
 
-        <script>
-            function myFunction() {
-                // Declare variables
-                var input, filter, table, tr, td, i, txtValue;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("tableStyle");
-                tr = table.getElementsByTagName("tr");
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tableStyle");
+        tr = table.getElementsByTagName("tr");
 
-                // Loop through all table rows, and hide those who don't match the search query
-                for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[0];
-                    if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                    }
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
                 }
             }
-        </script>
-</main>
+        }
+    }
+</script>
 
 <?php
     require '../basic/footer.php';

@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>Updated Password</title>
+    <title>Update Profile</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">No data!</li>
+            <li>Update Profile</li>
         </ul>
 
         <div class="row">
@@ -20,15 +20,11 @@
 
             <div class="col right80">
                 <div class="contentForm">
-                    <div class="row">
-                        <h2>Sorry! <br>
-                            No Forms in the Database!
-                        </h2>
-                    </div>
+                    <form>
+                        <h3>Your profile has been updated successfully.</h3>
 
-                    <button class="mainbtn">
-                        <a href="msmHomeV.php">Exit</a> 
-                    </button>
+                        <a href="msmProfileV.php"><button class="mainbtn" type="submit">OK</button></a>
+                    </form>
                 </div>
             </div>
         </div>

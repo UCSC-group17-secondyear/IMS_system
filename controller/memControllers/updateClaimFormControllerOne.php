@@ -29,8 +29,8 @@
                             $_SESSION['claim_form_no'] .= "<td>OPD</td>";
                             $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
                             $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
-                            $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/memControllers/updateClaimFormControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Update Form</a></td>";
-                            $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/memControllers/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\" onclick=\"return confirm('Are you sure?');\">Delete Form</a></td>";
+                            $_SESSION['claim_form_no'] .= "<td><a class=\"green\" href=\"../../controller/memControllers/updateClaimFormControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Update Form</a></td>";
+                            $_SESSION['claim_form_no'] .= "<td><a class=\"green\" href=\"../../controller/memControllers/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\" onclick=\"return confirm('Are you sure?');\">Delete Form</a></td>";
 
                             header('Location:../../view/medicalSchemeMember/memUpdateClaimFormsV.php');
                         }
@@ -39,8 +39,8 @@
                             $_SESSION['claim_form_no'] .= "<td>OPD</td>";
                             $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
                             $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
-                            $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
-                            $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
+                            $_SESSION['claim_form_no'] .= "<td><a class=\"red\">Out of Date</a></td>";
+                            $_SESSION['claim_form_no'] .= "<td><a class=\"red\">Out of Date</a></td>";
 
                             header('Location:../../view/medicalSchemeMember/memUpdateClaimFormsV.php'); 
                     }
@@ -64,8 +64,8 @@
                         $_SESSION['claim_form_no'] .= "<td>Surgical</td>";
                         $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
                         $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
-                        $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/memControllers/updateClaimFormControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Update Form</a></td>";
-                        $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/memControllers/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\" onclick=\"return confirm('Are you sure?');\">Delete Form</a></td>";
+                        $_SESSION['claim_form_no'] .= "<td><a class=\"green\" href=\"../../controller/memControllers/updateClaimFormControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Update Form</a></td>";
+                        $_SESSION['claim_form_no'] .= "<td><a class=\"green\" href=\"../../controller/memControllers/deleteClaimFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\" onclick=\"return confirm('Are you sure?');\">Delete Form</a></td>";
 
                         header('Location:../../view/medicalSchemeMember/memUpdateClaimFormsV.php');
                     }
@@ -74,8 +74,8 @@
                         $_SESSION['claim_form_no'] .= "<td>Surgical</td>";
                         $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
                         $_SESSION['claim_form_no'] .= "<td>{$submitted_date}</td>";
-                        $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
-                        $_SESSION['claim_form_no'] .= "<td>Out of Date</td>";
+                        $_SESSION['claim_form_no'] .= "<td><a class=\"red\">Out of Date</a></td>";
+                        $_SESSION['claim_form_no'] .= "<td><a class=\"red\">Out of Date</a></td>";
 
                         header('Location:../../view/medicalSchemeMember/memUpdateClaimFormsV.php'); 
                     }

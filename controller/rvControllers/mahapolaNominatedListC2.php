@@ -28,7 +28,7 @@
                 }
             }
             else{
-                echo "No records";
+                header('Location:../../view/reportViewer/rvNoStudentListRecordsV.php');
             }
         
         }
