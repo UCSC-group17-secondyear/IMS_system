@@ -35,7 +35,7 @@
                             <a href="../../controller/msmControllers/membClaimDetailsControllerOne.php"><li><i class="fa fa-plus-circle"></i>Member wise claim details</li></a>
                         </button>
                         <button name="requestedclaim-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-pencil-square-o"></i>Department wise claim details</li></a>
+                            <a href="../../controller/msmControllers/deptClaimDetailsControllerOne.php"><li><i class="fa fa-pencil-square-o"></i>Department wise claim details</li></a>
                         </button>
                         <button name="refferedclaim-submit" type="submit">
                             <a href="#"><li><i class="fa fa-minus-circle"></i>UCSC claim details</li></a>

@@ -26,10 +26,7 @@
                         </h2>
                     </div>
 
-                    <button class="subbtn" type="submit" name="">
-                            <a href="../../controller/rvControllers/membClaimDetailsControllerOne.php">View Another</a>
-                    </button>
-                    <button class="cancelbtn" type="submit" name="">
+                    <button class="mainbtn" type="submit" name="">
                             <a href="rvHomeV.php">Exit</a>
                     </button>
                 </div>
