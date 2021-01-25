@@ -55,6 +55,38 @@
 
             return $result;
         }
+
+        public static function getYearInitAmount($year, $connect){
+            $query = "SELECT SUM(initial_amount) FROM tbl_claimdetails WHERE year='{$year}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getYearUsedAmount($year, $connect){
+            $query = "SELECT SUM(used_amount) FROM tbl_claimdetails WHERE year='{$year}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getYearRemainAmount($year, $connect){
+            $query = "SELECT SUM(remain_amount) FROM tbl_claimdetails WHERE year='{$year}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getYearAmount($year, $connect){
+            $query = "SELECT SUM(initial_amount) AS init_amount,SUM(used_amount) AS used_amount,SUM(remain_amount) AS remain_amount FROM tbl_claimdetails WHERE year='{$year}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
     }
 
 ?>
