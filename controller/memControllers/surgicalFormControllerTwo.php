@@ -3,6 +3,7 @@
     session_start();
     require_once('../../config/database.php');
     require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 
 ?>
 
@@ -10,7 +11,7 @@
 
     $errors = array();
     $user_id = '';
-    $moEmail = memModel::getMoEmail($connect);
+    $moEmail = claimFormModel::getMoEmail($connect);
     $email = mysqli_fetch_array($moEmail);
     $new_mail = $email['email'];
     $claim_form_no = $_SESSION['claim_form_no'];
@@ -69,7 +70,7 @@
                    $file_name_new = $user_id."-sur-".$claim_form_no.".".$file_actual_ext;
                    $file_destination = '../../view/assests/claimforms/surgical/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = memModel::fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_new, $submitted_date,$connect);
+                   $result = claimFormModel::fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_new, $submitted_date,$connect);
 
                    if ($result) {
                         $to_email = $new_mail;

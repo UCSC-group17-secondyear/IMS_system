@@ -2,7 +2,7 @@
 
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/renewModel.php');
 
 ?>
 
@@ -30,7 +30,7 @@
                 $liv_status = mysqli_real_escape_string($connect, $_POST['liv_status']);
 
                 if($liv_status == 'Yes'){
-                    $result_spouse = memModel::addSpouseDetails($user_id, $spouse_name, $spouse_relationship,$spouse_dob, $spouse_healthstatus, $connect);
+                    $result_spouse = renewModel::addSpouseDetails($user_id, $spouse_name, $spouse_relationship,$spouse_dob, $spouse_healthstatus, $connect);
 
                 }
 

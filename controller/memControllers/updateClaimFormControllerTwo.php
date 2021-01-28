@@ -2,22 +2,23 @@
     session_start();
     require_once('../../config/database.php');
     require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 ?>
 
 <?php
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
         $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
            
-        $result_set = memModel::checkClaimFormNo($claim_form_no, $user_id, $connect);
-        $result_opd = memModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
-        $result_surgical = memModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
+        $result_set = claimFormModel::checkClaimFormNo($claim_form_no, $user_id, $connect);
+        $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
+        $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
         $result_set = memModel::viewMember($user_id, $connect);
         $name = mysqli_fetch_array($result_set);
         $f_count = $form_count[0];
         $initials = $name[2];
         $sname = $name[3];
 
-        $dependants = memModel::getDependantName($user_id, $connect);
+        $dependants = claimFormModel::getDependantName($user_id, $connect);
         $_SESSION['dependant_name'] = '';
 
                 if(mysqli_num_rows($result_opd)==1){

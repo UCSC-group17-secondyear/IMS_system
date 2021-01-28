@@ -26,11 +26,8 @@
                         </h2>
                     </div>
 
-                    <button class="subbtn">
-                        <a href="msmHomeV.php?>">Ok</a>
-                    </button>
-                    <button class="cancelbtn">
-                        <a href="msmHomeV.php">Cancel</a> 
+                    <button class="mainbtn">
+                        <a href="msmHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

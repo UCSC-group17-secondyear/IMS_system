@@ -24,7 +24,7 @@
                         </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/mmControllers/mahapolaListController.php" method="POST">
+                        <form action="../../controller/mmControllers/mahapolaListControllerTwo.php" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Report Type</label>
@@ -44,7 +44,7 @@
                                     <label for="">Select Year & Month</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="month" id="yearmonth" name="yearmonth">
+                                    <input type="month" id="yearmonth" name="yearmonth" required>
                                 </div>
                             </div>
 
@@ -53,7 +53,9 @@
                                     <label for="">Enter batch no</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" id="batchno" name="batchno">
+                                    <select name="batch_no" id="batch_no" required>
+                                        <option value=""><?php echo $_SESSION['batchNumber'] ?></option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -62,10 +64,8 @@
                                     <label for="">Select Degree</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="degree" id="">
-                                        <option value="">Select Degree</option>
-                                        <option value="CS">CS</option>
-                                        <option value="IS">IS</option>
+                                    <select name="degree" id="degree" required>
+                                        <option value=""><?php echo $_SESSION['degree'] ?></option>
                                     </select>
                                 </div>
                             </div>

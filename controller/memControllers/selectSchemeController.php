@@ -2,6 +2,7 @@
     session_start();
     require_once('../../config/database.php');
     require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/renewModel.php');
 ?>
 
 <?php
@@ -9,11 +10,11 @@
         if(isset($_POST['yes-submit'])){
 
             $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-            $memType = memModel::getMemType($user_id, $connect);
+            $memType = renewModel::getMemType($user_id, $connect);
             $mem_type = mysqli_fetch_array($memType);
             $type = $mem_type[0];
             
-            $diff = memModel::getDateDiffFromJoin($user_id, $connect);
+            $diff = renewModel::getDateDiffFromJoin($user_id, $connect);
             $appoint_diff = mysqli_fetch_array($diff);
             $date_diff = (int)$appoint_diff[0];
             $expInMonth = $date_diff/30;

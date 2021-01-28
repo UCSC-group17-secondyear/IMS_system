@@ -1,14 +1,14 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 ?>
 
 <?php
 
     $errors = array();
     $user_id = '';
-    $moEmail = memModel::getMoEmail($connect);
+    $moEmail = claimFormModel::getMoEmail($connect);
     $email = mysqli_fetch_array($moEmail);
     $new_mail = $email['email'];
     $claim_form_no = $_SESSION['claim_form_no'];
@@ -57,7 +57,7 @@
                    $file_name_new = $user_id."-opd-".$claim_form_no.".".$file_actual_ext;
                    $file_destination = '../../view/assests/claimforms/opd/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = memModel::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_new, $submitted_date, $connect);
+                   $result = claimFormModel::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_new, $submitted_date, $connect);
 
                     if ($result) {
                         $to_email = $new_mail;
