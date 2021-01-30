@@ -58,9 +58,9 @@
             </li>
             <li><button class="tree_list">Manage Attendance</button>
                 <ul class="tree_nest">
-                    <form action="../../controller/amControllers/manageAttendanceC.php"></form>
+                    <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
                         <button name="enterupdateAttendance-submit">
-                            <a href="amEnterUpdateAttendaceSelectV.php">
+                            <a href="#">
                                 <li><i class="fa fa-plus-circle"></i> Enter or Update Attendance</li>
                             </a>
                         </button>

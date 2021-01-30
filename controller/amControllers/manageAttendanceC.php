@@ -9,31 +9,27 @@
         $_SESSION['subject'] = '';
 
     	while ($record = mysqli_fetch_array($records)) {
-            $_SESSION['subject'] .= "<option value='".$record['subject_code']."'>".$record['subject_code']."</option>";
+            $_SESSION['subject'] .= "<option value='".$record['subject_code']."'>".$record['subject_code']." - ".$record['subject_name']."</option>";
         }
         header('Location:../../view/attendanceMaintainer/amEnterUpdateAttendaceSelectV.php');
 
-    } elseif(isset($_POST['markattendance-submit'])) {
+    } elseif (isset($_POST['markattendance-submit'])) {
 
         $date = $_POST['date'];
         $subject = $_POST['subject'];
         $students = amModel::fetchstudents($date, $subject, $connect);
 
-    	if ($students) {
-    		while ($s = mysqli_fetch_assoc($students)) {
-                $_SESSION['member_info'] .= "<tr>";
-                $_SESSION['member_info'] .= "<td>{$s['empid']}</td>";
-                $_SESSION['member_info'] .= "<td>{$s['initials']}</td>";
-                $_SESSION['member_info'] .= "<td>{$s['sname']}</td>";
-                $_SESSION['member_info'] .= "<td>{$s['department']}</td>";
-                $_SESSION['member_info'] .= "<td>{$s['healthcondition']}</td>";
-                $_SESSION['member_info'] .= "<td>{$s['civilstatus']}</td>";
-                $_SESSION['member_info'] .= "<td><a class=\"red\" href=\"../../controller/msmControllers/msmRemoveSelectedMemberC.php?mem_delete={$s['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
-                $_SESSION['member_info'] .= "</tr>";
+        if (mysqli_num_rows($students) > 0) {
+        	while ($s = mysqli_fetch_assoc($students)) {
+                $_SESSION['students'] .= "<tr>";
+                $_SESSION['students'] .= "<td>{$s['index_no']}</td>";
+                $_SESSION['students'] .= "<td>{$s['initials']}</td>";
+                $_SESSION['students'] .= "<td>{$s['last_name']}</td>";
+                $_SESSION['students'] .= "</tr>";
+
             }
-            header('Location:../../view/medicalSchemeMaintainer/msmMedicalMemberlistV.php');
-    	} else {
-            echo "subject_code does not exists";
+            // echo 1;
+            header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
         }
         
     } elseif(isset($_POST['updateattendance-submit'])) {

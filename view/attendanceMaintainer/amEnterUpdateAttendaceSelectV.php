@@ -53,10 +53,10 @@
                         </div>
                     </div>
                     <button class="subbtn" type="submit" name="markattendance-submit">
-                        <a href="amEnterAttendaceV.php">Mark Attendance</a>
+                        <a href="#">Mark Attendance</a>
                     </button>
                     <button class="cancelbtn" type="submit" name="updateattendance-submit">
-                        <a href="amUpdateAttendaceV.php">Update Attendance</a>
+                        <a href="#">Update Attendance</a>
                     </button>
                 </form>
             </div>

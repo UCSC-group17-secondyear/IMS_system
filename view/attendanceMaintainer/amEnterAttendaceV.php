@@ -26,9 +26,11 @@
                 <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
                         <th>Student Index</th>
-                        <th>Student Name</th>
+                        <th>Initials</th>
+                        <th>Last Name</th>
                         <th>Attendance</th>
                     </tr>
+                    <?php echo $_SESSION['students'] ?>
                 </table>
                 <button class="subbtn">
                     <a href="amAttendanceEntered.php">Save Attendance</a>
