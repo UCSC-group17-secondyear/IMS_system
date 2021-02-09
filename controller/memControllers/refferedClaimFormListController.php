@@ -17,13 +17,17 @@
             $sub_date = mysqli_fetch_array($date);
             $submitted_date = $sub_date[0];
             $_SESSION['form_status'] = $row['acceptance_status'];
+            $_SESSION['paid_status'] = $row['paid_status'];
 
             $_SESSION['ref_form_no'] .= "<tr>";
             $_SESSION['ref_form_no'] .= "<td>{$row['claim_form_no']}</td>";
             $_SESSION['ref_form_no'] .= "<td>{$submitted_date}</td>";
             
-            if($_SESSION['form_status'] == 1){
-                $_SESSION['ref_form_no'] .= "<td><a class=\"green\" href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted</a></td>";
+            if($_SESSION['form_status'] == 1 && $_SESSION['paid_status'] == 0){
+                $_SESSION['ref_form_no'] .= "<td><a class=\"yellow\" href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted/Payment Denied</a></td>";
+            }
+            if($_SESSION['form_status'] == 1 && $_SESSION['paid_status'] == 1){
+                $_SESSION['ref_form_no'] .= "<td><a class=\"green\" href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted/Paid</a></td>";
             }
             if($_SESSION['form_status'] == 0){
                 $_SESSION['ref_form_no'] .= "<td><a class=\"red\" href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Rejected</a></td>";

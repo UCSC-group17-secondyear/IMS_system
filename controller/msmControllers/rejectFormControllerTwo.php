@@ -1,21 +1,25 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/claimFormModel.php');
+    require_once('../../model/msmModel/claimFormModel.php');
 ?>
 
 <?php
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
-    $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
-    $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
+    $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$connect);
+    $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$connect);
     $_SESSION['opd'] = mysqli_num_rows($result_opd);
     $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
 
     if(mysqli_num_rows($result_opd)==1){
                   
         $result_one = mysqli_fetch_assoc($result_opd);
+        $user_id = $result_one['user_id'];
+        $mem_name = claimFormModel::getMemberName($user_id,$connect );
+        $name = mysqli_fetch_array($mem_name);
 
+        $_SESSION['mem_initials'] = $name[0];
+        $_SESSION['mem_sname'] = $name[1];
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
         $_SESSION['patient_name'] = $result_one['patient_name'];
         $_SESSION['relationship'] = $result_one['relationship'];
@@ -25,21 +29,20 @@
         $_SESSION['purpose'] = $result_one['purpose'];
         $_SESSION['bill_amount'] = $result_one['bill_amount'];
         $_SESSION['a_status'] = $result_one['acceptance_status'];
-        $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
-        $_SESSION['paid_status'] = $result_one['paid_status'];
-        $_SESSION['final_bill_amount'] = $result_one['final_bill_amount'];
-        $_SESSION['msm_comment'] = $result_one['msm_comment'];
-        
-        
 
-        header('Location:../../view/medicalSchemeMember/memViewRefClaimFormV.php');
+        header('Location:../../view/medicalSchemeMaintainer/msmViewRejClaimFormV.php');
 
     }
 
     if(mysqli_num_rows($result_surgical)==1){
         
         $result_one = mysqli_fetch_assoc($result_surgical);
+        $user_id = $result_one['user_id'];
+        $mem_name = claimFormModel::getMemberName($user_id,$connect );
+        $name = mysqli_fetch_array($mem_name);
 
+        $_SESSION['mem_initials'] = $name[0];
+        $_SESSION['mem_sname'] = $name[1];
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
         $_SESSION['patient_name'] = $result_one['patient_name'];
         $_SESSION['relationship'] = $result_one['relationship'];
@@ -59,12 +62,8 @@
         $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
         $_SESSION['nature_of'] = $result_one['nature_of'];
         $_SESSION['a_status'] = $result_one['acceptance_status'];
-        $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
-        $_SESSION['paid_status'] = $result_one['paid_status'];
-        $_SESSION['final_bill_amount'] = $result_one['final_bill_amount'];
-        $_SESSION['msm_comment'] = $result_one['msm_comment'];
-        
-        header('Location:../../view/medicalSchemeMember/memViewRefClaimFormV.php');
+
+        header('Location:../../view/medicalSchemeMaintainer/msmViewRejClaimFormV.php');
 
     }
 

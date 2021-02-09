@@ -44,7 +44,7 @@
         }
 
         public static function rejectReqClaimForm($claim_form_no, $connect){
-            $query = "UPDATE tbl_claimform SET acceptance_status='0' WHERE claim_form_no='{$claim_form_no}'";
+            $query = "UPDATE tbl_claimform SET acceptance_status='0',paid_status='0' WHERE claim_form_no='{$claim_form_no}'";
             
             $result = mysqli_query($connect, $query);
 

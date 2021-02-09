@@ -68,9 +68,10 @@
               {
                 if($file_error === 0){
                    $file_name_new = $user_id."-sur-".$claim_form_no.".".$file_actual_ext;
+                   $file_name_db = $user_id."-sur-".$claim_form_no;
                    $file_destination = '../../view/assests/claimforms/surgical/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = claimFormModel::fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_new, $submitted_date,$connect);
+                   $result = claimFormModel::fillSurgicalForm($user_id,  $address,  $patient_name, $relationship, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_db, $submitted_date,$connect);
 
                    if ($result) {
                         $to_email = $new_mail;

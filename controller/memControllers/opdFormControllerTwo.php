@@ -55,9 +55,10 @@
               {
                 if($file_error === 0){
                    $file_name_new = $user_id."-opd-".$claim_form_no.".".$file_actual_ext;
+                   $file_name_db = $user_id."-opd-".$claim_form_no;
                    $file_destination = '../../view/assests/claimforms/opd/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = claimFormModel::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_new, $submitted_date, $connect);
+                   $result = claimFormModel::fillOpdForm($user_id, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
 
                     if ($result) {
                         $to_email = $new_mail;
