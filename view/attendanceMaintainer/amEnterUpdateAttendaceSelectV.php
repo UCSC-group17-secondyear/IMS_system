@@ -52,12 +52,8 @@
                             </select>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="markattendance-submit">
-                        <a href="#">Mark Attendance</a>
-                    </button>
-                    <button class="cancelbtn" type="submit" name="updateattendance-submit">
-                        <a href="#">Update Attendance</a>
-                    </button>
+                    <button class="subbtn" type="submit" name="markattendance-submit">Mark Attendance</button>
+                    <button class="cancelbtn" type="submit" name="updateattendance-submit">Update Attendance</button>
                 </form>
             </div>
         </div>

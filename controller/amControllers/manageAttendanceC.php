@@ -17,18 +17,19 @@
 
         $date = $_POST['date'];
         $subject = $_POST['subject'];
-        $students = amModel::fetchstudents($date, $subject, $connect);
+        $mark = $_POST['mark'];
+        $_SESSION['ds_students'] = "";
+        $ds_students = amModel::fetchstudents($date, $subject, $connect);
 
-        if (mysqli_num_rows($students) > 0) {
-        	while ($s = mysqli_fetch_assoc($students)) {
-                $_SESSION['students'] .= "<tr>";
-                $_SESSION['students'] .= "<td>{$s['index_no']}</td>";
-                $_SESSION['students'] .= "<td>{$s['initials']}</td>";
-                $_SESSION['students'] .= "<td>{$s['last_name']}</td>";
-                $_SESSION['students'] .= "</tr>";
-
+        if (mysqli_num_rows($ds_students) > 0) {
+        	while ($dss = mysqli_fetch_assoc($ds_students)) {
+                $_SESSION['ds_students'] .= "<tr>";
+                $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
+                $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
+                $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
+                $_SESSION['ds_students'] .= "<td><input type='checkbox' style='margin-left: auto; margin-right: auto;'/></td>";
+                $_SESSION['ds_students'] .= "</tr>";
             }
-            // echo 1;
             header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
         }
         
