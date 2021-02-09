@@ -35,8 +35,8 @@
 			
         }
 
-        public static function acceptReqClaimForm($claim_form_no, $connect){
-            $query = "UPDATE tbl_claimform SET acceptance_status='1' WHERE claim_form_no='{$claim_form_no}'";
+        public static function acceptReqClaimForm($claim_form_no, $revised_amount, $connect){
+            $query = "UPDATE tbl_claimform SET acceptance_status='1',revised_bill_amount='{$revised_amount}' WHERE claim_form_no='{$claim_form_no}'";
             
             $result = mysqli_query($connect, $query);
 

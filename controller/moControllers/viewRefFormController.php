@@ -28,6 +28,7 @@
         $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
         $_SESSION['purpose'] = $result_one['purpose'];
         $_SESSION['bill_amount'] = $result_one['bill_amount'];
+        $_SESSION['revised_amount'] = $result_one['revised_bill_amount'];
         $_SESSION['a_status'] = $result_one['acceptance_status'];
 
         header('Location:../../view/medicalOfficer/moViewRefClaimFormV.php');
@@ -61,6 +62,7 @@
         $_SESSION['sick_injury'] = $result_one['sick_injury'];
         $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
         $_SESSION['nature_of'] = $result_one['nature_of'];
+        $_SESSION['revised_amount'] = $result_one['revised_bill_amount'];
         $_SESSION['a_status'] = $result_one['acceptance_status'];
 
         header('Location:../../view/medicalOfficer/moViewRefClaimFormV.php');
