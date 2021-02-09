@@ -53,8 +53,14 @@
                         <button name="requestedclaim-submit" type="submit">
                             <a href="../../controller/msmControllers/requestedFormController.php"><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>
                         </button>
-                        <button name="refferedclaim-submit" type="submit">
-                            <a href="../../controller/msmControllers/refferedFormController.php"><li><i class="fa fa-minus-circle"></i> Reffered Claim Form</li></a>
+                        <button name="tobepaid-submit" type="submit">
+                            <a href="../../controller/msmControllers/toBePaidFormController.php"><li><i class="fa fa-plus-circle"></i>Form To Be Paid</li></a>
+                        </button>
+                        <button name="paid-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-minus-circle"></i>Paid Forms</li></a>
+                        </button>
+                        <button name="rejected-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-minus-circle"></i>Rejected Forms</li></a>
                         </button>
                     </form>
                 </ul>

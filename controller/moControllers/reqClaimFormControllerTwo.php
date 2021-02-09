@@ -16,6 +16,7 @@
         $mem_name = claimFormModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
+        //$_SESSION['opd_flag'] = 1;
         $_SESSION['mem_initials'] = $name[0];
         $_SESSION['mem_sname'] = $name[1];
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
@@ -39,6 +40,7 @@
         $mem_name = claimFormModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
+        //$_SESSION['sur_flag'] = 1;
         $_SESSION['mem_initials'] = $name[0];
         $_SESSION['mem_sname'] = $name[1];
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];

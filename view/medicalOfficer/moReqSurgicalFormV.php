@@ -214,9 +214,20 @@
                                 <div class="row">
                                     <div class="col-25">
                                         <label for="">Prescripton Bill</label>
+
                                     </div>
                                     <div class="col-75">
-                                        <input type="text" name="file_name" <?php echo 'value="'.$_SESSION['file_name'].'"'?> disabled> <br>
+                                        <h6 style="margin-top: 30px;"><a style="color: black; font-size: 20px" href="../../controller/basicControllers/downloadFileController.php?file_name=<?php echo $_SESSION['file_name'] ?>&sur_flag=1"><?php echo $_SESSION['file_name'] ?></a></h6>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="">Revised Bill Amount</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="number" name="rev_bill_amount" value="0" min="0" required > <br>
                                     </div>
                                 </div>
 
