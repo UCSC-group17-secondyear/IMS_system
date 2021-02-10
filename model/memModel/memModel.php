@@ -84,7 +84,7 @@
 		}
 
 		public static function addYearClaimDetails($user_id, $cur_year,$scheme_name, $amount, $connect ){
-			$query = "INSERT INTO tbl_claimdetails (user_id, year, scheme, initial_amount) VALUES ($user_id, '$cur_year', '$scheme_name', '$amount')";
+			$query = "INSERT INTO tbl_claimdetails (user_id, year, scheme, initial_amount,remain_amount) VALUES ($user_id, '$cur_year', '$scheme_name', '$amount','$amount')";
 
 			$result = mysqli_query($connect, $query);
 

@@ -1,34 +1,33 @@
 <?php
-    require "../basic/topnav.php";
+    require '../basic/topnav.php';
 ?>
 
 <main>
-    <title>Reffered Claim Details</title>
+    <title>View Reffered Claim Forms</title>
+
     <div class="sansserif">
-            
-                <ul class="breadcrumbs">
-                    <li><a href="memHomeV.php">Home</a></li>
-                    <li><a href="../../controller/memControllers/refferedClaimFormListController.php?user_id=<?php echo $_SESSION['userId'] ?>">Form List</a></li>
-                    <li class="active">Reffered claim Details</li>
-                </ul>
-        <div class="row" style="margin-bottom: 4%;">
+        <ul class="breadcrumbs">
+            <li><a href="msmHomeV.php">Home</a></li>
+            <li><a href="../../controller/msmControllers/rejectFormControllerOne.php">Rejected Form List</a></li>
+            <li class="active">View Rejected Claim Forms</li>
+        </ul>
+
+        <div class="row">
             <div class="col left20">
-                <?php 
-                    require('memSideNavV.php');
+                <?php
+                    require 'msmSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
-                <div>                                                                  
-                    <h2>Reffered Claim Details</h2>
+                <div>
+                    <h2>View Rejected Claim Forms</h2>
                 </div>
-
-                <div class="contentForm" style="margin-bottom: 1%;">
-                    
+                <div class="contentForm">
                     <?php
                         if($_SESSION['opd'] == 1){
                     ?>
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="" >
                         
                             <div class="row">
                                 <div class="col-25">
@@ -36,6 +35,15 @@
                                 </div>
                                 <div class="col-75">
                                     <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> disabled> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Member Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="mem_name" <?php echo 'value="'.$_SESSION['mem_initials']." ".$_SESSION['mem_sname'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -120,61 +128,7 @@
                                     ?>
                                 </div>
                             </div>
-
-                            <?php
-                                if($_SESSION['a_status'] == 1){
-                            ?>
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label>Paid Status</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <?php
-                                            if($_SESSION['paid_status'] == 1){
-                                        ?>
-                                            <button type="submit" class="greenbtn" disabled><a class="disabled">Paid</a></button>
-                                        <?php
-                                            } else {
-                                        ?>
-                                            <button type="submit" class="yellowbtn" disabled><a class="disabled">Payment Denied</a></button>
-                                        <?php
-                                            }
-                                        ?>
-                                    </div>
-                                </div>                            
-                            <?php
-                                }
-                            ?>
-
-                            <?php
-                                if($_SESSION['paid_status'] == 1){
-                            ?>
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label for="">Final Bill Amount</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <input type="text" name="final_bill_amount" <?php echo 'value="'.$_SESSION['final_bill_amount'].'"'?> disabled> <br>
-                                    </div>
-                                </div>
-                            <?php
-                                }
-                            ?>
-
-                            <?php
-                                if($_SESSION['a_status'] == 1){
-                            ?>
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label for="">Remarks</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> disabled> <br>
-                                    </div>
-                                </div>
-                            <?php
-                                }
-                            ?>
+                            
                         </form>
                     <?php
                         }
@@ -183,7 +137,7 @@
                     <?php
                         if($_SESSION['surgical'] == 1){
                     ?>
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="" >
                             
                             <div class="row">
                                 <div class="col-25">
@@ -191,6 +145,15 @@
                                 </div>
                                 <div class="col-75">
                                     <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"' ?> disabled> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Member Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="mem_name" <?php echo 'value="'.$_SESSION['mem_initials']." ".$_SESSION['mem_sname'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -314,7 +277,7 @@
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Have you during the past five years had any illness or <br>
-                                                  accident necessitating medical attention <br>
+                                                accident necessitating medical attention <br>
                                                     if so, give full particulars </label>
                                 </div>
                                 <div class="col-75">
@@ -379,82 +342,25 @@
                                 </div>
                             </div>
 
-                            <?php
-                                if($_SESSION['a_status'] == 1){
-                            ?>
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label>Paid Status</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <?php
-                                            if($_SESSION['paid_status'] == 1){
-                                        ?>
-                                            <button type="submit" class="greenbtn" disabled><a class="disabled">Paid</a></button>
-                                        <?php
-                                            } else {
-                                        ?>
-                                            <button type="submit" class="yellowbtn" disabled><a class="disabled">Payment Denied</a></button>
-                                        <?php
-                                            }
-                                        ?>
-                                    </div>
-                                </div>                            
-                            <?php
-                                }
-                            ?>
-
-                            <?php
-                                if($_SESSION['paid_status'] == 1){
-                            ?>
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label for="">Final Bill Amount</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <input type="text" name="final_bill_amount" <?php echo 'value="'.$_SESSION['final_bill_amount'].'"'?> disabled> <br>
-                                    </div>
-                                </div>
-                            <?php
-                                }
-                            ?>
-
-                            <?php
-                                if($_SESSION['a_status'] == 1){
-                            ?>
-                                <div class="row">
-                                    <div class="col-25">
-                                        <label for="">Remarks</label>
-                                    </div>
-                                    <div class="col-75">
-                                        <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> disabled> <br>
-                                    </div>
-                                </div>
-                            <?php
-                                }
-                            ?>
-
                             <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                         </form>
 
                     <?php
                         }
                     ?>
-
                         <button class="subbtn" type="submit" name="">
-                            <a href="../../controller/memControllers/refferedClaimFormListController.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Form List</a>
+                            <a href="../../controller/msmControllers/rejectFormControllerOne.php">View Another</a>
                         </button>
                         <button class="cancelbtn" type="submit" name="">
-                            <a href="memHomeV.php">Exit</a>
+                            <a href="msmHomeV.php">Exit</a>
                         </button>
                 </div>
-
+                
             </div>
         </div>
     </div>
-
 </main>
 
 <?php
-    require_once('../basic/footer.php');
+    require '../basic/footer.php';
 ?>
