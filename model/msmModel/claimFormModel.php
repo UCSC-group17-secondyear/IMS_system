@@ -73,5 +73,21 @@
 
             return $result;
         }
+
+        public static function paidClaimForms($connect){
+            $query = "SELECT * FROM tbl_claimform WHERE acceptance_status='1' AND (paid_status='0' OR paid_status='1')";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getRejClaimForms($connect){
+            $query = "SELECT * FROM tbl_claimform WHERE acceptance_status='0'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
     }
 ?>

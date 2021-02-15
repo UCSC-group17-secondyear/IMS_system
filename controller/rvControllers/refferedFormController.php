@@ -14,11 +14,23 @@
 
             while($row = mysqli_fetch_assoc($result_forms)){
 
-                    $_SESSION['ref_form_no'] .= "<tr>";
-                    $_SESSION['ref_form_no'] .= "<td>{$row['claim_form_no']}</td>";
-                    $_SESSION['ref_form_no'] .= "<td><a href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$row['claim_form_no']}\">View Form</a></td>";
+                $_SESSION['form_status'] = $row['acceptance_status'];
+                $_SESSION['paid_status'] = $row['paid_status'];
 
-                    header('Location:../../view/reportViewer/rvRefferedClaimFormV.php');
+                $_SESSION['ref_form_no'] .= "<tr>";
+                $_SESSION['ref_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+
+                if($_SESSION['form_status'] == 1 && $_SESSION['paid_status'] == 0){
+                    $_SESSION['ref_form_no'] .= "<td><a class=\"yellow\" href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted/Payment Denied</a></td>";
+                }
+                if($_SESSION['form_status'] == 1 && $_SESSION['paid_status'] == 1){
+                    $_SESSION['ref_form_no'] .= "<td><a class=\"green\" href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted/Paid</a></td>";
+                }
+                if($_SESSION['form_status'] == 0){
+                    $_SESSION['ref_form_no'] .= "<td><a class=\"red\" href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Rejected</a></td>";
+                }
+
+                header('Location:../../view/reportViewer/rvRefferedClaimFormV.php');
                     
             }
         }

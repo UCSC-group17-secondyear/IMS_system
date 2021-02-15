@@ -125,7 +125,23 @@
 		}
 
 		public static function getReferredForms($user_id, $connect){
-			$query = "SELECT * FROM tbl_claimform WHERE user_id={$user_id} AND (acceptance_status='0' OR acceptance_status='1') ORDER BY submitted_date DESC";
+			$query = "SELECT * FROM tbl_claimform WHERE user_id={$user_id} AND (acceptance_status='0' OR acceptance_status='1') ORDER BY claim_form_no DESC";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getMedYearEndDate($year,$connect){
+            $query = "SELECT * FROM tbl_medical_year WHERE YEAR(end_date)='{$year}' LIMIT 1";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+		public static function getFormEndMedDate($medical_year, $connect){
+			$query = "SELECT end_date FROM tbl_medical_year WHERE medical_year='{$medical_year}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

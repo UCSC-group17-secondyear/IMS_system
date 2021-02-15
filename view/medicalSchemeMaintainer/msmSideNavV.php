@@ -57,10 +57,10 @@
                             <a href="../../controller/msmControllers/toBePaidFormController.php"><li><i class="fa fa-plus-circle"></i>Form To Be Paid</li></a>
                         </button>
                         <button name="paid-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-minus-circle"></i>Paid Forms</li></a>
+                            <a href="../../controller/msmControllers/paidFormControllerOne.php"><li><i class="fa fa-minus-circle"></i>Paid Forms</li></a>
                         </button>
                         <button name="rejected-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-minus-circle"></i>Rejected Forms</li></a>
+                            <a href="../../controller/msmControllers/rejectFormControllerOne.php"><li><i class="fa fa-minus-circle"></i>Rejected Forms</li></a>
                         </button>
                     </form>
                 </ul>

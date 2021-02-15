@@ -24,6 +24,9 @@
                 $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
                 $_SESSION['purpose'] = $result_one['purpose'];
                 $_SESSION['bill_amount'] = $result_one['bill_amount'];
+                $_SESSION['file_name'] = $result_one['file_name'];
+
+                
 
                 header('Location:../../view/medicalSchemeMember/memOpdClaimDetailsV.php');
 
@@ -51,6 +54,7 @@
                 $_SESSION['sick_injury'] = $result_one['sick_injury'];
                 $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
                 $_SESSION['nature_of'] = $result_one['nature_of'];
+                $_SESSION['file_name'] = $result_one['file_name'];
 
                 header('Location:../../view/medicalSchemeMember/memSurgicalClaimDetailsV.php');
 

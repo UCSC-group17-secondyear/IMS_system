@@ -43,7 +43,7 @@
                     }
                 }
 
-                if($remain_amount == 0){
+                if($remain_amount == 0 || $final_bill_amount == 0){
 
                     $result_form = claimFormModel::updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect);
 
