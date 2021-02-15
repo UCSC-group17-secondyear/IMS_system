@@ -17,7 +17,37 @@
 
         $date = $_POST['date'];
         $subject = $_POST['subject'];
-        $mark = $_POST['mark'];
+
+        $_SESSION['ds_students'] = "";
+        $_SESSION['sessionId'] = "";
+        $_SESSION['date'] = "";
+        
+        $sessionid = amModel::getSession($date, $subject, $connect);
+
+        while ($si = mysqli_fetch_array($sessionid)) {
+            $_SESSION['sessionId'] = $si['subject_session_id'];
+        }
+        $_SESSION['date'] = $date;
+
+        $ds_students = amModel::fetchstudents($_SESSION['sessionId'], $connect);
+
+        if (mysqli_num_rows($ds_students) > 0) {
+        	while ($dss = mysqli_fetch_assoc($ds_students)) {
+                amModel::setallstudents($_SESSION['sessionId'], $date, $dss['index_no'], $connect);
+                $_SESSION['ds_students'] .= "<tr>";
+                $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
+                $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
+                $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
+                $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['index_no']}' style='margin-left: auto; margin-right: auto;'/></td>";
+                $_SESSION['ds_students'] .= "</tr>";
+            }
+            header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
+        }
+        
+    } elseif(isset($_POST['updateattendance-submit'])) {
+
+        $date = $_POST['date'];
+        $subject = $_POST['subject'];
 
         $_SESSION['ds_students'] = "";
         $_SESSION['sessionId'] = "";
@@ -38,48 +68,29 @@
                 $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
                 $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
                 $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
-                $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['index_no']}' style='margin-left: auto; margin-right: auto;'/></td>";
+                $presence = amModel::getpresence($dss['index_no'], $connect);
+                if ($presence == 0){
+                    $_SESSION['ds_students'] .= "<td><input type='checkbox' id='checked' value='{$dss['index_no']}' style='margin-left: auto; margin-right: auto;'/></td>";
+                } else {
+                    $_SESSION['ds_students'] .= "<td><input type='checkbox' id='unchecked' value='{$dss['index_no']}' style='margin-left: auto; margin-right: auto;'/></td>";
+                }
                 $_SESSION['ds_students'] .= "</tr>";
             }
-            header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
+            header('Location:../../view/attendanceMaintainer/amUpdateAttendaceV.php');
         }
         
-    } elseif(isset($_POST['updateattendance-submit'])) {
-
-    	// $date = $_POST['date'];
-        // $subject = $_POST['subject'];
-        // $mark = $_POST['mark'];
-        // $_SESSION['ds_students'] = "";
-        // $_SESSION['student_marked'] = "";
-        // $ds_students = amModel::fetchstudents($date, $subject, $connect);
-
-        // if (mysqli_num_rows($ds_students) > 0) {
-        // 	while ($dss = mysqli_fetch_assoc($ds_students)) {
-        //         $_SESSION['ds_students'] .= "<tr>";
-        //         $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
-        //         $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
-        //         $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
-        //         $_SESSION['ds_students'] .= "<td><input type='checkbox' style='margin-left: auto; margin-right: auto;'/></td>";
-        //         $_SESSION['ds_students'] .= "</tr>";
-        //     }
-        //     header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
-        // }
-        
     } elseif(isset($_POST['saveattendance-submit'])) {
-        
-        $sessionid = $_SESSION['sessionId'];
-        $date = $_SESSION['date'];
-        $x = 0;
 
         if(!empty($_POST['smarked'])) {
             foreach($_POST['smarked'] as $sm){
-                amModel::addstudentattendance($sessionid, $date, $sm, $connect);
+                amModel::addstudentattendance($sm, $connect);
             }
         }
     	
         header('Location:../../view/attendanceMaintainer/amAttendanceAdded.php');
 
     } elseif(isset($_POST['updateAttendance-submit'])) {
+        
     	$subject_code = $_POST['subject_code'];
     	$subject_name = $_POST['subject_name'];
     	$degree = $_POST['degree'];
@@ -92,44 +103,20 @@
         else {
             header('Location:../../view/attendanceMaintainer/amAttendanceNotUpdated.php');
         }
-    }
 
-    elseif(isset($_POST['remeoveAttendance-submit'])) {
-    	$subject_code = $_POST['subject_code'];
+    } elseif(isset($_POST['remeoveAttendance-submit'])) {
 
-    	$result = amModel::removeAttendance ($subject_code, $connect);
+    	// $subject_code = $_POST['subject_code'];
 
-        if ($result) {
-            header('Location:../../view/attendanceMaintainer/amAttendanceRemoved.php');
-        }
-        else {
-            header('Location:../../view/attendanceMaintainer/amAttendanceNotRemoved.php');
-        }
-    }
+    	// $result = amModel::removeAttendance ($subject_code, $connect);
 
-    elseif(isset($_POST['viewAttendances-submit'])) {
-    	session_start();
-        $_SESSION['subjects_list'] = '';
+        // if ($result) {
+        //     header('Location:../../view/attendanceMaintainer/amAttendanceRemoved.php');
+        // }
+        // else {
+        //     header('Location:../../view/attendanceMaintainer/amAttendanceNotRemoved.php');
+        // }
 
-        $records = amModel::viewAttendances ($connect);
-        
-        if ($records) {
-        	while ($record = mysqli_fetch_assoc($records)) {
-                $_SESSION['subject_list'] .= "<tr>";
-                $_SESSION['subject_list'] .= "<td>{$record['$subject_code']}</td>";
-                $_SESSION['subject_list'] .= "<td>{$record['$subject_name']}</td>";
-                $_SESSION['subject_list'] .= "<td>{$record['$degree']}</td>";
-                $_SESSION['subject_list'] .= "</tr>";
-
-                header('Location:../../view/attendanceMaintainer/amViewAttendances.php');
-            }
-        }
-        
-        else {
-        	header('Location:../../view/attendanceMaintainer/amNoAttendancesAvailable.php');
-        }
-    }
-
-    else {
+    } else {
     	echo "no button clicked";
     }

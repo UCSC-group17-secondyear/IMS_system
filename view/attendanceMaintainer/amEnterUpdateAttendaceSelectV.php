@@ -26,7 +26,7 @@
                             <label>Enter date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="date" placeholder="Date"> <br>
+                            <input type="date" name="date" placeholder="Date" min="<?phpecho date('Y-m-d');?>" max=""> <br>
                         </div>
                     </div>
                     <div class="row">

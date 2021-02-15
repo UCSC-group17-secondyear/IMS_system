@@ -46,7 +46,7 @@
                             <th>Student Index</th>
                             <th>Initials</th>
                             <th>Last Name</th>
-                            <th>Attendance</th>
+                            <th>Presence</th>
                         </tr>
                         <?php echo $_SESSION['ds_students'] ?>
                     </table>

@@ -26,19 +26,28 @@
             
 			return $result;
         }
-
-        public static function addstudentattendance($sessionid, $date, $sm, $connect)
+        
+        public static function setallstudents($sessionid, $date, $index_no, $connect)
         {
-            $query = "INSERT INTO tbl_attendance(student_index, subject_session_id, date, attendance) VALUES ('{$sm}','{$sessionid}','{$date}',1)";
+            $query = "INSERT INTO tbl_attendance(student_index, subject_session_id, date) VALUES ('{$index_no}','{$sessionid}','{$date}')";
+
+            $result = mysqli_query($connect, $query);
+            
+			return $result;
+        }
+        
+        public static function addstudentattendance($index_no, $connect)
+        {
+            $query = "UPDATE tbl_attendance SET attendance=1 WHERE student_index='{$index_no}'";
 
             $result = mysqli_query($connect, $query);
             
 			return $result;
         }
 
-        public static function fetchAttendance($subject_code, $connect)
+        public static function getpresence($index_no, $connect)
         {
-            // $query = "";
+            $query = "SELECT attendance";
 
             $result = mysqli_query($connect, $query);
             
