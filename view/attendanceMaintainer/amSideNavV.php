@@ -64,8 +64,8 @@
                                 <li><i class="fa fa-plus-circle"></i> Enter or Update Attendance</li>
                             </a>
                         </button>
-                        <button>
-                            <a href="amDeleteAttendaceSearchV.php">
+                        <button name="deleteAttendance-submit">
+                            <a href="#">
                                 <li><i class="fa fa-minus-circle"></i> Delete Attendance</li>
                             </a>
                         </button>

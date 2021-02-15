@@ -17,7 +17,9 @@
                     require 'amSideNavV.php';
                 ?>
             </div>
-
+            <?php
+                $_SESSION['student_marked'] = "";
+            ?>
             <div class="col right80">
                 <div>
                     <h2>Enter attendance</h2>
@@ -34,19 +36,20 @@
                         </div>
                     </form>
                 </div>
-                <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
-                    <tr>
-                        <th>Student Index</th>
-                        <th>Initials</th>
-                        <th>Last Name</th>
-                        <th>Attendance</th>
-                    </tr>
-                    <?php echo $_SESSION['ds_students'] ?>
-                </table>
-                <button class="subbtn" value="Get Selected" onclick="GetSelected()">Save Attendance</button>
-                <button class="cancelbtn">
-                    <a href="amHomeV.php">Cancel</a>
-                </button>
+                <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
+                    <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
+                        <tr>
+                            <th>Student Index</th>
+                            <th>Initials</th>
+                            <th>Last Name</th>
+                            <th>Attendance</th>
+                        </tr>
+                        <?php echo $_SESSION['ds_students'] ?>
+                    </table>
+
+                    <button class="subbtn" type="submit" name="saveattendance-submit">Save Attendance</button>
+                    <button class="cancelbtn"><a href="amHomeV.php">Cancel</a></button>
+                </form>
             </div>
         </div>
     </div>
@@ -57,39 +60,23 @@
 ?>
 
 <script>
-    function GetSelected() {
-        var grid = document.getElementById("myInput");
-        var checkBoxes = grid.getElementsByTagName("INPUT");
-        var message = "Id Name                  Country\n";
- 
-        for (var i = 0; i < checkBoxes.length; i++) {
-            if (checkBoxes[i].checked) {
-                var row = checkBoxes[i].parentNode.parentNode;
-                message += row.cells[1].innerHTML;
-                message += "   " + row.cells[2].innerHTML;
-                message += "   " + row.cells[3].innerHTML;
-                message += "\n";
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tableStyle");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
         }
     }
-
-function myFunction() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("tableStyle");
-    tr = table.getElementsByTagName("tr");
-
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-        } else {
-            tr[i].style.display = "none";
-        }
-        }
-    }
-}
 </script>

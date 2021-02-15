@@ -19,7 +19,10 @@
         $subject = $_POST['subject'];
         $mark = $_POST['mark'];
         $_SESSION['ds_students'] = "";
-        $ds_students = amModel::fetchstudents($date, $subject, $connect);
+        $_SESSION['sessionId'] = "";
+        $sessionid = amModel::getSession($date, $subject, $connect);
+        $_SESSION['sessionId'] = $sessionid;
+        $ds_students = amModel::fetchstudents($sessionid, $connect);
 
         if (mysqli_num_rows($ds_students) > 0) {
         	while ($dss = mysqli_fetch_assoc($ds_students)) {
@@ -27,7 +30,7 @@
                 $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
                 $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
                 $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
-                $_SESSION['ds_students'] .= "<td><input type='checkbox' style='margin-left: auto; margin-right: auto;'/></td>";
+                $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['index_no']}' style='margin-left: auto; margin-right: auto;'/></td>";
                 $_SESSION['ds_students'] .= "</tr>";
             }
             header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
@@ -35,42 +38,52 @@
         
     } elseif(isset($_POST['updateattendance-submit'])) {
 
-    	$subject_code = $_POST['subject_code'];
+    	// $date = $_POST['date'];
+        // $subject = $_POST['subject'];
+        // $mark = $_POST['mark'];
+        // $_SESSION['ds_students'] = "";
+        // $_SESSION['student_marked'] = "";
+        // $ds_students = amModel::fetchstudents($date, $subject, $connect);
 
-    	$fetchAttendance = amModel::fetchAttendance($subject_code, $connect);
-
-    	if (mysqli_num_rows($fetchAttendance) == 1) {
-    		session_start();
-    		$result = mysqli_fetch_assoc($fetchAttendance);
-            $_SESSION['subject_code'] = $result['subject_code'];
-            $_SESSION['subject_name'] = $result['subject_name'];
-            $_SESSION['degree'] = $result['degree'];
-
-            header('Location:../../view/attendanceMaintainer/amDeleteUpdateAttendanceV.php');
-    	} else {
-    		echo "subject_code does not exists";
-        }
+        // if (mysqli_num_rows($ds_students) > 0) {
+        // 	while ($dss = mysqli_fetch_assoc($ds_students)) {
+        //         $_SESSION['ds_students'] .= "<tr>";
+        //         $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
+        //         $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
+        //         $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
+        //         $_SESSION['ds_students'] .= "<td><input type='checkbox' style='margin-left: auto; margin-right: auto;'/></td>";
+        //         $_SESSION['ds_students'] .= "</tr>";
+        //     }
+        //     header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
+        // }
         
-    } elseif(isset($_POST['addAttendance-submit'])) {
-    	$subject_code = $_POST['subject_code'];
-    	$subject_name = $_POST['subject_name'];
-    	$degree = $_POST['degree'];
-
-    	$checkSubCode = amModel::checkSubCode ($subject_code, $connect);
-    	if (mysqli_num_rows($checkSubCode) == 1) {
-    		header('Location:../../view/attendanceMaintainer/amAttendanceExists.php');
-            // echo "subject_code exists";
-        }
-        else {
-        	$result = amModel::addAttendance ($subject_code, $subject_name, $degree, $connect);
-
-            if ($result) {
-                header('Location:../../view/attendanceMaintainer/amAttendanceAdded.php');
+    } elseif(isset($_POST['saveattendance-submit'])) {
+        if(!empty($_POST['smarked'])) {
+            foreach($_POST['smarked'] as $sm){
+                echo "value : ".$sm.'<br/>';
             }
-            else {
-                header('Location:../../view/attendanceMaintainer/amAttendanceNotAdded.php');
-            }
+            // echo $_SESSION['sessionId'];
         }
+    	// $subject_code = $_POST['subject_code'];
+    	// $subject_name = $_POST['subject_name'];
+    	// $degree = $_POST['degree'];
+
+    	// $checkSubCode = amModel::checkSubCode ($subject_code, $connect);
+    	// if (mysqli_num_rows($checkSubCode) == 1) {
+    	// 	header('Location:../../view/attendanceMaintainer/amAttendanceExists.php');
+        //     // echo "subject_code exists";
+        // }
+        // else {
+        // 	$result = amModel::addAttendance ($subject_code, $subject_name, $degree, $connect);
+
+        //     if ($result) {
+        //         header('Location:../../view/attendanceMaintainer/amAttendanceAdded.php');
+        //     }
+        //     else {
+        //         header('Location:../../view/attendanceMaintainer/amAttendanceNotAdded.php');
+        //     }
+        // }
+
     } elseif(isset($_POST['updateAttendance-submit'])) {
     	$subject_code = $_POST['subject_code'];
     	$subject_name = $_POST['subject_name'];

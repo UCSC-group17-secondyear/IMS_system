@@ -8,10 +8,19 @@
             
 			return $result;
         }
-        
-        public static function fetchstudents($date, $subject, $connect)
+
+        public static function getSession($date, $subject, $connect)
         {
-            $query = "SELECT s.index_no, s.initials, s.last_name FROM tbl_students s INNER JOIN tbl_student_has_attendance sa ON s.index_no = sa.student_index INNER JOIN tbl_subject_has_session ss ON sa.subject_session_id = ss.subject_session_id WHERE subject_code='SCS2209' AND date='2021-01-26'";
+            $query = "SELECT subject_session_id FROM tbl_subject_has_session WHERE subject_code='{$subject}' AND date='{$date}'";
+
+            $result = mysqli_query($connect, $query);
+            
+			return $result;
+        }
+        
+        public static function fetchstudents($sessionid, $connect)
+        {
+            $query = "SELECT s.index_no, s.initials, s.last_name FROM tbl_students s INNER JOIN tbl_student_has_attendance sa ON s.index_no = sa.student_index WHERE sa.subject_session_id='{$sessionid}'";
 
             $result = mysqli_query($connect, $query);
             
