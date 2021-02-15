@@ -37,6 +37,10 @@
                     </form>
                 </div>
                 <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
+                    <div>
+                        <input class="sabtn" type="button" value="Select All" onclick="check_all()">
+                        <input class="cabtn" type="button" value="Cancel All" onclick="un_check_all()">
+                    </div>
                     <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                         <tr>
                             <th>Student Index</th>
@@ -50,6 +54,7 @@
                     <button class="subbtn" type="submit" name="saveattendance-submit">Save Attendance</button>
                     <button class="cancelbtn"><a href="amHomeV.php">Cancel</a></button>
                 </form>
+                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>
     </div>
@@ -78,5 +83,26 @@
                 }
             }
         }
+    }
+
+    function check_all() {
+        var checkboxes = document.getElementsByName('smarked[]');
+        checkboxes = [...checkboxes];
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = true
+        }
+    }
+
+    function un_check_all() {
+        var checkboxes = document.getElementsByName('smarked[]');
+        checkboxes = [...checkboxes];
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = false;
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 </script>

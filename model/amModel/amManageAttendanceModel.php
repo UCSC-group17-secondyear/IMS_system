@@ -27,6 +27,15 @@
 			return $result;
         }
 
+        public static function addstudentattendance($sessionid, $date, $sm, $connect)
+        {
+            $query = "INSERT INTO tbl_attendance(student_index, subject_session_id, date, attendance) VALUES ('{$sm}','{$sessionid}','{$date}',1)";
+
+            $result = mysqli_query($connect, $query);
+            
+			return $result;
+        }
+
         public static function fetchAttendance($subject_code, $connect)
         {
             // $query = "";
