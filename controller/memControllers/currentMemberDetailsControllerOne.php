@@ -2,6 +2,7 @@
 
     session_start();
     require_once('../../config/database.php');
+    require_once('../../model/memModel/renewModel.php');
     require_once('../../model/memModel/memModel.php');
 
 ?>
@@ -9,7 +10,7 @@
 <?php
         $user_id = mysqli_real_escape_string($connect, $_SESSION['user_id']);
         $result = memModel::viewMember($user_id,$connect);
-        $result_set = memModel::getMeidcalMemDetails($user_id, $connect);
+        $result_set = renewModel::getMeidcalMemDetails($user_id, $connect);
         
         $result_civil_status = memModel::getCivilStatus($connect);
         
@@ -49,7 +50,7 @@
 
         if(isset($_POST['no-submit'])){
 
-            $scheme = memModel::getSchemeName($user_id, $connect);
+            $scheme = renewModel::getSchemeName($user_id, $connect);
             $s_name = mysqli_fetch_array($scheme);
             $name = $s_name[0];
 

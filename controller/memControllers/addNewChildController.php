@@ -2,7 +2,7 @@
 
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/renewModel.php');
 
 ?>
 <?php
@@ -19,7 +19,7 @@
                 $age = $birthdate->diff($today)->y;
 
                 if($age <= 18 && $cd['liv_status'] == 'Yes'){
-                    $addNewDependant = memModel::addNewChild($user_id, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
+                    $addNewDependant = renewModel::addNewChild($user_id, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
                 
                 }
         }

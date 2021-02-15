@@ -1,15 +1,15 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 ?>
 
 <?php
     
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $result_opd = memModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
-    $result_surgical = memModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
+    $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
+    $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
     
         
             if(mysqli_num_rows($result_opd)==1){
@@ -24,6 +24,9 @@
                 $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
                 $_SESSION['purpose'] = $result_one['purpose'];
                 $_SESSION['bill_amount'] = $result_one['bill_amount'];
+                $_SESSION['file_name'] = $result_one['file_name'];
+
+                
 
                 header('Location:../../view/medicalSchemeMember/memOpdClaimDetailsV.php');
 
@@ -51,6 +54,7 @@
                 $_SESSION['sick_injury'] = $result_one['sick_injury'];
                 $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
                 $_SESSION['nature_of'] = $result_one['nature_of'];
+                $_SESSION['file_name'] = $result_one['file_name'];
 
                 header('Location:../../view/medicalSchemeMember/memSurgicalClaimDetailsV.php');
 

@@ -10,8 +10,8 @@
 
         $batch_no = mysqli_real_escape_string($connect, $_POST['batch_no']);
         $degreeId = mysqli_real_escape_string($connect, $_POST['degree']);
-        echo $batch_no;
-        echo $degreeId;
+        // echo $batch_no;
+        // echo $degreeId;
 
         $result_nominated = mmModel::getNominatedList($batch_no, $degreeId, $connect);
         //print_r($result_nominated);
@@ -27,6 +27,9 @@
 
                 header('Location:../../view/mahapolaSchemeMaintainer/mmNominatedListV.php');
             }
+        }
+        else{
+            header('Location:../../view/mahapolaSchemeMaintainer/mmNoStudentListRecordsV.php');
         }
        
     }

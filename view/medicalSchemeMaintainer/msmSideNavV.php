@@ -28,10 +28,20 @@
                 </ul>
             </li>
             
-            <li>
-                <a href="../../controller/msmControllers/msmViewClaimDetails1C.php">
-                    <button type="submit" class="tree_list">View Claim Details</button>
-                </a>
+            <li><button class="tree_list">View Claim Details</button>
+                <ul class="tree_nest">
+                    <form action="" method="post">
+                        <button name="membershipform-submit" type="submit">
+                            <a href="../../controller/msmControllers/membClaimDetailsControllerOne.php"><li><i class="fa fa-plus-circle"></i>Member wise claim details</li></a>
+                        </button>
+                        <button name="requestedclaim-submit" type="submit">
+                            <a href="../../controller/msmControllers/deptClaimDetailsControllerOne.php"><li><i class="fa fa-pencil-square-o"></i>Department wise claim details</li></a>
+                        </button>
+                        <button name="refferedclaim-submit" type="submit">
+                            <a href="../../controller/msmControllers/ucscClaimDetailsControllerOne.php"><li><i class="fa fa-minus-circle"></i>UCSC claim details</li></a>
+                        </button>
+                    </form>
+                </ul>
             </li>
 
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
@@ -41,10 +51,16 @@
                             <a href="#"><li><i class="fa fa-plus-circle"></i> Membership Form</li></a>
                         </button>
                         <button name="requestedclaim-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>
+                            <a href="../../controller/msmControllers/requestedFormController.php"><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>
                         </button>
-                        <button name="refferedclaim-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-minus-circle"></i> Reffered Claim Form</li></a>
+                        <button name="tobepaid-submit" type="submit">
+                            <a href="../../controller/msmControllers/toBePaidFormController.php"><li><i class="fa fa-plus-circle"></i>Form To Be Paid</li></a>
+                        </button>
+                        <button name="paid-submit" type="submit">
+                            <a href="../../controller/msmControllers/paidFormControllerOne.php"><li><i class="fa fa-minus-circle"></i>Paid Forms</li></a>
+                        </button>
+                        <button name="rejected-submit" type="submit">
+                            <a href="../../controller/msmControllers/rejectFormControllerOne.php"><li><i class="fa fa-minus-circle"></i>Rejected Forms</li></a>
                         </button>
                     </form>
                 </ul>
