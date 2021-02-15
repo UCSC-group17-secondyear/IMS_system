@@ -1,7 +1,7 @@
 <?php
     class claimFormModel {
         public static function getRefClaimForms($connect){
-            $query = "SELECT * FROM tbl_claimform WHERE (acceptance_status='0' OR acceptance_status='1') ORDER BY submitted_date DESC";
+            $query = "SELECT * FROM tbl_claimform WHERE (acceptance_status='0' OR acceptance_status='1') ORDER BY claim_form_no DESC";
 
             $result = mysqli_query($connect, $query);
 

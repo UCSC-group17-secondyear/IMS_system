@@ -131,6 +131,22 @@
 
 			return $result;
 		}
+
+		public static function getMedYearEndDate($year,$connect){
+            $query = "SELECT * FROM tbl_medical_year WHERE YEAR(end_date)='{$year}' LIMIT 1";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+		public static function getFormEndMedDate($medical_year, $connect){
+			$query = "SELECT end_date FROM tbl_medical_year WHERE medical_year='{$medical_year}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
     }
 
 ?>
