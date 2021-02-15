@@ -26,7 +26,7 @@
                             <label>Enter date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="date" placeholder="Date"> <br>
+                            <input type="date" name="date" placeholder="Date" min="<?phpecho date('Y-m-d');?>" max=""> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -40,24 +40,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Mark absent/present</label>
-                        </div>
-                        <div class="col-75">
-                            <select name="mark" required>
-                                <option>Select</option>
-                                <option value="absent" >Absent</option>
-                                <option value="present" >Present</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="subbtn" type="submit" name="markattendance-submit">
-                        <a href="amEnterAttendaceV.php">Mark Attendance</a>
-                    </button>
-                    <button class="cancelbtn" type="submit" name="updateattendance-submit">
-                        <a href="amUpdateAttendaceV.php">Update Attendance</a>
-                    </button>
+                    <button class="subbtn" type="submit" name="markattendance-submit">Mark Attendance</button>
+                    <button class="cancelbtn" type="submit" name="updateattendance-submit">Update Attendance</button>
                 </form>
             </div>
         </div>
