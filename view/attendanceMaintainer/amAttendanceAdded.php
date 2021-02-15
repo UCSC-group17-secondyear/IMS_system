@@ -7,7 +7,6 @@
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
             <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or Update Attendance</a></li>
-            <li><a href="#">Enter attendance</a></li>
             <li class="active">Action Success!</li>
         </ul>
 
@@ -19,9 +18,6 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>The attendance is added successfully.

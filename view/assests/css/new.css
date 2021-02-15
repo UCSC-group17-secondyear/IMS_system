@@ -453,6 +453,7 @@ ul.breadcrumbs li a:hover {
   content: "";
   display: table;
   clear: both;
+  margin-bottom: 0;
 }
 
 .col-25 {
@@ -930,6 +931,15 @@ img.avatar {
   border-radius: 10px;
 }
 
+.cancelbtn a {
+  text-decoration: none;
+  color: white;
+}
+
+.cancelbtn:hover {
+  background-color: red;
+}
+
 .redbtn{
   width: 30%;
   background-color: red;
@@ -957,13 +967,31 @@ img.avatar {
   border-radius: 10px;
 }
 
-.cancelbtn a {
-  text-decoration: none;
-  color: white;
+.sabtn {
+  width: 13%;
+  background-color: #1177d1;
+  color: ivory;
+  height: 40px;
+  margin-top: 3%;
+  margin-left: 35%;
+  font-size: 18px;
+  margin-bottom: -2%;
+  border: 0;
+  border-radius: 10px;
 }
 
-.cancelbtn:hover {
-  background-color: red;
+.cabtn {
+  width: 13%;
+  background-color: crimson;
+  color: white;
+  height: 40px;
+  margin-top: 3%;
+  margin-left: 3%;
+  border: 0px;
+  font-size: 18px;
+  margin-bottom: -2%;
+  border: 0;
+  border-radius: 10px;
 }
 
 .sansserif {
