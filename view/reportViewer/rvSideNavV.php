@@ -23,15 +23,17 @@
 
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="#" ><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
-                    </button>
-                    <button>
-                        <a href="../../controller/rvControllers/refferedFormController.php" ><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
-                    </button>
-                    <button>
-                        <a href="../../controller/rvControllers/requestedFormController.php" ><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
-                    </button>
+                    <form action="../../controller/rvControllers/rvViewFormsController.php" method="post">
+                        <button name="membershipform-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i> Membership Form</li></a>
+                        </button>
+                        <button>
+                            <a href="../../controller/rvControllers/refferedFormController.php" ><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
+                        </button>
+                        <button>
+                            <a href="../../controller/rvControllers/requestedFormController.php" ><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
+                        </button>
+                    </form>
                 </ul>
             </li>
 
