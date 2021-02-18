@@ -30,7 +30,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a>
+                        <a href="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a>
                     </button>
                     <button class="cancelbtn">
                         <a href="asmHomeV.php">Leave</a> 
