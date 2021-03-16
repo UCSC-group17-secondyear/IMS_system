@@ -17,26 +17,26 @@
                 </a>
             </li>
             <li>
-                <a href="mmViewReportsMahapolaSchemeV.php">    
+                <a href="../../controller/mmControllers/mahapolaListControllerOne.php">    
                     <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
                 </a>
             </li>
             <li><button class="tree_list">View Student Attendance Reports</button>
                 <ul class="tree_nest">
                     <button>
-                        <a href="mmStudentWiseAttendanceV.php"><li><i class="fa fa-plus-circle"></i>View Attendance Student Wise</li></a>
+                        <a href="mmStudentWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Student Wise</li></a>
                     </button>
                     <button>
-                        <a href="mmMonthWiseAttendanceV.php"><li><i class="fa fa-minus-circle"></i>View Attendance Month Wise</li></a></button>
+                        <a href="mmMonthWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Month Wise</li></a></button>
                     </button>
                     <button>
-                        <a href="mmSubjectWiseAttendanceV.php"><li><i class="fa fa-pencil-square-o"></i>View Attendance Subject Wise</li></a>
+                        <a href="mmSubjectWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Subject Wise</li></a>
                     </button>
                     <button>
-                        <a href="mmBatchWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Batch Wise</li></a>
+                        <a href="mmBatchWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Batch Wise</li></a>
                     </button>
                     <button>
-                        <a href="mmSemesterWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Semester Wise</li></a>
+                        <a href="mmSemesterWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Semester Wise</li></a>
                     </button>
                 </ul>
             </li>

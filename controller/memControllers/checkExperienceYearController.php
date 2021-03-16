@@ -1,22 +1,22 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel/memModel.php');
+    require_once('../../model/memModel/renewModel.php');
 ?>
 
 <?php
     
      if(isset($_POST['yes-submit'])){
          $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-         $scheme_name = memModel::getSchemeName($user_id, $connect);
+         $scheme_name = renewModel::getSchemeName($user_id, $connect);
          $s_name = mysqli_fetch_array($scheme_name);
          $name = $s_name[0];
         
-         $diff = memModel::getDateDiffFromJoin($user_id, $connect);
+         $diff = renewModel::getDateDiffFromJoin($user_id, $connect);
          $appoint_diff = mysqli_fetch_array($diff);
          $date_diff = (int)$appoint_diff[0];
 
-         $mem_type = memModel::checkMemberType($user_id, $connect);
+         $mem_type = renewModel::checkMemberType($user_id, $connect);
          $m_type = mysqli_fetch_array($mem_type);
          $type = $m_type[0];
          echo $type;

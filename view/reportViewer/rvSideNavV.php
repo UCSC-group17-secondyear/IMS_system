@@ -23,20 +23,22 @@
 
             <li><button class="tree_list">View Forms of the Medical Scheme</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="#" name="membership-submit"><li><i class="fa fa-plus-circle"></i>Membership Form</li></a>
-                    </button>
-                    <button>
-                        <a href="#" name="refferedClaim-submit"><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
-                    </button>
-                    <button>
-                        <a href="#" name="requestedClaim-submit"><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
-                    </button>
+                    <form action="../../controller/rvControllers/rvViewFormsController.php" method="post">
+                        <button name="membershipform-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i> Membership Form</li></a>
+                        </button>
+                        <button>
+                            <a href="../../controller/rvControllers/refferedFormController.php" ><li><i class="fa fa-minus-circle"></i>Reffered Claim Form</li></a></button>
+                        </button>
+                        <button>
+                            <a href="../../controller/rvControllers/requestedFormController.php" ><li><i class="fa fa-pencil-square-o"></i>Requested Claim Form</li></a>
+                        </button>
+                    </form>
                 </ul>
             </li>
 
             <li>
-                <a href="rvViewMahapolaNominatedListV.php">
+                <a href="../../controller/rvControllers/mahapolaNominatedListC1.php">
                     <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
                 </a>
             </li>
@@ -52,10 +54,20 @@
                 </a>
             </li>
 
-            <li>
-                <a href="rvViewSchemeDetailsV.php">
-                    <button type="submit" class="tree_list">View Claim Details</button>
-                </a>
+            <li><button class="tree_list">View Claim Details</button>
+                <ul class="tree_nest">
+                    <form action="" method="post">
+                        <button name="membershipform-submit" type="submit">
+                            <a href="../../controller/rvControllers/membClaimDetailsControllerOne.php"><li><i class="fa fa-plus-circle"></i>Member wise claim details</li></a>
+                        </button>
+                        <button name="requestedclaim-submit" type="submit">
+                            <a href="../../controller/rvControllers/deptClaimDetailsControllerOne.php"><li><i class="fa fa-pencil-square-o"></i>Department wise claim details</li></a>
+                        </button>
+                        <button name="refferedclaim-submit" type="submit">
+                            <a href="../../controller/rvControllers/ucscClaimDetailsControllerOne.php"><li><i class="fa fa-minus-circle"></i>UCSC claim details</li></a>
+                        </button>
+                    </form>
+                </ul>
             </li>
 
             <li>
