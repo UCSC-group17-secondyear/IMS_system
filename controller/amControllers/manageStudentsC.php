@@ -25,7 +25,9 @@
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
         $academic_year = $_POST['academic_year'];
+        $semester = $_POST['semester'];
         $degree = $_POST['degree'];
+        $batch_number = $_POST['batch_number'];
         $indexFlag = 0;
         $regNumFlag = 0;
         $mailFlag = 0;
@@ -76,7 +78,7 @@
             header('Location:../../view/attendanceMaintainer/amEmailExist.php');
         }
         elseif ($errorFlag == 0) {
-            $result = amModel::addStudent($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
+            $result = amModel::addStudent($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $semester, $degree, $batch_number, $connect);
 
             if ($result) {
                 header('Location:../../view/attendanceMaintainer/amStudentAdded.php');

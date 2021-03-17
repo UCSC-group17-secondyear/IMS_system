@@ -37,7 +37,7 @@
                             <label>Enter Registration Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="registrstion_no" placeholder="Student Registration No" required/>
+                            <input type="text" name="registration_no" placeholder="Student Registration No" required/>
                         </div>
                     </div>
 
@@ -85,6 +85,19 @@
 
                     <div class="row">
                         <div class="col-25">
+                            <label>Select Semester</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="semester" id="semester">
+                                <!-- <option>Academic Year of the student</option> -->
+                                <option value="1">1st semester</option>
+                                <option value="2">2nd semester</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
                             <label>Select degree</label>
                         </div>
                         <div class="col-75">
@@ -92,6 +105,15 @@
                                 <!-- <option value="">Select degree: </option> -->
                                 <?php echo $_SESSION['degreeList'] ?>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter batch number of the student</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="batch_number" name="batch_number" placeholder="Batch Number" required/>
                         </div>
                     </div>
 
