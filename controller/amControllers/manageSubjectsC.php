@@ -2,7 +2,23 @@
     require_once('../../model/amModel/amManageSubjectModel.php');
     require_once('../../config/database.php');
 
-    if(isset($_POST['addSubject-submit'])) {
+    if (isset($_POST['fetchDegress-submit'])) {
+        $records = amModel::getDegreeList($connect);
+        session_start();
+        $_SESSION['degreeList'] = '';
+
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degree_name']."'>".$record['degree_name']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amEnterSubjectDetails.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amNoDegreesAvailableV.php');
+        }
+    }
+
+    elseif(isset($_POST['addSubject-submit'])) {
     	$subject_code = $_POST['subject_code'];
     	$subject_name = $_POST['subject_name'];
     	$degree = $_POST['degree'];
@@ -12,7 +28,6 @@
     	$checkSubCode = amModel::checkSubCode ($subject_code, $connect);
     	if (mysqli_num_rows($checkSubCode) == 1) {
     		header('Location:../../view/attendanceMaintainer/amSubjectExists.php');
-            // echo "subject_code exists";
         }
         else {
         	$result = amModel::addSubject ($subject_code, $subject_name, $degree, $academic_year, $semester, $connect);
@@ -26,10 +41,26 @@
         }
     }
 
-    elseif(isset($_POST['deleteupdateSubject-submit'])) {
-    	$subject_code = $_POST['subject_code'];
+    elseif (isset($_POST['fetchSubjects-submit'])) {
+        $records = amModel::getSubjectsList($connect);
+        session_start();
+        $_SESSION['subjectList'] = '';
 
-    	$fetchSubject = amModel::fetchSubject ($subject_code, $connect);
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['subjectList'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amDeleteUpdateSubjectSearch.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amNoSubjectsAvailableV.php');
+        }
+    }
+
+    elseif(isset($_POST['deleteupdateSubject-submit'])) {
+    	$subject_name = $_POST['subject_name'];
+
+    	$fetchSubject = amModel::fetchSubject ($subject_name, $connect);
 
     	if (mysqli_num_rows($fetchSubject) == 1) {
     		session_start();

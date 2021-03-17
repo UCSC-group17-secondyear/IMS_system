@@ -26,12 +26,6 @@
                             </a>
                         </button>
                     </form>
-
-                    <!-- <button>
-                        <a href="amDeleteUpdateStudentSearchV.php">
-                            <li><i class="fa fa-pencil-square-o"></i>Update or Remove Students</li>
-                        </a>
-                    </button> -->
                 </ul>
             </li>
 
@@ -44,18 +38,25 @@
                             </a>
                         </button>
                     </form>
-                    <button>
-                        <a href="amEnterSubjectDetails.php">
-                            <li><i class="fa fa-plus-circle"></i> Add Subjects</li>
-                        </a>
-                    </button>
-                    <button>
-                        <a href="amDeleteUpdateSubjectSearch.php">
-                            <li><i class="fa fa-pencil-square-o"></i> Update or Remove Subjects</li>
-                        </a>
-                    </button>
+
+                    <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
+                        <button name="fetchDegress-submit">
+                            <a href="#">
+                                <li><i class="fa fa-user"></i> Add Subjects</li>
+                            </a>
+                        </button>
+                    </form>
+
+                    <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
+                        <button name="fetchSubjects-submit">
+                            <a href="#">
+                                <li><i class="fa fa-user"></i> Update or Remove Subjects</li>
+                            </a>
+                        </button>
+                    </form>
                 </ul>
             </li>
+
             <li><button class="tree_list">Manage Attendance</button>
                 <ul class="tree_nest">
                     <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
@@ -72,8 +73,17 @@
                     </form>
                 </ul>
             </li>
+
             <li><button class="tree_list">View Attendance</button>
                 <ul class="tree_nest">
+                    <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                        <button name="fetchStudents-submit">
+                            <a href="#">
+                                <li><i class="fa fa-user"></i> Student Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
                     <button>
                         <a href="amStudentWiseAttendanceV.php">
                             <li><i class="fa fa-check-circle"></i> Student Wise Attendance</li>

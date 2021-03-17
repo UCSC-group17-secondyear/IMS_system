@@ -41,10 +41,13 @@
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Relevant Degree</label>
+                            <label>Select relevant degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="degree" placeholder="Degree" required/> <br>
+                            <select name="degree" id="degree">
+                                <!-- <option value="">Select degree: </option> -->
+                                <?php echo $_SESSION['degreeList'] ?>
+                            </select>
                         </div>
                     </div>
 

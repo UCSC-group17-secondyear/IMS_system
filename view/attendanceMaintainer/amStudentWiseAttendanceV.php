@@ -25,10 +25,12 @@
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Student Index</label>
+                            <label>Select Student Index</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="student_index" placeholder="Student Index" min="0" /> <br>
+                            <select name="index_no">
+                                <?php echo $_SESSION['student_indexes']; ?>
+                            </select>
                         </div>
                     </div>
 

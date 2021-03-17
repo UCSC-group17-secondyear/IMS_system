@@ -1,5 +1,21 @@
 <?php
 	class amModel {
+		public static function getDegreeList($connect) {
+			$query = "SELECT * FROM tbl_degree 
+			WHERE is_deleted = 0 
+			ORDER BY degree_id ASC";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function getSubjectsList($connect) {
+			$query = "SELECT subject_name FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_code ASC";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
 		public static function viewSubjects ($connect)
 		{
 			$query = "SELECT * FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_id ASC";
@@ -27,10 +43,10 @@
 			return $result_set;
 		}
 
-		public static function fetchSubject ($subject_code, $connect) 
+		public static function fetchSubject ($subject_name, $connect) 
 		{
 			$query = "SELECT * FROM tbl_subject 
-			WHERE subject_code = '{$subject_code}' and is_deleted = 0
+			WHERE subject_name = '{$subject_name}' and is_deleted = 0
 			LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);

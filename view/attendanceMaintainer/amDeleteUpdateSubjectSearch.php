@@ -22,10 +22,12 @@
                 <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter subject code</label>
+                            <label>Select subject</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject_code" placeholder="Subject Code" required/> <br>
+                            <select name="subject_name" id="subject_name">
+                                <?php echo $_SESSION['subjectList'] ?>
+                            </select>
                         </div>
                     </div>
                     <button class="subbtn" type="submit" name="deleteupdateSubject-submit">Select</button>
