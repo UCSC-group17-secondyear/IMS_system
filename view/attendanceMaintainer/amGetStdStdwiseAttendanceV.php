@@ -29,7 +29,20 @@
                             <label>Select subject/s</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject_code" placeholder="Student Code" /> <br>
+                            <select name="subject_name">
+                                <?php echo $_SESSION['subjectsList']; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select session type</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="subject_name">
+                                <?php echo $_SESSION['sessionTypes']; ?>
+                            </select>
                         </div>
                     </div>
 

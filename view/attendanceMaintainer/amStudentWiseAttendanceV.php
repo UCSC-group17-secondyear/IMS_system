@@ -22,7 +22,7 @@
                 <h2>Studentwise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Select Student Index</label>
@@ -34,8 +34,7 @@
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="select-submit">
-                        <a href="amGetStdStdwiseAttendanceV.php">Enter</a>
+                    <button class="subbtn" type="submit" name="filterStudent-submit">Enter
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
