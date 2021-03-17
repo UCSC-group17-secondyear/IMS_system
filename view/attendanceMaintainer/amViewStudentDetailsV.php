@@ -23,7 +23,7 @@
                     <h2>Students' Details</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable" style="margin-left: 20%;" >
+                <table id="tableStyle" class="mytable" >
                     <tr>
                         <th>Index No</th>
                         <th>Registration Number</th>
@@ -31,7 +31,9 @@
                         <th>Last name</th>
                         <th>Email</th>
                         <th>Academic Year</th>
+                        <th>Semester</th>
                         <th>Degree</th>
+                        <th>Batch Number</th>
                     </tr>
                     <?php echo $_SESSION['student_list']; ?>
                 </table>
