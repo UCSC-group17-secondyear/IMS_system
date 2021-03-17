@@ -6,6 +6,8 @@
     	$subject_code = $_POST['subject_code'];
     	$subject_name = $_POST['subject_name'];
     	$degree = $_POST['degree'];
+        $academic_year = $_POST['academic_year'];
+        $semester = $_POST['semester'];
 
     	$checkSubCode = amModel::checkSubCode ($subject_code, $connect);
     	if (mysqli_num_rows($checkSubCode) == 1) {
@@ -13,7 +15,7 @@
             // echo "subject_code exists";
         }
         else {
-        	$result = amModel::addSubject ($subject_code, $subject_name, $degree, $connect);
+        	$result = amModel::addSubject ($subject_code, $subject_name, $degree, $academic_year, $semester, $connect);
 
             if ($result) {
                 header('Location:../../view/attendanceMaintainer/amSubjectAdded.php');
@@ -35,6 +37,8 @@
             $_SESSION['subject_code'] = $result['subject_code'];
             $_SESSION['subject_name'] = $result['subject_name'];
             $_SESSION['degree'] = $result['degree'];
+            $_SESSION['academic_year'] = $result['academic_year'];
+            $_SESSION['semester'] = $result['semester'];
 
             header('Location:../../view/attendanceMaintainer/amDeleteUpdateSubjectV.php');
     	}
@@ -47,8 +51,10 @@
     	$subject_code = $_POST['subject_code'];
     	$subject_name = $_POST['subject_name'];
     	$degree = $_POST['degree'];
+        $academic_year = $_POST['academic_year'];
+        $semester = $_POST['semester'];
 
-    	$result = amModel::saveUpdatedSubject ($subject_code, $subject_name, $degree, $connect);
+    	$result = amModel::saveUpdatedSubject ($subject_code, $subject_name, $degree, $academic_year, $semester, $connect);
 
         if ($result) {
             header('Location:../../view/attendanceMaintainer/amSubjectUpdated.php');
@@ -73,16 +79,18 @@
 
     elseif(isset($_POST['viewSubjects-submit'])) {
     	session_start();
-        $_SESSION['subjects_list'] = '';
+        $_SESSION['subject_list'] = '';
 
         $records = amModel::viewSubjects ($connect);
         
         if ($records) {
         	while ($record = mysqli_fetch_assoc($records)) {
                 $_SESSION['subject_list'] .= "<tr>";
-                $_SESSION['subject_list'] .= "<td>{$record['$subject_code']}</td>";
-                $_SESSION['subject_list'] .= "<td>{$record['$subject_name']}</td>";
-                $_SESSION['subject_list'] .= "<td>{$record['$degree']}</td>";
+                $_SESSION['subject_list'] .= "<td>{$record['subject_code']}</td>";
+                $_SESSION['subject_list'] .= "<td>{$record['subject_name']}</td>";
+                $_SESSION['subject_list'] .= "<td>{$record['degree']}</td>";
+                $_SESSION['subject_list'] .= "<td>{$record['academic_year']}</td>";
+                $_SESSION['subject_list'] .= "<td>{$record['semester']}</td>";
                 $_SESSION['subject_list'] .= "</tr>";
 
                 header('Location:../../view/attendanceMaintainer/amViewSubjects.php');

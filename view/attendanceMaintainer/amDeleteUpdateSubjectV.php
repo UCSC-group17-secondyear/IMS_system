@@ -51,6 +51,24 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Academic Year</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" name="academic_year"  <?php echo 'value="'.$_SESSION['academic_year'].'"' ?> />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Semester</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" name="semester"  <?php echo 'value="'.$_SESSION['semester'].'"' ?> />
+                        </div>
+                    </div>
+
                     <button class="subbtn" type="submit" name="updateSubject-submit">Save Updates</button>
                     <button class="cancelbtn" type="submit" name="remeoveSubject-submit">
                         <a href="amSubjectRemoved.php">Remove Subject</a> 
