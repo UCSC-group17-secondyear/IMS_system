@@ -122,7 +122,6 @@
     	$degree_name = $_POST['degree_name'];
     	$academic_year = $_POST['academic_year'];
     	$semester = $_POST['semester'];
-    	echo "$calander_year";
 
     	/*if (!($calander_year <= date("Y"))) {
     		echo "future year";
@@ -244,7 +243,7 @@
         else if ($startDate > $endDate) {
             header('Location:../../view/attendanceMaintainer/amStartEndDateIssueM.php');
         }
-        
+
         else {
             $result_subject_id = amModel::getSubjectID($subject_name, $connect);
             $result1 = mysqli_fetch_assoc($result_subject_id);
@@ -283,6 +282,85 @@
             }
             else {
                 header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID_S.php');
+            }
+        }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    elseif (isset($_POST['filterSubjects-submit'])) {
+        session_start();
+        $degree_name = $_POST['degree_name'];
+        $academic_year = $_POST['academic_year'];
+        $semester = $_POST['semester'];
+        
+        $records1 = amModel::filterSubjects($academic_year, $semester, $degree_name, $connect);
+        $records2 = amModel::filterSessionTypes($connect);
+
+        if ($records1 && $records2) {
+            session_start();
+            $_SESSION['subject_list'] = '';
+            $_SESSION['sessionTypes'] = '';
+
+            while ($record = mysqli_fetch_array($records1)) {
+                $_SESSION['subject_list'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']."</option>";
+            }
+
+            while ($record = mysqli_fetch_array($records2)) {
+                $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amSelectSub_B.php');
+        }
+    }
+
+    elseif (isset($_POST['batchWise-submit'])) {
+        $batch_number = $_POST['batch_number'];
+        $subject_name = $_POST['subject_name'];
+        $sessionType = $_POST['sessionType'];
+        $startDate = $_POST['startDate'];
+        $endDate = $_POST['endDate'];
+
+        if ($startDate > $endDate) {
+            header('Location:../../view/attendanceMaintainer/amStartEndDateIssueB.php');
+        }
+        else {
+            session_start();
+            $_SESSION['batch_number'] = $batch_number;
+            $_SESSION['subject_name'] = $subject_name;
+            $_SESSION['sessionType'] = $sessionType;
+            $_SESSION['startDate'] = $startDate;
+            $_SESSION['endDate'] = $endDate;
+
+            $result_subject_id = amModel::getSubjectID($subject_name, $connect);
+            $result1 = mysqli_fetch_assoc($result_subject_id);
+
+            $result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
+            $result2 = mysqli_fetch_assoc($result_sessionTypeId);
+
+            if ($result1 && $result2) {
+                $subject_id = $result1['subject_id'];
+                $sessionTypeId = $result2['sessionTypeId'];
+
+                $records = amModel::batchAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
+
+                if ($records) {
+                    $_SESSION['batchWise_attendance'] = '';
+
+                    while ($record = mysqli_fetch_assoc($records)) {
+                        $_SESSION['batchWise_attendance'] .= "<tr>";
+                        $_SESSION['batchWise_attendance'] .= "<td>{$record['student_index']}</td>";
+                        $_SESSION['batchWise_attendance'] .= "<td>{$record['attendance']}</td>";
+                        $_SESSION['batchWise_attendance'] .= "</tr>";
+                    }
+
+                    header('Location:../../view/attendanceMaintainer/amDisplayBatchAttendanceV.php');
+                }
+                else {
+                    header('Location:../../view/attendanceMaintainer/amNoBatchAttendance.php');
+                }
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID_Batch.php');
             }
         }
     }
