@@ -29,6 +29,7 @@
                             <input type="text" name="subject_code" placeholder="Subject Code" required/> <br>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Subject Name</label>
@@ -37,14 +38,37 @@
                             <input type="text" name="subject_name" placeholder="Subject Name" required/> <br>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Relavant Degree</label>
+                            <label>Select relevant degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="textarea" name="degree" placeholder="Degree" required/> <br>
+                            <select name="degree" id="degree">
+                                <!-- <option value="">Select degree: </option> -->
+                                <?php echo $_SESSION['degreeList'] ?>
+                            </select>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter Relevant Academic year</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" name="academic_year" placeholder="Academic Year" min="1" max="4"required/> <br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter Relevant Semester</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" name="semester" placeholder="Semester" min="1" max="2" required/> <br>
+                        </div>
+                    </div>
+
                     <button class="subbtn" type="submit" name="addSubject-submit">Add Subject</button>
                     
                     <button class="cancelbtn">

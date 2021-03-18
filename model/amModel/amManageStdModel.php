@@ -47,10 +47,10 @@
 			return $result_set;
 		}
 
-		public static function addStudent($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $degree, $connect) 
+		public static function addStudent($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $semester, $degree, $batch_number, $connect) 
 		{
-			$query = "INSERT INTO tbl_students (index_no, registration_no, initials, last_name, email, academic_year, degree) 
-			VALUES('$index_no', '$registration_no', '$initials', '$last_name', '$email', '$academic_year', '$degree')";
+			$query = "INSERT INTO tbl_students (index_no, registration_no, initials, last_name, email, academic_year, semester, degree, batch_number) 
+			VALUES('$index_no', '$registration_no', '$initials', '$last_name', '$email', '$academic_year', '$semester', '$degree', '$batch_number')";
 			
 			if($connect->query($query))
 				return true;
