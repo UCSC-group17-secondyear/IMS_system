@@ -35,5 +35,25 @@
             
 			return $result;
         }
+
+        public static function getSubjectID($subject_name, $connect)
+        {
+        	$query = "SELECT subject_id FROM tbl_subject WHERE subject_name = '{$subject_name}' AND is_deleted = 0 ";
+        	$result = mysqli_query($connect, $query);
+        	return $result;
+        }
+
+        public static function getSessionTypeID($sessionType, $connect)
+        {
+        	$query = "SELECT sessionTypeId FROM sessiontypes WHERE sessionType = '{$sessionType}' AND is_deleted = 0 ";
+        	$result = mysqli_query($connect, $query);
+        	return $result;
+        }
+
+        public static function stdAttendance($index_no, $subject_id, $sessionTypeId, $startDate, $endDate, $connect) {
+        	$query = "SELECT date, attendance FROM tbl_attendance WHERE student_index = '{$index_no}' AND subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' AND date BETWEEN  '{$startDate}' AND '{$endDate}' ";
+        	$result = mysqli_query($connect, $query);
+        	return $result;
+        }
     }
 ?>

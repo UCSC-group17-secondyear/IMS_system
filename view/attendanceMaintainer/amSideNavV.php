@@ -85,11 +85,6 @@
                     </form>
 
                     <button>
-                        <a href="amStudentWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i> Student Wise Attendance</li>
-                        </a>
-                    </button>
-                    <button>
                         <a href="amMonthWiseAttendanceV.php">
                             <li><i class="fa fa-check-circle"></i> Month Wise Attendance</li>
                         </a>
