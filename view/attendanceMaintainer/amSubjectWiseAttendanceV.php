@@ -22,13 +22,26 @@
                 <h2>Get Subject-wise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Subject</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject" placeholder="Subject" required/> <br>
+                            <select name="subject_name">
+                                <?php echo $_SESSION['subjects_list'] ; ?> <br>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter Session Type</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="sessionType">
+                                <?php echo $_SESSION['sessionTypes'] ; ?> <br>
+                            </select>
                         </div>
                     </div>
 
@@ -37,7 +50,7 @@
                             <label>Batch Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="batch_number" placeholder="Batch Number" min="0" required/> <br>
+                            <input type="number" name="batch_number" placeholder="Batch Number" min="1" required/> <br>
                         </div>
                     </div>
 
@@ -65,7 +78,7 @@
                             <label>Enter Start Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="start_date" placeholder="Start Date" required/> <br>
+                            <input type="date" name="startDate" placeholder="Start Date" required/> <br>
                         </div>
                     </div>
 
@@ -74,12 +87,12 @@
                             <label>Enter End Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="end_date" placeholder="End Date" required/> <br>
+                            <input type="date" name="endDate" placeholder="End Date" required/> <br>
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="select-submit">
-                        <a href="amDisplaySubjectAttendanceV.php">Display Attendance</a> 
+                    <button class="subbtn" type="submit" name="subjectWise-submit">Display Attendance
+                        <!-- <a href="amDisplaySubjectAttendanceV.php">Display Attendance</a> --> 
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

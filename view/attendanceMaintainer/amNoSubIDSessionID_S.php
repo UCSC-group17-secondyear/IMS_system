@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amStudentWiseAttendanceV.php">Student-wise Attendance</a></li>
+            <li><a href="amSubjectWiseAttendanceV.php">Subject-wise Attendance</a></li>
             <li class="active">Request Failed!</li>
         </ul>
 
@@ -29,7 +29,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="amStudentWiseAttendanceV.php">Try again</a> 
+                        <a href="amSubjectWiseAttendanceV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

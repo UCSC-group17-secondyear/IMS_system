@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amStudentWiseAttendanceV.php">Student-wise Attendance</a></li>
+            <li><a href="amSubjectWiseAttendanceV.php">Subject-wise Attendance</a></li>
             <li class="active">Request Failed!</li>
         </ul>
 
@@ -24,12 +24,12 @@
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!<br>
-                        The system has failed to fetch subject and/or session data.
+                        The are no attendance records related to your search.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amStudentWiseAttendanceV.php">Try again</a> 
+                        <a href="amSubjectWiseAttendanceV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

@@ -194,7 +194,6 @@
 	            	$_SESSION['monthAttendance_list'] .= "<td>{$record['student_index']}</td>";
 	            	$_SESSION['monthAttendance_list'] .= "<td>{$record['attendance']}</td>";
 	            	$_SESSION['monthAttendance_list'] .= "</tr>";
-	            	print($record['date']);
 	            }
 
 	            header('Location:../../view/attendanceMaintainer/amDisplayMonthlyAttendanceV.php');
@@ -206,5 +205,85 @@
     	else {
     		header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID.php');
     	}
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    elseif (isset($_POST['fetchSubjects-submit'])) {
+        session_start();
+        $records1 = amModel::fetchSubjects($connect);
+        $records2 = amModel::filterSessionTypes($connect);
+
+        if ($records1 && $records2) {
+            session_start();
+            $_SESSION['subjectsList'] = '';
+            $_SESSION['sessionTypes'] = '';
+
+            while ($record = mysqli_fetch_array($records1)) {
+                $_SESSION['subjectsList'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']."</option>";
+            }
+
+            while ($record = mysqli_fetch_array($records2)) {
+                $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amSubjectWiseAttendanceV.php');
+        }
+    }
+
+    elseif (isset($_POST['subjectWise-submit'])) {
+        $subject_name = $_POST['subject_name'];
+        $sessionType = $_POST['sessionType'];
+        $batch_number = $_POST['batch_number'];
+        $startDate = $_POST['startDate'];
+        $endDate = $_POST['endDate'];
+
+        if ($batch_number<=0) {
+            header('Location:../../view/attendanceMaintainer/amBatchNumIssueM.php');
+        }
+
+        else if ($startDate > $endDate) {
+            header('Location:../../view/attendanceMaintainer/amStartEndDateIssueM.php');
+        }
+        
+        else {
+            $result_subject_id = amModel::getSubjectID($subject_name, $connect);
+            $result1 = mysqli_fetch_assoc($result_subject_id);
+
+            $result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
+            $result2 = mysqli_fetch_assoc($result_sessionTypeId);
+
+            if ($result1 && $result2) {
+                $subject_id = $result1['subject_id'];
+                $sessionTypeId = $result2['sessionTypeId'];
+
+                $records = amModel::fetchSubjectAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
+
+                if ($records) {
+                    session_start();
+                    $_SESSION['subWise_attendance'] = '';
+
+                    while ($record = mysqli_fetch_assoc($records)) {
+                        $_SESSION['subWise_attendance'] .= "<tr>";
+                        $_SESSION['subWise_attendance'] .= "<td>{$record['student_index']}</td>";
+                        $_SESSION['subWise_attendance'] .= "<td>{$record['attendance']}</td>";
+                        $_SESSION['subWise_attendance'] .= "</tr>";
+                    }
+
+                    $_SESSION['subject_name'] = $subject_name;
+                    $_SESSION['sessionType'] = $sessionType;
+                    $_SESSION['batch_number'] = $batch_number;
+                    $_SESSION['startDate'] = $startDate;
+                    $_SESSION['endDate'] = $endDate;
+
+                    header('Location:../../view/attendanceMaintainer/amDisplaySubjectAttendanceV.php');
+                }
+                else {
+                    header('Location:../../view/attendanceMaintainer/amNoSubjectAttendance.php');
+                }
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID_S.php');
+            }
+        }
     }
 ?>
