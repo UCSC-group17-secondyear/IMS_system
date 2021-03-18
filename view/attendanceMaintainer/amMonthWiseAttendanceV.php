@@ -22,13 +22,13 @@
                 <h2>Monthwise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Enter calendar year</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="calander_year" placeholder="Calander Year" /> <br>
+                            <input type="text" name="calander_year" placeholder="Calander Year" required /> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -36,36 +36,39 @@
                             <label>Enter month</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="month" placeholder="Month" /> <br>
+                            <input type="number" name="month" placeholder="Month" min="1" max="12" required /> <br>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="degree" placeholder="Degree" /> <br>
+                            <select name="degree_name">
+                                <?php echo $_SESSION['degree_list']; ?>
+                            </select>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Academic Year</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="academic_year" placeholder="Academic Year" /> <br>
+                            <input type="number" name="academic_year" placeholder="Academic Year" min="1" max="4" required /> <br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Subject</label>
+                            <label>Select Semester</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject" placeholder="Subject" /> <br>
+                            <input type="number" name="semester" placeholder="Semester" min="1" max="2" required /> <br>
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="select-submit">
-                        <a href="amDisplayMonthlyAttendanceV.php"> Display Attendance</a>
+                    <button class="subbtn" type="submit" name="getSubjects-submit">Display Attendance
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

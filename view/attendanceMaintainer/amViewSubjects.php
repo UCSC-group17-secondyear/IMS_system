@@ -21,11 +21,13 @@
                     <h2>Subject Details</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
+                <table id="tableStyle" class="mytable" style="margin-left: 15%;" >
                     <tr>
                         <th>Subject Code</th>
                         <th>Subject Name</th>
                         <th>Degree</th>
+                        <th>Academic Year</th>
+                        <th>Semester</th>
                     </tr>
                     <?php echo $_SESSION['subject_list']; ?>
                 </table>
