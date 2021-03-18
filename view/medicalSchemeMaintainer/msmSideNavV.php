@@ -11,7 +11,7 @@
                             <a href="#"><li><i class="fa fa-pencil-square-o"></i> Update a Medical Year</li></a>
                         </button>
                         <button name="viweMYDetails-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-user"></i> View Medical Year</li></a>
+                            <a href="#"><li><i class="fa fa-user"></i> View Medical Years</li></a>
                         </button>
                     </form>
                 </ul>

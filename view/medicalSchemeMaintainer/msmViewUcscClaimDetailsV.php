@@ -21,19 +21,19 @@
                 </div>
                 <div class="contentForm">
                     <form action="../../controller/msmControllers/msmviewclaimdetailsC.php" method="POST">
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="">Enter Medical Year</label>
-                        </div>
-                        <div class="col-75">
-                            <select name="medical_year" id="" required>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Enter Medical Year</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="medical_year" id="" required>
                                     <option value=""><?php echo $_SESSION['medical_year'] ?></option>
-                            </select>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <button class="subbtn" name="ucsc-claim-submit">Dispaly Claim Details</button>
-                    <button class="cancelbtn" type="submit" name=""><a href="msmHomeV.php">Exit</a></button>
-                    </form>                
+                        <button class="subbtn" name="ucsc-claim-submit">Dispaly Claim Details</button>
+                        <button class="cancelbtn" type="submit" name=""><a href="msmHomeV.php">Exit</a></button>
+                    </form>     
                 </div>
             </div>
         </div>
