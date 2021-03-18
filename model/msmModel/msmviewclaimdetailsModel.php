@@ -23,5 +23,45 @@
 
             return $result;
         }
+
+        public static function viewDept($connect){
+            $query = "SELECT department FROM tbl_department";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getMemIds($year, $connect){
+            $query = "SELECT user_id FROM tbl_claimdetails WHERE year='{$year}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getMemDepartment($connect, $id){
+            $query = "SELECT department FROM tbl_user_flag WHERE user_id='{$id}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getMemAmountDet($connect, $id){
+            $query = "SELECT initial_amount,used_amount,remain_amount FROM tbl_claimdetails WHERE user_id='{$id}'";
+        
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getYearAmount($year, $connect){
+            $query = "SELECT SUM(initial_amount) AS init_amount,SUM(used_amount) AS used_amount,SUM(remain_amount) AS remain_amount FROM tbl_claimdetails WHERE year='{$year}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
     }
 ?>
