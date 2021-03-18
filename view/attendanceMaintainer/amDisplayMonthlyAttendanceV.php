@@ -7,9 +7,9 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-        <li><a href="amStudentWiseAttendanceV.php">Studentwise Attendance</a></li>
+        <li><a href="amMonthWiseAttendanceV.php">Monthwise Attendance</a></li>
         <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
-        <li class="active">Studentwise Attendance</li>
+        <li class="active">Monthwise Attendance</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;" >
@@ -21,15 +21,14 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Studentwise Attendance</h2>
+                    <h2>Monthwise Attendance</h2>
                 </div>
 
                 <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
                         <th>Degree</th>
-                        <th>Subject Code</th>
-                        <th>Student Index</th>
-                        <th>Attendance</th>
+                        <th>Year</th>
+                        <th>Attendance Percentage</th>
                     </tr>
                 </table>
 
