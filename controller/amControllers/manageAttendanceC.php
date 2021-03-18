@@ -105,6 +105,5 @@
             header('Location:../../view/attendanceMaintainer/amAttendanceNotRemoved.php');
         }
 
-    } else {
-    	echo "no button clicked";
     }
+?>
