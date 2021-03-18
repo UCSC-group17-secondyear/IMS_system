@@ -25,50 +25,72 @@
                 <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter calendar year</label>
+                            <label>Entered calendar year</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="calander_year" placeholder="Calander Year" required /> <br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter month</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="number" name="month" placeholder="Month" min="1" max="12" required /> <br>
+                            <input type="text" name="calander_year" disabled <?php echo 'value="'.$_SESSION['calander_year'].'"' ?> /><br>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Degree</label>
+                            <label>Entered month</label>
                         </div>
                         <div class="col-75">
-                            <select name="degree_name">
-                                <?php echo $_SESSION['degree_list']; ?>
+                            <input type="number" name="month" disabled <?php echo 'value="'.$_SESSION['month'].'"' ?> /><br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Selecetd Degree</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="degree_name"  <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> disabled/><br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Selected Academic Year</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" name="academic_year" disabled <?php echo 'value="'.$_SESSION['academic_year'].'"' ?> /><br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Selected Semester</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" name="semester" disabled <?php echo 'value="'.$_SESSION['semester'].'"' ?> /><br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select subject</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="subject_name">
+                                <?php echo $_SESSION['subjects_list']; ?>
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Academic Year</label>
+                            <label>Select session type</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" name="academic_year" placeholder="Academic Year" min="1" max="4" required /> <br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Select Semester</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="number" name="semester" placeholder="Semester" min="1" max="2" required /> <br>
+                            <select name="sessionType">
+                                <?php echo $_SESSION['sessionTypes_list']; ?>
+                            </select>
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="getSubjects-submit">Display Attendance
+                    <button class="subbtn" type="submit" name="monthWise-submit">Display Attendance
                         <!-- <a href="amDisplayMonthlyAttendanceV.php"> Display Attendance</a> -->
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">

@@ -55,5 +55,20 @@
         	$result = mysqli_query($connect, $query);
         	return $result;
         }
+
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+        public static function getDegrees($connect) {
+			$query = "SELECT degree_name FROM tbl_degree WHERE is_deleted = 0 ORDER BY degree_id ASC";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function monthAttendance($calander_year, $month, $subject_id, $sessionTypeId, $connect) {
+			$query = "SELECT student_index, attendance FROM tbl_attendance WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' AND year(tbl_attendance.date) = '{$calander_year}' AND month(tbl_attendance.date) = '{$month}' ";
+        	$result = mysqli_query($connect, $query);
+        	return $result;
+		}
     }
 ?>
