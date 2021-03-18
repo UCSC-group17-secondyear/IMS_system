@@ -37,7 +37,7 @@
                             <label>Batch Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="batch_number" placeholder="Batch Numbe" min="0" required/> <br>
+                            <input type="text" name="batch_number" placeholder="Batch Number" min="0" required/> <br>
                         </div>
                     </div>
 
