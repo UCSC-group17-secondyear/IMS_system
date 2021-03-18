@@ -7,7 +7,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-        <li><a href="amBatchWiseAttendanceV.php">Get Semester-wise Attendance</a></li>
+        <li><a href="amSemesterWiseAttendanceV.php">Get Semester-wise Attendance</a></li>
         <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
         <li class="active">Semester-wise Attendance</li>
         </ul>
@@ -26,11 +26,12 @@
 
                 <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
-                        <th>Degree</th>
-                        <th>Subject Code</th>
                         <th>Student Index</th>
+                        <th>Subject Code</th>
+                        <th>Session Type</th>
                         <th>Attendance</th>
                     </tr>
+                    <?php echo $_SESSION['semesterAttendance_list']; ?>
                 </table>
 
                 <button class="subbtn">

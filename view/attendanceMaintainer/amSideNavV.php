@@ -79,20 +79,32 @@
                     <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                         <button name="fetchStudents-submit">
                             <a href="#">
-                                <li><i class="fa fa-user"></i> Student Wise Attendance </li>
+                                <li><i class="fa fa-check-circle"></i> Student Wise Attendance </li>
                             </a>
                         </button>
                     </form>
 
-                    <button>
-                        <a href="amMonthWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i> Month Wise Attendance</li>
-                        </a>
-                    <button>
+                    <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                        <button name="fetchDegrees-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Month-Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
+                    <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                        <button name="fetchSubjects-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Subject Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
+                   <!--  <button>
                         <a href="amSubjectWiseAttendanceV.php">
                             <li><i class="fa fa-check-circle"></i> Subject Wise Attendance</li>
                         </a>
-                    </button>
+                    </button> -->
                     <button>
                         <a href="amBatchWiseAttendanceV.php">
                             <li><i class="fa fa-check-circle"></i> Batch Wise Attendance</li>
