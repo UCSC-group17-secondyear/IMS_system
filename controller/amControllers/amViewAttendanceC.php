@@ -44,8 +44,7 @@
 	            header('Location:../../view/attendanceMaintainer/amGetStdStdwiseAttendanceV.php');
 	        }
 	        else {
-	            echo "student has no subjects yet";
-	            // header('Location:../../view/attendanceMaintainer/amNoStudentsAvailableV.php');
+	            header('Location:../../view/attendanceMaintainer/amNoSubSessionAvailableV.php');
 	        }
         }       
     }
@@ -94,7 +93,7 @@
 		            header('Location:../../view/attendanceMaintainer/amDisplayStdwiseAttendanceV.php');
 		        }
 		        else {
-		        	echo "no records fetched";
+                    header('Location:../../view/attendanceMaintainer/amNoAttendance.php');
 		        }
 	    	}
 	    	else {
@@ -102,7 +101,9 @@
 	    	}
     	}
     }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////
+    
     elseif (isset($_POST['fetchDegrees-submit'])) {
     	session_start();
     	$records = amModel::getDegrees($connect);
@@ -136,7 +137,6 @@
     		echo "semester out of bound";
     	}
     	else {*/
-    		echo "$calander_year";
     		session_start();
 
 			$attendance = amModel::filterSubjects($academic_year, $semester, $degree_name, $connect);
@@ -200,12 +200,11 @@
 	            header('Location:../../view/attendanceMaintainer/amDisplayMonthlyAttendanceV.php');
 	        }
 	        else {
-	        	echo "no records fetched";
+	        	header('Location:../../view/attendanceMaintainer/amNoMonthlyAttendance.php');
 	        }
     	}
     	else {
-    		echo "no sub id, session type id";
-    		/*header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID.php');*/
+    		header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID.php');
     	}
     }
 ?>

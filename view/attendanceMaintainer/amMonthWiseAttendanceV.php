@@ -69,7 +69,6 @@
                     </div>
 
                     <button class="subbtn" type="submit" name="getSubjects-submit">Display Attendance
-                        <!-- <a href="amDisplayMonthlyAttendanceV.php"> Display Attendance</a> -->
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

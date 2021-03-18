@@ -92,11 +92,19 @@
                         </button>
                     </form>
 
-                    <button>
+                    <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                        <button name="fetchSubjects-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Subject Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
+                   <!--  <button>
                         <a href="amSubjectWiseAttendanceV.php">
                             <li><i class="fa fa-check-circle"></i> Subject Wise Attendance</li>
                         </a>
-                    </button>
+                    </button> -->
                     <button>
                         <a href="amBatchWiseAttendanceV.php">
                             <li><i class="fa fa-check-circle"></i> Batch Wise Attendance</li>
