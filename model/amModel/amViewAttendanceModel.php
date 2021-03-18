@@ -55,5 +55,82 @@
         	$result = mysqli_query($connect, $query);
         	return $result;
         }
+
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+        public static function getDegrees($connect) {
+			$query = "SELECT degree_name FROM tbl_degree WHERE is_deleted = 0 ORDER BY degree_id ASC";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function monthAttendance($calander_year, $month, $subject_id, $sessionTypeId, $connect) {
+			$query = "SELECT student_index, attendance FROM tbl_attendance WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' AND year(tbl_attendance.date) = '{$calander_year}' AND month(tbl_attendance.date) = '{$month}' ";
+        	$result = mysqli_query($connect, $query);
+        	return $result;
+		}
+
+        public static function fetchSubjects($connect)
+        {
+            $query = "SELECT subject_name FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_code ASC ";
+
+            $result = mysqli_query($connect, $query);
+            
+            return $result;
+        }
+
+        public static function fetchSubjectAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect) {
+            $query = "SELECT ta.student_index, COUNT(ta.attendance) AS attendance
+            FROM tbl_attendance ta
+            INNER JOIN tbl_students ts
+            ON ta.student_index = ts.index_no
+            WHERE ta.subject_id = '{$subject_id}' AND ta.sessionTypeId = '{$sessionTypeId}' 
+            AND ts.batch_number = '{$batch_number}' AND ts.is_std = 0 
+            AND ta.attendance = 1 AND ta.date BETWEEN '{$startDate}' AND '{$endDate}'
+            GROUP BY ta.student_index
+            ORDER BY ta.attendance_id ASC ";
+
+            $result = mysqli_query($connect, $query);
+            
+            return $result;
+        }
+
+        public static function batchAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect) {
+            $query = "SELECT ta.student_index, COUNT(ta.attendance) AS attendance
+            FROM tbl_attendance ta
+            INNER JOIN tbl_students ts
+            ON ta.student_index = ts.index_no
+            WHERE ta.subject_id = '{$subject_id}' AND ta.sessionTypeId = '{$sessionTypeId}' 
+            AND ts.batch_number = '{$batch_number}' AND ts.is_std = 0 
+            AND ta.attendance = 1 AND ta.date BETWEEN '{$startDate}' AND '{$endDate}'
+            GROUP BY ta.student_index
+            ORDER BY ta.attendance_id ASC ";
+
+            $result = mysqli_query($connect, $query);
+            
+            return $result;
+        }
+
+        public static function getSemesterStart($calander_year, $semester, $connect)  {
+            $query = "SELECT start_date FROM tbl_semester WHERE academic_year = '{$calander_year}' AND semesterDigit = '{$semester}' ";
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getSemesterEnd($calander_year, $semester, $connect)  {
+            $query = "SELECT end_date FROM tbl_semester WHERE academic_year = '{$calander_year}' AND semesterDigit = '{$semester}' ";
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getSemesterAttendance($startDate, $endDate, $connect) {
+            $query = "SELECT student_index, subject_id, sessionTypeId, COUNT(attendance) AS attendance 
+            FROM tbl_attendance WHERE attendance = 1 AND date BETWEEN '{$startDate}' AND '{$endDate}'
+            GROUP BY student_index , subject_id , sessionTypeId ORDER BY attendance_id ASC" ;
+
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
     }
 ?>
