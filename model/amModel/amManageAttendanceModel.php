@@ -45,9 +45,9 @@
 			return $result;
         }
 
-        public static function getpresence($index_no, $connect)
+        public static function getpresence($index_no, $date, $sessionId, $connect)
         {
-            $query = "SELECT attendance";
+            $query = "SELECT attendance FROM tbl_attendance WHERE student_index='{$index_no}' AND subject_session_id='{$sessionId}' AND date='{$date}'";
 
             $result = mysqli_query($connect, $query);
             

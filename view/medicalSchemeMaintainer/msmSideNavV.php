@@ -11,7 +11,7 @@
                             <a href="#"><li><i class="fa fa-pencil-square-o"></i> Update a Medical Year</li></a>
                         </button>
                         <button name="viweMYDetails-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-user"></i> View Medical Year</li></a>
+                            <a href="#"><li><i class="fa fa-user"></i> View Medical Years</li></a>
                         </button>
                     </form>
                 </ul>
@@ -30,15 +30,15 @@
             
             <li><button class="tree_list">View Claim Details</button>
                 <ul class="tree_nest">
-                    <form action="" method="post">
-                        <button name="membershipform-submit" type="submit">
-                            <a href="../../controller/msmControllers/membClaimDetailsControllerOne.php"><li><i class="fa fa-plus-circle"></i>Member wise claim details</li></a>
+                    <form action="../../controller/msmControllers/msmviewclaimdetailsC.php" method="post">
+                        <button name="memberwiseclaim-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i> Member wise claim details</li></a>
                         </button>
-                        <button name="requestedclaim-submit" type="submit">
-                            <a href="../../controller/msmControllers/deptClaimDetailsControllerOne.php"><li><i class="fa fa-pencil-square-o"></i>Department wise claim details</li></a>
+                        <button name="departmentwise-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-pencil-square-o"></i> Department wise claim details</li></a>
                         </button>
-                        <button name="refferedclaim-submit" type="submit">
-                            <a href="../../controller/msmControllers/ucscClaimDetailsControllerOne.php"><li><i class="fa fa-minus-circle"></i>UCSC claim details</li></a>
+                        <button name="ucsc-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-minus-circle"></i> UCSC claim details</li></a>
                         </button>
                     </form>
                 </ul>

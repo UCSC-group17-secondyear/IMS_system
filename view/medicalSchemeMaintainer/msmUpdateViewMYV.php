@@ -18,7 +18,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update aMedical Year</h2>
+                    <h2>Update a Medical Year</h2>
                 </div>
 
                 <div class="contentForm">
