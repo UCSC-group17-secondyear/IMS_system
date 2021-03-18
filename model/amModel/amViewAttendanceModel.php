@@ -111,5 +111,26 @@
             
             return $result;
         }
+
+        public static function getSemesterStart($calander_year, $semester, $connect)  {
+            $query = "SELECT start_date FROM tbl_semester WHERE academic_year = '{$calander_year}' AND semesterDigit = '{$semester}' ";
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getSemesterEnd($calander_year, $semester, $connect)  {
+            $query = "SELECT end_date FROM tbl_semester WHERE academic_year = '{$calander_year}' AND semesterDigit = '{$semester}' ";
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getSemesterAttendance($startDate, $endDate, $connect) {
+            $query = "SELECT student_index, subject_id, sessionTypeId, COUNT(attendance) AS attendance 
+            FROM tbl_attendance WHERE attendance = 1 AND date BETWEEN '{$startDate}' AND '{$endDate}'
+            GROUP BY student_index , subject_id , sessionTypeId ORDER BY attendance_id ASC" ;
+
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
     }
 ?>

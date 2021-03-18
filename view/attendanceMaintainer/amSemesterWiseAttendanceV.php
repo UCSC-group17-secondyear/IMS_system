@@ -22,24 +22,26 @@
                 <h2>Get Semester-wise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter calendar year</label>
+                            <label>Year that semester began</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" name="calander_year" placeholder="Calander Year" required/> <br>
+                            <input type="text" name="calander_year" placeholder="Calander Year" required/> <br>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Semester</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="semester" placeholder="Semester" required/> <br>
+                            <input type="number" name="semester" placeholder="Semester" min="1" max="2" required/> <br>
                         </div>
                     </div>
-                    <div class="row">
+
+                    <!-- <div class="row">
                         <div class="col-25">
                             <label>Enter Degree</label>
                         </div>
@@ -62,9 +64,10 @@
                         <div class="col-75">
                             <input type="text" name="subject" placeholder="Subject" required/> <br>
                         </div>
-                    </div>
-                    <button class="subbtn" type="submit" name="select-submit">
-                        <a href="amDisplaySemesterAttendanceV.php">Display Attendance</a> 
+                    </div> -->
+
+                    <button class="subbtn" type="submit" name="semesterAttendance-submit">Display Attendance
+                        <!-- <a href="amDisplaySemesterAttendanceV.php">Display Attendance</a>  -->
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

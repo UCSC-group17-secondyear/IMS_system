@@ -87,7 +87,6 @@
 		            	$_SESSION['stdAttendance_list'] .= "<td>{$record['date']}</td>";
 		            	$_SESSION['stdAttendance_list'] .= "<td>{$record['attendance']}</td>";
 		            	$_SESSION['stdAttendance_list'] .= "</tr>";
-		            	print($record['date']);
 		            }
 
 		            header('Location:../../view/attendanceMaintainer/amDisplayStdwiseAttendanceV.php');
@@ -362,6 +361,46 @@
             else {
                 header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID_Batch.php');
             }
+        }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    elseif (isset($_POST['semesterAttendance-submit'])) {
+        $calander_year = $_POST ['calander_year'];
+        $semester = $_POST ['semester'];
+
+        $startDate_result = amModel::getSemesterStart($calander_year, $semester, $connect);
+        $startDate1 = mysqli_fetch_assoc($startDate_result);
+
+        $endDate_result = amModel::getSemesterEnd($calander_year, $semester, $connect);
+        $endDate1 = mysqli_fetch_assoc($endDate_result);
+
+        if ($startDate1 && $endDate1) {
+            $startDate2 = $startDate1['start_date'];
+            $endDate2 = $endDate1['end_date'];
+            $records = amModel::getSemesterAttendance($startDate2, $endDate2, $connect);
+        
+            if ($records) {
+                session_start();
+                $_SESSION['semesterAttendance_list'] = '';
+
+                while ($record = mysqli_fetch_assoc($records)) {
+                    $_SESSION['semesterAttendance_list'] .= "<tr>";
+                    $_SESSION['semesterAttendance_list'] .= "<td>{$record['student_index']}</td>";
+                    $_SESSION['semesterAttendance_list'] .= "<td>{$record['subject_id']}</td>";
+                    $_SESSION['semesterAttendance_list'] .= "<td>{$record['sessionTypeId']}</td>";
+                    $_SESSION['semesterAttendance_list'] .= "<td>{$record['attendance']}</td>";
+                    $_SESSION['semesterAttendance_list'] .= "</tr>";
+                }
+                header('Location:../../view/attendanceMaintainer/amDisplaySemesterAttendanceV.php');
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amNoAttendanceSemester.php');
+            }
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amNoStartEndDateS.php');
         }
     }
 ?>
