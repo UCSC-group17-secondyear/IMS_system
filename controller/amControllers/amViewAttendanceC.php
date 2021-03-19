@@ -224,7 +224,6 @@
     //////////////////////////////////////////////////////////////////////////////////////////////////
     
     elseif (isset($_POST['fetchSubjects-submit'])) {
-        session_start();
         $records1 = amModel::fetchSubjects($connect);
         $records2 = amModel::filterSessionTypes($connect);
         $records3 = amModel::getDegrees($connect);
@@ -329,6 +328,23 @@
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
     
+    elseif (isset($_POST['getDegrees-submit'])) {
+        $records1 = amModel::getDegrees($connect);
+
+        if ($records1) {
+            session_start();
+            $_SESSION['degreeList'] = '';
+
+            while ($record = mysqli_fetch_array($records1)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degree_name']."'>".$record['degree_name']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amBatchWiseAttendanceV.php');
+        }
+        else {
+            echo "no degrees in the system";
+        }
+    }
+
     elseif (isset($_POST['filterSubjects-submit'])) {
         session_start();
         $degree_name = $_POST['degree_name'];

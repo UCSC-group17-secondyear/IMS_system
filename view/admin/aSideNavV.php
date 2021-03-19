@@ -6,21 +6,21 @@
                     <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
                         <button name="userroleList-submit">
                             <a href="#">
-                                <li><i class="fa fa-user"></i>View user role list</li>
+                                <li><i class="fa fa-user"></i>View user-role list</li>
                             </a>
                         </button>
                     </form>
                     <button>
-                        <a href="aAddNewUserRoleV.php"><li><i class="fa fa-plus-circle"></i>Add a new user role</li></a>
+                        <a href="aAddNewUserRoleV.php"><li><i class="fa fa-plus-circle"></i>Add a new user-role</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/getRolesController.php"><li><i class="fa fa-trash"></i>Remove a user role</li></a>
+                        <a href="../../controller/getRolesController.php"><li><i class="fa fa-trash"></i>Remove a user-role</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/adminControllers/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>
+                        <a href="../../controller/adminControllers/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user-role to a user</li></a>
                     </button>
                     <button>
-                        <a href="aUpdateUserRoleV.php"><li><i class="fa fa-pencil-square"></i>Update the user role of a user</li></a>
+                        <a href="aRemoveUsersUserRoleV.php"><li><i class="fa fa-pencil-square"></i>Remove a user-role from a user</li></a>
                     </button>
                 </ul>
             </li>

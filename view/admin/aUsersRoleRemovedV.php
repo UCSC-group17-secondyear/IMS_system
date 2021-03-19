@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aUpdateUserRoleV.php">Update user role</a></li>
+            <li><a href="aRemoveUsersUserRoleV.php">Remove User's user-role</a></li>
             <li class="active">Request Successful!</li>
         </ul>
 
@@ -23,12 +23,12 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The user role of the given user is updated successfully!
+                        <h2>The user role is removed from the given user successfully!
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="aUpdateUserRoleV.php">Update another</a> 
+                        <a href="aRemoveUsersUserRoleV.php">Remove another</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 

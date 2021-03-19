@@ -27,7 +27,10 @@
                             <label>Enter Degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="degree_name" placeholder="Degree" required/> <br>
+                            <select name="degree_name">
+                                <?php echo $_SESSION['degreeList']; ?>
+                            </select>
+                            <!-- <input type="text" name="degree_name" placeholder="Degree" required/> <br> -->
                         </div>
                     </div>
 
@@ -50,7 +53,6 @@
                     </div>
 
                     <button class="subbtn" type="submit" name="filterSubjects-submit">Display Subjects
-                        <!-- <a href="amDisplayBatchAttendanceV.php">Display Attendance</a>  -->
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

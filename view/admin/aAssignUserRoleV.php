@@ -26,11 +26,10 @@
                     <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Employee Id</label>
+                              <label>Employee Username</label>
                             </div>
                             <div class="col-75">
                                 <select name="empid" id="">
-                                    <option value="">Select User</option>
                                     <?php echo $_SESSION['userlist'] ?>
                                 </select>
                             </div>
@@ -42,7 +41,6 @@
                             </div>
                             <div class="col-75">
                                 <select name="userRole" id="">
-                                    <option value="">Select User Role</option>
                                     <?php echo $_SESSION['userroles'] ?>
                                 </select>
                             </div>
