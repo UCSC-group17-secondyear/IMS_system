@@ -21,80 +21,36 @@
                 <h2>Get Batch-wise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Batch Number</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="number" name="batch_number" placeholder="Batch Number" min="0" required/> <br>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Academic Year</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="number" name="academic_year" placeholder="Academic Year" required/> <br>
-                        </div>
-                    </div>
-
+                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Degree</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="degree" placeholder="Degree" required/> <br>
+                            <input type="text" name="degree_name" placeholder="Degree" required/> <br>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Subject</label>
+                            <label>Select Academic Year</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject" placeholder="Subject" required/> <br>
-                        </div>
-                    </div>
-
-                    <!-- <div class="row">
-                        <div class="col-25">
-                            <label>Enter Calander Year</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="number" name="calander_year" placeholder="Calander Year" required/><br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Semester</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="semester" placeholder="Semester" required/> <br>
-                        </div>
-                    </div> -->
-                    
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Start Date</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="date" name="start_date" placeholder="Start Date" required/> <br>
+                            <input type="number" name="academic_year" placeholder="Academic Year" min="1" max="4" required/> <br>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter End Date</label>
+                            <label>Select Semester</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="end_date" placeholder="End Date" required/> <br>
+                            <input type="number" name="semester" placeholder="Semester" min="1" max="2" required/> <br>
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="select-submit">
-                        <a href="amDisplayBatchAttendanceV.php">Display Attendance</a> 
+                    <button class="subbtn" type="submit" name="filterSubjects-submit">Display Subjects
+                        <!-- <a href="amDisplayBatchAttendanceV.php">Display Attendance</a>  -->
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

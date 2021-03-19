@@ -25,7 +25,9 @@
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
         $academic_year = $_POST['academic_year'];
+        $semester = $_POST['semester'];
         $degree = $_POST['degree'];
+        $batch_number = $_POST['batch_number'];
         $indexFlag = 0;
         $regNumFlag = 0;
         $mailFlag = 0;
@@ -76,7 +78,7 @@
             header('Location:../../view/attendanceMaintainer/amEmailExist.php');
         }
         elseif ($errorFlag == 0) {
-            $result = amModel::addStudent($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
+            $result = amModel::addStudent($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $semester, $degree, $batch_number, $connect);
 
             if ($result) {
                 header('Location:../../view/attendanceMaintainer/amStudentAdded.php');
@@ -117,7 +119,9 @@
             $_SESSION['last_name'] = $result['last_name'];
             $_SESSION['email'] = $result['email'];
             $_SESSION['academic_year'] = $result['academic_year'];
+            $_SESSION['semester'] = $result['semester'];
             $_SESSION['degree'] = $result['degree'];
+            $_SESSION['batch_number'] = $result['batch_number'];
 
             header('Location:../../view/attendanceMaintainer/amDeleteUpdateStudentV.php');
         }
@@ -195,12 +199,14 @@
             while ($record = mysqli_fetch_assoc($records)) {
                 $_SESSION['student_list'] .= "<tr>";
                 $_SESSION['student_list'] .= "<td>{$record['index_no']}</td>";
-                $_SESSION['student_list'] .= "<td>{$record['    registration_no']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['registration_no']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['initials']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['last_name']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['email']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['academic_year']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['semester']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['degree']}</td>";
+                $_SESSION['student_list'] .= "<td>{$record['batch_number']}</td>";
                 $_SESSION['student_list'] .= "</tr>";
 
                 header('Location:../../view/attendanceMaintainer/amViewStudentDetailsV.php');
