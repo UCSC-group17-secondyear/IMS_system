@@ -46,6 +46,15 @@
 
                         <div class="row">
                             <div class="col-25">
+                                <label>Degree the subject belongs</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="degree_name" disabled <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
                                 <label>Selected Batch</label>
                             </div>
                             <div class="col-75">
@@ -68,6 +77,33 @@
                             </div>
                             <div class="col-75">
                                 <input type="date" name="endDate" disabled <?php echo 'value="'.$_SESSION['endDate'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Total number of students</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="stdCount" disabled <?php echo 'value="'.$_SESSION['stdCount'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Total number of days</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="totSubDays" disabled <?php echo 'value="'.$_SESSION['totSubDays'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>The attendance percentage</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
                             </div>
                         </div>
                     </form>

@@ -14,6 +14,27 @@
 			return $result;
 		}
 
+		public static function getRoleID($userRole, $connect) {
+			$query = "SELECT role_id FROM userroles WHERE role_name ='{$userRole}' AND is_deleted = 0 ";
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function assignUserRole($empid, $role_id, $connect) {
+			$query = "INSERT INTO tbl_userhasrole (empid, role_id) VALUES('$empid', '$role_id')";
+		
+			if($connect->query($query)) {
+				return true;
+			}
+		}
+
+		public static function checkUsersRoles($empid, $role_id, $connect) {
+			$query = "SELECT * FROM tbl_userhasrole 
+			WHERE is_deleted = 0  AND empid = '{$empid}' AND role_id ='{$role_id}' LIMIT 1 ";
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
 		public static function addUserrole($userrole, $description, $connect) 
 		{
 			$query = "INSERT INTO userroles (role_name, description) VALUES('$userrole', '$description')";
@@ -51,7 +72,8 @@
 
 		public static function updateUserRole($empid, $userRole, $connect)
 		{
-			$query = "UPDATE users SET userRole = '{$userRole}' WHERE empid='{$empid}' LIMIT 1";
+			$query = "UPDATE tbl_userhasrole SET is_deleted = 1 
+			WHERE empid = '{$empid}' AND role_id = '{$userRole}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
