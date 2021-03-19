@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li class="active">Update User role</li>
+            <li class="active">Remove User's user-role</li>
         </ul>
 
         <div class="row">
@@ -20,7 +20,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update User role</h2>
+                    <h2>Remove User's user-role</h2>
                 </div>
                 <div class="contentForm">
                     <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
@@ -30,7 +30,6 @@
                             </div>
                             <div class="col-75">
                                 <select name="empid" id="">
-                                    <option value="">User Name</option>
                                     <?php echo $_SESSION['userlist'] ?>
                                 </select>
                             </div>
@@ -42,13 +41,12 @@
                             </div>
                             <div class="col-75">
                                 <select name="userRole" id="">
-                                    <option value="">User Role</option>
                                     <?php echo $_SESSION['userroles'] ?>
                                 </select>
                             </div>
                         </div>
 
-                        <button class="subbtn" type="submit" name="updateUserRole-submit">Save</button>
+                        <button class="subbtn" type="submit" name="removeUsersRole-submit">Remove</button>
                         <button class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>
                         </button>

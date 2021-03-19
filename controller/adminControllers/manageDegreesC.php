@@ -66,7 +66,6 @@
             }
             else {
                 header('Location:../../view/admin/aQueryFailedV.php');
-                // echo "more than one row (duplicate scheme names)";
             }
         }
         else {

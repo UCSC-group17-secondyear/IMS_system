@@ -65,7 +65,6 @@
             }
             else {
                 header('Location:../../view/admin/aQueryFailedV.php');
-                // echo "more than one row (duplicate scheme names)";
             }
         }
         else {
@@ -75,7 +74,7 @@
 
     else if(isset($_POST['updateScheme-submit'])) {
         // $scheme_id = 1;
-        $schemeName = $_POST['schemeName'];
+        $schemeName = $_SESSION['schemeName'];
         $maxRoomCharge = $_POST['maxRoomCharge'];
         $hospitalCharges = $_POST['hospitalCharges'];
         $annualPremium = $_POST['annualPremium']; 

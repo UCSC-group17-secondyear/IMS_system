@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aUpdateRemoveSessionV.php">Update or remove Session Type</a></li>
+            <li><a href="aRemoveSessionTypeV.php">Remove Session Type</a></li>
             <li class="active">Action Failed!</li>
         </ul>
 
@@ -29,7 +29,7 @@
                     </div>
 
                     <button class="mainbtn">
-                        <a href="aUpdateRemoveSessionV.php">Try again</a> 
+                        <a href="aRemoveSessionTypeV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Leave</a> 

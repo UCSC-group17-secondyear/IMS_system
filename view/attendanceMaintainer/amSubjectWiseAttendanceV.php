@@ -25,22 +25,33 @@
                 <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Subject</label>
+                            <label>Select Subject</label>
                         </div>
                         <div class="col-75">
                             <select name="subject_name">
-                                <?php echo $_SESSION['subjects_list'] ; ?> <br>
+                                <?php echo $_SESSION['subjectsList'] ; ?> <br>
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Session Type</label>
+                            <label>Select Session Type</label>
                         </div>
                         <div class="col-75">
                             <select name="sessionType">
                                 <?php echo $_SESSION['sessionTypes'] ; ?> <br>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select degree</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="degree_name">
+                                <?php echo $_SESSION['degreeList'] ; ?> <br>
                             </select>
                         </div>
                     </div>
@@ -53,25 +64,6 @@
                             <input type="number" name="batch_number" placeholder="Batch Number" min="1" required/> <br>
                         </div>
                     </div>
-
-                    <!-- <div class="row">
-                        <div class="col-25">
-                            <label>Enter Degree</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="degree" placeholder="Degree" required/> <br>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Semester</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="semester" placeholder="Semester" required/> <br>
-                        </div>
-                    </div> -->
-                    
 
                     <div class="row">
                         <div class="col-25">
@@ -92,7 +84,6 @@
                     </div>
 
                     <button class="subbtn" type="submit" name="subjectWise-submit">Display Attendance
-                        <!-- <a href="amDisplaySubjectAttendanceV.php">Display Attendance</a> --> 
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
