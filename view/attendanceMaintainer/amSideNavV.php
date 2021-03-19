@@ -65,11 +65,11 @@
                                 <li><i class="fa fa-plus-circle"></i> Enter or Update Attendance</li>
                             </a>
                         </button>
-                        <button name="deleteAttendance-submit">
+                        <!-- <button name="deleteAttendance-submit">
                             <a href="#">
                                 <li><i class="fa fa-minus-circle"></i> Delete Attendance</li>
                             </a>
-                        </button>
+                        </button> -->
                     </form>
                 </ul>
             </li>
@@ -119,8 +119,7 @@
             </li>
             <li>
                 <a href="../../controller/amControllers/amViewSchemeDetails.php">
-                    <button name="" class="tree_list"> View Scheme Details
-                    </button>
+                    <button name="" class="tree_list"> View Scheme Details </button>
                 </a>
             </li>
             <li>
