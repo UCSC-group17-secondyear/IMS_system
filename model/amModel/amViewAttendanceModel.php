@@ -100,6 +100,38 @@
         	return $result;
 		}
 
+        public static function getMonthDays($calander_year, $month, $subject_id, $sessionTypeId, $connect) {
+            $query = "SELECT COUNT(DISTINCT(date)) AS monthDays 
+            FROM tbl_attendance 
+            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' 
+            AND year(tbl_attendance.date) = '{$calander_year}' 
+            AND month(tbl_attendance.date) = '{$month}'";
+            
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getStdCount($academic_year, $semester, $degree_name, $connect) {
+            $query = "SELECT COUNT(index_no) AS stdCount FROM tbl_students 
+            WHERE academic_year = '{$academic_year}' AND semester = '{$semester}' 
+            AND degree = '{$degree_name}' AND is_std = 0 ";
+            
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getMonthAttendPercentage($calander_year, $month, $subject_id, $sessionTypeId, $connect) {
+            $query = "SELECT round(((AVG(attendance))*100),2) AS attendPercentage FROM tbl_attendance 
+            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}'
+            AND year(tbl_attendance.date) = '{$calander_year}' 
+            AND month(tbl_attendance.date) = '{$month}'";
+
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+         /////////////////////////////////////////////////////////////////////////////////////////
+
         public static function fetchSubjects($connect)
         {
             $query = "SELECT subject_name FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_code ASC ";
@@ -125,6 +157,8 @@
             return $result;
         }
 
+         /////////////////////////////////////////////////////////////////////////////////////////
+
         public static function batchAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect) {
             $query = "SELECT ta.student_index, COUNT(ta.attendance) AS attendance
             FROM tbl_attendance ta
@@ -140,6 +174,8 @@
             
             return $result;
         }
+
+         /////////////////////////////////////////////////////////////////////////////////////////
 
         public static function getSemesterStart($calander_year, $semester, $connect)  {
             $query = "SELECT start_date FROM tbl_semester WHERE academic_year = '{$calander_year}' AND semesterDigit = '{$semester}' ";

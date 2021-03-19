@@ -127,7 +127,6 @@
 
     elseif (isset($_POST['getSubjects-submit'])) {
     	$calander_year = $_POST['calander_year'];
-
     	$month = $_POST['month'];
     	$degree_name = $_POST['degree_name'];
     	$academic_year = $_POST['academic_year'];
@@ -136,15 +135,9 @@
     	if ($calander_year > date("Y")) {
     		echo "future year";
     	}
-    	/*elseif (!($calander_year = date("Y") && $month <= date("m"))) {
-    		echo "future date or month is out of bound";
+    	elseif ($calander_year == date("Y") && $month > date("m")) {
+    		echo "future month";
     	}
-    	elseif (!(1 <= $academic_year && $academic_year <= 4)) {
-    		echo "academic_year out of bound";
-    	}
-    	elseif (!(1 <= $semester && $semester <= 2)) {
-    		echo "semester out of bound";
-    	}*/
     	else {
     		session_start();
 
@@ -183,37 +176,49 @@
     	$_SESSION['subject_name'] = $subject_name;
     	$_SESSION['sessionType'] = $sessionType;
 
-    	$result_subject_id = amModel::getSubjectID($subject_name, $connect);
-    	$result1 = mysqli_fetch_assoc($result_subject_id);
+        $result_subject_id = amModel::getSubjectID($subject_name, $connect);
+        $result1 = mysqli_fetch_assoc($result_subject_id);
 
-    	$result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
-    	$result2 = mysqli_fetch_assoc($result_sessionTypeId);
+        $result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
+        $result2 = mysqli_fetch_assoc($result_sessionTypeId);
 
-    	if ($result1 && $result2) {
-    		$subject_id = $result1['subject_id'];
-    		$sessionTypeId = $result2['sessionTypeId'];
-    		
-    		$attendance = amModel::monthAttendance($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+        if ($result1 && $result2) {
+            $subject_id = $result1['subject_id'];
+            $sessionTypeId = $result2['sessionTypeId'];
 
-    		if ($attendance) {
-	    		$_SESSION['monthAttendance_list'] = '';
+            $get_monthDays = amModel::getMonthDays($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+            $result_monthDays = mysqli_fetch_assoc($get_monthDays);
+            $_SESSION['monthDays'] = $result_monthDays['monthDays'];
 
-	            while ($record = mysqli_fetch_assoc($attendance)) {
-	            	$_SESSION['monthAttendance_list'] .= "<tr>";
-	            	$_SESSION['monthAttendance_list'] .= "<td>{$record['student_index']}</td>";
-	            	$_SESSION['monthAttendance_list'] .= "<td>{$record['attendance']}</td>";
-	            	$_SESSION['monthAttendance_list'] .= "</tr>";
-	            }
+            $get_stdCount = amModel::getStdCount($academic_year, $semester, $degree_name, $connect);
+            $result_stdCount = mysqli_fetch_assoc($get_stdCount);
+            $_SESSION['stdCount'] = $result_stdCount['stdCount'];
 
-	            header('Location:../../view/attendanceMaintainer/amDisplayMonthlyAttendanceV.php');
-	        }
-	        else {
-	        	header('Location:../../view/attendanceMaintainer/amNoMonthlyAttendance.php');
-	        }
-    	}
-    	else {
-    		header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID.php');
-    	}
+            $get_attendPercentage = amModel::getMonthAttendPercentage($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+            $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
+            $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
+            
+            $attendance = amModel::monthAttendance($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+
+            if ($attendance && $result_monthDays && $result_stdCount && $result_attendPercentage) {
+                $_SESSION['monthAttendance_list'] = '';
+
+                while ($record = mysqli_fetch_assoc($attendance)) {
+                    $_SESSION['monthAttendance_list'] .= "<tr>";
+                    $_SESSION['monthAttendance_list'] .= "<td>{$record['student_index']}</td>";
+                    $_SESSION['monthAttendance_list'] .= "<td>{$record['attendance']}</td>";
+                    $_SESSION['monthAttendance_list'] .= "</tr>";
+                }
+
+                header('Location:../../view/attendanceMaintainer/amDisplayMonthlyAttendanceV.php');
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amNoMonthlyAttendance.php');
+            }
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID.php');
+        }
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
