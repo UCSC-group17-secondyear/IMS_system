@@ -56,7 +56,7 @@
     }
 
     elseif(isset($_POST['removeSessionType-submit'])) {
-        $sessionType = mysqli_real_escape_string($connect, $_POST['sessionType']);
+        $sessionType = $_POST['sessionType'];
 
         $removeSessionType = adminModel::removeSessionType($sessionType, $connect);
 

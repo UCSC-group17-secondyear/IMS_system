@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddDegreeV.php">Add Session Type</a></li>
+            <li><a href="aRemoveSessionTypeV.php">Remove a Session Type</a></li>
             <li class="active">Action Success!</li>
         </ul>
 
@@ -23,12 +23,12 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The session type is added successfully.
+                        <h2>The session type is removed successfully.
                         </h2>
                     </div>
 
                     <button class="mainbtn">
-                        <a href="aAddSessionV.php">Add another</a> 
+                        <a href="aRemoveSessionTypeV.php">Remove another</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Leave</a> 

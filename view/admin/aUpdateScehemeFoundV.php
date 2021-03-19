@@ -31,7 +31,7 @@
                                 <label>Enter Scheme Name</label>
                             </div>
                             <div class="col-25">
-                                <input type="text" name="schemeName"  <?php echo 'value="'.$_SESSION['schemeName'].'"' ?> /><br>
+                                <input type="text" name="schemeName" disabled <?php echo 'value="'.$_SESSION['schemeName'].'"' ?> /><br>
                             </div>
                         </div>
                         <div class="row">
