@@ -70,6 +70,33 @@
                                 <input type="text" name="sessionType" disabled <?php echo 'value="'.$_SESSION['sessionType'].'"' ?> /><br>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Total number of days</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="monthDays" disabled <?php echo 'value="'.$_SESSION['monthDays'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Total number of students</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="stdCount" disabled <?php echo 'value="'.$_SESSION['stdCount'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Attendance Percentage</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
+                            </div>
+                        </div>
                     </form>
                 </div>
 

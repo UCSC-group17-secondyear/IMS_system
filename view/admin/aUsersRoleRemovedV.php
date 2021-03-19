@@ -6,8 +6,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aRemoveSessionTypeV.php">Remove a Session Type</a></li>
-            <li class="active">Action Success!</li>
+            <li><a href="aRemoveUsersUserRoleV.php">Remove User's user-role</a></li>
+            <li class="active">Request Successful!</li>
         </ul>
 
         <div class="row">
@@ -23,15 +23,15 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The session type is removed successfully.
+                        <h2>The user role is removed from the given user successfully!
                         </h2>
                     </div>
 
-                    <button class="mainbtn">
-                        <a href="aRemoveSessionTypeV.php">Remove another</a> 
+                    <button class="subbtn">
+                        <a href="aRemoveUsersUserRoleV.php">Remove another</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Leave</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

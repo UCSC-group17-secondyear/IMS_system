@@ -20,7 +20,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Remove a User role</h2>
+                    <h2>Select a User role</h2>
                 </div>
                 <div class="contentForm">
                     <form action="../../controller/adminControllers/manageUSerRoleController.php" method="post">
@@ -30,7 +30,6 @@
                             </div>
                             <div class="col-75">
                               <select name="userRole" id="">
-                                    <option value="">Select Role</option>
                                     <?php 
                                         echo $_SESSION['roles']
                                     ?>

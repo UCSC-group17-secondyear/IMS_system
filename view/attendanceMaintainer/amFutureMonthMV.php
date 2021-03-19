@@ -5,15 +5,15 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aRemoveSessionTypeV.php">Remove a Session Type</a></li>
-            <li class="active">Action Success!</li>
+            <li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amMonthWiseAttendanceV.php">Month-wise Attendance</a></li>
+            <li class="active">Request Failed!</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
-                    require 'aSideNavV.php';
+                    require 'amSideNavV.php';
                 ?>
             </div>
 
@@ -23,15 +23,16 @@
                 </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The session type is removed successfully.
+                        <h2>Sorry! <br>
+                            You are not allowed to enter upcoming months.
                         </h2>
                     </div>
 
-                    <button class="mainbtn">
-                        <a href="aRemoveSessionTypeV.php">Remove another</a> 
+                    <button class="subbtn">
+                        <a href="amMonthWiseAttendanceV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Leave</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

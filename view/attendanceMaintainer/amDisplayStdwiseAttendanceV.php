@@ -70,6 +70,33 @@
                                 <input type="date" name="endDate" disabled <?php echo 'value="'.$_SESSION['endDate'].'"' ?> /><br>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Total number of days</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="totalDays" disabled <?php echo 'value="'.$_SESSION['totalDays'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Attended number of days</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="attendDays" disabled <?php echo 'value="'.$_SESSION['attendDays'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Attendance percentage</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
+                            </div>
+                        </div>
                     </form>
                 </div>
 
