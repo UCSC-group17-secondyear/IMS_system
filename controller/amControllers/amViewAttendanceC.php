@@ -30,7 +30,6 @@
             $records2 = amModel::filterSessionTypes($connect);
 
             if ($records1 && $records2) {
-            	session_start();
             	$_SESSION['subjectsList'] = '';
             	$_SESSION['sessionTypes'] = '';
 
@@ -50,7 +49,8 @@
     }
 
     elseif (isset($_POST['stdWise-submit'])) {
-    	$index_no = $_POST['index_no'];
+    	session_start();
+        $index_no = $_SESSION['index_no'];
     	$subject_name = $_POST['subject_name'];
     	$sessionType = $_POST['sessionType'];
     	$startDate = $_POST['startDate'];
@@ -60,7 +60,6 @@
     		header('Location:../../view/attendanceMaintainer/amStartEndDateIssue.php');
     	}
     	else {
-    		session_start();
 	    	$_SESSION['index_no'] = $index_no;
 	    	$_SESSION['subject_name'] = $subject_name;
 	    	$_SESSION['sessionType'] = $sessionType;
@@ -79,7 +78,19 @@
 
 	    		$attendance = amModel::stdAttendance($index_no, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
 
-		    	if ($attendance) {
+                $get_totDays = amModel::getTotDays($index_no, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                $result_totDays = mysqli_fetch_assoc($get_totDays);
+                $_SESSION['totalDays'] = $result_totDays['totalDays'];
+
+                $get_attendDays = amModel::getAttendDays($index_no, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                $result_attendDays = mysqli_fetch_assoc($get_attendDays);
+                $_SESSION['attendDays'] = $result_attendDays['attendDays'];
+
+                $get_attendPercentage = amModel::getAttendPercentage($index_no, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
+                $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
+
+		    	if ($attendance && $result_totDays  && $result_attendDays && $result_attendPercentage) {
 		    		$_SESSION['stdAttendance_list'] = '';
 
 		            while ($record = mysqli_fetch_assoc($attendance)) {
@@ -122,10 +133,10 @@
     	$academic_year = $_POST['academic_year'];
     	$semester = $_POST['semester'];
 
-    	/*if (!($calander_year <= date("Y"))) {
+    	if ($calander_year > date("Y")) {
     		echo "future year";
     	}
-    	elseif (!($calander_year = date("Y") && $month <= date("m"))) {
+    	/*elseif (!($calander_year = date("Y") && $month <= date("m"))) {
     		echo "future date or month is out of bound";
     	}
     	elseif (!(1 <= $academic_year && $academic_year <= 4)) {
@@ -133,8 +144,8 @@
     	}
     	elseif (!(1 <= $semester && $semester <= 2)) {
     		echo "semester out of bound";
-    	}
-    	else {*/
+    	}*/
+    	else {
     		session_start();
 
 			$attendance = amModel::filterSubjects($academic_year, $semester, $degree_name, $connect);
@@ -156,7 +167,7 @@
 	    	$_SESSION['semester'] = $semester;
 
 			header('Location:../../view/attendanceMaintainer/amSeletcSubjectV.php');
-    	/*}*/
+    	}
 
     }
 
