@@ -32,7 +32,6 @@
                             </div>
                             <div class="col-75">
                                 <select name="schemeName" id="">
-                                    <option value="">Select Scheme Name</option>
                                     <?php echo $_SESSION['schemes'] ?>
                                 </select>
                             </div>
@@ -43,9 +42,6 @@
                             <a href="aHomeV.php">Cancel</a>
                         </button>
                     </form>
-
-                    <!-- <button id="subBtn" class="subbtn">View available schemes</button>
-                    <button id="myBtn" class="cancelbtn">Cancel</button> -->
                 </div>
 
                 <!-- <div id="subModal" class="modal">

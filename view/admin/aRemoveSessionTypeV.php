@@ -29,7 +29,6 @@
                             </div>
                             <div class="col-75">
                                 <select name="sessionType" id="">
-                                    <!-- <option value=""></option> -->
                                     <?php echo $_SESSION['sessionTypes'] ?>
                                 </select>
                             </div>

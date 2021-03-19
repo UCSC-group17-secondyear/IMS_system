@@ -1,7 +1,26 @@
 <?php
 	class adminModel {
-		public static function checkMonthlySession($subject, $calendarYear, $month, $sessionType, $connect) {
-			$query = "SELECT * FROM sessions_per_month WHERE subject='{$subject}' AND calendarYear='{$calendarYear}' AND month='{$month}' AND sessionType='{$sessionType}' AND is_deleted=0 ";
+		public static function checkMonthlySession ($subject_code, $calendarYear, $month, $sessionType, $connect) {
+			$query = "SELECT * FROM sessions_per_month 
+			WHERE subject = '{$subject_code}' AND calendarYear = '{$calendarYear}' 
+			AND month = '{$month}' AND sessionType = '{$sessionType}' AND is_deleted = 0 ";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function getSubjects($connect) {
+			$query = "SELECT subject_name FROM tbl_subject WHERE is_deleted=0  ORDER BY subject_code";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function get_subject_code ($subject, $degree, $connect) {
+			$query = "SELECT subject_code FROM tbl_subject 
+			WHERE subject_name = '{$subject}' AND degree = '{$degree}' AND is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -25,10 +44,7 @@
 		}
 
 		public static function sessionType($connect) {
-			$query = "SELECT sessionType
-			FROM sessionTypes 
-			WHERE is_deleted=0 
-			ORDER BY sessionTypeId";
+			$query = "SELECT sessionType FROM sessionTypes WHERE is_deleted=0 ORDER BY sessionTypeId";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -36,10 +52,7 @@
 		}
 
 		public static function getMonthlySession($subject, $calendarYear, $month, $sessionType, $connect) {
-			$query = "SELECT *
-			FROM sessions_per_month 
-			WHERE is_deleted=0 
-			ORDER BY sessionMid";
+			$query = "SELECT * FROM sessions_per_month WHERE is_deleted=0 ORDER BY sessionMid";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -57,19 +70,22 @@
 		}
 
 		public static function removeMonthlySession($sessionMid, $connect) {
-			$query = "UPDATE sessions_per_month 
-			SET is_deleted=1
-			WHERE sessionMid='{$sessionMid}' ";
+			$query = "UPDATE sessions_per_month SET is_deleted=1 WHERE sessionMid='{$sessionMid}' ";
 
 			if($connect->query($query))
 				return true;
 		}
 
 		public static function viewSessionTypes($connect) {
-			$query = "SELECT sessionType
-			FROM sessionTypes 
-			WHERE is_deleted=0 
-			ORDER BY sessionTypeId";
+			$query = "SELECT sessionType FROM sessionTypes WHERE is_deleted=0  ORDER BY sessionTypeId";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function getDegrees($connect) {
+			$query = "SELECT degree_name FROM tbl_degree WHERE is_deleted=0  ORDER BY degree_id";
 
 			$result_set = mysqli_query($connect, $query);
 
