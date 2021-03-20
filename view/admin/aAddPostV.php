@@ -32,6 +32,17 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Employee Id of the employee assigned for the post</label>
+                            </div>
+                            <div class="col-75">
+                                <select name = "empid">
+                                    <?php echo $_SESSION['users_list']; ?>
+                                </select>
+                            </div>
+                        </div>
+
                         <button class="subbtn" type="submit" name="addPost-submit">Add post</button>
                         <button class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>

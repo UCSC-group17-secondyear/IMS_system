@@ -29,7 +29,7 @@
                                 <label>Selected degree</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="degree" disabled <?php echo 'value="'.$_SESSION['degree'].'"' ?> /><br>
+                                <input type="text" name="degree_name" disabled <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> /><br>
                             </div>
                         </div>
 
@@ -38,7 +38,7 @@
                                 <label>Selected subject</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="subject" disabled <?php echo 'value="'.$_SESSION['subject'].'"' ?> /><br>
+                                <input type="text" name="subject_name" disabled <?php echo 'value="'.$_SESSION['subject_name'].'"' ?> /><br>
                             </div>
                         </div>
 
@@ -74,7 +74,7 @@
                                 <label>Number of sessions</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="numSessions" disabled <?php echo 'value="'.$_SESSION['numSessions'].'"' ?> /><br>
+                                <input type="text" name="numOfSessions" disabled <?php echo 'value="'.$_SESSION['numOfSessions'].'"' ?> /><br>
                             </div>
                         </div>
 
