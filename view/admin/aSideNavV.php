@@ -74,8 +74,8 @@
                     </form>
 
                     <form action="../../controller/adminControllers/managePostsC.php" method="post">
-                        <button name="getUsers-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-plus-circle"></i>Update user of a Post</li></a>
+                        <button name="getPosts-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-pencil-square"></i>Update user of a Post</li></a>
                         </button>
                     </form>
 
