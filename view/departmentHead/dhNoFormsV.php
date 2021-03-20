@@ -21,9 +21,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
-                            No Forms in the Database!
-                        </h2>
+                        <h2>Sorry! No Forms in the Database.</h2>
                     </div>
 
                     <button class="subbtn">

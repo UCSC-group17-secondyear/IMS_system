@@ -19,12 +19,14 @@
 
             <li><button class="tree_list">Manage Members</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="../../controller/msmControllers/msmviewMemberList1C.php"><li><i class="fa fa-users"></i> View Medical Member List</li></a>
-                    </button>
-                    <button>
-                        <a href="../../controller/msmControllers/msmRemoveMembersC.php"><li><i class="fa fa-user-times"></i> Remove Member</li></a>
-                    </button>
+                    <form action="../../controller/msmControllers/msmManageMembersC.php" method="post">
+                        <button name="viewmembers-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-users"></i> View Medical Member List</li></a>
+                        </button>
+                        <button name="removemember-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-user-times"></i> Remove Member</li></a>
+                        </button>
+                    </form>
                 </ul>
             </li>
             

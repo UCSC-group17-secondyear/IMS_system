@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/msmControllers/msmviewMemberList2C.php" method="POST">
+                    <form action="../../controller/msmControllers/msmManageMembersC.php" method="POST">
                         <div class="row">
                             <div class="col-25">
                                 <label>Medical Scheme Type</label>
