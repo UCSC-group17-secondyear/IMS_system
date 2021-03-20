@@ -4,7 +4,7 @@
 			$query = "SELECT sessionMid, numOfSessions FROM sessions_per_month 
 			WHERE degree_id = '{$degree_id}' AND subject_id = '{$subject_id}' 
 			AND calendarYear = '{$calendarYear}' AND month = '{$month}' 
-			AND sessionType = '{$sessionType}' AND is_deleted = 0 ";
+			AND sessionTypeId = '{$sessionTypeId}' AND is_deleted = 0 ";
 
 			$result_set = mysqli_query($connect, $query);
 

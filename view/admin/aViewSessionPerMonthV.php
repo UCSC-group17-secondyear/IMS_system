@@ -30,7 +30,7 @@
                                 <label>Select degree</label>
                             </div>
                             <div class="col-75">
-                                <select name="degree" >
+                                <select name="degree_name" >
                                     <?php echo $_SESSION['degreeList'] ?>
                                 </select>
                             </div>
@@ -41,7 +41,7 @@
                                 <label>Select subject</label>
                             </div>
                             <div class="col-75">
-                                <select name="subject" >
+                                <select name="subject_name" >
                                     <?php echo $_SESSION['subject_list'] ?>
                                 </select>
                             </div>
