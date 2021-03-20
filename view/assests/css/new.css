@@ -1041,7 +1041,6 @@ img.avatar {
 
 #tableStyle tr:nth-child(even) {
   background-color: #f2f2f2;
-
 }
 
 #tableStyle tr:hover {
@@ -1069,9 +1068,18 @@ img.avatar {
   text-align: center;
 }
 
-#tableStyle td input, select, option{
-  padding-right: -5px;
+#tableStyle td input{
   width: fit-content;
+}
+
+#tableStlye select, option{
+  width: 0;
+}
+
+#tableStyle td button{
+  font-size: 18px;
+  border: 0;
+  border-radius: 10px
 }
 
 #tableStyle td .green {

@@ -53,6 +53,29 @@
     
     } elseif (isset($_POST['updateremovett-submit'])) {
 
-    } 
+        $semesters = hamModel::getAllsemesters($connect);
+        $degrees = hamModel::getAlldegrees($connect);
+        $_SESSION['acayear'] = "";
+        $_SESSION['semester'] = "";
+        $_SESSION['acayear_with_sem'] = "";
+        
+        $_SESSION['degree'] = "";
+        
+        if ($semesters && $degrees) {
+            while ($sem = mysqli_fetch_array($semesters)) {
+                $_SESSION['acayear'] .= $sem['academic_year'];
+                $_SESSION['semester'] .= $sem['semester'];
+                $_SESSION['acayear_with_sem'] .= "<option value='".$sem['semester']."'>".$sem['academic_year']." - ".$sem['semester']."</option>";
+            }
+
+            while ($deg = mysqli_fetch_array($degrees)) {
+                $_SESSION['degree'] .= "<option value='".$deg['degree_name']."'>".$deg['degree_name']."</option>";
+            }
+        }
+        header('Location:../../view/hallAllocationMaintainer/hamUpdateTimeTableSelectV.php');
+
+    } elseif (isset($_POST['unpdatett-submit'])) {
+
+    }
 
 ?>
