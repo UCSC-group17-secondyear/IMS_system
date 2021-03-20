@@ -63,38 +63,10 @@
                     header('Location:../../view/reportViewer/rvRegisterMSsuccesV.php');
                 } else if ($result['userRole'] == "departmentHead") {
                     header('Location:../../view/departmentHead/dhRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "medicalSchemeMember") {
-                    header('Location:../../view/medicalSchemeMember/moRegisterMSsuccesV.php');
-                } else {
-                    echo "USER";
+                } else if ($result['userRole'] == "nonAcademicStaffMemb") {
+                    header('Location:../../view/nonAcademicStaffMember/nasmRegisterMSsuccesV.php');
                 }
             }
-        } else {
-            echo "query failed";
-        }
-    }
-
-    if (isset($_POST['viewschemedetails-submit'])) {
-        if ($result['userRole'] == "admin") {
-            header('Location:../../view/admin/aViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "academicStaffMemb") {
-            header('Location:../../view/academicStaffMember/asmViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "attendanceMain") {
-            header('Location:../../view/attendanceMaintainer/amViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "hallAllocationMain") {
-            header('Location:../../view/hallAllocationMaintainer/hamViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "mahapolaSchemeMain") {
-            header('Location:../../view/mahapolaSchemeMaintainer/mmViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "medicalSchemeMain") {
-            header('Location:../../view/medicalSchemeMaintainer/msmViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "recordsViewer") {
-            header('Location:../../view/reportViewer/rvViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "departmentHead") {
-            header('Location:../../view/departmentHead/dhViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "medicalSchemeMember") {
-            header('Location:../../view/medicalSchemeMember/moViewSchemeDetailsV.php');
-        } else {
-            echo "USER";
         }
     }
 ?>

@@ -21,7 +21,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>You have already registered to the Medical Scheme!</h2>
+                        <h2>You have already requested to register to the Medical Scheme!</h2>
                     </div>
 
                     <button class="subbtn" type="submit">
