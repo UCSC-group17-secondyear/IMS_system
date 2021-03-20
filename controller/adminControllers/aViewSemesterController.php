@@ -23,8 +23,8 @@
                 $_SESSION['semester_list'] .= "<td>{$record['academic_year']}</td>";
                 $_SESSION['semester_list'] .= "<td>{$record['start_date']}</td>";
                 $_SESSION['semester_list'] .= "<td>{$record['end_date']}</td>";
-                $_SESSION['semester_list'] .= "<td><a href=\"../../controller/adminControllers/aUpdateSemesterController.php?sem_id={$record['sem_id']}\">Update</a></td>";
-                $_SESSION['semester_list'] .= "<td><a href=\"../../controller/adminControllers/aDeleteSemesterController.php?sem_id={$record['sem_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
+                $_SESSION['semester_list'] .= "<td><a class=\"green\" href=\"../../controller/adminControllers/aUpdateSemesterController.php?sem_id={$record['sem_id']}\">Update</a></td>";
+                $_SESSION['semester_list'] .= "<td><a class=\"red\" href=\"../../controller/adminControllers/aDeleteSemesterController.php?sem_id={$record['sem_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
                 $_SESSION['semester_list'] .= "</tr>";
 
                 header('Location:../../view/admin/aViewSemesterV.php');
