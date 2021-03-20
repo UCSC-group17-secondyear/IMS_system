@@ -3,33 +3,60 @@
     require_once('../../config/database.php');
 
     if(isset($_POST['addMSession-submit'])) {
-        $subject = $_POST['subject'];
+        $degree_name = $_POST['degree_name'];
+        $subject_name = $_POST['subject_name'];
+        $sessionType = $_POST['sessionType'];
         $calendarYear = $_POST['calendarYear'];
         $month = $_POST['month'];
-        $sessionType = $_POST['sessionType'];
         $numOfSessions = $_POST['numOfSessions'];
 
-        $checkMonthlySession = adminModel::checkMonthlySession($subject, $calendarYear, $month, $sessionType, $connect);
+        $get_degree_id = adminModel::get_degree_id ($degree_name, $connect);
+        $result_degree_id = mysqli_fetch_assoc($get_degree_id);
+        $degree_id = $result_degree_id['degree_id'];
 
-        if (mysqli_num_rows($checkMonthlySession)!= 0) {
-            header('Location:../../view/admin/aMonthlySessionExists.php');
-        }
+        if ($degree_id) {
+            $get_subject_id = adminModel::get_subject_id ($subject_name, $connect);
+            $result_subject_id = mysqli_fetch_assoc($get_subject_id);
+            $subject_id = $result_subject_id['subject_id'];
 
-        else {
-            $result = adminModel::addMonthlySession($subject, $calendarYear, $month, $sessionType, $numOfSessions, $connect);
+            if ($subject_id) {
+                $get_sessionTypeId = adminModel::get_sessionTypeId ($sessionType, $connect);
+                $result_sessionTypeId = mysqli_fetch_assoc($get_sessionTypeId);
+                $sessionTypeId = $result_sessionTypeId['sessionTypeId'];
 
-            if ($result) { 
-                header('Location:../../view/admin/aMonthlySessionAdded.php');
+                if ($sessionTypeId) {
+                    $get_MonthlySession = adminModel::checkMonthlySession ($degree_id, $subject_id, $sessionTypeId, $calendarYear, $month, $connect);
+                    $result_MonthlySession = mysqli_fetch_assoc($get_MonthlySession);
+                    $monthlySession = $result_MonthlySession['sessionMid'];
+
+                    if ($monthlySession) {
+                        header('Location:../../view/admin/aMonthlySessionExists.php');
+                    }
+                    else {
+                        $result = adminModel::addMonthlySession ($degree_id, $subject_id, $sessionTypeId, $calendarYear, $month, $numOfSessions, $connect);
+                        if ($result) { 
+                            header('Location:../../view/admin/aMonthlySessionAdded.php');
+                        }
+                        else {
+                            header('Location:../../view/admin/aMonthlySessionNotAdded.php');
+                        }
+                    }
+                }
+                else {
+                    echo "didn't fetch sessionTypeId";
+                }
             }
             else {
-                header('Location:../../view/admin/aMonthlySessionNotAdded.php');
+                echo "didn't fetch subject_id";
             }
+        }
+        else {
+            echo "didn't get degree id";
         }
     }
 
     elseif (isset($_POST['getDegree-submit'])) {
         session_start();
-
         $_SESSION['degreeList'] = '';
         $get_degreeList = adminModel::getDegrees($connect);
         if (mysqli_num_rows($get_degreeList) != 0) {
@@ -59,35 +86,55 @@
                 }
             }
             else {
-                echo "no session types available";
+                header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
             }
         }
         else {
             echo "no degrees available";
         }
     }
-    
-    elseif(isset($_POST['assignSession-submit'])) {
+
+    elseif (isset($_POST['assignSession-submit'])) {
         session_start();
-        $_SESSION['sessionTypes'] = '';
 
-        $records = adminModel::sessionType($connect);
-
-        if (mysqli_num_rows($records) != 0) {
-            while ($record = mysqli_fetch_array($records)) {
-                $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+        $_SESSION['degreeList'] = '';
+        $get_degreeList = adminModel::getDegrees($connect);
+        if (mysqli_num_rows($get_degreeList) != 0) {
+            while ($record = mysqli_fetch_array($get_degreeList)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degree_name']."'>".$record['degree_name']."</option>";
             }
-            header('Location:../../view/admin/aAddSessionPerMonthV.php');
+
+            $_SESSION['sessionTypes'] = '';
+            $records_sessionT = adminModel::sessionType($connect);
+
+            if (mysqli_num_rows($records_sessionT) != 0) {
+                while ($record = mysqli_fetch_array($records_sessionT)) {
+                    $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+                }
+
+                $_SESSION['subject_list'] = '';
+                $records_subList = adminModel::getSubjects($connect);
+
+                if (mysqli_num_rows($records_subList) != 0) {
+                    while ($record = mysqli_fetch_array($records_subList)) {
+                        $_SESSION['subject_list'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']."</option>";
+                    }
+                    header('Location:../../view/admin/aAddSessionPerMonthV.php');
+                }
+                else {
+                    echo "no subjects available";
+                }
+            }
+            else {
+                header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
+            }
         }
         else {
-            header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
+            echo "no degrees available";
         }
     }
 
     elseif(isset($_POST['monthlySessionDetails-submit'])) {
-        session_start();
-        $_SESSION['monthlySession'] = '';
-
         $subject = $_POST['subject'];
         $degree = $_POST['degree'];
         $calendarYear = $_POST['calendarYear'];
@@ -99,10 +146,26 @@
         $subject_code = $result_subject_code['subject_code'];
 
         if ($subject_code) {
-            $records = adminModel::checkMonthlySession ($subject_code, $calendarYear, $month, $sessionType, $connect);
+            $get_numSessions = adminModel::checkMonthlySession ($subject_code, $calendarYear, $month, $sessionType, $connect);
+            $result_numSessions = mysqli_fetch_assoc($get_numSessions);
+            $numSessions = $result_numSessions['numOfSessions'];
 
-            if (mysqli_num_rows($records) != 0) {
+
+            if ($numSessions) {
+                session_start();
+                $_SESSION['degree'] = $degree;
+                $_SESSION['subject'] = $subject;
+                $_SESSION['sessionType'] = $sessionType;
+                $_SESSION['calendarYear'] = $calendarYear;
+                $_SESSION['month'] = $month;
+                $_SESSION['numSessions'] = $numSessions;
+                header('Location:../../view/admin/aViewMonthlySessionV.php');
+            }
+
+            /*if (mysqli_num_rows($records) != 0) {
+                $_SESSION['monthlySession'] = '';
                 while ($record = mysqli_fetch_assoc($records)) {
+
                     $_SESSION['monthlySession'] .= "<tr>";
                     $_SESSION['monthlySession'] .= "<td>{$record['subject']}</td>";
                     $_SESSION['monthlySession'] .= "<td>{$record['calendarYear']}</td>";
@@ -110,9 +173,9 @@
                     $_SESSION['monthlySession'] .= "<td>{$record['sessionType']}</td>";
                     $_SESSION['monthlySession'] .= "<td>{$record['numOfSessions']}</td>";
                     $_SESSION['monthlySession'] .= "<tr>";
-                    header('Location:../../view/admin/aViewMonthlySessionV.php');
                 }
-            }
+                header('Location:../../view/admin/aViewMonthlySessionV.php');
+            }*/
             else {
                 header('Location:../../view/admin/aNomSessionsAssignedV.php');
             }
@@ -123,50 +186,112 @@
     }
 
     else if(isset($_POST['getMonthlySessionDetails-submit'])) {
-        $subject = $_POST['subject'];
+        $degree_name = $_POST['degree_name'];
+        $subject_name = $_POST['subject_name'];
         $calendarYear = $_POST['calendarYear'];
         $month = $_POST['month'];
         $sessionType = $_POST['sessionType'];
 
-        $result_set = adminModel::checkMonthlySession($subject, $calendarYear, $month, $sessionType, $connect);
+        $get_degree_id = adminModel::get_degree_id ($degree_name, $connect);
+        $result_degree_id = mysqli_fetch_assoc($get_degree_id);
+        $degree_id = $result_degree_id['degree_id'];
 
-        if ($result_set) {
-            if(mysqli_num_rows($result_set) != 0){
-                session_start();
-                $result = mysqli_fetch_assoc($result_set);
-                $_SESSION['sessionMid'] = $result['sessionMid'];
-                $_SESSION['subject'] = $result['subject'];
-                $_SESSION['calendarYear'] = $result['calendarYear'];
-                $_SESSION['month'] = $result['month'];
-                $_SESSION['sessionType'] = $result['sessionType'];
-                $_SESSION['numOfSessions'] = $result['numOfSessions'];
+        if ($degree_id) {
+            $get_subject_id = adminModel::get_subject_id ($subject_name, $connect);
+            $result_subject_id = mysqli_fetch_assoc($get_subject_id);
+            $subject_id = $result_subject_id['subject_id'];
 
-                header('Location:../../view/admin/aUpdateRemoveSessionPerMonthFoundV.php');
+            if ($subject_id) {
+                $get_sessionTypeId = adminModel::get_sessionTypeId ($sessionType, $connect);
+                $result_sessionTypeId = mysqli_fetch_assoc($get_sessionTypeId);
+                $sessionTypeId = $result_sessionTypeId['sessionTypeId'];
+
+                if ($sessionTypeId) {
+                    $get_MonthlySession = adminModel::checkMonthlySession ($degree_id, $subject_id, $sessionTypeId, $calendarYear, $month, $connect);
+                    $result_MonthlySession = mysqli_fetch_assoc($get_MonthlySession);
+
+                    if ($result_MonthlySession) {
+                        session_start();
+                        $_SESSION['sessionMid'] = $result_MonthlySession['sessionMid'];
+                        $_SESSION['degree_name'] = $degree_name;
+                        $_SESSION['subject_name'] = $subject_name;
+                        $_SESSION['sessionType'] = $sessionType;
+                        $_SESSION['calendarYear'] = $calendarYear;
+                        $_SESSION['month'] = $month;
+                        $_SESSION['numOfSessions'] = $result_MonthlySession['numOfSessions'];
+                        header('Location:../../view/admin/aUpdateRemoveSessionPerMonthFoundV.php');
+                    }
+                    else {
+                        header('Location:../../view/admin/aNomSessionsAssignedV.php');
+                    }
+                }
+                else {
+                    echo "no $sessionTypeId";
+                }
             }
             else {
-                header('Location:../../view/admin/aQueryFailedV.php');
+                echo "no subject_id";
             }
         }
         else {
-            header('Location:../../view/admin/aNomSessionsAssignedV.php');
+            echo "no degree_id";
+            /*header('Location:../../view/admin/aQueryFailedV.php');*/
         }
     }
 
     elseif(isset($_POST['updateMonthlySession-submit'])) {
-        $sessionMid = $_POST['sessionMid'];
-        $subject = $_POST['subject'];
+        session_start();
+        $sessionMid = $_SESSION['sessionMid'];
+        $degree_name = $_SESSION['degree_name'];
+        $subject_name = $_SESSION['subject_name'];
+        $sessionType = $_SESSION['sessionType'];
         $calendarYear = $_POST['calendarYear'];
         $month = $_POST['month'];
-        $sessionType = $_POST['sessionType'];
         $numOfSessions = $_POST['numOfSessions'];
 
-        $result_set = adminModel::updateMonthlySession($sessionMid, $subject, $calendarYear, $month, $sessionType, $numOfSessions, $connect);
+        $get_degree_id = adminModel::get_degree_id ($degree_name, $connect);
+        $result_degree_id = mysqli_fetch_assoc($get_degree_id);
+        $degree_id = $result_degree_id['degree_id'];
 
-        if ($result_set) {
-            header('Location:../../view/admin/aMonthlySessionUpdated.php');
+        if ($degree_id) {
+            $get_subject_id = adminModel::get_subject_id ($subject_name, $connect);
+            $result_subject_id = mysqli_fetch_assoc($get_subject_id);
+            $subject_id = $result_subject_id['subject_id'];
+
+            if ($subject_id) {
+                $get_sessionTypeId = adminModel::get_sessionTypeId ($sessionType, $connect);
+                $result_sessionTypeId = mysqli_fetch_assoc($get_sessionTypeId);
+                $sessionTypeId = $result_sessionTypeId['sessionTypeId'];
+
+                if ($sessionTypeId) {
+                    $get_MonthlySession = adminModel::checkMonthlySession ($degree_id, $subject_id, $sessionTypeId, $calendarYear, $month, $connect);
+                    $result_MonthlySession = mysqli_fetch_assoc($get_MonthlySession);
+
+                    if ($result_MonthlySession) {
+                        echo "session is assigned";
+                    }
+                    else {
+                        $result_set = adminModel::updateMonthlySession ($sessionMid, $calendarYear, $month, $numOfSessions, $connect);
+
+                        if ($result_set) {
+                            header('Location:../../view/admin/aMonthlySessionUpdated.php');
+                        }
+                        else {
+                            header('Location:../../view/admin/aMonthlySessionNotUpdated.php');
+                        }
+                    }
+                }
+                else {
+                    echo "no $sessionTypeId";
+                }
+            }
+            else {
+                echo "no subject_id";
+            }
         }
         else {
-            header('Location:../../view/admin/aMonthlySessionNotUpdated.php');
+            echo "no degree_id";
+            /*header('Location:../../view/admin/aQueryFailedV.php');*/
         }
     }
 
@@ -190,17 +315,40 @@
 
     elseif(isset($_POST['sessionTypesList-submit'])) {
         session_start();
-        $records = adminModel::viewSessionTypes($connect);
-        $_SESSION['sessionTypes'] = '';
-
-        if ($records) {
-            while ($record = mysqli_fetch_array($records)) {
-                $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+        $_SESSION['degreeList'] = '';
+        $get_degreeList = adminModel::getDegrees($connect);
+        if (mysqli_num_rows($get_degreeList) != 0) {
+            while ($record = mysqli_fetch_array($get_degreeList)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degree_name']."'>".$record['degree_name']."</option>";
             }
-            header('Location:../../view/admin/aUpdateRemoveSessionPerMonthV.php');
+
+            $_SESSION['sessionTypes'] = '';
+            $records_sessionT = adminModel::sessionType($connect);
+
+            if (mysqli_num_rows($records_sessionT) != 0) {
+                while ($record = mysqli_fetch_array($records_sessionT)) {
+                    $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+                }
+
+                $_SESSION['subject_list'] = '';
+                $records_subList = adminModel::getSubjects($connect);
+
+                if (mysqli_num_rows($records_subList) != 0) {
+                    while ($record = mysqli_fetch_array($records_subList)) {
+                        $_SESSION['subject_list'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']."</option>";
+                    }
+                    header('Location:../../view/admin/aUpdateRemoveSessionPerMonthV.php');
+                }
+                else {
+                    echo "no subjects available";
+                }
+            }
+            else {
+                header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
+            }
         }
         else {
-            header('Location:../../view/admin/aNoSessionTypesAvailableV.php');
+            echo "no degrees available";
         }
     }
 ?>

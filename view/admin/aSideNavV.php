@@ -158,7 +158,7 @@
 
                      <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <button name="sessionTypesList-submit">
-                            <a href="aUpdateRemoveSessionPerMonthV.php">
+                            <a href="#">
                                 <li><i class="fa fa-pencil-square"></i>Update or remove monthly sessions</li>
                             </a>
                         </button>
