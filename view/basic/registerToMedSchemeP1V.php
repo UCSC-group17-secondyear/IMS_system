@@ -58,7 +58,7 @@
             <button class="mainbtn" type="submit" name="registerNext-submit">Next</button>
         </form>
         <form>
-            <button class="subbtn" type="submit" name="schemedetails-submit">View Scheme Details</button>
+            <button class="subbtn" type="submit">View Scheme Details</button>
             <button type="submit" class="cancelbtn">
                 <a href="#">Cancel</a>
             </button>

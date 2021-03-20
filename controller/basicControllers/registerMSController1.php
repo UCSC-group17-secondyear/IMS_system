@@ -15,8 +15,8 @@
     
     if ($result_set && $records1 && $records2 && $records4 && $records5) {
         $membership = mysqli_fetch_assoc($records5);
-        if($membership['membership_status'] == 4){
-            if (mysqli_num_rows($result_set)==1) {
+        if ($membership['membership_status'] == 3) {
+            if (mysqli_num_rows($result_set) == 1) {
                 $result = mysqli_fetch_assoc($result_set);
     
                 $_SESSION['userId'] = $result['userId'];
@@ -67,7 +67,7 @@
                     echo "USER";
                 }
             }
-        } else if ($membership['membership_status'] == 3) {
+        } else if ($membership['membership_status'] == 2) {
             if (mysqli_num_rows($result_set) == 1) {
                 $result = mysqli_fetch_assoc($result_set);
 
@@ -137,9 +137,41 @@
                     echo "USER";
                 }
             }
-        }
-        else {
-            echo "0";
+        } else {
+            if (mysqli_num_rows($result_set) == 1) {
+                $result = mysqli_fetch_assoc($result_set);
+
+                if ($result['userRole'] == "admin") {
+                    header('Location:../../view/admin/anotMemberV.php');
+                }
+                else if ($result['userRole'] == "academicStaffMemb") {
+                    header('Location:../../view/academicStaffMember/asmnotMemberV.php');
+                }
+                else if ($result['userRole'] == "nonAcademicStaffMemb") {
+                    header('Location:../../view/nonAcademicStaffMember/nasmnotMemberV.php');
+                }
+                else if ($result['userRole'] == "attendanceMain") {
+                    header('Location:../../view/attendanceMaintainer/amnotMemberV.php');
+                }
+                else if ($result['userRole'] == "hallAllocationMain") {
+                    header('Location:../../view/hallAllocationMaintainer/hamnotMemberV.php');
+                }
+                else if ($result['userRole'] == "mahapolaSchemeMain") {
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmnotMemberV.php');
+                }
+                else if ($result['userRole'] == "medicalSchemeMain") {
+                    header('Location:../../view/medicalSchemeMaintainer/msmnotMemberV.php');
+                }
+                else if ($result['userRole'] == "recordsViewer") {
+                    header('Location:../../view/reportViewer/rvnotMemberV.php');
+                }
+                else if ($result['userRole'] == "departmentHead") {
+                    header('Location:../../view/departmentHead/dhnotMemberV.php');
+                }
+                else {
+                    echo "USER";
+                }
+            }
         }     
     }
 ?>

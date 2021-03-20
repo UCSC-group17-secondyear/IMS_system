@@ -15,13 +15,14 @@
 
         foreach($child_details as $cd){
 
-            $userInfo = array($cd['child_name']=>50, $cd['relationship']=>8, $cd['child_dob']=>20, $cd['health_status']=>100);
+            // $userInfo = array($cd['child_name']=>50, $cd['relationship']=>8, $cd['child_dob']=>20, $cd['health_status']=>100);
     
-            foreach ($userInfo as $info=>$maxLen) {
-                if (strlen(trim($_POST[$info])) >  $maxLen) {
-                    $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
-                }
-            }
+            // foreach ($userInfo as $info=>$maxLen) {
+            //     if (strlen(trim($_POST[$info])) >  $maxLen) {
+            //         $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
+            //     }
+            // }
+
             if (empty($errors)) {
                 $birthdate = new DateTime($cd['child_dob']);
                 $today   = new DateTime('today');

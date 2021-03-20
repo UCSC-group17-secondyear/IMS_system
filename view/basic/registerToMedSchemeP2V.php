@@ -15,7 +15,7 @@
                             <option value="">Select Scheme</option>
                             <?php echo $_SESSION['scheme'] ?>
                         </select>
-                        <div class="tooltip">?
+                        <div class="tooltip"><i class="fa fa-question-circle"></i>
                             <span class="tooltiptext">Please look at the scheme details</span>
                         </div>
                     </div>
