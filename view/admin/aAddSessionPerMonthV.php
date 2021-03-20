@@ -27,7 +27,7 @@
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label>Enter calendar year</label>
+                                <label>Enter the calendar year</label>
                             </div>
                             <div class="col-75">
                                 <input type="text" name="calendarYear" placeholder="Calendar Year" required/><br>
@@ -36,39 +36,38 @@
 
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter month</label>
+                              <label>Enter the month</label>
                             </div>
                             <div class="col-75">
-                                <select name="month">
-                                    <option>January</option>
-                                    <option>February</option>
-                                    <option>March</option>
-                                    <option>April</option>
-                                    <option>May</option>
-                                    <option>June</option>
-                                    <option>July</option>
-                                    <option>August</option>
-                                    <option>September</option>
-                                    <option>October</option>
-                                    <option>November</option>
-                                    <option>December</option>
+                              <input type="number" name="month" placeholder="Month" min="1" max="12" required/><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Select the degree</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="degree_name" id="">
+                                    <?php echo $_SESSION['degreeList'] ?>
                                 </select>
-                              <!-- <input type="text" name="month" placeholder="Month" required/><br> -->
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter subject</label>
+                              <label>Select the subject</label>
                             </div>
                             <div class="col-75">
-                              <input type="text" name="subject" placeholder="Subject" required/>
+                                <select name="subject_name" id="">
+                                    <?php echo $_SESSION['subject_list'] ?>
+                                </select>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter session type</label>
+                              <label>Select the session type</label>
                             </div>
                             <div class="col-75">
                                 <select name="sessionType" id="">
@@ -79,7 +78,7 @@
 
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter number of sessions per month</label>
+                              <label>Enter the number of sessions per month</label>
                             </div>
                             <div class="col-75">
                               <input type="text" name="numOfSessions" placeholder="Number of sessions per month" min="0" required/>
