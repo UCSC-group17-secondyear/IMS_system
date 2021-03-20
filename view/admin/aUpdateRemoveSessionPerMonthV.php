@@ -25,10 +25,23 @@
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label>Enter subject</label>
+                                <label>Select degree</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="subject" placeholder="Subject" required/>
+                                <select name="degree_name" id="">
+                                    <?php echo $_SESSION['degreeList'] ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Select subject</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="subject_name" id="">
+                                    <?php echo $_SESSION['subject_list'] ?>
+                                </select>
                             </div>
                         </div>
 
@@ -57,20 +70,7 @@
                               <label>Select month</label>
                             </div>
                             <div class="col-75">
-                                <select name="month">
-                                    <option>January</option>
-                                    <option>February</option>
-                                    <option>March</option>
-                                    <option>April</option>
-                                    <option>May</option>
-                                    <option>June</option>
-                                    <option>July</option>
-                                    <option>August</option>
-                                    <option>September</option>
-                                    <option>October</option>
-                                    <option>November</option>
-                                    <option>December</option>
-                                </select>
+                                <input type="number" name="month" min="1" max="12" required>
                             </div>
                         </div>
 
