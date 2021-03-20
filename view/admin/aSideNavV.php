@@ -66,9 +66,19 @@
                             <a href="#"><li><i class="fa fa-user"></i>View Posts</li></a>
                         </button>
                     </form>
-                        <button>
-                            <a href="aAddPostV.php"><li><i class="fa fa-plus-circle"></i>Add a Post</li></a>
+
+                    <form action="../../controller/adminControllers/managePostsC.php" method="post">
+                        <button name="getUsers-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i>Add a Post</li></a>
                         </button>
+                    </form>
+
+                    <form action="../../controller/adminControllers/managePostsC.php" method="post">
+                        <button name="getUsers-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i>Update user of a Post</li></a>
+                        </button>
+                    </form>
+
                     <form action="../../controller/adminControllers/managePostsC.php" method="post">
                         <button name="viwePostList-submit" type="submit">
                             <a href="#"><li><i class="fa fa-trash"></i>Remove a Post</li></a>

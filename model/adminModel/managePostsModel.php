@@ -1,18 +1,34 @@
 <?php
 	class adminModel {
 		public static function checkPost($post_name, $connect) {
-			$query = "SELECT * FROM tbl_post WHERE post_name ='{$post_name}' AND is_deleted=0 LIMIT 1 " ;
+			$query = "SELECT pst_id FROM tbl_post WHERE post_name ='{$post_name}' AND is_deleted=0 LIMIT 1 " ;
 
 			$result_set = mysqli_query($connect, $query);
 
             return $result_set;
 		}
 
-		public static function addPost($post_name, $connect) 
+		public static function addPost ($post_name, $userId, $connect) 
 		{
-			$query = "INSERT INTO tbl_post (post_name) 
-				VALUES ('$post_name')";
+			$query = "INSERT INTO tbl_post (post_name, userId) VALUES ('$post_name', '$userId')";
 		
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function getUsers($connect) {
+			$query = "SELECT empid FROM users WHERE is_deleted=0 ORDER BY empid";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function get_userId($empid, $connect) {
+			$query = "SELECT userId FROM users 
+			WHERE empid = '{$empid}' AND is_deleted=0 ORDER BY empid";
+
 			$result_set = mysqli_query($connect, $query);
 
 			return $result_set;
