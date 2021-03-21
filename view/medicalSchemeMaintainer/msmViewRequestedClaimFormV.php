@@ -44,7 +44,7 @@
                         <th>Submitted Date</th>
                         <th>View</th>
                     </tr>
-                    <?php echo $_SESSION['requested']; ?>
+                    <?php echo $_SESSION['req_form_no']; ?>
                 </table>
             </div>
         </div>

@@ -63,9 +63,6 @@
                 else if ($result['userRole'] == "medicalOfficer") {
                     header('Location:../../view/medicalOfficer/moRegisterToMedicalSchemeP1V.php');
                 }
-                else {
-                    echo "USER";
-                }
             }
         } else if ($membership['membership_status'] == 2) {
             if (mysqli_num_rows($result_set) == 1) {
@@ -97,9 +94,6 @@
                 }
                 else if ($result['userRole'] == "departmentHead") {
                     header('Location:../../view/departmentHead/dhAlreadyRegisteredV.php');
-                }
-                else {
-                    echo "USER";
                 }
             }
         }  else if ($membership['membership_status'] == 1) {
@@ -133,9 +127,6 @@
                 else if ($result['userRole'] == "departmentHead") {
                     header('Location:../../view/departmentHead/dhmembershipStatusV.php');
                 }
-                else {
-                    echo "USER";
-                }
             }
         } else {
             if (mysqli_num_rows($result_set) == 1) {
@@ -167,9 +158,6 @@
                 }
                 else if ($result['userRole'] == "departmentHead") {
                     header('Location:../../view/departmentHead/dhnotMemberV.php');
-                }
-                else {
-                    echo "USER";
                 }
             }
         }     
