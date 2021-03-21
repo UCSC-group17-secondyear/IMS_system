@@ -20,8 +20,8 @@
             $_SESSION['user_list'] .= "<td>{$user['designation']}</td>";
             $_SESSION['user_list'] .= "<td>{$user['post']}</td>";
             $_SESSION['user_list'] .= "<td>{$user['appointment']}</td>";
-            $_SESSION['user_list'] .= "<td><a href=\"../../controller/adminControllers/modifyUserController.php?user_id_two={$user['userId']}&user_id={$id}\">Edit</a></td>";
-            $_SESSION['user_list'] .= "<td><a href=\"../../controller/adminControllers/deleteUserController.php?user_id={$user['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
+            $_SESSION['user_list'] .= "<td><a class=\"green\" href=\"../../controller/adminControllers/modifyUserController.php?user_id_two={$user['userId']}&user_id={$id}\">Edit</a></td>";
+            $_SESSION['user_list'] .= "<td><a class=\"red\" href=\"../../controller/adminControllers/deleteUserController.php?user_id={$user['userId']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
             $_SESSION['user_list'] .= "</tr>";
             // echo "hello";
             header('Location:../../view/admin/aUsersV.php');

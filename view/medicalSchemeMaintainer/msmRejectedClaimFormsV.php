@@ -36,8 +36,13 @@
                 </div>
                 <table id="tableStyle">
                     <tr>
-                        <th id="">Claim Form No</th>
-                        <th id="">View</th>
+                        <th>OPD/Surgical</th>
+                        <th>Claim Form No</th>
+                        <th id="">Employee ID</th>
+                        <th>Initial</th>
+                        <th>Surname</th>
+                        <th>Submitted Date</th>
+                        <th>View</th>
                     </tr>
                         <?php echo $_SESSION['rej_form_no']; ?>
                 </table>
@@ -57,7 +62,7 @@
 
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
+            td = tr[i].getElementsByTagName("td")[2];
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -69,6 +74,7 @@
         }
     }
 </script>
+
 
 <?php
     require '../basic/footer.php';

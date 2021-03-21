@@ -22,9 +22,13 @@
                 $_SESSION['hall_list'] .= "<td>{$record['hall_name']}</td>";
                 $_SESSION['hall_list'] .= "<td>{$record['seating_capacity']}</td>";
                 $_SESSION['hall_list'] .= "<td>{$record['location']}</td>";
-                $_SESSION['hall_list'] .= "<td>{$record['AC']}</td>";
-                $_SESSION['hall_list'] .= "<td><a href=\"../../controller/adminControllers/aUpdateHallController.php?hall_id={$record['hall_id']}\">Update</a></td>";
-                $_SESSION['hall_list'] .= "<td><a href=\"../../controller/adminControllers/aDeleteHallController.php?hall_id={$record['hall_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
+                if($record['AC'] == 1){
+                    $_SESSION['hall_list'] .= "<td>Yes</td>";
+                } else {
+                    $_SESSION['hall_list'] .= "<td>No</td>";
+                }
+                $_SESSION['hall_list'] .= "<td><a class=\"green\" href=\"../../controller/adminControllers/aUpdateHallController.php?hall_id={$record['hall_id']}\">Update</a></td>";
+                $_SESSION['hall_list'] .= "<td><a class=\"red\" href=\"../../controller/adminControllers/aDeleteHallController.php?hall_id={$record['hall_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
                 $_SESSION['hall_list'] .= "</tr>";
 
                 header('Location:../../view/admin/aViewHallV.php');

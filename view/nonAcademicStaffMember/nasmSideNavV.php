@@ -14,17 +14,4 @@
             </li>
         </ul>
     </div>
-
-    <script>
-        var toggler = document.getElementsByClassName("tree_list");
-        var i;
-
-        for (i = 0; i < toggler.length; i++) {
-          toggler[i].addEventListener("click", function() {
-            this.parentElement.querySelector(".tree_nest").classList.toggle("active");
-            this.classList.toggle("tree_list-down");
-          });
-        }
-    </script>
-
 </main>
