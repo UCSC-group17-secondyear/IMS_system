@@ -63,7 +63,7 @@
                         </div>
                                              
                         <button type="submit" name="updateDepartment-submit" class="subbtn">Update Department</button>
-                        <button type="submit" name="cancel-submit" class="cancelbtn"><a href="aHomeV.php">Cancel</a></button>
+                        <button type="submit" name="cancel-submit" class="cancelbtn"><a href="aHomeV.php" class="cancelbtn">Cancel</a></button>
                     </form>
                     
                 </div>
