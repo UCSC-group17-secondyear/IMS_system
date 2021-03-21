@@ -23,7 +23,7 @@
                 <div class="contentForm">
                     <!-- <form action="../../controller/adminControllers/manageUserRoleController.php" method="post"> -->
                         <div class="row">
-                            <h2>Sorry! <br>
+                            <h2>Sorry!
                                 The user role you entered already exists.
                             </h2>
                         </div>

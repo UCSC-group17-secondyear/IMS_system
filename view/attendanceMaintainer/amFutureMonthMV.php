@@ -20,7 +20,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             You are not allowed to enter upcoming months.
                         </h2>
                     </div>

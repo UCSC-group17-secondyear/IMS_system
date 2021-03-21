@@ -22,7 +22,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             The Profile you entered did not get updated.
                         </h2>
                     </div>
