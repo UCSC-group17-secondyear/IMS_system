@@ -20,17 +20,24 @@
 			return $result;
 		}
 
-		public static function assignUserRole($empid, $role_id, $connect) {
-			$query = "INSERT INTO tbl_userhasrole (empid, role_id) VALUES('$empid', '$role_id')";
+		public static function assignUserRole ($userId, $role_id, $connect) {
+			$query = "INSERT INTO tbl_userhasrole (userId, role_id) VALUES('$userId', '$role_id')";
 		
 			if($connect->query($query)) {
 				return true;
 			}
 		}
 
-		public static function checkUsersRoles($empid, $role_id, $connect) {
+		public static function checkUsersRoles ($userId, $role_id, $connect) {
 			$query = "SELECT * FROM tbl_userhasrole 
-			WHERE is_deleted = 0  AND empid = '{$empid}' AND role_id ='{$role_id}' LIMIT 1 ";
+			WHERE is_deleted = 0  AND userId = '{$userId}' AND role_id ='{$role_id}' ";
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function getUsersRoles ($userId, $connect) {
+			$query = "SELECT * FROM tbl_userhasrole 
+			WHERE userId = '{$userId}' AND is_deleted = 0 ORDER BY id ASC ";
 			$result = mysqli_query($connect, $query);
 			return $result;
 		}
@@ -41,6 +48,15 @@
 		
 			if($connect->query($query))
 				return true;
+		}
+
+		public static function getRoleName ($role_id, $connect)
+		{
+			$query = "SELECT role_name FROM userroles WHERE role_id = '{$role_id}' AND is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
 		}
 
 		public static function viewUserRoles($connect)
@@ -61,35 +77,35 @@
 			return $result;
 		}
 
-		public static function setUserRole($empid, $userRole, $connect)
+		public static function setUserRole($userId, $userRole, $connect)
 		{
-			$query = "UPDATE users SET userRole = '{$userRole}' WHERE empid='{$empid}' LIMIT 1";
+			$query = "UPDATE users SET userRole = '{$userId}' WHERE empid='{$userId}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
 		} 
 
-		public static function updateUserRole($empid, $userRole, $connect)
+		public static function updateUserRole ($userId, $userRole, $connect)
 		{
 			$query = "UPDATE tbl_userhasrole SET is_deleted = 1 
-			WHERE empid = '{$empid}' AND role_id = '{$userRole}' LIMIT 1";
+			WHERE userId = '{$userId}' AND role_id = '{$userRole}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
 		}
 		
-		public static function getUId($empid, $connect)
+		public static function getUId ($empid, $connect)
 		{
-			$query = "SELECT userId FROM users WHERE empid='{$empid}' LIMIT 1";
+			$query = "SELECT userId FROM users WHERE empid='{$empid}' AND is_deleted = 0 LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
 		}
 
-		public static function setRoleByAdminOne($user_id, $a_flag, $connect)
+		/*public static function setRoleByAdminOne($user_id, $a_flag, $connect)
 		{
 			$query = "UPDATE tbl_user_flag SET a_flag={$a_flag} WHERE user_id={$user_id} LIMIT 1";
 		
@@ -177,11 +193,11 @@
 			$result = mysqli_query($connect, $query);
 
 			return $result;
-		}
+		}*/
 
 		public static function userRoles($connect)
 		{
-			$query = "SELECT role_name FROM userroles WHERE is_deleted=0";
+			$query = "SELECT role_name FROM userroles WHERE is_deleted=0 ORDER BY role_name ASC";
 
 			$result_set = mysqli_query($connect, $query);
 			
