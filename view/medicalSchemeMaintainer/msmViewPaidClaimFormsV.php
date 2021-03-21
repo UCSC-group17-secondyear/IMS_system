@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>View Claim Reqested Forms</title>
+    <title>View Paid Claim Forms</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">View Claim Reqested Forms</li>
+            <li class="active">View Paid Claim Forms</li>
         </ul>
 
         <div class="row">
@@ -20,7 +20,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>View Claim Reqested Forms</h2>
+                    <h2>View Paid Claim Forms</h2>
                 </div>
                 <div class="contentForm">
                     <form action="" method="post">
@@ -36,10 +36,15 @@
                 </div>
                 <table id="tableStyle">
                     <tr>
-                        <th id="">Claim Form No</th>
-                        <th id="">View</th>
+                        <th>OPD/Surgical</th>
+                        <th>Claim Form No</th>
+                        <th id="">Employee ID</th>
+                        <th>Initial</th>
+                        <th>Surname</th>
+                        <th>Submitted Date</th>
+                        <th>View</th>
                     </tr>
-                        <?php echo $_SESSION['req_form_no']; ?>
+                        <?php echo $_SESSION['paid_form_no']; ?>
                 </table>
             </div>
         </div>
@@ -57,7 +62,7 @@
 
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
+            td = tr[i].getElementsByTagName("td")[2];
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {

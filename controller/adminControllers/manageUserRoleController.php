@@ -64,23 +64,30 @@
         $role_id = $result_role_id['role_id'];
 
         if ($role_id) {
-            $checkUsersRoles = adminModel::checkUsersRoles($empid, $role_id, $connect);
-            $result_UsersRoles = mysqli_fetch_assoc($checkUsersRoles);
-            $id = $result_UsersRoles['id'];
+            $get_userId = adminModel::getUId ($empid, $connect);
+            $result_userId = mysqli_fetch_assoc($get_userId);
+            $userId = $result_userId['userId'];
 
-            if ($id) {
-                echo "user is already assgined with the given role";
-            }
-            else {
-                $result = adminModel::assignUserRole($empid, $role_id, $connect);
+            if ($userId) {
+                $checkUsersRoles = adminModel::checkUsersRoles ($userId, $role_id, $connect);
+                $result_UsersRoles = mysqli_fetch_assoc($checkUsersRoles);
+                $id = $result_UsersRoles['id'];
 
-                if ($result) {
-                    echo "user role is assigned";
+                if ($id) {
+                    echo "user is already assgined with the given role";
                 }
                 else {
-                    echo "user role is not assigned";
+                    $result = adminModel::assignUserRole($userId, $role_id, $connect);
+
+                    if ($result) {
+                        echo "user role is assigned";
+                    }
+                    else {
+                        echo "user role is not assigned";
+                    }
                 }
             }
+            echo "query failed";
         }
         else {
             echo "system unabled to fetch user role details";
@@ -156,7 +163,62 @@
         }*/
     }
 
-    else if (isset($_POST['removeUsersRole-submit'])) {
+    elseif (isset($_POST['userList-submit'])) {
+        $usernames = adminModel::userList($connect);
+
+        if ($usernames) {
+            session_start();
+            $_SESSION['userlist'] = '';
+            while ($user = mysqli_fetch_array($usernames)) {
+                $_SESSION['userlist'] .= "<option value='".$user['empid']."'>".$user['empid']."</option>";
+            }
+            header('Location:../../view/admin/aRemoveUsersUserRoleV.php');
+        }
+        else {
+            echo "query failed";
+        }
+    }
+
+    elseif (isset($_POST['getUserRole-submit'])) {
+        $empid = $_POST['empid'];
+        $_SESSION['empid'] = $empid;
+        $_SESSION['user_role'] = '';
+        $get_userId = adminModel::getUId ($empid, $connect);
+        $result_userId = mysqli_fetch_assoc($get_userId);
+        $userId = $result_userId['userId'];
+
+        if ($userId) {
+            $userRoles = adminModel::getUsersRoles ($userId, $connect);
+
+            if ($userRoles) {
+                while ($roles = mysqli_fetch_assoc($userRoles)) {
+                    $role_id = $roles['role_id'];
+
+                    $get_role_name = adminModel::getRoleName ($role_id, $connect);
+                    $result_role_name = mysqli_fetch_assoc($get_role_name);
+                    $role_name = $result_role_name['role_name'];
+
+                    if ($result_role_name) {
+                        $_SESSION['user_role'] .= "<tr>";
+                        $_SESSION['user_role'] .= "<td>{$role_name}</td>";
+                        $_SESSION['user_role'] .= "</tr>";
+                    }
+                    else {
+                        echo "failed";
+                    }
+                }
+                header('Location:../../view/admin/aUsersRolesV.php');
+            }
+            else {
+                echo "failed";
+            }
+        }
+        else {
+            echo "query failed";
+        }
+    }
+
+    elseif (isset($_POST['removeUsersRole-submit'])) {
         
         $empid = $_POST['empid'];
         $userRole = $_POST['userRole'];

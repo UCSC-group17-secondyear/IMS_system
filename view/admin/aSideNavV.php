@@ -19,9 +19,16 @@
                     <button>
                         <a href="../../controller/adminControllers/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user-role to a user</li></a>
                     </button>
-                    <button>
+                    <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
+                        <button name="userList-submit">
+                            <a href="#">
+                                <li><i class="fa fa-pencil-square"></i>Remove a user-role from a user</li>
+                            </a>
+                        </button>
+                    </form>
+                    <!-- <button>
                         <a href="aRemoveUsersUserRoleV.php"><li><i class="fa fa-pencil-square"></i>Remove a user-role from a user</li></a>
-                    </button>
+                    </button> -->
                 </ul>
             </li>
 

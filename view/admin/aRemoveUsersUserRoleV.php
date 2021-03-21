@@ -35,18 +35,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Select user role</label>
-                            </div>
-                            <div class="col-75">
-                                <select name="userRole" id="">
-                                    <?php echo $_SESSION['userroles'] ?>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button class="subbtn" type="submit" name="removeUsersRole-submit">Remove</button>
+                        <button class="subbtn" type="submit" name="getUserRole-submit">Get user-roles</button>
                         <button class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>
                         </button>

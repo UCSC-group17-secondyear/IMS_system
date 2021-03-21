@@ -23,7 +23,7 @@
                     <h2>Users in IMS System</h2>
                 </div>
 
-                <input class="searchBar" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Employee Id..">
+                <input class="searchBar" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Username..">
 
                 <table id="tableStyle">
                     <tr>

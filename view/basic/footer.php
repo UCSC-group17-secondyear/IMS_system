@@ -1,3 +1,4 @@
+            
             <div class="footer">
                 <h5><i class="fa fa-graduation-cap"></i> University of Colombo School of Computing</h5> <br>
     	        <!-- <i class="fa fa-university"></i> University of Colombo School of Computing <br> -->

@@ -25,8 +25,8 @@
 
                 <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                     <tr>
-                        <th>Semester</th>
                         <th>Academic Year</th>
+                        <th>Semester</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Update</th>

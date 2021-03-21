@@ -434,8 +434,6 @@
                                     <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> readonly> <br>
                                 </div>
                             </div>
-
-                            <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                         </form>
 
                     <?php
@@ -449,7 +447,7 @@
                             <a href="msmHomeV.php">Exit</a>
                         </button>
                 </div>
-
+                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>
     </div>

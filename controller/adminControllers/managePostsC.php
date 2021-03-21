@@ -6,12 +6,21 @@
         session_start();
         $_SESSION['post_list'] = '';
 
-        $records = adminModel::viewPosts($connect);
+        $records = adminModel::viewPosts ($connect);
 
         if ($records) {
             while ($record = mysqli_fetch_assoc($records)) {
+                $userId = $record['userId'];
+                $get_userName = adminModel::get_userName ($userId, $connect);
+                $result_userName = mysqli_fetch_assoc($get_userName);
+
+                $initials = $result_userName['initials'];
+                $sname = $result_userName['sname'];
+                $userName = $initials." ".$sname;
+                
                 $_SESSION['post_list'] .= "<tr>";
                 $_SESSION['post_list'] .= "<td>{$record['post_name']}</td>";
+                $_SESSION['post_list'] .= "<td>{$userName}</td>";
                 $_SESSION['post_list'] .= "</tr>";
 
                 header('Location:../../view/admin/aViewPostsDetailsV.php');

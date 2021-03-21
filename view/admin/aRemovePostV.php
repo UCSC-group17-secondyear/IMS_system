@@ -29,7 +29,6 @@
                             </div>
                             <div class="col-75">
                                 <select name="post_name" id="">
-                                    <option value="">Select Post</option>
                                     <?php echo $_SESSION['postNamesList'] ?>
                                 </select>
                             </div>

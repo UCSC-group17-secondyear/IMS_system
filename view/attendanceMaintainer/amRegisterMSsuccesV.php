@@ -18,9 +18,6 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>Your membership request has been sent for the approval. You will be inform about the approval later. Thank you.</h2>
