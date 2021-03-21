@@ -53,7 +53,7 @@
 
 		public static function viewPosts ($connect)
 		{
-			$query = "SELECT post_name FROM tbl_post WHERE is_deleted=0 ORDER BY pst_id";
+			$query = "SELECT post_name, userId FROM tbl_post WHERE is_deleted=0 ORDER BY pst_id";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -64,6 +64,15 @@
 		{
 			$query = "UPDATE tbl_post SET userId = '{$userId}' 
 			WHERE post_name = '{$post_name}' AND is_deleted = 0";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function get_userName ($userId, $connect)
+		{
+			$query = "SELECT initials, sname FROM users WHERE userId = '{$userId}' AND is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 
