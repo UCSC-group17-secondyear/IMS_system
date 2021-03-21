@@ -27,10 +27,26 @@
                     <form action="" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label for="">Date</label>
+                                <label for="">Start Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" <?php echo 'value="'.$_SESSION['selected_date'].'"'?> disabled>
+                                <input type="date" <?php echo 'value="'.$_SESSION['hall_start_date'].'"'?> disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">End Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" <?php echo 'value="'.$_SESSION['hall_end_date'].'"'?> disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Hall</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" <?php echo 'value="'.$_SESSION['selected_hall'].'"'?> disabled>
                             </div>
                         </div>
                         <button class="subbtn" type="submit" name="">
@@ -39,15 +55,13 @@
                         <button class="cancelbtn" type="submit" name=""><a href="asmHomeV.php">Cancel</a></button>
                     </form>
                 </div>
-                <button class="subbtn redbtn" style="margin-bottom:0">Allocated Halls</button>
-                <button class="cancelbtn greenbtn" style="margin-bottom:0">Not Allocated Halls</button>
                 <table id="tableStyle">
                     <tr>
                         <th>Start Time</th>
                         <th>End Time</th>
-                        <th>Hall Name</th>
+                        <th>Reason</th>
                     </tr>
-                    <?php echo $_SESSION['Halls'] ?>
+                    <?php echo $_SESSION['SelectedHall'] ?>
                 </table>
             </div>
         </div>

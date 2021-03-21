@@ -144,66 +144,25 @@
 ?>
 
 <script>
-    function addrow() {
-        var table = document.getElementById("tableStyle");
-        var row = table.insertRow(0);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        var cell6 = row.insertCell(5);
-        var cell7 = row.insertCell(6);
-        var cell8 = row.insertCell(7);
-        cell1.innerHTML = "<td><input type="time" name="tt[i][]" value="i-start-time"/></td>";
-        cell2.innerHTML = "<td><input type="time" name="tt[i][]" value="i-end-time"/></td>";
-        cell3.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell4.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell5.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell6.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell7.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell8.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-    }
+    $(document).on('click', '#addRows', function() { 
+		count++;
+		var htmlRows = '';
+		htmlRows += '<tr>';
+		htmlRows += '<td><input class="itemRow" type="checkbox"></td>';          
+		htmlRows += '<td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
+		htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
+		htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+		htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
+		htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off"></td>';          
+		htmlRows += '</tr>';
+		$('#invoiceItem').append(htmlRows);
+	});
+
+    $(document).on('click', '#removeRows', function(){
+		$(".itemRow:checked").each(function() {
+			$(this).closest('tr').remove();
+		});
+		$('#checkAll').prop('checked', false);
+		calculateTotal();
+	});
 </script>
