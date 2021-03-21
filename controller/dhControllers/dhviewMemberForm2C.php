@@ -18,6 +18,7 @@
 
             $sendMail = mail($to_email, $subject, $body, $headers);
 
+            echo $userid;
             header('Location:../../view/departmentHead/dhAcceptedSuccesV.php');
         }
     }

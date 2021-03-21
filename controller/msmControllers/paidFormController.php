@@ -1,14 +1,13 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel/claimFormModel.php');
-    require_once('../../model/msmModel/viewClaimDetailsModel.php');
+    require_once('../../model/msmModel/ViewFormsinMSModel.php');
 ?>
 
 <?php
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
-    $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$connect);
-    $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$connect);
+    $result_opd = msmModel::checkWhetherOpd($claim_form_no,$connect);
+    $result_surgical = msmModel::checkWhetherSurgical($claim_form_no,$connect);
     $_SESSION['opd'] = mysqli_num_rows($result_opd);
     $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
 
@@ -17,7 +16,7 @@
         $result_one = mysqli_fetch_assoc($result_opd);
 
         $user_id = $result_one['user_id'];
-        $mem_name = claimFormModel::getMemberName($user_id,$connect );
+        $mem_name = msmModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
         $_SESSION['claim_form_no'] = $claim_form_no;
@@ -45,7 +44,7 @@
         $result_one = mysqli_fetch_assoc($result_surgical);
 
         $user_id = $result_one['user_id'];
-        $mem_name = claimFormModel::getMemberName($user_id,$connect );
+        $mem_name = msmModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
         $_SESSION['form_no'] = $claim_form_no;

@@ -25,7 +25,7 @@
 
                 <div class="contentForm" style="margin-bottom: 1%;">
 
-                        <form action="../../controller/msmControllers/toBePaidFormControllerTwo.php" method="POST" enctype="multipart/form-data">
+                        <form action="../../controller/msmControllers/toBePaidFormController.php" method="POST" enctype="multipart/form-data">
 
                             <div class="row">
                                 <div class="col-25">

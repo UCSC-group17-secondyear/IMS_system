@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['userId'] ?>" method="post">
+                    <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['viewed_member_userid'] ?>" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Employee ID: </label>
@@ -117,8 +117,6 @@
                             </div>
                         </div>
                     <?php if($_SESSION['acceptance_status'] == 3) { ?>
-                        </form>
-                    <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['userId'] ?>" method="post">
                         <button class="subbtn" type="submit" name="acceptdms-submit">Accept</button>
                         <button type="submit" class="cancelbtn" name="declinedms-submit">Decline</button>
                     </form>

@@ -24,22 +24,14 @@
 
                 <div class="contentForm">
                     <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="POST">
-                        <div class="row">
-                            <div class="col-25">
-                                <label>Academic year</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="year" value="" required>
-                            </div>
-                        </div>
-                        <div class="row">
+                    <div class="row">
                             <div class="col-25">
                                 <label>Semester</label>
                             </div>
                             <div class="col-75">
                                 <select name="semester" id="" required>
                                     <option value="">Select the Semester</option>
-                                    <?php echo $_SESSION['semesters'] ?>
+                                    <?php echo $_SESSION['acayear_with_sem'] ?>
                                 </select>
                             </div>
                         </div>
@@ -56,11 +48,11 @@
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label>Batch</label>
+                                <label>Year</label>
                             </div>
                             <div class="col-75">
-                                <select name="batch" id="" required>
-                                    <option value="">Select the Batch</option>
+                                <select name="year" id="" required>
+                                    <option value="">Select the Year</option>
                                     <option value="y1">1st year</option>
                                     <option value="y2">2nd year</option>
                                     <option value="y3">3rd year</option>
@@ -68,12 +60,8 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="subbtn" type="submit" name="entertt-submit">
-                            <a href="#">Enter</a>
-                        </button>
-                        <button class="cancelbtn" type="submit">
-                            <a href="hamHomeV.php">Cancel</a>
-                        </button>
+                        <button class="subbtn" type="submit" name="updatett-submit"><a href="#">Enter</a></button>
+                        <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>
             </div>
