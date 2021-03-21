@@ -30,8 +30,8 @@
                         <button name="refferedclaim-submit" type="submit">
                             <a href="#" ><li><i class="fa fa-minus-circle"></i> Reffered Claim Form</li></a></button>
                         </button>
-                        <button>
-                            <a href="../../controller/rvControllers/requestedFormController.php" ><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>
+                        <button name="requestedclaim-submit" type="submit">
+                            <a href="#" ><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>
                         </button>
                     </form>
                 </ul>

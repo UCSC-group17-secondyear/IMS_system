@@ -50,7 +50,6 @@
                     </tr>
                         <?php echo $_SESSION['ref_form_no']; ?>
                 </table>
-
             </div>
         </div>
     </div>

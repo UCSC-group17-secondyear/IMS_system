@@ -35,7 +35,6 @@
         $_SESSION['msm_comment'] = $result_one['msm_comment'];
 
         header('Location:../../view/reportViewer/rvViewRefClaimFormV.php');
-
     }
 
     if(mysqli_num_rows($result_surgical)==1){

@@ -94,6 +94,7 @@
         if(mysqli_num_rows($result_forms)>0){
 
             while($rf = mysqli_fetch_assoc($result_forms)){
+
                 $_SESSION['req_form_no'] .= "<tr>";
                 if ($rf['opd_form_flag'] == 1) {
                     $_SESSION['req_form_no'] .= "<td>OPD</td>";
@@ -107,13 +108,11 @@
                 $_SESSION['req_form_no'] .= "<td>{$rf['submitted_date']}</td>";
                 $_SESSION['req_form_no'] .= "<td><a href=\"../../controller/rvControllers/viewReqFormController.php?claim_form_no={$rf['claim_form_no']}\">View Form</a></td>";
 
-                header('Location:../../view/reportViewer/rvRequestedClaimFormV.php');   
+                header('Location:../../view/reportViewer/rvRequestedClaimFormV.php');
+
             }
-        }
-        if(mysqli_num_rows($result_forms) == 0){
+        } else {
             header('Location:../../view/reportViewer/rvNoFormsAvaliableV.php');
         }
-
     }
-
 ?>
