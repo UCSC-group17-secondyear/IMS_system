@@ -20,7 +20,7 @@
             <div class="col right80">
                 <div>
                     <div>
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             No Medical Members are available in the system right now.
                         </h2>
                     </div>

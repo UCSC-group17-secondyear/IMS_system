@@ -20,11 +20,8 @@
             <div class="col right80">
                 <div>
                     <div>
-                        <h2>Sorry! <br>
-                            No Halls are allocated in that date.
-                        </h2>
+                        <h2>Sorry! No Halls are allocated in that date.</h2>
                     </div>
-
                     <button class="mainbtn">
                         <a href="hamHomeV.php">Ok</a>
                     </button>

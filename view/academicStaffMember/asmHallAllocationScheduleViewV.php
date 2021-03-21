@@ -8,8 +8,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="asmHomeV.php">Home</a></li>
-            <li><a href="asmViewHallAllocationScheduleV.php">Hall Allocation Date</a></li>
-            <li class="active">Hall Allocation Schedule</li>
+            <li><a href="asmViewHallAllocationScheduleV.php">Hall Allocation Schedule</a></li>
+            <li class="active">Schedule</li>
         </ul>
 
         <div class="row">
@@ -18,75 +18,40 @@
                     require 'asmSideNavV.php';
                 ?>
             </div>
+
             <div class="col right80">
                 <div>
                     <h2>Hall Allocation Schedule</h2>
                 </div>
-
+                <div class="contentForm">
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" <?php echo 'value="'.$_SESSION['selected_date'].'"'?> disabled>
+                            </div>
+                        </div>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="asmViewHallAllocationScheduleV.php">Display another Schedule</a>
+                        </button>
+                        <button class="cancelbtn" type="submit" name=""><a href="asmHomeV.php">Cancel</a></button>
+                    </form>
+                </div>
+                <button class="subbtn redbtn" style="margin-bottom:0">Allocated Halls</button>
+                <button class="cancelbtn greenbtn" style="margin-bottom:0">Not Allocated Halls</button>
                 <table id="tableStyle">
                     <tr>
-                        <th>Date</th>
-                        <th>Time Duration</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
                         <th>Hall Name</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php echo $_SESSION['Halls'] ?>
                 </table>
-
-                <button class="subbtn" type="submit" name="">
-                    <a href="asmViewHallAllocationScheduleV.php">Select another date</a>
-                </button>
-                <button id="myBtn" class="cancelbtn">
-                    <a href="asmHomeV.php">Exit</a>
-                </button>
-                <!-- <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <h1>Are you sure you want to leave the page?</h1>
-                        <button class="mainbtn">
-                            <a href="asmHomeV.php">Yes</a>
-                        </button>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
-    
-    <!-- <script type="text/javascript">
-        var modal = document.getElementById("myModal");
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-          modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-
-        // var modal2 = document.getElementById("subModal");
-        // var btn2 = document.getElementById("subBtn");
-        document.getElementById("subBtn").onclick = function() {
-            document.getElementById("subModal").style.display = "block";
-        }
-
-        
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-    </script> -->
-
 </main>
 
 <?php

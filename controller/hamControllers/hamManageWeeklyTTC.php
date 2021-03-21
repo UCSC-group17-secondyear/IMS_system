@@ -3,7 +3,7 @@
     require_once('../../config/database.php');
     require_once('../../model/hamModel/hamManageWeeklyTTModel.php');
 
-    if(isset($_POST['entertt-submit'])) {
+    if (isset($_POST['entertt-submit'])) {
         
         $semesters = hamModel::getAllsemesters($connect);
         $degrees = hamModel::getAlldegrees($connect);

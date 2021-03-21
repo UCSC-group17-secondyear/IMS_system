@@ -21,9 +21,11 @@
             </li>
 
             <li>
-                <a href="hamViewHallAllocationScheduleV.php">
-                    <button type="submit" class="tree_list">View Hall Allocation Schedule</button>
-                </a><br>
+                <form action="../../controller/hamControllers/hamViewHallAllocScheduleC.php" method="post">
+                    <button type="submit" name="selectschedule-submit" class="tree_list">
+                        <a href="#" style="text-decoration:none">View Hall Allocation Schedule</a>
+                    </button>
+                </form>
             </li>
 
             <li>

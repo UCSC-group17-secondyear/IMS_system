@@ -60,8 +60,11 @@
                                 </select>
                             </div>
                         </div>
+                        <button class="subbtn" type="button" id="addr" style="margin-bottom:0"><a href="#">Add a row</a></button>
+                        <button class="cancelbtn" type="button" id="remover" style="margin-bottom:0"><a href="#">Remove a row</a></button>
                         <table id="tableStyle">
                             <tr>
+                                <th><input id="checkAll" type="checkbox"></th>
                                 <th name="start_time">Start time</th>
                                 <th name="end_time">End time</th>
                                 <th name="Monday">Monday</th>
@@ -69,66 +72,62 @@
                                 <th name="Wednesday">Wedensday</th>
                                 <th name="Thursday">Thursday</th>
                                 <th name="Friday">Friday</th>
-                                <th></th>
                             </tr>
                             <tr>
-                                <td><input type="time" name="tt[i][]" value="i-start-time"/></td>
-                                <td><input type="time" name="tt[i][]" value="i-end-time"/></td>
+                                <td><input class="ttrow" type="checkbox"></td>
+                                <td><input type="time" name="starttime[]" value="i-start-time"/></td>
+                                <td><input type="time" name="endtime[]" value="i-end-time"/></td>
                                 <td>
-                                    <select name="tt[i][]" id="mon" required>
+                                    <select name="monsub[]" id="monsub_1" required>
                                         <option value="" >Subject</option>
                                         <?php echo $_SESSION['subject_with_code'] ?>
                                     </select>
-                                    <select name="hall" id="mon" required>
+                                    <select name="monhall[]" id="monhall_1" required>
                                         <option value="">Hall</option>
                                         <?php echo $_SESSION['allhalls']?>
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="tt[i][]" id="tues" required>
+                                    <select name="tuessub[]" id="tuessub_1" required>
                                         <option value="" >Subject</option>
                                         <?php echo $_SESSION['subject_with_code'] ?>
                                     </select>
-                                    <select name="hall" id="tues" required>
+                                    <select name="tueshall[]" id="tueshall_1" required>
                                         <option value="">Hall</option>
                                         <?php echo $_SESSION['allhalls']?>
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="tt[i][]" id="wed" required>
+                                    <select name="wedsub[]" id="wedsub_1" required>
                                         <option value="" >Subject</option>
                                         <?php echo $_SESSION['subject_with_code'] ?>
                                     </select>
-                                    <select name="hall" id="wed" required>
+                                    <select name="wedhall[]" id="wedhall_1" required>
                                         <option value="">Hall</option>
                                         <?php echo $_SESSION['allhalls']?>
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="tt[i][]" id="thurs" required>
+                                    <select name="thurssub[]" id="thurssub_1" required>
                                         <option value="" >Subject</option>
                                         <?php echo $_SESSION['subject_with_code'] ?>
                                     </select>
-                                    <select name="hall" id="thurs" required>
+                                    <select name="thurshall[]" id="thurshall_1" required>
                                         <option value="">Hall</option>
                                         <?php echo $_SESSION['allhalls']?>
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="tt[i][]" id="fri" required>
+                                    <select name="frisub[]" id="frisub_1" required>
                                         <option value="" >Subject</option>
                                         <?php echo $_SESSION['subject_with_code'] ?>
                                     </select>
-                                    <select name="hall" id="fri" required>
+                                    <select name="frihall[]" id="frihall_1" required>
                                         <option value="">Hall</option>
                                         <?php echo $_SESSION['allhalls']?>
                                     </select>
-                                </td>
-                                <td>
-                                    <button type="submit" name="addtt-submit" onclick="addrow()"><a class="green" href="#">Add</a></button>
                                 </td>
                             </tr>
-                            <?php //echo $_SESSION['wtt']; ?>
                         </table>
                         <button class="subbtn" type="submit" name="entertt-submit"><a href="#">Enter</a></button>
                         <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
@@ -144,66 +143,48 @@
 ?>
 
 <script>
-    function addrow() {
-        var table = document.getElementById("tableStyle");
-        var row = table.insertRow(0);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        var cell6 = row.insertCell(5);
-        var cell7 = row.insertCell(6);
-        var cell8 = row.insertCell(7);
-        cell1.innerHTML = "<td><input type="time" name="tt[i][]" value="i-start-time"/></td>";
-        cell2.innerHTML = "<td><input type="time" name="tt[i][]" value="i-end-time"/></td>";
-        cell3.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell4.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell5.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell6.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell7.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
-        cell8.innerHTML = "<select name="tt[i][]" id="mon" required>
-                                <option value="" >Subject</option>
-                                <?php echo $_SESSION['subject_with_code'] ?>
-                            </select>
-                            <select name="hall" id="mon" required>
-                                <option value="">Hall</option>
-                                <?php echo $_SESSION['allhalls']?>
-                            </select>";
+    $(document).ready(function(){
+        $(document).on('click', '#checkAll', function() {          	
+            $(".ttrow").prop("checked", this.checked);
+        });	
+
+        $(document).on('click', '.ttrow', function() {  	
+            if ($('.ttrow:checked').length == $('.ttrow').length) {
+                $('#checkAll').prop('checked', true);
+            } else {
+                $('#checkAll').prop('checked', false);
+            }
+        }); 
+
+        var i = $(".ttrow").length;
+        $(document).on('click', '#addr', function() { 
+            i++;
+            var htmlRows = '';
+            htmlRows += '<tr>';
+            htmlRows += '<td><input class="ttrow" type="checkbox"></td>';
+            htmlRows += '<td><input type="time" name="starttime[]" value="i-start-time"/></td>';
+            htmlRows += '<td><input type="time" name="endtime[]" value="i-end-time"/></td>';
+            htmlRows += '<td><select name="monsub[]" id="monsub_'+i+'" required><option value="" >Subject</option><?php echo $_SESSION['subject_with_code'] ?></select><select name="monhall[]" id="monhall_'+i+'" required><option value="">Hall</option><?php echo $_SESSION['allhalls']?></select></td>';
+            htmlRows += '<td><select name="tuessub[]" id="tuessub_'+i+'" required><option value="" >Subject</option><?php echo $_SESSION['subject_with_code'] ?></select><select name="tueshall[]" id="tueshall_'+i+'" required><option value="">Hall</option><?php echo $_SESSION['allhalls']?></select></td>';
+            htmlRows += '<td><select name="wedsub[]" id="wedsub_'+i+'" required><option value="" >Subject</option><?php echo $_SESSION['subject_with_code'] ?></select><select name="wedhall[]" id="wedhall_'+i+'" required><option value="">Hall</option><?php echo $_SESSION['allhalls']?></select></td>';
+            htmlRows += '<td><select name="thurssub[]" id="thurssub_'+i+'" required><option value="" >Subject</option><?php echo $_SESSION['subject_with_code'] ?></select><select name="thurshall[]" id="thurshall_'+i+'" required><option value="">Hall</option><?php echo $_SESSION['allhalls']?></select></td>';
+            htmlRows += '<td><select name="frisub[]" id="frisub_'+i+'" required><option value="" >Subject</option><?php echo $_SESSION['subject_with_code'] ?></select><select name="frihall[]" id="frihall_'+i+'" required><option value="">Hall</option><?php echo $_SESSION['allhalls']?></select></td>';
+            htmlRows += '</tr>';
+            // <td><input type="text" name="productCode[]" id="productCode_'+count+'" class="form-control" autocomplete="off"></td>';          
+            // htmlRows += '<td><input type="text" name="productName[]" id="productName_'+count+'" class="form-control" autocomplete="off"></td>';	
+            // htmlRows += '<td><input type="number" name="quantity[]" id="quantity_'+count+'" class="form-control quantity" autocomplete="off"></td>';   		
+            // htmlRows += '<td><input type="number" name="price[]" id="price_'+count+'" class="form-control price" autocomplete="off"></td>';		 
+            // htmlRows += '<td><input type="number" name="total[]" id="total_'+count+'" class="form-control total" autocomplete="off"></td>';          
+            // htmlRows += '</tr>';
+            $('#tablestyle').append(htmlRows);
+        });
+
+        $(document).on('click', '#remover', function(){
+            $(".ttrow:checked").each(function() {
+                $(this).closest('tr').remove();
+            });
+            $('#checkAll').prop('checked', false);
+            calculateTotal();
+        });
     }
 </script>

@@ -4,6 +4,7 @@
     require_once('../../model/rvModel/viewFormsinMSModel.php');
 
     if(isset($_POST['membershipform-submit'])) {
+
         $membership_forms = rvModel::fetchmemberships($connect);
         $_SESSION['memberships'] = '';
         
@@ -40,60 +41,78 @@
             header('Location:../../view/reportViewer/rvNoFormsAvailableV.php');
         }
 
+    } elseif (isset($_POST['refferedclaim-submit'])) {
+
+        $_SESSION['ref_form_no'] = '';
+        $result_forms = array();
+        $result_forms = rvModel::getRefClaimForms($connect);
+
+        if(mysqli_num_rows($result_forms)>0){
+
+            while($rf = mysqli_fetch_assoc($result_forms)){
+                $_SESSION['acceptance_status'] = $rf['acceptance_status'];
+                $_SESSION['paid_status'] = $rf['paid_status'];
+
+                $_SESSION['ref_form_no'] .= "<tr>";
+                if ($rf['opd_form_flag'] == 1) {
+                    $_SESSION['ref_form_no'] .= "<td>OPD</td>";
+                } else {
+                    $_SESSION['ref_form_no'] .= "<td>Surgical</td>";
+                }
+                $_SESSION['ref_form_no'] .= "<td>{$rf['claim_form_no']}</td>";
+                $_SESSION['ref_form_no'] .= "<td>{$rf['empid']}</td>";
+                $_SESSION['ref_form_no'] .= "<td>{$rf['initials']}</td>";
+                $_SESSION['ref_form_no'] .= "<td>{$rf['sname']}</td>";
+                $_SESSION['ref_form_no'] .= "<td>{$rf['submitted_date']}</td>";
+                if ($rf['acceptance_status'] == 1) {
+                    $_SESSION['ref_form_no'] .= "<td><a class=\"green disabled\" href=\"#\">Accepted</a>";
+                } else {
+                    $_SESSION['ref_form_no'] .= "<td><a class=\"red disabled\" href=\"#\">Rejected</a>";
+                }
+                if ($rf['paid_status'] == 1) {
+                    $_SESSION['ref_form_no'] .= "<td><a class=\"green disabled\" href=\"#\">Accepted</a></td>";
+                } elseif($rf['paid_status'] == 0) {
+                    $_SESSION['ref_form_no'] .= "<td><a class=\"red disabled\" href=\"#\">Rejected</a></td>";
+                } else {
+                    $_SESSION['ref_form_no'] .= "<td><a class=\"yellow disabled\" href=\"#\">Unchecked</a></td>";
+                }
+                $_SESSION['ref_form_no'] .= "<td><a href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$rf['claim_form_no']}&user_id={$user_id}\">View</a></td>";
+
+                header('Location:../../view/reportViewer/rvRefferedClaimFormV.php');
+                    
+            }
+        } else {
+            header('Location:../../view/reportViewer/rvNoFormsAvaliableV.php');
+        }
+
+    } elseif (isset($_POST['requestedclaim-submit'])) {
+
+        $_SESSION['req_form_no'] = '';
+        $result_forms = array();
+        $result_forms = rvModel::getReqClaimForms($connect);
+
+        if(mysqli_num_rows($result_forms)>0){
+
+            while($rf = mysqli_fetch_assoc($result_forms)){
+
+                $_SESSION['req_form_no'] .= "<tr>";
+                if ($rf['opd_form_flag'] == 1) {
+                    $_SESSION['req_form_no'] .= "<td>OPD</td>";
+                } else {
+                    $_SESSION['req_form_no'] .= "<td>Surgical</td>";
+                }
+                $_SESSION['req_form_no'] .= "<td>{$rf['claim_form_no']}</td>";
+                $_SESSION['req_form_no'] .= "<td>{$rf['empid']}</td>";
+                $_SESSION['req_form_no'] .= "<td>{$rf['initials']}</td>";
+                $_SESSION['req_form_no'] .= "<td>{$rf['sname']}</td>";
+                $_SESSION['req_form_no'] .= "<td>{$rf['submitted_date']}</td>";
+                $_SESSION['req_form_no'] .= "<td><a href=\"../../controller/rvControllers/viewReqFormController.php?claim_form_no={$rf['claim_form_no']}\">View Form</a></td>";
+
+                header('Location:../../view/reportViewer/rvRequestedClaimFormV.php');
+
+            }
+        } else {
+            header('Location:../../view/reportViewer/rvNoFormsAvaliableV.php');
+        }
     }
-    // elseif (isset($_POST[refferedclaim-submit])) {
-
-    //     $_SESSION['ref_form_no'] = '';
-    //     $result_forms = array();
-    //     $result_forms = rvModel::getRefClaimForms($connect);
-
-    //     if(mysqli_num_rows($result_forms)>0){
-
-    //         while($row = mysqli_fetch_assoc($result_forms)){
-
-    //             $_SESSION['form_status'] = $row['acceptance_status'];
-    //             $_SESSION['paid_status'] = $row['paid_status'];
-
-    //             $_SESSION['ref_form_no'] .= "<tr>";
-    //             $_SESSION['ref_form_no'] .= "<td>{$row['claim_form_no']}</td>";
-
-    //             if($_SESSION['form_status'] == 1 && $_SESSION['paid_status'] == 0){
-    //                 $_SESSION['ref_form_no'] .= "<td><a class=\"yellow\" href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted/Payment Denied</a></td>";
-    //             }
-    //             if($_SESSION['form_status'] == 1 && $_SESSION['paid_status'] == 1){
-    //                 $_SESSION['ref_form_no'] .= "<td><a class=\"green\" href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Accepted/Paid</a></td>";
-    //             }
-    //             if($_SESSION['form_status'] == 0){
-    //                 $_SESSION['ref_form_no'] .= "<td><a class=\"red\" href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Rejected</a></td>";
-    //             }
-
-    //             header('Location:../../view/reportViewer/rvRefferedClaimFormV.php');    
-    //         }
-    //     }
-    //     if(mysqli_num_rows($result_forms) == 0){
-    //         header('Location:../../view/reportViewer/rvNoFormsAvaliableV.php');
-    //     }
-
-    // } elseif (isset($_POST[requestedclaim-submit])) {
-
-    //     $_SESSION['req_form_no'] = '';
-    //     $result_forms = array();
-    //     $result_forms = rvModel::getReqClaimForms($connect);
-
-    //     if(mysqli_num_rows($result_forms)>0){
-
-    //         while($row = mysqli_fetch_assoc($result_forms)){
-    //             $_SESSION['req_form_no'] .= "<tr>";
-    //             $_SESSION['req_form_no'] .= "<td>{$row['claim_form_no']}</td>";
-    //             $_SESSION['req_form_no'] .= "<td><a href=\"../../controller/rvControllers/viewReqFormController.php?claim_form_no={$row['claim_form_no']}\">View Form</a></td>";
-
-    //             header('Location:../../view/reportViewer/rvRequestedClaimFormV.php');   
-    //         }
-    //     }
-    //     if(mysqli_num_rows($result_forms) == 0){
-    //         header('Location:../../view/reportViewer/rvNoFormsAvaliableV.php');
-    //     }
-
-    // }
-
 ?>
