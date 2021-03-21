@@ -36,13 +36,7 @@
 
                         <div class="row">
                             <h4>Or Enter Date Range</h4>
-                        </div><!-- 
-
-                        <div class="row">
-                            <div class="col-25">
-                                <label><b>Or Enter Date Range</b></label>
-                            </div>
-                        </div> -->
+                        </div>
 
                         <div class="row">
                             <div class="col-25">

@@ -3,7 +3,20 @@
     require_once('../../config/database.php');
     require_once('../../model/hamModel/hamViewHallAllocScheduleModel.php');
 
-    if (isset($_POST['displayschedule-submit'])) { 
+    if (isset($_POST['selectschedule-submit'])) {
+
+        $halls = hamModel::getAllHalls($connect);
+        $_SESSION['allhalls'] = "";
+
+        if ($halls) {
+            while ($h = mysqli_fetch_array($halls)) {
+                $_SESSION['allhalls'] .= "<option value='".$h['hall_name']."'>".$h['hall_name']."</option>";
+            }
+            header('Location:../../view/hallAllocationMaintainer/hamViewHallAllocationScheduleV.php');   
+        }
+
+    } elseif (isset($_POST['displayschedule1-submit'])) { 
+
         $date = $_POST['enterDate'];
         $_SESSION['selected_date'] = $date;
         $_SESSION['Halls'] = '';
@@ -32,6 +45,33 @@
         } else {
             header('Location:../../hallAllocationMaintainer/hamNoHallAllocatedV.php');
         }
+
+    } elseif (isset($_POST['displayschedule2-submit'])) {
+
+        $startdate = $_POST['startDate'];
+        $enddate = $_POST['endDate'];
+        $hall = $_POST['hall'];
+        $_SESSION['hall_start_date'] = $startdate;
+        $_SESSION['hall_end_date'] = $enddate;
+        $_SESSION['selected_hall'] = $hall;
+        $_SESSION['SelectedHall'] = '';
+
+        $hall_allocated = hamModel::gethallsbookingswithinrange($startdate, $enddate, $hall, $connect);
+
+        if ($hall_allocated) {
+            while ($ha = mysqli_fetch_assoc($hall_allocated)) {
+                $_SESSION['SelectedHall'] .= "<tr>";
+                $_SESSION['SelectedHall'] .= "<td>{$ha['start_time']}</td>";
+                $_SESSION['SelectedHall'] .= "<td>{$ha['end_time']}</td>";
+                $_SESSION['SelectedHall'] .= "<td>{$ha['reason']}</td>";
+                $_SESSION['SelectedHall'] .= "</tr>";
+
+                header('Location:../../view/hallAllocationMaintainer/hamHallAllocationScheduleDRViewV.php');
+            }
+        } else {
+            header('Location:../../hallAllocationMaintainer/hamNoHallAllocatedV.php');
+        }
+
     }
 
 ?>

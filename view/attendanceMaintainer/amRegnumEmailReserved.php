@@ -20,7 +20,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             The registration number and the email address belongs to another students.
                         </h2>
                     </div>

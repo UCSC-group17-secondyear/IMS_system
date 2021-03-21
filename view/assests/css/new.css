@@ -508,12 +508,10 @@ ul.breadcrumbs li a:hover {
 
 .signupForm .signupbtn:hover {
   background-color: #1177d1;
-  /*font-weight: bold;*/
 } 
 
 .signupForm .cancelbtn:hover {
   opacity: 0.7;
-  /*font-weight: bold;*/
 }
 
 /*-----------------------------Left nav-tree view-----------------------------*/
@@ -968,12 +966,16 @@ img.avatar {
   color: ivory;
   height: 40px;
   margin-top: 2%;
-  margin-left: 15%;
+  margin-left: 20%;
   border: 0px;
   font-size: 18px;
   margin-bottom: 3%;
   border: 0;
   border-radius: 10px;
+}
+
+.redbtn:hover {
+  background-color: red;
 }
 
 .greenbtn{
@@ -987,6 +989,10 @@ img.avatar {
   border: 0px;
   font-size: 18px;
   border-radius: 10px;
+}
+
+.greenbtn:hover {
+  background-color: green;
 }
 
 .sabtn {

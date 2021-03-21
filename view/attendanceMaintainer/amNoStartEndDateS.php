@@ -20,7 +20,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             The system has failed to fetch details related to the semester.
                         </h2>
                     </div>
