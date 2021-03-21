@@ -19,12 +19,14 @@
 
             <li><button class="tree_list">Manage Members</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="../../controller/msmControllers/msmviewMemberList1C.php"><li><i class="fa fa-users"></i> View Medical Member List</li></a>
-                    </button>
-                    <button>
-                        <a href="../../controller/msmControllers/msmRemoveMembersC.php"><li><i class="fa fa-user-times"></i> Remove Member</li></a>
-                    </button>
+                    <form action="../../controller/msmControllers/msmManageMembersC.php" method="post">
+                        <button name="viewmembers-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-users"></i> View Medical Member List</li></a>
+                        </button>
+                        <button name="removemember-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-user-times"></i> Remove Member</li></a>
+                        </button>
+                    </form>
                 </ul>
             </li>
             
@@ -48,19 +50,19 @@
                 <ul class="tree_nest">
                     <form action="../../controller/msmControllers/msmViewFormsC.php" method="post">
                         <button name="membershipform-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-plus-circle"></i> Membership Form</li></a>
+                            <a href="#"><li><i class="fa fa-user"></i> Membership Form</li></a>
                         </button>
                         <button name="requestedclaim-submit" type="submit">
-                            <a href="../../controller/msmControllers/requestedFormController.php"><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>
+                            <a href="#"><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>
                         </button>
                         <button name="tobepaid-submit" type="submit">
-                            <a href="../../controller/msmControllers/toBePaidFormController.php"><li><i class="fa fa-plus-circle"></i>Form To Be Paid</li></a>
+                            <a href="#"><li><i class="fa fa-money"></i> Form To Be Paid</li></a>
                         </button>
                         <button name="paid-submit" type="submit">
-                            <a href="../../controller/msmControllers/paidFormControllerOne.php"><li><i class="fa fa-minus-circle"></i>Paid Forms</li></a>
+                            <a href="#"><li><i class="fa fa-check-circle"></i> Paid Forms</li></a>
                         </button>
                         <button name="rejected-submit" type="submit">
-                            <a href="../../controller/msmControllers/rejectFormControllerOne.php"><li><i class="fa fa-minus-circle"></i>Rejected Forms</li></a>
+                            <a href="#"><li><i class="fa fa-times-circle"></i> Rejected Forms</li></a>
                         </button>
                     </form>
                 </ul>

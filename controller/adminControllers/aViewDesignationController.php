@@ -21,8 +21,8 @@
                 $_SESSION['designation_list'] .= "<tr>";
                 $_SESSION['designation_list'] .= "<td>{$record['designation_name']}</td>";
                 $_SESSION['designation_list'] .= "<td>{$record['description']}</td>";
-                $_SESSION['designation_list'] .= "<td><a href=\"../../controller/adminControllers/aUpdateDesignationController.php?designation_id={$record['designation_id']}\">Update</a></td>";
-                $_SESSION['designation_list'] .= "<td><a href=\"../../controller/adminControllers/aDeleteDesignationController.php?designation_id={$record['designation_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
+                $_SESSION['designation_list'] .= "<td><a class=\"green\" href=\"../../controller/adminControllers/aUpdateDesignationController.php?designation_id={$record['designation_id']}\">Update</a></td>";
+                $_SESSION['designation_list'] .= "<td><a class=\"red\" href=\"../../controller/adminControllers/aDeleteDesignationController.php?designation_id={$record['designation_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
                 $_SESSION['designation_list'] .= "</tr>";
 
                 header('Location:../../view/admin/aViewDesignationV.php');

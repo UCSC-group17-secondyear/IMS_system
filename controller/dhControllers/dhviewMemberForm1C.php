@@ -8,7 +8,7 @@
 
     if(isset($_GET['userrr'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['userrr']);
-        $_SESSION['user_id'] = $user_id;
+        $_SESSION['viewed_member_userid'] = $user_id;
         
         $result_set = dhModel::getDetails($user_id, $connect);
 
