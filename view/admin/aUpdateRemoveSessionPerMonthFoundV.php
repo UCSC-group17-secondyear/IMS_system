@@ -39,7 +39,7 @@
                                 <label>Subject</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="subject" disabled <?php echo 'value="'.$_SESSION['subject'].'"' ?> /><br>
+                                <input type="text" name="subject" disabled <?php echo 'value="'.$_SESSION['subject_name'].'"' ?> /><br>
                             </div>
                         </div>
 
@@ -87,40 +87,6 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-        var modal = document.getElementById("myModal");
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-          modal.style.display = "block";
-        }
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-
-        var submodal = document.getElementById("subModal");
-        var subbtn = document.getElementById("subBtn");
-        var subspan = document.getElementsByClassName("subclose")[0];
-        subbtn.onclick = function() {
-          submodal.style.display = "block";
-        }
-        subspan.onclick = function() {
-          submodal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-    </script>
-    
 </main>
 
 <?php

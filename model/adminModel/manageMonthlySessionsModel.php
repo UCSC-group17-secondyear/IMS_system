@@ -91,10 +91,11 @@
 		}
 
 		public static function removeMonthlySession($sessionMid, $connect) {
-			$query = "UPDATE sessions_per_month SET is_deleted=1 WHERE sessionMid='{$sessionMid}' ";
+			$query = "UPDATE sessions_per_month SET is_deleted = 1 WHERE sessionMid='{$sessionMid}' ";
 
-			if($connect->query($query))
+			if($connect->query($query)){
 				return true;
+			}
 		}
 
 		public static function viewSessionTypes($connect) {
