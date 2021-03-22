@@ -3,18 +3,17 @@
 ?>
 
 <main>
-    <title>Updated Profile</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">Registeration Error</li>
+            <li><a href="asmHomeV.php">Home</a></li>
+            <li><a href="#">Register to the Medical scheme</a></li>
+            <li class="active">Action Success!</li>
         </ul>
-    
+
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'msmSideNavV.php';
+                    require 'asmSideNavV.php';
                 ?>
             </div>
 
@@ -25,16 +24,15 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="msmHomeV.php">Ok</a> 
+                        <a href="asmHomeV.php">Ok</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="msmHomeV.php">Exit</a> 
+                        <a href="asmHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    
 </main>
 
 <?php

@@ -13,7 +13,7 @@
                     <div class="col-75">
                         <select name="scheme" id="scheme" required>
                             <option value="">Select Scheme</option>
-                            <?php echo $_SESSION['scheme'] ?>
+                            <?php echo $_SESSION['scheme_options'] ?>
                         </select>
                         <div class="tooltip"><i class="fa fa-question-circle"></i>
                             <span class="tooltiptext">Please look at the scheme details</span>
@@ -22,7 +22,7 @@
                 </div>
 
                 <?php
-                    if ($_SESSION['civil_status'] == "Married") {
+                    if ($_SESSION['civil_status'] == "1") {
                 ?>
                     <h3 style="text-decoration: none;">Spouse Details</h3>
 

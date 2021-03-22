@@ -11,7 +11,7 @@
         
         public static function departments($connect)
         {
-            $query = "SELECT department FROM tbl_department ORDER BY department_id";
+            $query = "SELECT * FROM tbl_department ORDER BY department_id";
 
 			$result = mysqli_query($connect, $query);
 
@@ -20,43 +20,61 @@
 
         public static function membertype($connect)
 		{
-			$query = "SELECT member_type FROM tbl_member_type";
+			$query = "SELECT * FROM tbl_member_type";
 			
 			$result_set = mysqli_query($connect, $query);
 			
 			return $result_set;
 		}
 
-		public static function civilstatus($connect)
-		{
-			$query = "SELECT csname FROM tbl_civilstatus";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-		}
-
-		public static function isscheme($user_id, $connect)
-		{
-			$query = "SELECT schemename FROM tbl_user_flag WHERE user_id='{$user_id}'";
-			
-			$result_set = mysqli_query($connect, $query);
-			
-			return $result_set;
-        }
-        
-        public static function getmembershipstatus($user_id, $connect)
+		public static function getmembershipstatus($user_id, $connect)
         {
-            $query = "SELECT membership_status FROM tbl_user_flag WHERE user_id='{$user_id}'";
+            $query = "SELECT membership_status FROM tbl_medical_membership WHERE user_id='{$user_id}'";
 			
 			$result_set = mysqli_query($connect, $query);
 			
 			return $result_set;
 		}
-		
+
+		public static function getschemedetails($connect)
+		{
+			$query = "SELECT scheme_id, schemeName, permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE is_deleted = 0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
 		public static function getscheme($scheme, $connect)
 		{
 			$query = "SELECT permanentStaff, contractStaff, temporaryStaff FROM tbl_medicalscheme WHERE schemeName = '{$scheme}'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function gettempMonths($connect)
+		{
+			$query = "SELECT scheme_id, schemeName, temporaryStaff FROM tbl_medicalscheme ms WHERE is_deleted = 0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getpermMonths($connect)
+		{
+			$query = "SELECT scheme_id, schemeName, permanentStaff FROM tbl_medicalscheme ms WHERE is_deleted = 0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getcontMonths($connect)
+		{
+			$query = "SELECT scheme_id, schemeName, contractStaff FROM tbl_medicalscheme ms WHERE is_deleted = 0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -72,9 +90,18 @@
 			return $result;
 		}
 
+		public static function isscheme($user_id, $connect)
+		{
+			$query = "SELECT s.schemeName FROM tbl_medical_membership mm, tbl_medicalscheme s WHERE mm.scheme_id = s.scheme_id AND user_id='{$user_id}'";
+			
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
+        }
+
 		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $scheme, $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}', schemename='{$scheme}', membership_status=2, acceptance_status=2, form_submission_date=CURRENT_DATE() WHERE user_id='{$user_id}'";
+			$query = "UPDATE tbl_medical_membership SET department='{$department}', healthcondition='{$health_condition}', civilstatus='{$civil_status}', member_type='{$member_type}', schemename='{$scheme}', membership_status=2, acceptance_status=2, form_submission_date=CURRENT_DATE() WHERE user_id='{$user_id}'";
 
 			$result = mysqli_query($connect, $query);
 
