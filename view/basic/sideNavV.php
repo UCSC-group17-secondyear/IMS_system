@@ -39,7 +39,7 @@
                 </a>    
             </li>
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>
@@ -262,7 +262,7 @@
             </li>
 
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>
@@ -395,7 +395,7 @@
                 </a>
             </li>
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>
@@ -418,7 +418,7 @@
                 </a>
             </li>
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>
@@ -471,7 +471,7 @@
             </li>
 
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Register to the Staff Medical Scheme</button>
                 </a><br>
             </li>
@@ -523,7 +523,7 @@
                 </a>
             </li>
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Register to the Staff Medical Scheme</button>
                 </a>
             </li>
@@ -627,7 +627,7 @@
             </li>
             
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Register to the Staff Medical Scheme</button>
                 </a>
             </li>
@@ -690,7 +690,7 @@
             </li>
                 
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>
@@ -773,7 +773,7 @@
             </li>
 
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>

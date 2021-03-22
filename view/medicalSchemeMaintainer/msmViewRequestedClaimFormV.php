@@ -38,7 +38,7 @@
                     <tr>
                         <th>OPD/Surgical</th>
                         <th>Claim Form No</th>
-                        <th id="">Employee ID</th>
+                        <th  id="">Employee ID</th>
                         <th>Initial</th>
                         <th>Surname</th>
                         <th>Submitted Date</th>

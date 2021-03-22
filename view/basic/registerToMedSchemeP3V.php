@@ -4,7 +4,7 @@
     </div>
 
     <div class="contentForm">
-        <form action="../../controller/basicControllers/registerMSController4.php?user_id=<?php echo $_SESSION['userId']?>" method="post">
+        <form action="../../controller/basicControllers/registerMSController4.php?loguser=<?php echo $_SESSION['userId']?>" method="post">
             <div class="row">
                 <?php
                     $no = $_SESSION['children_no'];
@@ -19,7 +19,7 @@
                         <label>Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" name="child[<?php echo $i?>][child_name]" required/>
+                        <input type="text" placeholder="Name" name="child[<?php echo $i?>][child_name]" required/>
                     </div>
                 </div>
                 <div class="row">
@@ -27,7 +27,7 @@
                         <label>Date of Birth</label>
                     </div>
                     <div class="col-75">
-                        <input type="date" name="child[<?php echo $i?>][child_dob]" required/>
+                        <input type="date" placeholder="Date of Birth" name="child[<?php echo $i?>][child_dob]" required/>
                     </div>
                 </div>
                 <div class="row">
@@ -36,7 +36,6 @@
                     </div>
                     <div class="col-75">
                         <select name="child[<?php echo $i?>][relationship]" id="relationship" required>
-                                <option value="">...</option>
                                 <option value="Son">Son</option>
                                 <option value="Daughter">Daughter</option>
                             </select>
@@ -47,10 +46,7 @@
                         <label>Health Status</label>
                     </div>
                     <div class="col-75">
-                        <input list="health_status" name="child[<?php echo $i?>][health_status]" required>
-                        <datalist id="health_status">
-                            <?php echo $_SESSION['health_status']?>
-                        </datalist>
+                        <input list="health_status" placeholder="Health status" name="child[<?php echo $i?>][health_status]" required>
                         <div class="tooltip"><i class="fa fa-question-circle"></i>
                             <span class="tooltiptext">If he/she have any chronic disease. Please notify it here.</span>
                         </div>

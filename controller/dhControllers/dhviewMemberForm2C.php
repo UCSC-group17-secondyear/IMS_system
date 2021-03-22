@@ -6,7 +6,7 @@
     $userid = mysqli_real_escape_string($connect, $_GET['amiamember']);
     $member_mail = dhModel::getmail($userid, $connect);
 
-    if (isset($_POST['acceptdms-submit'])) {
+    if (isset($_POST['acceptedms-submit'])) {
         $result = dhModel::requestaccept($userid, $connect);
         $mm = mysqli_fetch_assoc($member_mail);
 
@@ -18,7 +18,6 @@
 
             $sendMail = mail($to_email, $subject, $body, $headers);
 
-            echo $userid;
             header('Location:../../view/departmentHead/dhAcceptedSuccesV.php');
         }
     }
