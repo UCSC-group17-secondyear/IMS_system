@@ -14,10 +14,13 @@
     $prev_status = $_SESSION['prev_status'];
     $cur_status = $_POST['civilstatus'];
 
-    $result_child = renewModel::getChildDetails($user_id, $connect);
-    $result_spouse = renewModel::getSpouseDetails($user_id, $connect);
-    $child_c = mysqli_num_rows($result_child);
-    $_SESSION['child_count'] = $child_c;
+    if($cur_status == 'Married'){
+        $result_child = renewModel::getChildDetails($user_id, $connect);
+        $result_spouse = renewModel::getSpouseDetails($user_id, $connect);
+        $child_c = mysqli_num_rows($result_child);
+        $_SESSION['child_count'] = $child_c;
+    }
+    
 
     $errors = array();
     

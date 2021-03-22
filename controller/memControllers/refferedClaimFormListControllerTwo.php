@@ -2,6 +2,8 @@
     session_start();
     require_once('../../config/database.php');
     require_once('../../model/memModel/claimFormModel.php');
+    require_once('../../model/memModel/memModel.php');
+
 ?>
 
 <?php
@@ -11,14 +13,29 @@
     $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
     $_SESSION['opd'] = mysqli_num_rows($result_opd);
     $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
+    $result_name = memModel::viewMember($user_id, $connect);
+    $name = mysqli_fetch_array($result_name);
+    $initials = $name[2];
+    $sname = $name[3];
 
     if(mysqli_num_rows($result_opd)==1){
                   
         $result_one = mysqli_fetch_assoc($result_opd);
 
+        if($result_one['dependant_id'] == '0'){
+            $_SESSION['patient_name'] = $initials." ".$sname;
+        }
+        elseif($result_one['dependant_id'] != '0'){
+            $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
+            $depend = mysqli_fetch_array($d_name);
+            $_SESSION['patient_name'] = $depend[0];
+
+            // $rela = claimFormModel::getDependPatientRela($user_id,$result_one['dependant_id'],$connect);
+            // $relationship = mysqli_fetch_array($rela);
+            // $_SESSION['relationship'] = $relationship[0];
+        }
+
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-        $_SESSION['patient_name'] = $result_one['patient_name'];
-        $_SESSION['relationship'] = $result_one['relationship'];
         $_SESSION['doctor_name'] = $result_one['doctor_name'];
         $_SESSION['treatment_received_date'] = $result_one['treatment_received_date'];
         $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
@@ -40,9 +57,20 @@
         
         $result_one = mysqli_fetch_assoc($result_surgical);
 
+        if($result_one['dependant_id'] == '0'){
+            $_SESSION['patient_name'] = $initials." ".$sname;
+        }
+        elseif($result_one['dependant_id'] != '0'){
+            $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
+            $depend = mysqli_fetch_array($d_name);
+            $_SESSION['patient_name'] = $depend[0];
+
+            // $rela = claimFormModel::getDependPatientRela($user_id,$result_one['dependant_id'],$connect);
+            // $relationship = mysqli_fetch_array($rela);
+            // $_SESSION['relationship'] = $relationship[0];
+        }
+
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-        $_SESSION['patient_name'] = $result_one['patient_name'];
-        $_SESSION['relationship'] = $result_one['relationship'];
         $_SESSION['accident_date'] = $result_one['accident_date'];
         $_SESSION['how_occured'] = $result_one['how_occured'];
         $_SESSION['injuries'] = $result_one['injuries'];
