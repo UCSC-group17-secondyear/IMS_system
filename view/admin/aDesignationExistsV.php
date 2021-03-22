@@ -32,7 +32,7 @@
                             <a href="aUpdateDesignationV.php">Try again</a>  
                         </button>
                         <button class="cancelbtn">
-                            <a href="aHomeV.php">Leave</a> 
+                            <a href="aHomeV.php">Exit</a> 
                         </button>
                     <!-- </form> -->
                 </div>
