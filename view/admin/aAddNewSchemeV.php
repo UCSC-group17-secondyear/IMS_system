@@ -59,14 +59,7 @@
                                 <input type="number" name="annualPremium"  min="0" required/><br>
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-75">
-                              <label>Enter the monthly premium</label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" name="monthlyPremium" min="0" required/><br>
-                            </div>
-                        </div> -->
+                        
                         <div class="row">
                             <h4>Additional Benefits within the Annual Limits</h4>
                         </div>
@@ -86,25 +79,7 @@
                                 <input type="number" name="gvtChildBirthCover" min="0" required/><br>
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-75">
-                              <label>Cover for the Expenses incurred for travel within Sri Lanka to obtain Emergency Treatment</label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" name="travelExpensesCover" min="0" required/><br>
-                            </div>
-                        </div>  
-                        <div class="row">
-                            <h4>LIMITS</h4>
-                        </div>  
-                        <div class="row">
-                            <div class="col-75">
-                              <label>Limit of ANY ONE YEAR/ANY ONE EVENT (including charges related to Echocardiograph, ECG, CT, MRI, X-ray, Ultrasounds Scan, Pathological Lab Test and Stress Test, Hematological and Biochemical Investigations and Isotope Scanning etc.)</label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" name="annualLimit"  min="0" required/><br>
-                            </div>
-                        </div>  -->
+                        
                         <div class="row">
                             <h3>2. OUTDOOR TREATMENT (per family or individual)</h3>
                         </div>   
@@ -116,14 +91,7 @@
                                 <input type="number" name="consultantFee"  min="0" required/><br>
                             </div>
                         </div> 
-                        <!-- <div class="row">
-                            <div class="col-75">
-                              <label>Cost of investigations under the Recommendation of a medical offer registered in Sri Lanka Medical Council or Sri Lanka Ayurvedic Medical Council. Consultation fees only for Specialist or Medical Officers Registered in Sri Lanka Medical Council or Ayurvedic Doctors registered in Ayurvedic Medical Council, Dental treatment (filling and extraction only) and eye test.</label>
-                            </div> 
-                            <div class="col-25">
-                                <input type="text" name="investigationsCost" min="0" required/><br>
-                            </div>
-                        </div> -->
+                        
                         <div class="row">
                             <div class="col-75">
                               <label>Cost of Spectacles recommended by an eye specialist once in 3 years, those who have not claimed within last three (03) years can apply (family members are not covered)</label>

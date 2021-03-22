@@ -7,14 +7,10 @@
         $schemeName = mysqli_real_escape_string($connect, $_POST['schemeName']);
         $maxRoomCharge = mysqli_real_escape_string($connect, $_POST['maxRoomCharge']);
         $hospitalCharges = mysqli_real_escape_string($connect, $_POST['hospitalCharges']);
-        $annualPremium = mysqli_real_escape_string($connect, $_POST['annualPremium']); 
-        /*$monthlyPremium = mysqli_real_escape_string($connect, $_POST['monthlyPremium']);*/
+        $annualPremium = mysqli_real_escape_string($connect, $_POST['annualPremium']);
         $gvtNoPayingWard = mysqli_real_escape_string($connect, $_POST['gvtNoPayingWard']);
         $gvtChildBirthCover = mysqli_real_escape_string($connect, $_POST['gvtChildBirthCover']);
-        /*$travelExpensesCover = mysqli_real_escape_string($connect, $_POST['travelExpensesCover']);
-        $annualLimit = mysqli_real_escape_string($connect, $_POST['annualLimit']);*/
         $consultantFee = mysqli_real_escape_string($connect, $_POST['consultantFee']);
-        /*$investigationsCost = mysqli_real_escape_string($connect, $_POST['investigationsCost']);*/
         $spectaclesCost = mysqli_real_escape_string($connect, $_POST['spectaclesCost']);
         $permanentStaff = mysqli_real_escape_string($connect, $_POST['permanentStaff']);
         $contractStaff = mysqli_real_escape_string($connect, $_POST['contractStaff']);
@@ -49,13 +45,9 @@
                 $_SESSION['maxRoomCharge'] = $result['maxRoomCharge'];
                 $_SESSION['hospitalCharges'] = $result['hospitalCharges'];
                 $_SESSION['annualPremium'] = $result['annualPremium'];
-               /* $_SESSION['monthlyPremium'] = $result['monthlyPremium'];*/
                 $_SESSION['gvtNoPayingWard'] = $result['gvtNoPayingWard'];
                 $_SESSION['gvtChildBirthCover'] = $result['gvtChildBirthCover'];
-                /*$_SESSION['travelExpensesCover'] = $result['travelExpensesCover'];
-                $_SESSION['annualLimit'] = $result['annualLimit'];*/
                 $_SESSION['consultantFee'] = $result['consultantFee'];
-               /* $_SESSION['investigationsCost'] = $result['investigationsCost'];*/
                 $_SESSION['spectaclesCost'] = $result['spectaclesCost'];
                 $_SESSION['permanentStaff'] = $result['permanentStaff'];
                 $_SESSION['contractStaff'] = $result['contractStaff'];
@@ -73,18 +65,13 @@
     }
 
     else if(isset($_POST['updateScheme-submit'])) {
-        // $scheme_id = 1;
         $schemeName = $_SESSION['schemeName'];
         $maxRoomCharge = $_POST['maxRoomCharge'];
         $hospitalCharges = $_POST['hospitalCharges'];
         $annualPremium = $_POST['annualPremium']; 
-        /*$monthlyPremium = $_POST['monthlyPremium'];*/
         $gvtNoPayingWard = $_POST['gvtNoPayingWard'];
         $gvtChildBirthCover = $_POST['gvtChildBirthCover'];
-        /*$travelExpensesCover = $_POST['travelExpensesCover'];
-        $annualLimit = $_POST['annualLimit'];*/
         $consultantFee = $_POST['consultantFee'];
-        /*$investigationsCost = $_POST['investigationsCost'];*/
         $spectaclesCost = $_POST['spectaclesCost'];
         $permanentStaff = $_POST['permanentStaff'];
         $contractStaff = $_POST['contractStaff'];
