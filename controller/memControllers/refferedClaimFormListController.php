@@ -33,6 +33,8 @@
                 $_SESSION['ref_form_no'] .= "<td><a class=\"red\" href=\"../../controller/memControllers/refferedClaimFormListControllerTwo.php?claim_form_no={$row['claim_form_no']}&user_id={$user_id}\">Rejected</a></td>";
             }
 
+            $_SESSION['ref_form_no'] .= "</tr>";
+
             header('Location:../../view/medicalSchemeMember/memRefClaimFormsV.php');
         }
 

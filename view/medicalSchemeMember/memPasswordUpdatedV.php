@@ -20,9 +20,12 @@
             </div>
 
             <div class="col right80">
+                <div>
+                    <h2></h2>
+                </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
+                        <h2>Sorry! <br>
                             The Password you entered did not get updated.
                         </h2>
                     </div>
