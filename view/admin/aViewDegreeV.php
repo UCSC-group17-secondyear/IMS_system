@@ -27,8 +27,6 @@
                     <tr>
                         <th>Degree</th>
                         <th>Degree Abbriviation</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
                     </tr>
                     <?php echo $_SESSION['degree_list']; ?>
                 </table>

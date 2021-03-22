@@ -20,7 +20,7 @@
 
 		public static function viewDegrees($connect)
 		{
-			$query = "SELECT * FROM tbl_degree WHERE is_deleted=0 ORDER BY degree_id";
+			$query = "SELECT * FROM tbl_degree WHERE is_deleted=0 ORDER BY degree_id ASC";
 
 			$result_set = mysqli_query($connect, $query);
 

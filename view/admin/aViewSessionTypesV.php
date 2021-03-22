@@ -26,8 +26,6 @@
                 <table id="tableStyle" style="margin-left: 30%;" >
                     <tr>
                         <th>Session Type</th>
-                        <!-- <th>Edit</th>
-                        <th>Delete</th> -->
                     </tr>
                     <?php echo $_SESSION['sessionTypes']; ?>
                 </table>

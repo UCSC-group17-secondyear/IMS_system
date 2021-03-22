@@ -26,9 +26,6 @@
                             </a>
                         </button>
                     </form>
-                    <!-- <button>
-                        <a href="aRemoveUsersUserRoleV.php"><li><i class="fa fa-pencil-square"></i>Remove a user-role from a user</li></a>
-                    </button> -->
                 </ul>
             </li>
 
@@ -102,12 +99,11 @@
                                 <li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
                         </button>
                     </form>
-                    <!-- <button>
-                        <a href="../../controller/adminControllers/aViewDegreeController.php"><li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
-                    </button> -->
+
                     <button>
                         <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>
                     </button>
+
                     <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
                         <button name="getDegree-submit" type="submit">
                             <a href="#">
