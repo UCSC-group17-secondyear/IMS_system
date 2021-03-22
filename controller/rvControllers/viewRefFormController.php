@@ -5,7 +5,7 @@
 ?>
 
 <?php
-    $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
+    $claim_form_no = mysqli_real_escape_string($connect, $_GET['reffered_form']);
     $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$connect);
     $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$connect);
     $_SESSION['opd'] = mysqli_num_rows($result_opd);
@@ -21,7 +21,7 @@
         $_SESSION['mem_initials'] = $name[0];
         $_SESSION['mem_sname'] = $name[1];
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-        $_SESSION['patient_name'] = $result_one['patient_name'];
+        $_SESSION['patient_name'] = $result_one['dependant_name'];
         $_SESSION['relationship'] = $result_one['relationship'];
         $_SESSION['doctor_name'] = $result_one['doctor_name'];
         $_SESSION['treatment_received_date'] = $result_one['treatment_received_date'];
@@ -47,7 +47,7 @@
         $_SESSION['mem_initials'] = $name[0];
         $_SESSION['mem_sname'] = $name[1];
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-        $_SESSION['patient_name'] = $result_one['patient_name'];
+        $_SESSION['patient_name'] = $result_one['dependant_name'];
         $_SESSION['relationship'] = $result_one['relationship'];
         $_SESSION['accident_date'] = $result_one['accident_date'];
         $_SESSION['how_occured'] = $result_one['how_occured'];

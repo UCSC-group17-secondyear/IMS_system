@@ -15,7 +15,7 @@
 
         $check_has_claim_det = msmModel::getMembClaimDetails($user_id, $medical_year, $connect);
 
-        if(mysqli_num_rows($check_has_claim_det) == 1){
+        if (mysqli_num_rows($check_has_claim_det) == 1) {
             $remain_amount = mysqli_real_escape_string($connect, $_POST['remain_amount']);
 
             if ($final_bill_amount <= $remain_amount) {

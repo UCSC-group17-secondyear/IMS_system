@@ -62,25 +62,26 @@
             return $result;
         }
 
-        public static function checkWhetherOpd($claim_form_no, $connect){
+        public static function checkWhetherOpd($claim_form_no, $connect)
+        {
 			$query = "SELECT cf.*, d.* FROM tbl_claimform cf, tbl_dependant d WHERE d.dependant_id = cf.dependant_id AND claim_form_no={$claim_form_no} AND opd_form_flag= 1 LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
-			
 		}
 
-		public static function checkWhetherSurgical($claim_form_no, $connect){
+		public static function checkWhetherSurgical($claim_form_no, $connect)
+        {
 			$query = "SELECT cf.*, d.* FROM tbl_claimform cf, tbl_dependant d WHERE d.dependant_id = cf.dependant_id AND claim_form_no={$claim_form_no} AND surgical_form_flag= 1 LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
-			
         }
 
-        public static function getMemberName($user_id,$connect ){
+        public static function getMemberName($user_id,$connect )
+        {
             $query = "SELECT initials, sname FROM users WHERE userId='{$user_id}' LIMIT 1";
 
             $result = mysqli_query($connect, $query);
@@ -156,7 +157,7 @@
 
             return $result;
         }
-
+//-----------------------------------------------------------------------------------------------------------------------------------
 		public static function getSelectedForm($claim_form_no, $connect)
 		{
 			$query = "SELECT u.*, cf.* FROM tbl_claimform cf, users u WHERE cf.user_id = u.userId AND cf.claim_form_no = '{$claim_form_no}' LIMIT 1";
@@ -175,7 +176,8 @@
 			return $result;
         }
 
-        public static function getUserId($emp_id, $connect){
+        public static function getUserId($emp_id, $connect)
+        {
             $query = "SELECT userId FROM users WHERE empid='{$emp_id}' LIMIT 1";
 
             $result = mysqli_query($connect, $query);

@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/rvModel/viewFormsinMSModel.php');
+    require_once('../../model/rvModel/rvViewFormsinMSModel.php');
 
     if(isset($_POST['membershipform-submit'])) {
 
@@ -16,7 +16,11 @@
                 $_SESSION['memberships'] .= "<td>{$mem['sname']}</td>";
                 $_SESSION['memberships'] .= "<td>{$mem['department']}</td>";
                 $_SESSION['memberships'] .= "<td>{$mem['healthcondition']}</td>";
-                $_SESSION['memberships'] .= "<td>{$mem['civilstatus']}</td>";
+                if($mem['civilstatus'] == 1){
+                    $_SESSION['memberships'] .= "<td>Married</td>";
+                } else {
+                    $_SESSION['memberships'] .= "<td>Single</td>";   
+                }
                 $_SESSION['memberships'] .= "<td>{$mem['form_submission_date']}</td>";
                 if($mem['acceptance_status'] == 1){
                     $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
@@ -32,13 +36,38 @@
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"yellow\">Unchecked</a></td>";
                 }
-                $_SESSION['memberships'] .= "<td><a href=\"../../controller/rvControllers/rvMembershipFormsC.php?mem_index={$mem['userId']}\">View</a></td>";
+                $_SESSION['memberships'] .= "<td><a href=\"../../controller/rvControllers/rvViewFormsController.php?view_member={$mem['userId']}\">View</a></td>";
                 $_SESSION['memberships'] .= "</tr>";
 
                 header('Location:../../view/reportViewer/rvViewMembershipFormsV.php');
             }
         } else {
             header('Location:../../view/reportViewer/rvNoFormsAvailableV.php');
+        }
+
+    } elseif (isset($_GET['view_member'])) {
+
+        $view_user = mysqli_real_escape_string($connect, $_GET['view_member']);
+        $user_details = rvModel::view($view_user, $connect);
+        $member_details = rvModel::viewmm($view_user, $connect);
+
+        if(mysqli_num_rows($user_details) == 1 && mysqli_num_rows($member_details) == 1){
+            $ud = mysqli_fetch_assoc($user_details);
+            $md = mysqli_fetch_assoc($member_details);
+            $_SESSION['fr_userId'] = $ud['userId'];
+            $_SESSION['fr_empid'] = $ud['empid'];
+            $_SESSION['fr_initials'] = $ud['initials'];
+            $_SESSION['fr_sname'] = $ud['sname'];
+            $_SESSION['fr_department'] = $md['department'];
+            $_SESSION['fr_health_condition'] = $md['healthcondition'];
+            $_SESSION['fr_member'] = $md['member_type'];
+            $_SESSION['fr_civil_status'] = $md['civilstatus'];
+            $_SESSION['fr_scheme'] = $md['schemeName'];
+            $_SESSION['fr_form_submission_date'] = $md['form_submission_date'];
+            $_SESSION['fr_acceptance_status'] = $md['acceptance_status'];
+            $_SESSION['fr_membership_status'] = $md['membership_status'];
+
+            header('Location:../../view/reportViewer/rvViewMemberDetailsV.php');
         }
 
     } elseif (isset($_POST['refferedclaim-submit'])) {
@@ -76,7 +105,7 @@
                 } else {
                     $_SESSION['ref_form_no'] .= "<td><a class=\"yellow disabled\" href=\"#\">Unchecked</a></td>";
                 }
-                $_SESSION['ref_form_no'] .= "<td><a href=\"../../controller/rvControllers/viewRefFormController.php?claim_form_no={$rf['claim_form_no']}&user_id={$user_id}\">View</a></td>";
+                $_SESSION['ref_form_no'] .= "<td><a href=\"../../controller/rvControllers/viewRefFormController.php?reffered_form={$rf['claim_form_no']}&user_id={$user_id}\">View</a></td>";
 
                 header('Location:../../view/reportViewer/rvRefferedClaimFormV.php');
                     
