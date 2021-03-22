@@ -29,7 +29,7 @@
                         <a href="aAddNewUserRoleV.php">Add another user role</a>
                     </button>
                     <button class="cancelbtn" type="submit">
-                        <a href="aHomeV.php">Leave</a>
+                        <a href="aHomeV.php">Exit</a>
                     </button>
                 </div>
             </div>
