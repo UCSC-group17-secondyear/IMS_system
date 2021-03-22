@@ -62,14 +62,14 @@
                                 <input type="text" name="annualPremium"  <?php echo 'value="'.$_SESSION['annualPremium'].'"' ?> min="0" /><br>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-75">
                               <label>Enter the monthly premium</label>
                             </div>
                             <div class="col-25">
                                 <input type="text" name="monthlyPremium"  <?php echo 'value="'.$_SESSION['monthlyPremium'].'"' ?> min="0" /><br>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <h4>Additional Benefits within the Annual Limits</h4>
                         </div>
@@ -89,7 +89,7 @@
                                 <input type="text" name="gvtChildBirthCover" <?php echo 'value="'.$_SESSION['gvtChildBirthCover'].'"' ?> min="0" /><br>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-75">
                               <label>Cover for the Expenses incurred for travel within Sri Lanka to obtain Emergency Treatment</label>
                             </div>
@@ -107,7 +107,7 @@
                             <div class="col-25">
                                 <input type="text" name="annualLimit"  <?php echo 'value="'.$_SESSION['annualLimit'].'"' ?> min="0" /><br>
                             </div>
-                        </div> 
+                        </div>  -->
                         <div class="row">
                             <h3>2. OUTDOOR TREATMENT (per family or individual)</h3>
                         </div>   
@@ -119,14 +119,14 @@
                                 <input type="text" name="consultantFee"  <?php echo 'value="'.$_SESSION['consultantFee'].'"' ?> min="0" /><br>
                             </div>
                         </div> 
-                        <div class="row">
+                       <!--  <div class="row">
                             <div class="col-75">
                               <label>Cost of investigations under the Recommendation of a medical offer registered in Sri Lanka Medical Council or Sri Lanka Ayurvedic Medical Council. Consultation fees only for Specialist or Medical Officers Registered in Sri Lanka Medical Council or Ayurvedic Doctors registered in Ayurvedic Medical Council, Dental treatment (filling and extraction only) and eye test.</label>
                             </div> 
                             <div class="col-25">
                                 <input type="text" name="investigationsCost" <?php echo 'value="'.$_SESSION['investigationsCost'].'"' ?> min="0" /><br>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="col-75">
                               <label>Cost of Spectacles recommended by an eye specialist once in 3 years, those who have not claimed within last three (03) years can apply (family members are not covered)</label>
