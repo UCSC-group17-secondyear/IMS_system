@@ -21,7 +21,7 @@
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!
-                            The subject code you have entered exists already.
+                            The subject you have entered exists already.
                         </h2>
                     </div>
 
