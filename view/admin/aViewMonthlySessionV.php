@@ -86,26 +86,6 @@
                         </button>
                     </form>
                 </div>
-
-                <!-- <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
-                    <tr>
-                        <th>Subject</th>
-                        <th>Year</th>
-                        <th>Month</th>
-                        <th>Session type</th>
-                        <th>Number of sessions</th>
-                    </tr>
-                    <?php 
-                    /*echo $_SESSION['monthlySession']; */
-                    ?>
-                </table> 
-
-                <button class="subbtn">
-                    <a href="aViewSessionPerMonthV.php">View another session</a>
-                </button>
-                <button class="cancelbtn">
-                    <a href="aHomeV.php">Exit</a>
-                </button>-->
             </div>
         </div>
     </div>

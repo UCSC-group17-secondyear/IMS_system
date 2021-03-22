@@ -298,13 +298,11 @@
     }
 
     elseif(isset($_POST['removeMonthlySession-submit'])) {
-        $sessionMid = $_POST['sessionMid'];
-        // $subject = $_POST['subject'];
-        // $calendarYear = $_POST['calendarYear'];
-        // $month = $_POST['month'];
-        // $sessionType = $_POST['sessionType'];
-        // $numOfSessions = $_POST['numOfSessions'];
+        session_start();
+        $sessionMid = $_SESSION['sessionMid'];
 
+        echo $sessionMid;
+        
         $result_set = adminModel::removeMonthlySession($sessionMid, $connect);
 
         if ($result_set) {

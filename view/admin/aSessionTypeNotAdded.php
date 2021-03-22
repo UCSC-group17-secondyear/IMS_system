@@ -25,7 +25,7 @@
                         </h2>
                     </div>
 
-                    <button class="mainbtn">
+                    <button class="subbtn">
                         <a href="aAddSessionV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
