@@ -25,6 +25,27 @@
         }
     }
 
+    elseif(isset($_POST['degreeList-submit'])) {
+        session_start();
+        $_SESSION['degree_list'] = '';
+
+        $records = adminModel::viewDegrees($connect);
+
+        if ($records) {
+            while ($record = mysqli_fetch_assoc($records)) {
+                $_SESSION['degree_list'] .= "<tr>";
+                $_SESSION['degree_list'] .= "<td>{$record['degree_name']}</td>";
+                $_SESSION['degree_list'] .= "<td>{$record['degree_abbriviation']}</td>";
+                $_SESSION['degree_list'] .= "</tr>";
+
+                header('Location:../../view/admin/aViewDegreeV.php');
+            }
+        }
+        else {
+            header('Location:../../view/admin/aNoDegreesAvailableV.php');
+        }
+    }
+
     elseif(isset($_POST['getDegree-submit'])) {
         $records = adminModel::getDegreeList($connect);
         $_SESSION['degreeList'] = '';

@@ -25,11 +25,11 @@
                         </h2>
                     </div>
 
-                    <button class="mainbtn">
+                    <button class="subbtn">
                         <a href="aRemoveSessionTypeV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Leave</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
