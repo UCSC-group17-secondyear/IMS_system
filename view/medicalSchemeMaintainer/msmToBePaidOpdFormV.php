@@ -8,7 +8,6 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="msmHomeV.php">Home</a></li>
-                    <li><a href="../../controller/msmControllers/toBePaidFormController.php">To Be Paid Form List</a></li>
                     <li class="active">claim Details</li>
                 </ul>
         <div class="row" style="margin-bottom: 4%;">
@@ -25,7 +24,7 @@
 
                 <div class="contentForm" style="margin-bottom: 1%;">
 
-                        <form action="../../controller/msmControllers/toBePaidFormController.php" method="POST" enctype="multipart/form-data">
+                        <form action="../../controller/msmControllers/toBePaidFormControllerTwo.php" method="POST" enctype="multipart/form-data">
 
                             <div class="row">
                                 <div class="col-25">
@@ -119,6 +118,15 @@
 
                             <div class="row">
                                 <div class="col-25">
+                                    <label for="">Medical Officer Comments</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="mo_comment" <?php echo 'value="'.$_SESSION['mo_comment'].'"'?> readonly> <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
                                     <label>Acceptance Status</label>
                                 </div>
                                 <div class="col-75">
@@ -172,8 +180,14 @@
                             <button class="cancelbtn" type="submit" name="">
                                 <a href="msmHomeV.php">Exit</a>
                             </button>
-
                         </form>
+                        
+                        <form action="../../controller/msmControllers/msmViewFormsC.php" method="POST">
+                            <button type="submit" name="tobepaid-submit" class="mainbtn">
+                                <a>View List</a>
+                            </button>
+                        </form>
+
                     </div>
                 </div>
             </div>

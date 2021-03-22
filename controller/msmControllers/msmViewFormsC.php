@@ -2,9 +2,9 @@
     session_start();
 	require_once('../../config/database.php');
     require_once('../../model/msmModel/viewFormsinMSModel.php');
+    require_once('../../model/msmModel/claimFormModel.php');
     
     if(isset($_POST['membershipform-submit'])) {
-
         $membership_forms = msmModel::fetchmemberships($connect);
         $_SESSION['memberships'] = '';
         
@@ -40,116 +40,102 @@
         } else {
             header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
         }
+    }
 
-    } elseif(isset($_POST['requestedclaim-submit'])) {
-
-        $result_forms = array();
-        $result_forms = msmModel::getReqClaimForms($connect);
+    elseif(isset($_POST['requestedclaim-submit'])) {
         $_SESSION['req_form_no'] = '';
+        $result_forms = array();
+        $result_forms = claimFormModel::getReqClaimForms($connect);
 
-        if(mysqli_num_rows($result_forms) > 0) {
-            while($rf = mysqli_fetch_assoc($result_forms)) {
-                $_SESSION['req_form_no'] .= "<tr>";
-                if ($rf['opd_form_flag'] == 1) {
-                    $_SESSION['req_form_no'] .= "<td>OPD</td>";
-                } else {
-                    $_SESSION['req_form_no'] .= "<td>Surgical</td>";
-                }
-                $_SESSION['req_form_no'] .= "<td>{$rf['claim_form_no']}</td>";
-                $_SESSION['req_form_no'] .= "<td>{$rf['empid']}</td>";
-                $_SESSION['req_form_no'] .= "<td>{$rf['initials']}</td>";
-                $_SESSION['req_form_no'] .= "<td>{$rf['sname']}</td>";
-                $_SESSION['req_form_no'] .= "<td>{$rf['submitted_date']}</td>";
-                $_SESSION['req_form_no'] .= "<td><a href=\"../../controller/msmControllers/viewReqFormController.php?claim_form_no={$rf['claim_form_no']}\">View Form</a></td>";
-                $_SESSION['req_form_no'] .= "</tr>";
+        if(mysqli_num_rows($result_forms)>0){
 
-                header('Location:../../view/medicalSchemeMaintainer/msmViewRequestedClaimFormV.php');
+            while($row = mysqli_fetch_assoc($result_forms)){
+
+                    $_SESSION['req_form_no'] .= "<tr>";
+                    $_SESSION['req_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+                    $_SESSION['req_form_no'] .= "<td><a href=\"../../controller/msmControllers/viewReqFormController.php?claim_form_no={$row['claim_form_no']}\">View Form</a></td>";
+
+                    header('Location:../../view/medicalSchemeMaintainer/msmRequestedClaimFormV.php');
+                    
             }
-        } else {
-            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
         }
 
-    } elseif (isset($_POST['tobepaid-submit'])) {
-
-        $_SESSION['topaid_form_no'] = '';
-        $result_forms = array();
-        $result_forms = msmModel::getToBePaidClaimForms($connect);
-
-        if (mysqli_num_rows($result_forms) > 0) {
-
-            while ($rf = mysqli_fetch_assoc($result_forms)) {
-                $_SESSION['topaid_form_no'] .= "<tr>";
-                if ($rf['opd_form_flag'] == 1) {
-                    $_SESSION['topaid_form_no'] .= "<td>OPD</td>";
-                } else {
-                    $_SESSION['topaid_form_no'] .= "<td>Surgical</td>";
-                }
-                $_SESSION['topaid_form_no'] .= "<td>{$rf['claim_form_no']}</td>";
-                $_SESSION['topaid_form_no'] .= "<td>{$rf['empid']}</td>";
-                $_SESSION['topaid_form_no'] .= "<td>{$rf['initials']}</td>";
-                $_SESSION['topaid_form_no'] .= "<td>{$rf['sname']}</td>";
-                $_SESSION['topaid_form_no'] .= "<td>{$rf['submitted_date']}</td>";
-                $_SESSION['topaid_form_no'] .= "<td><a href=\"../../controller/msmControllers/viewtoPaidFormController.php?claim_form_no={$rf['claim_form_no']}\">View Form</a></td>";
-
-                header('Location:../../view/medicalSchemeMaintainer/msmViewToBePaidClaimFormsV.php');  
-            }
-        } else {
+        if(mysqli_num_rows($result_forms) == 0){
             header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
-        }
 
-    } elseif (isset($_POST['paid-submit'])) {
-
-        $_SESSION['paid_form_no'] = '';
-        $result_forms = array();
-        $result_forms = msmModel::paidClaimForms($connect);
-
-        if (mysqli_num_rows($result_forms) > 0) {
-            while ($rf = mysqli_fetch_assoc($result_forms)) {
-                $_SESSION['paid_form_no'] .= "<tr>";
-                if ($rf['opd_form_flag'] == 1) {
-                    $_SESSION['paid_form_no'] .= "<td>OPD</td>";
-                } else {
-                    $_SESSION['paid_form_no'] .= "<td>Surgical</td>";
-                }
-                $_SESSION['paid_form_no'] .= "<td>{$rf['claim_form_no']}</td>";
-                $_SESSION['paid_form_no'] .= "<td>{$rf['empid']}</td>";
-                $_SESSION['paid_form_no'] .= "<td>{$rf['initials']}</td>";
-                $_SESSION['paid_form_no'] .= "<td>{$rf['sname']}</td>";
-                $_SESSION['paid_form_no'] .= "<td>{$rf['submitted_date']}</td>";
-                $_SESSION['paid_form_no'] .= "<td><a href=\"../../controller/msmControllers/paidFormController.php?claim_form_no={$rf['claim_form_no']}\">View Form</a></td>";
-
-                header('Location:../../view/medicalSchemeMaintainer/msmViewPaidClaimFormsV.php');
-            }
-        } else {
-            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
-        }
-
-    } elseif (isset($_POST['rejected-submit'])) {
-
-        $_SESSION['rej_form_no'] = '';
-        $result_forms = array();
-        $result_forms = msmModel::getRejClaimForms($connect);
-
-        if (mysqli_num_rows($result_forms) > 0) {
-            while ($rf = mysqli_fetch_assoc($result_forms)) {
-                $_SESSION['rej_form_no'] .= "<tr>";
-                $_SESSION['rej_form_no'] .= "<tr>";
-                if ($rf['opd_form_flag'] == 1) {
-                    $_SESSION['rej_form_no'] .= "<td>OPD</td>";
-                } else {
-                    $_SESSION['rej_form_no'] .= "<td>Surgical</td>";
-                }
-                $_SESSION['rej_form_no'] .= "<td>{$rf['claim_form_no']}</td>";
-                $_SESSION['rej_form_no'] .= "<td>{$rf['empid']}</td>";
-                $_SESSION['rej_form_no'] .= "<td>{$rf['initials']}</td>";
-                $_SESSION['rej_form_no'] .= "<td>{$rf['sname']}</td>";
-                $_SESSION['rej_form_no'] .= "<td>{$rf['submitted_date']}</td>";
-                $_SESSION['rej_form_no'] .= "<td><a href=\"../../controller/msmControllers/rejectFormController.php?claim_form_no={$rf['claim_form_no']}\">View Form</a></td>";
-
-                header('Location:../../view/medicalSchemeMaintainer/msmRejectedClaimFormsV.php');
-            }
-        } else {
-            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
         }
     }
+
+    elseif(isset($_POST['tobepaid-submit'])){
+        $_SESSION['topaid_form_no'] = '';
+        $result_forms = array();
+        $result_forms = claimFormModel::getToBePaidClaimForms($connect);
+
+        if(mysqli_num_rows($result_forms)>0){
+
+            while($row = mysqli_fetch_assoc($result_forms)){
+
+                    $_SESSION['topaid_form_no'] .= "<tr>";
+                    $_SESSION['topaid_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+                    $_SESSION['topaid_form_no'] .= "<td><a href=\"../../controller/msmControllers/viewtoPaidFormController.php?claim_form_no={$row['claim_form_no']}\">View Form</a></td>";
+
+                    header('Location:../../view/medicalSchemeMaintainer/msmToBePaidClaimFormsV.php');
+                    
+            }
+        }
+
+        if(mysqli_num_rows($result_forms) == 0){
+            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
+
+        }
+    }
+
+    elseif(isset($_POST['paid-submit'])){
+        $_SESSION['paid_form_no'] = '';
+        $result_forms = array();
+        $result_forms = claimFormModel::paidClaimForms($connect);
+
+        if(mysqli_num_rows($result_forms)>0){
+
+            while($row = mysqli_fetch_assoc($result_forms)){
+
+                    $_SESSION['paid_form_no'] .= "<tr>";
+                    $_SESSION['paid_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+                    $_SESSION['paid_form_no'] .= "<td><a href=\"../../controller/msmControllers/paidFormControllerTwo.php?claim_form_no={$row['claim_form_no']}\">View Form</a></td>";
+
+                    header('Location:../../view/medicalSchemeMaintainer/msmPaidClaimFormsV.php');
+                    
+            }
+        }
+
+        if(mysqli_num_rows($result_forms) == 0){
+            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
+
+        }
+    }
+
+    elseif(isset($_POST['rejected-submit'])){
+        $_SESSION['rej_form_no'] = '';
+        $result_forms = array();
+        $result_forms = claimFormModel::getRejClaimForms($connect);
+
+        if(mysqli_num_rows($result_forms)>0){
+
+            while($row = mysqli_fetch_assoc($result_forms)){
+
+                    $_SESSION['rej_form_no'] .= "<tr>";
+                    $_SESSION['rej_form_no'] .= "<td>{$row['claim_form_no']}</td>";
+                    $_SESSION['rej_form_no'] .= "<td><a href=\"../../controller/msmControllers/rejectFormControllerTwo.php?claim_form_no={$row['claim_form_no']}\">View Form</a></td>";
+
+                    header('Location:../../view/medicalSchemeMaintainer/msmRejectedClaimFormsV.php');
+                    
+            }
+        }
+
+        if(mysqli_num_rows($result_forms) == 0){
+            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
+
+        }
+    }
+
 ?>

@@ -8,7 +8,6 @@
                 
                     <ul class="breadcrumbs">
                         <li><a href="msmHomeV.php">Home</a></li>
-                        <li><a href="../../controller/msmControllers/membClaimDetailsControllerOne.php">View another member Details</a></li>
                         <li class="active">Claim Details</li>
                     </ul>
                 
@@ -81,13 +80,14 @@
                                 </div>
                             </div> 
                         </form>
-                    
-                        <button class="subbtn" type="submit" name="">
-                                <a href="../../controller/msmControllers/membClaimDetailsControllerOne.php">View Another</a>
-                        </button>
-                        <button class="cancelbtn" type="submit" name="">
-                                <a href="msmHomeV.php">Exit</a>
-                        </button>
+                        <form action="../../controller/msmControllers/msmviewclaimdetailsC.php" method="POST">
+                            <button class="subbtn" type="submit" name="memberwiseclaim-submit">
+                                    <a >View Another</a>
+                            </button>
+                            <button class="cancelbtn" type="submit" name="">
+                                    <a href="msmHomeV.php">Exit</a>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="msmHomeV.php">Home</a></li>
-                    <li><a href="../../controller/msmControllers/paidFormControllerOne.php">Paid Form List</a></li>
+                    <li><a href="msmPaidClaimFormsV.php">Paid Form List</a></li>
                     <li class="active">Paid claim Details</li>
                 </ul>
         <div class="row" style="margin-bottom: 4%;">
@@ -173,6 +173,7 @@
                                 </div>
                                 <div class="col-75">
                                     <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> readonly> <br>
+                                    <input type="text" name="mo_comment" <?php echo 'value="'.$_SESSION['mo_comment'].'"'?> readonly> <br>
                                 </div>
                             </div>
                             
@@ -432,22 +433,27 @@
                                 </div>
                                 <div class="col-75">
                                     <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> readonly> <br>
+                                    <input type="text" name="mo_comment" <?php echo 'value="'.$_SESSION['mo_comment'].'"'?> readonly> <br>
                                 </div>
                             </div>
+
+                            <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                         </form>
 
                     <?php
                         }
                     ?>
-                        <button class="subbtn" type="submit" name="">
-                            <a href="../../controller/msmControllers/paidFormControllerOne.php">View Another</a>
+                    <form action="../../controller/msmControllers/msmViewFormsC.php" method="POST">
+                        <button class="subbtn" type="submit" name="paid-submit">
+                            <a>View Another</a>
                         </button>
                         
                         <button class="cancelbtn" type="submit" name="">
                             <a href="msmHomeV.php">Exit</a>
                         </button>
+                    </form>
                 </div>
-                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+
             </div>
         </div>
     </div>

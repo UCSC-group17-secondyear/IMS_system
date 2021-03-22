@@ -1,59 +1,80 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel/ViewFormsinMSModel.php');
+    require_once('../../model/msmModel/claimFormModel.php');
 ?>
 
 <?php
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
-    $result_opd = msmModel::checkWhetherOpd($claim_form_no,$connect);
-    $result_surgical = msmModel::checkWhetherSurgical($claim_form_no,$connect);
+    $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$connect);
+    $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$connect);
     $_SESSION['opd'] = mysqli_num_rows($result_opd);
     $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
 
     if(mysqli_num_rows($result_opd)==1){
-
+                  
         $result_one = mysqli_fetch_assoc($result_opd);
-
         $user_id = $result_one['user_id'];
-        $mem_name = msmModel::getMemberName($user_id,$connect );
+        $mem_name = claimFormModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
-        $_SESSION['claim_form_no'] = $claim_form_no;
-        $_SESSION['user_id'] = $user_id;
         $_SESSION['mem_initials'] = $name[0];
         $_SESSION['mem_sname'] = $name[1];
-        $_SESSION['patient_name'] = $result_one['patient_name'];
-        $_SESSION['relationship'] = $result_one['relationship'];
+        $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
+        
+        if($result_one['dependant_id'] == '0'){
+            $_SESSION['patient_name'] = $name[0]." ".$name[1];
+            $_SESSION['relationship'] = 'Myself';
+        }
+        elseif($result_one['dependant_id'] != '0'){
+            $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
+            $depend = mysqli_fetch_array($d_name);
+            $_SESSION['patient_name'] = $depend[0];
+
+            $rela = claimFormModel::getDependPatientRela($user_id,$result_one['dependant_id'],$connect);
+            $relationship = mysqli_fetch_array($rela);
+            $_SESSION['relationship'] = $relationship[0];
+        }
+
         $_SESSION['doctor_name'] = $result_one['doctor_name'];
         $_SESSION['treatment_received_date'] = $result_one['treatment_received_date'];
         $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
         $_SESSION['purpose'] = $result_one['purpose'];
         $_SESSION['bill_amount'] = $result_one['bill_amount'];
-        $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
         $_SESSION['a_status'] = $result_one['acceptance_status'];
         $_SESSION['p_status'] = $result_one['paid_status'];
-        $_SESSION['paid_amount'] = $result_one['final_bill_amount'];
         $_SESSION['msm_comment'] = $result_one['msm_comment'];
+        $_SESSION['mo_comment'] = $result_one['mo_comment'];
 
-        header('Location:../../view/medicalSchemeMaintainer/msmViewPaidFormV.php');
+        header('Location:../../view/medicalSchemeMaintainer/msmViewRejClaimFormV.php');
+
     }
 
     if(mysqli_num_rows($result_surgical)==1){
-
+        
         $result_one = mysqli_fetch_assoc($result_surgical);
-
         $user_id = $result_one['user_id'];
-        $mem_name = msmModel::getMemberName($user_id,$connect );
+        $mem_name = claimFormModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
-        $_SESSION['form_no'] = $claim_form_no;
-        $_SESSION['user_id'] = $user_id;
         $_SESSION['mem_initials'] = $name[0];
         $_SESSION['mem_sname'] = $name[1];
-        $_SESSION['claim_form_no'] = $claim_form_no;
-        $_SESSION['patient_name'] = $result_one['patient_name'];
-        $_SESSION['relationship'] = $result_one['relationship'];
+        $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
+        
+        if($result_one['dependant_id'] == '0'){
+            $_SESSION['patient_name'] = $name[0]." ".$name[1];
+            $_SESSION['relationship'] = 'Myself';
+        }
+        elseif($result_one['dependant_id'] != '0'){
+            $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
+            $depend = mysqli_fetch_array($d_name);
+            $_SESSION['patient_name'] = $depend[0];
+
+            $rela = claimFormModel::getDependPatientRela($user_id,$result_one['dependant_id'],$connect);
+            $relationship = mysqli_fetch_array($rela);
+            $_SESSION['relationship'] = $relationship[0];
+        }
+
         $_SESSION['accident_date'] = $result_one['accident_date'];
         $_SESSION['how_occured'] = $result_one['how_occured'];
         $_SESSION['injuries'] = $result_one['injuries'];
@@ -69,12 +90,13 @@
         $_SESSION['sick_injury'] = $result_one['sick_injury'];
         $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
         $_SESSION['nature_of'] = $result_one['nature_of'];
-        $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
         $_SESSION['a_status'] = $result_one['acceptance_status'];
         $_SESSION['p_status'] = $result_one['paid_status'];
-        $_SESSION['paid_amount'] = $result_one['final_bill_amount'];
         $_SESSION['msm_comment'] = $result_one['msm_comment'];
+        $_SESSION['mo_comment'] = $result_one['mo_comment'];
 
-        header('Location:../../view/medicalSchemeMaintainer/msmViewPaidFormV.php');
+        header('Location:../../view/medicalSchemeMaintainer/msmViewRejClaimFormV.php');
+
     }
+
 ?>
