@@ -25,7 +25,7 @@
                         </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/memControllers/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId']?>&scheme_name=<?php echo $_SESSION['scheme_name']?>" method="POST">
+                        <form action="../../controller/memControllers/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['user_id'] ?>" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Select Scheme</label>
