@@ -3,11 +3,11 @@
 	require_once('../../config/database.php');
     require_once('../../model/basicModel/registerMSModel.php');
     
-    $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $user = basicModel::view($user_id, $connect); 
+    $loguser = mysqli_real_escape_string($connect, $_GET['loguser']);
+    $user = basicModel::view($loguser, $connect); 
     $alldepartments = basicModel::departments($connect);
     $allmembertype = basicModel::membertype($connect);
-    $membershipstatus = basicModel::getmembershipstatus($user_id, $connect);
+    $membershipstatus = basicModel::getmembershipstatus($loguser, $connect);
     $_SESSION['department'] = '';
     $_SESSION['member_type'] = '';
     $_SESSION['userId'] = '';
