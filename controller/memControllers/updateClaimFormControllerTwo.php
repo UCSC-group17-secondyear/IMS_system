@@ -12,9 +12,9 @@
         $result_set = claimFormModel::checkClaimFormNo($claim_form_no, $user_id, $connect);
         $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$user_id,$connect);
         $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$user_id,$connect);
-        $result_set = memModel::viewMember($user_id, $connect);
-        $name = mysqli_fetch_array($result_set);
-        $f_count = $form_count[0];
+        $result_name = memModel::viewMember($user_id, $connect);
+        $name = mysqli_fetch_array($result_name);
+        //$f_count = $form_count[0];
         $initials = $name[2];
         $sname = $name[3];
 
@@ -26,15 +26,30 @@
                     $result_one = mysqli_fetch_assoc($result_opd);
 
                     $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-                    $_SESSION['patient_name'] = $result_one['patient_name'];
-                    $_SESSION['dependant_name']  = "<option value='".$initials.' '.$sname."'>".$initials.' '.$sname."</option>";
 
-                    while ($dependant = mysqli_fetch_array($dependants)) {
-                        $_SESSION['dependant_name'] .= "<option value='".$dependant['dependant_name']."'>".$dependant['dependant_name']."</option>";
-                        
+                    if($result_one['dependant_id'] == '0'){
+                        $_SESSION['patient_name'] = $initials." ".$sname;
+                        $_SESSION['relationship'] = "Myself";
+                    }
+                    elseif($result_one['dependant_id'] != '0'){
+                        $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
+                        $depend = mysqli_fetch_array($d_name);
+                        $_SESSION['patient_name'] = $depend[0];
+                        $_SESSION['patient_id'] = $result_one['dependant_id'];
+
+                        $rela = claimFormModel::getDependPatientRela($user_id,$result_one['dependant_id'],$connect);
+                        $relationship = mysqli_fetch_array($rela);
+                        $_SESSION['relationship'] = $relationship[0];
                     }
 
-                    $_SESSION['relationship'] = $result_one['relationship'];
+                    $_SESSION['dependant_name']  = "<option value='0'>".$initials.' '.$sname."</option>";
+
+                    if($dependants){
+                        while ($dependant = mysqli_fetch_array($dependants)) {
+                            $_SESSION['dependant_name'] .= "<option value='".$dependant['dependant_id']."'>".$dependant['dependant_name']."</option>";
+                            
+                        }
+                    }
                     $_SESSION['doctor_name'] = $result_one['doctor_name'];
                     $_SESSION['treatment_received_date'] = $result_one['treatment_received_date'];
                     $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
@@ -50,12 +65,29 @@
                     $result_one = mysqli_fetch_assoc($result_surgical);
 
                     $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-                    $_SESSION['patient_name'] = $result_one['patient_name'];
-                    $_SESSION['dependant_name']  = "<option value='".$initials.' '.$sname."'>".$initials.' '.$sname."</option>";
 
-                    while ($dependant = mysqli_fetch_array($dependants)) {
-                        $_SESSION['dependant_name'] .= "<option value='".$dependant['dependant_name']."'>".$dependant['dependant_name']."</option>";
-                        
+                    if($result_one['dependant_id'] == '0'){
+                        $_SESSION['patient_name'] = $initials." ".$sname;
+                        $_SESSION['relationship'] = "Myself";
+                    }
+                    elseif($result_one['dependant_id'] != '0'){
+                        $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
+                        $depend = mysqli_fetch_array($d_name);
+                        $_SESSION['patient_name'] = $depend[0];
+                        $_SESSION['patient_id'] = $result_one['dependant_id'];
+
+                        $rela = claimFormModel::getDependPatientRela($user_id,$result_one['dependant_id'],$connect);
+                        $relationship = mysqli_fetch_array($rela);
+                        $_SESSION['relationship'] = $relationship[0];
+                    }
+
+                    $_SESSION['dependant_name']  = "<option value='0'>".$initials.' '.$sname."</option>";
+
+                    if($dependants){
+                        while ($dependant = mysqli_fetch_array($dependants)) {
+                            $_SESSION['dependant_name'] .= "<option value='".$dependant['dependant_id']."'>".$dependant['dependant_name']."</option>";
+                            
+                        }
                     }
 
                     $_SESSION['address'] = $result_one['address'];

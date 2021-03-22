@@ -29,13 +29,9 @@
                             <th>Maximum Room Charge</th>
                             <th>Hospital Charges</th>
                             <th>Annual Premium</th>
-                            <th>Monthly Premium</th>
                             <th>Gvt No Paying Ward</th>
                             <th>Gvt Child Birth Cover</th>
-                            <th>Travel Expenses Cover</th>
-                            <th>Annual Limit</th>
                             <th>Consultant Fee</th>
-                            <th>Investigations Cost</th>
                             <th>Spectacles Cost</th>
                             <th>Permanent Staff (required service period)</th>
                             <th>Contract Staff (required service period)</th>

@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="contentForm" style="margin-bottom: 1%;">
-                            <form action="../../controller/memControllers/updateSurgicalFormController.php?user_id=<?php echo $_SESSION['userId'] ?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
+                            <form action="../../controller/memControllers/updateClaimFormControllerThree.php?user_id=<?php echo $_SESSION['userId'] ?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-25">
@@ -39,22 +39,13 @@
 
                             <div class="row">
                                 <div class="col-25">
-                                    <label for="">Patient Name No</label>
+                                    <label for="">Patient Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="patient_name" id="" required>
-                                        <option value="<?php echo $_SESSION['patient_name'] ?>"><?php echo $_SESSION['patient_name'] ?></option>
+                                    <select name="dependant_id" id="" required>
+                                        <option value="<?php echo $_SESSION['patient_id'] ?>"><?php echo $_SESSION['patient_name'] ?></option>
                                         <?php echo $_SESSION['dependant_name'] ?> 
                                     </select>                                
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Address</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="address" <?php echo 'value="'.$_SESSION['address'].'"' ?> required> <br>
                                 </div>
                             </div>
 
@@ -231,7 +222,7 @@
                                 </div>
                             </div>
 
-                                <button class="mainbtn" type="submit" name="update-form">Update Form</button>
+                                <button class="mainbtn" type="submit" name="update-sur-form">Update Form</button>
                                 
                             </form>
 

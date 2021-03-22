@@ -24,14 +24,14 @@
                         </div>
 
                     <div class="contentForm" style="margin-bottom: 1%;">
-                        <form action="../../controller/memControllers/opdFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
+                        <form action="../../controller/memControllers/fillFormController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Enter Patient's Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="patient_name" id="" required>
+                                    <select name="dependant_id" id="" required>
                                         <option value="">Select Name</option>
                                         <?php echo $_SESSION['dependant_name'] ?> 
                                     </select>
@@ -107,12 +107,12 @@
                                 </div>
                             </div>
 
-                                <button class="mainbtn" type="submit" name="form-submit">Submit</button><br>
+                                <button class="mainbtn" type="submit" name="fill-opd-submit">Submit</button><br>
                                 
                         </form>
                         
                         <form>
-                            <button class="subbtn" type="submit" name="userroleList-submit">
+                            <button class="subbtn" type="submit" name="">
                                 <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
                             </button>
                             <button type="submit" class="cancelbtn">
