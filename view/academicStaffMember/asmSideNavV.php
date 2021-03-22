@@ -7,9 +7,11 @@
                 </a><br>
             </li>
             <li>
-                <a href="asmViewHallAllocationScheduleV.php">
-                    <button type="submit" name="" class="tree_list">View Hall Allocation Schedule</button>
-                </a>    
+                <form action="../../controller/asmControllers/asmViewHallAllocScheduleC.php" method="post">
+                    <button type="submit" name="selectschedule-submit" class="tree_list">
+                        <a href="#" style="text-decoration:none">View Hall Allocation Schedule</a>
+                    </button>
+                </form>
             </li>
             <li>
                 <a href="../../controller/asmControllers/asmViewHallController.php?user_id=<?php echo $_SESSION['userId'] ?>">

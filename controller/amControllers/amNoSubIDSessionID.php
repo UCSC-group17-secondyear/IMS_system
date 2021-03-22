@@ -20,7 +20,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             There are no subjects or/and session types in the system for the given academic year and semester.
                         </h2>
                     </div>

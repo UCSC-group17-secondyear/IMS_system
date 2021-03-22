@@ -33,10 +33,14 @@
                                 <input type="date" <?php echo 'value="'.$_SESSION['selected_date'].'"'?> disabled>
                             </div>
                         </div>
-                        <button class="subbtn redbtn" type="submit" name="#">Allocated Halls</button>
-                        <button class="cancelbtn greenbtn" type="submit">Not Allocated Halls</button>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="hamViewHallAllocationScheduleV.php">Display another Schedule</a>
+                        </button>
+                        <button class="cancelbtn" type="submit" name=""><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>
+                <button class="subbtn redbtn" style="margin-bottom:0">Allocated Halls</button>
+                <button class="cancelbtn greenbtn" style="margin-bottom:0">Not Allocated Halls</button>
                 <table id="tableStyle">
                     <tr>
                         <th>Start Time</th>

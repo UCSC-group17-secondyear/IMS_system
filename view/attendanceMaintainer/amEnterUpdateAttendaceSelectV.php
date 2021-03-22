@@ -26,7 +26,7 @@
                             <label>Enter date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="date" placeholder="Date" min="<?phpecho date('Y-m-d');?>" max=""> <br>
+                            <input type="date" name="date" placeholder="Date" max=""> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -47,6 +47,22 @@
         </div>
     </div>
 </main>
+
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
+
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("datefield").setAttribute("max", today);
+</script>
 
 <?php
     require '../basic/footer.php';

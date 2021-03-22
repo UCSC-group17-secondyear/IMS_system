@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="rvHomeV.php">Home</a></li>
-                    <li><a href="../../controller/rvControllers/refferedFormController.php">Reffered Form List</a></li>
+                    <li><a href="rvRefferedClaimFormV.php">Reffered Form List</a></li>
                     <li class="active">Reffered claim Details</li>
                 </ul>
         <div class="row" style="margin-bottom: 4%;">
@@ -460,7 +460,7 @@
                         }
                     ?>
                         <button class="subbtn" type="submit" name="">
-                            <a href="../../controller/rvControllers/refferedFormController.php">View Another</a>
+                            <a href="rvRefferedClaimFormV.php">View Another</a>
                         </button>
                         
                         <button class="cancelbtn" type="submit" name="">

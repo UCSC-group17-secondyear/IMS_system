@@ -9,7 +9,7 @@
         $_SESSION['subject'] = '';
 
     	while ($record = mysqli_fetch_array($records)) {
-            $_SESSION['subject'] .= "<option value='".$record['subject_code']."'>".$record['subject_code']." - ".$record['subject_name']."</option>";
+            $_SESSION['subject'] .= "<option value='".$record['subject_id']."'>".$record['subject_code']." - ".$record['subject_name']."</option>";
         }
         header('Location:../../view/attendanceMaintainer/amEnterUpdateAttendaceSelectV.php');
 

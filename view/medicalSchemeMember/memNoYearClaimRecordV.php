@@ -20,6 +20,9 @@
             </div>
 
             <div class="col right80">
+                <div>
+                    <h2></h2>
+                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>No claim details record for this year.</h2>

@@ -322,10 +322,7 @@
                                     <input type="text" name="file_name" <?php echo 'value="'.$_SESSION['file_name'].'"'?> disabled> <br>
                                 </div>
                             </div>
-
-                            <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                         </form>
-
                     <?php
                         }
                     ?>
@@ -336,7 +333,7 @@
                             <a href="rvHomeV.php">Exit</a>
                         </button>
                 </div>
-
+                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>
     </div>

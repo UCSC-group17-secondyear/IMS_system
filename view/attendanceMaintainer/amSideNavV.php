@@ -65,11 +65,6 @@
                                 <li><i class="fa fa-plus-circle"></i> Enter or Update Attendance</li>
                             </a>
                         </button>
-                        <!-- <button name="deleteAttendance-submit">
-                            <a href="#">
-                                <li><i class="fa fa-minus-circle"></i> Delete Attendance</li>
-                            </a>
-                        </button> -->
                     </form>
                 </ul>
             </li>
@@ -107,12 +102,6 @@
                             </a>
                         </button>
                     </form>
-
-                    <!-- <button>
-                        <a href="amBatchWiseAttendanceV.php">
-                            <li><i class="fa fa-check-circle"></i> Batch Wise Attendance</li>
-                        </a>
-                    </button> -->
 
                     <button>
                         <a href="amSemesterWiseAttendanceV.php">
