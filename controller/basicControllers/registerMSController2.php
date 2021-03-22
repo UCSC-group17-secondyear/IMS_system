@@ -15,18 +15,16 @@
 
     if (isset($_POST['registerNext-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
+        
+        $department = mysqli_real_escape_string($connect, $_POST['department']);
+        $member_type = mysqli_real_escape_string($connect, $_POST['member_type']);
+        $health_condition = mysqli_real_escape_string($connect, $_POST['health_condition']);
+        $civil_status = mysqli_real_escape_string($connect, $_POST['civil_status']);
 
-        if (empty($errors)) {
-            $department = mysqli_real_escape_string($connect, $_POST['department']);
-            $member_type = mysqli_real_escape_string($connect, $_POST['member_type']);
-            $health_condition = mysqli_real_escape_string($connect, $_POST['health_condition']);
-            $civil_status = mysqli_real_escape_string($connect, $_POST['civil_status']);
-
-            $_SESSION['deps'] = $department;
-            $_SESSION['member_type'] = $member_type;
-            $_SESSION['health_condition'] = $health_condition;
-            $_SESSION['civil_status'] = $civil_status;
-        }
+        $_SESSION['deps'] = $department;
+        $_SESSION['member_type'] = $member_type;
+        $_SESSION['health_condition'] = $health_condition;
+        $_SESSION['civil_status'] = $civil_status;
 
         if ($result_set && $scheme_1_details && $scheme_2_details && $scheme_3_details) {
             if (mysqli_num_rows($result_set)==1) {
@@ -79,7 +77,6 @@
                     if ($months >= $scheme_3['contractStaff']) {
                         $_SESSION['scheme'] .= "<option value='Scheme 3'>Scheme 3</option>";
                     }
-                    
                     if ($months < $scheme_3['contractStaff']) {
                         if ($result['userRole'] == "admin") {
                             header('Location:../../view/admin/aRegisterMSerrorV.php');
@@ -141,8 +138,6 @@
                     echo "USER";
                 }
             } 
-        }else {
-            echo "records are not ok";
         }
     }
 ?>

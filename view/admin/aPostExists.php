@@ -19,7 +19,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             The Post exists already.
                         </h2>
                     </div>

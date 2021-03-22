@@ -132,7 +132,7 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<!-- <div class="row">
 	            <div class="col-25">
 	              <label>POST (If having any. If having many select the one with highest preferrence)</label>
 	            </div>
@@ -142,7 +142,7 @@
                     <?php echo $_SESSION['posts'] ?>
                   </select>
 	            </div>
-			</div>
+			</div> -->
 
 	        <div class="row">
 	            <div class="col-25">

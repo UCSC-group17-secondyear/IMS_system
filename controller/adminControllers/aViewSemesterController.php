@@ -19,8 +19,8 @@
         if ($records) {
             while ($record = mysqli_fetch_assoc($records)) {
                 $_SESSION['semester_list'] .= "<tr>";
-                $_SESSION['semester_list'] .= "<td>{$record['semester']}</td>";
                 $_SESSION['semester_list'] .= "<td>{$record['academic_year']}</td>";
+                $_SESSION['semester_list'] .= "<td>{$record['semester']}</td>";
                 $_SESSION['semester_list'] .= "<td>{$record['start_date']}</td>";
                 $_SESSION['semester_list'] .= "<td>{$record['end_date']}</td>";
                 $_SESSION['semester_list'] .= "<td><a class=\"green\" href=\"../../controller/adminControllers/aUpdateSemesterController.php?sem_id={$record['sem_id']}\">Update</a></td>";

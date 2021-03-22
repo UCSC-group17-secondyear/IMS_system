@@ -30,13 +30,23 @@
             header('Location:../../view/medicalSchemeMaintainer/msmMYExists.php');
         } else {
             $result = msmModel::addMedicalYear($medical_year, $start_date, $end_date, $connect);
+            $allemails = msmModel::getEmailsofmembers($connect);
 
             if ($result) {
+                while ($m = mysqli_fetch_array($allemails)) {
+                    $to_email = $m['email'];
+                    $subject = "Renew Membership";
+                    $body =  "Next medical year starts on ".$start_date.". So, please renew your membership before 14 days.";
+                    $headers = "From: ims.ucsc@gmail.com";
+
+                    $sendMail = mail($to_email, $subject, $body, $headers);
+                }
                 header('Location:../../view/medicalSchemeMaintainer/msmMYAdded.php');
             }
             else {
                 header('Location:../../view/medicalSchemeMaintainer/msmMYNotAdded.php');
             }
+
         }
     } elseif(isset($_POST['viweMYList-submit'])) {
         $records = msmModel::viewMedicalYears($connect);

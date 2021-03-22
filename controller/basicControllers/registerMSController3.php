@@ -9,34 +9,23 @@
     $_SESSION['children_no'] = '';
 
     if (isset($_POST['registerNext2-submit'])) {
-        $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
+        
+        $department = $_SESSION['deps'];
+        $member_type = $_SESSION['member_type'];
+        $health_condition = $_SESSION['health_condition'];
+        $civil_status = $_SESSION['civil_status'];
 
-        $userInfo = array('department'=>20, 'member_type'=>15, 'health_condition'=>100, 'civil_status'=>10, 'scheme'=>8, 'spouse_name'=>50, 'relationship'=>8, 'dob'=>20, 'health_status'=>100);
-		
-		foreach ($userInfo as $info=>$maxLen) {
-            if (strlen(trim($_POST[$info])) >  $maxLen) {
-                $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
-            }
-        }
+        $scheme = mysqli_real_escape_string($connect, $_POST['scheme']);
+        $spouse_name = mysqli_real_escape_string($connect, $_POST['spouse_name']);
+        $spouse_relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
+        $spouse_dob = mysqli_real_escape_string($connect, $_POST['dob']);
+        $spouse_healthstatus = mysqli_real_escape_string($connect, $_POST['health_status']);
+        $children_no = mysqli_real_escape_string($connect, $_POST['children_no']);
 
-        if (empty($errors)) {
-            $department = $_SESSION['deps'];
-            $member_type = $_SESSION['member_type'];
-            $health_condition = $_SESSION['health_condition'];
-            $civil_status = $_SESSION['civil_status'];
-            
-            $scheme = mysqli_real_escape_string($connect, $_POST['scheme']);
-            $spouse_name = mysqli_real_escape_string($connect, $_POST['spouse_name']);
-            $spouse_relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
-            $spouse_dob = mysqli_real_escape_string($connect, $_POST['dob']);
-            $spouse_healthstatus = mysqli_real_escape_string($connect, $_POST['health_status']);
-            $children_no = mysqli_real_escape_string($connect, $_POST['children_no']);
+        $medical = basicModel::registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $scheme, $connect);
+        $dependant = basicModel::adddependant($user_id, $spouse_name, $spouse_relationship, $spouse_dob, $spouse_healthstatus, $connect);
 
-            $medical = basicModel::registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $scheme, $connect);
-            $dependant = basicModel::adddependant($user_id, $spouse_name, $spouse_relationship, $spouse_dob, $spouse_healthstatus, $connect);
-
-            $_SESSION['children_no'] = $children_no;
-        }
+        $_SESSION['children_no'] = $children_no;
 
         if ($children_no > 0) {
             if (mysqli_num_rows($result_set)==1) {
@@ -62,12 +51,10 @@
                     header('Location:../../view/schemeHead/dhRegisterMedicalSchemeP3V.php');
                 } else if ($result['userRole'] == "medicalOfficer") {
                     header('Location:../../view/medicalOfficer/moRegisterToMedicalSchemeP3V.php');
-                } else {
-                    echo "USER";
                 }
             }
         } else {
-            if (mysqli_num_rows($result_set)==1) {
+            if (mysqli_num_rows($result_set) == 1) {
                 $result = mysqli_fetch_assoc($result_set);
                 if ($result['userRole'] == "admin") {
                     header('Location:../../view/admin/aRegisterMSsuccesV.php');
@@ -87,8 +74,6 @@
                     header('Location:../../view/departmentHead/dhRegisterMSsuccesV.php');
                 } else if ($result['userRole'] == "medicalSchemeMember") {
                     header('Location:../../view/medicalSchemeMember/moRegisterMSsuccesV.php');
-                } else {
-                    echo "USER";
                 }
             }
         }

@@ -102,39 +102,41 @@
                             <?php
                                 if($_SESSION['acceptance_status'] == 0){
                             ?>
-                                <button type="submit" class="redbtn" disabled><a class="disabled">Declined</a></button>
+                                <button class="redbtn" disabled><a class="disabled">Declined</a></button>
                             <?php
                                 } else if($_SESSION['acceptance_status'] == 1) {
                             ?>
-                                <button type="submit" class="greenbtn" disabled><a class="disabled">Approved</a></button>
+                                <button class="greenbtn" disabled><a class="disabled">Approved</a></button>
                             <?php
                                 } else {
                             ?>
-                                <button type="submit" class="yellowbtn" disabled><a class="disabled">Unchecked</a></button>
+                                <button class="yellowbtn" disabled><a class="disabled">Unchecked</a></button>
                             <?php
                                 }
                             ?>
                             </div>
                         </div>
-                        <div class="col-25">
-                            <label>Acceptance Status</label>
-                        </div>
-                        <div class="col-75">
-                        <?php
-                            if($_SESSION['membership_status'] == 0){
-                        ?>
-                            <button type="submit" class="redbtn" disabled><a class="disabled">Declined</a></button>
-                        <?php
-                            } else if($_SESSION['membership_status'] == 1) {
-                        ?>
-                            <button type="submit" class="greenbtn" disabled><a class="disabled">Approved</a></button>
-                        <?php
-                            } else {
-                        ?>
-                            <button type="submit" class="yellowbtn" disabled><a class="disabled">Unchecked</a></button>
-                        <?php
-                            }
-                        ?>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Acceptance Status</label>
+                            </div>
+                            <div class="col-75">
+                            <?php
+                                if($_SESSION['membership_status'] == 0){
+                            ?>
+                                <button class="redbtn" disabled><a class="disabled">Declined</a></button>
+                            <?php
+                                } else if($_SESSION['membership_status'] == 1) {
+                            ?>
+                                <button class="greenbtn" disabled><a class="disabled">Approved</a></button>
+                            <?php
+                                } else {
+                            ?>
+                                <button class="yellowbtn" disabled><a class="disabled">Unchecked</a></button>
+                            <?php
+                                }
+                            ?>
+                            </div>
                         </div>
                         <button class="subbtn" type="submit">
                             <a href="rvViewMembershipFormsV.php">View Another Member</a>

@@ -2,7 +2,7 @@
 	class amModel {
         public static function getsubjects($connect)
         {
-			$query = "SELECT subject_code, subject_name FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_code";
+			$query = "SELECT * FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_code";
 
             $result = mysqli_query($connect, $query);
             

@@ -20,7 +20,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             The Medical Year is not removed.
                         </h2>
                     </div>
