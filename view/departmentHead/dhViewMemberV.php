@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="dhHomeV.php">Home</a></li>
             <?php
-                if ($_SESSION['acceptance_status'] == 3) {
+                if ($_SESSION['acceptance_status'] == 2) {
             ?>
                 <li><a href="dhMembRequestFormV.php">View Requested Form List</a></li>
             <?php
@@ -81,7 +81,7 @@
                                 <label>Department: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['department'].'"' ?> disabled> <br>
+                                <input type="text" name="department" <?php echo 'value="'.$_SESSION['department'].'"' ?> disabled> <br>
                             </div>
                         </div>
                         <div class="row">
@@ -89,7 +89,7 @@
                                 <label>Health condition: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['healthcondition'].'"' ?> disabled> <br>
+                                <input type="text" name="healthcondition" <?php echo 'value="'.$_SESSION['healthcondition'].'"' ?> disabled> <br>
                             </div>
                         </div>
                         <div class="row">
@@ -97,7 +97,11 @@
                                 <label>Civil status: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['civilstatus'].'"' ?> disabled> <br>
+                            <?php if($_SESSION['civilstatus'] == 1) { ?>
+                                <input type="text" name="civilstatus" value="Married" disabled> <br>
+                            <?php } else { ?>
+                                <input type="text" name="civilstatus" value="Single" disabled> <br>
+                            <?php } ?>                                
                             </div>
                         </div>
                         <div class="row">
@@ -105,7 +109,7 @@
                                 <label>Medical Scheme Type: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled> <br>
+                                <input type="text" name="scheme" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled> <br>
                             </div>
                         </div>
                         <div class="row">
@@ -113,11 +117,11 @@
                                 <label>Member Type: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="designation" <?php echo 'value="'.$_SESSION['member_type'].'"' ?> disabled> <br>
+                                <input type="text" name="member_type" <?php echo 'value="'.$_SESSION['member_type'].'"' ?> disabled> <br>
                             </div>
                         </div>
-                    <?php if($_SESSION['acceptance_status'] == 3) { ?>
-                        <button class="subbtn" type="submit" name="acceptdms-submit">Accept</button>
+                    <?php if($_SESSION['acceptance_status'] == 2) { ?>
+                        <button class="subbtn" type="submit" name="acceptedms-submit">Accept</button>
                         <button type="submit" class="cancelbtn" name="declinedms-submit">Decline</button>
                     </form>
                     <?php } else { ?>
@@ -141,7 +145,7 @@
                         </div>
                     </form>
                     <?php
-                        if ($_SESSION['acceptance_status'] == 3) {
+                        if ($_SESSION['acceptance_status'] == 2) {
                     ?>
                         <button class="subbtn" type="submit" name="">
                             <a href="dhMembRequestFormV.php"> View Requested Form List</a>
@@ -156,7 +160,7 @@
                         }
                     ?>
                     <button class="cancelbtn" type="submit" name="">
-                        <a href="msmHomeV.php">Exit</a>
+                        <a href="dhHomeV.php">Exit</a>
                     </button>
                     <?php }?>
                 </div>
