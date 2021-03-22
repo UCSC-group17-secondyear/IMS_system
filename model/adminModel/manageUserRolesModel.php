@@ -77,6 +77,24 @@
 			return $result;
 		}
 
+		public static function removeRole ($role_id, $userId, $connect)
+		{
+			$query = "UPDATE tbl_userhasrole SET is_deleted = 1 
+			WHERE userId='{$userId}' AND role_id='{$role_id}'  ";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getUserName($userId, $connect) {
+			$query = "SELECT initials, sname FROM users WHERE userId = '{$userId}' AND is_deleted = 0 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
 		public static function setUserRole($userId, $userRole, $connect)
 		{
 			$query = "UPDATE users SET userRole = '{$userId}' WHERE empid='{$userId}' LIMIT 1";

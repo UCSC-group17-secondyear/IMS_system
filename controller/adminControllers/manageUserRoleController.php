@@ -183,9 +183,18 @@
         $empid = $_POST['empid'];
         $_SESSION['empid'] = $empid;
         $_SESSION['user_role'] = '';
+        $_SESSION['role_id'] = '';
+        
         $get_userId = adminModel::getUId ($empid, $connect);
         $result_userId = mysqli_fetch_assoc($get_userId);
         $userId = $result_userId['userId'];
+        $_SESSION['userId'] = $userId;
+
+        $get_userName = adminModel:: getUserName($userId, $connect);
+        $result_userName = mysqli_fetch_assoc($get_userName);
+        $userInitials = $result_userName['initials'];
+        $userSname = $result_userName['sname'];
+        $_SESSION['userName'] = $userInitials." ".$userSname;
 
         if ($userId) {
             $userRoles = adminModel::getUsersRoles ($userId, $connect);
@@ -201,6 +210,7 @@
                     if ($result_role_name) {
                         $_SESSION['user_role'] .= "<tr>";
                         $_SESSION['user_role'] .= "<td>{$role_name}</td>";
+                        $_SESSION['user_role'] .= "<td> <input type='checkbox' name='checkbox[]' value='".$role_id."'> </td>";
                         $_SESSION['user_role'] .= "</tr>";
                     }
                     else {
@@ -215,6 +225,28 @@
         }
         else {
             echo "query failed";
+        }
+    }
+
+    else if (isset($_POST['removeUserRole-submit'])) {
+        $userId = $_SESSION['userId'];
+
+        $get_checkBox = $_POST['checkbox'];
+        $removeFlag = 0;
+        $roles_count = 0;
+
+        foreach ($get_checkBox as $role_id) {
+            $roles_count = $roles_count + 1; 
+            $removeRole = adminModel::removeRole ($role_id, $userId, $connect);
+            if ($removeRole) {
+                $removeFlag = $removeFlag + 1;
+            }
+        }
+        if ($removeFlag == $roles_count) {
+            echo "all is removed";
+        }
+        else {
+            echo "half is removed";
         }
     }
 
