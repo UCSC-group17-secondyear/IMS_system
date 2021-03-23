@@ -44,7 +44,7 @@
                         <th>Submitted Date</th>
                         <th>View</th>
                     </tr>
-                        <?php echo $_SESSION['topaid_form_no']; ?>
+                    <?php echo $_SESSION['topaid_form_no']; ?>
                 </table>
             </div>
         </div>

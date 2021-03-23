@@ -3,58 +3,67 @@
 	require_once('../../config/database.php');
     require_once('../../model/basicModel/registerMSModel.php');
 
-    $errors = array();
-    $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $result_set = basicModel::view($user_id, $connect);
+    $loguser = mysqli_real_escape_string($connect, $_GET['loguser']);
+    $userdetails = basicModel::view($loguser, $connect);
 
     if (isset($_POST['register-submit'])) {
 
-        $department = $_SESSION['deps'];
+        $department = $_SESSION['department_id'];
         $child_details = $_POST['child'];
 
         foreach ($child_details as $cd) {
+
             $birthdate = new DateTime($cd['child_dob']);
             $today   = new DateTime('today');
             $age = $birthdate->diff($today)->y;
 
             if($age <= 18){
-                $dependant = basicModel::adddependant($user_id, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
+                $checkchild = basicModel::checkdependant($loguser, $cd['child_name'], $connect);
+                if (mysqli_num_rows($checkchild) != 0) {
+                    $dependant = basicModel::adddependant($loguser, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
+                }
             }
+
         }
         
-        $resultttt = basicModel::dept($department, $connect);
-        $data = mysqli_fetch_array($resultttt);
+        $departmentdetails = basicModel::getmailofdh($department, $connect);
+        $dd = mysqli_fetch_array($departmentdetails);
 
-        if ($data) {
-            $to_email = $data['department_head_email'];
+        if ($dd) {
+
+            $to_email = $dd['department_head_email'];
             $subject = "Membership Request";
             $body =  $_SESSION['empid'] . " have requested the membership for the Medical Scheme.";
             $headers = "From: ims.ucsc@gmail.com";
 
             $sendMail = mail($to_email, $subject, $body, $headers);
             
-            if (mysqli_num_rows($result_set) == 1) {
-                $result = mysqli_fetch_assoc($result_set);
-                if ($result['userRole'] == "admin") {
+            if (mysqli_num_rows($userdetails) == 1) {
+
+                $ud = mysqli_fetch_assoc($userdetails);
+                if ($ud['userRole'] == "admin") {
                     header('Location:../../view/admin/aRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "academicStaffMemb") {
+                } else if ($ud['userRole'] == "academicStaffMemb") {
                     header('Location:../../view/academicStaffMember/asmRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "attendanceMain") {
+                } else if ($ud['userRole'] == "attendanceMain") {
                     header('Location:../../view/attendanceMaintainer/amRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "hallAllocationMain") {
+                } else if ($ud['userRole'] == "hallAllocationMain") {
                     header('Location:../../view/hallAllocationMaintainer/hamRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "mahapolaSchemeMain") {
+                } else if ($ud['userRole'] == "mahapolaSchemeMain") {
                     header('Location:../../view/mahapolaSchemeMaintainer/mmRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "medicalSchemeMain") {
+                } else if ($ud['userRole'] == "medicalSchemeMain") {
                     header('Location:../../view/medicalSchemeMaintainer/msmRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "recordsViewer") {
+                } else if ($ud['userRole'] == "recordsViewer") {
                     header('Location:../../view/reportViewer/rvRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "departmentHead") {
+                } else if ($ud['userRole'] == "departmentHead") {
                     header('Location:../../view/departmentHead/dhRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "nonAcademicStaffMemb") {
+                } else if ($ud['userRole'] == "nonAcademicStaffMemb") {
                     header('Location:../../view/nonAcademicStaffMember/nasmRegisterMSsuccesV.php');
                 }
+
             }
+
         }
+
     }
 ?>
