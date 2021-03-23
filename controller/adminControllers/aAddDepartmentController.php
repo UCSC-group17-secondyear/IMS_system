@@ -9,8 +9,6 @@
         $dept_name = mysqli_real_escape_string($connect, $_POST['dept_name']);
         $abbr = mysqli_real_escape_string($connect, $_POST['abbriviation']);
         $dept_head = mysqli_real_escape_string($connect, $_POST['dept_head']);
-        $dept_head_email = mysqli_real_escape_string($connect, $_POST['dept_head_email']);
-        
         
         $checkDept = adminModel::checkDeptName($dept_name, $connect);
 
@@ -18,18 +16,44 @@
             header('Location:../../view/admin/aDepartmentExistsTwoV.php');
         }
         else {
-            $result = adminModel::enterDepartment($dept_name, $abbr, $dept_head, $dept_head_email, $connect);
-        
-            if ($result) {
-                header('Location:../../view/admin/aDepartmentAddedV.php');
+            $getUId = adminModel::getUId($dept_head, $connect);
+
+            if ($getUId) {
+                while ($rec = mysqli_fetch_assoc($getUId)) {
+                    $u_id = $rec['userId'];
+                }
             }
-            else{
+            else {
                 header('Location:../../view/admin/aDepartmentNotAddedV.php');
             }
+
+            $add_flag = adminModel::addFlag($u_id, $connect);
+
+            if($add_flag) {
+                $result = adminModel::enterDepartment($dept_name, $abbr, $u_id, $connect);
+        
+                if ($result) {
+                    header('Location:../../view/admin/aDepartmentAddedV.php');
+                }
+                else{
+                    header('Location:../../view/admin/aDepartmentNotAddedV.php');
+                }
+            }
+
         }       
     }
     else {
-        echo "No button is clicked.";
+        $_SESSION['ids'] = '';
+
+        $records = adminModel::getIds($connect);
+
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                echo $_SESSION['ids'] .= "<option value='".$record['empid']."'>".$record['empid']."</option>";
+			}
+        }
+
+        header('Location:../../view/admin/aAddDepartmentV.php');
     }
 
 ?>
