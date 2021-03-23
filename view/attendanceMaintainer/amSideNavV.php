@@ -29,6 +29,20 @@
                 </ul>
             </li>
 
+            <li><button class="tree_list">Students to Non-Mandatory Subjects</button>
+                <ul class="tree_nest">
+                    <form action="../../controller/amControllers/manageStudentsC.php" method="post">
+                        <button name="getStudents-submit">
+                            <a href="#">
+                                <li><i class="fa fa-book"></i>Assign to Non-mandatory Subjects</li>
+                            </a>
+                        </button>
+                    </form>
+
+                    
+                </ul>
+            </li>
+
             <li><button class="tree_list">Manage Subjects' Details</button>
                 <ul class="tree_nest">
                     <form action="../../controller/amControllers/manageSubjectsC.php" method="post">

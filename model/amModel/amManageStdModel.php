@@ -1,9 +1,14 @@
 <?php
 	class amModel {
 		public static function getDegreeList($connect) {
-			$query = "SELECT * FROM tbl_degree 
-			WHERE is_deleted = 0 
-			ORDER BY degree_id ASC";
+			$query = "SELECT * FROM tbl_degree WHERE is_deleted = 0 ORDER BY degree_id ASC";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function degreeId ($degree_name, $connect) {
+			$query = "SELECT * FROM tbl_degree WHERE degree_name = '{$degree_name}' AND is_deleted = 0 LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 			return $result;
@@ -47,10 +52,10 @@
 			return $result_set;
 		}
 
-		public static function addStudent($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $semester, $degree, $batch_number, $connect) 
+		public static function addStudent ($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $semester, $degree_id, $batch_number, $connect) 
 		{
-			$query = "INSERT INTO tbl_students (index_no, registration_no, initials, last_name, email, academic_year, semester, degree, batch_number) 
-			VALUES('$index_no', '$registration_no', '$initials', '$last_name', '$email', '$academic_year', '$semester', '$degree', '$batch_number')";
+			$query = "INSERT INTO tbl_students (index_no, registration_no, initials, last_name, email, academic_year, semester, degree_id, batch_number) 
+			VALUES('$index_no', '$registration_no', '$initials', '$last_name', '$email', '$academic_year', '$semester', '$degree_id', '$batch_number')";
 			
 			if($connect->query($query))
 				return true;
@@ -63,6 +68,15 @@
 
 			$result_set = mysqli_query($connect, $query);
 			return $result_set;
+		}
+		
+		public static function assignSubject ($std_id, $subject_id, $connect) {
+			
+			$query = "INSERT INTO tbl_std_nonMandatorySub (std_id, subject_id) 
+			VALUES('$std_id', '$subject_id')";
+			
+			if($connect->query($query))
+				return true;
 		}
 
 		public static function regNumExist ($index_no, $registration_no, $connect)
@@ -103,6 +117,33 @@
 			
 			$result = mysqli_query($connect, $query);
 			return $result;
+		}
+
+		public static function get_mandatorySubjects ($degree_id, $academic_year, $semester, $connect)
+		{
+			$query = "SELECT * FROM tbl_subject 
+			WHERE degree_id = '{$degree_id}' AND academic_year = '{$academic_year}' AND semester = '{$semester}' AND mandatory_subject = 1 AND is_deleted = 0 ";
+
+			$result_set = mysqli_query($connect, $query);
+			return $result_set;
+		}
+
+		public static function get_nonMandatorySubjects ($degree_id, $academic_year, $semester, $connect)
+		{
+			$query = "SELECT * FROM tbl_subject 
+			WHERE degree_id = '{$degree_id}' AND academic_year = '{$academic_year}' AND semester = '{$semester}' AND mandatory_subject = 0 AND is_deleted = 0 ";
+
+			$result_set = mysqli_query($connect, $query);
+			return $result_set;
+		}
+
+		public static function get_assignedNonMandatorySubjects ($std_id, $connect)
+		{
+			$query = "SELECT * FROM tbl_std_nonmandatorysub 
+			WHERE std_id = '{$std_id}' AND is_deleted = 0 ";
+
+			$result_set = mysqli_query($connect, $query);
+			return $result_set;
 		}
 	}
 ?>
