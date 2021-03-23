@@ -26,7 +26,7 @@
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/basicControllers/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Try Again</a>
+                        <a href="../../controller/basicControllers/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Profile</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="amHomeV.php">Exit</a>
