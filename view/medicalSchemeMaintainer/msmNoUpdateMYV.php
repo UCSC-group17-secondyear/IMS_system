@@ -25,7 +25,7 @@
                         </h2>
                     </div>
 
-                    <form action="../../controller/msmControllers/msmmanageMedicalYearC.php" method="post">
+                    <form action="../../controller/msmControllers/msmManageMedicalYearC.php" method="post">
                         <button name="viweMYDetails-submit" type="submit" class="subbtn">
                             <a href="#">View Medical Years</a>
                         </button>

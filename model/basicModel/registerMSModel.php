@@ -90,9 +90,9 @@
 			return $result;
 		}
 
-		public static function registerMS($user_id, $department, $health_condition, $civil_status, $member_type, $scheme, $connect)
+		public static function registerMS($loguser, $department, $health_condition, $civil_status, $member_type, $scheme, $connect)
 		{
-			$query = "UPDATE tbl_medical_membership SET department_id='{$department}', healthcondition='{$health_condition}', married='{$civil_status}', member_id='{$member_type}', scheme_id='{$scheme}', membership_status=2, acceptance_status=2, form_submission_date=CURRENT_DATE() WHERE user_id='{$user_id}'";
+			$query = "INSERT INTO tbl_medical_membership(user_id, healthcondition, married, member_id, scheme_id, department_id, form_submission_date) VALUES ('{$loguser}', '{$health_condition}', '{$civil_status}', '{$member_type}', '{$scheme}', '{$department}', CURRENT_DATE())";
 
 			$result = mysqli_query($connect, $query);
 

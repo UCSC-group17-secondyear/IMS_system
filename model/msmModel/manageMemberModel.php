@@ -1,17 +1,8 @@
 <?php
     class msmModel{
-        public static function fetchmembers($scheme, $member_type, $connect)
-		{
-			$query = "SELECT u.empid, u.initials, u.sname, u.userId, uf.department, uf.healthcondition, uf.civilstatus, uf.acceptance_status, uf.membership_status FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND uf.schemename = '{$scheme}' AND uf.member_type = '{$member_type}' AND uf.membership_status = 1 AND uf.is_deleted = 0 ORDER BY uf.user_id";
-
-			$result_set = mysqli_query($connect, $query);
-					
-			return $result_set;
-		}
-
 		public static function scheme($connect)
 		{
-			$query = "SELECT schemeName FROM tbl_medicalscheme WHERE is_deleted=0";
+			$query = "SELECT * FROM tbl_medicalscheme WHERE is_deleted=0";
 			
 			$result_set = mysqli_query($connect, $query);
 			
@@ -20,16 +11,25 @@
 
 		public static function membertype($connect)
 		{
-			$query = "SELECT member_type FROM tbl_member_type";
+			$query = "SELECT * FROM tbl_member_type";
 			
 			$result_set = mysqli_query($connect, $query);
 			
 			return $result_set;
 		}
 
+        public static function fetchmembers($scheme, $member_type, $connect)
+		{
+			$query = "SELECT u.*, mm.*, d.*, mt.* FROM users u, tbl_medical_membership mm, tbl_department d, tbl_member_type mt WHERE d.department_id = mm.department_id AND mt.member_id = mm.member_id AND u.userId = mm.user_id AND mm.scheme_id = '{$scheme}' AND mm.member_id = '{$member_type}' AND mm.membership_status = 1 AND mm.is_deleted = 0 ORDER BY mm.user_id";
+
+			$result_set = mysqli_query($connect, $query);
+					
+			return $result_set;
+		}
+
 		public static function getmembersdetails($connect)
 		{
-		    $query = "SELECT u.empid, u.initials, u.sname, uf.user_id, uf.department, uf.schemename, uf.member_type FROM users u, tbl_user_flag uf WHERE u.userId = uf.user_id AND uf.membership_status = 1 AND uf.is_deleted = 0 ORDER BY uf.user_id";
+		    $query = "SELECT u.*, mm.*, d.*, ms.*, mt.* FROM users u, tbl_medical_membership mm, tbl_department d, tbl_medicalscheme ms, tbl_member_type mt WHERE d.department_id = mm.department_id AND mt.member_id = mm.member_id AND mm.scheme_id = ms.scheme_id AND u.userId = mm.user_id AND mm.membership_status = 1 AND mm.is_deleted = 0 ORDER BY mm.user_id";
 
 			$result = mysqli_query($connect, $query);
 
@@ -38,7 +38,7 @@
 
 		public static function deleteMember($delete_user_id , $connect)
 		{
-			$query = "UPDATE tbl_user_flag SET is_deleted = 1 WHERE user_id='{$delete_user_id}' LIMIT 1";
+			$query = "UPDATE tbl_medical_membership SET is_deleted = 1 WHERE user_id='{$delete_user_id}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

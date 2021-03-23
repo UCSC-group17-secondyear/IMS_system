@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li><a href="../../controller/msmControllers/msmRemoveMembersC.php">View Medical Member List</a></li>
+            <li><a href="msmRemoveMemberV.php">Remove Members</a></li>
             <li class="active">Action was success!</li>
         </ul>
     
@@ -25,12 +25,10 @@
                         <h2>The Member is Deleted successfully!</h2>
                     </div>
 
-                    <button class="subbtn" type="submit">
-                        <a href="../../controller/msmControllers/msmRemoveMembersC.php">Delete Another</a>
-                    </button>
-                    <button class="cancelbtn" type="submit">
-                        <a href="msmHomeV.php">Exit</a>
-                    </button>
+                    <form action="../../controller/msmControllers/msmManageMembersC.php" method="post">
+                        <button class="subbtn" type="submit" name="removemember-submit"><a href="#">Delete Another</a></button>
+                        <button class="cancelbtn" type="submit"><a href="msmHomeV.php">Exit</a></button>
+                    </form>
                 </div>
             </div>
         </div>

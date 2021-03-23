@@ -14,7 +14,6 @@
     
     if ($user && $alldepartments && $allmembertype && $membershipstatus) {
         $ms = mysqli_fetch_assoc($membershipstatus);
-        if ($ms['membership_status'] == 3) {
             if (mysqli_num_rows($user) == 1) {
                 $u = mysqli_fetch_assoc($user);
     
@@ -59,7 +58,7 @@
                     header('Location:../../view/medicalOfficer/moRegisterToMedicalSchemeP1V.php');
                 }
             }
-        } else if ($ms['membership_status'] == 2) {
+        if ($ms['membership_status'] == 2) {
             if (mysqli_num_rows($user) == 1) {
                 $u = mysqli_fetch_assoc($user);
 
