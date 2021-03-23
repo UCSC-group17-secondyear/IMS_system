@@ -10,9 +10,9 @@
             return $result_set;
         }
 
-		public static function getUId($dept_head, $connect)
+		public static function getPostUsingName($post, $connect)
 		{
-			$query = "SELECT userId FROM users WHERE empid = '{$dept_head}' AND is_deleted = 0";
+			$query = "SELECT pst_id FROM tbl_post WHERE post_name = '{$post}' AND is_deleted = 0";
 
 			$result = mysqli_query($connect, $query);
 
@@ -37,9 +37,9 @@
 			return $result;
 		}
         
-        public static function enterDepartment($dept_name, $abbr, $u_id, $connect)
+        public static function enterDepartment($dept_name, $abbr, $p_id, $connect)
 		{
-			$query = "INSERT INTO tbl_department (department, department_abbriviation, userId) VALUES('$dept_name', '$abbr', '$u_id')";
+			$query = "INSERT INTO tbl_department (department, department_abbriviation, post) VALUES('$dept_name', '$abbr', '$p_id')";
 
 			$result = mysqli_query($connect, $query);
 
@@ -48,7 +48,7 @@
         
         public static function viewDepartments($connect) 
 		{
-			$query = "SELECT * FROM tbl_department INNER JOIN users ON tbl_department.userId = users.userId WHERE tbl_department.is_deleted=0 AND users.is_deleted=0";
+			$query = "SELECT * FROM tbl_department INNER JOIN tbl_post ON tbl_department.post = tbl_post.pst_id WHERE tbl_department.is_deleted=0 AND tbl_post.is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -67,7 +67,7 @@
         public static function viewADept($dept_id, $connect)
 		{
 			// $query = "SELECT * FROM tbl_department WHERE department_id='{$dept_id}' LIMIT 1";
-			$query = "SELECT * FROM tbl_department INNER JOIN users ON tbl_department.userId = users.userId WHERE department_id='{$dept_id}' LIMIT 1";
+			$query = "SELECT * FROM tbl_department INNER JOIN tbl_post ON tbl_department.post = tbl_post.pst_id WHERE department_id='{$dept_id}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -83,9 +83,9 @@
 			return $result_set;	
         }
         
-        public static function updateDepartment($dept_id, $department, $u_id, $abbriviation, $connect)
+        public static function updateDepartment($dept_id, $department, $p_id, $abbriviation, $connect)
 		{
-			$query = "UPDATE tbl_department SET department='{$department}', userId='{$u_id}', department_abbriviation='{$abbriviation}' WHERE department_id={$dept_id} LIMIT 1";
+			$query = "UPDATE tbl_department SET department='{$department}', post='{$p_id}', department_abbriviation='{$abbriviation}' WHERE department_id={$dept_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -113,7 +113,7 @@
         public static function viewADeptUsingName($department, $connect)
 		{
 			// $query = "SELECT * FROM tbl_department WHERE department='{$department}' LIMIT 1";
-			$query = "SELECT * FROM tbl_department INNER JOIN users ON tbl_department.userId = users.userId WHERE department='{$department}' LIMIT 1";
+			$query = "SELECT * FROM tbl_department INNER JOIN tbl_post ON tbl_department.post = tbl_post.pst_id WHERE department='{$department}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -136,6 +136,15 @@
 			$result = mysqli_query($connect, $query);
 
 			return $result;
+		}
+
+		public static function getPost($connect)
+		{
+			$query = "SELECT post_name FROM tbl_post WHERE is_deleted=0";
+
+			$result_set = mysqli_query($connect, $query);
+			
+			return $result_set;
 		}
     }
 

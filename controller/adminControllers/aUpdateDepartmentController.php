@@ -15,7 +15,7 @@
                 $result = mysqli_fetch_assoc($results);
                 $_SESSION['dept_id'] = $result['department_id'];
                 $_SESSION['department'] = $result['department'];
-                $_SESSION['d_head'] = $result['empid'];
+                $_SESSION['post'] = $result['post'];
                 $_SESSION['abbriviation'] = $result['department_abbriviation'];
 
                 header('Location:../../view/admin/aUpdateDepartmentV.php');
@@ -33,10 +33,8 @@
     elseif (isset($_POST['updateDepartment-submit'])) {
         $dept_id = $_SESSION['dept_id'];
         $department = mysqli_real_escape_string($connect, $_POST['department']);
-        $new_head = mysqli_real_escape_string($connect, $_POST['dept_head']);
+        $post_name = mysqli_real_escape_string($connect, $_POST['post']);
         $abbriviation = mysqli_real_escape_string($connect, $_POST['abbriviation']);
-
-        $old_head = $_SESSION['d_head'];
 
         $checkDept = adminModel::checkDeptThree($dept_id, $department, $connect);
 
@@ -44,34 +42,28 @@
             header('Location:../../view/admin/aDepartmentExistsV.php');
         }
         else {
-            $remove_dh = adminModel::removeOldDh($old_head, $connect);
+            $getPost = adminModel::getPostUsingName($post_name, $connect);
 
-            if ($remove_dh) {
-
-                $getUId = adminModel::getUId($new_head, $connect);
-
-                if ($getUId) {
-                    while ($rec = mysqli_fetch_assoc($getUId)) {
-                        echo $u_id = $rec['userId'];
-                    }
+            if ($getPost) {
+                while ($rec = mysqli_fetch_assoc($getPost)) {
+                    echo $p_id = $rec['pst_id']; echo '<br>';
                 }
+            }
+    
                 else {
                     header('Location:../../view/admin/aDepartmentNotAddedV.php');
                 }
 
-                $add_flag = adminModel::addFlag($u_id, $connect);
-
-                if ($add_flag) {
-                    $result = adminModel::updateDepartment($dept_id, $department, $u_id, $abbriviation, $connect);
+                    $result = adminModel::updateDepartment($dept_id, $department, $p_id, $abbriviation, $connect);
 
                     if ($result) {
                         header('Location:../../view/admin/aDepartmentUpdatedV.php');
                     }else {
                         header('Location:../../view/admin/aDepartmentNotUpdatedV.php');
                     } 
-                }
+                
                                
-            }
+            
 
         }
 
@@ -87,16 +79,16 @@
                 $result = mysqli_fetch_assoc($results);
                 $_SESSION['dept_id'] = $result['department_id'];
                 $_SESSION['department'] = $result['department'];
-                $_SESSION['d_head'] = $result['empid'];
+                $_SESSION['post'] = $result['post_name'];
                 $_SESSION['abbriviation'] = $result['department_abbriviation'];
 
                 $_SESSION['ids'] = '';
 
-                $records = adminModel::getIds($connect);
+                $records = adminModel::getPost($connect);
 
                 if ($records) {
                     while ($record = mysqli_fetch_array($records)) {
-                        echo $_SESSION['ids'] .= "<option value='".$record['empid']."'>".$record['empid']."</option>";
+                        $_SESSION['post'] .= "<option value='".$record['post_name']."'>".$record['post_name']."</option>";
                     }
                 }
 

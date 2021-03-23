@@ -45,12 +45,12 @@
 
                         <div class="row">
                             <div class="col-25">
-                              <label>Department Head</label>
+                              <label>Post of the department head</label>
                             </div>
                             <div class="col-75">
-                                <select name="dept_head" required>
-						            <option value="">Select department head's employee id</option>
-						            <?php echo $_SESSION['ids'] ?>
+                                <select name="post" required>
+						            <option value="">Select post</option>
+						            <?php echo $_SESSION['post'] ?>
 					            </select>
                             </div>
                         </div>
