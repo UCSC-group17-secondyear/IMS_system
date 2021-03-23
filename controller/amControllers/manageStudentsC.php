@@ -142,10 +142,6 @@
         $semester = $result_stdDegreeAyearSem['semester'];
 
         $nonMandatorySubjects = amModel::get_nonMandatorySubjects ($degree_id, $academic_year, $semester, $connect);
-        $totalSubjects = mysqli_num_rows($nonMandatorySubjects);
-
-        $assigned_nonManSubjects = amModel::get_assignedNonMandatorySubjects ($std_id, $connect);
-        $assignedSubjects = mysqli_num_rows($assigned_nonManSubjects);
 
         if (mysqli_num_rows($nonMandatorySubjects) != 0) {
             session_start();
@@ -153,42 +149,87 @@
             $_SESSION['nonMandatoryList'] = "";
             $_SESSION['std_id'] = $std_id;
 
-            echo "rows_2    ";
-            echo mysqli_num_rows($assigned_nonManSubjects);
-
             while ($record1 = mysqli_fetch_assoc($nonMandatorySubjects)) {
-                $count = 0;
-                $sub_1 = $record1['subject_id'];
-                echo "  sub_1   ";
-                echo $sub_1;
+                $subject_id = $record1['subject_id'];
 
-                while ($record2 = mysqli_fetch_assoc($assigned_nonManSubjects)) {
-                    $sub_2 = $record2['subject_id'];
-                    echo "  sub_2   ";
-                    echo $sub_2;
-                    if ($sub_1 == $sub_2) {
-                        $count = $count + 1;
-                    }
-                }
-
-                echo "  count   ";
-                echo $count;
-                /*if ($count == 0) {
-                    $subject_id = $record1['subject_id'];
-                    echo "subid";
-                    echo $subject_id;
-
-                    $_SESSION['nonMandatoryList'] .= "<tr>";
-                    $_SESSION['nonMandatoryList'] .= "<td>{$record1['subject_code']}</td>";
-                    $_SESSION['nonMandatoryList'] .= "<td>{$record1['subject_name']}</td>";
-                    $_SESSION['nonMandatoryList'] .= "<td> <input type='checkbox' name='checkbox[]' value='".$subject_id."'> </td>";
-                    $_SESSION['nonMandatoryList'] .= "</tr>";
-                }*/
+                $_SESSION['nonMandatoryList'] .= "<tr>";
+                $_SESSION['nonMandatoryList'] .= "<td>{$record1['subject_code']}</td>";
+                $_SESSION['nonMandatoryList'] .= "<td>{$record1['subject_name']}</td>";
+                $_SESSION['nonMandatoryList'] .= "<td> <input type='checkbox' name='checkbox[]' value='".$subject_id."'> </td>";
+                $_SESSION['nonMandatoryList'] .= "</tr>";
             }
-            /*header('Location:../../view/attendanceMaintainer/amStdNonMandSubjectsV.php');*/
+            header('Location:../../view/attendanceMaintainer/amStdNonMandSubjectsV.php');
         }
         else {
             echo "std has no mandatory subjects";
+        }
+    }
+
+    elseif (isset($_POST['fetchNonMandatory-submit'])) {
+        $index_no = $_POST['index_no'];
+        session_start();
+        $_SESSION['nonMandatorySubList'] = "";
+
+        $get_std_id = amModel::fetchStudent ($index_no, $connect);
+        $result_std_id = mysqli_fetch_assoc($get_std_id);
+        $std_id = $result_std_id['std_id'];
+
+        $get_subjects = amModel::get_assignedNonMandatorySubjects ($std_id, $connect);
+
+        if ($get_subjects) {
+            while ($record1 = mysqli_fetch_assoc($get_subjects)) {
+                $subject_id = $record1['subject_id'];
+
+                $get_subjects = amModel::get_Subjects ($subject_id, $connect);
+                $result_subjects = mysqli_fetch_assoc($get_subjects);
+
+                $subject_code = $result_subjects['subject_code'];
+                $subject_name = $result_subjects['subject_name'];
+
+                if ($result_subjects) {
+                    $_SESSION['nonMandatorySubList'] .= "<tr>";
+                    $_SESSION['nonMandatorySubList'] .= "<td>{$subject_code}</td>";
+                    $_SESSION['nonMandatorySubList'] .= "<td>{$subject_name}</td>";
+                    $_SESSION['nonMandatorySubList'] .= "<td> <input type='checkbox' name='checkbox[]' value='".$subject_id."'> </td>";
+                    $_SESSION['nonMandatorySubList'] .= "</tr>";
+                }
+                else {
+                    echo "failed";
+                }
+            }
+            $_SESSION['std_id'] = $std_id;
+            header('Location:../../view/attendanceMaintainer/amRemoveNonManSubjects.php');
+        }
+        else {
+            echo "no mandatory subjects";
+        }
+    }
+
+    elseif(isset($_POST['removeNonMandatory-submit'])) {
+        session_start();
+        $std_id = $_SESSION['std_id'];
+
+        $get_checkBox = $_POST['checkbox'];
+        $removeFlag = 0;
+        $subject_count = 0;
+
+        foreach ($get_checkBox as $subject_id) {
+            $subject_count = $subject_count + 1; 
+            echo "subject_count";
+            echo($subject_count);
+
+            $removeSubject = amModel::removeSubject ($std_id, $subject_id, $connect);
+            if ($removeSubject) {
+                $removeFlag = $removeFlag + 1;
+                echo "removeFlag";
+                echo($removeFlag);
+            }
+        }
+        if ($removeFlag == $subject_count) {
+            echo "all is removed";
+        }
+        else {
+            echo "half is removed";
         }
     }
 
@@ -203,9 +244,18 @@
 
         foreach ($get_checkBox as $subject_id) {
             $subject_count = $subject_count + 1;
-            $assignSubject = amModel::assignSubject ($std_id, $subject_id, $connect);
-            if ($assignSubject) {
+
+            $check_assignedSub = amModel::check_assignedSub($std_id, $subject_id, $connect);
+            $result_assignedSub = mysqli_fetch_assoc($check_assignedSub);
+
+            if ($result_assignedSub) {
                 $assignFlag = $assignFlag + 1;
+            }
+            else {
+                $assignSubject = amModel::assignSubject ($std_id, $subject_id, $connect);
+                if ($assignSubject) {
+                    $assignFlag = $assignFlag + 1;
+                }
             }
         }
         if ($assignFlag == $subject_count) {
@@ -356,7 +406,24 @@
             header('Location:../../view/attendanceMaintainer/amGetStudentV.php');
         }
         else {
-            header('Location:../../view/attendanceMaintainer/amNoStudentsAvailableV.php');
+            echo "failed";
+            /*header('Location:../../view/attendanceMaintainer/amNoStudentsAvailableV.php');*/
+        }
+    }
+
+    elseif(isset($_POST['getStdIndexList-submit'])) {
+        $records = amModel::viewStudents ($connect);
+        session_start();
+        $_SESSION['stdIndexList'] = '';
+
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['stdIndexList'] .= "<option value='".$record['index_no']."'>".$record['index_no']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amFetchStudentV.php');
+        }
+        else {
+            echo "failed";
         }
     }
 

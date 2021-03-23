@@ -69,6 +69,14 @@
 			$result_set = mysqli_query($connect, $query);
 			return $result_set;
 		}
+
+		public static function check_assignedSub ($std_id, $subject_id, $connect) {
+			
+			$query = "SELECT * FROM tbl_std_nonMandatorySub WHERE std_id = '{$std_id}' AND subject_id = '{$subject_id}' AND is_deleted = 0 ";
+			
+			$result_set = mysqli_query($connect, $query);
+			return $result_set;
+		}
 		
 		public static function assignSubject ($std_id, $subject_id, $connect) {
 			
@@ -144,6 +152,25 @@
 
 			$result_set = mysqli_query($connect, $query);
 			return $result_set;
+		}
+
+		public static function get_Subjects ($subject_id, $connect)
+		{
+			$query = "SELECT * FROM tbl_subject 
+			WHERE subject_id = '{$subject_id}' AND is_deleted = 0 ";
+
+			$result_set = mysqli_query($connect, $query);
+			return $result_set;
+		}
+
+		public static function removeSubject ($std_id, $subject_id, $connect)
+		{
+			$query = "UPDATE tbl_std_nonmandatorysub SET is_deleted = 1
+			WHERE std_id = '{$std_id}' AND subject_id = '{$subject_id}' AND is_deleted = 0 
+			LIMIT 1";
+			
+			$result = mysqli_query($connect, $query);
+			return $result;
 		}
 	}
 ?>
