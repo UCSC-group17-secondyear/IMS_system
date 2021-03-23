@@ -11,7 +11,14 @@
         $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
         $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
 
-        $result = adminModel::enterSemester($semester, $academic_year, $start_date, $end_date, $connect);
+        if ($semester=='FirstSemester') {       
+            $digit = 1;
+        }
+        else {
+            $digit = 0;
+        }
+
+        $result = adminModel::enterSemester($semester, $academic_year, $digit, $start_date, $end_date, $connect);
         
         if ($result) {
             header('Location:../../view/admin/aSemesterAddedV.php');
