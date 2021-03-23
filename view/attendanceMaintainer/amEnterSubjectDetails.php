@@ -45,7 +45,6 @@
                         </div>
                         <div class="col-75">
                             <select name="degree" id="degree">
-                                <!-- <option value="">Select degree: </option> -->
                                 <?php echo $_SESSION['degreeList'] ?>
                             </select>
                         </div>
