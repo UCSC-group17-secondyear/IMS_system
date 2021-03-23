@@ -14,14 +14,22 @@
         $endTime =  mysqli_real_escape_string($connect, $_POST['endTime']);
         $reason = mysqli_real_escape_string($connect, $_POST['reason']);
 
-        $check = adminModel::checkHallTwo($hall, $date, $startTime, $endTime, $booking_id, $connect);
+        $getHallId = asmModel::getHallId($hall, $connect);
+
+        if ($getHallId) {
+            while ($rec = mysqli_fetch_assoc($getHallId)) {
+                $h_id = $rec['hall_id'];
+            }
+        }
+
+        $check = adminModel::checkHallTwo($h_id, $date, $startTime, $endTime, $booking_id, $connect);
 
         if (mysqli_num_rows($check)==1) {
             header('Location:../../view/academicStaffMember/asmAllReadyBookedTwoV.php');
         }
         else{
             
-            $result = asmModel::updateBook($booking_id, $hall, $date, $startTime, $endTime, $reason, $connect);
+            $result = asmModel::updateBook($booking_id, $h_id, $date, $startTime, $endTime, $reason, $connect);
 
             if ($result) {
                 header('Location:../../view/academicStaffMember/asmUpdatedBookingV.php');
