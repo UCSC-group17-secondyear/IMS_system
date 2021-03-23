@@ -118,7 +118,7 @@
 
         public static function updatePaidStatus($claim_form_no, $user_id, $final_bill_amount, $msm_comment, $connect)
         {
-            $query = "UPDATE tbl_claimform SET final_bill_amount='{$final_bill_amount}', msm_comment='{$msm_comment}', paid_status=1 WHERE claim_form_no=$claim_form_no AND user_id=$user_id LIMIT 1";
+            $query = "UPDATE tbl_claimform SET final_bill_amount='{$final_bill_amount}', msm_comment='{$msm_comment}', paid_status=1 WHERE claim_form_no='{$claim_form_no}' AND user_id='{$user_id}' LIMIT 1";
 
             $result = mysqli_query($connect, $query);
 

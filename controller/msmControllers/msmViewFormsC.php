@@ -295,7 +295,7 @@
             $_SESSION['revised_bill_amount'] = $result_form['revised_bill_amount'];
             $_SESSION['form_acceptance'] = $result_form['acceptance_status'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmToBePaidOpdFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewOpdFormV.php');
 
         }
 
@@ -368,14 +368,14 @@
             $_SESSION['revised_bill_amount'] = $result_form['revised_bill_amount'];
             $_SESSION['form_acceptance'] = $result_form['acceptance_status'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmToBePaidSurFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewSurgicalFormV.php');
 
         }
 
     } elseif (isset($_POST['paidaccept-submit'])) {
 
-        $claim_form_no = mysqli_real_escape_string($connect, $_POST['claim_form_no']);
         $user_id = $_SESSION['user_id'];
+        $claim_form_no = mysqli_real_escape_string($connect, $_POST['claim_form_no']);
         $msm_comment = mysqli_real_escape_string($connect, $_POST['msm_comment']);
         $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
         $final_bill_amount = mysqli_real_escape_string($connect, $_POST['final_bill_amount']);
@@ -391,9 +391,10 @@
                 $result_form = msmModel::updatePaidStatus($claim_form_no, $user_id, $final_bill_amount, $msm_comment, $connect);
                 $result_amount = msmModel::updateClaimAmount($user_id, $medical_year, $new_remain, $final_bill_amount, $connect);
 
-                if($result_amount && $result_form){
+                if($result_form && $result_amount){
                     header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
                 }
+
             } elseif ($remain_amount!=0 && $final_bill_amount > $remain_amount) {
 
                 $final_bill_amount = $remain_amount;
@@ -412,14 +413,13 @@
                     header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
                 }
             }
-        }
 
-        if(mysqli_num_rows($check_has_claim_det) == 0){
+        } elseif (mysqli_num_rows($check_has_claim_det) == 0){
 
             $result_form = msmModel::updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect);
 
             if($result_form){
-                header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+                // header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
             }
         }
 
@@ -490,7 +490,7 @@
             $_SESSION['paid_amount'] = $result_form['final_bill_amount'];
             $_SESSION['msm_comment'] = $result_form['msm_comment'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmViewPaidFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewOpdFormV.php');
 
         } elseif (mysqli_num_rows($result_surgical) == 1) {
 
@@ -528,7 +528,7 @@
             $_SESSION['paid_amount'] = $result_form['final_bill_amount'];
             $_SESSION['msm_comment'] = $result_form['msm_comment'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmViewPaidFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewSurgicalFormV.php');
         }
 
     } elseif (isset($_POST['rejected-submit'])) {

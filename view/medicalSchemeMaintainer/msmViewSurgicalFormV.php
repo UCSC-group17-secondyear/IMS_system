@@ -32,8 +32,7 @@
                 </div>
 
                 <div class="contentForm" style="margin-bottom: 1%;">
-                    <form action="" >
-                        
+                    <form action="../../controller/msmControllers/msmViewFormsC.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-25">
                                 <label for="">Claim Form No</label>
@@ -233,27 +232,125 @@
                                 <label>Acceptance Status</label>
                             </div>
                             <div class="col-75">
-                                <?php if($_SESSION['a_status'] == 0){?>
+                                <?php if($_SESSION['form_acceptance'] == 0) {?>
                                     <button type="submit" class="redbtn" disabled><a class="disabled">Rejected</a></button>
                                 <?php } else { ?>
                                     <button type="submit" class="greenbtn" disabled><a class="disabled">Approved</a></button>
                                 <?php } ?>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php if ($_SESSION['form_paid'] == 1) { ?>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Revised Bill Amount</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="revised_bill_amount" <?php echo 'value="'.$_SESSION['revised_bill_amount'].'"'?> readonly> <br>
+                            </div>
+                        </div>
 
-                    </form>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Paid Status</label>
+                            </div>
+                            <div class="col-75">
+                                <?php
+                                    if($_SESSION['form_paid'] == 0){
+                                ?>
+                                    <button type="submit" class="redbtn" disabled><a class="disabled">Payment Denied</a></button>
+                                <?php
+                                    } else {
+                                ?>
+                                    <button type="submit" class="greenbtn" disabled><a class="disabled">Paid</a></button>
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Paid Amount</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="paid_amount" <?php echo 'value="'.$_SESSION['paid_amount'].'"'?> readonly> <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Remarks</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> readonly> <br>
+                            </div>
+                        </div>
+
+                    <?php } else { ?>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Revised Bill Amount</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="revised_bill_amount" <?php echo 'value="'.$_SESSION['revised_bill_amount'].'"'?> readonly> <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="final_bill_amount">Final Bill Amount</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="final_bill_amount" min="0" placeholder="Final Bill Amount" required> <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <h3>Remarks</h3>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Medical year</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="medical_year" <?php echo 'value="'.$_SESSION['medical_year'].'"'?> readonly> <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Remain amount for medical year</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="remain_amount" <?php echo 'value="'.$_SESSION['remain_amount'].'"'?> readonly> <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Comment</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="msm_comment" placeholder="Comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> required> <br>
+                            </div>
+                        </div>
+                    <?php } } ?>
+
                     <?php if ($_SESSION['form_acceptance'] == 2) { ?>
                         <button class="subbtn" type="submit" name=""><a href="msmViewRequestedClaimFormV.php">View Another</a></button>
                     <?php } elseif ($_SESSION['form_acceptance'] == 1) {
                         if ($_SESSION['form_paid'] == 2) { ?>
-                        <button class="subbtn" type="submit" name=""><a href="msmViewToBePaidClaimFormsV.php">To be paid Form List</a></button>
+                        <button class="subbtn" type="submit" name="paidaccept-submit" onclick="return confirm('Are you sure?')">Update</button>
                     <?php } elseif ($_SESSION['form_paid'] == 1) { ?>
                         <button class="subbtn" type="submit" name=""><a href="msmViewPaidClaimFormsV.php">View Another</a></button>
                     <?php } } else { ?>
                         <button class="subbtn" type="submit" name=""><a href="msmRejectedClaimFormsV.php">View another</a></button>
                     <?php } ?>
-                    <button class="cancelbtn" type="submit" name=""><a href="msmHomeV.php">Cancel</a></button>
+                        <button class="cancelbtn" type="submit" name=""><a href="msmHomeV.php">Cancel</a></button>
+                    </form>
                 </div>
                 <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
