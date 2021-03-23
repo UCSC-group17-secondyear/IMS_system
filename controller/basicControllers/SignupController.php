@@ -123,12 +123,14 @@
 		{	
 			if ($aca_or_non == 'academic-staff') {
 				$userRole = 'academicStaffMemb';
+				$f = 1;
 			}
 			elseif ($aca_or_non == 'non-academic-staff') {
 				$userRole = 'nonAcademicStaffMemb';
+				$f = 0;
 			}
 			
-			$result = basicModel::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $userRole, $appointment, $hashed_password, $connect);
+			$result = basicModel::signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $f, $designation, $userRole, $appointment, $hashed_password, $connect);
 
             if ($result == true) 
             {
@@ -160,8 +162,8 @@
             }
             else 
             {
-                header('Location:../../view/basic/signupFailed.php');
-                // echo 'Failed to add the user.';
+                //header('Location:../../view/basic/signupFailed.php');
+                 echo 'Failed to add the user.';
             }
 		}
 	}

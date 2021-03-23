@@ -66,7 +66,7 @@
 								</select>
 							</div>
 						</div>
-						<div class="row">
+						<!-- <div class="row">
 							<div class="col-25">
 								<label>Post</label>
 							</div>
@@ -76,7 +76,7 @@
 									<?php echo $_SESSION['posts'] ?>
 								</select>
 							</div>
-						</div>
+						</div> -->
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Appointment Date</label>
