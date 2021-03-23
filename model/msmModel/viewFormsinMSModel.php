@@ -116,7 +116,8 @@
             return $result;
         }
 
-        public static function updatePaidStatus($claim_form_no, $user_id, $final_bill_amount, $msm_comment, $connect){
+        public static function updatePaidStatus($claim_form_no, $user_id, $final_bill_amount, $msm_comment, $connect)
+        {
             $query = "UPDATE tbl_claimform SET final_bill_amount='{$final_bill_amount}', msm_comment='{$msm_comment}', paid_status=1 WHERE claim_form_no=$claim_form_no AND user_id=$user_id LIMIT 1";
 
             $result = mysqli_query($connect, $query);
@@ -124,7 +125,8 @@
             return $result;
         }
 
-        public static function updateClaimAmount($user_id, $medical_year, $new_remain, $final_bill_amount, $connect){
+        public static function updateClaimAmount($user_id, $medical_year, $new_remain, $final_bill_amount, $connect)
+        {
             $query = "UPDATE tbl_claimdetails SET remain_amount=$new_remain, used_amount=used_amount + $final_bill_amount WHERE user_id=$user_id AND year='{$medical_year}' LIMIT 1";
 
             $result = mysqli_query($connect, $query);
