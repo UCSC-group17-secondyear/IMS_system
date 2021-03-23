@@ -29,9 +29,9 @@
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"yellow\">Unchecked</a></td>";
                 }
-                if($mem['membership_status'] == 1){
+                if($mem['membershiform_paid'] == 1){
                     $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
-                } else if($mem['membership_status'] == 0){
+                } else if($mem['membershiform_paid'] == 0){
                     $_SESSION['memberships'] .= "<td><a class=\"red\">Declined</a></td>";
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"yellow\">Unchecked</a></td>";
@@ -65,7 +65,7 @@
             $_SESSION['fr_scheme'] = $md['schemeName'];
             $_SESSION['fr_form_submission_date'] = $md['form_submission_date'];
             $_SESSION['fr_acceptance_status'] = $md['acceptance_status'];
-            $_SESSION['fr_membership_status'] = $md['membership_status'];
+            $_SESSION['fr_membershiform_paid'] = $md['membershiform_paid'];
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewMemberDetailsV.php');
         }
@@ -111,9 +111,12 @@
 
         $result_forms = msmModel::getRequestedClaimForms($connect);
         $_SESSION['req_form_no'] = '';
+        $_SESSION['form_acceptance'] = '';
 
         if(mysqli_num_rows($result_forms) > 0) {
             while($rf = mysqli_fetch_assoc($result_forms)) {
+                $_SESSION['form_acceptance'] = $rf['acceptance_status'];
+
                 $_SESSION['req_form_no'] .= "<tr>";
                 if ($rf['opd_form_flag'] == 1) {
                     $_SESSION['req_form_no'] .= "<td>OPD</td>";
@@ -139,73 +142,78 @@
         $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
         $result_opd = msmModel::checkWhetherOpd($claim_form_no,$connect);
         $result_surgical = msmModel::checkWhetherSurgical($claim_form_no,$connect);
-        $_SESSION['rc_opd'] = mysqli_num_rows($result_opd);
-        $_SESSION['rc_surgical'] = mysqli_num_rows($result_surgical);
+        $_SESSION['opd'] = mysqli_num_rows($result_opd);
+        $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
 
         if(mysqli_num_rows($result_opd)==1){
                     
-            $result_one = mysqli_fetch_assoc($result_opd);
-            $user_id = $result_one['user_id'];
+            $result_form = mysqli_fetch_assoc($result_opd);
+            $user_id = $result_form['user_id'];
             $mem_name = msmModel::getMemberName($user_id, $connect);
             $name = mysqli_fetch_array($mem_name);
 
-            $_SESSION['rc_mem_initials'] = $name[0];
-            $_SESSION['rc_mem_sname'] = $name[1];
-            $_SESSION['rc_claim_form_no'] = $result_one['claim_form_no'];
-            $_SESSION['rc_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['rc_relationship'] = $result_one['relationship'];
-            $_SESSION['rc_doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['rc_treatment_received_date'] = $result_one['treatment_received_date'];
-            $_SESSION['rc_bill_issued_date'] = $result_one['bill_issued_date'];
-            $_SESSION['rc_purpose'] = $result_one['purpose'];
-            $_SESSION['rc_bill_amount'] = $result_one['bill_amount'];
-            $_SESSION['rc_file_name'] = $result_one['file_name'];
+            $_SESSION['mem_initials'] = $name[0];
+            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
+            $_SESSION['patient_name'] = $result_form['dependant_name'];
+            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['doctor_name'] = $result_form['doctor_name'];
+            $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
+            $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
+            $_SESSION['purpose'] = $result_form['purpose'];
+            $_SESSION['bill_amount'] = $result_form['bill_amount'];
+            $_SESSION['file_name'] = $result_form['file_name'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmViewReqClaimFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewOpdFormV.php');
 
         }
 
         if(mysqli_num_rows($result_surgical)==1){
             
-            $result_one = mysqli_fetch_assoc($result_surgical);
-            $user_id = $result_one['user_id'];
+            $result_form = mysqli_fetch_assoc($result_surgical);
+            $user_id = $result_form['user_id'];
             $mem_name = msmModel::getMemberName($user_id,$connect );
             $name = mysqli_fetch_array($mem_name);
 
-            $_SESSION['rc_mem_initials'] = $name[0];
-            $_SESSION['rc_mem_sname'] = $name[1];
-            $_SESSION['rc_claim_form_no'] = $result_one['claim_form_no'];
-            $_SESSION['rc_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['rc_relationship'] = $result_one['relationship'];
-            $_SESSION['rc_accident_date'] = $result_one['accident_date'];
-            $_SESSION['rc_how_occured'] = $result_one['how_occured'];
-            $_SESSION['rc_injuries'] = $result_one['injuries'];
-            $_SESSION['rc_nature_of_illness'] = $result_one['nature_of_illness'];
-            $_SESSION['rc_commence_date'] = $result_one['commence_date'];
-            $_SESSION['rc_first_consult_date'] = $result_one['first_consult_date'];
-            $_SESSION['rc_doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['rc_doctor_address'] = $result_one['doctor_address'];
-            $_SESSION['rc_hospitalized_date'] = $result_one['hospitalized_date'];
-            $_SESSION['rc_discharged_date'] = $result_one['discharged_date'];
-            $_SESSION['rc_illness_before'] = $result_one['illness_before'];
-            $_SESSION['rc_illness_before_years'] = $result_one['illness_before_years'];
-            $_SESSION['rc_sick_injury'] = $result_one['sick_injury'];
-            $_SESSION['rc_insurer_claims'] = $result_one['insurer_claims'];
-            $_SESSION['rc_nature_of'] = $result_one['nature_of'];
-            $_SESSION['rc_file_name'] = $result_one['file_name'];
+            $_SESSION['mem_initials'] = $name[0];
+            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
+            $_SESSION['patient_name'] = $result_form['dependant_name'];
+            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['accident_date'] = $result_form['accident_date'];
+            $_SESSION['how_occured'] = $result_form['how_occured'];
+            $_SESSION['injuries'] = $result_form['injuries'];
+            $_SESSION['nature_of_illness'] = $result_form['nature_of_illness'];
+            $_SESSION['commence_date'] = $result_form['commence_date'];
+            $_SESSION['first_consult_date'] = $result_form['first_consult_date'];
+            $_SESSION['doctor_name'] = $result_form['doctor_name'];
+            $_SESSION['doctor_address'] = $result_form['doctor_address'];
+            $_SESSION['hospitalized_date'] = $result_form['hospitalized_date'];
+            $_SESSION['discharged_date'] = $result_form['discharged_date'];
+            $_SESSION['illness_before'] = $result_form['illness_before'];
+            $_SESSION['illness_before_years'] = $result_form['illness_before_years'];
+            $_SESSION['sick_injury'] = $result_form['sick_injury'];
+            $_SESSION['insurer_claims'] = $result_form['insurer_claims'];
+            $_SESSION['nature_of'] = $result_form['nature_of'];
+            $_SESSION['file_name'] = $result_form['file_name'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmViewReqClaimFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewSurgicalFormV.php');
 
         }
 
     } elseif (isset($_POST['tobepaid-submit'])) {
 
+        $_SESSION['form_acceptance'] = '';
+        $_SESSION['form_paid'] = '';
         $_SESSION['topaid_form_no'] = '';
         $tobepaid_forms = msmModel::getToBePaidClaimForms($connect);
 
         if (mysqli_num_rows($tobepaid_forms) > 0) {
 
             while ($tp = mysqli_fetch_assoc($tobepaid_forms)) {
+                $_SESSION['form_acceptance'] = $tp['acceptance_status'];
+                $_SESSION['form_paid'] = $tp['paid_status'];
+
                 $_SESSION['topaid_form_no'] .= "<tr>";
                 if ($tp['opd_form_flag'] == 1) {
                     $_SESSION['topaid_form_no'] .= "<td>OPD</td>";
@@ -235,13 +243,13 @@
 
         if(mysqli_num_rows($result_opd)==1){
                     
-            $result_one = mysqli_fetch_assoc($result_opd);
-            $user_id = $result_one['user_id'];
+            $result_form = mysqli_fetch_assoc($result_opd);
+            $user_id = $result_form['user_id'];
             $mem_name = msmModel::getMemberName($user_id,$connect );
             $name = mysqli_fetch_array($mem_name);
 
             //check medical year relavant to form
-            $bill_issused_date = $result_one['bill_issued_date'];
+            $bill_issused_date = $result_form['bill_issued_date'];
             $bill_issused_year = date('Y', strtotime($bill_issused_date));
 
             //get medical year ended date with $bill_issused_year
@@ -277,29 +285,29 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $claim_form_no;
-            $_SESSION['patient_name'] = $result_one['dependant_name'];
-            $_SESSION['relationship'] = $result_one['relationship'];
-            $_SESSION['doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['treatment_received_date'] = $result_one['treatment_received_date'];
-            $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
-            $_SESSION['purpose'] = $result_one['purpose'];
-            $_SESSION['bill_amount'] = $result_one['bill_amount'];
-            $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
-            $_SESSION['a_status'] = $result_one['acceptance_status'];
+            $_SESSION['patient_name'] = $result_form['dependant_name'];
+            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['doctor_name'] = $result_form['doctor_name'];
+            $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
+            $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
+            $_SESSION['purpose'] = $result_form['purpose'];
+            $_SESSION['bill_amount'] = $result_form['bill_amount'];
+            $_SESSION['revised_bill_amount'] = $result_form['revised_bill_amount'];
+            $_SESSION['form_acceptance'] = $result_form['acceptance_status'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmToBePaidOpdFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewOpdFormV.php');
 
         }
 
         if(mysqli_num_rows($result_surgical)==1){
             
-            $result_one = mysqli_fetch_assoc($result_surgical);
-            $user_id = $result_one['user_id'];
+            $result_form = mysqli_fetch_assoc($result_surgical);
+            $user_id = $result_form['user_id'];
             $mem_name = msmModel::getMemberName($user_id,$connect );
             $name = mysqli_fetch_array($mem_name);
 
             //check medical year relavant to form
-            $hospitalized_date = $result_one['hospitalized_date'];
+            $hospitalized_date = $result_form['hospitalized_date'];
             $hospitalized_year = date('Y',strtotime($hospitalized_date));
 
             //get medical year ended date with $bill_issused_yeat
@@ -340,89 +348,93 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $claim_form_no;
-            $_SESSION['patient_name'] = $result_one['dependant_name'];
-            $_SESSION['relationship'] = $result_one['relationship'];
-            $_SESSION['accident_date'] = $result_one['accident_date'];
-            $_SESSION['how_occured'] = $result_one['how_occured'];
-            $_SESSION['injuries'] = $result_one['injuries'];
-            $_SESSION['nature_of_illness'] = $result_one['nature_of_illness'];
-            $_SESSION['commence_date'] = $result_one['commence_date'];
-            $_SESSION['first_consult_date'] = $result_one['first_consult_date'];
-            $_SESSION['doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['doctor_address'] = $result_one['doctor_address'];
-            $_SESSION['hospitalized_date'] = $result_one['hospitalized_date'];
-            $_SESSION['discharged_date'] = $result_one['discharged_date'];
-            $_SESSION['illness_before'] = $result_one['illness_before'];
-            $_SESSION['illness_before_years'] = $result_one['illness_before_years'];
-            $_SESSION['sick_injury'] = $result_one['sick_injury'];
-            $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
-            $_SESSION['nature_of'] = $result_one['nature_of'];
-            $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
-            $_SESSION['a_status'] = $result_one['acceptance_status'];
+            $_SESSION['patient_name'] = $result_form['dependant_name'];
+            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['accident_date'] = $result_form['accident_date'];
+            $_SESSION['how_occured'] = $result_form['how_occured'];
+            $_SESSION['injuries'] = $result_form['injuries'];
+            $_SESSION['nature_of_illness'] = $result_form['nature_of_illness'];
+            $_SESSION['commence_date'] = $result_form['commence_date'];
+            $_SESSION['first_consult_date'] = $result_form['first_consult_date'];
+            $_SESSION['doctor_name'] = $result_form['doctor_name'];
+            $_SESSION['doctor_address'] = $result_form['doctor_address'];
+            $_SESSION['hospitalized_date'] = $result_form['hospitalized_date'];
+            $_SESSION['discharged_date'] = $result_form['discharged_date'];
+            $_SESSION['illness_before'] = $result_form['illness_before'];
+            $_SESSION['illness_before_years'] = $result_form['illness_before_years'];
+            $_SESSION['sick_injury'] = $result_form['sick_injury'];
+            $_SESSION['insurer_claims'] = $result_form['insurer_claims'];
+            $_SESSION['nature_of'] = $result_form['nature_of'];
+            $_SESSION['revised_bill_amount'] = $result_form['revised_bill_amount'];
+            $_SESSION['form_acceptance'] = $result_form['acceptance_status'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmToBePaidSurFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewSurgicalFormV.php');
 
         }
 
-    // } elseif (isset($_POST['paidaccept-submit'])) {
+    } elseif (isset($_POST['paidaccept-submit'])) {
 
-    //     $user_id = $_SESSION['user_id'];
-    //     $claim_form_no = mysqli_real_escape_string($connect, $_POST['claim_form_no']);
-    //     $msm_comment = mysqli_real_escape_string($connect, $_POST['msm_comment']);
-    //     $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
-    //     $final_bill_amount = mysqli_real_escape_string($connect, $_POST['final_bill_amount']);
+        $user_id = $_SESSION['user_id'];
+        $claim_form_no = mysqli_real_escape_string($connect, $_POST['claim_form_no']);
+        $msm_comment = mysqli_real_escape_string($connect, $_POST['msm_comment']);
+        $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
+        $final_bill_amount = mysqli_real_escape_string($connect, $_POST['final_bill_amount']);
 
-    //     $check_has_claim_det = msmModel::getMembClaimDetails($user_id, $medical_year, $connect);
+        $check_has_claim_det = msmModel::getMembClaimDetails($user_id, $medical_year, $connect);
 
-    //     if(mysqli_num_rows($check_has_claim_det) == 1){
-    //         $remain_amount = mysqli_real_escape_string($connect, $_POST['remain_amount']);
+        if(mysqli_num_rows($check_has_claim_det) == 1){
+            $remain_amount = mysqli_real_escape_string($connect, $_POST['remain_amount']);
 
-    //         if ($final_bill_amount <= $remain_amount) {
+            if($final_bill_amount <= $remain_amount){
 
-    //             $new_remain = $remain_amount - $final_bill_amount;
-    //             $result_form = msmModel::updatePaidStatus($claim_form_no, $user_id, $final_bill_amount, $msm_comment, $connect);
-    //             $result_amount = msmModel::updateClaimAmount($user_id, $medical_year, $new_remain, $final_bill_amount, $connect);
+                $new_remain = $remain_amount - $final_bill_amount;
+                $result_form = msmModel::updatePaidStatus($claim_form_no, $user_id, $final_bill_amount, $msm_comment, $connect);
+                $result_amount = msmModel::updateClaimAmount($user_id, $medical_year, $new_remain, $final_bill_amount, $connect);
 
-    //             if($result_amount && $result_form){
-    //                 header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
-    //             }
-    //         } elseif ($remain_amount!=0 && $final_bill_amount > $remain_amount) {
+                if($result_form && $result_amount){
+                    header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+                }
 
-    //             $final_bill_amount = $remain_amount;
-    //             $new_remain = $remain_amount - $final_bill_amount;
-    //             $result_form = msmModel::updatePaidStatus($claim_form_no, $user_id, $final_bill_amount, $msm_comment, $connect);
-    //             $result_amount = msmModel::updateClaimAmount($user_id, $medical_year, $new_remain, $final_bill_amount, $connect);
+            } elseif ($remain_amount!=0 && $final_bill_amount > $remain_amount) {
 
-    //             if($result_amount && $result_form){
-    //                 header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
-    //             }
+                $final_bill_amount = $remain_amount;
+                $new_remain = $remain_amount - $final_bill_amount;
+                $result_form = msmModel::updatePaidStatus($claim_form_no, $user_id, $final_bill_amount, $msm_comment, $connect);
+                $result_amount = msmModel::updateClaimAmount($user_id, $medical_year, $new_remain, $final_bill_amount, $connect);
 
-    //         } elseif($remain_amount == 0 || $final_bill_amount == 0){
+                if($result_amount && $result_form){
+                    header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+                }
+            } elseif ($remain_amount == 0 || $final_bill_amount == 0) {
 
-    //             $result_form = msmModel::updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect);
+                $result_form = msmModel::updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect);
 
-    //             if($result_form){
-    //                 header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
-    //             }
+                if($result_form){
+                    header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+                }
+            }
 
-    //         }
+        } elseif (mysqli_num_rows($check_has_claim_det) == 0){
 
-    //     } elseif(mysqli_num_rows($check_has_claim_det) == 0){
+            $result_form = msmModel::updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect);
 
-    //         $result_form = msmModel::updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect);
-
-    //         if($result_form){
-    //             header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
-    //         }
-    //     }
+            if($result_form){
+                // header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+            }
+        }
 
     } elseif (isset($_POST['paid-submit'])) {
 
         $_SESSION['paid_form_no'] = '';
+        $_SESSION['form_acceptance'] = '';
+        $_SESSION['form_paid'] = '';
         $paid_forms = msmModel::paidClaimForms($connect);
 
         if (mysqli_num_rows($paid_forms) > 0) {
             while ($pf = mysqli_fetch_assoc($paid_forms)) {
+                $_SESSION['form_acceptance'] = $pf['acceptance_status'];
+                $_SESSION['form_paid'] = $pf['paid_status'];
+
                 $_SESSION['paid_form_no'] .= "<tr>";
                 if ($pf['opd_form_flag'] == 1) {
                     $_SESSION['paid_form_no'] .= "<td>OPD</td>";
@@ -448,83 +460,90 @@
         $result_opd = msmModel::checkWhetherOpd($claim_form_no,$connect);
         $result_surgical = msmModel::checkWhetherSurgical($claim_form_no,$connect);
 
-        $_SESSION['pcf_opd'] = mysqli_num_rows($result_opd);
-        $_SESSION['pcf_surgical'] = mysqli_num_rows($result_surgical);
+        $_SESSION['opd'] = mysqli_num_rows($result_opd);
+        $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
+        $_SESSION['form_acceptance'] = '';
+        $_SESSION['form_paid'] = '';
 
         if (mysqli_num_rows($result_opd) == 1) {
 
-            $result_one = mysqli_fetch_assoc($result_opd);
+            $result_form = mysqli_fetch_assoc($result_opd);
 
-            $user_id = $result_one['user_id'];
+            $user_id = $result_form['user_id'];
             $mem_name = msmModel::getMemberName($user_id,$connect );
             $name = mysqli_fetch_array($mem_name);
 
-            $_SESSION['pcf_claim_form_no'] = $claim_form_no;
-            $_SESSION['pcf_user_id'] = $user_id;
-            $_SESSION['pcf_mem_initials'] = $name[0];
-            $_SESSION['pcf_mem_sname'] = $name[1];
-            $_SESSION['pcf_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['pcf_relationship'] = $result_one['relationship'];
-            $_SESSION['pcf_doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['pcf_treatment_received_date'] = $result_one['treatment_received_date'];
-            $_SESSION['pcf_bill_issued_date'] = $result_one['bill_issued_date'];
-            $_SESSION['pcf_purpose'] = $result_one['purpose'];
-            $_SESSION['pcf_bill_amount'] = $result_one['bill_amount'];
-            $_SESSION['pcf_revised_bill_amount'] = $result_one['revised_bill_amount'];
-            $_SESSION['pcf_a_status'] = $result_one['acceptance_status'];
-            $_SESSION['pcf_p_status'] = $result_one['paid_status'];
-            $_SESSION['pcf_paid_amount'] = $result_one['final_bill_amount'];
-            $_SESSION['pcf_msm_comment'] = $result_one['msm_comment'];
+            $_SESSION['claim_form_no'] = $claim_form_no;
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['mem_initials'] = $name[0];
+            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['patient_name'] = $result_form['dependant_name'];
+            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['doctor_name'] = $result_form['doctor_name'];
+            $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
+            $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
+            $_SESSION['purpose'] = $result_form['purpose'];
+            $_SESSION['bill_amount'] = $result_form['bill_amount'];
+            $_SESSION['revised_bill_amount'] = $result_form['revised_bill_amount'];
+            $_SESSION['form_acceptance'] = $result_form['acceptance_status'];
+            $_SESSION['form_paid'] = $result_form['paid_status'];
+            $_SESSION['paid_amount'] = $result_form['final_bill_amount'];
+            $_SESSION['msm_comment'] = $result_form['msm_comment'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmViewPaidFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewOpdFormV.php');
 
         } elseif (mysqli_num_rows($result_surgical) == 1) {
 
-            $result_one = mysqli_fetch_assoc($result_surgical);
+            $result_form = mysqli_fetch_assoc($result_surgical);
 
-            $user_id = $result_one['user_id'];
+            $user_id = $result_form['user_id'];
             $mem_name = msmModel::getMemberName($user_id,$connect );
             $name = mysqli_fetch_array($mem_name);
 
-            $_SESSION['pcf_form_no'] = $claim_form_no;
-            $_SESSION['pcf_user_id'] = $user_id;
-            $_SESSION['pcf_mem_initials'] = $name[0];
-            $_SESSION['pcf_mem_sname'] = $name[1];
-            $_SESSION['pcf_claim_form_no'] = $claim_form_no;
-            $_SESSION['pcf_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['pcf_relationship'] = $result_one['relationship'];
-            $_SESSION['pcf_accident_date'] = $result_one['accident_date'];
-            $_SESSION['pcf_how_occured'] = $result_one['how_occured'];
-            $_SESSION['pcf_injuries'] = $result_one['injuries'];
-            $_SESSION['pcf_nature_of_illness'] = $result_one['nature_of_illness'];
-            $_SESSION['pcf_commence_date'] = $result_one['commence_date'];
-            $_SESSION['pcf_first_consult_date'] = $result_one['first_consult_date'];
-            $_SESSION['pcf_doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['pcf_doctor_address'] = $result_one['doctor_address'];
-            $_SESSION['pcf_hospitalized_date'] = $result_one['hospitalized_date'];
-            $_SESSION['pcf_discharged_date'] = $result_one['discharged_date'];
-            $_SESSION['pcf_illness_before'] = $result_one['illness_before'];
-            $_SESSION['pcf_illness_before_years'] = $result_one['illness_before_years'];
-            $_SESSION['pcf_sick_injury'] = $result_one['sick_injury'];
-            $_SESSION['pcf_insurer_claims'] = $result_one['insurer_claims'];
-            $_SESSION['pcf_nature_of'] = $result_one['nature_of'];
-            $_SESSION['pcf_revised_bill_amount'] = $result_one['revised_bill_amount'];
-            $_SESSION['pcf_a_status'] = $result_one['acceptance_status'];
-            $_SESSION['pcf_p_status'] = $result_one['paid_status'];
-            $_SESSION['pcf_paid_amount'] = $result_one['final_bill_amount'];
-            $_SESSION['pcf_msm_comment'] = $result_one['msm_comment'];
+            $_SESSION['form_no'] = $claim_form_no;
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['mem_initials'] = $name[0];
+            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['claim_form_no'] = $claim_form_no;
+            $_SESSION['patient_name'] = $result_form['dependant_name'];
+            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['accident_date'] = $result_form['accident_date'];
+            $_SESSION['how_occured'] = $result_form['how_occured'];
+            $_SESSION['injuries'] = $result_form['injuries'];
+            $_SESSION['nature_of_illness'] = $result_form['nature_of_illness'];
+            $_SESSION['commence_date'] = $result_form['commence_date'];
+            $_SESSION['first_consult_date'] = $result_form['first_consult_date'];
+            $_SESSION['doctor_name'] = $result_form['doctor_name'];
+            $_SESSION['doctor_address'] = $result_form['doctor_address'];
+            $_SESSION['hospitalized_date'] = $result_form['hospitalized_date'];
+            $_SESSION['discharged_date'] = $result_form['discharged_date'];
+            $_SESSION['illness_before'] = $result_form['illness_before'];
+            $_SESSION['illness_before_years'] = $result_form['illness_before_years'];
+            $_SESSION['sick_injury'] = $result_form['sick_injury'];
+            $_SESSION['insurer_claims'] = $result_form['insurer_claims'];
+            $_SESSION['nature_of'] = $result_form['nature_of'];
+            $_SESSION['revised_bill_amount'] = $result_form['revised_bill_amount'];
+            $_SESSION['form_acceptance'] = $result_form['acceptance_status'];
+            $_SESSION['form_paid'] = $result_form['paid_status'];
+            $_SESSION['paid_amount'] = $result_form['final_bill_amount'];
+            $_SESSION['msm_comment'] = $result_form['msm_comment'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmViewPaidFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewSurgicalFormV.php');
         }
 
     } elseif (isset($_POST['rejected-submit'])) {
 
         $_SESSION['rej_form_no'] = '';
+        $_SESSION['form_acceptance'] = '';
+        $_SESSION['form_paid'] = '';
         $result_forms = array();
         $result_forms = msmModel::getRejClaimForms($connect);
 
         if (mysqli_num_rows($result_forms) > 0) {
             while ($rf = mysqli_fetch_assoc($result_forms)) {
+                $_SESSION['form_acceptance'] = $rf['acceptance_status'];
+                $_SESSION['form_paid'] = $rf['paid_status'];
+
                 $_SESSION['rej_form_no'] .= "<tr>";
                 $_SESSION['rej_form_no'] .= "<tr>";
                 if ($rf['opd_form_flag'] == 1) {
@@ -549,60 +568,61 @@
         $claim_form_no = mysqli_real_escape_string($connect, $_GET['reject_form_no']);
         $result_opd = msmModel::checkWhetherOpd($claim_form_no,$connect);
         $result_surgical = msmModel::checkWhetherSurgical($claim_form_no,$connect);
-        $_SESSION['rcf_opd'] = mysqli_num_rows($result_opd);
-        $_SESSION['rcf_surgical'] = mysqli_num_rows($result_surgical);
+        $_SESSION['opd'] = mysqli_num_rows($result_opd);
+        $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
+        $_SESSION['form_acceptance'] = '';
 
         if (mysqli_num_rows($result_opd) == 1) {
                     
-            $result_one = mysqli_fetch_assoc($result_opd);
-            $user_id = $result_one['user_id'];
+            $result_form = mysqli_fetch_assoc($result_opd);
+            $user_id = $result_form['user_id'];
             $mem_name = msmModel::getMemberName($user_id,$connect );
             $name = mysqli_fetch_array($mem_name);
 
-            $_SESSION['rcf_mem_initials'] = $name[0];
-            $_SESSION['rcf_mem_sname'] = $name[1];
-            $_SESSION['rcf_claim_form_no'] = $result_one['claim_form_no'];
-            $_SESSION['rcf_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['rcf_relationship'] = $result_one['relationship'];
-            $_SESSION['rcf_doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['rcf_treatment_received_date'] = $result_one['treatment_received_date'];
-            $_SESSION['rcf_bill_issued_date'] = $result_one['bill_issued_date'];
-            $_SESSION['rcf_purpose'] = $result_one['purpose'];
-            $_SESSION['rcf_bill_amount'] = $result_one['bill_amount'];
-            $_SESSION['rcf_a_status'] = $result_one['acceptance_status'];
+            $_SESSION['mem_initials'] = $name[0];
+            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
+            $_SESSION['patient_name'] = $result_form['dependant_name'];
+            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['doctor_name'] = $result_form['doctor_name'];
+            $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
+            $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
+            $_SESSION['purpose'] = $result_form['purpose'];
+            $_SESSION['bill_amount'] = $result_form['bill_amount'];
+            $_SESSION['form_acceptance'] = $result_form['acceptance_status'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmViewRejClaimFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewOpdFormV.php');
 
         } else {
             
-            $result_one = mysqli_fetch_assoc($result_surgical);
-            $user_id = $result_one['user_id'];
+            $result_form = mysqli_fetch_assoc($result_surgical);
+            $user_id = $result_form['user_id'];
             $mem_name = msmModel::getMemberName($user_id,$connect );
             $name = mysqli_fetch_array($mem_name);
 
-            $_SESSION['rcf_mem_initials'] = $name[0];
-            $_SESSION['rcf_mem_sname'] = $name[1];
-            $_SESSION['rcf_claim_form_no'] = $result_one['claim_form_no'];
-            $_SESSION['rcf_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['rcf_relationship'] = $result_one['relationship'];
-            $_SESSION['rcf_accident_date'] = $result_one['accident_date'];
-            $_SESSION['rcf_how_occured'] = $result_one['how_occured'];
-            $_SESSION['rcf_injuries'] = $result_one['injuries'];
-            $_SESSION['rcf_nature_of_illness'] = $result_one['nature_of_illness'];
-            $_SESSION['rcf_commence_date'] = $result_one['commence_date'];
-            $_SESSION['rcf_first_consult_date'] = $result_one['first_consult_date'];
-            $_SESSION['rcf_doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['rcf_doctor_address'] = $result_one['doctor_address'];
-            $_SESSION['rcf_hospitalized_date'] = $result_one['hospitalized_date'];
-            $_SESSION['rcf_discharged_date'] = $result_one['discharged_date'];
-            $_SESSION['rcf_illness_before'] = $result_one['illness_before'];
-            $_SESSION['rcf_illness_before_years'] = $result_one['illness_before_years'];
-            $_SESSION['rcf_sick_injury'] = $result_one['sick_injury'];
-            $_SESSION['rcf_insurer_claims'] = $result_one['insurer_claims'];
-            $_SESSION['rcf_nature_of'] = $result_one['nature_of'];
-            $_SESSION['rcf_a_status'] = $result_one['acceptance_status'];
+            $_SESSION['mem_initials'] = $name[0];
+            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
+            $_SESSION['patient_name'] = $result_form['dependant_name'];
+            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['accident_date'] = $result_form['accident_date'];
+            $_SESSION['how_occured'] = $result_form['how_occured'];
+            $_SESSION['injuries'] = $result_form['injuries'];
+            $_SESSION['nature_of_illness'] = $result_form['nature_of_illness'];
+            $_SESSION['commence_date'] = $result_form['commence_date'];
+            $_SESSION['first_consult_date'] = $result_form['first_consult_date'];
+            $_SESSION['doctor_name'] = $result_form['doctor_name'];
+            $_SESSION['doctor_address'] = $result_form['doctor_address'];
+            $_SESSION['hospitalized_date'] = $result_form['hospitalized_date'];
+            $_SESSION['discharged_date'] = $result_form['discharged_date'];
+            $_SESSION['illness_before'] = $result_form['illness_before'];
+            $_SESSION['illness_before_years'] = $result_form['illness_before_years'];
+            $_SESSION['sick_injury'] = $result_form['sick_injury'];
+            $_SESSION['insurer_claims'] = $result_form['insurer_claims'];
+            $_SESSION['nature_of'] = $result_form['nature_of'];
+            $_SESSION['form_acceptance'] = $result_form['acceptance_status'];
 
-            header('Location:../../view/medicalSchemeMaintainer/msmViewRejClaimFormV.php');
+            header('Location:../../view/medicalSchemeMaintainer/msmViewSurgicalFormV.php');
         }
 
     }
