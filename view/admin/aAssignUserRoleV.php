@@ -30,6 +30,7 @@
                             </div>
                             <div class="col-75">
                                 <select name="empid" id="">
+                                    <option value="">Select employee id</option>
                                     <?php echo $_SESSION['userlist'] ?>
                                 </select>
                             </div>
@@ -41,6 +42,7 @@
                             </div>
                             <div class="col-75">
                                 <select name="userRole" id="">
+                                    <option value="">Select role</option>
                                     <?php echo $_SESSION['userroles'] ?>
                                 </select>
                             </div>
