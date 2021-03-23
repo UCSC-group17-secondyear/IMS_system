@@ -49,16 +49,10 @@
                                 <label for="">Department Head</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="dept_head" <?php echo 'value="'.$_SESSION['dept_head'].'"' ?> required/><br>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Department Head's Email</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="dept_head_email" <?php echo 'value="'.$_SESSION['dept_head_email'].'"' ?> required/><br>
+                                <select name="dept_head" required>
+						            <option value="<?php echo $_SESSION['d_head'] ?>"><?php echo $_SESSION['d_head'] ?></option>
+						            <?php echo $_SESSION['ids'] ?>
+					            </select>
                             </div>
                         </div>
                                              
