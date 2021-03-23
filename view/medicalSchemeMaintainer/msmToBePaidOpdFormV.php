@@ -8,7 +8,7 @@
             
                 <ul class="breadcrumbs">
                     <li><a href="msmHomeV.php">Home</a></li>
-                    <li><a href="../../controller/msmControllers/toBePaidFormController.php">To Be Paid Form List</a></li>
+                    <li><a href="msmViewToBePaidClaimFormsV.php">To Be Paid Form List</a></li>
                     <li class="active">claim Details</li>
                 </ul>
         <div class="row" style="margin-bottom: 4%;">
@@ -32,7 +32,7 @@
                                     <label for="">Claim Form No</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> readonly> <br>
+                                    <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -41,7 +41,7 @@
                                     <label for="">Member Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="mem_name" <?php echo 'value="'.$_SESSION['mem_initials']." ".$_SESSION['mem_sname'].'"'?> readonly> <br>
+                                    <input type="text" name="mem_name" <?php echo 'value="'.$_SESSION['mem_initials']." ".$_SESSION['mem_sname'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -50,7 +50,7 @@
                                     <label for="">Patient Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="patient_name" <?php echo 'value="'.$_SESSION['patient_name'].'"'?> readonly> <br>
+                                    <input type="text" name="patient_name" <?php echo 'value="'.$_SESSION['patient_name'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
                                     <label for="">Relationship</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"'?> readonly> <br>
+                                    <input type="text" name="relationship" <?php echo 'value="'.$_SESSION['relationship'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -68,7 +68,7 @@
                                     <label for="">Doctor Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="doctor_name" <?php echo 'value="'.$_SESSION['doctor_name'].'"'?> readonly> <br>
+                                    <input type="text" name="doctor_name" <?php echo 'value="'.$_SESSION['doctor_name'].'"'?> disabled> <br>
                                 </div>
                             </div> 
 
@@ -77,7 +77,7 @@
                                     <label for="">Treatment Received Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="treatment_received_date" <?php echo 'value="'.$_SESSION['treatment_received_date'].'"'?> readonly> <br>
+                                    <input type="text" name="treatment_received_date" <?php echo 'value="'.$_SESSION['treatment_received_date'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -86,7 +86,7 @@
                                     <label for="">Bill Issued Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="bill_issued_date" <?php echo 'value="'.$_SESSION['bill_issued_date'].'"'?> readonly> <br>
+                                    <input type="text" name="bill_issued_date" <?php echo 'value="'.$_SESSION['bill_issued_date'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -95,7 +95,7 @@
                                     <label for="">Purpose</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="purpose" <?php echo 'value="'.$_SESSION['purpose'].'"'?> readonly> <br>
+                                    <input type="text" name="purpose" <?php echo 'value="'.$_SESSION['purpose'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -104,7 +104,7 @@
                                     <label for="">Bill Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="bill_amount" <?php echo 'value="'.$_SESSION['bill_amount'].'"'?> readonly> <br>
+                                    <input type="text" name="bill_amount" <?php echo 'value="'.$_SESSION['bill_amount'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -113,7 +113,7 @@
                                     <label for="">Revised Bill Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="revised_bill_amount" <?php echo 'value="'.$_SESSION['revised_bill_amount'].'"'?> readonly> <br>
+                                    <input type="text" name="revised_bill_amount" <?php echo 'value="'.$_SESSION['revised_bill_amount'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -146,7 +146,7 @@
                                     <label>Medical year</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="medical_year" <?php echo 'value="'.$_SESSION['medical_year'].'"'?> readonly> <br>
+                                    <input type="text" name="medical_year" <?php echo 'value="'.$_SESSION['medical_year'].'"'?> disabled> <br>
                                 </div>
                             </div>
 
@@ -155,7 +155,7 @@
                                     <label>Remain amount for medical year</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="remain_amount" <?php echo 'value="'.$_SESSION['remain_amount'].'"'?> readonly> <br>
+                                    <input type="text" name="remain_amount" <?php echo 'value="'.$_SESSION['remain_amount'].'"'?> disabled> <br>
                                 </div>
                             </div>
 

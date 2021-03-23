@@ -6,11 +6,11 @@
     $user_id = mysqli_real_escape_string($connect, $_GET['certified_user']);
 
     $_SESSION['certifiedforms'] = '';
-    $result = dhModel::getDeptUsingId($user_id, $connect);
-    if ($result) {
-        if (mysqli_num_rows($result)==1) {
-            $rslt = mysqli_fetch_assoc($result);
-            $certified_forms = dhModel::getDepartmentCertifiedForms($rslt['department'], $connect);
+    $department = dhModel::getDeptUsingId($user_id, $connect);
+    if ($department) {
+        if (mysqli_num_rows($department)==1) {
+            $d = mysqli_fetch_assoc($department);
+            $certified_forms = dhModel::getDepartmentCertifiedForms($d['department_id'], $connect);
             
             if ($certified_forms) {
                 while($cf = mysqli_fetch_assoc($certified_forms)) {
@@ -24,7 +24,7 @@
                     } else {
                         $_SESSION['certifiedforms'] .= "<td><a class=\"red\">Declined</a></td>";
                     }
-                    $_SESSION['certifiedforms'] .= "<td><a href=\"../../controller/dhControllers/dhviewMemberForm1C.php?userrr={$cf['userId']}\">View</a></td>";
+                    $_SESSION['certifiedforms'] .= "<td><a href=\"../../controller/dhControllers/dhviewMemberForm1C.php?viewmember={$cf['userId']}\">View</a></td>";
                     $_SESSION['certifiedforms'] .= "</tr>";                    
                 }
                 header('Location:../../view/departmentHead/dhCertifiedFormV.php');

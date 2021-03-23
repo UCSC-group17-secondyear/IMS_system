@@ -6,8 +6,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amEnterSubjectDetails.php">Add Subject</a></li>
-            <li class="active">Action Failed!</li>
+            <li><a href="#">Register to the Medical scheme</a></li>
+            <li class="active">Action Success!</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;" >
@@ -20,13 +20,11 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            The subject you have entered exists already.
-                        </h2>
+                        <h2>Sorry! Yet you can't register to the Medical Scheme.</h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amEnterSubjectDetails.php">Try again</a> 
+                        <a href="amHomeV.php">Ok</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

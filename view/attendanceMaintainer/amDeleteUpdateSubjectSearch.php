@@ -30,6 +30,18 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select degree</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="degree_name">
+                                <?php echo $_SESSION['degreeList'] ?>
+                            </select>
+                        </div>
+                    </div>
+
                     <button class="subbtn" type="submit" name="deleteupdateSubject-submit">Select</button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

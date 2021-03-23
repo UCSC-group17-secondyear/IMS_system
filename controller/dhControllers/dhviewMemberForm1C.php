@@ -4,29 +4,29 @@
     require_once('../../model/dhModel/dhViewRequestedFormModel.php');
 
     $errors = array();
-    $user_id = '';
+    $viewmember = '';
 
-    if(isset($_GET['userrr'])) {
-        $user_id = mysqli_real_escape_string($connect, $_GET['userrr']);
-        $_SESSION['viewed_member_userid'] = $user_id;
+    if(isset($_GET['viewmember'])) {
+        $viewmember = mysqli_real_escape_string($connect, $_GET['viewmember']);
+        $_SESSION['viewed_member_userid'] = $viewmember;
         
-        $result_set = dhModel::getDetails($user_id, $connect);
+        $memberdetails = dhModel::getDetails($viewmember, $connect);
 
-        if ($result_set) {
-            if (mysqli_num_rows($result_set) == 1) {
-                $result = mysqli_fetch_assoc($result_set);
+        if ($memberdetails) {
+            if (mysqli_num_rows($memberdetails) == 1) {
+                $md = mysqli_fetch_assoc($memberdetails);
                 
-                $_SESSION['empid'] = $result['empid'];
-                $_SESSION['initials'] = $result['initials'];
-                $_SESSION['sname'] = $result['sname'];
-                $_SESSION['email'] = $result['email'];
-                $_SESSION['designation'] = $result['designation'];
-                $_SESSION['department'] = $result['department'];
-                $_SESSION['healthcondition'] = $result['healthcondition'];
-                $_SESSION['civilstatus'] = $result['civilstatus'];
-                $_SESSION['scheme'] = $result['schemename'];
-                $_SESSION['member_type'] = $result['member_type'];
-                $_SESSION['acceptance_status'] = $result['acceptance_status'];
+                $_SESSION['empid'] = $md['empid'];
+                $_SESSION['initials'] = $md['initials'];
+                $_SESSION['sname'] = $md['sname'];
+                $_SESSION['email'] = $md['email'];
+                $_SESSION['designation'] = $md['designation'];
+                $_SESSION['department'] = $md['department'];
+                $_SESSION['healthcondition'] = $md['healthcondition'];
+                $_SESSION['civilstatus'] = $md['married'];
+                $_SESSION['scheme'] = $md['schemeName'];
+                $_SESSION['member_type'] = $md['member_type'];
+                $_SESSION['acceptance_status'] = $md['acceptance_status'];
             }
             header('Location:../../view/departmentHead/dhViewMemberV.php');
         }

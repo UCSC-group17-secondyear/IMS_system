@@ -8,7 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li><a href="../../controller/msmControllers/msmviewMemberList1C.php">View Medical Member List</a></li>
+            <li><a href="msmViewMembershipFormsV.php">View Medical Member List</a></li>
             <li class="active">Action was success!</li>
         </ul>
     
@@ -26,7 +26,7 @@
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/msmControllers/msmMembershipForms1C.php">Accept another</a>
+                        <a href="msmViewMembershipFormsV.php">Accept another</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="msmHomeV.php">Exit</a>
