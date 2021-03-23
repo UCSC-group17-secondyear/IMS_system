@@ -42,20 +42,33 @@
         $endTime =  mysqli_real_escape_string($connect, $_POST['endTime']);
         $reason = mysqli_real_escape_string($connect, $_POST['reason']);
 
-        $check = adminModel::checkHall($hall, $date, $startTime, $endTime, $connect);
+        $getHallId = asmModel::getHallId($hall, $connect);
 
+        if ($getHallId) {
+            while ($rec = mysqli_fetch_assoc($getHallId)) {
+                $h_id = $rec['hall_id'];
+            }
+        }
+
+        $check = asmModel::checkHall($h_id, $date, $startTime, $endTime, $connect);
         if (mysqli_num_rows($check)==1) {
             if ($_SESSION['role'] == "hallAllocationMain") {
                 header('Location:../../view/hallAllocationMaintainer/hamAllReadyBookedV.php');
             }
             elseif ($_SESSION['role'] == "academicStaffMemb") {
                 header('Location:../../view/academicStaffMember/asmAllReadyBookedV.php');
-            }
-            
+            }            
         }
         else{
-            
-            $result = asmModel::book($user_id, $hall, $date, $startTime, $endTime, $reason, $connect);
+            $getSemId = asmModel::getSemId($date, $connect);
+
+            if ($getSemId) {
+                while ($rec2 = mysqli_fetch_assoc($getSemId)) {
+                    $sem_id = $rec2['sem_id'];
+                }
+            }
+
+            $result = asmModel::book($user_id, $h_id, $sem_id, $date, $startTime, $endTime, $reason, $connect);
 
             if ($result) {
 
@@ -67,7 +80,6 @@
                 }
                 
             }
-
         }
 
     }
