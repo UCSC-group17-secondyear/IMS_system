@@ -24,13 +24,13 @@
                     <h2>View Member Details</h2>
                 </div>
                 <div class="contentForm">
-                    <form action="rvMemberAcceptanceC.php?viewed_member=<?php echo $_SESSION['userId'] ?>" method="post">
+                    <form action="rvMemberAcceptanceC.php?viewed_member=<?php echo $_SESSION['fr_userId'] ?>" method="post">
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Employee Id</label>
 	                        </div>
 	                        <div class="col-75">
-	                            <input type="text" name="empid" <?php echo 'value="'.$_SESSION['empid'].'"' ?> disabled> <br>
+	                            <input type="text" name="empid" <?php echo 'value="'.$_SESSION['fr_empid'].'"' ?> disabled> <br>
 	                        </div>
 	                    </div>
                         <div class="row">
@@ -38,7 +38,7 @@
 	                            <label for="">Initials of the name</label>
 	                        </div>
 	                        <div class="col-75">
-	                            <input type="text" name="initials" <?php echo 'value="'.$_SESSION['initials'].'"' ?> disabled> <br>
+	                            <input type="text" name="initials" <?php echo 'value="'.$_SESSION['fr_initials'].'"' ?> disabled> <br>
 	                        </div>
 	                    </div>
                         <div class="row">
@@ -46,7 +46,7 @@
 	                            <label for="">Surname</label>
 	                        </div>
 	                        <div class="col-75">
-	                            <input type="text" name="sname" <?php echo 'value="'.$_SESSION['sname'].'"' ?> disabled> <br>
+	                            <input type="text" name="sname" <?php echo 'value="'.$_SESSION['fr_sname'].'"' ?> disabled> <br>
 	                        </div>
 	                    </div>
                         <div class="row">
@@ -54,7 +54,7 @@
                                 <label>Department</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="department" <?php echo 'value="'.$_SESSION['deps'].'"' ?> disabled/>
+                                <input type="text" name="department" <?php echo 'value="'.$_SESSION['fr_department'].'"' ?> disabled/>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@
                                 <label>Health condition</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="health_condition" <?php echo 'value="'.$_SESSION['health_condition'].'"' ?> disabled/>
+                                <input type="text" name="health_condition" <?php echo 'value="'.$_SESSION['fr_health_condition'].'"' ?> disabled/>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
                                 <label>Member Type</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="membert" <?php echo 'value="'.$_SESSION['membert'].'"' ?> disabled/>
+                                <input type="text" name="membert" <?php echo 'value="'.$_SESSION['fr_member'].'"' ?> disabled/>
                             </div>
                         </div>
 
@@ -81,7 +81,11 @@
                                 <label>Civil status</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="civil_status" <?php echo 'value="'.$_SESSION['civil_status'].'"' ?> disabled/>
+                            <?php if ($_SESSION['fr_civil_status'] == 1) { ?>
+                                <input type="text" name="civil_status" value="Married" disabled/>
+                            <?php } else { ?>
+                                <input type="text" name="civil_status" value="Single" disabled/>
+                            <?php } ?>
                             </div>
                         </div>
 
@@ -90,7 +94,7 @@
                                 <label>Medical Scheme Type</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="scheme" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled/>
+                                <input type="text" name="scheme" <?php echo 'value="'.$_SESSION['fr_scheme'].'"' ?> disabled/>
                             </div>
                         </div>
 
@@ -100,11 +104,11 @@
                             </div>
                             <div class="col-75">
                             <?php
-                                if($_SESSION['acceptance_status'] == 0){
+                                if($_SESSION['fr_acceptance_status'] == 0){
                             ?>
                                 <button class="redbtn" disabled><a class="disabled">Declined</a></button>
                             <?php
-                                } else if($_SESSION['acceptance_status'] == 1) {
+                                } else if($_SESSION['fr_acceptance_status'] == 1) {
                             ?>
                                 <button class="greenbtn" disabled><a class="disabled">Approved</a></button>
                             <?php
@@ -122,11 +126,11 @@
                             </div>
                             <div class="col-75">
                             <?php
-                                if($_SESSION['membership_status'] == 0){
+                                if($_SESSION['fr_membership_status'] == 0){
                             ?>
                                 <button class="redbtn" disabled><a class="disabled">Declined</a></button>
                             <?php
-                                } else if($_SESSION['membership_status'] == 1) {
+                                } else if($_SESSION['fr_membership_status'] == 1) {
                             ?>
                                 <button class="greenbtn" disabled><a class="disabled">Approved</a></button>
                             <?php
