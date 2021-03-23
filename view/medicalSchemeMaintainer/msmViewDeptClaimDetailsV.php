@@ -23,7 +23,7 @@
                     <form action="../../controller/msmControllers/msmviewclaimdetailsC.php" method="POST">
                         <div class="row">
                             <div class="col-25">
-                                <label for="">Enter Medical Year</label>
+                                <label for="">Medical Year</label>
                             </div>
                             <div class="col-75">
                                 <select name="medical_year" id="" required>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="">Enter Department</label>
+                                <label for="">Department</label>
                             </div>
                             <div class="col-75">
                                 <select name="dept" id="" required>
