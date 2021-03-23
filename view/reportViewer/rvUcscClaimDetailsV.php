@@ -8,7 +8,7 @@
                 
                     <ul class="breadcrumbs">
                         <li><a href="rvHomeV.php">Home</a></li>
-                        <li><a href="../../controller/rvControllers/ucscClaimDetailsControllerOne.php">View another Department Details</a></li>
+                        <li><a href="../../controller/rvControllers/viewClaimDetailsController.php?btn=57">View another year Details</a></li>
                         <li class="active">UCSC Claim Details</li>
                     </ul>
                 
@@ -25,7 +25,7 @@
                     </div>
                     
                     <div class="contentForm">
-                        <form action="" method="post">
+                        <form action="../../controller/rvControllers/viewClaimDetailsController.php" method="post">
 
                             <div class="row">
                                 <div class="col-25">
@@ -61,15 +61,15 @@
                                 <div class="col-75">
                                     <input type="text" name="remain_amount" <?php echo 'value="'.$_SESSION['remain_amount'].'"'?> disabled> <br>
                                 </div>
-                            </div> 
-                        </form>
-                    
-                        <button class="subbtn" type="submit" name="">
-                                <a href="../../controller/rvControllers/ucscClaimDetailsControllerOne.php">View Another</a>
-                        </button>
-                        <button class="cancelbtn" type="submit" name="">
+                            </div>
+
+                            <button class="subbtn" type="submit" name="ucsc-submit">
+                                <a >View Another</a>
+                            </button>
+                            <button class="cancelbtn" type="submit" name="">
                                 <a href="rvHomeV.php">Exit</a>
-                        </button>
+                            </button> 
+                        </form>
                     </div>
                 </div>
             </div>

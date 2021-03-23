@@ -27,7 +27,8 @@
                             </div>
                             <div class="col-75">
                                 <select name="medical_year" id="" required>
-                                    <option value=""><?php echo $_SESSION['medical_year'] ?></option>
+                                <option value="">Select Medical Year</option>
+                                    <?php echo $_SESSION['medical_year'] ?>
                                 </select>
                             </div>
                         </div>
