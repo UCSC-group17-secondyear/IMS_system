@@ -73,13 +73,7 @@
                             <label>Select Academic Year</label>
                         </div>
                         <div class="col-75">
-                            <select name="academic_year" id="academic_year">
-                                <!-- <option>Academic Year of the student</option> -->
-                                <option value="1">1st year</option>
-                                <option value="2">2nd year</option>
-                                <option value="3">3rd year</option>
-                                <option value="4">4th year</option>
-                            </select>
+                            <input type="number" name="academic_year" min="1" max="4" required/>
                         </div>
                     </div>
 
@@ -88,11 +82,7 @@
                             <label>Select Semester</label>
                         </div>
                         <div class="col-75">
-                            <select name="semester" id="semester">
-                                <!-- <option>Academic Year of the student</option> -->
-                                <option value="1">1st semester</option>
-                                <option value="2">2nd semester</option>
-                            </select>
+                            <input type="number" name="semester" min="1" max="2">
                         </div>
                     </div>
 
@@ -102,7 +92,6 @@
                         </div>
                         <div class="col-75">
                             <select name="degree" id="degree">
-                                <!-- <option value="">Select degree: </option> -->
                                 <?php echo $_SESSION['degreeList'] ?>
                             </select>
                         </div>
