@@ -3,23 +3,7 @@
     require_once('../../config/database.php');
     require_once('../../model/msmModel/manageMedicalYearModel.php');
 
-    if(isset($_POST['viweMYDetails-submit'])) {
-        $_SESSION['medy_list'] = '';
-
-        $records = msmModel::viewMedicalYears($connect);
-
-        if ($records) {
-            while ($record = mysqli_fetch_assoc($records)) {
-                $_SESSION['medy_list'] .= "<tr>";
-                $_SESSION['medy_list'] .= "<td>{$record['medical_year']}</td>";
-                $_SESSION['medy_list'] .= "<td>{$record['start_date']}</td>";
-                $_SESSION['medy_list'] .= "<td>{$record['end_date']}</td>";
-                $_SESSION['medy_list'] .= "</tr>";
-
-                header('Location:../../view/medicalSchemeMaintainer/msmViewMYDetailsV.php');
-            }
-        }
-    } elseif(isset($_POST['addMY-submit'])) {
+    if(isset($_POST['addMY-submit'])) {
         $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
         $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
         $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
@@ -47,6 +31,22 @@
                 header('Location:../../view/medicalSchemeMaintainer/msmMYNotAdded.php');
             }
 
+        }
+    } elseif(isset($_POST['viweMYDetails-submit'])) {
+        $_SESSION['medy_list'] = '';
+
+        $records = msmModel::viewMedicalYears($connect);
+
+        if ($records) {
+            while ($record = mysqli_fetch_assoc($records)) {
+                $_SESSION['medy_list'] .= "<tr>";
+                $_SESSION['medy_list'] .= "<td>{$record['medical_year']}</td>";
+                $_SESSION['medy_list'] .= "<td>{$record['start_date']}</td>";
+                $_SESSION['medy_list'] .= "<td>{$record['end_date']}</td>";
+                $_SESSION['medy_list'] .= "</tr>";
+
+                header('Location:../../view/medicalSchemeMaintainer/msmViewMYDetailsV.php');
+            }
         }
     } elseif(isset($_POST['viweMYList-submit'])) {
         $records = msmModel::viewMedicalYears($connect);

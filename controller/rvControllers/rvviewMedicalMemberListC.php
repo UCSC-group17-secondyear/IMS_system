@@ -15,8 +15,12 @@
             $_SESSION['medical_members'] .= "<td>{$mm['sname']}</td>";
             $_SESSION['medical_members'] .= "<td>{$mm['department']}</td>";
             $_SESSION['medical_members'] .= "<td>{$mm['healthcondition']}</td>";
-            $_SESSION['medical_members'] .= "<td>{$mm['civilstatus']}</td>";
-            $_SESSION['medical_members'] .= "<td>{$mm['schemename']}</td>";
+            if ($mm['civilstatus'] == 1) {
+                $_SESSION['medical_members'] .= "<td>Married</td>";
+            } else {
+                $_SESSION['medical_members'] .= "<td>Single</td>";
+            }
+            $_SESSION['medical_members'] .= "<td>{$mm['schemeName']}</td>";
             $_SESSION['medical_members'] .= "<td>{$mm['member_type']}</td>";
             $_SESSION['medical_members'] .= "</tr>";
 

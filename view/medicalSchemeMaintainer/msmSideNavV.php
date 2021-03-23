@@ -6,7 +6,7 @@
                     <button>
                         <a href="msmaddMYV.php"><li><i class="fa fa-plus-circle"></i> Add a Medical Year</li></a>
                     </button>
-                    <form action="../../controller/msmControllers/msmmanageMedicalYearC.php" method="post">
+                    <form action="../../controller/msmControllers/msmManageMedicalYearC.php" method="post">
                         <button name="viweMYList-submit" type="submit">
                             <a href="#"><li><i class="fa fa-pencil-square-o"></i> Update a Medical Year</li></a>
                         </button>
