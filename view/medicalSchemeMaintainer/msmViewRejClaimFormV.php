@@ -8,6 +8,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
+            <li><a href="../../controller/msmControllers/rejectFormControllerOne.php">Rejected Form List</a></li>
             <li class="active">View Rejected Claim Forms</li>
         </ul>
 
@@ -125,35 +126,6 @@
                                     <?php
                                         }
                                     ?>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Paid Status</label>
-                                </div>
-                                <div class="col-75">
-                                    <?php
-                                        if($_SESSION['p_status'] == 0){
-                                    ?>
-                                        <button type="submit" class="redbtn" disabled><a class="disabled">Paid Denied</a></button>
-                                    <?php
-                                        } else {
-                                    ?>
-                                        <button type="submit" class="greenbtn" disabled><a class="disabled">Paid</a></button>
-                                    <?php
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Remarks</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> disabled> <br>
-                                    <input type="text" name="mo_comment" <?php echo 'value="'.$_SESSION['mo_comment'].'"'?> disabled> <br>
                                 </div>
                             </div>
                             
@@ -370,50 +342,18 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Paid Status</label>
-                                </div>
-                                <div class="col-75">
-                                    <?php
-                                        if($_SESSION['p_status'] == 0){
-                                    ?>
-                                        <button type="submit" color="red" class="greenbtn" disabled><a class="disabled">Paid Denied</a></button>
-                                    <?php
-                                        } else {
-                                    ?>
-                                        <button type="submit" class="greenbtn" disabled><a class="disabled">Paid</a></button>
-                                    <?php
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
-                                    <label for="">Remarks</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> disabled> <br>
-                                    <input type="text" name="mo_comment" <?php echo 'value="'.$_SESSION['mo_comment'].'"'?> disabled> <br>
-                                </div>
-                            </div>
-
                             <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                         </form>
 
                     <?php
                         }
                     ?>
-                    <form action="../../controller/msmControllers/msmViewFormsC.php" method="POST">
-                        <button class="subbtn" type="submit" name="rejected-submit">
-                            <a>View Another</a>
+                        <button class="subbtn" type="submit" name="">
+                            <a href="../../controller/msmControllers/rejectFormControllerOne.php">View Another</a>
                         </button>
-                        
                         <button class="cancelbtn" type="submit" name="">
                             <a href="msmHomeV.php">Exit</a>
                         </button>
-                    </form>
                 </div>
                 
             </div>

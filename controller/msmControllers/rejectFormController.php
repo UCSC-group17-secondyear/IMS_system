@@ -1,22 +1,21 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/msmModel/claimFormModel.php');
+    require_once('../../model/msmModel/viewFormsinMSModel.php');
 ?>
 
 <?php
-
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
-    $result_opd = claimFormModel::checkWhetherOpd($claim_form_no,$connect);
-    $result_surgical = claimFormModel::checkWhetherSurgical($claim_form_no,$connect);
+    $result_opd = msmModel::checkWhetherOpd($claim_form_no,$connect);
+    $result_surgical = msmModel::checkWhetherSurgical($claim_form_no,$connect);
     $_SESSION['opd'] = mysqli_num_rows($result_opd);
     $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
 
-    if(mysqli_num_rows($result_opd)==1){
+    if (mysqli_num_rows($result_opd) == 1) {
                   
         $result_one = mysqli_fetch_assoc($result_opd);
         $user_id = $result_one['user_id'];
-        $mem_name = claimFormModel::getMemberName($user_id,$connect );
+        $mem_name = msmModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
         $_SESSION['mem_initials'] = $name[0];
@@ -29,17 +28,15 @@
         $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
         $_SESSION['purpose'] = $result_one['purpose'];
         $_SESSION['bill_amount'] = $result_one['bill_amount'];
-        $_SESSION['file_name'] = $result_one['file_name'];
+        $_SESSION['a_status'] = $result_one['acceptance_status'];
 
-        header('Location:../../view/medicalSchemeMaintainer/msmViewReqClaimFormV.php');
+        header('Location:../../view/medicalSchemeMaintainer/msmViewRejClaimFormV.php');
 
-    }
-
-    if(mysqli_num_rows($result_surgical)==1){
+    } else {
         
         $result_one = mysqli_fetch_assoc($result_surgical);
         $user_id = $result_one['user_id'];
-        $mem_name = claimFormModel::getMemberName($user_id,$connect );
+        $mem_name = msmModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
         $_SESSION['mem_initials'] = $name[0];
@@ -62,9 +59,8 @@
         $_SESSION['sick_injury'] = $result_one['sick_injury'];
         $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
         $_SESSION['nature_of'] = $result_one['nature_of'];
-        $_SESSION['file_name'] = $result_one['file_name'];
+        $_SESSION['a_status'] = $result_one['acceptance_status'];
 
-        header('Location:../../view/medicalSchemeMaintainer/msmViewReqClaimFormV.php');
-
+        header('Location:../../view/medicalSchemeMaintainer/msmViewRejClaimFormV.php');
     }
 ?>
