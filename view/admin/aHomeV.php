@@ -27,7 +27,7 @@
                     <div class="btncontainer">
                         <a href="../../controller/basicControllers/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

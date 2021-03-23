@@ -41,7 +41,7 @@
                         <a href="../../controller/adminControllers/aViewDepartmentController.php"><li><i class="fa fa fa-check-circle"></i>View Departments</li></a>
                     </button>
                     <button>
-                        <a href="aAddDepartmentV.php"><li><i class="fa fa-plus-circle"></i>Add a new Department</li></a>
+                        <a href="../../controller/adminControllers/aAddDepartmentController.php"><li><i class="fa fa-plus-circle"></i>Add a new Department</li></a>
                     </button>
                     <button>
                         <a href="../../controller/adminControllers/aUpDepartmentController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Department</li></a>

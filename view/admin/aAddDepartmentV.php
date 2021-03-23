@@ -48,18 +48,13 @@
                               <label>Department Head</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="dept_head" placeholder="Enter department head name" required/>
+                                <select name="dept_head" required>
+						            <option value="">Select department head's employee id</option>
+						            <?php echo $_SESSION['ids'] ?>
+					            </select>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Department Head's Email</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="dept_head_email" placeholder="Enter department head's email" required/>
-                            </div>
-                        </div>
                         <button class="subbtn" type="submit" name="addDepartment-submit">Add Department</button>
                         <button class="cancelbtn">
                             <a href="aHomeV.php">Cancel</a>
