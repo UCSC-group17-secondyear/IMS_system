@@ -26,17 +26,28 @@
                             <label>Enter date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="date" placeholder="Date" max=""> <br>
+                            <input type="date" name="date" placeholder="Date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> <?php echo 'min="'.$_SESSION['min_date'].'"' ?> ><br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
-                            <label>Select subject code</label>
+                            <label>Subject</label>
                         </div>
                         <div class="col-75">
                             <select name="subject" required>
                                 <option>Select a subject</option>
                                 <?php echo $_SESSION['subject'] ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Degree</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="subject" required>
+                                <option>Select a Degree</option>
+                                <?php echo $_SESSION['degree'] ?>
                             </select>
                         </div>
                     </div>

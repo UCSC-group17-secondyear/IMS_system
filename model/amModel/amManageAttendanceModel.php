@@ -9,6 +9,24 @@
 			return $result;
         }
 
+        public static function getdegrees($connect)
+        {
+			$query = "SELECT * FROM tbl_degree WHERE is_deleted = 0 ORDER BY degree_id";
+
+            $result = mysqli_query($connect, $query);
+            
+			return $result;
+        }
+
+        public static function getSemesterdetails($connect)
+        {
+            $query = "SELECT * FROM tbl_semester WHERE start_date >= CURRENT_DATE() AND CURRENT_DATE() >= end_date AND is_deleted = 0 LIMIT 1";
+
+            $result = mysqli_query($connect, $query);
+            
+			return $result;
+        }
+
         public static function getSession($date, $subject, $connect)
         {
             $query = "SELECT subject_session_id FROM tbl_subject_has_session WHERE subject_code='{$subject}' AND date='{$date}'";

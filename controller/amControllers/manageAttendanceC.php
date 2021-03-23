@@ -6,11 +6,26 @@
     if (isset($_POST['enterupdateAttendance-submit'])) {
 
         $records = amModel::getsubjects($connect);
+        $degrees = amModel::getdegrees($connect);
+        $sem_date = amModel::getSemesterdetails($connect);
+        $_SESSION['min_date'] = '';
+        $_SESSION['max_date'] = '';
         $_SESSION['subject'] = '';
+        $_SESSION['degree'] = '';
 
     	while ($record = mysqli_fetch_array($records)) {
             $_SESSION['subject'] .= "<option value='".$record['subject_id']."'>".$record['subject_code']." - ".$record['subject_name']."</option>";
         }
+
+        while ($d = mysqli_fetch_array($degrees)) {
+            $_SESSION['degree'] .= "<option value='".$d['degree_name']."'>".$d['degree_name']."</option>";
+        }
+
+        while ($sd = mysqli_fetch_array($sem_date)) {
+            $_SESSION['min_date'] = $sd['start_date'];
+            $_SESSION['max_date'] = $sd['end_date'];
+        }
+
         header('Location:../../view/attendanceMaintainer/amEnterUpdateAttendaceSelectV.php');
 
     } elseif (isset($_POST['markattendance-submit'])) {
