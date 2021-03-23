@@ -23,37 +23,31 @@
                     </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/rvControllers/deptClaimDetailsControllerTwo.php" method="POST">
+                    <form action="../../controller/rvControllers/viewClaimDetailsController.php" method="POST">
                     <div class="row">
-                        <div class="col-25">
-                            <label for="">Enter Medical Year</label>
+                            <div class="col-25">
+                                <label for="">Medical Year</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="medical_year" id="" required>
+                                    <option value="">Select a Medical year</option>
+                                    <?php echo $_SESSION['medical_year'] ?>
+                                </select>
+                            </div>
                         </div>
-
-                        <div class="col-75">
-                            <select name="medical_year" id="" required>
-                                    <option value=""><?php echo $_SESSION['medical_year'] ?></option>
-                            </select>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Department</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="dept" id="" required>
+                                    <option value="">Select a department</option>
+                                    <?php echo $_SESSION['department'] ?>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="">Enter Department</label>
-                        </div>
-
-                        <div class="col-75">
-                            <select name="dept" id="" required>
-                                    <option value=""><?php echo $_SESSION['department'] ?></option>
-                            </select>
-                        </div>
-                    </div>
-                        
-
-                        <button class="subbtn" name="dept-claim">Dispaly Claim Details</button>
-                        <button class="cancelbtn" type="submit" name="">
-                            <a href="rvHomeV.php">Exit</a>
-                        </button>
-
+                        <button class="subbtn" name="dept-claim-submit">Dispaly Claim Details</button>
+                        <button class="cancelbtn" type="submit" name=""><a href="rvHomeV.php">Exit</a></button>
                     </form>                
                 </div>
             </div>

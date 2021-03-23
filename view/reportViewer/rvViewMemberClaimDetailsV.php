@@ -23,30 +23,31 @@
                     </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/rvControllers/membClaimDetailsControllerTwo.php" method="POST">
+                    <form action="../../controller/rvControllers/viewClaimDetailsController.php" method="POST">
                     <div class="row">
                         <div class="col-25">
-                            <label for="">Enter Medical Year</label>
+                            <label for="">Medical Year</label>
                         </div>
 
                         <div class="col-75">
                             <select name="medical_year" id="" required>
-                                    <option value=""><?php echo $_SESSION['medical_year'] ?></option>
+                                    <option value="">Select Medical Year</option>
+                                    <?php echo $_SESSION['medical_year'] ?>
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label for="">Enter employee ID</label>
+                            <label for="">Employee ID</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" min="0" name="emp_id" required>
+                            <input type="text" min="0" name="emp_id" placeholder="Enter employee id" required>
                         </div>
                     </div>
                         
 
-                        <button class="subbtn" name="member-claim">Dispaly Claim Details</button>
+                        <button class="subbtn" name="member-claim-submit">Dispaly Claim Details</button>
                         <button class="cancelbtn" type="submit" name="">
                             <a href="rvHomeV.php">Exit</a>
                         </button>
