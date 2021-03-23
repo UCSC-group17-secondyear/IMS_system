@@ -70,8 +70,8 @@
                     </div>
 
                     <button class="subbtn" type="submit" name="updateSubject-submit">Save Updates</button>
-                    <button class="cancelbtn" type="submit" name="remeoveSubject-submit">
-                        <a href="amSubjectRemoved.php">Remove Subject</a> 
+                    <button class="cancelbtn" type="submit" name="remeoveSubject-submit">Remove Subject
+                       <!--  <a href="amSubjectRemoved.php">Remove Subject</a>  -->
                     </button>
                 </form>
             </div>
