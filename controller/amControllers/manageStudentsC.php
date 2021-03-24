@@ -96,7 +96,7 @@
                 }
             }
             else {
-                echo "failed";
+                header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
             }
         }
     }
@@ -113,7 +113,7 @@
         $semester = $result_stdDegreeAyearSem['semester'];
 
         $mandatorySubjects = amModel::get_mandatorySubjects ($degree_id, $academic_year, $semester, $connect);
-        if ($mandatorySubjects) {
+        if (mysqli_num_rows($mandatorySubjects) != 0) {
              while ($record = mysqli_fetch_assoc($mandatorySubjects)) {
                 $_SESSION['mandatoryList'] .= "<tr>";
                 $_SESSION['mandatoryList'] .= "<td>{$record['subject_code']}</td>";
@@ -124,7 +124,7 @@
             header('Location:../../view/attendanceMaintainer/amDisplayStudentsSubjectsV.php');
         }
         else {
-            echo "std has no mandatory subjects";
+            header('Location:../../view/attendanceMaintainer/amStdHasNoManSubjectsV.php');
         }
     }
 
@@ -161,7 +161,7 @@
             header('Location:../../view/attendanceMaintainer/amStdNonMandSubjectsV.php');
         }
         else {
-            echo "std has no mandatory subjects";
+            header('Location:../../view/attendanceMaintainer/amYearHasNoNonManSubjectsV.php');
         }
     }
 
@@ -194,14 +194,14 @@
                     $_SESSION['nonMandatorySubList'] .= "</tr>";
                 }
                 else {
-                    echo "failed";
+                    header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
                 }
             }
             $_SESSION['std_id'] = $std_id;
             header('Location:../../view/attendanceMaintainer/amRemoveNonManSubjects.php');
         }
         else {
-            echo "no mandatory subjects";
+            header('Location:../../view/attendanceMaintainer/amStdHasNoNonManSubjectsV.php');
         }
     }
 
@@ -215,21 +215,20 @@
 
         foreach ($get_checkBox as $subject_id) {
             $subject_count = $subject_count + 1; 
-            echo "subject_count";
-            echo($subject_count);
-
+            
             $removeSubject = amModel::removeSubject ($std_id, $subject_id, $connect);
             if ($removeSubject) {
                 $removeFlag = $removeFlag + 1;
-                echo "removeFlag";
-                echo($removeFlag);
             }
         }
         if ($removeFlag == $subject_count) {
-            echo "all is removed";
+            header('Location:../../view/attendanceMaintainer/amRemovedNonManSubjectsV.php');
+        }
+        elseif ($removeFlag==0 && $subject_count != 0) {
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
         }
         else {
-            echo "half is removed";
+            header('Location:../../view/attendanceMaintainer/amNonManSubjectsNotRemovedV.php');
         }
     }
 
@@ -259,10 +258,10 @@
             }
         }
         if ($assignFlag == $subject_count) {
-           echo "successful";
+           header('Location:../../view/attendanceMaintainer/amAssignedToNonManSubjectsV.php');
         }
         else {
-            echo "not done";
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
         }
     }
 
@@ -285,7 +284,6 @@
     elseif(isset($_POST['deleteupdateStudent-submit'])) {
         $index_no = $_POST['index_no'];
         $fetchStudent = amModel::fetchStudent ($index_no, $connect);
-        // fetch d=information of the student having the given index
 
         if (mysqli_num_rows($fetchStudent) == 1) {
             session_start();
@@ -303,7 +301,7 @@
             header('Location:../../view/attendanceMaintainer/amDeleteUpdateStudentV.php');
         }
         else {
-            echo "The index number does not exists.";
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
         }
     }
 
@@ -406,8 +404,7 @@
             header('Location:../../view/attendanceMaintainer/amGetStudentV.php');
         }
         else {
-            echo "failed";
-            /*header('Location:../../view/attendanceMaintainer/amNoStudentsAvailableV.php');*/
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
         }
     }
 
@@ -423,11 +420,11 @@
             header('Location:../../view/attendanceMaintainer/amFetchStudentV.php');
         }
         else {
-            echo "failed";
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
         }
     }
 
     else {
-        echo "button not clicked";
+        header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
     }
 ?>

@@ -100,6 +100,6 @@
     }
 
     else {
-        echo "no button is submitted";
+        header('Location:../../view/admin/aSystemFailedV.php');
     }
 ?>

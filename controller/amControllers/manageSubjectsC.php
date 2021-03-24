@@ -51,7 +51,7 @@
             }
         }
         else {
-            echo "failed";
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
         }
     }
 
@@ -103,11 +103,11 @@
                 header('Location:../../view/attendanceMaintainer/amDeleteUpdateSubjectV.php');
             }
             else {
-                echo "subject_code does not exists";
+                header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
             }
         }
         else {
-            echo "failed";
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
         }
     }
 
@@ -129,13 +129,13 @@
                 if ($degree_id) {
                     $check_subCodeToUpdate = amModel::check_subCodeToUpdate ($subject_id, $subject_code, $connect);
                     if (mysqli_num_rows($check_subCodeToUpdate) != 0) {
-                        echo "subject code exists";
+                        header('Location:../../view/attendanceMaintainer/amSubjectCodeExists.php');
                     }
                     else {
                         $check_subjectToUpdate = amModel::check_subjectToUpdate ($subject_id, $subject_name, $degree_id, $connect);
 
                         if (mysqli_num_rows($check_subjectToUpdate) != 0) {
-                            echo "subject is already available for the given degree";
+                            header('Location:../../view/attendanceMaintainer/amSubjectAvailableV.php');
                         }
                         else {
                             $result = amModel::saveUpdatedSubject ($subject_id, $subject_code, $subject_name, $degree_id, $academic_year, $semester, $connect);
@@ -150,15 +150,15 @@
                     }
                 }
                 else {
-                    echo "failed";
+                    header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
                 }
             }
             else {
-                echo "enter a valid semester 1 or 2";
+                header('Location:../../view/attendanceMaintainer/amInvalidSemesterV.php');
             }
         }
         else {
-            echo "academic year should be between 1 and 4";
+            header('Location:../../view/attendanceMaintainer/amInvalidAcademicYrV.php');
         }
     }
 
@@ -202,7 +202,7 @@
                     header('Location:../../view/attendanceMaintainer/amViewSubjects.php');
                 }
                 else {
-                    echo "failed";
+                    header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
                 }
             }
         }
@@ -213,5 +213,5 @@
     }
 
     else {
-    	echo "no button clicked";
+    	header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
     }
