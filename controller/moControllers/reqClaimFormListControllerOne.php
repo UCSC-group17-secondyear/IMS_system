@@ -12,6 +12,7 @@
             $_SESSION['claim_form_no'] .= "<tr>";
             $_SESSION['claim_form_no'] .= "<td>{$row['claim_form_no']}</td>";
             $_SESSION['claim_form_no'] .= "<td><a href=\"../../controller/moControllers/reqClaimFormControllerTwo.php?claim_form_no={$row['claim_form_no']}\">View Form</a></td>";
+            $_SESSION['claim_form_no'] .= "</tr>";
 
             header('Location:../../view/medicalOfficer/moClaimRequestingFormsV.php');     
         }
