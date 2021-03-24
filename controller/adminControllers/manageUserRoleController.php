@@ -87,7 +87,9 @@
                     }
                 }
             }
-            header('Location:../../view/admin/aSystemFailedV.php');
+            else {
+                header('Location:../../view/admin/aSystemFailedV.php');
+            }
         }
         else {
             header('Location:../../view/admin/aSystemFailedV.php');
