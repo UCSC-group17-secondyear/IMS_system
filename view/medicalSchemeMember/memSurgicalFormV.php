@@ -44,12 +44,12 @@
                                     <label for="">Select relationship</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="relationship" required>
-                                        <option value="myself">Myself</option>
-                                        <option value="husband">Husband</option>
-                                        <option value="wife">Wife</option>
-                                        <option value="daughter">Daughter</option>
-                                        <option value="son">Son</option>
+                                <select name="relationship" id="" required>
+                                        <option value="Myself">Myself</option>
+                                        <option value="Husband">Husband</option>
+                                        <option value="Wife">Wife</option>
+                                        <option value="Daughter">Daughter</option>
+                                        <option value="Son">Son</option>
                                     </select> <br>
                                 </div>
                             </div>

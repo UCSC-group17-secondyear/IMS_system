@@ -25,14 +25,14 @@
                         </div>
 
                         <div class="contentForm" style="margin-bottom: 1%;">
-                            <form action="../../controller/memControllers/updateClaimFormControllerThree.php?user_id=<?php echo $_SESSION['userId']?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
+                            <form action="../../controller/memControllers/updateClaimFormControllerThree.php?user_id=<?php echo $_SESSION['user_id']?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
                              
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Claim Form No</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> disabled> <br>
+                                    <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> readonly> <br>
                                 </div>
                             </div>
 
@@ -55,11 +55,11 @@
                                 <div class="col-75">
                                     <select name="relationship" required>
                                         <option value="<?php echo $_SESSION['relationship'] ?>"><?php echo $_SESSION['relationship'] ?></option>
-                                        <option value="myself">Myself</option>
-                                        <option value="husband">Husband</option>
-                                        <option value="wife">Wife</option>
-                                        <option value="daughter">Daughter</option>
-                                        <option value="son">Son</option>
+                                        <option value="Myself">Myself</option>
+                                        <option value="Husband">Husband</option>
+                                        <option value="Wife">Wife</option>
+                                        <option value="Daughter">Daughter</option>
+                                        <option value="Son">Son</option>
                                     </select>
                                 </div>
                             </div>

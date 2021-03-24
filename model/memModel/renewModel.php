@@ -10,7 +10,7 @@
         }
         
         public static function getSchemeName($user_id, $connect){
-			$query = "SELECT schemename FROM tbl_user_flag WHERE user_id={$user_id}";
+			$query = "SELECT * FROM tbl_medicalscheme INNER JOIN tbl_medical_membership ON tbl_medicalscheme.scheme_id=tbl_medical_membership.scheme_id WHERE user_id={$user_id}";
 
 			$result = mysqli_query($connect, $query);
 
@@ -49,8 +49,8 @@
 			return $result;
 		}
 		
-		public static function updatememDetails($user_id,$civil_status, $mem_health,$scheme_name, $connect){
-			$query = "UPDATE tbl_user_flag SET civilstatus='{$civil_status}', healthcondition='{$mem_health}', schemename='{$scheme_name}' WHERE user_id={$user_id} ";
+		public static function updatememDetails($user_id,$civil_status, $mem_health, $connect){
+			$query = "UPDATE tbl_medical_membership SET married='{$civil_status}', healthcondition='{$mem_health}' WHERE user_id={$user_id} ";
 
 			$result = mysqli_query($connect, $query);
 
@@ -90,7 +90,7 @@
         }
         
         public static function getMeidcalMemDetails($user_id, $connect){
-			$query = "SELECT * FROM tbl_user_flag WHERE user_id={$user_id} LIMIT 1";
+			$query = "SELECT * FROM tbl_medical_membership WHERE user_id={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -114,7 +114,23 @@
         }
         
         public static function getMemType($user_id, $connect){
-			$query = "SELECT member_type FROM tbl_user_flag WHERE user_id={$user_id}";
+			$query = "SELECT * FROM tbl_member_type INNER JOIN tbl_medical_membership ON tbl_member_type.member_id=tbl_medical_membership.member_id WHERE user_id={$user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getScheme($scheme_id,$connect){
+			$query = "SELECT schemeName FROM tbl_medicalscheme WHERE scheme_id='{$scheme_id}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function updateScheme($scheme_id,$user_id, $connect){
+			$query = "UPDATE tbl_medical_membership SET scheme_id='{$scheme_id}' WHERE user_id='{$user_id}'";
 
 			$result = mysqli_query($connect, $query);
 
