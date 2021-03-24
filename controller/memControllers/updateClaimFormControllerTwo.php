@@ -71,17 +71,19 @@
                     if($result_one['dependant_id'] == NULL){
                         $_SESSION['patient_name'] = $initials." ".$sname;
                         $_SESSION['relationship'] = "Myself";
+                        $_SESSION['patient_id'] = '0';
                     }
-                    elseif($result_one['dependant_id'] != 'NULL'){
+                    elseif($result_one['dependant_id'] > 0){
                         $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
-                        $depend = mysqli_fetch_array($d_name);
-                        $_SESSION['patient_name'] = $depend[0];
+                        $depend = mysqli_fetch_assoc($d_name);
+                        $_SESSION['patient_name'] = $depend['dependant_name'];
                         $_SESSION['patient_id'] = $result_one['dependant_id'];
 
                         $rela = claimFormModel::getDependPatientRela($user_id,$result_one['dependant_id'],$connect);
                         $relationship = mysqli_fetch_array($rela);
                         $_SESSION['relationship'] = $relationship[0];
                     }
+
 
                     $_SESSION['dependant_name']  = "<option value='0'>".$initials.' '.$sname."</option>";
 
@@ -93,7 +95,6 @@
                     }
 
                     $_SESSION['address'] = $result_one['address'];
-                    $_SESSION['relationship'] = $result_one['relationship'];
                     $_SESSION['accident_date'] = $result_one['accident_date'];
                     $_SESSION['how_occured'] = $result_one['how_occured'];
                     $_SESSION['injuries'] = $result_one['injuries'];

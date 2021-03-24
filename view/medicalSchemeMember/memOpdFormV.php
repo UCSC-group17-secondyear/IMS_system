@@ -3,6 +3,7 @@
 ?>
 
 <main>
+
     <title>OPD Form</title>
     <div class="sansserif">
                     
@@ -67,7 +68,7 @@
                                     <label for="">Treatment Recieved Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="treatment_received_date" id="tdate" required/><br>
+                                    <input type="date" name="treatment_received_date" id="tdate" oninput="checkDate()" max="today()" required/><br>
                                 </div>
                             </div>
 
@@ -126,7 +127,7 @@
 
     <script>
         $("#tdate").datepicker({
-        maxDate: 0
+        maxDate: today
         });
     </script>    
         

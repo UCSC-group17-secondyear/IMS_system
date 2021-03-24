@@ -129,6 +129,7 @@
         
         if (empty($errors)) {
             $dependant_id = mysqli_real_escape_string($connect, $_POST['dependant_id']);
+            $relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
             $accident_date = mysqli_real_escape_string($connect, $_POST['accident_date']);
             $how_occured = mysqli_real_escape_string($connect, $_POST['how_occured']);
             $injuries = mysqli_real_escape_string($connect, $_POST['injuries']);
