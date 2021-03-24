@@ -8,7 +8,7 @@
         
         $dept_name = mysqli_real_escape_string($connect, $_POST['dept_name']);
         $abbr = mysqli_real_escape_string($connect, $_POST['abbriviation']);
-        $dept_head = mysqli_real_escape_string($connect, $_POST['dept_head']);
+        $post = mysqli_real_escape_string($connect, $_POST['post']);
         
         $checkDept = adminModel::checkDeptName($dept_name, $connect);
 
@@ -16,21 +16,19 @@
             header('Location:../../view/admin/aDepartmentExistsTwoV.php');
         }
         else {
-            $getUId = adminModel::getUId($dept_head, $connect);
+            $getPost = adminModel::getPostUsingName($post, $connect);
 
-            if ($getUId) {
-                while ($rec = mysqli_fetch_assoc($getUId)) {
-                    $u_id = $rec['userId'];
+            if ($getPost) {
+                while ($rec = mysqli_fetch_assoc($getPost)) {
+                    echo $p_id = $rec['pst_id']; echo '<br>';
                 }
             }
             else {
                 header('Location:../../view/admin/aDepartmentNotAddedV.php');
             }
 
-            $add_flag = adminModel::addFlag($u_id, $connect);
-
-            if($add_flag) {
-                $result = adminModel::enterDepartment($dept_name, $abbr, $u_id, $connect);
+            // $add_flag = adminModel::addFlag($u_id, $connect);
+                $result = adminModel::enterDepartment($dept_name, $abbr, $p_id, $connect);
         
                 if ($result) {
                     header('Location:../../view/admin/aDepartmentAddedV.php');
@@ -38,18 +36,18 @@
                 else{
                     header('Location:../../view/admin/aDepartmentNotAddedV.php');
                 }
-            }
+            
 
         }       
     }
     else {
-        $_SESSION['ids'] = '';
+        $_SESSION['post'] = '';
 
-        $records = adminModel::getIds($connect);
+        $records = adminModel::getPost($connect);
 
         if ($records) {
             while ($record = mysqli_fetch_array($records)) {
-                echo $_SESSION['ids'] .= "<option value='".$record['empid']."'>".$record['empid']."</option>";
+                $_SESSION['post'] .= "<option value='".$record['post_name']."'>".$record['post_name']."</option>";
 			}
         }
 

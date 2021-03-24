@@ -43,15 +43,15 @@
                                 <input type="text" name="abbriviation" <?php echo 'value="'.$_SESSION['abbriviation'].'"' ?> required/><br>  
                             </div>
                         </div>
-                            
+
                         <div class="row">
                             <div class="col-25">
-                                <label for="">Department Head</label>
+                              <label>Post of the department head</label>
                             </div>
                             <div class="col-75">
-                                <select name="dept_head" required>
-						            <option value="<?php echo $_SESSION['d_head'] ?>"><?php echo $_SESSION['d_head'] ?></option>
-						            <?php echo $_SESSION['ids'] ?>
+                                <select name="post" required>
+						            <option value="<?php echo $_SESSION['post'] ?>"><?php echo $_SESSION['post'] ?></option>
+						            <?php echo $_SESSION['post'] ?>
 					            </select>
                             </div>
                         </div>
