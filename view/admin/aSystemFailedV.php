@@ -3,12 +3,9 @@
 ?>
 
 <main>
-    <title>Add a new user role</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewUserRoleV.php">Add User role</a></li>
             <li class="active">Request Denied!</li>
         </ul>
 
@@ -23,15 +20,12 @@
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!
-                            The user role you entered did not get added.
+                            The system has failed to complete your request. Try again shortly. Thank you!
                         </h2>
                     </div>
 
-                    <button class="subbtn">
-                        <a href="aAddNewUserRoleV.php">Try again</a> 
-                    </button>
-                    <button class="cancelbtn">
-                        <a href="aHomeV.php">Exit</a> 
+                    <button class="mainbtn">
+                        <a href="aHomeV.php">Visit Home Page</a> 
                     </button>
                 </div>
             </div>

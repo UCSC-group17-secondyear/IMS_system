@@ -3,12 +3,10 @@
 ?>
 
 <main>
-    <title>Add a new user role</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewUserRoleV.php">Add User role</a></li>
+            <li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amEnterStudentDetailsV.php">Add Student</a></li>
             <li class="active">Request Denied!</li>
         </ul>
 
@@ -23,15 +21,15 @@
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!
-                            The user role you entered did not get added.
+                            The student has no mandatory subjects.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="aAddNewUserRoleV.php">Try again</a> 
+                        <a href="amEnterStudentDetailsV.php">Add another student</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Exit</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
