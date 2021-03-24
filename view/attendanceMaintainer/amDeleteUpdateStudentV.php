@@ -96,19 +96,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="row">
-                        <div class="col-25">
-                            <label>Select degree</label>
-                        </div>
-                        <div class="col-75">
-                            <select name="degree" id="degree">
-                                <option value="CS">Computer Science</option>
-                                <option value="IS">Information System</option>
-                                <option value="SE">Software Engineering</option>
-                            </select> <br>
-                        </div>
-                    </div> -->
-
                     <div class="row">
                         <div class="col-25">
                             <label>Batch Number</label>
