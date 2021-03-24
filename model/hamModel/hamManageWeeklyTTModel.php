@@ -35,5 +35,14 @@
 
 			return $result_set;
 		}
+
+		public static function addWeeklyTT($semester, $degree, $year, $starttime, $endtime, $subject, $hall, $day, $connect)
+		{
+			$query = "INSERT INTO tbl_weekly_time_table(day, end_time, start_time, hall_id, subject_id, sem_id, degree_id, year) VALUES ($day, $endtime, $starttime, $hall, $subject, $semester, $degree, $year)";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
 	}
 ?>
