@@ -5,7 +5,7 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <<li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amHomeV.php">Home</a></li>
             <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or update attendance</a></li>
             <li class="active">Action Unsuccess!</li>
         </ul>

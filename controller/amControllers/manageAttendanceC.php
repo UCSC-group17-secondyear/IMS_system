@@ -62,39 +62,46 @@
             $_SESSION['aca_year'] = $sub['academic_year'];
         }
 
-        if ($_SESSION['isMandatory'] == 1) {
-        
-            $ds_students = amModel::getStudents($_SESSION['aca_year'], $_SESSION['semester'], $degree, $connect);
-            if (mysqli_num_rows($ds_students) != 0) {
-                while ($dss = mysqli_fetch_assoc($ds_students)) {
-                    amModel::setallstudents($dss['std_id'], $degree, $subject, $sessiontype, $date, $connect);
-                    $_SESSION['ds_students'] .= "<tr>";
-                    $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
-                    $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
-                    $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
-                    $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['std_id']}' style='margin-left: auto; margin-right: auto;'/></td>";
-                    $_SESSION['ds_students'] .= "</tr>";
+        $checkAttendance = amModel::checkAttendance($degree, $subject, $sessiontype, $date, $connect);
+        while ($ca = mysqli_fetch_array($checkAttendance)) {
+            $_SESSION['checkattendance'] = $ca['count'];
+        }
 
-                    header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
-                }
-            }
-
-        } else {
+        if ($_SESSION['checkattendance'] == 0){
+            if ($_SESSION['isMandatory'] == 1) {
             
-            $ds_students = amModel::getStudentsnotMand($subject, $connect);
-            if (mysqli_num_rows($ds_students) != 0) {
-                while ($dss = mysqli_fetch_array($ds_students)) {
-                    amModel::setallstudents($dss['std_id'], $degree, $subject, $sessiontype, $date, $connect);
-                    $_SESSION['ds_students'] .= "<tr>";
-                    $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
-                    $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
-                    $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
-                    $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['std_id']}' style='margin-left: auto; margin-right: auto;'/></td>";
-                    $_SESSION['ds_students'] .= "</tr>";
-    
-                    header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
+                $ds_students = amModel::getStudents($_SESSION['aca_year'], $_SESSION['semester'], $degree, $connect);
+                if (mysqli_num_rows($ds_students) != 0) {
+                    while ($dss = mysqli_fetch_assoc($ds_students)) {
+                        amModel::setallstudents($dss['std_id'], $degree, $subject, $sessiontype, $date, $connect);
+                        $_SESSION['ds_students'] .= "<tr>";
+                        $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
+                        $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
+                        $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
+                        $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['std_id']}' style='margin-left: auto; margin-right: auto;'/></td>";
+                        $_SESSION['ds_students'] .= "</tr>";
+
+                        header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
+                    }
+                }
+            } else {
+                $ds_students = amModel::getStudentsnotMand($subject, $connect);
+                if (mysqli_num_rows($ds_students) != 0) {
+                    while ($dss = mysqli_fetch_array($ds_students)) {
+                        amModel::setallstudents($dss['std_id'], $degree, $subject, $sessiontype, $date, $connect);
+                        $_SESSION['ds_students'] .= "<tr>";
+                        $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
+                        $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
+                        $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
+                        $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['std_id']}' style='margin-left: auto; margin-right: auto;'/></td>";
+                        $_SESSION['ds_students'] .= "</tr>";
+        
+                        header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
+                    }
                 }
             }
+        } else {
+            header('Location:../../view/attendanceMaintainer/amEnterAttendanceWarningV.php');
         }
         
 
