@@ -6,8 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewSchemeV.php">Add Scheme</a></li>
-            <li class="active">Available schemes</li>
+            <li class="active">Request Denied!</li>
         </ul>
 
         <div class="row">
@@ -18,14 +17,16 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2>Schemes List</h2>
-                </div>
-
                 <div class="contentForm">
-                    <?php
-                        require '../../controller/adminControllers/aViewSchemesC.php';
-                    ?>
+                    <div class="row">
+                        <h2>Sorry!
+                            The system has failed to complete your request. Try again shortly. Thank you!
+                        </h2>
+                    </div>
+
+                    <button class="mainbtn">
+                        <a href="aHomeV.php">Visit Home Page</a> 
+                    </button>
                 </div>
             </div>
         </div>

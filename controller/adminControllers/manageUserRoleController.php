@@ -74,23 +74,23 @@
                 $id = $result_UsersRoles['id'];
 
                 if ($id) {
-                    echo "user is already assgined with the given role";
+                    header('Location:../../view/admin/aUserHasRoleV.php');
                 }
                 else {
                     $result = adminModel::assignUserRole($userId, $role_id, $connect);
 
                     if ($result) {
-                        echo "user role is assigned";
+                        header('Location:../../view/admin/aUserRoleAssignedV.php');
                     }
                     else {
-                        echo "user role is not assigned";
+                        header('Location:../../view/admin/aUserRoleNotAssignedV.php');
                     }
                 }
             }
-            echo "query failed";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
         else {
-            echo "system unabled to fetch user role details";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -106,7 +106,7 @@
             header('Location:../../view/admin/aRemoveUsersUserRoleV.php');
         }
         else {
-            echo "query failed";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -145,17 +145,17 @@
                         $_SESSION['user_role'] .= "</tr>";
                     }
                     else {
-                        echo "failed";
+                        header('Location:../../view/admin/aSystemFailedV.php');
                     }
                 }
                 header('Location:../../view/admin/aUsersRolesV.php');
             }
             else {
-                echo "failed";
+                header('Location:../../view/admin/aSystemFailedV.php');
             }
         }
         else {
-            echo "query failed";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -174,10 +174,13 @@
             }
         }
         if ($removeFlag == $roles_count) {
-            echo "all is removed";
+            header('Location:../../view/admin/aUsersRoleRemovedV.php');
+        }
+        elseif ($removeFlag==0 && $roles_count !=0) {
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
         else {
-            echo "half is removed";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -197,15 +200,11 @@
                 header('Location:../../view/admin/aUsersRoleRemovedV.php');
             }
             else{
-                header('Location:../../view/admin/aQueryFailedV.php');
+                header('Location:../../view/admin/aSystemFailedV.php');
             }
         }
         else {
-            echo "fail to get role details";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
-
-    // else if (isset($_POST['cancel-submit'])) {
-    //     header('Location:../../view/admin/aHomeV.php');
-    // }
 ?>

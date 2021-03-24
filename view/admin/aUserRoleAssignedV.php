@@ -3,13 +3,11 @@
 ?>
 
 <main>
-    <title>Add a new user role</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewUserRoleV.php">Add User role</a></li>
-            <li class="active">Request Denied!</li>
+            <li><a href="aAssignUserRoleV.php">Assign a user role</a></li>
+            <li class="active">Request Fulfilled!</li>
         </ul>
 
         <div class="row">
@@ -22,13 +20,12 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            The user role you entered did not get added.
+                        <h2>The user-role is assgined to the given user successfully.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="aAddNewUserRoleV.php">Try again</a> 
+                        <a href="aAssignUserRoleV.php">Assign another user role</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="aHomeV.php">Exit</a> 
