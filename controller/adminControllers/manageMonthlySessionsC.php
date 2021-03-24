@@ -43,15 +43,15 @@
                     }
                 }
                 else {
-                    echo "didn't fetch sessionTypeId";
+                    header('Location:../../view/admin/aSystemFailedV.php');
                 }
             }
             else {
-                echo "didn't fetch subject_id";
+                header('Location:../../view/admin/aSystemFailedV.php');
             }
         }
         else {
-            echo "didn't get degree id";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -82,7 +82,7 @@
                     header('Location:../../view/admin/aViewSessionPerMonthV.php');
                 }
                 else {
-                    echo "no subjects available";
+                    header('Location:../../view/admin/aSystemFailedV.php');
                 }
             }
             else {
@@ -90,7 +90,7 @@
             }
         }
         else {
-            echo "no degrees available";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -122,7 +122,7 @@
                     header('Location:../../view/admin/aAddSessionPerMonthV.php');
                 }
                 else {
-                    echo "no subjects available";
+                    header('Location:../../view/admin/aSystemFailedV.php');
                 }
             }
             else {
@@ -130,7 +130,7 @@
             }
         }
         else {
-            echo "no degrees available";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -174,16 +174,15 @@
                     }
                 }
                 else {
-                    echo "no $sessionTypeId";
+                   header('Location:../../view/admin/aSystemFailedV.php');
                 }
             }
             else {
-                echo "no subject_id";
+                header('Location:../../view/admin/aSystemFailedV.php');
             }
         }
         else {
-            echo "no degree_id";
-            /*header('Location:../../view/admin/aQueryFailedV.php');*/
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -228,17 +227,15 @@
                     }
                 }
                 else {
-                    echo "no $sessionTypeId";
+                    header('Location:../../view/admin/aSystemFailedV.php');
                 }
             }
             else {
-                echo "no subject_id";
+                header('Location:../../view/admin/aSystemFailedV.php');
             }
         }
         else {
-            echo "no degree_id";
-            /*header('Location:../../view/admin/aQueryFailedV.php');*/
-        }
+            header('Location:../../view/admin/aSystemFailedV.php');
     }
 
     elseif(isset($_POST['updateMonthlySession-submit'])) {
@@ -284,16 +281,15 @@
                     }
                 }
                 else {
-                    echo "no $sessionTypeId";
+                    header('Location:../../view/admin/aSystemFailedV.php');
                 }
             }
             else {
-                echo "no subject_id";
+                header('Location:../../view/admin/aSystemFailedV.php');
             }
         }
         else {
-            echo "no degree_id";
-            /*header('Location:../../view/admin/aQueryFailedV.php');*/
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 
@@ -301,8 +297,6 @@
         session_start();
         $sessionMid = $_SESSION['sessionMid'];
 
-        echo $sessionMid;
-        
         $result_set = adminModel::removeMonthlySession($sessionMid, $connect);
 
         if ($result_set) {
@@ -340,7 +334,7 @@
                     header('Location:../../view/admin/aUpdateRemoveSessionPerMonthV.php');
                 }
                 else {
-                    echo "no subjects available";
+                    header('Location:../../view/admin/aSystemFailedV.php');
                 }
             }
             else {
@@ -348,7 +342,7 @@
             }
         }
         else {
-            echo "no degrees available";
+            header('Location:../../view/admin/aSystemFailedV.php');
         }
     }
 ?>

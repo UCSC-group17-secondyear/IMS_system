@@ -144,15 +144,15 @@
                     }
                 }
                 else {
-                    echo "not updated";
+                    header('Location:../../view/admin/aQueryFailedV.php');
                 }
             }
             else {
-                echo "query failed";
+                header('Location:../../view/admin/aQueryFailedV.php');
             }
         }
         else {
-            echo "query failed";
+            header('Location:../../view/admin/aQueryFailedV.php');
         }
         
     }
@@ -170,14 +170,14 @@
             $updateUser = adminModel::updateUser ($post_name, $userId, $connect);
 
             if ($updateUser) {
-                echo "upated";
+                header('Location:../../view/admin/aUserOfPostUpdated.php');
             }
             else {
-                echo "not updated";
+                header('Location:../../view/admin/aUserOfPostNotUpdated.php');
             }
         }
         else {
-            echo "not assigned";
+            header('Location:../../view/admin/aQueryFailedV.php');
         }
     }
 

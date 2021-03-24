@@ -3,13 +3,11 @@
 ?>
 
 <main>
-    <title>Add a new user role</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewUserRoleV.php">Add User role</a></li>
-            <li class="active">Request Denied!</li>
+            <li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amFetchStudentV.php">Remove Non-mandatory Subjects</a></li>
+            <li class="active">Request Succeded!</li>
         </ul>
 
         <div class="row">
@@ -22,16 +20,15 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            The user role you entered did not get added.
+                        <h2>The student has been unsigned from the given non-mandatory subject/s successfully.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="aAddNewUserRoleV.php">Try again</a> 
+                        <a href="amFetchStudentV.php">Remove another one</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Exit</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

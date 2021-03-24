@@ -136,91 +136,109 @@
             
             if (empty($errors)) {
                 $dependant_id = mysqli_real_escape_string($connect, $_POST['dependant_id']);
+                $relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
                 $doctor_name = mysqli_real_escape_string($connect, $_POST['doctor_name']);
                 $treatment_received_date = mysqli_real_escape_string($connect, $_POST['treatment_received_date']);
                 $bill_issued_date = mysqli_real_escape_string($connect, $_POST['bill_issued_date']);
                 $purpose = mysqli_real_escape_string($connect, $_POST['purpose']);
                 $bill_amount = mysqli_real_escape_string($connect, $_POST['bill_amount']);
                 $submitted_date = date('y-m-d');
+
+                if($dependant_id > 0){
+                    $relation = claimFormModel::getDependRelation($dependant_id,$connect);
+                    $depend_realtion = mysqli_fetch_assoc($relation);
+                    $d_relation = $depend_realtion['relationship'];
+                }
+
+                if(($dependant_id == '0' && $relationship == 'Myself') || ($d_relation == $relationship)){
                 
-                //check bill issued date validity
-                $bill_issued_year = date('Y', strtotime($bill_issued_date));
-                $med_end_date = claimFormModel::getMedYearEndDate($bill_issued_year,$connect);
-                $med_end_date_result = mysqli_fetch_assoc($med_end_date);
-                $med_year_end_date = $med_end_date_result['end_date'];
-                $med_year = $med_end_date_result['medical_year'];
+                    //check bill issued date validity
+                    $bill_issued_year = date('Y', strtotime($bill_issued_date));
+                    $med_end_date = claimFormModel::getMedYearEndDate($bill_issued_year,$connect);
+                    $med_end_date_result = mysqli_fetch_assoc($med_end_date);
+                    $med_year_end_date = $med_end_date_result['end_date'];
+                    $med_year = $med_end_date_result['medical_year'];
 
-                if(strtotime($bill_issued_date) <= strtotime($med_year_end_date)){
-                    $medical_year = $med_year;
-                }
-                else{
-                    $medical_year = ($med_year + 1);
-                }
-
-                //get correct med year end date relavant to form
-
-                $form_med_end_date = claimFormModel::getFormEndMedDate($medical_year, $connect);
-                $end_date = mysqli_fetch_array($form_med_end_date);
-                $cur_date = date('Y-m-d');
-                $date_diff = (strtotime($cur_date) - strtotime($end_date[0]));
-                $days = ($date_diff/(60 * 60 * 24));
-
-                if($days <= 91){
-                    //echo "yes";
-                    $file = $_FILES['file'];
-                    $file_name = $_FILES['file']['name'];
-                    $file_tmp_name = $_FILES['file']['tmp_name'];
-                    $file_error = $_FILES['file']['error'];
-                    $file_type = $_FILES['file']['type'];      
-
-                    $file_ext = explode('.',$file_name);
-                    $file_actual_ext = strtolower(end($file_ext));
-
-                    $allowed = array('jpg','jpeg','png','pdf');
-
-                    if(in_array($file_actual_ext,$allowed))
-                    {
-                        if($file_error === 0){
-                        $file_name_new = $user_id."-opd-".$claim_form_no.".".$file_actual_ext;
-                        $file_name_db = $user_id."-opd-".$claim_form_no;
-                        $file_destination = '../../view/assests/claimforms/opd/'.$file_name_new;
-                        move_uploaded_file($file_tmp_name, $file_destination);
-
-                        if($dependant_id == '0'){
-                            $result = claimFormModel::fillOpdFormNew($user_id, $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
-                        }
-                        else{
-                            $result = claimFormModel::fillOpdForm($user_id, $dependant_id, $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
-                        }
-
-                            if ($result) {
-                                $to_email = $new_mail;
-                                $subject = "New claim form submitted.";
-                                $body = "New OPD claim form submited by {$user_id}";
-                                $headers = "From: imsSystem17@gmail.com";
-
-                                mail($to_email, $subject, $body, $headers);
-                                //echo "Form submitted Successfully..";
-                                header('Location:../../view/medicalSchemeMember/memFormSubmitSuccessV.php');
-                            }
-                            else {
-                                echo "Failed result";
-                            }
-                        }
-                        else{
-                            echo "There was an error uploading your file.";
-                        }
+                    if(strtotime($bill_issued_date) <= strtotime($med_year_end_date)){
+                        $medical_year = $med_year;
                     }
-                    else
-                    {
-                        echo "File type is incorrrect.";
+                    else{
+                        $medical_year = ($med_year + 1);
                     }
 
+                    //get correct med year end date relavant to form
+
+                    $form_med_end_date = claimFormModel::getFormEndMedDate($medical_year, $connect);
+                    $end_date = mysqli_fetch_array($form_med_end_date);
+                    $cur_date = date('Y-m-d');
+                    $date_diff = (strtotime($cur_date) - strtotime($end_date[0]));
+                    $days = ($date_diff/(60 * 60 * 24));
+
+                    if($days <= 91){
+                        //echo "yes";
+                        $file = $_FILES['file'];
+                        $file_name = $_FILES['file']['name'];
+                        $file_tmp_name = $_FILES['file']['tmp_name'];
+                        $file_error = $_FILES['file']['error'];
+                        $file_type = $_FILES['file']['type'];      
+
+                        $file_ext = explode('.',$file_name);
+                        $file_actual_ext = strtolower(end($file_ext));
+
+                        $allowed = array('jpg','jpeg','png','pdf');
+
+                        if(in_array($file_actual_ext,$allowed))
+                        {
+                            if($file_error === 0){
+                            $file_name_new = $user_id."-opd-".$claim_form_no.".".$file_actual_ext;
+                            $file_name_db = $user_id."-opd-".$claim_form_no;
+                            $file_destination = '../../view/assests/claimforms/opd/'.$file_name_new;
+                            move_uploaded_file($file_tmp_name, $file_destination);
+
+                            if($dependant_id == '0'){
+                                echo "yes";
+                                $result = claimFormModel::fillOpdFormNew($user_id, $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
+                            }
+                            else{
+                                $result = claimFormModel::fillOpdForm($user_id, $dependant_id, $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
+                            }
+
+                                if ($result) {
+                                    $to_email = $new_mail;
+                                    $subject = "New claim form submitted.";
+                                    $body = "New OPD claim form submited by {$user_id}";
+                                    $headers = "From: imsSystem17@gmail.com";
+
+                                    mail($to_email, $subject, $body, $headers);
+                                    //echo "Form submitted Successfully..";
+                                    header('Location:../../view/medicalSchemeMember/memFormSubmitSuccessV.php');
+                                }
+                                else {
+                                    echo "Failed result";
+                                }
+                            }
+                            else{
+                                echo "There was an error uploading your file.";
+                            }
+                        }
+                        else
+                        {
+                            echo "File type is incorrrect.";
+                        }
+
+                    }
+                    else{
+                        echo '<script type="text/javascript">'; 
+                        echo 'alert("Can\'t Submit");'; 
+                        echo 'window.location.href = "../../view/medicalSchemeMember/memHomeV.php";';
+                        echo '</script>';
+
+                    }
                 }
                 else{
                     echo '<script type="text/javascript">'; 
-                    echo 'alert("Can\'t Submit");'; 
-                    echo 'window.location.href = "../../view/medicalSchemeMember/memHomeV.php";';
+                    echo 'alert("Check whether correct details are entered!");'; 
+                    echo 'window.location.href = "../../view/medicalSchemeMember/memOpdFormV.php";';
                     echo '</script>';
 
                 }
@@ -255,6 +273,7 @@
             if (empty($errors)) {
     
                 $dependant_id = mysqli_real_escape_string($connect, $_POST['dependant_id']);
+                $relationship = mysqli_real_escape_string($connect, $_POST['relationship']);
                 $accident_date = mysqli_real_escape_string($connect, $_POST['accident_date']);
                 $how_occured = mysqli_real_escape_string($connect, $_POST['how_occured']);
                 $injuries = mysqli_real_escape_string($connect, $_POST['injuries']);
@@ -271,90 +290,105 @@
                 $insurer_claims = mysqli_real_escape_string($connect, $_POST['insurer_claims']);
                 $nature_of = mysqli_real_escape_string($connect, $_POST['nature_of']);
                 $submitted_date = date('y-m-d');
-    
-                //check bill issued date validity
-                $hospitalized_year = date('Y', strtotime($hospitalized_date));
-                $med_end_date = claimFormModel::getMedYearEndDate($hospitalized_year,$connect);
-                $med_end_date_result = mysqli_fetch_assoc($med_end_date);
-                $med_year_end_date = $med_end_date_result['end_date'];
-                $med_year = $med_end_date_result['medical_year'];
-    
-                if(strtotime($hospitalized_date) <= strtotime($med_year_end_date)){
-                    $medical_year = $med_year;
-                  }
-                  else{
-                    $medical_year = ($med_year + 1);
-                  }
-    
-                //get correct med year end date relavant to form
-    
-                $form_med_end_date = claimFormModel::getFormEndMedDate($medical_year, $connect);
-                $end_date = mysqli_fetch_array($form_med_end_date);
-                $cur_date = date('Y-m-d');
-                $date_diff = (strtotime($cur_date) - strtotime($end_date[0]));
-                $days = ($date_diff/(60 * 60 * 24));
-    
-                if($days <= 91){
-    
-                    $file = $_FILES['file'];
-                    $file_name = $_FILES['file']['name'];
-                    $file_tmp_name = $_FILES['file']['tmp_name'];
-                    $file_error = $_FILES['file']['error'];
-                    $file_type = $_FILES['file']['type'];      
-    
-                    $file_ext = explode('.',$file_name);
-                    $file_actual_ext = strtolower(end($file_ext));
-    
-                    $allowed = array('jpg','jpeg','png','pdf');
-    
-                    if(in_array($file_actual_ext,$allowed))
-                    {
-                        if($file_error === 0){
-                        $file_name_new = $user_id."-sur-".$claim_form_no.".".$file_actual_ext;
-                        $file_name_db = $user_id."-sur-".$claim_form_no;
-                        $file_destination = '../../view/assests/claimforms/surgical/'.$file_name_new;
-                        move_uploaded_file($file_tmp_name, $file_destination);
-                        $result = claimFormModel::fillSurgicalForm($user_id, $dependant_id, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_db, $submitted_date,$connect);
-    
-                        if($dependant_id == '0'){
-                            $result = claimFormModel::fillSurgicalFormNew($user_id, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_db, $submitted_date,$connect);
-                        }
-                        else{
-                            $result = claimFormModel::fillSurgicalForm($user_id, $dependant_id, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_db, $submitted_date,$connect);
 
-                        }
-                        if ($result) {
-                                $to_email = $new_mail;
-                                $subject = "New claim form submitted.";
-                                $body = "New Surgical claim form submited by {$user_id}";
-                                $headers = "From: imssystem17@gmail.com";
+                if($dependant_id > 0){
+                    $relation = claimFormModel::getDependRelation($dependant_id,$connect);
+                    $depend_realtion = mysqli_fetch_assoc($relation);
+                    $d_relation = $depend_realtion['relationship'];
+                }
+
+                if(($dependant_id == '0' && $relationship == 'Myself') || ($d_relation == $relationship)){
     
-                                mail($to_email, $subject, $body, $headers);
-                                //echo "Form submitted Successfully..";
-                                header('Location:../../view/medicalSchemeMember/memFormSubmitSuccessV.php');
+                    //check bill issued date validity
+                    $hospitalized_year = date('Y', strtotime($hospitalized_date));
+                    $med_end_date = claimFormModel::getMedYearEndDate($hospitalized_year,$connect);
+                    $med_end_date_result = mysqli_fetch_assoc($med_end_date);
+                    $med_year_end_date = $med_end_date_result['end_date'];
+                    $med_year = $med_end_date_result['medical_year'];
+        
+                    if(strtotime($hospitalized_date) <= strtotime($med_year_end_date)){
+                        $medical_year = $med_year;
+                    }
+                    else{
+                        $medical_year = ($med_year + 1);
+                    }
+        
+                    //get correct med year end date relavant to form
+        
+                    $form_med_end_date = claimFormModel::getFormEndMedDate($medical_year, $connect);
+                    $end_date = mysqli_fetch_array($form_med_end_date);
+                    $cur_date = date('Y-m-d');
+                    $date_diff = (strtotime($cur_date) - strtotime($end_date[0]));
+                    $days = ($date_diff/(60 * 60 * 24));
+        
+                    if($days <= 91){
+        
+                        $file = $_FILES['file'];
+                        $file_name = $_FILES['file']['name'];
+                        $file_tmp_name = $_FILES['file']['tmp_name'];
+                        $file_error = $_FILES['file']['error'];
+                        $file_type = $_FILES['file']['type'];      
+        
+                        $file_ext = explode('.',$file_name);
+                        $file_actual_ext = strtolower(end($file_ext));
+        
+                        $allowed = array('jpg','jpeg','png','pdf');
+        
+                        if(in_array($file_actual_ext,$allowed))
+                        {
+                            if($file_error === 0){
+                            $file_name_new = $user_id."-sur-".$claim_form_no.".".$file_actual_ext;
+                            $file_name_db = $user_id."-sur-".$claim_form_no;
+                            $file_destination = '../../view/assests/claimforms/surgical/'.$file_name_new;
+                            move_uploaded_file($file_tmp_name, $file_destination);
+        
+                            if($dependant_id == '0'){
+                                $result = claimFormModel::fillSurgicalFormNew($user_id, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_db, $submitted_date,$connect);
                             }
-                            else {
-                                echo "Failed result";
+                            else{
+                                $result = claimFormModel::fillSurgicalForm($user_id, $dependant_id, $accident_date, $how_occured, $injuries, $nature_of_illness, $commence_date, $first_consult_date, $doctor_name, $doctor_address, $hospitalized_date, $discharged_date, $illness_before, $illness_before_years, $sick_injury, $insurer_claims, $nature_of, $file_name_db, $submitted_date,$connect);
+
+                            }
+
+                            if ($result) {
+                                    $to_email = $new_mail;
+                                    $subject = "New claim form submitted.";
+                                    $body = "New Surgical claim form submited by {$user_id}";
+                                    $headers = "From: imssystem17@gmail.com";
+        
+                                    mail($to_email, $subject, $body, $headers);
+                                    //echo "Form submitted Successfully..";
+                                    header('Location:../../view/medicalSchemeMember/memFormSubmitSuccessV.php');
+                                }
+                                else {
+                                    echo "Failed result";
+                                }
+                            }
+                            else{
+                                echo "There was an error uploading your file.";
                             }
                         }
-                        else{
-                            echo "There was an error uploading your file.";
+                        else
+                        {
+                            echo "File type is incorrrect.";
                         }
+        
                     }
-                    else
-                    {
-                        echo "File type is incorrrect.";
+                    else{
+                        echo '<script type="text/javascript">'; 
+                        echo 'alert("Can\'t Submit");'; 
+                        echo 'window.location.href = "../../view/medicalSchemeMember/memHomeV.php";';
+                        echo '</script>';
+        
                     }
-    
                 }
                 else{
                     echo '<script type="text/javascript">'; 
-                    echo 'alert("Can\'t Submit");'; 
-                    echo 'window.location.href = "../../view/medicalSchemeMember/memHomeV.php";';
+                    echo 'alert("Check whether correct details are entered!");'; 
+                    echo 'window.location.href = "../../view/medicalSchemeMember/memSurgicalFormV.php";';
                     echo '</script>';
-    
+
                 }
-    
             }
     }
 ?>

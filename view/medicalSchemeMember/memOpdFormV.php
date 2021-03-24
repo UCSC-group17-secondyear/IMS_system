@@ -3,6 +3,7 @@
 ?>
 
 <main>
+
     <title>OPD Form</title>
     <div class="sansserif">
                     
@@ -44,11 +45,11 @@
                                 </div>
                                 <div class="col-75">
                                     <select name="relationship" id="" required>
-                                        <option value="myself">Myself</option>
-                                        <option value="husband">Husband</option>
-                                        <option value="wife">Wife</option>
-                                        <option value="daughter">Daughter</option>
-                                        <option value="son">Son</option>
+                                        <option value="Myself">Myself</option>
+                                        <option value="Husband">Husband</option>
+                                        <option value="Wife">Wife</option>
+                                        <option value="Daughter">Daughter</option>
+                                        <option value="Son">Son</option>
                                     </select> <br>
                                 </div>
                             </div>
@@ -67,7 +68,7 @@
                                     <label for="">Treatment Recieved Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="treatment_received_date" id="tdate" required/><br>
+                                    <input type="date" name="treatment_received_date" id="tdate" oninput="checkDate()" max="today()" required/><br>
                                 </div>
                             </div>
 
@@ -126,7 +127,7 @@
 
     <script>
         $("#tdate").datepicker({
-        maxDate: 0
+        maxDate: today
         });
     </script>    
         

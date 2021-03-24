@@ -3,35 +3,32 @@
 ?>
 
 <main>
-    <title>Add a new user role</title>
-
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="aAddNewUserRoleV.php">Add User role</a></li>
+            <li><a href="amHomeV.php">Home</a></li>
+            <li><a href="amDeleteUpdateSubjectSearch.php">Update or Delete Subjects</a></li>
             <li class="active">Request Denied!</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
-                    require 'aSideNavV.php';
+                    require 'amSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            The user role you entered did not get added.
+                        <h2>Please note that semester has to be either 1 ('First semester') or 2 ('Second semester'). Thank you!
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="aAddNewUserRoleV.php">Try again</a> 
+                        <a href="amDeleteUpdateSubjectSearch.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Exit</a> 
+                        <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

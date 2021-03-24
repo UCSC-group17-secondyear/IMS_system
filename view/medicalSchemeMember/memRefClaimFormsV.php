@@ -33,7 +33,6 @@
                                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Claim Form..." name="claim_form_no" required>
                             </div>
                         </div>
-                            <!-- <button class="mainbtn" formaction="../../controller/claimFormReferenceController.php?user_id=<?php echo $_SESSION['userId'] ?>" type="submit" name="claim_form_no-submit">Display Form</button> -->
                         </form>
                     </div>
                     
