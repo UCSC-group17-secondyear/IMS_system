@@ -53,7 +53,7 @@
                                     <label>DOB</label>
                                 </div>
                                 <div class="col-75">
-                                    <input name="spouse_dob" type="date" <?php echo 'value="'.$_SESSION['spouse_dob'].'"' ?> required>
+                                    <input name="spouse_dob" type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> <?php echo 'value="'.$_SESSION['spouse_dob'].'"' ?> required>
                                 </div>
                             </div>
 
@@ -125,7 +125,7 @@
                                         <label>Date of Birth</label>
                                     </div>
                                     <div class="col-75">
-                                        <input name="child[<?php echo $i ?>][child_dob]" type="date"  <?php echo 'value="'.$_SESSION['child'][$i]['child_dob'].'"' ?> required>
+                                        <input name="child[<?php echo $i ?>][child_dob]" type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?>  <?php echo 'value="'.$_SESSION['child'][$i]['child_dob'].'"' ?> required>
                                     </div>
                                 </div>
 

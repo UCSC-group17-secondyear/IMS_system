@@ -57,7 +57,7 @@
                 </li>
             </form>
 
-            <form action="rvViewReportsMahapolaSchemeV.php" method="POST">
+            <form action="../../controller/rvControllers/mahapolaListController.php" method="POST">
                 <li>
                     <a href="">    
                         <button type="submit" class="tree_list" name="view-mahapola-report">View Reports in Mahapola Scheme</button>

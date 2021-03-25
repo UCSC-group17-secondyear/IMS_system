@@ -17,11 +17,11 @@
         $f_count = $form_count[0];
         $initials = $name[2];
         $sname = $name[3];
+        $_SESSION['max_date'] = date('Y-m-d');
 
         $memStatus = memModel::getMemStatus($user_id, $connect);
         $mem_status = mysqli_fetch_array($memStatus);
         $status = $mem_status[0];
-        //echo $status;
 
 
         $dependants = claimFormModel::getDependantName($user_id, $connect);
@@ -44,15 +44,10 @@
                         header('Location:../../view/medicalSchemeMember/memOpdFormV.php');
                                         
                     }
-                    else{
-                        echo "User not Found!";
-                    }
                 }
-
-                else
-                    {
-                        echo "Query Unsuccessful"; 
-                    }
+                else{
+                    header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
+                }
             }
             else{
                 header('Location:../../view/medicalSchemeMember/memNotMemberV.php');
@@ -72,7 +67,6 @@
         $memStatus = memModel::getMemStatus($user_id, $connect);
         $mem_status = mysqli_fetch_array($memStatus);
         $status = $mem_status[0];
-        //echo $status;
 
         $dependants = claimFormModel::getDependantName($user_id, $connect);
         $_SESSION['dependant_name'] = '';
@@ -95,14 +89,10 @@
                         header('Location:../../view/medicalSchemeMember/memSurgicalFormV.php');
                                                 
                     }
-                    else{
-                        echo "User not Found!";
-                    }
                 }
-                else
-                    {
-                        echo "Query Unsuccessful"; 
-                    }
+                else{
+                    header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
+                }
             }
             else{
                 header('Location:../../view/medicalSchemeMember/memNotMemberV.php');
@@ -126,7 +116,7 @@
             
             foreach ($userInfo as $info=>$maxLen) 
             {
-                // echo $_POST[$info];
+                
                 if (strlen(trim($_POST[$info])) >  $maxLen) 
                 {
                     $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
@@ -166,8 +156,6 @@
                         $medical_year = ($med_year + 1);
                     }
 
-                    //get correct med year end date relavant to form
-
                     $form_med_end_date = claimFormModel::getFormEndMedDate($medical_year, $connect);
                     $end_date = mysqli_fetch_array($form_med_end_date);
                     $cur_date = date('Y-m-d');
@@ -175,7 +163,7 @@
                     $days = ($date_diff/(60 * 60 * 24));
 
                     if($days <= 91){
-                        //echo "yes";
+                       
                         $file = $_FILES['file'];
                         $file_name = $_FILES['file']['name'];
                         $file_tmp_name = $_FILES['file']['tmp_name'];
@@ -190,40 +178,36 @@
                         if(in_array($file_actual_ext,$allowed))
                         {
                             if($file_error === 0){
-                            $file_name_new = $user_id."-opd-".$claim_form_no.".".$file_actual_ext;
-                            $file_name_db = $user_id."-opd-".$claim_form_no;
-                            $file_destination = '../../view/assests/claimforms/opd/'.$file_name_new;
-                            move_uploaded_file($file_tmp_name, $file_destination);
+                                $file_name_new = $user_id."-opd-".$claim_form_no.".".$file_actual_ext;
+                                $file_name_db = $user_id."-opd-".$claim_form_no;
+                                $file_destination = '../../view/assests/claimforms/opd/'.$file_name_new;
+                                move_uploaded_file($file_tmp_name, $file_destination);
 
-                            if($dependant_id == '0'){
-                                echo "yes";
-                                $result = claimFormModel::fillOpdFormNew($user_id, $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
+                                if($dependant_id == '0'){
+                                    
+                                    $result = claimFormModel::fillOpdFormNew($user_id, $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
+                                }
+                                else{
+                                    $result = claimFormModel::fillOpdForm($user_id, $dependant_id, $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
+                                }
+
+                                    if ($result) {
+                                        $to_email = $new_mail;
+                                        $subject = "New claim form submitted.";
+                                        $body = "New OPD claim form submited by {$user_id}";
+                                        $headers = "From: imsSystem17@gmail.com";
+
+                                        mail($to_email, $subject, $body, $headers);
+                                        
+                                        header('Location:../../view/medicalSchemeMember/memFormSubmitSuccessV.php');
+                                    }
+                                    else{
+                                        header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
+                                    }
                             }
                             else{
-                                $result = claimFormModel::fillOpdForm($user_id, $dependant_id, $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount,  $file_name_db, $submitted_date, $connect);
+                                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                             }
-
-                                if ($result) {
-                                    $to_email = $new_mail;
-                                    $subject = "New claim form submitted.";
-                                    $body = "New OPD claim form submited by {$user_id}";
-                                    $headers = "From: imsSystem17@gmail.com";
-
-                                    mail($to_email, $subject, $body, $headers);
-                                    //echo "Form submitted Successfully..";
-                                    header('Location:../../view/medicalSchemeMember/memFormSubmitSuccessV.php');
-                                }
-                                else {
-                                    echo "Failed result";
-                                }
-                            }
-                            else{
-                                echo "There was an error uploading your file.";
-                            }
-                        }
-                        else
-                        {
-                            echo "File type is incorrrect.";
                         }
 
                     }
@@ -263,7 +247,6 @@
             
             foreach ($userInfo as $info=>$maxLen) 
             {
-                // echo $_POST[$info];
                 if (strlen(trim($_POST[$info])) >  $maxLen) 
                 {
                     $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
@@ -299,7 +282,6 @@
 
                 if(($dependant_id == '0' && $relationship == 'Myself') || ($d_relation == $relationship)){
     
-                    //check bill issued date validity
                     $hospitalized_year = date('Y', strtotime($hospitalized_date));
                     $med_end_date = claimFormModel::getMedYearEndDate($hospitalized_year,$connect);
                     $med_end_date_result = mysqli_fetch_assoc($med_end_date);
@@ -313,7 +295,6 @@
                         $medical_year = ($med_year + 1);
                     }
         
-                    //get correct med year end date relavant to form
         
                     $form_med_end_date = claimFormModel::getFormEndMedDate($medical_year, $connect);
                     $end_date = mysqli_fetch_array($form_med_end_date);
@@ -357,20 +338,16 @@
                                     $headers = "From: imssystem17@gmail.com";
         
                                     mail($to_email, $subject, $body, $headers);
-                                    //echo "Form submitted Successfully..";
+                                    
                                     header('Location:../../view/medicalSchemeMember/memFormSubmitSuccessV.php');
                                 }
-                                else {
-                                    echo "Failed result";
+                                else{
+                                    header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                                 }
                             }
                             else{
-                                echo "There was an error uploading your file.";
+                                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                             }
-                        }
-                        else
-                        {
-                            echo "File type is incorrrect.";
                         }
         
                     }

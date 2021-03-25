@@ -3,27 +3,28 @@
 ?>
 
 <main>
-    <title>Mahapola Ineligibility List</title>
+    <title>Mahapola Eligibility List</title>
         <div class="sansserif">
             <ul class="breadcrumbs">
-                <li><a href="mmHomeV.php">Home</a></li>
-                <li class="active">Mahapola Ineligibility List</li>
+                <li><a href="rvHomeV.php">Home</a></li>
+                <li><a href="../../controller/rvControllers/mahapolaListController.php?btn=11">View Another List</a></li>
+                <li class="active">Mahapola Eligibility List</li>
             </ul>
         
             <div class="row" style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
-                        require('mmSideNavV.php');
+                        require('rvSideNavV.php');
                     ?>
                 </div>
 
                 <div class="col right80">
                     <div>
-                        <h2>Mahapola Ineligibility Student List</h2>
+                        <h2>Mahapola Eligibility Student List</h2>
                     </div>
 
                     <div class="contentForm">
-                        <form action="" method="post">
+                        <form action="../../controller/rvControllers/mahapolaListController.php" method="post">
                         
                             <div class="row">
                                 <div class="col-25">
@@ -42,13 +43,13 @@
                                         <th>Name</th>
                                     </tr>
 
-                                    <?php echo $_SESSION['non_eligible_stu']; ?>
+                                    <?php echo $_SESSION['eligible_stu']; ?>
                                 </table>
                             </div>
 
-                            <button class="subbtn" type="submit" name="" >View Another</button></a>
+                            <button class="subbtn" type="submit" name="view-mahapola-report" >View Another</button></a>
                             <button type="submit" class="cancelbtn">
-                                <a href="mmHomeV.php">Exit</a>
+                                <a href="rvHomeV.php">Exit</a>
                             </button>
                         </form>
                     </div>
