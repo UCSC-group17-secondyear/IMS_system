@@ -32,12 +32,18 @@
                         </button>
                     </form>
 
+                    <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <button name="fetchDegrees-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Month-Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
                     <!-- <button>
-                        <a href="mmStudentWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Student Wise</li></a>
-                    </button> -->
-                    <button>
                         <a href="mmMonthWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Month Wise</li></a></button>
-                    </button>
+                    </button> -->
+                    
                     <button>
                         <a href="mmSubjectWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Subject Wise</li></a>
                     </button>
