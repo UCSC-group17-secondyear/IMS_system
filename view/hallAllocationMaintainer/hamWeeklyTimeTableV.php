@@ -25,15 +25,15 @@
 
                 <table id="tableStyle">
                     <tr>
-                        <th>Date</th>
+                        <th>Day</th>
                         <th>Start Time</th>
                         <th>End Time</th>
+                        <th>Subject</th>
                         <th>Hall Name</th>
-                        <th>Semester</th>
-                        <th>Academic Year</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
-
-                    <?php echo $_SESSION['time_table'] ?>
+                    <?php echo $_SESSION['viewd_tt'] ?>
                     
                 </table>
             </div>
