@@ -3,15 +3,15 @@
 ?>
 
 <main>
-    <title>Nominated List</title>
+    <title>Mark Mahapola Selected Students</title>
         <div class="sansserif">
             <ul class="breadcrumbs">
                 <li><a href="mmHomeV.php">Home</a></li>
-                <li><a href="../../controller/mmControllers/mahapolaNominatedListController.php?btn=31">View Another List</a></li>
-                <li class="active">Mahapola Nominated List</li>
+                <li><a href="../../controller/mmControllers/markMahapolaController.php?btn=25">View Another List</a></li>
+                <li class="active">Student List</li>
             </ul>
-        
-            <div class="row" style="margin-bottom: 4%;">
+            
+            <div class="row" style="margin-bottom: 6%;">
                 <div class="col left20">
                     <?php 
                         require('mmSideNavV.php');
@@ -20,35 +20,36 @@
 
                 <div class="col right80">
                     <div>
-                        <h2>Nominated Student List</h2>
+                        <h2>Student List</h2>
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/mmControllers/mahapolaNominatedListController.php" method="post">
-                        
+                        <form action="" method="post">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Enter Student Index</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Student..." name="nominated_stu" >
+                                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Student..." name="" >
                                 </div>
                             </div>
-
+                        
+                    
                             <div class="">
                                 <table id="tableStyle">
                                     <tr>
-                                        <th>Index No</th>
-                                        <th>Registration No</th>
-                                        <th>Name</th>
-                                        <th>Mahapola Scheme</th>
+                                        <th>Student Index</th>
+                                        <th>Student Name</th>
+                                        <th>View Details</th>
                                     </tr>
 
-                                    <?php echo $_SESSION['nominated_stu']; ?>
+                                    <?php echo $_SESSION['student_list']; ?>
                                 </table>
                             </div>
 
-                            <button class="subbtn" type="submit" name="view-nom-degree-list" >View Another</button></a>
+                        </form>
+                        <form action="../../controller/mmControllers/markMahapolaController.php" method="POST">
+                            <button class="subbtn" type="submit" name="view-degree-list" >View Another</button>
                             <button type="submit" class="cancelbtn">
                                 <a href="mmHomeV.php">Exit</a>
                             </button>
@@ -81,7 +82,6 @@
                 }
             }
         </script>
-
 </main>
 
 <?php
