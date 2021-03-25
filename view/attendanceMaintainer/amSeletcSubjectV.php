@@ -90,9 +90,7 @@
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="monthWise-submit">Display Attendance
-                        <!-- <a href="amDisplayMonthlyAttendanceV.php"> Display Attendance</a> -->
-                    </button>
+                    <button class="subbtn" type="submit" name="monthWise-submit">Display Attendance</button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
                     </button>

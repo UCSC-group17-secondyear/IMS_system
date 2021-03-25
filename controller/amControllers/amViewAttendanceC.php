@@ -26,7 +26,11 @@
             $semester = $result['semester'];
             $degree = $result['degree'];
 
-            $records1 = amModel::filterSubjects($academic_year, $semester, $degree, $connect);
+            $get_degreeId = amModel::getDegreeId ($degree, $connect);
+            $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+            $degree_id = $result_degreeID['degree_id'];
+
+            $records1 = amModel::filterSubjects($academic_year, $semester, $degree_id, $connect);
             $records2 = amModel::filterSessionTypes($connect);
 
             if ($records1 && $records2) {
@@ -150,7 +154,11 @@
     	else {
     		session_start();
 
-			$attendance = amModel::filterSubjects($academic_year, $semester, $degree_name, $connect);
+            $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
+            $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+            $degree_id = $result_degreeID['degree_id'];
+
+			$attendance = amModel::filterSubjects($academic_year, $semester, $degree_id, $connect);
 			$_SESSION['subjects_list'] = '';
 	    	while ($record = mysqli_fetch_array($attendance)) {
 	            $_SESSION['subjects_list'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']." </option>";
@@ -203,7 +211,11 @@
                 echo "no attendance";
             }
             else {
-                $get_stdCount = amModel::getStdCount($academic_year, $semester, $degree_name, $connect);
+                $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
+                $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+                $degree_id = $result_degreeID['degree_id'];
+
+                $get_stdCount = amModel::getStdCount($academic_year, $semester, $degree_id, $connect);
                 $result_stdCount = mysqli_fetch_assoc($get_stdCount);
                 $_SESSION['stdCount'] = $result_stdCount['stdCount'];
 
@@ -373,8 +385,12 @@
         $degree_name = $_POST['degree_name'];
         $academic_year = $_POST['academic_year'];
         $semester = $_POST['semester'];
+
+        $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
+            $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+            $degree_id = $result_degreeID['degree_id'];
         
-        $records1 = amModel::filterSubjects($academic_year, $semester, $degree_name, $connect);
+        $records1 = amModel::filterSubjects($academic_year, $semester, $degree_id, $connect);
         $records2 = amModel::filterSessionTypes($connect);
 
         if ($records1 && $records2) {

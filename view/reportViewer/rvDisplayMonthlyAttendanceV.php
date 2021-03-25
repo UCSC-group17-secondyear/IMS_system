@@ -3,25 +3,24 @@
 ?>
 
 <main>
+    <title>View Month-wise Attendance</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-        <li><a href="amMonthWiseAttendanceV.php">Monthwise Attendance</a></li>
-        <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
-        <li class="active">Monthwise Attendance</li>
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li class="active">View Month-wise Attendance</li>
         </ul>
 
-        <div class="row" style="margin-bottom: 4%;" >
+        <div class="row">
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'rvSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div>
-                    <h2>Monthwise Attendance</h2>
+                    <h2>View Month-wise Attendance</h2>
                 </div>
 
                 <div class="contentForm">
@@ -109,16 +108,13 @@
                 </table>
 
                 <button class="subbtn">
-                    <a href="amMonthWiseAttendanceV.php">View another monthwise attendance</a>
+                    <a href="rvMonthWiseAttendanceV.php">View another monthwise attendance</a>
                 </button>
                 <button class="cancelbtn" type="submit" name="cancel-submit">
-                    <a href="amHomeV.php">Cancel</a> 
+                    <a href="rvHomeV.php">Cancel</a> 
                 </button>
+
             </div>
         </div>
     </div>
 </main>
-
-<?php
-    require '../basic/footer.php';
-?>
