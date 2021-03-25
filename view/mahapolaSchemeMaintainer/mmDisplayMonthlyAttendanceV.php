@@ -3,29 +3,53 @@
 ?>
 
 <main>
+    <title>View Month Wise Attendance</title>
 
-    <div class="sansserif">
-        <ul class="breadcrumbs">
-            <li><a href="mmHomeV.php">Home</a></li>
-        <li><a href="mmSubjectWiseAttendanceV.php">Subjectwise Attendance</a></li>
-        <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
-        <li class="active">Subject-wise Attendance</li>
-        </ul>
+    <ul class="breadcrumbs">
+        <li><a href="mmHomeV.php">Home</a></li>
+        <li class="active">Monthwise Attendance</li>
+    </ul>
 
-        <div class="row" style="margin-bottom: 4%;" >
-            <div class="col left20">
-                <?php
-                    require 'mmSideNavV.php';
-                ?>
+    <div class="row" style="margin-bottom: 4%;" >
+        <div class="col left20">
+            <?php
+                require 'mmSideNavV.php';
+            ?>
+        </div>
+
+        <div class="col right80">
+            <div>
+                <h2>Monthwise Attendance</h2>
             </div>
+            <div class="contentForm">
+                <form>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Selected calendar year</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="calander_year" disabled <?php echo 'value="'.$_SESSION['calander_year'].'"' ?> /><br>
+                        </div>
+                    </div>
 
-            <div class="col right80">
-                <div>
-                    <h2>Subject-wise Attendance</h2>
-                </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Selected Month</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" name="month" disabled <?php echo 'value="'.$_SESSION['month'].'"' ?> /><br>
+                        </div>
+                    </div>
 
-                <div class="contentForm">
-                    <form>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Selected Degree</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="degree_name" disabled <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> /><br>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-25">
                             <label>Selected subject</label>
@@ -46,37 +70,10 @@
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Degree the subject belongs</label>
+                            <label>Total number of days</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="degree_name" disabled <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> /><br>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Selected Batch</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="number" name="batch_number" disabled <?php echo 'value="'.$_SESSION['batch_number'].'"' ?> /><br>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Start date</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="date" name="startDate" disabled <?php echo 'value="'.$_SESSION['startDate'].'"' ?> /><br>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label>End date</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="date" name="endDate" disabled <?php echo 'value="'.$_SESSION['endDate'].'"' ?> /><br>
+                            <input type="number" name="monthDays" disabled <?php echo 'value="'.$_SESSION['monthDays'].'"' ?> /><br>
                         </div>
                     </div>
 
@@ -91,16 +88,7 @@
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Total number of days</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="number" name="totSubDays" disabled <?php echo 'value="'.$_SESSION['totSubDays'].'"' ?> /><br>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label>The attendance percentage</label>
+                            <label>Attendance Percentage</label>
                         </div>
                         <div class="col-75">
                             <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
@@ -110,14 +98,14 @@
             </div>
             <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                 <tr>
-                    <th>Student Index</th>
+                    <th>Index Number</th>
                     <th>Attendance</th>
                 </tr>
-                <?php echo $_SESSION['subWise_attendance']; ?>
+                <?php echo $_SESSION['monthAttendance_list']; ?>
             </table>
 
             <button class="subbtn">
-                <a href="mmSubjectWiseAttendanceV.php">View another subject-wise attendance</a>
+                <a href="mmMonthWiseAttendanceV.php">View another monthwise attendance</a>
             </button>
             <button class="cancelbtn" type="submit" name="cancel-submit">
                 <a href="mmHomeV.php">Cancel</a> 
