@@ -31,7 +31,7 @@
 
         if ($dd) {
 
-            $to_email = $dd['department_head_email'];
+            $to_email = $dd['email'];
             $subject = "Membership Request";
             $body =  $_SESSION['empid'] . " have requested the membership for the Medical Scheme.";
             $headers = "From: ims.ucsc@gmail.com";

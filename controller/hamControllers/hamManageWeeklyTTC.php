@@ -78,12 +78,14 @@
             }
 
             while ($deg = mysqli_fetch_array($degrees)) {
-                $_SESSION['degree'] .= "<option value='".$deg['degree_name']."'>".$deg['degree_name']."</option>";
+                $_SESSION['degree'] .= "<option value='".$deg['degree_id']."'>".$deg['degree_name']."</option>";
             }
         }
         header('Location:../../view/hallAllocationMaintainer/hamUpdateTimeTableSelectV.php');
 
     } elseif (isset($_POST['unpdatett-submit'])) {
+
+        
 
     }
 

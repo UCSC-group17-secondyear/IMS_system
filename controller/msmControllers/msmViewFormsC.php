@@ -29,9 +29,9 @@
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"yellow\">Unchecked</a></td>";
                 }
-                if($mem['membershiform_paid'] == 1){
+                if($mem['membership_status'] == 1){
                     $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
-                } else if($mem['membershiform_paid'] == 0){
+                } else if($mem['membership_status'] == 0){
                     $_SESSION['memberships'] .= "<td><a class=\"red\">Declined</a></td>";
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"yellow\">Unchecked</a></td>";
@@ -65,7 +65,7 @@
             $_SESSION['fr_scheme'] = $md['schemeName'];
             $_SESSION['fr_form_submission_date'] = $md['form_submission_date'];
             $_SESSION['fr_acceptance_status'] = $md['acceptance_status'];
-            $_SESSION['fr_membershiform_paid'] = $md['membershiform_paid'];
+            $_SESSION['fr_membership_status'] = $md['membershiform_paid'];
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewMemberDetailsV.php');
         }
@@ -75,6 +75,10 @@
         $viewed_member = mysqli_real_escape_string($connect, $_GET['viewed_member']);
         $member_email = msmModel::getmail($viewed_member, $connect);
 
+        $me = mysqli_fetch_array($member_email);
+
+
+        echo $viewed_member;
         if (isset($_POST['approvemf-submit'])) {
 
             $result = msmModel::requestaccept($viewed_member, $connect);
@@ -86,8 +90,8 @@
                 $headers = "From: ims.ucsc@gmail.com";
 
                 $sendMail = mail($to_email, $subject, $body, $headers);
-                
-                header('Location:../../view/medicalSchemeMaintainer/msmAcceptedSuccesV.php');
+                echo "Done";
+                // header('Location:../../view/medicalSchemeMaintainer/msmAcceptedSuccesV.php');
             }
 
         } elseif (isset($_POST['declinemf-submit'])) {
@@ -102,7 +106,7 @@
 
                 $sendMail = mail($to_email, $subject, $body, $headers);
                 
-                header('Location:../../view/medicalSchemeMaintainer/msmDeclinedSuccesV.php');
+                // header('Location:../../view/medicalSchemeMaintainer/msmDeclinedSuccesV.php');
             }
             
         } 
@@ -155,8 +159,13 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            if ($result_form['dependant_id'] >= 1) {
+                $_SESSION['patient_name'] = $result_form['dependant_name'];
+                $_SESSION['relationship'] = $result_form['relationship'];
+            } else {
+                $_SESSION['patient_name'] = $name[0] + $name[1];
+                $_SESSION['relationship'] = "Myself";
+            }
             $_SESSION['doctor_name'] = $result_form['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
@@ -178,8 +187,13 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            if ($result_form['dependant_id'] >= 1) {
+                $_SESSION['patient_name'] = $result_form['dependant_name'];
+                $_SESSION['relationship'] = $result_form['relationship'];
+            } else {
+                $_SESSION['patient_name'] = $name[0] + $name[1];
+                $_SESSION['relationship'] = "Myself";
+            }
             $_SESSION['accident_date'] = $result_form['accident_date'];
             $_SESSION['how_occured'] = $result_form['how_occured'];
             $_SESSION['injuries'] = $result_form['injuries'];
@@ -285,8 +299,13 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $claim_form_no;
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            if ($result_form['dependant_id'] >= 1) {
+                $_SESSION['patient_name'] = $result_form['dependant_name'];
+                $_SESSION['relationship'] = $result_form['relationship'];
+            } else {
+                $_SESSION['patient_name'] = $name[0] + $name[1];
+                $_SESSION['relationship'] = "Myself";
+            }
             $_SESSION['doctor_name'] = $result_form['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
@@ -348,8 +367,13 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $claim_form_no;
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            if ($result_form['dependant_id'] >= 1) {
+                $_SESSION['patient_name'] = $result_form['dependant_name'];
+                $_SESSION['relationship'] = $result_form['relationship'];
+            } else {
+                $_SESSION['patient_name'] = $name[0] + $name[1];
+                $_SESSION['relationship'] = "Myself";
+            }
             $_SESSION['accident_date'] = $result_form['accident_date'];
             $_SESSION['how_occured'] = $result_form['how_occured'];
             $_SESSION['injuries'] = $result_form['injuries'];
@@ -477,8 +501,13 @@
             $_SESSION['user_id'] = $user_id;
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            if ($result_form['dependant_id'] >= 1) {
+                $_SESSION['patient_name'] = $result_form['dependant_name'];
+                $_SESSION['relationship'] = $result_form['relationship'];
+            } else {
+                $_SESSION['patient_name'] = $name[0] + $name[1];
+                $_SESSION['relationship'] = "Myself";
+            }
             $_SESSION['doctor_name'] = $result_form['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
@@ -505,8 +534,13 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $claim_form_no;
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            if ($result_form['dependant_id'] >= 1) {
+                $_SESSION['patient_name'] = $result_form['dependant_name'];
+                $_SESSION['relationship'] = $result_form['relationship'];
+            } else {
+                $_SESSION['patient_name'] = $name[0] + $name[1];
+                $_SESSION['relationship'] = "Myself";
+            }
             $_SESSION['accident_date'] = $result_form['accident_date'];
             $_SESSION['how_occured'] = $result_form['how_occured'];
             $_SESSION['injuries'] = $result_form['injuries'];
@@ -582,8 +616,13 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            if ($result_form['dependant_id'] >= 1) {
+                $_SESSION['patient_name'] = $result_form['dependant_name'];
+                $_SESSION['relationship'] = $result_form['relationship'];
+            } else {
+                $_SESSION['patient_name'] = $name[0] + $name[1];
+                $_SESSION['relationship'] = "Myself";
+            }
             $_SESSION['doctor_name'] = $result_form['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
@@ -603,8 +642,13 @@
             $_SESSION['mem_initials'] = $name[0];
             $_SESSION['mem_sname'] = $name[1];
             $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            if ($result_form['dependant_id'] >= 1) {
+                $_SESSION['patient_name'] = $result_form['dependant_name'];
+                $_SESSION['relationship'] = $result_form['relationship'];
+            } else {
+                $_SESSION['patient_name'] = $name[0] + $name[1];
+                $_SESSION['relationship'] = "Myself";
+            }
             $_SESSION['accident_date'] = $result_form['accident_date'];
             $_SESSION['how_occured'] = $result_form['how_occured'];
             $_SESSION['injuries'] = $result_form['injuries'];
