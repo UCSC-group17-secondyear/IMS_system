@@ -9,7 +9,6 @@
 <?php
  
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    // echo $user_id;
     $result_set = basicModel::view($user_id, $connect);
 
     if ($result_set) {
@@ -23,8 +22,7 @@
             $_SESSION['mobile'] = $result['mobile'];
             $_SESSION['tp'] = $result['tp'];
             $_SESSION['dob'] = $result['dob'];
-            $_SESSION['designation'] = $result['designation'];
-            $_SESSION['post'] = $result['post'];
+            $_SESSION['designation'] = $result['designation_name'];
             $_SESSION['appointment'] = $result['appointment'];
 
             if ($result['userRole'] == "admin") {

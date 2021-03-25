@@ -25,7 +25,6 @@
 		$dob = mysqli_real_escape_string($connect, $_POST['dob']);
 		$aca_or_non = mysqli_real_escape_string($connect, $_POST['aca-or-non']);
 		$designation = mysqli_real_escape_string($connect, $_POST['designation']);
-		// $post = mysqli_real_escape_string($connect, $_POST['post']);
 		$appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
 		$conpassword = mysqli_real_escape_string($connect, $_POST['conpassword']);
@@ -36,7 +35,6 @@
 		{
 			$errors[] = "Username should be a string";
 			header('Location:../../view/basic/aUserNameNotString.php');
-			// echo "Username should be a string";
 			exit();
 		}
 
@@ -45,7 +43,6 @@
 		{
 			$errors[] = "Initials should be a string";
 			header('Location:../../view/basic/aUserNameNotString.php');
-			// echo "Initials should be a string";
 			exit();
 		}
 
@@ -54,7 +51,6 @@
 		{
 			$errors[] = "Surname should be a string";
 			header('Location:../../view/basic/aUserNameNotString.php');
-			// echo "Surname should be a string";
 			exit();
 		}
 
@@ -67,14 +63,12 @@
 		if ($lastMail != "@ucsc.cmb.ac.lk") {
 			$errors[] = "University mail incorrect.";
 			header('Location:../../view/basic/uniMailIncorrect.php');
-			// echo "University mail is incorrect.";
 			exit();
 		}
 
 		if ($firstNumbs != $empid) {
 			$errors[] = "Username is incorrect.";
 			header('Location:../../view/basic/userNameIncorrect.php');
-			// echo "Username is incorrect.";
 			exit();
 		}
 
@@ -82,7 +76,6 @@
 		{
 			$errors[] = "Password and confirm password are not equal.";
 			header('Location:../../view/basic/pwdCpwdNotMatching.php');
-			// echo "Password and confirm password are not equal.";
 			exit();
 		}
 
@@ -90,7 +83,6 @@
 		{
 			$errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
 			header('Location:../../view/basic/mobilePhoneIncorrect.php');
-			// echo "Mobile number is incorrect. The mobile number should have only ten digits.";
 			exit();
 		}
 
@@ -98,7 +90,6 @@
 		{
 			$errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
 			header('Location:../../view/basic/mobilePhoneIncorrect.php');
-			// echo "Telephone number is incorrect. The telephone number should have only ten digits.";
 			exit();
 		}
 
@@ -106,7 +97,6 @@
 		{
 			$errors[]="Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
 			header('Location:../../view/basic/pwdVerificationFailed.php');
-			// echo "Password require Minimum eight characters, at least one uppercase letter, one lowercase letter, one number";
 			exit();
 		}
 
@@ -116,7 +106,6 @@
 		{
 			$errors[] = 'Employee id already exists.';
 			header('Location:../../view/basic/userNameExist.php');
-			// echo "Employee id already exists.";
 		}
 
 		if (empty($errors)) 
@@ -150,7 +139,6 @@
 						}
 						$result3 = basicModel::setRole($user_id, $asm_flag, $nasm_flag, $connect);
 						header('Location:../../view/basic/signupSuccess.php');
-						// header('Location:../view/basic/login.php');
 					}
 					else {
 						header('Location:../../view/basic/signupFailed.php');
@@ -162,8 +150,7 @@
             }
             else 
             {
-                //header('Location:../../view/basic/signupFailed.php');
-                 echo 'Failed to add the user.';
+                header('Location:../../view/basic/signupFailed.php');
             }
 		}
 	}
@@ -176,7 +163,7 @@
 
 		if ($records && $records2) {
 			while ($record = mysqli_fetch_array($records)) {
-                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+                $_SESSION['design'] .= "<option value='".$record['designation_id']."'>".$record['designation_name']."</option>";
 			}
 
 			while ($record2 = mysqli_fetch_array($records2)) {
