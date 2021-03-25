@@ -517,4 +517,67 @@
             }
         }
     }
+
+    elseif (isset($_POST['semesterAttendance-submit'])) {
+        $calander_year = $_POST ['calander_year'];
+        $semester = $_POST ['semester'];
+
+        $getDates = mmModel::getSemesterDates ($calander_year, $semester, $connect);
+        $getDates_result = mysqli_fetch_assoc($getDates);
+
+        if ($getDates_result) {
+            $start_date = $getDates_result['start_date'];
+            $end_date = $getDates_result['end_date'];
+            
+            $records = mmModel::getSemesterAttendance ($start_date, $end_date, $connect);
+        
+            if (!($records)) {
+                    echo "error1";
+                    /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoAttendanceSemester.php');*/
+                }
+            else {
+                session_start();
+                $_SESSION['semesterAttendance_list'] = '';
+
+                while ($record = mysqli_fetch_assoc($records)) {
+                    $subject_id = $record['subject_id'];
+                    $get_subject_name = mmModel::getSubjectName ($subject_id, $connect);
+                    $result_subject_name = mysqli_fetch_assoc($get_subject_name);
+
+                    $sessionTypeId = $record['sessionTypeId'];
+                    $get_sessionType = mmModel::get_sessionType ($sessionTypeId, $connect);
+                    $result_sessionType = mysqli_fetch_assoc($get_sessionType);
+
+                    $std_id = $record['std_id'];
+                    $get_student_index = mmModel::getStdIndex ($std_id, $connect);
+                    $result_student_index = mysqli_fetch_assoc($get_student_index);
+
+                    $_SESSION['semesterAttendance_list'] .= "<tr>";
+                    $_SESSION['semesterAttendance_list'] .= "<td>{$result_student_index['index_no']}</td>";
+                    $_SESSION['semesterAttendance_list'] .= "<td>{$result_subject_name['subject_name']}</td>";
+                    $_SESSION['semesterAttendance_list'] .= "<td>{$result_sessionType['sessionType']}</td>";
+                    $_SESSION['semesterAttendance_list'] .= "<td>{$record['attendance']}</td>";
+                    $_SESSION['semesterAttendance_list'] .= "</tr>";
+                }
+
+                $get_attDetails = mmModel::getSemDetails ($start_date, $end_date, $connect);
+                $result_attDetails = mysqli_fetch_assoc($get_attDetails);
+                if ($result_attDetails) {
+                    $_SESSION['totdays'] = $result_attDetails['totdays'];
+                    $_SESSION['attendPercentage'] = $result_attDetails['attendPercentage'];
+                    $_SESSION['calander_year'] = $calander_year;
+                    $_SESSION['semester'] = $semester;
+
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmDisplaySemesterAttendanceV.php');
+                }
+                else {
+                    echo "error4";
+                }
+            }
+        }
+        else {
+            /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoStartEndDateS.php');*/
+            echo "error2";
+        }
+    }
 ?>

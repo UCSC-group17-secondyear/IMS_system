@@ -62,7 +62,7 @@
                     </form>
                 </div>
 
-                <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
+                <table id="tableStyle" class="mytable" style="margin-left: 15%;" >
                     <tr>
                         <th>Student Index</th>
                         <th>Subject Code</th>

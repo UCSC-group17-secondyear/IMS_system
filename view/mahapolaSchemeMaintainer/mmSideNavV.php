@@ -57,7 +57,7 @@
                     </form>
 
                     <button>
-                        <a href="mmSemesterWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Semester Wise</li></a>
+                        <a href="mmSemesterWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Semester Wise</li></a>
                     </button>
                 </ul>
             </li>
