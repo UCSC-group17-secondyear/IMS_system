@@ -20,7 +20,7 @@
 
             if ($getPost) {
                 while ($rec = mysqli_fetch_assoc($getPost)) {
-                    echo $p_id = $rec['pst_id']; echo '<br>';
+                    $p_id = $rec['pst_id']; echo '<br>';
                 }
             }
             else {

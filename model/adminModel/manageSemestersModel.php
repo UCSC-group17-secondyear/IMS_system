@@ -1,9 +1,9 @@
 <?php
 
     class adminModel {
-        public static function enterSemester($semester, $academic_year, $start_date, $end_date, $connect)
+        public static function enterSemester($semester, $academic_year, $digit, $start_date, $end_date, $connect)
 		{
-			$query = "INSERT INTO tbl_semester (semester, academic_year, start_date, end_date ) VALUES('$semester', '$academic_year', '$start_date', '$end_date')";
+			$query = "INSERT INTO tbl_semester (semester, academic_year, semesterDigit, start_date, end_date ) VALUES('$semester', '$academic_year', '$digit', '$start_date', '$end_date')";
 
 			$result = mysqli_query($connect, $query);
 

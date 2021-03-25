@@ -19,7 +19,6 @@
 		
 		foreach ($userInfo as $info=>$maxLen) 
 		{
-            // echo $_POST[$info];
 			if (strlen(trim($_POST[$info])) >  $maxLen) 
 			{
                 $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
@@ -32,7 +31,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $id)))
 		{
 			$errors[] = "Username should be a string";
-			echo "Username should be a string";
+			header('Location:../../view/basic/aUserNameNotString.php');
 			exit();
 		}
         
@@ -55,14 +54,13 @@
             $tp = mysqli_real_escape_string($connect, $_POST['tp']);
             $dob = mysqli_real_escape_string($connect, $_POST['dob']);
             $designation = mysqli_real_escape_string($connect, $_POST['designation']);
-            $post = mysqli_real_escape_string($connect, $_POST['post']);
             $appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
 
             $ini = str_replace(' ', '', $initials);
             if (!(preg_match('/^[A-Za-z]+$/', $ini)))
             {
                 $errors[] = "Initials should be a string";
-                echo "Initials should be a string";
+                header('Location:../../view/basic/aUserNameNotString.php');
                 exit();
             }
 
@@ -70,7 +68,7 @@
             if (!(preg_match('/^[A-Za-z]+$/', $name)))
             {
                 $errors[] = "Surname should be a string";
-                echo "Surname should be a string";
+                header('Location:../../view/basic/aUserNameNotString.php');
                 exit();
             }
 
@@ -81,35 +79,33 @@
 
             if ($lastMail != "@ucsc.cmb.ac.lk") {
                 $errors[] = "University mail incorrect.";
-                echo "University mail is incorrect.";
+                header('Location:../../view/basic/uniMailIncorrect.php');
                 exit();
             }
 
             if ($firstNumbs != $empid) {
                 $errors[] = "Username is incorrect.";
-                echo "Username is incorrect.";
+                header('Location:../../view/basic/userNameIncorrect.php');
                 exit();
             }
 
             if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
             {
                 $errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
-                echo "Mobile number is incorrect. The mobile number should have only ten digits.";
+                header('Location:../../view/basic/mobilePhoneIncorrect.php');
                 exit();
             }
 
             if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
             {
                 $errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
-                echo "Telephone number is incorrect. The telephone number should have only ten digits.";
+                header('Location:../../view/basic/mobilePhoneIncorrect.php');
                 exit();
             }
 
-            $results = adminModel::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $post, $appointment, $connect);
+            $results = adminModel::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect);
 
             if ($results) {
-                // echo $oldMail;
-                // echo $email;
                 if ($oldMail!=$email) {
                     $to_email = "$email";
                     $subject = "Changes";

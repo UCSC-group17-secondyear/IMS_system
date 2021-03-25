@@ -35,7 +35,6 @@
                         <th>Telephone</th>
                         <th>Date of Birth</th>
                         <th>Designation</th>
-                        <th>Post</th>
                         <th>Appointment Date</th>
                         <th>Edit</th>
                         <th>Delete</th>
