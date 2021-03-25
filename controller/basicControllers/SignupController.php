@@ -6,7 +6,7 @@
 	
 	if (isset($_POST['signup-submit'])) 
 	{	
-		$userInfo = array('empid'=>8, 'initials'=>10, 'sname'=>50, 'email'=>100,'mobile'=>10, 'tp'=>10, 'dob'=>10,'designation'=>50, 'appointment'=>10, 'password'=>20, 'conpassword'=>20);
+		$userInfo = array('empid'=>8, 'initials'=>10, 'sname'=>50, 'email1'=>100,'mobile'=>10, 'tp'=>10, 'dob'=>10,'designation'=>50, 'appointment'=>10, 'password'=>20, 'conpassword'=>20);
 		
 		foreach ($userInfo as $info=>$maxLen) 
 		{
@@ -19,7 +19,8 @@
 		$EmpId = mysqli_real_escape_string($connect, $_POST['empid']);
 		$initials = mysqli_real_escape_string($connect, $_POST['initials']);
 		$sname = mysqli_real_escape_string($connect, $_POST['sname']);
-		$Email = mysqli_real_escape_string($connect, $_POST['email']);
+		$Email1 = mysqli_real_escape_string($connect, $_POST['email1']);
+		$Email2 = mysqli_real_escape_string($connect, $_POST['email2']);
 		$mobile = mysqli_real_escape_string($connect, $_POST['mobile']);
 		$tp = mysqli_real_escape_string($connect, $_POST['tp']);
 		$dob = mysqli_real_escape_string($connect, $_POST['dob']);
@@ -55,22 +56,24 @@
 		}
 
 		$empid = strtolower($EmpId);
-		$email = strtolower($Email);
+		$email1 = strtolower($Email1);
 		
-		$firstNumbs = substr($email, 0, -15);
-		$lastMail = substr($email, 3);
+		// $firstNumbs = substr($email, 0, -15);
+		// $lastMail = substr($email, 3);
 
-		if ($lastMail != "@ucsc.cmb.ac.lk") {
-			$errors[] = "University mail incorrect.";
-			header('Location:../../view/basic/uniMailIncorrect.php');
-			exit();
-		}
+		// if ($lastMail != "@ucsc.cmb.ac.lk") {
+		// 	$errors[] = "University mail incorrect.";
+		// 	header('Location:../../view/basic/uniMailIncorrect.php');
+		// 	exit();
+		// }
 
-		if ($firstNumbs != $empid) {
+		if ($email1 != $empid) {
 			$errors[] = "Username is incorrect.";
 			header('Location:../../view/basic/userNameIncorrect.php');
 			exit();
 		}
+
+		$email = $email1 . $Email2;
 
 		if ($password != $conpassword) 
 		{
