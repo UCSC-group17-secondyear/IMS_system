@@ -69,8 +69,11 @@
 	            <div class="col-25">
 	              	<label>E-MAIL ADDRESS</label>
 	            </div>
-	            <div class="col-75">
-	              	<input type="email" name="email"/>
+	            <div class="col-75" style="width: 15%">
+	              	<input type="text" name="email1"/>
+	            </div>
+				<div class="col-75" style="width: 51%;">
+	              	<input type="text" name="email2" value="@ucsc.cmb.ac.lk" readonly/>
 	            </div>
 	        </div>
 

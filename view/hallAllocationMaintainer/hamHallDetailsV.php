@@ -30,7 +30,7 @@
                               <label>Select Hall</label>
                             </div>
                             <div class="col-75">
-                                <select name="hall" id="hall">
+                                <select name="hall" id="hall" required>
                                     <option value="">Select a Hall</option>
                                     <?php echo $_SESSION['halls'] ?>
                                 </select>
