@@ -78,5 +78,72 @@
             $result = mysqli_query($connect, $query);
             return $result;
         }
+
+        public static function getDegrees($connect) {
+			$query = "SELECT * FROM tbl_degree WHERE is_deleted = 0 ORDER BY degree_id ASC";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function getMonthDays($calander_year, $month, $subject_id, $sessionTypeId, $connect) {
+            $query = "SELECT COUNT(DISTINCT(date)) AS monthDays 
+            FROM tbl_attendance 
+            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' 
+            AND year(tbl_attendance.date) = '{$calander_year}' 
+            AND month(tbl_attendance.date) = '{$month}'";
+            
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getStdCount($academic_year, $semester, $degree_id, $connect) {
+            $query = "SELECT COUNT(index_no) AS stdCount FROM tbl_students 
+            WHERE academic_year = '{$academic_year}' AND semester = '{$semester}' 
+            AND degree_id = '{$degree_id}' AND is_std = 0 ";
+            
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getMonthAttendPercentage($calander_year, $month, $subject_id, $sessionTypeId, $connect) {
+            $query = "SELECT round(((AVG(attendance))*100),2) AS attendPercentage FROM tbl_attendance 
+            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}'
+            AND year(tbl_attendance.date) = '{$calander_year}' 
+            AND month(tbl_attendance.date) = '{$month}'";
+
+            $result = mysqli_query($connect, $query);
+            return $result;
+        }
+
+        public static function getStdIndex ($std_id, $connect)
+        {
+            $query = "SELECT * FROM tbl_students WHERE std_id = '{$std_id}' AND is_std = 0 ";
+
+            $result = mysqli_query($connect, $query);
+            
+            return $result;
+        }
+
+        public static function getDegreeId ($degree_name, $connect) {
+            $query = "SELECT * FROM tbl_degree WHERE degree_name = '{$degree_name}' AND is_deleted = 0 ";
+
+            $result = mysqli_query($connect, $query);
+            
+            return $result;
+        }
+
+        public static function monthAttendance($calander_year, $month, $subject_id, $sessionTypeId, $connect) {
+			$query = "SELECT std_id, COUNT(attendance) AS attendance 
+            FROM tbl_attendance 
+            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' 
+            AND attendance = 1 AND year(tbl_attendance.date) = '{$calander_year}' 
+            AND month(tbl_attendance.date) = '{$month}'
+            GROUP BY std_id
+            ORDER BY std_id ";
+        	
+            $result = mysqli_query($connect, $query);
+        	return $result;
+		}
 	}
 ?>

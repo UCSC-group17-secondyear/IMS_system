@@ -27,9 +27,9 @@
             return $result;
         }
 
-        public static function filterSubjects($academic_year, $semester, $degree, $connect)
+        public static function filterSubjects($academic_year, $semester, $degree_id, $connect)
         {
-			$query = "SELECT subject_name FROM tbl_subject WHERE academic_year = '{$academic_year}' AND semester = '{$semester}' AND degree = '{$degree}' AND is_deleted = 0 ORDER BY subject_code ASC ";
+			$query = "SELECT subject_name FROM tbl_subject WHERE academic_year = '{$academic_year}' AND semester = '{$semester}' AND degree_id = '{$degree_id}' AND is_deleted = 0 ORDER BY subject_code ASC ";
 
             $result = mysqli_query($connect, $query);
             
@@ -133,10 +133,10 @@
             return $result;
         }
 
-        public static function getStdCount($academic_year, $semester, $degree_name, $connect) {
+        public static function getStdCount($academic_year, $semester, $degree_id, $connect) {
             $query = "SELECT COUNT(index_no) AS stdCount FROM tbl_students 
             WHERE academic_year = '{$academic_year}' AND semester = '{$semester}' 
-            AND degree = '{$degree_name}' AND is_std = 0 ";
+            AND degree_id = '{$degree_id}' AND is_std = 0 ";
             
             $result = mysqli_query($connect, $query);
             return $result;
@@ -251,6 +251,14 @@
 
         public static function get_sessionType ($sessionTypeId, $connect) {
             $query = "SELECT  sessionType FROM sessiontypes WHERE sessionTypeId = '{$sessionTypeId}' AND is_deleted = 0 ";
+
+            $result = mysqli_query($connect, $query);
+            
+            return $result;
+        }
+
+        public static function getDegreeId ($degree_name, $connect) {
+            $query = "SELECT * FROM tbl_degree WHERE degree_name = '{$degree_name}' AND is_deleted = 0 ";
 
             $result = mysqli_query($connect, $query);
             

@@ -48,6 +48,7 @@
             }
         }       
     }
+
     elseif (isset($_POST['stdWise-submit'])) {
         session_start();
         $index_no = $_SESSION['index_no'];
@@ -119,8 +120,135 @@
             }
             else {
                 echo "error";
-/*                header('Location:../../view/reportViewer/rvNoSubIDSessionID.php');*/
+                /*header('Location:../../view/reportViewer/rvNoSubIDSessionID.php');*/
             }
+        }
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////
+    elseif (isset($_POST['fetchDegrees-submit'])) {
+        session_start();
+        $records = rvModel::getDegrees($connect);
+        $_SESSION['degree_list'] = '';
+
+        while ($record = mysqli_fetch_array($records)) {
+            $_SESSION['degree_list'] .= "<option value='".$record['degree_name']."'>".$record['degree_name']." </option>";
+        }
+        header('Location:../../view/reportViewer/rvMonthWiseAttendanceV.php');
+    }
+
+    elseif (isset($_POST['getSubjects-submit'])) {
+        $calander_year = $_POST['calander_year'];
+        $month = $_POST['month'];
+        $degree_name = $_POST['degree_name'];
+        $academic_year = $_POST['academic_year'];
+        $semester = $_POST['semester'];
+
+        if ($calander_year > date("Y")) {
+            echo "error";
+            /*header('Location:../../view/reportViewer/rvFutureYearMV.php');*/
+        }
+        elseif ($calander_year == date("Y") && $month > date("m")) {
+            echo "error";
+            /*header('Location:../../view/reportViewer/rvFutureMonthMV.php');*/
+        }
+        else {
+            session_start();
+
+            $get_degreeId = rvModel::getDegreeId ($degree_name, $connect);
+            $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+            $degree_id = $result_degreeID['degree_id'];
+
+            $attendance = rvModel::filterSubjects($academic_year, $semester, $degree_id, $connect);
+            $_SESSION['subjects_list'] = '';
+            while ($record = mysqli_fetch_array($attendance)) {
+                $_SESSION['subjects_list'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']." </option>";
+            }
+
+            $sessionTypes = rvModel::filterSessionTypes($connect);
+            $_SESSION['sessionTypes_list'] = '';
+            while ($record1 = mysqli_fetch_array($sessionTypes)) {
+                $_SESSION['sessionTypes_list'] .= "<option value='".$record1['sessionType']."'>".$record1['sessionType']." </option>";
+            }
+
+            $_SESSION['calander_year'] = $calander_year;
+            $_SESSION['month'] = $month;
+            $_SESSION['degree_name'] = $degree_name;
+            $_SESSION['academic_year'] = $academic_year;
+            $_SESSION['semester'] = $semester;
+
+            header('Location:../../view/reportViewer/rvSeletcSubjectV.php');
+        }
+    }
+
+    elseif (isset($_POST['monthWise-submit'])) {
+        session_start();
+        $calander_year = $_SESSION['calander_year'];
+        $month = $_SESSION['month'];
+        $degree_name = $_SESSION['degree_name'];
+        $academic_year = $_SESSION['academic_year'];
+        $semester = $_SESSION['semester'];
+        $subject_name = $_POST['subject_name'];
+        $sessionType = $_POST['sessionType'];
+        $_SESSION['subject_name'] = $subject_name;
+        $_SESSION['sessionType'] = $sessionType;
+
+        $result_subject_id = rvModel::getSubjectID($subject_name, $connect);
+        $result1 = mysqli_fetch_assoc($result_subject_id);
+
+        $result_sessionTypeId = rvModel::getSessionTypeID($sessionType, $connect);
+        $result2 = mysqli_fetch_assoc($result_sessionTypeId);
+
+        if ($result1 && $result2) {
+            $subject_id = $result1['subject_id'];
+            $sessionTypeId = $result2['sessionTypeId'];
+
+            $get_monthDays = rvModel::getMonthDays($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+            $result_monthDays = mysqli_fetch_assoc($get_monthDays);
+            $_SESSION['monthDays'] = $result_monthDays['monthDays'];
+
+            if ($_SESSION['monthDays'] == 0) {
+                echo "no attendance";
+            }
+            else {
+                $get_degreeId = rvModel::getDegreeId ($degree_name, $connect);
+                $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+                $degree_id = $result_degreeID['degree_id'];
+
+                $get_stdCount = rvModel::getStdCount($academic_year, $semester, $degree_id, $connect);
+                $result_stdCount = mysqli_fetch_assoc($get_stdCount);
+                $_SESSION['stdCount'] = $result_stdCount['stdCount'];
+
+                $get_attendPercentage = rvModel::getMonthAttendPercentage($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+                $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
+                $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
+                
+                $attendance = rvModel::monthAttendance ($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+
+                if ($attendance && $result_monthDays && $result_stdCount && $result_attendPercentage) {
+                    $_SESSION['monthAttendance_list'] = '';
+
+                    while ($record = mysqli_fetch_assoc($attendance)) {
+                        $std_id = $record['std_id'];
+                        $get_student_index = rvModel::getStdIndex ($std_id, $connect);
+                        $result_student_index = mysqli_fetch_assoc($get_student_index);
+
+                        $_SESSION['monthAttendance_list'] .= "<tr>";
+                        $_SESSION['monthAttendance_list'] .= "<td>{$result_student_index['index_no']}</td>";
+                        $_SESSION['monthAttendance_list'] .= "<td>{$record['attendance']}</td>";
+                        $_SESSION['monthAttendance_list'] .= "</tr>";
+                    }
+
+                    header('Location:../../view/reportViewer/rvDisplayMonthlyAttendanceV.php');
+                }
+                else {
+                    echo "error";
+                    /*header('Location:../../view/reportViewer/rvNoMonthlyAttendance.php');*/
+                }
+            }
+        }
+        else {
+            echo "error";
+            /*header('Location:../../view/reportViewer/rvNoSubIDSessionID.php');*/
         }
     }
 
