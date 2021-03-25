@@ -7,6 +7,7 @@
         <div class="sansserif">
             <ul class="breadcrumbs">
                 <li><a href="rvHomeV.php">Home</a></li>
+                <li><a href="../../controller/rvControllers/mahapolaNominatedListC1.php?btn=21">View Another List</a></li>
                 <li class="active">Mahapola Nominated List</li>
             </ul>
         
@@ -23,35 +24,35 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="" method="post">
+                        <form action="../../controller/rvControllers/mahapolaNominatedListC1.php" method="post">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Enter Student Index</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Student..." name="nominated_stu" required>
+                                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Student..." name="nominated_stu" >
                                 </div>
                             </div>
+
+                            <div class="">
+                                <table id="tableStyle">
+                                    <tr>
+                                        <th>Index No</th>
+                                        <th>Registration No</th>
+                                        <th>Name</th>
+                                        <th>Mahapola Scheme</th>
+                                    </tr>
+
+                                    <?php echo $_SESSION['nominated_stu']; ?>
+                                </table>
+                            </div>
+
+                            <button class="subbtn" type="submit" name="view-nom-degree-list" >View Another List</button></a>
+                            <button type="submit" class="cancelbtn">
+                                <a href="rvHomeV.php">Exit</a>
+                            </button>
                         </form>
                     </div>
-
-                    <div class="">
-                        <table id="tableStyle">
-                            <tr>
-                                <th>Student Index</th>
-                                <th>Student Name</th>
-                            </tr>
-
-                            <?php echo $_SESSION['nominated_stu']; ?>
-                        </table>
-                    </div>
-                    
-                    <form action="../../controller/rvControllers/mahapolaNominatedListC1.php" method="POST">
-                        <button class="subbtn" type="submit" name="display-list" >View Another</button></a>
-                        <button type="submit" class="cancelbtn">
-                            <a href="rvHomeV.php">Exit</a>
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
