@@ -186,7 +186,7 @@
         }
     }
 
-    else if(isset($_POST['getMonthlySessionDetails-submit'])) {
+    elseif(isset($_POST['getMonthlySessionDetails-submit'])) {
         $degree_name = $_POST['degree_name'];
         $subject_name = $_POST['subject_name'];
         $calendarYear = $_POST['calendarYear'];
@@ -236,6 +236,7 @@
         }
         else {
             header('Location:../../view/admin/aSystemFailedV.php');
+        }
     }
 
     elseif(isset($_POST['updateMonthlySession-submit'])) {
