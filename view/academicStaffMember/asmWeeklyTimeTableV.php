@@ -28,9 +28,8 @@
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
+                        <th>Subject</th>
                         <th>Hall Name</th>
-                        <th>Semester</th>
-                        <th>Academic Year</th>
                     </tr>
 
                     <?php echo $_SESSION['time_table'] ?>

@@ -75,7 +75,7 @@
         
         public static function designation($connect)
 		{
-			$query = "SELECT designation_name FROM tbl_designation WHERE is_deleted=0";
+			$query = "SELECT * FROM tbl_designation WHERE is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 			
