@@ -36,18 +36,22 @@
                     </form>
                 </ul>
             </li>
+            <form action="../../controller/rvControllers/mahapolaNominatedListC1.php" method="POST">
+                <li>
+                    <a href="">    
+                        <button type="submit" class="tree_list" name="view-nom-degree-list">View Mahapola Nominated Student List</button>
+                    </a>
+                </li>
+            </form>
 
-            <li>
-                <a href="../../controller/rvControllers/mahapolaNominatedListC1.php">
-                    <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
-                </a>
-            </li>
-
-            <li>
-                <a href="rvViewReportsMahapolaSchemeV.php">
-                    <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
-                </a>
-            </li>
+            <form action="rvViewReportsMahapolaSchemeV.php" method="POST">
+                <li>
+                    <a href="">    
+                        <button type="submit" class="tree_list" name="view-mahapola-report">View Reports in Mahapola Scheme</button>
+                    </a>
+                </li>
+            </form>
+            
             <li>
                 <a href="../../controller/rvControllers/rvviewMedicalMemberListC.php">
                     <button type="submit" class="tree_list">View Member list of Medical Scheme</button>
@@ -56,15 +60,15 @@
 
             <li><button class="tree_list">View Claim Details</button>
                 <ul class="tree_nest">
-                    <form action="../../controller/rvControllers/rvViewClaimDetailsC.php" method="post">
-                        <button name="membershipform-submit" type="submit">
-                            <a href="../../controller/rvControllers/membClaimDetailsControllerOne.php"><li><i class="fa fa-plus-circle"></i>Member wise claim details</li></a>
+                    <form action="../../controller/rvControllers/viewClaimDetailsController.php" method="post">
+                        <button name="memberwise-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i>Member wise claim details</li></a>
                         </button>
-                        <button name="requestedclaim-submit" type="submit">
-                            <a href="../../controller/rvControllers/deptClaimDetailsControllerOne.php"><li><i class="fa fa-pencil-square-o"></i>Department wise claim details</li></a>
+                        <button name="departmentwise-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-pencil-square-o"></i>Department wise claim details</li></a>
                         </button>
-                        <button name="refferedclaim-submit" type="submit">
-                            <a href="../../controller/rvControllers/ucscClaimDetailsControllerOne.php"><li><i class="fa fa-minus-circle"></i>UCSC claim details</li></a>
+                        <button name="ucsc-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-minus-circle"></i>UCSC claim details</li></a>
                         </button>
                     </form>
                 </ul>

@@ -24,14 +24,15 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/rvControllers/mahapolaNominatedListC2.php" method="POST">
+                    <form action="../../controller/rvControllers/mahapolaNominatedListC1.php" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Batch No</label>
                                 </div>
                                 <div class="col-75">
                                     <select name="batch_no" id="batch_no" required>
-                                        <option value=""><?php echo $_SESSION['batchNumber'] ?></option>
+                                        <option value="">Select Batch</option>
+                                        <?php echo $_SESSION['batch_number'] ?>
                                     </select>
                                 </div>
                             </div>
@@ -42,12 +43,13 @@
                                 </div>
                                 <div class="col-75">
                                     <select name="degree" id="degree" required>
-                                        <option value=""><?php echo $_SESSION['degree'] ?></option>
+                                        <option value="">Select Degree</option>
+                                        <?php echo $_SESSION['degree'] ?>
                                     </select>
                                 </div>
                             </div>
 
-                        <button class="subbtn" type="submit" name="display-list" >Display Student List</button></a>    
+                        <button class="subbtn" type="submit" name="display-nom-list" >Display Student List</button></a>    
                         <button type="submit" class="cancelbtn">
                             <a href="rvHomeV.php">Cancel</a>
                         </button>
