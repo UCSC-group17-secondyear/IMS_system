@@ -3,18 +3,17 @@
 ?>
 
 <main>
+    <title>View Semester-wise Attendance</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-        <li><a href="amSemesterWiseAttendanceV.php">Get Semester-wise Attendance</a></li>
-        <li class="active">Semester-wise Attendance</li>
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li class="active">View Semester-wise Attendance</li>
         </ul>
-
-        <div class="row" style="margin-bottom: 4%;" >
+        <div class="row">
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'rvSideNavV.php';
                 ?>
             </div>
 
@@ -42,6 +41,7 @@
                                 <input type="number" name="month" disabled <?php echo 'value="'.$_SESSION['semester'].'"' ?> /><br>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-25">
                                 <label>Total Number of days</label>
@@ -73,16 +73,13 @@
                 </table>
 
                 <button class="subbtn">
-                    <a href="amSemesterWiseAttendanceV.php">View another semester-wise attendance</a>
+                    <a href="rvSemesterWiseAttendanceV.php">View another semester-wise attendance</a>
                 </button>
                 <button class="cancelbtn" type="submit" name="cancel-submit">
-                    <a href="amHomeV.php">Cancel</a> 
+                    <a href="rvHomeV.php">Cancel</a> 
                 </button>
+            </div>
             </div>
         </div>
     </div>
 </main>
-
-<?php
-    require '../basic/footer.php';
-?>
