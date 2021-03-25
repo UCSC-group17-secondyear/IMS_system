@@ -48,7 +48,7 @@
                             <a href="#"><li><i class="fa fa-plus-circle"></i> Membership Form</li></a>
                         </button>
                         <button name="refferedclaim-submit" type="submit">
-                            <a href="#" ><li><i class="fa fa-minus-circle"></i> Reffered Claim Form</li></a></button>
+                            <a href="#" ><li><i class="fa fa-minus-circle"></i> Reffered Claim Form</li></a>
                         </button>
                         <button name="requestedclaim-submit" type="submit">
                             <a href="#" ><li><i class="fa fa-pencil-square-o"></i> Requested Claim Form</li></a>

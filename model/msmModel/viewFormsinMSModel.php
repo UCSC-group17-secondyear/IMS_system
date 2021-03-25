@@ -64,7 +64,7 @@
 
         public static function checkWhetherOpd($claim_form_no, $connect)
         {
-			$query = "SELECT cf.*, d.* FROM tbl_claimform cf, tbl_dependant d WHERE d.dependant_id = cf.dependant_id AND claim_form_no={$claim_form_no} AND opd_form_flag= 1 LIMIT 1";
+			$query = "SELECT cf.*, u.* FROM tbl_claimform cf, users u WHERE u.userId = cf.user_id AND claim_form_no={$claim_form_no} AND opd_form_flag= 1 LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
@@ -73,16 +73,16 @@
 
 		public static function checkWhetherSurgical($claim_form_no, $connect)
         {
-			$query = "SELECT cf.*, d.* FROM tbl_claimform cf, tbl_dependant d WHERE d.dependant_id = cf.dependant_id AND claim_form_no={$claim_form_no} AND surgical_form_flag= 1 LIMIT 1";
+			$query = "SELECT cf.*, u.* FROM tbl_claimform cf, users u WHERE u.userId = cf.user_id AND claim_form_no={$claim_form_no} AND opd_form_flag= 0 LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
 			return $result;
         }
 
-        public static function getMemberName($user_id,$connect )
+        public static function getDependantDetails($dependant_id, $connect)
         {
-            $query = "SELECT initials, sname FROM users WHERE userId='{$user_id}' LIMIT 1";
+            $query = "SELECT * FROM tbl_dependant WHERE dependant_id='{$dependant_id}' LIMIT 1";
 
             $result = mysqli_query($connect, $query);
 
@@ -91,7 +91,7 @@
 
         public static function getToBePaidClaimForms($connect)
 		{
-            $query = "SELECT u.*, cf.*, d.* FROM tbl_claimform cf, users u, tbl_dependant d WHERE d.dependant_id = cf.dependant_id AND cf.user_id = u.userId AND acceptance_status='1' AND paid_status='2' ORDER BY submitted_date DESC";
+            $query = "SELECT u.*, cf.* FROM tbl_claimform cf, users u WHERE cf.user_id = u.userId AND acceptance_status='1' AND paid_status='2' ORDER BY submitted_date DESC";
 
             $result = mysqli_query($connect, $query);
 
@@ -134,7 +134,8 @@
             return $result;
         }
         
-        public static function updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect){
+        public static function updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect)
+        {
             $query = "UPDATE tbl_claimform SET msm_comment='{$msm_comment}', paid_status=0 WHERE claim_form_no=$claim_form_no AND user_id=$user_id LIMIT 1";
 
             $result = mysqli_query($connect, $query);
