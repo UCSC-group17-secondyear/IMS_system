@@ -3,24 +3,24 @@
 ?>
 
 <main>
+    <title>View Subject-wise Attendance</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-        <li><a href="amBatchWiseAttendanceV.php">Batch-wise Attendance</a></li>
-        <li class="active">Batch-wise Attendance Results</li>
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li><a href="rvSubjectWiseAttendanceV.php">View Subject-wise Attendance</a></li>
+            <li class="active">Subject-wise Attendance</li>
         </ul>
-
-        <div class="row" style="margin-bottom: 4%;" >
+        <div class="row">
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'rvSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div>
-                    <h2>Batch-wise Attendance</h2>
+                    <h2>View Subject-wise Attendance</h2>
                 </div>
 
                 <div class="contentForm">
@@ -40,6 +40,15 @@
                             </div>
                             <div class="col-75">
                                 <input type="text" name="sessionType" disabled <?php echo 'value="'.$_SESSION['sessionType'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Degree the subject belongs</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="degree_name" disabled <?php echo 'value="'.$_SESSION['degree_name'].'"' ?> /><br>
                             </div>
                         </div>
 
@@ -72,7 +81,7 @@
 
                         <div class="row">
                             <div class="col-25">
-                                <label>Number of students</label>
+                                <label>Total number of students</label>
                             </div>
                             <div class="col-75">
                                 <input type="number" name="stdCount" disabled <?php echo 'value="'.$_SESSION['stdCount'].'"' ?> /><br>
@@ -81,25 +90,21 @@
 
                         <div class="row">
                             <div class="col-25">
-                                <label>Number of days</label>
+                                <label>Total number of days</label>
                             </div>
                             <div class="col-75">
-                                <input type="number" name="numOfDays" disabled <?php echo 'value="'.$_SESSION['numOfDays'].'"' ?> /><br>
+                                <input type="number" name="totSubDays" disabled <?php echo 'value="'.$_SESSION['totSubDays'].'"' ?> /><br>
                             </div>
                         </div>
 
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col-25">
-                                <label>Attendance Percentage</label>
+                                <label>The attendance percentage</label>
                             </div>
                             <div class="col-75">
-                                <input type="number" name="attendPercentage" disabled  -->
-                                <?php 
-                                   /* echo 'value="'.$_SESSION['attendPercentage'].'"' */
-                                ?> 
-                                <!-- /><br>
+                                <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
                             </div>
-                        </div> -->
+                        </div>
                     </form>
                 </div>
 
@@ -108,20 +113,16 @@
                         <th>Student Index</th>
                         <th>Attendance</th>
                     </tr>
-                    <?php echo $_SESSION['batchWise_attendance']; ?>
+                    <?php echo $_SESSION['subWise_attendance']; ?>
                 </table>
 
                 <button class="subbtn">
-                    <a href="amBatchWiseAttendanceV.php">View another batch-wise attendance</a>
+                    <a href="rvSubjectWiseAttendanceV.php">View another subject-wise attendance</a>
                 </button>
                 <button class="cancelbtn" type="submit" name="cancel-submit">
-                    <a href="amHomeV.php">Cancel</a> 
+                    <a href="rvHomeV.php">Cancel</a> 
                 </button>
             </div>
         </div>
     </div>
 </main>
-
-<?php
-    require '../basic/footer.php';
-?>

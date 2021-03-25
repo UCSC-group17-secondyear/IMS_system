@@ -23,74 +23,42 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
+                    <form action="../../controller/rvControllers/rvViewAttendanceC.php" method="post">
                     <div class="row">
-                    <form action="rvStudentWiseAttendanceV.php" method="post">
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Academic Year</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="academic_year" placeholder="Academic Year"/>
-                            </div>
+                        <div class="col-25">
+                            <label>Enter Degree</label>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Degree</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="degree" placeholder="Degree"/>
-                            </div>
+                        <div class="col-75">
+                            <select name="degree_name">
+                                <?php echo $_SESSION['degreeList']; ?>
+                            </select>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Calander Year</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="number" name="calander_year" placeholder="Calander Year" required />
-                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select Academic Year</label>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Semester</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="semester" placeholder="Semester"/>
-                            </div>
+                        <div class="col-75">
+                            <input type="number" name="academic_year" placeholder="Academic Year" min="1" max="4" required/> <br>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Subject</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="subject" placeholder="Subject"/>
-                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select Semester</label>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Start Date</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="date" name="start_date" placeholder="Start Date"/>
-                            </div>
+                        <div class="col-75">
+                            <input type="number" name="semester" placeholder="Semester" min="1" max="2" required/> <br>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter End Date</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="date" name="end_date" placeholder="End Date"/>
-                            </div>
-                        </div>
-                    </form>
-                    <form>
-                        <button class="subbtn" type="submit" name="select-submit">
-                            <a href="#">Display Attendance</a>
-                        </button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="rvHomeV.php">Cancel</a>
-                        </button>
-                    </form>
+                    </div>
+
+                    <button class="subbtn" type="submit" name="filterSubjects-submit">Display Subjects
+                    </button>
+                    <button class="cancelbtn" type="submit" name="cancel-submit">
+                        <a href="rvHomeV.php">Cancel</a> 
+                    </button>
+                </form>
                 </div>
             </div>
         </div>

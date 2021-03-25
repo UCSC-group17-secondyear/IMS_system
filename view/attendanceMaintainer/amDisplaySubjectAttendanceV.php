@@ -121,8 +121,8 @@
                     <a href="amSubjectWiseAttendanceV.php">View another subject-wise attendance</a>
                 </button>
                 <button class="cancelbtn" type="submit" name="cancel-submit">
-                        <a href="amHomeV.php">Cancel</a> 
-                    </button>
+                    <a href="amHomeV.php">Cancel</a> 
+                </button>
             </div>
         </div>
     </div>

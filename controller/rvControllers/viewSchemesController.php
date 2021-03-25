@@ -22,9 +22,8 @@
             $_SESSION['scheme_list'] .= "<td>{$record['contractStaff']} months</td>";
             $_SESSION['scheme_list'] .= "<td>{$record['temporaryStaff']} months</td>";
             $_SESSION['scheme_list'] .= "</tr>";
-
-            header('Location:../../view/reportViewer/rvViewSchemeDetailsV.php');
         }
+        header('Location:../../view/reportViewer/rvViewSchemeDetailsV.php');
     }
     else {
         header('Location:../../view/reportViewer/rvNoSchemsV.php');

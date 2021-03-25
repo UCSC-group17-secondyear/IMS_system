@@ -18,16 +18,23 @@
                             </a>
                         </button>
                     </form>
+                    
+                    <form action="../../controller/rvControllers/rvViewAttendanceC.php" method="post">
+                        <button name="fetchSubjects-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Subject Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
 
-                    <button>
-                        <a href="rvMonthWiseAttendanceV.php"><li><i class="fa fa-minus-circle"></i>View Attendance Month Wise</li></a></button>
-                    </button>
-                    <button>
-                        <a href="rvSubjectWiseAttendanceV.php"><li><i class="fa fa-pencil-square-o"></i>View Attendance Subject Wise</li></a>
-                    </button>
-                    <button>
-                        <a href="rvBatchWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Batch Wise</li></a>
-                    </button>
+                    <form action="../../controller/rvControllers/rvViewAttendanceC.php" method="post">
+                        <button name="getDegrees-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Batch Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+                    
                     <button>
                         <a href="rvSemesterWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Semester Wise</li></a>
                     </button>
@@ -88,7 +95,7 @@
             </li>
 
             <li>
-                <a href="../../controller/rvControllers/rvviewSchemesController.php">
+                <a href="../../controller/rvControllers/viewSchemesController.php">
                     <button type="submit" class="tree_list">View Medical Scheme Details</button>
                 </a>
             </li>
