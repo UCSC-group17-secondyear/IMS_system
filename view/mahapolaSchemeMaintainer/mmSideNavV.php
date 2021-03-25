@@ -1,26 +1,27 @@
 <main>
      <div class="sansserif">
         <ul id="tree_view">
-            <li><button class="tree_list">Mark Mahapola Selected Students</button>
-                <ul class="tree_nest">
-                    <button>
-                        <a href="mmMarkMahapolaStudentsIndexV.php"><li><i class="fa fa-pencil-square-o"></i>Search By Index Number</li></a>
-                    </button>
-                    <button>
-                        <a href="mmMarkMahapolaStudentsNameV.php"><li><i class="fa fa-pencil-square-o"></i>Search By Student Name</li></a>
-                    </button>
-                </ul>
-            </li>
-            <li>
-                <a href="../../controller/mmControllers/mahapolaNominatedListControllerOne.php">    
-                    <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
-                </a>
-            </li>
-            <li>
-                <a href="../../controller/mmControllers/mahapolaListControllerOne.php">    
-                    <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
-                </a>
-            </li>
+            <form action="../../controller/mmControllers/markMahapolaController.php" method="POST">
+                <li>
+                    <a href="">    
+                        <button type="submit" class="tree_list" name="view-degree-list">Mark Mahapola Selected Students</button>
+                    </a>
+                </li>
+            </form>
+            <form action="../../controller/mmControllers/mahapolaNominatedListController.php" method="POST">
+                <li>
+                    <a href="">    
+                        <button type="submit" class="tree_list" name="view-nom-degree-list">View Mahapola Nominated Student List</button>
+                    </a>
+                </li>
+            </form>
+            <form action="../../controller/mmControllers/mahapolaListController.php" method="POST">
+                <li>
+                    <a href="">    
+                        <button type="submit" class="tree_list" name="view-mahapola-report">View Reports in Mahapola Scheme</button>
+                    </a>
+                </li>
+            </form>
             <li><button class="tree_list">View Student Attendance Reports</button>
                 <ul class="tree_nest">
                     <button>

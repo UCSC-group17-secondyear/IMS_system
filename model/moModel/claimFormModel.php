@@ -35,8 +35,8 @@
 			
         }
 
-        public static function acceptReqClaimForm($claim_form_no, $revised_amount, $connect){
-            $query = "UPDATE tbl_claimform SET acceptance_status='1',revised_bill_amount='{$revised_amount}' WHERE claim_form_no='{$claim_form_no}'";
+        public static function acceptReqClaimForm($claim_form_no, $revised_amount,$mo_comment, $connect){
+            $query = "UPDATE tbl_claimform SET acceptance_status='1',revised_bill_amount='{$revised_amount}',mo_comment='{$mo_comment}' WHERE claim_form_no='{$claim_form_no}'";
             
             $result = mysqli_query($connect, $query);
 
@@ -74,6 +74,14 @@
 
             return $result;
         }
+
+        public static function getDependPatientName($user_id,$dependant_id,$connect){
+			$query = "SELECT * FROM tbl_dependant WHERE dependant_id={$dependant_id} AND user_id={$user_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
     }
     
 ?>

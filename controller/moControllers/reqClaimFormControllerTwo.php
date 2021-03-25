@@ -16,12 +16,20 @@
         $mem_name = claimFormModel::getMemberName($user_id,$connect );
         $name = mysqli_fetch_array($mem_name);
 
-        //$_SESSION['opd_flag'] = 1;
         $_SESSION['mem_initials'] = $name[0];
         $_SESSION['mem_sname'] = $name[1];
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-        $_SESSION['patient_name'] = $result_one['patient_name'];
-        $_SESSION['relationship'] = $result_one['relationship'];
+        
+        if($result_one['dependant_id'] == NULL){
+            $_SESSION['patient_name'] = $name[0]." ".$name[1];
+        }
+        elseif($result_one['dependant_id'] > 0){
+            $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
+            $depend = mysqli_fetch_assoc($d_name);
+            $_SESSION['patient_name'] = $depend['dependant_name'];
+
+        }
+
         $_SESSION['doctor_name'] = $result_one['doctor_name'];
         $_SESSION['treatment_received_date'] = $result_one['treatment_received_date'];
         $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
@@ -44,8 +52,17 @@
         $_SESSION['mem_initials'] = $name[0];
         $_SESSION['mem_sname'] = $name[1];
         $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-        $_SESSION['patient_name'] = $result_one['patient_name'];
-        $_SESSION['relationship'] = $result_one['relationship'];
+        
+        if($result_one['dependant_id'] == NULL){
+            $_SESSION['patient_name'] = $name[0]." ".$name[1];
+        }
+        elseif($result_one['dependant_id'] > 0){
+            $d_name = claimFormModel::getDependPatientName($user_id,$result_one['dependant_id'],$connect);
+            $depend = mysqli_fetch_assoc($d_name);
+            $_SESSION['patient_name'] = $depend['dependant_name'];
+
+        }
+
         $_SESSION['accident_date'] = $result_one['accident_date'];
         $_SESSION['how_occured'] = $result_one['how_occured'];
         $_SESSION['injuries'] = $result_one['injuries'];

@@ -7,6 +7,7 @@
         <div class="sansserif">
             <ul class="breadcrumbs">
                 <li><a href="mmHomeV.php">Home</a></li>
+                <li><a href="../../controller/mmControllers/mahapolaNominatedListController.php?btn=31">View Another List</a></li>
                 <li class="active">Mahapola Nominated List</li>
             </ul>
         
@@ -23,37 +24,36 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="" method="post">
+                        <form action="../../controller/mmControllers/mahapolaNominatedListController.php" method="post">
                         
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Enter Student Index</label>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Enter Student Index</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Student..." name="nominated_stu" >
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Student..." name="nominated_stu" required>
+
+                            <div class="">
+                                <table id="tableStyle">
+                                    <tr>
+                                        <th>Index No</th>
+                                        <th>Registration No</th>
+                                        <th>Name</th>
+                                        <th>Mahapola Scheme</th>
+                                    </tr>
+
+                                    <?php echo $_SESSION['nominated_stu']; ?>
+                                </table>
                             </div>
-                        </div>
-                            <!-- <button class="mainbtn" formaction="../../controller/claimFormReferenceController.php?user_id=<?php echo $_SESSION['userId'] ?>" type="submit" name="claim_form_no-submit">Display Form</button> -->
+
+                            <button class="subbtn" type="submit" name="view-nom-degree-list" >View Another</button></a>
+                            <button type="submit" class="cancelbtn">
+                                <a href="mmHomeV.php">Exit</a>
+                            </button>
                         </form>
                     </div>
-
-                    <div class="">
-                        <table id="tableStyle">
-                            <tr>
-                                <th>Student Index</th>
-                                <th>Student Name</th>
-                            </tr>
-
-                            <?php echo $_SESSION['nominated_stu']; ?>
-                        </table>
-                    </div>
-                    
-                    <form action="../../controller/mmControllers/mahapolaNominatedListControllerOne.php" method="POST">
-                        <button class="subbtn" type="submit" name="display-list" >View Another</button></a>
-                        <button type="submit" class="cancelbtn">
-                            <a href="mmHomeV.php">Exit</a>
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>

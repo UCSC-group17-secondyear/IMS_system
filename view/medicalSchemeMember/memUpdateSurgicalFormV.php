@@ -56,11 +56,11 @@
                                 <div class="col-75">
                                     <select name="relationship" required>
                                         <option value="<?php echo $_SESSION['relationship'] ?>"><?php echo $_SESSION['relationship'] ?></option>
-                                        <option value="myself">Myself</option>
-                                        <option value="husband">Husband</option>
-                                        <option value="wife">Wife</option>
-                                        <option value="daughter">Daughter</option>
-                                        <option value="son">Son</option>
+                                        <option value="Myself">Myself</option>
+                                        <option value="Husband">Husband</option>
+                                        <option value="Wife">Wife</option>
+                                        <option value="Daughter">Daughter</option>
+                                        <option value="Son">Son</option>
                                     </select>
                                 </div>
                             </div>

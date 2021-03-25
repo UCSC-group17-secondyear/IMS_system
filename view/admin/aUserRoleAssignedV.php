@@ -5,30 +5,30 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <<li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or update attendance</a></li>
-            <li class="active">Action Success!</li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aAssignUserRoleV.php">Assign a user role</a></li>
+            <li class="active">Request Fulfilled!</li>
         </ul>
 
-        <div class="row" style="margin-bottom: 4%;" >
+        <div class="row">
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'aSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The attendance is updated successfully.
+                        <h2>The user-role is assgined to the given user successfully.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amEnterUpdateAttendaceSelectV.php">Update another attendance</a> 
+                        <a href="aAssignUserRoleV.php">Assign another user role</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Exit</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

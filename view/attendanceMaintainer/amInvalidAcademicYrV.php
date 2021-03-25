@@ -6,8 +6,8 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amDeleteAttendaceSearchV.php">Delete attendance</a></li>
-            <li class="active">Action Failed!</li>
+            <li><a href="amDeleteUpdateSubjectSearch.php">Update or Delete Subjects</a></li>
+            <li class="active">Request Denied!</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;" >
@@ -20,13 +20,12 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            The attendance is not deleted.
+                        <h2>Please note that academic year has to be a number from 1 to 4. Thank you!
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amDeleteAttendaceSearchV.php">Try again</a> 
+                        <a href="amDeleteUpdateSubjectSearch.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

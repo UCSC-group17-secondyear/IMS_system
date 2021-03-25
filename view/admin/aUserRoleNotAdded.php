@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li><a href="aAddNewUserRoleV.php">Add User role</a></li>
-            <li class="active">Action Failed!</li>
+            <li class="active">Request Denied!</li>
         </ul>
 
         <div class="row">
