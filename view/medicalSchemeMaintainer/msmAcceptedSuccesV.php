@@ -25,12 +25,14 @@
                         <h2>The Membership is accepted successfully!</h2>
                     </div>
 
-                    <button class="subbtn" type="submit">
-                        <a href="msmViewMembershipFormsV.php">Accept another</a>
-                    </button>
-                    <button class="cancelbtn" type="submit">
-                        <a href="msmHomeV.php">Exit</a>
-                    </button>
+                    <form action="../../controller/msmControllers/msmViewFormsC.php" method="post">
+                        <button class="subbtn" name="membershipform-submit" type="submit">
+                            <a href="#">Accept another</a>
+                        </button>
+                        <button class="cancelbtn" type="submit">
+                            <a href="msmHomeV.php">Exit</a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

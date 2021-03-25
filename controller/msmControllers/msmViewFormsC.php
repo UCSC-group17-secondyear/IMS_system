@@ -16,7 +16,7 @@
                 $_SESSION['memberships'] .= "<td>{$mem['sname']}</td>";
                 $_SESSION['memberships'] .= "<td>{$mem['department']}</td>";
                 $_SESSION['memberships'] .= "<td>{$mem['healthcondition']}</td>";
-                if($mem['civilstatus'] == 1){
+                if($mem['married'] == 1){
                     $_SESSION['memberships'] .= "<td>Married</td>";
                 } else {
                     $_SESSION['memberships'] .= "<td>Single</td>";   
@@ -29,9 +29,9 @@
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"yellow\">Unchecked</a></td>";
                 }
-                if($mem['membershiform_paid'] == 1){
+                if($mem['membership_status'] == 1){
                     $_SESSION['memberships'] .= "<td><a class=\"green\">Approved</a></td>";
-                } else if($mem['membershiform_paid'] == 0){
+                } else if($mem['membership_status'] == 0){
                     $_SESSION['memberships'] .= "<td><a class=\"red\">Declined</a></td>";
                 } else {
                     $_SESSION['memberships'] .= "<td><a class=\"yellow\">Unchecked</a></td>";
@@ -65,7 +65,7 @@
             $_SESSION['fr_scheme'] = $md['schemeName'];
             $_SESSION['fr_form_submission_date'] = $md['form_submission_date'];
             $_SESSION['fr_acceptance_status'] = $md['acceptance_status'];
-            $_SESSION['fr_membershiform_paid'] = $md['membershiform_paid'];
+            $_SESSION['fr_membership_status'] = $md['membershiform_paid'];
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewMemberDetailsV.php');
         }
@@ -75,6 +75,10 @@
         $viewed_member = mysqli_real_escape_string($connect, $_GET['viewed_member']);
         $member_email = msmModel::getmail($viewed_member, $connect);
 
+        $me = mysqli_fetch_array($member_email);
+
+
+        echo $viewed_member;
         if (isset($_POST['approvemf-submit'])) {
 
             $result = msmModel::requestaccept($viewed_member, $connect);
@@ -86,7 +90,7 @@
                 $headers = "From: ims.ucsc@gmail.com";
 
                 $sendMail = mail($to_email, $subject, $body, $headers);
-                
+                echo "Done";
                 header('Location:../../view/medicalSchemeMaintainer/msmAcceptedSuccesV.php');
             }
 
@@ -102,7 +106,7 @@
 
                 $sendMail = mail($to_email, $subject, $body, $headers);
                 
-                header('Location:../../view/medicalSchemeMaintainer/msmDeclinedSuccesV.php');
+                // header('Location:../../view/medicalSchemeMaintainer/msmDeclinedSuccesV.php');
             }
             
         } 
@@ -148,15 +152,24 @@
         if(mysqli_num_rows($result_opd)==1){
                     
             $result_form = mysqli_fetch_assoc($result_opd);
-            $user_id = $result_form['user_id'];
-            $mem_name = msmModel::getMemberName($user_id, $connect);
-            $name = mysqli_fetch_array($mem_name);
+            $dependant_details = msmModel::getDependantDetails($result_form['dependant_id'], $connect);
 
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
+            $user_id = $result_form['user_id'];
+
+            if ($result_form['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_form['initials']." ".$result_form['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_form['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
+
+            $_SESSION['mem_initials'] = $result_form['initials'];
+            $_SESSION['mem_sname'] = $result_form['sname'];
             $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
             $_SESSION['doctor_name'] = $result_form['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
@@ -171,15 +184,24 @@
         if(mysqli_num_rows($result_surgical)==1){
             
             $result_form = mysqli_fetch_assoc($result_surgical);
-            $user_id = $result_form['user_id'];
-            $mem_name = msmModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+            $dependant_details = msmModel::getDependantDetails($result_form['dependant_id'], $connect);
 
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
+            $user_id = $result_form['user_id'];
+
+            if ($result_form['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_form['initials']." ".$result_form['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_form['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
+
+            $_SESSION['mem_initials'] = $result_form['initials'];
+            $_SESSION['mem_sname'] = $result_form['sname'];
             $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
             $_SESSION['accident_date'] = $result_form['accident_date'];
             $_SESSION['how_occured'] = $result_form['how_occured'];
             $_SESSION['injuries'] = $result_form['injuries'];
@@ -244,9 +266,9 @@
         if(mysqli_num_rows($result_opd)==1){
                     
             $result_form = mysqli_fetch_assoc($result_opd);
+            $dependant_details = msmModel::getDependantDetails($result_form['dependant_id'], $connect);
+
             $user_id = $result_form['user_id'];
-            $mem_name = msmModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
 
             //check medical year relavant to form
             $bill_issused_date = $result_form['bill_issued_date'];
@@ -280,13 +302,22 @@
                 $_SESSION['msm_comment'] = "Member hasn't registerd for this medical year";
             }
 
+            if ($result_form['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_form['initials']." ".$result_form['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_form['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
+
             $_SESSION['form_no'] = $claim_form_no;
             $_SESSION['user_id'] = $user_id;
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['mem_initials'] = $result_form['initials'];
+            $_SESSION['mem_sname'] = $result_form['sname'];
             $_SESSION['claim_form_no'] = $claim_form_no;
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
             $_SESSION['doctor_name'] = $result_form['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
@@ -302,9 +333,9 @@
         if(mysqli_num_rows($result_surgical)==1){
             
             $result_form = mysqli_fetch_assoc($result_surgical);
+            $dependant_details = msmModel::getDependantDetails($result_form['dependant_id'], $connect);
+
             $user_id = $result_form['user_id'];
-            $mem_name = msmModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
 
             //check medical year relavant to form
             $hospitalized_date = $result_form['hospitalized_date'];
@@ -326,30 +357,38 @@
             //get mem claim details
             $check_has_claim_det = msmModel::getMembClaimDetails($user_id, $medical_year, $connect);
 
-            if(mysqli_num_rows($check_has_claim_det) == 1){
-
+            if (mysqli_num_rows($check_has_claim_det) == 1) {
+                
                 $result = mysqli_fetch_assoc($check_has_claim_det);
-
                 $_SESSION['medical_year'] = $medical_year;
                 $_SESSION['used_amount'] = $result['used_amount'];
                 $_SESSION['remain_amount'] = $result['remain_amount'];
                 $_SESSION['msm_comment'] = "";
 
-            }
-            if(mysqli_num_rows($check_has_claim_det) == 0){
+            } elseif (mysqli_num_rows($check_has_claim_det) == 0) {
 
                 $_SESSION['medical_year'] = $medical_year;
                 $_SESSION['remain_amount'] = "-";
                 $_SESSION['msm_comment'] = "Member hasn't registerd to this medical year";
+
+            }
+
+            if ($result_form['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_form['initials']." ".$result_form['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_form['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
             }
 
             $_SESSION['form_no'] = $claim_form_no;
             $_SESSION['user_id'] = $user_id;
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['mem_initials'] = $result_form['initials'];
+            $_SESSION['mem_sname'] = $result_form['sname'];
             $_SESSION['claim_form_no'] = $claim_form_no;
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
             $_SESSION['accident_date'] = $result_form['accident_date'];
             $_SESSION['how_occured'] = $result_form['how_occured'];
             $_SESSION['injuries'] = $result_form['injuries'];
@@ -419,7 +458,7 @@
             $result_form = msmModel::updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect);
 
             if($result_form){
-                // header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+                header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
             }
         }
 
@@ -468,17 +507,25 @@
         if (mysqli_num_rows($result_opd) == 1) {
 
             $result_form = mysqli_fetch_assoc($result_opd);
+            $dependant_details = msmModel::getDependantDetails($result_form['dependant_id'], $connect);
 
             $user_id = $result_form['user_id'];
-            $mem_name = msmModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+
+            if ($result_form['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_form['initials']." ".$result_form['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_form['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
 
             $_SESSION['claim_form_no'] = $claim_form_no;
             $_SESSION['user_id'] = $user_id;
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
+            $_SESSION['mem_initials'] = $result_form['initials'];
+            $_SESSION['mem_sname'] = $result_form['sname'];
             $_SESSION['doctor_name'] = $result_form['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
@@ -495,18 +542,27 @@
         } elseif (mysqli_num_rows($result_surgical) == 1) {
 
             $result_form = mysqli_fetch_assoc($result_surgical);
+            $dependant_details = msmModel::getDependantDetails($result_form['dependant_id'], $connect);
+
 
             $user_id = $result_form['user_id'];
-            $mem_name = msmModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+
+            if ($result_form['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_form['initials']." ".$result_form['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_form['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
 
             $_SESSION['form_no'] = $claim_form_no;
             $_SESSION['user_id'] = $user_id;
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
+            $_SESSION['mem_initials'] = $result_form['initials'];
+            $_SESSION['mem_sname'] = $result_form['sname'];
             $_SESSION['claim_form_no'] = $claim_form_no;
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
             $_SESSION['accident_date'] = $result_form['accident_date'];
             $_SESSION['how_occured'] = $result_form['how_occured'];
             $_SESSION['injuries'] = $result_form['injuries'];
@@ -568,6 +624,7 @@
         $claim_form_no = mysqli_real_escape_string($connect, $_GET['reject_form_no']);
         $result_opd = msmModel::checkWhetherOpd($claim_form_no,$connect);
         $result_surgical = msmModel::checkWhetherSurgical($claim_form_no,$connect);
+        
         $_SESSION['opd'] = mysqli_num_rows($result_opd);
         $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
         $_SESSION['form_acceptance'] = '';
@@ -575,15 +632,24 @@
         if (mysqli_num_rows($result_opd) == 1) {
                     
             $result_form = mysqli_fetch_assoc($result_opd);
-            $user_id = $result_form['user_id'];
-            $mem_name = msmModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+            $dependant_details = msmModel::getDependantDetails($result_form['dependant_id'], $connect);
 
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
+            $user_id = $result_form['user_id'];
+
+            if ($result_form['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_form['initials']." ".$result_form['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_form['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
+
+            $_SESSION['mem_initials'] = $result_form['initials'];
+            $_SESSION['mem_sname'] = $result_form['sname'];
             $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
             $_SESSION['doctor_name'] = $result_form['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_form['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_form['bill_issued_date'];
@@ -596,15 +662,24 @@
         } else {
             
             $result_form = mysqli_fetch_assoc($result_surgical);
-            $user_id = $result_form['user_id'];
-            $mem_name = msmModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+            $dependant_details = msmModel::getDependantDetails($result_form['dependant_id'], $connect);
 
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
+            $user_id = $result_form['user_id'];
+
+            if ($result_form['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_form['initials']." ".$result_form['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_form['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
+
+            $_SESSION['mem_initials'] = $result_form['initials'];
+            $_SESSION['mem_sname'] = $result_form['sname'];
             $_SESSION['claim_form_no'] = $result_form['claim_form_no'];
-            $_SESSION['patient_name'] = $result_form['dependant_name'];
-            $_SESSION['relationship'] = $result_form['relationship'];
             $_SESSION['accident_date'] = $result_form['accident_date'];
             $_SESSION['how_occured'] = $result_form['how_occured'];
             $_SESSION['injuries'] = $result_form['injuries'];

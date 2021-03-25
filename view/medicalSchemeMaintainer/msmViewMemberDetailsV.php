@@ -129,47 +129,47 @@
                             ?>
                             </div>
                         </div>
-                    <?php if($_SESSION['fr_acceptance_status'] != 2) { ?>
-                        <?php if($_SESSION['fr_membership_status'] != 1) { ?>
-                            <button class="subbtn" type="submit" name="approvemf-submit">Approve</button>
-                            <button type="submit" class="cancelbtn" name="declinemf-submit">Decline</button>
-                        <?php } else { ?>
-                            <div class="row">
-                                <div class="col-25">
-                                    <label>Membership Status</label>
-                                </div>
-                                <div class="col-75">
-                                <?php
-                                    if($_SESSION['fr_membership_status'] == 0){
-                                ?>
-                                    <button type="submit" class="redbtn" disabled><a class="disabled">Declined</a></button>
-                                <?php
-                                    } else {
-                                ?>
-                                    <button type="submit" class="greenbtn" disabled><a class="disabled">Approved</a></button>
-                                <?php
-                                    }
-                                ?>
-                                </div>
-                            </div>
-                            <button class="subbtn" type="submit">
-                                <a href="msmViewMembershipFormsV.php">View Another Member</a>
-                            </button>
-                            <button type="submit" class="cancelbtn">
-                                <a href="msmHomeV.php">Exit</a>
-                            </button>
-                        </form>
-                        <?php }?>
+                <?php if($_SESSION['fr_acceptance_status'] != 2) { ?>
+                    <?php if($_SESSION['fr_membership_status'] != 1) { ?>
+                        <button class="subbtn" type="submit" name="approvemf-submit">Approve</button>
+                        <button type="submit" class="cancelbtn" name="declinemf-submit">Decline</button>
                     <?php } else { ?>
-                        <form>
-                            <button class="subbtn" type="submit">
-                                <a href="msmViewMembershipFormsV.php">View Another Member</a>
-                            </button>
-                            <button type="submit" class="cancelbtn">
-                                <a href="msmHomeV.php">Exit</a>
-                            </button>
-                        </form>
-                    <?php } ?>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Membership Status</label>
+                            </div>
+                            <div class="col-75">
+                            <?php
+                                if($_SESSION['fr_membership_status'] == 0){
+                            ?>
+                                <button type="submit" class="redbtn" disabled><a class="disabled">Declined</a></button>
+                            <?php
+                                } else {
+                            ?>
+                                <button type="submit" class="greenbtn" disabled><a class="disabled">Approved</a></button>
+                            <?php
+                                }
+                            ?>
+                            </div>
+                        </div>
+                        <button class="subbtn" type="submit">
+                            <a href="msmViewMembershipFormsV.php">View Another Member</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="msmHomeV.php">Exit</a>
+                        </button>
+                    </form>
+                    <?php }?>
+                <?php } else { ?>
+                    <form>
+                        <button class="subbtn" type="submit">
+                            <a href="msmViewMembershipFormsV.php">View Another Member</a>
+                        </button>
+                        <button type="submit" class="cancelbtn">
+                            <a href="msmHomeV.php">Exit</a>
+                        </button>
+                    </form>
+                <?php } ?>
                 </div>
                 <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>

@@ -8,9 +8,7 @@
             </li>
             <li>
                 <form action="../../controller/asmControllers/asmViewHallAllocScheduleC.php" method="post">
-                    <button type="submit" name="selectschedule-submit" class="tree_list">
-                        <a href="#" style="text-decoration:none">View Hall Allocation Schedule</a>
-                    </button>
+                    <button type="submit" name="selectschedule-submit" class="tree_list">View Hall Allocation Schedule</button>
                 </form>
             </li>
             <li>
