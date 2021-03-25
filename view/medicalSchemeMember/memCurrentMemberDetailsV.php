@@ -33,7 +33,7 @@
                                     <label>Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <input name="name" type="text" <?php echo 'value="'.$_SESSION['name'].'"' ?> disabled>
+                                    <input name="name" type="text" <?php echo 'value="'.$_SESSION['name'].'"' ?> readonly>
                                 </div>
                             </div>
 
@@ -52,8 +52,9 @@
                                 </div>
                                 <div class="col-75">
                                     <select name="civilstatus" id="civilstatus" onchange="selectStaus()" required>
-                                        <option value="<?php echo $_SESSION['prev_status'] ?>"><?php echo $_SESSION['prev_status'] ?></option>
-                                        <?php echo $_SESSION['c_state'] ?>
+                                        <option >Select option</option>
+                                        <option value="1">Married</option>
+                                        <option value="0">Unmarried</option>
                                     </select>
                                 </div>
                             </div>
@@ -63,7 +64,7 @@
                                     <label>Medical Scheme Type</label>
                                 </div>
                                 <div class="col-75">
-                                    <input name="scheme" type="text" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled>
+                                    <input name="scheme" type="text" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> readonly>
                                 </div>
                             </div>
                             <br>

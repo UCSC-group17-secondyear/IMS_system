@@ -8,12 +8,14 @@
             </li>
             <li><button class="tree_list">View Reffered Claim Forms</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="../../controller/moControllers/appFormListController.php" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Approved claim forms</li></a>
+                <form action="../../controller/moControllers/refferedClaimFormListController.php" method="POST">
+                    <button type="submit" name="approve_list">
+                        <a ><li><i class="fa fa-plus-circle"></i>Approved claim forms</li></a>
                     </button>
-                    <button>
-                        <a href="../../controller/moControllers/rejFormListController.php" class="buttonTwo"><li><i class="fa fa-minus-circle"></i>Rejected claim forms</li></a>
+                    <button type="submit" name="reject_list">
+                        <a ><li><i class="fa fa-minus-circle"></i>Rejected claim forms</li></a>
                     </button>
+                </form>
                 </ul>
             </li>
             <li>

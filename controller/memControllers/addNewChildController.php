@@ -19,17 +19,13 @@
                 $age = $birthdate->diff($today)->y;
 
                 if($age <= 18 && $cd['liv_status'] == 'Yes'){
+                    //echo $age;
                     $addNewDependant = renewModel::addNewChild($user_id, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
                 
                 }
         }
 
-        if($addNewDependant){
-            header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
-        }
-        else{
-            echo "Failed Result";
-        }
-        
+        header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
+
     }
 ?>

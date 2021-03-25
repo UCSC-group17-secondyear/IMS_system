@@ -25,12 +25,13 @@
                 <div class="contentForm">
                     <form action="../../controller/memControllers/getMemClaimDetailsController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
                         <div class="col-25">
-                            <label for="">Enter Medical Year</label>
+                            <label for="">Medical Year</label>
                         </div>
 
                         <div class="col-75">
                             <select name="medical_year" id="" required>
-                                    <option value=""><?php echo $_SESSION['medical_year'] ?></option>
+                                    <option value="">Select medical year</option>
+                                    <?php echo $_SESSION['medical_year'] ?>
                             </select>
                         </div>
 

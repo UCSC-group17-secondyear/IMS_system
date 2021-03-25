@@ -5,30 +5,29 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <<li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amEnterUpdateAttendaceSelectV.php">Enter or update attendance</a></li>
+            <li><a href="hamHomeV.php">Home</a></li>
+            <li><a href="hamEnterTimeTableV.php">Enter Time Table</a></li>
             <li class="active">Action Success!</li>
         </ul>
 
-        <div class="row" style="margin-bottom: 4%;" >
+        <div class="row">
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'hamSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The attendance is updated successfully.
-                        </h2>
+                        <h2>Event is added successfully to the weekly time table.</h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amEnterUpdateAttendaceSelectV.php">Update another attendance</a> 
+                        <a href="hamHomeV.php">Ok</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Exit</a> 
+                        <a href="hamHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

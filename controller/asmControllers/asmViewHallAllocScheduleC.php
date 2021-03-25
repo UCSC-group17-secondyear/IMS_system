@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/asmModel/asmViewHallAllocScheduleModel.php');
+    require_once('../../model/asmModel/ViewHallAllocScheduleModel.php');
 
     if (isset($_POST['selectschedule-submit'])) {
 
@@ -10,7 +10,7 @@
 
         if ($halls) {
             while ($h = mysqli_fetch_array($halls)) {
-                $_SESSION['allhalls'] .= "<option value='".$h['hall_name']."'>".$h['hall_name']."</option>";
+                $_SESSION['allhalls'] .= "<option value='".$h['hall_id']."'>".$h['hall_name']."</option>";
             }
             header('Location:../../view/academicStaffMember/asmViewHallAllocationScheduleV.php');   
         }
@@ -23,7 +23,7 @@
         $_SESSION['selected_date'] = $date;
         $_SESSION['Halls'] = '';
 
-        $hall_allocated = asmModel::gethallsbookings($date, $user, $connect);
+        $hall_allocated = asmModel::gethallsbookings($date, $connect);
 
         if (mysqli_num_rows($hall_allocated) > 0) {
             while ($ha = mysqli_fetch_assoc($hall_allocated)) {
@@ -63,7 +63,7 @@
         $_SESSION['selected_hall'] = $hall;
         $_SESSION['SelectedHall'] = '';
 
-        $hall_allocated = asmModel::gethallsbookingswithinrange($startdate, $enddate, $hall, $user, $connect);
+        $hall_allocated = asmModel::gethallsbookingswithinrange($startdate, $enddate, $hall, $connect);
 
         if (mysqli_num_rows($hall_allocated) > 0) {
             while ($ha = mysqli_fetch_assoc($hall_allocated)) {

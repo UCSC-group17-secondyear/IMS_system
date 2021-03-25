@@ -72,12 +72,10 @@
         if($result_spouse){
             
                 if($new_no_child > 0){
-                    //echo $new_no_child;
                     header('Location:../../view/medicalSchemeMember/memAddNewChildDetailsV.php');
                 }
                 else{
                     header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
-                    //echo "Done result";
                 }
         }
         else{
