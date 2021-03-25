@@ -40,13 +40,14 @@
                         </button>
                     </form>
 
-                    <!-- <button>
-                        <a href="mmMonthWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Month Wise</li></a></button>
-                    </button> -->
-                    
-                    <button>
-                        <a href="mmSubjectWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Subject Wise</li></a>
-                    </button>
+                    <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <button name="fetchSubjects-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Subject Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
                     <button>
                         <a href="mmBatchWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Batch Wise</li></a>
                     </button>
