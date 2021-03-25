@@ -3,7 +3,8 @@
     class basicModel{
         public static function view($user_id, $connect)
 		{
-			$query = "SELECT * FROM users WHERE userId='{$user_id}' LIMIT 1";
+			// $query = "SELECT * FROM users WHERE userId='{$user_id}' LIMIT 1";
+			$query = "SELECT * FROM users INNER JOIN tbl_designation ON users.designation_id = tbl_designation.designation_id WHERE userId='{$user_id}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 
@@ -19,9 +20,9 @@
 			return $result;
         }
         
-        public static function update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $post, $appointment, $connect)
+        public static function update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect)
 		{
-			$query = "UPDATE users SET empid='{$empid}', initials='{$initials}', sname='{$sname}', email='{$email}', mobile='{$mobile}', tp='{$tp}', dob='{$dob}', designation='{$designation}', post='{$post}', appointment='{$appointment}' WHERE userId={$user_id} LIMIT 1";
+			$query = "UPDATE users SET empid='{$empid}', initials='{$initials}', sname='{$sname}', email='{$email}', mobile='{$mobile}', tp='{$tp}', dob='{$dob}', designation_id='{$designation}', appointment='{$appointment}' WHERE userId={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

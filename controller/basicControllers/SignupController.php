@@ -25,7 +25,6 @@
 		$dob = mysqli_real_escape_string($connect, $_POST['dob']);
 		$aca_or_non = mysqli_real_escape_string($connect, $_POST['aca-or-non']);
 		$designation = mysqli_real_escape_string($connect, $_POST['designation']);
-		// $post = mysqli_real_escape_string($connect, $_POST['post']);
 		$appointment = mysqli_real_escape_string($connect, $_POST['appointment']);
 		$password = mysqli_real_escape_string($connect, $_POST['password']);
 		$conpassword = mysqli_real_escape_string($connect, $_POST['conpassword']);
@@ -176,7 +175,7 @@
 
 		if ($records && $records2) {
 			while ($record = mysqli_fetch_array($records)) {
-                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+                $_SESSION['design'] .= "<option value='".$record['designation_id']."'>".$record['designation_name']."</option>";
 			}
 
 			while ($record2 = mysqli_fetch_array($records2)) {
