@@ -9,7 +9,6 @@
 <?php
  
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    // echo $user_id;
     $result_set = basicModel::view($user_id, $connect);
 
     if ($result_set) {

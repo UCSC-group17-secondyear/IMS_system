@@ -19,7 +19,6 @@
 		
 		foreach ($userInfo as $info=>$maxLen) 
 		{
-            // echo $_POST[$info];
 			if (strlen(trim($_POST[$info])) >  $maxLen) 
 			{
                 $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
@@ -93,22 +92,20 @@
             if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
             {
                 $errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
-                echo "Mobile number is incorrect. The mobile number should have only ten digits.";
+                header('Location:../../view/basic/mobilePhoneIncorrect.php');
                 exit();
             }
 
             if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
             {
                 $errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
-                echo "Telephone number is incorrect. The telephone number should have only ten digits.";
+                header('Location:../../view/basic/mobilePhoneIncorrect.php');
                 exit();
             }
 
             $results = adminModel::update($user_id, $empid, $initials, $sname, $email, $mobile, $tp, $dob, $designation, $appointment, $connect);
 
             if ($results) {
-                // echo $oldMail;
-                // echo $email;
                 if ($oldMail!=$email) {
                     $to_email = "$email";
                     $subject = "Changes";

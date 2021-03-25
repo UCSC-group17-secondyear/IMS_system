@@ -45,12 +45,13 @@
 
         if ($tTable) {
             while($t = mysqli_fetch_assoc($tTable)) {
-                echo $_SESSION['time_table'] .= "<tr>";
-                echo $_SESSION['time_table'] .= "<td>{$t['day']}</td>";
-                echo $_SESSION['time_table'] .= "<td>{$t['start_time']}</td>";
-                echo $_SESSION['time_table'] .= "<td>{$t['end_time']}</td>";
-                echo $_SESSION['time_table'] .= "<td>{$t['hall_name']}</td>";
-                echo $_SESSION['time_table'] .= "</tr>";
+               $_SESSION['time_table'] .= "<tr>";
+               $_SESSION['time_table'] .= "<td>{$t['day']}</td>";
+               $_SESSION['time_table'] .= "<td>{$t['start_time']}</td>";
+               $_SESSION['time_table'] .= "<td>{$t['end_time']}</td>";
+               $_SESSION['time_table'] .= "<td>{$t['subject_name']}</td>";
+               $_SESSION['time_table'] .= "<td>{$t['hall_name']}</td>";
+               $_SESSION['time_table'] .= "</tr>";
 
                 header('Location:../../view/academicStaffMember/asmWeeklyTimeTableV.php');
             }

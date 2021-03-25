@@ -98,14 +98,14 @@
             if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
             {
                 $errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
-                echo "Mobile number is incorrect. The mobile number should have only ten digits.";
+                header('Location:../../view/basic/mobilePhoneIncorrect.php');
                 exit();
             }
 
             if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
             {
                 $errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
-                echo "Telephone number is incorrect. The telephone number should have only ten digits.";
+                header('Location:../../view/basic/mobilePhoneIncorrect.php');
                 exit();
             }
 
