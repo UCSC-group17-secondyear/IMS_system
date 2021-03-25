@@ -396,4 +396,54 @@
             }
         }
     }
+    //////////////////////////////////////////////////////////////////////////
+    elseif (isset($_POST['getDegrees-submit'])) {
+        $records1 = rvModel::getDegrees($connect);
+
+        if ($records1) {
+            session_start();
+            $_SESSION['degreeList'] = '';
+
+            while ($record = mysqli_fetch_array($records1)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degree_name']."'>".$record['degree_name']."</option>";
+            }
+            header('Location:../../view/reportViewer/rvBatchWiseAttendanceV.php');
+        }
+        else {
+            echo "no degrees in the system";
+        }
+    }
+
+    elseif (isset($_POST['filterSubjects-submit'])) {
+        session_start();
+        $degree_name = $_POST['degree_name'];
+        $academic_year = $_POST['academic_year'];
+        $semester = $_POST['semester'];
+
+        $get_degreeId = rvModel::getDegreeId ($degree_name, $connect);
+            $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+            $degree_id = $result_degreeID['degree_id'];
+        
+        $records1 = rvModel::filterSubjects($academic_year, $semester, $degree_id, $connect);
+        $records2 = rvModel::filterSessionTypes($connect);
+
+        if ($records1 && $records2) {
+            session_start();
+            $_SESSION['subject_list'] = '';
+            $_SESSION['sessionTypes'] = '';
+
+            while ($record = mysqli_fetch_array($records1)) {
+                $_SESSION['subject_list'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']."</option>";
+            }
+
+            while ($record = mysqli_fetch_array($records2)) {
+                $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+            }
+            header('Location:../../view/reportViewer/rvSelectSub_B.php');
+        }
+        else {
+            echo "error";
+        }
+    }
+    
 ?>

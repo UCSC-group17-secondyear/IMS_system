@@ -195,16 +195,32 @@
 
          /////////////////////////////////////////////////////////////////////////////////////////
 
-        public static function batchAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect) {
+        public static function batchAttendance ($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect) {
             $query = "SELECT ta.std_id, COUNT(ta.attendance) AS attendance
             FROM tbl_attendance ta
             INNER JOIN tbl_students ts
             ON ta.std_id = ts.std_id
-            WHERE ta.subject_id = '{$subject_id}' AND ta.sessionTypeId = '{$sessionTypeId}' 
+            WHERE ta.degree_id = '{$degree_id}' AND ta.subject_id = '{$subject_id}' AND ta.sessionTypeId = '{$sessionTypeId}' 
             AND ts.batch_number = '{$batch_number}' AND ts.is_std = 0 
             AND ta.attendance = 1 AND ta.date BETWEEN '{$startDate}' AND '{$endDate}'
             GROUP BY ta.std_id
             ORDER BY ta.attendance_id ASC ";
+
+            $result = mysqli_query($connect, $query);
+            
+            return $result;
+        }
+
+        public static function batchAttendancePercentage ($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect) {
+            $query = "SELECT COUNT(DISTINCT(ta.date)) AS numOfDays, 
+            COUNT(DISTINCT(ta.std_id)) AS stdCount, round(((AVG(ta.attendance))*100),2) AS attendPercentage
+            FROM tbl_attendance ta
+            INNER JOIN tbl_students ts
+            ON ta.std_id = ts.std_id
+            WHERE ta.degree_id = '{$degree_id}' AND ta.subject_id = '{$subject_id}' 
+            AND ta.sessionTypeId = '{$sessionTypeId}' AND ts.batch_number = '{$batch_number}' AND ts.is_std = 0 
+            AND ta.attendance = 1 AND ta.date BETWEEN '{$startDate}' AND '{$endDate}'
+            GROUP BY ts.batch_number ";
 
             $result = mysqli_query($connect, $query);
             

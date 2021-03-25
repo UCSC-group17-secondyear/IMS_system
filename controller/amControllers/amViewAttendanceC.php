@@ -362,7 +362,7 @@
                                     $get_index = amModel::getStdIndex ($record['std_id'], $connect);
                                     $result_index = mysqli_fetch_assoc($get_index);
                                     $index_no = $result_index['index_no'];
-                                    
+
                                     $_SESSION['subWise_attendance'] .= "<tr>";
                                     $_SESSION['subWise_attendance'] .= "<td>{$index_no}</td>";
                                     $_SESSION['subWise_attendance'] .= "<td>{$record['attendance']}</td>";
@@ -424,8 +424,9 @@
         $semester = $_POST['semester'];
 
         $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
-            $result_degreeID = mysqli_fetch_assoc($get_degreeId);
-            $degree_id = $result_degreeID['degree_id'];
+        $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+        $degree_id = $result_degreeID['degree_id'];
+        $_SESSION['degree_id'] = $degree_id;
         
         $records1 = amModel::filterSubjects($academic_year, $semester, $degree_id, $connect);
         $records2 = amModel::filterSessionTypes($connect);
@@ -444,11 +445,15 @@
             }
             header('Location:../../view/attendanceMaintainer/amSelectSub_B.php');
         }
+        else {
+            echo "error";
+        }
     }
 
     elseif (isset($_POST['batchWise-submit'])) {
+        session_start();
+        $degree_id = $_SESSION['degree_id'];
         $batch_number = $_POST['batch_number'];
-        // ask for degree as well
         $subject_name = $_POST['subject_name'];
         $sessionType = $_POST['sessionType'];
         $startDate = $_POST['startDate'];
@@ -458,14 +463,13 @@
             header('Location:../../view/attendanceMaintainer/amStartEndDateIssueB.php');
         }
         else {
-            session_start();
             $_SESSION['batch_number'] = $batch_number;
             $_SESSION['subject_name'] = $subject_name;
             $_SESSION['sessionType'] = $sessionType;
             $_SESSION['startDate'] = $startDate;
             $_SESSION['endDate'] = $endDate;
 
-            $result_subject_id = amModel::getSubjectID($subject_name, $connect);
+            $result_subject_id = amModel::getSubjectID($subject_name, $degree_id, $connect);
             $result1 = mysqli_fetch_assoc($result_subject_id);
 
             $result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
@@ -475,16 +479,21 @@
                 $subject_id = $result1['subject_id'];
                 $sessionTypeId = $result2['sessionTypeId'];
 
-                $records = amModel::batchAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
+                $records1 = amModel::batchAttendance($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
+                $records2 = amModel::batchAttendancePercentage($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
+                $result_records2 = mysqli_fetch_assoc($records2);
+                $attendPercentage = $result_records2['attendPercentage'];
+                $stdCount = $result_records2['stdCount'];
+                $numOfDays = $result_records2['numOfDays'];
 
-                if ($records) {
-                    if (mysqli_num_rows($records) == 0) {
+                if ($records1 && $records2) {
+                    if (mysqli_num_rows($records1) == 0) {
                         header('Location:../../view/attendanceMaintainer/amNoBatchAttendance.php');
                     }
                     else {
                         $_SESSION['batchWise_attendance'] = '';
 
-                        while ($record = mysqli_fetch_assoc($records)) {
+                        while ($record = mysqli_fetch_assoc($records1)) {
                             $std_id = $record['std_id'];
                             $get_student_index = amModel::getStdIndex ($std_id, $connect);
                             $result_student_index = mysqli_fetch_assoc($get_student_index);
@@ -494,7 +503,9 @@
                             $_SESSION['batchWise_attendance'] .= "<td>{$record['attendance']}</td>";
                             $_SESSION['batchWise_attendance'] .= "</tr>";
                         }
-
+                        $_SESSION['attendPercentage'] = $attendPercentage;
+                        $_SESSION['stdCount'] = $stdCount;
+                        $_SESSION['numOfDays'] = $numOfDays;
                         header('Location:../../view/attendanceMaintainer/amDisplayBatchAttendanceV.php');
                     }
                 }
