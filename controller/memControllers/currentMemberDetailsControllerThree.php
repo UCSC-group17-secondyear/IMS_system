@@ -11,6 +11,8 @@
 
         if(isset($_POST['spouse-det-submit'])){
 
+            $_SESSION['max_date'] = date('Y-m-d');
+
             $userInfo = array('spouse_name'=>50, 'health_status'=>100);
             $children_no = mysqli_real_escape_string($connect, $_POST['add_no_child']);
             foreach($userInfo as $info=>$maxlen)

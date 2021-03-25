@@ -76,7 +76,7 @@
                     <button class="subbtn" type="submit" name="stdWise-submit">Enter
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
-                        <a href="amHomeV.php">Cancel</a> 
+                        <a href="rvHomeV.php">Cancel</a> 
                     </button>
                 </form>
             </div>

@@ -111,8 +111,8 @@
                     <a href="rvStudentWiseAttendanceV.php">View another studentwise attendance</a>
                 </button>
                 <button class="cancelbtn" type="submit" name="cancel-submit">
-                        <a href="rvHomeV.php">Exit</a> 
-                    </button>
+                    <a href="rvHomeV.php">Exit</a> 
+                </button>
             </div>
         </div>
     </div>

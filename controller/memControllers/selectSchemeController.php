@@ -13,13 +13,13 @@
             $memType = renewModel::getMemType($user_id, $connect);
             $mem_type = mysqli_fetch_array($memType);
             $type = $mem_type[1];
-            echo $type_id = $mem_type[0];
+            $type_id = $mem_type[0];
             
             $diff = renewModel::getDateDiffFromJoin($user_id, $connect);
             $appoint_diff = mysqli_fetch_array($diff);
             $date_diff = (int)$appoint_diff[0];
             $expInMonth = $date_diff/30;
-            echo $expMonth = (int)$expInMonth;
+            $expMonth = (int)$expInMonth;
 
             $_SESSION['schemeName'] = '';
             $_SESSION['user_id'] = $user_id;
@@ -80,7 +80,7 @@
             }
 
             else{
-                echo "no member type";
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
             
 
