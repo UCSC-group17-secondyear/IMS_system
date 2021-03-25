@@ -3,6 +3,14 @@
         <ul id="tree_view">
             <li><button class="tree_list">View Student Attendance Reports</button>
                 <ul class="tree_nest">
+                    <form action="../../controller/rvControllers/rvViewAttendanceC.php" method="post">
+                        <button name="fetchStudents-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Student Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
                     <button>
                         <a href="rvStudentWiseAttendanceV.php"><li><i class="fa fa-plus-circle"></i>View Attendance Student Wise</li></a>
                     </button>
