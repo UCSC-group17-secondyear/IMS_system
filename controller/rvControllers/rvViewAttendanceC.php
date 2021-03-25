@@ -68,19 +68,20 @@
             $_SESSION['startDate'] = $startDate;
             $_SESSION['endDate'] = $endDate;
 
-            $result_subject_id = rvModel::getSubjectID($subject_name, $connect);
-            $result1 = mysqli_fetch_assoc($result_subject_id);
-
             $result_sessionTypeId = rvModel::getSessionTypeID($sessionType, $connect);
             $result2 = mysqli_fetch_assoc($result_sessionTypeId);
 
             $result_student_id = rvModel::filterStudent ($index_no, $connect);
             $result3 = mysqli_fetch_assoc($result_student_id);
 
-            if ($result1 && $result2 && $result3) {
-                $subject_id = $result1['subject_id'];
+            if ($result2 && $result3) {
                 $sessionTypeId = $result2['sessionTypeId'];
                 $std_id = $result3['std_id'];
+                $degree_id = $result3['degree_id'];
+
+                $result_subject_id = rvModel::getSubjectID($subject_name, $degree_id, $connect);
+                $result1 = mysqli_fetch_assoc($result_subject_id);
+                $subject_id = $result1['subject_id'];
 
                 $attendance = rvModel::stdAttendance ($std_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
 
@@ -192,64 +193,207 @@
         $_SESSION['subject_name'] = $subject_name;
         $_SESSION['sessionType'] = $sessionType;
 
-        $result_subject_id = rvModel::getSubjectID($subject_name, $connect);
-        $result1 = mysqli_fetch_assoc($result_subject_id);
+        $get_degreeId = rvModel::getDegreeId ($degree_name, $connect);
+        $result_degreeID = mysqli_fetch_assoc($get_degreeId);
 
-        $result_sessionTypeId = rvModel::getSessionTypeID($sessionType, $connect);
-        $result2 = mysqli_fetch_assoc($result_sessionTypeId);
+        if ($result_degreeID) {
+            $degree_id = $result_degreeID['degree_id'];
 
-        if ($result1 && $result2) {
-            $subject_id = $result1['subject_id'];
-            $sessionTypeId = $result2['sessionTypeId'];
+            $result_subject_id = rvModel::getSubjectID($subject_name, $degree_id , $connect);
+            $result1 = mysqli_fetch_assoc($result_subject_id);
 
-            $get_monthDays = rvModel::getMonthDays($calander_year, $month, $subject_id, $sessionTypeId, $connect);
-            $result_monthDays = mysqli_fetch_assoc($get_monthDays);
-            $_SESSION['monthDays'] = $result_monthDays['monthDays'];
+            $result_sessionTypeId = rvModel::getSessionTypeID($sessionType, $connect);
+            $result2 = mysqli_fetch_assoc($result_sessionTypeId);
 
-            if ($_SESSION['monthDays'] == 0) {
-                echo "no attendance";
-            }
-            else {
-                $get_degreeId = rvModel::getDegreeId ($degree_name, $connect);
-                $result_degreeID = mysqli_fetch_assoc($get_degreeId);
-                $degree_id = $result_degreeID['degree_id'];
+            if ($result1 && $result2) {
+                $subject_id = $result1['subject_id'];
+                $sessionTypeId = $result2['sessionTypeId'];
 
-                $get_stdCount = rvModel::getStdCount($academic_year, $semester, $degree_id, $connect);
-                $result_stdCount = mysqli_fetch_assoc($get_stdCount);
-                $_SESSION['stdCount'] = $result_stdCount['stdCount'];
+                $get_monthDays = rvModel::getMonthDays($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+                $result_monthDays = mysqli_fetch_assoc($get_monthDays);
+                $_SESSION['monthDays'] = $result_monthDays['monthDays'];
 
-                $get_attendPercentage = rvModel::getMonthAttendPercentage($calander_year, $month, $subject_id, $sessionTypeId, $connect);
-                $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
-                $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
-                
-                $attendance = rvModel::monthAttendance ($calander_year, $month, $subject_id, $sessionTypeId, $connect);
-
-                if ($attendance && $result_monthDays && $result_stdCount && $result_attendPercentage) {
-                    $_SESSION['monthAttendance_list'] = '';
-
-                    while ($record = mysqli_fetch_assoc($attendance)) {
-                        $std_id = $record['std_id'];
-                        $get_student_index = rvModel::getStdIndex ($std_id, $connect);
-                        $result_student_index = mysqli_fetch_assoc($get_student_index);
-
-                        $_SESSION['monthAttendance_list'] .= "<tr>";
-                        $_SESSION['monthAttendance_list'] .= "<td>{$result_student_index['index_no']}</td>";
-                        $_SESSION['monthAttendance_list'] .= "<td>{$record['attendance']}</td>";
-                        $_SESSION['monthAttendance_list'] .= "</tr>";
-                    }
-
-                    header('Location:../../view/reportViewer/rvDisplayMonthlyAttendanceV.php');
+                if ($_SESSION['monthDays'] == 0) {
+                    echo "no attendance";
                 }
                 else {
-                    echo "error";
-                    /*header('Location:../../view/reportViewer/rvNoMonthlyAttendance.php');*/
+                    $get_degreeId = rvModel::getDegreeId ($degree_name, $connect);
+                    $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+                    $degree_id = $result_degreeID['degree_id'];
+
+                    $get_stdCount = rvModel::getStdCount($academic_year, $semester, $degree_id, $connect);
+                    $result_stdCount = mysqli_fetch_assoc($get_stdCount);
+                    $_SESSION['stdCount'] = $result_stdCount['stdCount'];
+
+                    $get_attendPercentage = rvModel::getMonthAttendPercentage($calander_year, $month, $degree_id, $subject_id, $sessionTypeId, $connect);
+                    $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
+                    $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
+                    
+                    $attendance = rvModel::monthAttendance ($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+
+                    if ($attendance && $result_monthDays && $result_stdCount && $result_attendPercentage) {
+                        $_SESSION['monthAttendance_list'] = '';
+
+                        while ($record = mysqli_fetch_assoc($attendance)) {
+                            $std_id = $record['std_id'];
+                            $get_student_index = rvModel::getStdIndex ($std_id, $connect);
+                            $result_student_index = mysqli_fetch_assoc($get_student_index);
+
+                            $_SESSION['monthAttendance_list'] .= "<tr>";
+                            $_SESSION['monthAttendance_list'] .= "<td>{$result_student_index['index_no']}</td>";
+                            $_SESSION['monthAttendance_list'] .= "<td>{$record['attendance']}</td>";
+                            $_SESSION['monthAttendance_list'] .= "</tr>";
+                        }
+
+                        header('Location:../../view/reportViewer/rvDisplayMonthlyAttendanceV.php');
+                    }
+                    else {
+                        echo "error";
+                        /*header('Location:../../view/reportViewer/rvNoMonthlyAttendance.php');*/
+                    }
                 }
+            }
+            else {
+                echo "error";
+                /*header('Location:../../view/reportViewer/rvNoSubIDSessionID.php');*/
             }
         }
         else {
             echo "error";
-            /*header('Location:../../view/reportViewer/rvNoSubIDSessionID.php');*/
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+    elseif (isset($_POST['fetchSubjects-submit'])) {
+        $records1 = rvModel::fetchSubjects($connect);
+        $records2 = rvModel::filterSessionTypes($connect);
+        $records3 = rvModel::getDegrees($connect);
+
+        if ($records1 && $records2 && $records3) {
+            session_start();
+            $_SESSION['subjectsList'] = '';
+            $_SESSION['sessionTypes'] = '';
+            $_SESSION['degreeList'] = '';
+
+            while ($record = mysqli_fetch_array($records1)) {
+                $_SESSION['subjectsList'] .= "<option value='".$record['subject_name']."'>".$record['subject_name']."</option>";
+            }
+
+            while ($record = mysqli_fetch_array($records2)) {
+                $_SESSION['sessionTypes'] .= "<option value='".$record['sessionType']."'>".$record['sessionType']."</option>";
+            }
+
+            while ($record = mysqli_fetch_array($records3)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degree_name']."'>".$record['degree_name']."</option>";
+            }
+            header('Location:../../view/reportViewer/rvSubjectWiseAttendanceV.php');
         }
     }
 
+    elseif (isset($_POST['subjectWise-submit'])) {
+        $subject_name = $_POST['subject_name'];
+        $sessionType = $_POST['sessionType'];
+        $degree_name = $_POST['degree_name'];
+        $batch_number = $_POST['batch_number'];
+        $startDate = $_POST['startDate'];
+        $endDate = $_POST['endDate'];
+
+        if ($batch_number<=0) {
+            /*header('Location:../../view/reportViewer/rvBatchNumIssueM.php');*/
+            echo "error7";
+        }
+
+        else if ($startDate > $endDate) {
+            /*header('Location:../../view/reportViewer/rvStartEndDateIssueM.php');*/
+            echo "error8";
+        }
+
+        else {
+            $get_degreeId = rvModel::getDegreeId ($degree_name, $connect);
+            $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+            $degree_id = $result_degreeID['degree_id'];
+
+
+            $result_subject_id = rvModel::getSubjectID($subject_name, $degree_id, $connect);
+            $result1 = mysqli_fetch_assoc($result_subject_id);
+
+            $result_sessionTypeId = rvModel::getSessionTypeID($sessionType, $connect);
+            $result2 = mysqli_fetch_assoc($result_sessionTypeId);
+
+            if ($result1 && $result2) {
+                session_start();
+                $subject_id = $result1['subject_id'];
+                $sessionTypeId = $result2['sessionTypeId'];
+
+                $get_aySem = rvModel::getAySem($subject_name, $degree_id, $connect);
+                $result_aySem = mysqli_fetch_assoc($get_aySem);
+                $academic_year = $result_aySem['academic_year'];
+                $semester = $result_aySem['semester'];
+
+                $get_stdCount = rvModel::getStdCount($academic_year, $semester, $degree_id, $connect);
+                $result_stdCount = mysqli_fetch_assoc($get_stdCount);
+
+                $get_totSubDays = rvModel::getTotSubDays($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                $result_totSubDays = mysqli_fetch_assoc($get_totSubDays);
+
+                if ($result_stdCount && $result_totSubDays) {
+                    $_SESSION['stdCount'] = $result_stdCount['stdCount'];
+                    $_SESSION['totSubDays'] = $result_totSubDays['totSubDays'];
+
+                    if ($_SESSION['totSubDays'] == 0) {
+                        echo "no attendance";
+                    }
+                    else {
+                        $get_attendPercentage = rvModel::getSubjectAttendPercentage ($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                        $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
+
+                        if ($result_attendPercentage) {
+                            $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
+
+                            $records = rvModel::fetchSubjectAttendance($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                            $records_check = mysqli_fetch_assoc($records);
+
+                            if ($records_check) {
+                                $_SESSION['subWise_attendance'] = '';
+
+                                while ($record = mysqli_fetch_assoc($records)) {
+                                    $get_index = rvModel::getStdIndex ($record['std_id'], $connect);
+                                    $result_index = mysqli_fetch_assoc($get_index);
+                                    $index_no = $result_index['index_no'];
+                                    
+                                    $_SESSION['subWise_attendance'] .= "<tr>";
+                                    $_SESSION['subWise_attendance'] .= "<td>{$index_no}</td>";
+                                    $_SESSION['subWise_attendance'] .= "<td>{$record['attendance']}</td>";
+                                    $_SESSION['subWise_attendance'] .= "</tr>";
+                                }
+
+                                $_SESSION['subject_name'] = $subject_name;
+                                $_SESSION['sessionType'] = $sessionType;
+                                $_SESSION['degree_name'] = $degree_name;
+                                $_SESSION['batch_number'] = $batch_number;
+                                $_SESSION['startDate'] = $startDate;
+                                $_SESSION['endDate'] = $endDate;
+
+                                header('Location:../../view/reportViewer/rvDisplaySubjectAttendanceV.php');
+                            }
+                            else {
+                                echo "error1";
+                            }
+                        }
+                        else {
+                            /*header('Location:../../view/reportViewer/rvNoSubjectAttendance.php');*/
+                            echo "error5";
+                        }
+                    }
+                }
+                else {
+                    echo "error2";
+                }
+            }
+            else {
+                echo "error4";
+                /*header('Location:../../view/reportViewer/rvNoSubIDSessionID_S.php');*/
+            }
+        }
+    }
 ?>

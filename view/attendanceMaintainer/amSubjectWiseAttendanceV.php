@@ -6,7 +6,7 @@
     <title>View Subject Wise Attendance</title>
 
     <ul class="breadcrumbs">
-        <li><a href="amhomePageV.php">Home</a></li>
+        <li><a href="amHomeV.php">Home</a></li>
         <li class="active">Subject-wise Attendance</li>
     </ul>
 

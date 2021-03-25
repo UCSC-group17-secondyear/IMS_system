@@ -3,25 +3,24 @@
 ?>
 
 <main>
+    <title>View Subject-wise Attendance</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-        <li><a href="amSubjectWiseAttendanceV.php">Subject-wise Attendance</a></li>
-        <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
-        <li class="active">Subject-wise Attendance Results</li>
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li><a href="rvSubjectWiseAttendanceV.php">View Subject-wise Attendance</a></li>
+            <li class="active">Subject-wise Attendance</li>
         </ul>
-
-        <div class="row" style="margin-bottom: 4%;" >
+        <div class="row">
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'rvSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div>
-                    <h2>Subject-wise Attendance</h2>
+                    <h2>View Subject-wise Attendance</h2>
                 </div>
 
                 <div class="contentForm">
@@ -118,16 +117,12 @@
                 </table>
 
                 <button class="subbtn">
-                    <a href="amSubjectWiseAttendanceV.php">View another subject-wise attendance</a>
+                    <a href="rvSubjectWiseAttendanceV.php">View another subject-wise attendance</a>
                 </button>
                 <button class="cancelbtn" type="submit" name="cancel-submit">
-                    <a href="amHomeV.php">Cancel</a> 
+                    <a href="rvHomeV.php">Cancel</a> 
                 </button>
             </div>
         </div>
     </div>
 </main>
-
-<?php
-    require '../basic/footer.php';
-?>

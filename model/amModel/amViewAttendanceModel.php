@@ -45,11 +45,11 @@
 			return $result;
         }
 
-        public static function getSubjectID($subject_name, $connect)
+        public static function getSubjectID($subject_name, $degree_id, $connect)
         {
-        	$query = "SELECT subject_id FROM tbl_subject WHERE subject_name = '{$subject_name}' AND is_deleted = 0 ";
-        	$result = mysqli_query($connect, $query);
-        	return $result;
+            $query = "SELECT * FROM tbl_subject WHERE subject_name = '{$subject_name}' AND degree_id = '{$degree_id}' AND is_deleted = 0 ";
+            $result = mysqli_query($connect, $query);
+            return $result;
         }
 
         public static function getSubjectIDD($subject_name, $degree_name, $connect)
@@ -59,8 +59,8 @@
             return $result;
         }
 
-        public static function getAySem($subject_name, $degree_name, $connect) {
-            $query = " SELECT academic_year, semester FROM tbl_subject WHERE subject_name = '{$subject_name}' AND degree = '{$degree_name}' AND is_deleted = 0 ";
+        public static function getAySem($subject_name, $degree_id, $connect) {
+            $query = " SELECT * FROM tbl_subject WHERE subject_name = '{$subject_name}' AND degree_id = '{$degree_id}' AND is_deleted = 0 ";
             $result = mysqli_query($connect, $query);
             return $result;
         }
@@ -79,7 +79,7 @@
         }
 
         public static function getTotDays ($std_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect) {
-            $query = "SELECT COUNT(attendance) AS totalDays FROM tbl_attendance WHERE std_id = '{$std_id}' AND subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' AND date BETWEEN  '{$startDate}' AND '{$endDate}' ";
+            $query = "SELECT COUNT(DISTINCT(date)) AS totalDays FROM tbl_attendance WHERE std_id = '{$std_id}' AND subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' AND date BETWEEN  '{$startDate}' AND '{$endDate}' ";
             $result = mysqli_query($connect, $query);
             return $result;
         }
@@ -134,7 +134,7 @@
         }
 
         public static function getStdCount($academic_year, $semester, $degree_id, $connect) {
-            $query = "SELECT COUNT(index_no) AS stdCount FROM tbl_students 
+            $query = "SELECT COUNT(DISTINCT(index_no)) AS stdCount FROM tbl_students 
             WHERE academic_year = '{$academic_year}' AND semester = '{$semester}' 
             AND degree_id = '{$degree_id}' AND is_std = 0 ";
             
@@ -142,9 +142,9 @@
             return $result;
         }
 
-        public static function getMonthAttendPercentage($calander_year, $month, $subject_id, $sessionTypeId, $connect) {
+        public static function getMonthAttendPercentage ($calander_year, $month, $degree_id, $subject_id, $sessionTypeId, $connect) {
             $query = "SELECT round(((AVG(attendance))*100),2) AS attendPercentage FROM tbl_attendance 
-            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}'
+            WHERE degree_id = '{$degree_id}' AND subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}'
             AND year(tbl_attendance.date) = '{$calander_year}' 
             AND month(tbl_attendance.date) = '{$month}'";
 
@@ -163,26 +163,20 @@
             return $result;
         }
 
-        public static function fetchSubjectAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect) {
-            $query = "SELECT ta.student_index, COUNT(ta.attendance) AS attendance
-            FROM tbl_attendance ta
-            INNER JOIN tbl_students ts
-            ON ta.student_index = ts.index_no
-            WHERE ta.subject_id = '{$subject_id}' AND ta.sessionTypeId = '{$sessionTypeId}' 
-            AND ts.batch_number = '{$batch_number}' AND ts.is_std = 0 
-            AND ta.attendance = 1 AND ta.date BETWEEN '{$startDate}' AND '{$endDate}'
-            GROUP BY ta.student_index
-            ORDER BY ta.attendance_id ASC ";
+        public static function fetchSubjectAttendance ($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect) {
+            $query = "SELECT std_id, COUNT(ta.attendance) AS attendance FROM tbl_attendance ta
+            WHERE ta.degree_id = '{$degree_id}' AND ta.subject_id = '{$subject_id}' AND ta.sessionTypeId = '{$sessionTypeId}' 
+            AND ta.attendance = 1 AND ta.date BETWEEN '{$startDate}' AND '{$endDate}' GROUP BY std_id ";
 
             $result = mysqli_query($connect, $query);
             
             return $result;
         }
 
-        public static function getTotSubDays($subject_id, $sessionTypeId, $startDate, $endDate, $connect) {
+        public static function getTotSubDays($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect) {
             $query = "SELECT COUNT(DISTINCT(tbl_attendance.date)) AS totSubDays 
             FROM tbl_attendance 
-            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}'
+            WHERE degree_id = '{$degree_id}' AND subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}'
             AND tbl_attendance.date BETWEEN '{$startDate}' AND '{$endDate}' ";
 
             $result = mysqli_query($connect, $query);
@@ -190,10 +184,9 @@
             return $result;
         }
 
-        public static function getSubjectAttendPercentage ($subject_id, $sessionTypeId, $startDate, $endDate, $connect) {
-            $query = "SELECT round(((AVG(attendance))*100),2) AS attendPercentage 
-            FROM tbl_attendance 
-            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}'
+        public static function getSubjectAttendPercentage ($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect) {
+            $query = "SELECT round(((AVG(attendance))*100),2) AS attendPercentage FROM tbl_attendance 
+            WHERE subject_id = '{$subject_id}' AND sessionTypeId = '{$sessionTypeId}' AND degree_id = '{$degree_id}'
             AND tbl_attendance.date BETWEEN '{$startDate}' AND '{$endDate}' ";
 
             $result = mysqli_query($connect, $query);

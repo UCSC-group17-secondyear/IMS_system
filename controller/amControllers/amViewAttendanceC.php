@@ -70,20 +70,21 @@
 	    	$_SESSION['startDate'] = $startDate;
 	    	$_SESSION['endDate'] = $endDate;
 
-	    	$result_subject_id = amModel::getSubjectID($subject_name, $connect);
-	    	$result1 = mysqli_fetch_assoc($result_subject_id);
-
 	    	$result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
 	    	$result2 = mysqli_fetch_assoc($result_sessionTypeId);
 
             $result_student_id = amModel::filterStudent ($index_no, $connect);
             $result3 = mysqli_fetch_assoc($result_student_id);
 
-	    	if ($result1 && $result2 && $result3) {
-	    		$subject_id = $result1['subject_id'];
+	    	if ($result2 && $result3) {
 	    		$sessionTypeId = $result2['sessionTypeId'];
                 $std_id = $result3['std_id'];
+                $degree_id = $result3['degree_id'];
 
+                $result_subject_id = amModel::getSubjectID($subject_name, $degree_id, $connect);
+                $result1 = mysqli_fetch_assoc($result_subject_id);
+                $subject_id = $result1['subject_id'];
+                
 	    		$attendance = amModel::stdAttendance ($std_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
 
                 $get_totDays = amModel::getTotDays ($std_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
@@ -193,61 +194,71 @@
     	$_SESSION['subject_name'] = $subject_name;
     	$_SESSION['sessionType'] = $sessionType;
 
-        $result_subject_id = amModel::getSubjectID($subject_name, $connect);
-        $result1 = mysqli_fetch_assoc($result_subject_id);
+        $result_getDegreeId = amModel::getDegreeId ($degree_name, $connect);
+        $result3 = mysqli_fetch_assoc($result_getDegreeId);
 
-        $result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
-        $result2 = mysqli_fetch_assoc($result_sessionTypeId);
+        if ($result3) {
+            $degree_id = $result3['degree_id'];
 
-        if ($result1 && $result2) {
-            $subject_id = $result1['subject_id'];
-            $sessionTypeId = $result2['sessionTypeId'];
+            $result_subject_id = amModel::getSubjectID($subject_name, $degree_id, $connect);
+            $result1 = mysqli_fetch_assoc($result_subject_id);
 
-            $get_monthDays = amModel::getMonthDays($calander_year, $month, $subject_id, $sessionTypeId, $connect);
-            $result_monthDays = mysqli_fetch_assoc($get_monthDays);
-            $_SESSION['monthDays'] = $result_monthDays['monthDays'];
+            $result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
+            $result2 = mysqli_fetch_assoc($result_sessionTypeId);
 
-            if ($_SESSION['monthDays'] == 0) {
-                echo "no attendance";
-            }
-            else {
-                $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
-                $result_degreeID = mysqli_fetch_assoc($get_degreeId);
-                $degree_id = $result_degreeID['degree_id'];
+            if ($result1 && $result2) {
+                $subject_id = $result1['subject_id'];
+                $sessionTypeId = $result2['sessionTypeId'];
 
-                $get_stdCount = amModel::getStdCount($academic_year, $semester, $degree_id, $connect);
-                $result_stdCount = mysqli_fetch_assoc($get_stdCount);
-                $_SESSION['stdCount'] = $result_stdCount['stdCount'];
+                $get_monthDays = amModel::getMonthDays($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+                $result_monthDays = mysqli_fetch_assoc($get_monthDays);
+                $_SESSION['monthDays'] = $result_monthDays['monthDays'];
 
-                $get_attendPercentage = amModel::getMonthAttendPercentage($calander_year, $month, $subject_id, $sessionTypeId, $connect);
-                $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
-                $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
-                
-                $attendance = amModel::monthAttendance ($calander_year, $month, $subject_id, $sessionTypeId, $connect);
-
-                if ($attendance && $result_monthDays && $result_stdCount && $result_attendPercentage) {
-                    $_SESSION['monthAttendance_list'] = '';
-
-                    while ($record = mysqli_fetch_assoc($attendance)) {
-                        $std_id = $record['std_id'];
-                        $get_student_index = amModel::getStdIndex ($std_id, $connect);
-                        $result_student_index = mysqli_fetch_assoc($get_student_index);
-
-                        $_SESSION['monthAttendance_list'] .= "<tr>";
-                        $_SESSION['monthAttendance_list'] .= "<td>{$result_student_index['index_no']}</td>";
-                        $_SESSION['monthAttendance_list'] .= "<td>{$record['attendance']}</td>";
-                        $_SESSION['monthAttendance_list'] .= "</tr>";
-                    }
-
-                    header('Location:../../view/attendanceMaintainer/amDisplayMonthlyAttendanceV.php');
+                if ($_SESSION['monthDays'] == 0) {
+                    echo "no attendance";
                 }
                 else {
-                    header('Location:../../view/attendanceMaintainer/amNoMonthlyAttendance.php');
+                    $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
+                    $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+                    $degree_id = $result_degreeID['degree_id'];
+
+                    $get_stdCount = amModel::getStdCount($academic_year, $semester, $degree_id, $connect);
+                    $result_stdCount = mysqli_fetch_assoc($get_stdCount);
+                    $_SESSION['stdCount'] = $result_stdCount['stdCount'];
+
+                    $get_attendPercentage = amModel::getMonthAttendPercentage($calander_year, $month, $degree_id, $subject_id, $sessionTypeId, $connect);
+                    $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
+                    $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
+                    
+                    $attendance = amModel::monthAttendance ($calander_year, $month, $subject_id, $sessionTypeId, $connect);
+
+                    if ($attendance && $result_monthDays && $result_stdCount && $result_attendPercentage) {
+                        $_SESSION['monthAttendance_list'] = '';
+
+                        while ($record = mysqli_fetch_assoc($attendance)) {
+                            $std_id = $record['std_id'];
+                            $get_student_index = amModel::getStdIndex ($std_id, $connect);
+                            $result_student_index = mysqli_fetch_assoc($get_student_index);
+
+                            $_SESSION['monthAttendance_list'] .= "<tr>";
+                            $_SESSION['monthAttendance_list'] .= "<td>{$result_student_index['index_no']}</td>";
+                            $_SESSION['monthAttendance_list'] .= "<td>{$record['attendance']}</td>";
+                            $_SESSION['monthAttendance_list'] .= "</tr>";
+                        }
+
+                        header('Location:../../view/attendanceMaintainer/amDisplayMonthlyAttendanceV.php');
+                    }
+                    else {
+                        header('Location:../../view/attendanceMaintainer/amNoMonthlyAttendance.php');
+                    }
                 }
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID.php');
             }
         }
         else {
-            header('Location:../../view/attendanceMaintainer/amNoSubIDSessionID.php');
+            echo "failed";
         }
     }
 
@@ -277,6 +288,9 @@
             }
             header('Location:../../view/attendanceMaintainer/amSubjectWiseAttendanceV.php');
         }
+        else {
+            echo "failed";
+        }
     }
 
     elseif (isset($_POST['subjectWise-submit'])) {
@@ -296,7 +310,12 @@
         }
 
         else {
-            $result_subject_id = amModel::getSubjectIDD($subject_name, $degree_name, $connect);
+            $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
+            $result_degreeID = mysqli_fetch_assoc($get_degreeId);
+            $degree_id = $result_degreeID['degree_id'];
+
+
+            $result_subject_id = amModel::getSubjectID($subject_name, $degree_id, $connect);
             $result1 = mysqli_fetch_assoc($result_subject_id);
 
             $result_sessionTypeId = amModel::getSessionTypeID($sessionType, $connect);
@@ -307,52 +326,70 @@
                 $subject_id = $result1['subject_id'];
                 $sessionTypeId = $result2['sessionTypeId'];
 
-                $get_aySem = amModel::getAySem($subject_name, $degree_name, $connect);
+                $get_aySem = amModel::getAySem($subject_name, $degree_id, $connect);
                 $result_aySem = mysqli_fetch_assoc($get_aySem);
                 $academic_year = $result_aySem['academic_year'];
                 $semester = $result_aySem['semester'];
 
-                $get_stdCount = amModel::getStdCount($academic_year, $semester, $degree_name, $connect);
+                $get_stdCount = amModel::getStdCount($academic_year, $semester, $degree_id, $connect);
                 $result_stdCount = mysqli_fetch_assoc($get_stdCount);
-                $_SESSION['stdCount'] = $result_stdCount['stdCount'];
+                
 
-                $get_totSubDays = amModel::getTotSubDays($subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                $get_totSubDays = amModel::getTotSubDays($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
                 $result_totSubDays = mysqli_fetch_assoc($get_totSubDays);
-                $_SESSION['totSubDays'] = $result_totSubDays['totSubDays'];
 
-                if ($_SESSION['totSubDays'] == 0) {
-                    echo "no attendance";
-                }
-                else {
-                    $get_attendPercentage = amModel::getSubjectAttendPercentage ($subject_id, $sessionTypeId, $startDate, $endDate, $connect);
-                    $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
-                    $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
+                if ($result_stdCount && $result_totSubDays) {
+                    $_SESSION['stdCount'] = $result_stdCount['stdCount'];
+                    $_SESSION['totSubDays'] = $result_totSubDays['totSubDays'];
 
-
-                    $records = amModel::fetchSubjectAttendance($subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
-
-                    if ($records && $result_stdCount && $result_totSubDays && $result_attendPercentage) {
-                        $_SESSION['subWise_attendance'] = '';
-
-                        while ($record = mysqli_fetch_assoc($records)) {
-                            $_SESSION['subWise_attendance'] .= "<tr>";
-                            $_SESSION['subWise_attendance'] .= "<td>{$record['student_index']}</td>";
-                            $_SESSION['subWise_attendance'] .= "<td>{$record['attendance']}</td>";
-                            $_SESSION['subWise_attendance'] .= "</tr>";
-                        }
-
-                        $_SESSION['subject_name'] = $subject_name;
-                        $_SESSION['sessionType'] = $sessionType;
-                        $_SESSION['degree_name'] = $degree_name;
-                        $_SESSION['batch_number'] = $batch_number;
-                        $_SESSION['startDate'] = $startDate;
-                        $_SESSION['endDate'] = $endDate;
-
-                        header('Location:../../view/attendanceMaintainer/amDisplaySubjectAttendanceV.php');
+                    if ($_SESSION['totSubDays'] == 0) {
+                        echo "no attendance";
                     }
                     else {
-                        header('Location:../../view/attendanceMaintainer/amNoSubjectAttendance.php');
+                        $get_attendPercentage = amModel::getSubjectAttendPercentage ($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                        $result_attendPercentage = mysqli_fetch_assoc($get_attendPercentage);
+
+                        if ($result_attendPercentage) {
+                            $_SESSION['attendPercentage'] = $result_attendPercentage['attendPercentage'];
+
+                            $records = amModel::fetchSubjectAttendance($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
+                            $records_check = mysqli_fetch_assoc($records);
+
+                            if ($records_check) {
+                                $_SESSION['subWise_attendance'] = '';
+
+                                while ($record = mysqli_fetch_assoc($records)) {
+                                    $get_index = amModel::getStdIndex ($record['std_id'], $connect);
+                                    $result_index = mysqli_fetch_assoc($get_index);
+                                    $index_no = $result_index['index_no'];
+                                    
+                                    $_SESSION['subWise_attendance'] .= "<tr>";
+                                    $_SESSION['subWise_attendance'] .= "<td>{$index_no}</td>";
+                                    $_SESSION['subWise_attendance'] .= "<td>{$record['attendance']}</td>";
+                                    $_SESSION['subWise_attendance'] .= "</tr>";
+                                    echo $record['std_id'];
+                                }
+
+                                $_SESSION['subject_name'] = $subject_name;
+                                $_SESSION['sessionType'] = $sessionType;
+                                $_SESSION['degree_name'] = $degree_name;
+                                $_SESSION['batch_number'] = $batch_number;
+                                $_SESSION['startDate'] = $startDate;
+                                $_SESSION['endDate'] = $endDate;
+
+                                header('Location:../../view/attendanceMaintainer/amDisplaySubjectAttendanceV.php');
+                            }
+                            else {
+                                echo "error1";
+                            }
+                        }
+                        else {
+                            header('Location:../../view/attendanceMaintainer/amNoSubjectAttendance.php');
+                        }
                     }
+                }
+                else {
+                    echo "error2";
                 }
             }
             else {
@@ -411,6 +448,7 @@
 
     elseif (isset($_POST['batchWise-submit'])) {
         $batch_number = $_POST['batch_number'];
+        // ask for degree as well
         $subject_name = $_POST['subject_name'];
         $sessionType = $_POST['sessionType'];
         $startDate = $_POST['startDate'];
