@@ -69,6 +69,37 @@
                                 <input type="date" name="endDate" disabled <?php echo 'value="'.$_SESSION['endDate'].'"' ?> /><br>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Number of students</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="stdCount" disabled <?php echo 'value="'.$_SESSION['stdCount'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Number of days</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="numOfDays" disabled <?php echo 'value="'.$_SESSION['numOfDays'].'"' ?> /><br>
+                            </div>
+                        </div>
+
+                        <!-- <div class="row">
+                            <div class="col-25">
+                                <label>Attendance Percentage</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="attendPercentage" disabled  -->
+                                <?php 
+                                   /* echo 'value="'.$_SESSION['attendPercentage'].'"' */
+                                ?> 
+                                <!-- /><br>
+                            </div>
+                        </div> -->
                     </form>
                 </div>
 

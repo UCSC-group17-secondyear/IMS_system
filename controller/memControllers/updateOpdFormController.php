@@ -62,21 +62,23 @@
 
                 }
                 else{
-                    echo "There was an error uploading your file.";
+                    header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                 }
               }
-            else
-              {
-                echo "File type is incorrrect.";
-              }
+              else{
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
+            }
 
 
             if ($result) {
                 header('Location:../../view/medicalSchemeMember/memFormUpdateSuccessV.php');
             }
-            else {
-                echo "Failed result";
+            else{
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
+        }
+        else{
+            header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
         }
 
     }

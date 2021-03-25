@@ -68,7 +68,7 @@
                                     <label for="">Treatment Recieved Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="treatment_received_date" id="tdate" oninput="checkDate()" max="today()" required/><br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="treatment_received_date" id="tdate" oninput="checkDate()" max="today()" required/><br>
                                 </div>
                             </div>
 
@@ -77,7 +77,7 @@
                                     <label for="">Bill Issued Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="bill_issued_date" id="bdate" required><br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="bill_issued_date" id="bdate" required><br>
                                 </div>
                             </div>
 
