@@ -36,7 +36,7 @@
 
                         <button class="subbtn" type="submit" name="addSession-submit">Add session type</button>
                         <button class="cancelbtn">
-                            <a href="aHomeV.php">Exit/a> 
+                            <a href="aHomeV.php">Exit</a> 
                         </button>
                     </form>
                 </div>
