@@ -3,7 +3,7 @@
 ?>
 
 <main>
-    <title>Unimail incorrect</title>
+    <title>Mobile Phone Incorrect</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
@@ -17,13 +17,14 @@
                 <div class="contentForm">
                         <div class="row">
                             <h2>Sorry!
-                                Your University Mail is incorrect.
+                                Phone number is incorrect!!
                             </h2>
                         </div>
-                        
+
                         <button class="mainbtn">
                             <a href="../../controller/basicControllers/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>">Home</a>  
                         </button>
+                        
                 </div>
             </div>
         </div>
