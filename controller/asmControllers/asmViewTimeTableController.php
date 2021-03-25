@@ -26,7 +26,7 @@
         }
     }
     elseif ($_GET['submit']==1) {
-         $_SESSION['time_table'] = '';
+        $_SESSION['time_table'] = '';
 
         $semester = mysqli_real_escape_string($connect, $_POST['semester']);
 		$academic_year = mysqli_real_escape_string($connect, $_POST['aca_year']);

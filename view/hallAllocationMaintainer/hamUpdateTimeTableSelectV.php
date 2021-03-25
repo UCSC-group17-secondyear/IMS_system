@@ -53,10 +53,10 @@
                             <div class="col-75">
                                 <select name="year" id="" required>
                                     <option value="">Select the Year</option>
-                                    <option value="y1">1st year</option>
-                                    <option value="y2">2nd year</option>
-                                    <option value="y3">3rd year</option>
-                                    <option value="y4">4th year</option>
+                                    <option value="1">1st year</option>
+                                    <option value="2">2nd year</option>
+                                    <option value="3">3rd year</option>
+                                    <option value="4">4th year</option>
                                 </select>
                             </div>
                         </div>

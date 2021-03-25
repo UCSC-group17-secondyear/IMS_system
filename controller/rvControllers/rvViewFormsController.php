@@ -119,21 +119,30 @@
         $claim_form_no = mysqli_real_escape_string($connect, $_GET['reffered_form']);
         $result_opd = rvModel::checkWhetherOpd($claim_form_no,$connect);
         $result_surgical = rvModel::checkWhetherSurgical($claim_form_no,$connect);
-        $_SESSION['rcf_opd'] = mysqli_num_rows($result_opd);
-        $_SESSION['rcf_surgical'] = mysqli_num_rows($result_surgical);
+        $_SESSION['opd'] = mysqli_num_rows($result_opd);
+        $_SESSION['surgical'] = mysqli_num_rows($result_surgical);
 
         if(mysqli_num_rows($result_opd)==1){
                     
             $result_one = mysqli_fetch_assoc($result_opd);
-            $user_id = $result_one['user_id'];
-            $mem_name = rvModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+            $dependant_details = rvModel::getDependantDetails($result_one['dependant_id'], $connect);
 
-            $_SESSION['mem_initials'] = $name[0];
-            $_SESSION['mem_sname'] = $name[1];
+            $user_id = $result_one['user_id'];
+
+            if ($result_one['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_one['initials']." ".$result_one['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_one['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
+
+            $_SESSION['mem_initials'] = $result_one['initials'];
+            $_SESSION['mem_sname'] = $result_one['sname'];
             $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
-            $_SESSION['patient_name'] = $result_one['dependant_name'];
-            $_SESSION['relationship'] = $result_one['relationship'];
             $_SESSION['doctor_name'] = $result_one['doctor_name'];
             $_SESSION['treatment_received_date'] = $result_one['treatment_received_date'];
             $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
@@ -150,35 +159,44 @@
         } elseif(mysqli_num_rows($result_surgical)==1){
             
             $result_one = mysqli_fetch_assoc($result_surgical);
-            $user_id = $result_one['user_id'];
-            $mem_name = rvModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+            $dependant_details = rvModel::getDependantDetails($result_one['dependant_id'], $connect);
 
-            $_SESSION['rcf_mem_initials'] = $name[0];
-            $_SESSION['rcf_mem_sname'] = $name[1];
-            $_SESSION['rcf_claim_form_no'] = $result_one['claim_form_no'];
-            $_SESSION['rcf_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['rcf_relationship'] = $result_one['relationship'];
-            $_SESSION['rcf_accident_date'] = $result_one['accident_date'];
-            $_SESSION['rcf_how_occured'] = $result_one['how_occured'];
-            $_SESSION['rcf_injuries'] = $result_one['injuries'];
-            $_SESSION['rcf_nature_of_illness'] = $result_one['nature_of_illness'];
-            $_SESSION['rcf_commence_date'] = $result_one['commence_date'];
-            $_SESSION['rcf_first_consult_date'] = $result_one['first_consult_date'];
-            $_SESSION['rcf_doctor_name'] = $result_one['doctor_name'];
-            $_SESSION['rcf_doctor_address'] = $result_one['doctor_address'];
-            $_SESSION['rcf_hospitalized_date'] = $result_one['hospitalized_date'];
-            $_SESSION['rcf_discharged_date'] = $result_one['discharged_date'];
-            $_SESSION['rcf_illness_before'] = $result_one['illness_before'];
-            $_SESSION['rcf_illness_before_years'] = $result_one['illness_before_years'];
-            $_SESSION['rcf_sick_injury'] = $result_one['sick_injury'];
-            $_SESSION['rcf_insurer_claims'] = $result_one['insurer_claims'];
-            $_SESSION['rcf_nature_of'] = $result_one['nature_of'];
-            $_SESSION['rcf_a_status'] = $result_one['acceptance_status'];
-            $_SESSION['rcf_revised_bill_amount'] = $result_one['revised_bill_amount'];
-            $_SESSION['rcf_paid_status'] = $result_one['paid_status'];
-            $_SESSION['rcf_final_bill_amount'] = $result_one['final_bill_amount'];
-            $_SESSION['rcf_msm_comment'] = $result_one['msm_comment'];
+            $user_id = $result_one['user_id'];
+
+            if ($result_one['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_one['initials']." ".$result_one['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_one['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
+
+            $_SESSION['mem_initials'] = $result_one['initials'];
+            $_SESSION['mem_sname'] = $result_one['sname'];
+            $_SESSION['claim_form_no'] = $result_one['claim_form_no'];
+            $_SESSION['accident_date'] = $result_one['accident_date'];
+            $_SESSION['how_occured'] = $result_one['how_occured'];
+            $_SESSION['injuries'] = $result_one['injuries'];
+            $_SESSION['nature_of_illness'] = $result_one['nature_of_illness'];
+            $_SESSION['commence_date'] = $result_one['commence_date'];
+            $_SESSION['first_consult_date'] = $result_one['first_consult_date'];
+            $_SESSION['doctor_name'] = $result_one['doctor_name'];
+            $_SESSION['doctor_address'] = $result_one['doctor_address'];
+            $_SESSION['hospitalized_date'] = $result_one['hospitalized_date'];
+            $_SESSION['discharged_date'] = $result_one['discharged_date'];
+            $_SESSION['illness_before'] = $result_one['illness_before'];
+            $_SESSION['illness_before_years'] = $result_one['illness_before_years'];
+            $_SESSION['sick_injury'] = $result_one['sick_injury'];
+            $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
+            $_SESSION['nature_of'] = $result_one['nature_of'];
+            $_SESSION['a_status'] = $result_one['acceptance_status'];
+            $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
+            $_SESSION['paid_status'] = $result_one['paid_status'];
+            $_SESSION['final_bill_amount'] = $result_one['final_bill_amount'];
+            $_SESSION['msm_comment'] = $result_one['msm_comment'];
 
             header('Location:../../view/reportViewer/rvViewRefClaimFormV.php');
         }
@@ -223,15 +241,24 @@
         if(mysqli_num_rows($result_opd)==1){
                     
             $result_one = mysqli_fetch_assoc($result_opd);
-            $user_id = $result_one['user_id'];
-            $mem_name = rvModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+            $dependant_details = rvModel::getDependantDetails($result_one['dependant_id'], $connect);
 
-            $_SESSION['reqf_mem_initials'] = $name[0];
-            $_SESSION['reqf_mem_sname'] = $name[1];
+            $user_id = $result_one['user_id'];
+
+            if ($result_one['dependant_id'] == NULL) {
+                $_SESSION['reqf_patient_name'] = $result_one['initials']." ".$result_one['sname'];
+                $_SESSION['reqf_relationship'] = 'Myself';
+            } elseif ($result_one['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['reqf_patient_name'] = $depd['dependant_name'];
+                    $_SESSION['reqf_relationship'] = $depd['relationship'];
+                }
+            }
+
+            $_SESSION['reqf_mem_initials'] = $result_one['initials'];
+            $_SESSION['reqf_mem_sname'] = $result_one['sname'];
             $_SESSION['reqf_claim_form_no'] = $result_one['claim_form_no'];
-            $_SESSION['reqf_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['reqf_relationship'] = $result_one['relationship'];
             $_SESSION['reqf_doctor_name'] = $result_one['doctor_name'];
             $_SESSION['reqf_treatment_received_date'] = $result_one['treatment_received_date'];
             $_SESSION['reqf_bill_issued_date'] = $result_one['bill_issued_date'];
@@ -246,15 +273,24 @@
         if(mysqli_num_rows($result_surgical)==1){
             
             $result_one = mysqli_fetch_assoc($result_surgical);
-            $user_id = $result_one['user_id'];
-            $mem_name = rvModel::getMemberName($user_id,$connect );
-            $name = mysqli_fetch_array($mem_name);
+            $dependant_details = rvModel::getDependantDetails($result_one['dependant_id'], $connect);
 
-            $_SESSION['reqf_mem_initials'] = $name[0];
-            $_SESSION['reqf_mem_sname'] = $name[1];
+            $user_id = $result_one['user_id'];
+
+            if ($result_one['dependant_id'] == NULL) {
+                $_SESSION['patient_name'] = $result_one['initials']." ".$result_one['sname'];
+                $_SESSION['relationship'] = 'Myself';
+            } elseif ($result_one['dependant_id'] > 0) {
+                if (mysqli_num_rows($dependant_details) == 1) {
+                    $depd = mysqli_fetch_assoc($dependant_details);
+                    $_SESSION['patient_name'] = $depd['dependant_name'];
+                    $_SESSION['relationship'] = $depd['relationship'];
+                }
+            }
+
+            $_SESSION['reqf_mem_initials'] = $result_one['initials'];
+            $_SESSION['reqf_mem_sname'] = $result_one['sname'];
             $_SESSION['reqf_claim_form_no'] = $result_one['claim_form_no'];
-            $_SESSION['reqf_patient_name'] = $result_one['dependant_name'];
-            $_SESSION['reqf_relationship'] = $result_one['relationship'];
             $_SESSION['reqf_accident_date'] = $result_one['accident_date'];
             $_SESSION['reqf_how_occured'] = $result_one['how_occured'];
             $_SESSION['reqf_injuries'] = $result_one['injuries'];

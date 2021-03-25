@@ -22,23 +22,24 @@
                 <h2>Studentwise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Student Index</label>
+                <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Select Student Index</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="index_no">
+                                    <?php echo $_SESSION['student_indexes']; ?>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-75">
-                            <input type="text" name="student_index" placeholder="Student Index" min="0" /> <br>
-                        </div>
-                    </div>
 
-                    <button class="subbtn" type="submit" name="select-submit">
-                        <a href="mmGetStdStdwiseAttendanceV.php">Enter</a>
-                    </button>
-                    <button class="cancelbtn" type="submit" name="cancel-submit">
-                        <a href="mmHomeV.php">Cancel</a> 
-                    </button>
-                </form>
+                        <button class="subbtn" type="submit" name="filterStudent-submit">Enter
+                        </button>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="mmHomeV.php">Cancel</a> 
+                        </button>
+                    </form>
             </div>
         </div>
     </div>

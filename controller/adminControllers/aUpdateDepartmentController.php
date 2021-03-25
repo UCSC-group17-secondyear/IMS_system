@@ -21,7 +21,6 @@
             }
             else {
                 header('Location:../../view/admin/aQueryFailedV.php');
-                // echo "more than one row (duplicate scheme names)";
             }
         }
         else {
@@ -45,7 +44,7 @@
 
             if ($getPost) {
                 while ($rec = mysqli_fetch_assoc($getPost)) {
-                    echo $p_id = $rec['pst_id']; echo '<br>';
+                    $p_id = $rec['pst_id'];
                 }
             }
     
