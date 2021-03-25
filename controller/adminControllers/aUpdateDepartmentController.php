@@ -4,7 +4,6 @@
     require_once('../../config/database.php');
     require_once('../../model/adminModel/manageDepartmentsModel.php');
 
-
     if (isset($_GET['dept_id'])) {
         $dept_id = mysqli_real_escape_string($connect, $_GET['dept_id']);
 
@@ -61,9 +60,6 @@
                     }else {
                         header('Location:../../view/admin/aDepartmentNotUpdatedV.php');
                     } 
-                
-                               
-            
 
         }
 
@@ -96,7 +92,7 @@
             }
         }
         else {
-            echo "Database query failed.";
+            header('Location:../../view/admin/aQueryFailedV.php');
         }
     }
 

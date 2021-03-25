@@ -20,7 +20,7 @@
             }
         }
         else {
-            echo "Database query failed.";
+            header('Location:../../view/admin/aQueryFailedV.php');
         }
     }
 
@@ -61,7 +61,7 @@
             }
         }
         else {
-            echo "Database query failed.";
+            header('Location:../../view/admin/aQueryFailedV.php');
         }
     }
 

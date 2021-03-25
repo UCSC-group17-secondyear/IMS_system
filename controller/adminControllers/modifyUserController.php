@@ -27,16 +27,16 @@
             $_SESSION['mobile'] = $result['mobile'];
             $_SESSION['tp'] = $result['tp'];
             $_SESSION['dob'] = $result['dob'];
-            $_SESSION['designation'] = $result['designation'];
-            $_SESSION['post'] = $result['post'];
+            $_SESSION['designation'] = $result['designation_name'];
+            $_SESSION['post'] = $result['post_name'];
             $_SESSION['appointment'] = $result['appointment'];
 
             while ($record = mysqli_fetch_array($records)) {
-                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+                $_SESSION['design'] .= "<option value='".$record['designation_id']."'>".$record['designation_name']."</option>";
             }
             
             while ($record2 = mysqli_fetch_array($records2)) {
-                $_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
+                $_SESSION['posts'] .= "<option value='".$record2['post_id']."'>".$record2['post_name']."</option>";
 			}
 
             header('Location:../../view/admin/aModifyUserV.php');
