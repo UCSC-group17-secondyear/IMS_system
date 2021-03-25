@@ -95,7 +95,7 @@
             </li>
 
             <li>
-                <a href="../../controller/rvControllers/rvviewSchemesController.php">
+                <a href="../../controller/rvControllers/viewSchemesController.php">
                     <button type="submit" class="tree_list">View Medical Scheme Details</button>
                 </a>
             </li>
