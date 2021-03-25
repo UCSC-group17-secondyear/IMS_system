@@ -44,7 +44,7 @@
                                     <label for="">Year & Month</label>
                                 </div>
                                 <div class="col-75" style="width: 30%;" >
-                                    <input type="test" name="year" value=""  maxlength="4" id="myear" placeholder="Enter year..." oninput="checkInp(); maxlen()" required>
+                                    <input type="text" name="year" value=""  maxlength="4" id="myear" placeholder="Enter year..." oninput="checkInp(); maxlen()" required>
                                 </div>
                                 <div class="col-75" style="width: 30%;">
                                     <select name="month" value='' required>Select Month</option>
@@ -66,22 +66,24 @@
 
                             <div class="row">
                                 <div class="col-25">
-                                    <label for="">Enter batch no</label>
+                                    <label for="">Batch no</label>
                                 </div>
                                 <div class="col-75">
                                     <select name="batch_no" id="batch_no" required>
-                                        <option value=""><?php echo $_SESSION['batch_number'] ?></option>
+                                        <option value="">Select Batch</option>
+                                        <?php echo $_SESSION['batch_number'] ?>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-25">
-                                    <label for="">Select Degree</label>
+                                    <label for="">Degree</label>
                                 </div>
                                 <div class="col-75">
                                     <select name="degree" id="degree" required>
-                                        <option value=""><?php echo $_SESSION['degree'] ?></option>
+                                        <option value="">Select Degree</option>
+                                        <?php echo $_SESSION['degree'] ?>
                                     </select>
                                 </div>
                             </div>

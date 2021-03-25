@@ -1,17 +1,15 @@
 <?php
     session_start();
-    require_once('../../model/mmModel/studentDetModel.php');
-    require_once('../../model/mmModel/viewMahapolaModel.php');
+    require_once('../../model/rvModel/mahapolaModel.php');
     require_once('../../config/database.php');
 
 ?>
 
 <?php
+        if(isset($_POST['view-mahapola-report']) || $_GET['btn'] == 11){
 
-        if(isset($_POST['view-mahapola-report'])){
-
-            $batch_numbers = studentDetModel::getBatchNumbers($connect);
-            $degrees = studentDetModel::getDegrees($connect);
+            $batch_numbers = mahapolaModel::getBatchNumbers($connect);
+            $degrees = mahapolaModel::getDegrees($connect);
 
             $_SESSION['batch_number'] = '';
             $_SESSION['degree'] = '';
@@ -28,14 +26,15 @@
                         
                 }
             
-                header('Location:../../view/mahapolaSchemeMaintainer/mmViewReportsMahapolaSchemeV.php');                
+                header('Location:../../view/reportViewer/rvViewReportsMahapolaSchemeV.php');                
                 
             }
             else{
-                header('Location:../../view/mahapolaSchemeMaintainer/mmNoRecordsV.php');
+                header('Location:../../view/reportViewer/rvNoRecordsV.php');
             }
 
         }
+
 
         elseif(isset($_POST['display-report'])){
 
@@ -47,11 +46,11 @@
 
             $date = $year.'-'.$month.'-'.'01';
 
-            $semester = viewMahapolaModel::getSemDigit($date, $connect);
+            $semester = mahapolaModel::getSemDigit($date, $connect);
             $semester_digit = mysqli_fetch_assoc($semester);
             $sem_digit = $semester_digit['semesterDigit'];
 
-            $students = viewMahapolaModel::getMahapolaStudents($batch_no, $degree,$sem_digit, $connect);
+            $students = mahapolaModel::getMahapolaStudents($batch_no, $degree,$sem_digit, $connect);
 
             if(mysqli_num_rows($students) > 0){
                 
@@ -63,12 +62,12 @@
                     $stu['std_id'];
                     $stu['semester'];
 
-                    $academic_year = viewMahapolaModel::getAcademicYear($stu['std_id'],$connect);
+                    $academic_year = mahapolaModel::getAcademicYear($stu['std_id'],$connect);
                     $aca_year = mysqli_fetch_array($academic_year);
                     $a_year = $aca_year[0];
 
-                    $stu_reserved_subjects = viewMahapolaModel::getStuSemSubjects($degree,$a_year,$sem_digit,$stu['semester'],$connect);
-                    $stu_non_mand_sub = viewMahapolaModel::getStuNonMandSub($degree,$stu['std_id'],$a_year,$sem_digit,$connect);
+                    $stu_reserved_subjects = mahapolaModel::getStuSemSubjects($degree,$a_year,$sem_digit,$stu['semester'],$connect);
+                    $stu_non_mand_sub = mahapolaModel::getStuNonMandSub($degree,$stu['std_id'],$a_year,$sem_digit,$connect);
                     
                     $sub_count = 0;
                     $non_sub_count = 0;
@@ -80,11 +79,11 @@
                         while($subject = mysqli_fetch_assoc($stu_reserved_subjects)){
                             $subject['subject_id'];
                             
-                            $sub_session_details = viewMahapolaModel::getSubjectSessionInMonth($degree,$year,$month,$subject['subject_id'],$connect);
+                            $sub_session_details = mahapolaModel::getSubjectSessionInMonth($degree,$year,$month,$subject['subject_id'],$connect);
                             $session_detail = mysqli_fetch_array($sub_session_details);
                             $num_of_session = $session_detail[0];
                            
-                            $attendance_count = viewMahapolaModel::getStuSubjectAttendance($stu['std_id'],$degree,$subject['subject_id'],$year,$month,$connect);
+                            $attendance_count = mahapolaModel::getStuSubjectAttendance($stu['std_id'],$degree,$subject['subject_id'],$year,$month,$connect);
                             $attend_count = mysqli_fetch_array($attendance_count);
                             $stu_sub_attendance = $attend_count[0];
 
@@ -102,11 +101,11 @@
                         while($subject = mysqli_fetch_assoc($stu_non_mand_sub)){
                             $subject['subject_id'];
                             
-                            $sub_session_details = viewMahapolaModel::getSubjectSessionInMonth($degree,$year,$month,$subject['subject_id'],$connect);
+                            $sub_session_details = mahapolaModel::getSubjectSessionInMonth($degree,$year,$month,$subject['subject_id'],$connect);
                             $session_detail = mysqli_fetch_array($sub_session_details);
                             $num_of_session = $session_detail[0];
                            
-                            $attendance_count = viewMahapolaModel::getStuSubjectAttendance($stu['std_id'],$degree,$subject['subject_id'],$year,$month,$connect);
+                            $attendance_count = mahapolaModel::getStuSubjectAttendance($stu['std_id'],$degree,$subject['subject_id'],$year,$month,$connect);
                             $attend_count = mysqli_fetch_array($attendance_count);
                             $stu_sub_attendance = $attend_count[0];
 
@@ -136,12 +135,13 @@
 
                 }
 
+               
                 if($report_type == 'monthlyEligibiltyList'){
                     $_SESSION['eligible_stu'] = '';
-                    //$i = 0;
+                    
                     for($i =0; $i<count($eligible_stu_list) ; $i++){
 
-                        $student_det = viewMahapolaModel::getStudentDetails($eligible_stu_list[$i],$connect);
+                        $student_det = mahapolaModel::getStudentDetails($eligible_stu_list[$i],$connect);
                         $stu_det = mysqli_fetch_assoc($student_det);
 
                         $_SESSION['eligible_stu'] .= "<tr>";
@@ -149,10 +149,8 @@
                         $_SESSION['eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
                         $_SESSION['eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
                         $_SESSION['eligible_stu'] .= "</tr>";
-
                        
-                        header('Location:../../view/mahapolaSchemeMaintainer/mmEligibilityListV.php');
-
+                        header('Location:../../view/reportViewer/rvEligibilityListV.php');
 
                     }
 
@@ -162,7 +160,7 @@
                     $_SESSION['non_eligible_stu'] = '';
 
                     for($i =0; $i<count($non_eligible_stu_list) ; $i++){
-                        $student_det = viewMahapolaModel::getStudentDetails($non_eligible_stu_list[$i],$connect);
+                        $student_det = mahapolaModel::getStudentDetails($non_eligible_stu_list[$i],$connect);
                         $stu_det = mysqli_fetch_assoc($student_det);
 
                         $_SESSION['non_eligible_stu'] .= "<tr>";
@@ -171,19 +169,17 @@
                         $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
                         $_SESSION['non_eligible_stu'] .= "</tr>";
 
-                        header('Location:../../view/mahapolaSchemeMaintainer/mmInEligibilityListV.php');
+                        header('Location:../../view/reportViewer/rvInEligibilityListV.php');
 
                     }
                 }
                 
             }
             else{
-                header('Location:../../view/mahapolaSchemeMaintainer/mmNoRecordsV.php');
+                header('Location:../../view/reportViewer/rvNoRecordsV.php');
             }
             
             
         }
-?>
 
-            
-                
+?>

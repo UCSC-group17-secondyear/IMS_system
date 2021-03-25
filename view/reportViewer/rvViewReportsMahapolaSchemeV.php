@@ -24,57 +24,73 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Report Type</label>
+                    <form action="../../controller/rvControllers/mahapolaListController.php" method="POST">
+                    <div class="row">
+                                <div class="col-25">
+                                    <label for="">Report Type</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="report_type" id="reporttype" required>
+                                        <option value="">Select Report Type</option>
+                                        <option value="monthlyEligibiltyList">Monthly Eligibility List</option>
+                                        <option value="monthlyInEligibiltyList">Monthly In-Eligibility List</option>
+                                        <option value="monthlyReconciliationReport">Monthly Reconciliation Report</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <select name="reporttype" id="">
-                                    <option value="">Select Report Type</option>
-                                    <option value="monthlyEligibiltyList">Monthly Eligibility List</option>
-                                    <option value="monthlyInEligibiltyList">Monthly In-Eligibility List</option>
-                                    <option value="monthlyReconciliationReport">Monthly Reconciliation Report</option>
-                                </select>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Year & Month</label>
+                                </div>
+                                <div class="col-75" style="width: 30%;" >
+                                    <input type="text" name="year" value=""  maxlength="4" id="myear" placeholder="Enter year..." oninput="checkInp(); maxlen()" required>
+                                </div>
+                                <div class="col-75" style="width: 30%;">
+                                    <select name="month" value='' required>Select Month</option>
+                                        <option value='1'>January</option>
+                                        <option value='2'>February</option>
+                                        <option value='3'>March</option>
+                                        <option value='4'>April</option>
+                                        <option value='5'>May</option>
+                                        <option value='6'>June</option>
+                                        <option value='7'>July</option>
+                                        <option value='8'>August</option>
+                                        <option value='9'>September</option>
+                                        <option value='10'>October</option>
+                                        <option value='11'>November</option>
+                                        <option value='12'>December</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Year & Month</label>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Batch no</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="batch_no" id="batch_no" required>
+                                        <option value="">Select Batch</option>
+                                        <?php echo $_SESSION['batch_number'] ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-75">
-                                <input type="month" id="yearmonth" name="yearmonth"><br>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="">Degree</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="degree" id="degree" required>
+                                        <option value="">Select Degree</option>
+                                        <?php echo $_SESSION['degree'] ?>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter batch no</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" id="batchno" name="batchno"><br>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Degree</label>
-                            </div>
-                            <div class="col-75">
-                                <select name="degree" id="">
-                                    <option value="">Select Degree</option>
-                                    <option value="CS">CS</option>
-                                    <option value="IS">IS</option>
-                                </select>
-                            </div>
-                        </div>
+                            <button class="subbtn" type="submit" name="display-report" >Display Report</button>
+                            <button class="cancelbtn" type="submit" name="" ><a href="rvHomeV.php">Exit</a></button>
                     </form>
-                    <form>
-                        <button class="subbtn" type="submit" name="select-submit">
-                            <a href="#">Display Report</a>
-                        </button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="rvHomeV.php">Cancel</a>
-                        </button>
-                    </form>
+                    
                 </div>
             </div>
         </div>

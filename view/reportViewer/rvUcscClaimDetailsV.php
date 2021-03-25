@@ -32,7 +32,7 @@
                                     <label for="">Medical Year</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="year" <?php echo 'value="'.$_SESSION['year'].'"'?> disabled> <br>
+                                    <input type="text" name="year" <?php echo 'value="'.$_SESSION['year'].'"'?> readonly> <br>
                                 </div>
                             </div>
 
@@ -41,7 +41,7 @@
                                     <label for="">Initial Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="initial_amount" <?php echo 'value="'.$_SESSION['init_amount'].'"'?> disabled> <br>
+                                    <input type="text" name="initial_amount" <?php echo 'value="'.$_SESSION['init_amount'].'"'?> readonly> <br>
                                 </div>
                             </div>
 
@@ -50,7 +50,7 @@
                                     <label for="">Already Used Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="used_amount" <?php echo 'value="'.$_SESSION['used_amount'].'"'?> disabled> <br>
+                                    <input type="text" name="used_amount" <?php echo 'value="'.$_SESSION['used_amount'].'"'?> readonly> <br>
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
                                     <label for="">Remaining Amount</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="remain_amount" <?php echo 'value="'.$_SESSION['remain_amount'].'"'?> disabled> <br>
+                                    <input type="text" name="remain_amount" <?php echo 'value="'.$_SESSION['remain_amount'].'"'?> readonly> <br>
                                 </div>
                             </div>
 
