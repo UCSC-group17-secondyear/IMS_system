@@ -18,6 +18,7 @@
         //$f_count = $form_count[0];
         $initials = $name['initials'];
         $sname = $name['sname'];
+        $_SESSION['max_date'] = date('Y-m-d');
 
         $dependants = claimFormModel::getDependantName($user_id, $connect);
         $_SESSION['dependant_name'] = '';
@@ -57,7 +58,7 @@
                     $_SESSION['bill_issued_date'] = $result_one['bill_issued_date'];
                     $_SESSION['purpose'] = $result_one['purpose'];
                     $_SESSION['bill_amount'] = $result_one['bill_amount'];
-                    //echo $_SESSION['claim_form_no'];
+                    
                     header('Location:../../view/medicalSchemeMember/memUpdateOpdFormV.php');
 
                 }
@@ -110,7 +111,7 @@
                     $_SESSION['sick_injury'] = $result_one['sick_injury'];
                     $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
                     $_SESSION['nature_of'] = $result_one['nature_of'];
-                    //echo $_SESSION['claim_form_no'];
+                    
                     header('Location:../../view/medicalSchemeMember/memUpdateSurgicalFormV.php');
 
                 }

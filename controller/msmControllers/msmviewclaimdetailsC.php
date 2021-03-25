@@ -16,6 +16,9 @@
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewMemberClaimDetailsV.php');
         }
+        else{
+            header('Location:../../view/medicalSchemeMaintainer/msmNoRecordsAvailableV.php');
+        }
         
     } elseif (isset($_POST['member-claim-submit'])) {
 
@@ -68,6 +71,9 @@
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewDeptClaimDetailsV.php');
         }
+        else{
+            header('Location:../../view/medicalSchemeMaintainer/msmNoRecordsAvailableV.php');
+        }
 
     } 
     
@@ -93,11 +99,11 @@
             while ($mem = mysqli_fetch_array($mem_ids)) {
                 $getDept = msmModel::getMemDepartment($connect, $mem['user_id']);
                 $department = mysqli_fetch_array($getDept);
-                echo $mem_dept = $department[0];
+                $mem_dept = $department[0];
                 
                 if ($mem_dept == $dept) {
                     $amout_det = msmModel::getMemAmountDet($connect, $mem['user_id'], $year);
-                    echo $mem['user_id'];
+                    $mem['user_id'];
                     $mem_amount = mysqli_fetch_assoc($amout_det);
                     $mem_i = $mem_amount['initial_amount'];
                     $mem_u = $mem_amount['used_amount'];
@@ -135,8 +141,12 @@
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewUcscClaimDetailsV.php');
         }
+        else{
+            header('Location:../../view/medicalSchemeMaintainer/msmNoRecordsAvailableV.php');
+        }
 
-    } elseif (isset($_POST['ucsc-claim-submit'])) {
+    } 
+    elseif (isset($_POST['ucsc-claim-submit'])) {
 
         $year = mysqli_real_escape_string($connect, $_POST['medical_year']);
         $result = msmModel::getYearAmount($year, $connect);

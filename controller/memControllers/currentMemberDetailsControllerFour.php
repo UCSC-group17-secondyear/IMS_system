@@ -12,6 +12,8 @@
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
     if (isset($_POST['renew-submit'])) {
 
+        $_SESSION['max_date'] = date('Y-m-d');
+        
         $new_no_child = mysqli_real_escape_string($connect, $_POST['new_no_of_child']);
         $userInfo = array('spouse_name'=>50, 'spouse_health'=>100, 'spouse_dob'=>20);
 
@@ -69,18 +71,18 @@
         
         $_SESSION['new_no_child'] = $new_no_child;
 
-        if($result_spouse){
-            
-                if($new_no_child > 0){
-                    header('Location:../../view/medicalSchemeMember/memAddNewChildDetailsV.php');
-                }
-                else{
-                    header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
-                }
-        }
-        else{
-            echo "Failed result.";
-        }
+            if($result_spouse){
+                
+                    if($new_no_child > 0){
+                        header('Location:../../view/medicalSchemeMember/memAddNewChildDetailsV.php');
+                    }
+                    else{
+                        header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
+                    }
+            }
+            else{
+                header('Location:../../view/medicalSchemeMember/memUpdateUnsuccessV.php');
+            }
         
     }
 ?>
