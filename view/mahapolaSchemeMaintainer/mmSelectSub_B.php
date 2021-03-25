@@ -7,24 +7,24 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="rvHomeV.php">Home</a></li>
-            <li><a href="rvBatchWiseAttendanceV.php">View Batch-wise Attendance</a></li>
+            <li><a href="mmHomeV.php">Home</a></li>
+            <li><a href="mmBatchWiseAttendanceV.php">View Batch-wise Attendance</a></li>
             <li class="active">Get Batch-wise Attendance</li>
         </ul>
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'rvSideNavV.php';
+                    require 'mmSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div>
-                    <h2>View Batch-wise Attendance</h2>
+                    <h2>Get Batch-wise Attendance</h2>
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/rvControllers/rvViewAttendanceC.php" method="post">
+                    <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Enter Batch Number</label>
@@ -77,7 +77,7 @@
                         <button class="subbtn" type="submit" name="batchWise-submit">Enter
                         </button>
                         <button class="cancelbtn" type="submit" name="cancel-submit">
-                            <a href="rvHomeV.php">Cancel</a> 
+                            <a href="mmHomeV.php">Cancel</a> 
                         </button>
                     </form>
                 </div>

@@ -48,9 +48,14 @@
                         </button>
                     </form>
 
-                    <button>
-                        <a href="mmBatchWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Batch Wise</li></a>
-                    </button>
+                    <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <button name="getDegrees-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Batch Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
                     <button>
                         <a href="mmSemesterWiseAttendanceV.php"><li><i class="fa fa-check-circle"></i>View Attendance Semester Wise</li></a>
                     </button>
