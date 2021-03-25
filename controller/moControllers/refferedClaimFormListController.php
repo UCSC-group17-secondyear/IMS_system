@@ -7,7 +7,7 @@
 <?php
 
     if(isset($_POST['approve_list']) || $_GET['btn']=='71'){
-        //echo "approve";
+
         $_SESSION['app_form_no'] = '';
         $result_forms = array();
         $result_forms = claimFormModel::getApporvedForms($connect);
@@ -28,7 +28,7 @@
     }
 
     if(isset($_POST['reject_list']) || $_GET['btn']=='72'){
-        //echo "reject";
+       
         $_SESSION['rej_form_no'] = '';
         $result_forms = array();
         $result_forms = claimFormModel::getRejectedForms($connect);

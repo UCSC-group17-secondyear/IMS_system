@@ -11,6 +11,8 @@
 
     if(isset($_POST['mem-det-submit'])){
 
+        $_SESSION['max_date'] = date('Y-m-d');
+
         $user_id = mysqli_real_escape_string($connect, $_SESSION['user_id']);
 
         $result_status = renewModel::getMeidcalMemDetails($user_id, $connect);
@@ -63,29 +65,29 @@
         if( $prev_status=='0' && $cur_status=='0'){
 
             if($result_mem && ($check_has_claim_det_row || $result_claim_det)){
-                echo "yes";
+                
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
             }
             else{
-                echo "Failed result.";
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
 
         }
 
         ///////////////////////////////////////////////////////////////// Unmarried --> Married
         elseif( $prev_status=='0' && $cur_status=='1'){
-            echo "0-1";
+            
             if($result_mem && ($check_has_claim_det_row || $result_claim_det)){
                 header('Location:../../view/medicalSchemeMember/memAddSpouseDetailsV.php');
             }
             else{
-                echo "Failed result.";
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
         }
 
         ///////////////////////////////////////////////////////////////// Married --> Married
         elseif( $prev_status=='1' && $cur_status=='1'){
-            echo "yes";
+    
             if($result_mem && ($check_has_claim_det_row || $result_claim_det)){
 
                 $spouse = mysqli_fetch_assoc($result_spouse);
@@ -110,14 +112,13 @@
                         $i++;
                         
                     }       
-                       print_r($child);
                        $_SESSION['child'] = $child;
                 }
-                //echo "yes";
+                
                 header('Location:../../view/medicalSchemeMember/memCurrentMemDependDetailsV.php');
             }
             else{
-                echo "Failed result.";
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
         }
 
@@ -130,7 +131,7 @@
                 header('Location:../../view/medicalSchemeMember/memCurrentDetailsUpdateSuccessV.php');
             }
             else{
-                echo "Failed result.";
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
         }
         

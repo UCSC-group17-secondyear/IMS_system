@@ -9,8 +9,7 @@
 
             $user_id = mysqli_escape_string($connect,$_GET['user_id']);
             $year = $_POST['medical_year'];
-            //echo $year;
-            //echo $user_id;
+
             $result = memModel::getClaimDetails($user_id,$year,$connect);
 
             if($result){
@@ -32,7 +31,7 @@
 
             }
             else{
-                echo "query unseuccesfull";
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
 
                     
