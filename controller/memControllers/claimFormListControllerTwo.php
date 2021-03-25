@@ -42,8 +42,7 @@
                 $_SESSION['purpose'] = $result_one['purpose'];
                 $_SESSION['bill_amount'] = $result_one['bill_amount'];
                 $_SESSION['file_name'] = $result_one['file_name'];
-
-                
+ 
 
                 header('Location:../../view/medicalSchemeMember/memOpdClaimDetailsV.php');
 

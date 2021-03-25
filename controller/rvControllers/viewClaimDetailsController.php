@@ -78,11 +78,11 @@
 
         $dept = mysqli_real_escape_string($connect, $_POST['dept']);
         $year = mysqli_real_escape_string($connect, $_POST['medical_year']);
-        echo $_SESSION['year'] = $year;
+        $_SESSION['year'] = $year;
 
         $dept_name = viewClaimDetailsModel::getDeptName($dept,$connect);
         $deptName = mysqli_fetch_array($dept_name);
-        echo $_SESSION['dept'] = $deptName[0];
+        $_SESSION['dept'] = $deptName[0];
 
         $mem_ids = viewClaimDetailsModel::getMemIds($year, $connect);
         $_SESSION['init_amount'] = '';
@@ -96,11 +96,11 @@
             while ($mem = mysqli_fetch_array($mem_ids)) {
                 $getDept = viewClaimDetailsModel::getMemDepartment($connect, $mem['user_id']);
                 $department = mysqli_fetch_array($getDept);
-                echo $mem_dept = $department[0];
+                $mem_dept = $department[0];
                 
                 if ($mem_dept == $dept) {
                     $amout_det = viewClaimDetailsModel::getMemAmountDet($connect, $mem['user_id'], $year);
-                    echo $mem['user_id'];
+                    $mem['user_id'];
                     $mem_amount = mysqli_fetch_assoc($amout_det);
                     $mem_i = $mem_amount['initial_amount'];
                     $mem_u = $mem_amount['used_amount'];
@@ -111,9 +111,9 @@
                     $r_amount = $r_amount + $mem_r;
                 }
             }
-            echo $_SESSION['init_amount'] = $i_amount;
-            echo $_SESSION['used_amount'] = $u_amount;
-            echo $_SESSION['remain_amount'] = $r_amount;
+            $_SESSION['init_amount'] = $i_amount;
+            $_SESSION['used_amount'] = $u_amount;
+            $_SESSION['remain_amount'] = $r_amount;
 
             header('Location:../../view/reportViewer/rvDeptClaimDetailsV.php');
 
@@ -122,7 +122,7 @@
             }
             
         } else{
-            echo "faisl";
+            "faisl";
             header('Location:../../view/reportViewer/rvNoClaimRecordsAvaliableV.php');
         }
 

@@ -40,35 +40,7 @@
                             <input type="number" name="semester" placeholder="Semester" min="1" max="2" required/> <br>
                         </div>
                     </div>
-
-                    <!-- <div class="row">
-                        <div class="col-25">
-                            <label>Enter Degree</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="degree" placeholder="Degree" required/> <br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Academic Year</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="academic_year" placeholder="Academic Year" required/> <br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Subject</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="subject" placeholder="Subject" required/> <br>
-                        </div>
-                    </div> -->
-
-                    <button class="subbtn" type="submit" name="semesterAttendance-submit">Display Attendance
-                        <!-- <a href="amDisplaySemesterAttendanceV.php">Display Attendance</a>  -->
-                    </button>
+                    <button class="subbtn" type="submit" name="semesterAttendance-submit">Display Attendance</button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 
                     </button>

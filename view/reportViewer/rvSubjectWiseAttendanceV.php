@@ -23,64 +23,71 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
-                    <div class="row">
-                    <form action="rvStudentWiseAttendanceV.php" method="post">
+                    <form action="../../controller/rvControllers/rvViewAttendanceC.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Academic Year</label>
+                                <label>Select Subject</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="academic_year" placeholder="Academic Year"/>
+                                <select name="subject_name">
+                                    <?php echo $_SESSION['subjectsList'] ; ?> <br>
+                                </select>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Degree</label>
+                                <label>Select Session Type</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="degree" placeholder="Degree"/>
+                                <select name="sessionType">
+                                    <?php echo $_SESSION['sessionTypes'] ; ?> <br>
+                                </select>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Semester</label>
+                                <label>Select degree</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="semester" placeholder="Semester"/>
+                                <select name="degree_name">
+                                    <?php echo $_SESSION['degreeList'] ; ?> <br>
+                                </select>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Subject</label>
+                                <label>Batch Number</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="subject" placeholder="Subject"/>
+                                <input type="number" name="batch_number" placeholder="Batch Number" min="1" required/> <br>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Start Date</label>
+                                <label>Enter Start Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="start_date" placeholder="Start Date"/>
+                                <input type="date" name="startDate" placeholder="Start Date" required/> <br>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter End Date</label>
+                                <label>Enter End Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="end_date" placeholder="End Date"/>
+                                <input type="date" name="endDate" placeholder="End Date" required/> <br>
                             </div>
                         </div>
-                    </form>
-                    <form>
-                        <button class="subbtn" type="submit" name="select-submit">
-                            <a href="#">Display Attendance</a>
+
+                        <button class="subbtn" type="submit" name="subjectWise-submit">Display Attendance
                         </button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="rvHomeV.php">Cancel</a>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="rvHomeV.php">Cancel</a> 
                         </button>
                     </form>
                 </div>

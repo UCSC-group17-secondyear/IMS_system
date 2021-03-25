@@ -9,8 +9,6 @@
     $user_id = $_SESSION['user_id'];
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
     $submit_date = claimFormModel::getSubmitDate($claim_form_no, $user_id, $connect);
-    //$sub_date = mysqli_fetch_assoc($submit_date);
-    //$date = $submit_date[0];
 
     if (isset($_POST['update-opd-form'])) {
 
@@ -83,21 +81,19 @@
 
                   }
                   else{
-                      echo "There was an error uploading your file.";
+                    header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                   }
                 }
-              else
-                {
-                  echo "File type is incorrrect.";
+                else{
+                  header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                 }
 
 
               if ($result) {
-                echo "pass";
                   header('Location:../../view/medicalSchemeMember/memFormUpdateSuccessV.php');
               }
-              else {
-                  echo "Failed result";
+              else{
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
               }
 
             }
@@ -108,6 +104,9 @@
               echo '</script>';
 
             }
+        }
+        else{
+          header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
         }
       }
     
@@ -194,20 +193,19 @@
 
                   }
                   else{
-                      echo "There was an error uploading your file.";
+                    header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                   }
                 }
-              else
-                {
-                  echo "File type is incorrrect.";
+                else{
+                  header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                 }
 
 
               if ($result) {
                   header('Location:../../view/medicalSchemeMember/memFormUpdateSuccessV.php');
               }
-              else {
-                  echo "Failed result";
+              else{
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
               }
 
             }
@@ -218,6 +216,9 @@
               echo '</script>';
 
             }
+        }
+        else{
+          header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
         }
 
     }

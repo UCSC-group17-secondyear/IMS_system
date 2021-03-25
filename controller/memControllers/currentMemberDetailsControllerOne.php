@@ -35,15 +35,12 @@
                         header('Location:../../view/medicalSchemeMember/memCurrentMemberDetailsV.php');
                     }
                     else{
-                        echo "Scheme change unsuccessfull";
+                        header('Location:../../view/medicalSchemeMember/memUpdateUnsuccessV.php');
                     }
-                }
-                else{
-                    echo "User not Found!";
                 }
             }
             else{
-                echo "Query Unsuccessful";
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
         }
 
@@ -68,12 +65,10 @@
                     header('Location:../../view/medicalSchemeMember/memCurrentMemberDetailsV.php');
                     
                 }
-                else{
-                    echo "User not Found!";
-                }
+                
             }
             else{
-                echo "Query failed";
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
         }
 
