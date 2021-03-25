@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li><a href="aUpdateUserPost.php">Update user of a Post</a></li>
-            <li class="active">Request Denied!</li>
+            <li class="active">Request Succeeded!</li>
         </ul>
     
         <div class="row">
@@ -22,8 +22,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            <br>The system has failed to update the user of the post.
+                        <h2>The new user has assigned to the selected post successfully.
                         </h2>
                     </div>
 
