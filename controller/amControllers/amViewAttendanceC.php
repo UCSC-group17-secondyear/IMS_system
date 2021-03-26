@@ -301,11 +301,7 @@
         $startDate = $_POST['startDate'];
         $endDate = $_POST['endDate'];
 
-        if ($batch_number<=0) {
-            header('Location:../../view/attendanceMaintainer/amBatchNumIssueM.php');
-        }
-
-        else if ($startDate > $endDate) {
+        if ($startDate > $endDate) {
             header('Location:../../view/attendanceMaintainer/amStartEndDateIssueM.php');
         }
 
