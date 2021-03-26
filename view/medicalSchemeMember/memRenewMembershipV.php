@@ -33,7 +33,7 @@
                             <button class="mainbtn" type="submit" name="yes-submit">Yes</button>
                         </form>
                       
-                        <form action="../../controller/memControllers/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                        <form action="../../controller/memControllers/currentMemberDetailsController1.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
                             <button class="mainbtn" type="submit" name="no-submit">No</button>
                         </form>
                 </div>
