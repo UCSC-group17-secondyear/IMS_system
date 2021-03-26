@@ -27,7 +27,6 @@
         }
     }
     else {
-        // echo "no schemes available currently";
         header('Location:../../view/nonAcademicStaffMember/nasmNoSchemesV.php');
     }
 
