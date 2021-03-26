@@ -8,7 +8,7 @@
 
 <?php
 
-        if(isset($_POST['view-mahapola-report'])){
+        if(isset($_POST['view-mahapola-report']) || $_GET['btn'] == 88){
 
             $batch_numbers = studentDetModel::getBatchNumbers($connect);
             $degrees = studentDetModel::getDegrees($connect);
@@ -57,6 +57,9 @@
                 
                 $eligible_stu_list = [];
                 $non_eligible_stu_list = [];
+                $eligible_count_m = 0;
+                $eligible_count_o = 0;
+                $non_eligible_count = 0;
 
                 while($stu = mysqli_fetch_assoc($students)){
 
@@ -119,61 +122,155 @@
                         }
                     }
 
-                    // else{
-                    //     header('Location:../../view/mahapolaSchemeMaintainer/mmNoRecordsV.php');
-                    // }
+                    else{
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmNoRecordsV.php');
+                    }
 
                     $final_percentage = ($total_stu_sub_percent + $total_stu_non_sub_percent)/($sub_count + $non_sub_count);
 
                         if($final_percentage >= 50){
                             $eligible_stu_list[] = $stu['std_id'];
+                            
+                            if($stu['mahapola_category'] == 'merit'){
+
+                                $eligible_count_m = $eligible_count_m + 1;
+
+                            }
+                            elseif($stu['mahapola_category'] == 'ordinary'){
+
+                                $eligible_count_o = $eligible_count_o + 1;
+
+                            }
                            
                         }
                         else{
+
                             $non_eligible_stu_list[] = $stu['std_id'];
-                                
+                            $non_eligible_count = $non_eligible_count + 1; 
+
                         }
 
                 }
 
+                    $check_has_reconcilation_record = viewMahapolaModel::checkHasRecord($degree,$batch_no,$year,$month,$connect);
+
+                    if(mysqli_num_rows($check_has_reconcilation_record) == 1){
+                        $update_reconcilation = viewMahapolaModel::updateRecocilation($degree,$batch_no,$year,$month,$eligible_count_m,$eligible_count_o,$non_eligible_count,$connect);
+                    }
+                    else{
+                        $insert_reconcilation = viewMahapolaModel::insertReconcilation($degree,$batch_no,$year,$month,$eligible_count_m,$eligible_count_o,$non_eligible_count,$connect);
+                    }
+
+                $degree_name = viewMahapolaModel::getDegreeName($degree,$connect);
+                $name = mysqli_fetch_assoc($degree_name);
+                $deg_name = $name['degree_name'];
+
                 if($report_type == 'monthlyEligibiltyList'){
+
                     $_SESSION['eligible_stu'] = '';
-                    //$i = 0;
-                    for($i =0; $i<count($eligible_stu_list) ; $i++){
+                    if(count($eligible_stu_list) > 0){
+                        for($i =0; $i<count($eligible_stu_list) ; $i++){
 
-                        $student_det = viewMahapolaModel::getStudentDetails($eligible_stu_list[$i],$connect);
-                        $stu_det = mysqli_fetch_assoc($student_det);
+                            $student_det = viewMahapolaModel::getStudentDetails($eligible_stu_list[$i],$connect);
+                            $stu_det = mysqli_fetch_assoc($student_det);
 
-                        $_SESSION['eligible_stu'] .= "<tr>";
-                        $_SESSION['eligible_stu'] .= "<td>{$stu_det['index_no']}</td>";
-                        $_SESSION['eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
-                        $_SESSION['eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
-                        $_SESSION['eligible_stu'] .= "</tr>";
+                            $_SESSION['eligible_stu'] .= "<tr>";
+                            $_SESSION['eligible_stu'] .= "<td>{$stu_det['index_no']}</td>";
+                            $_SESSION['eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
+                            $_SESSION['eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
+                            $_SESSION['eligible_stu'] .= "<td>{$stu_det['mahapola_category']}</td>";
+                            $_SESSION['eligible_stu'] .= "</tr>";
 
-                       
-                        header('Location:../../view/mahapolaSchemeMaintainer/mmEligibilityListV.php');
+                        
+                            header('Location:../../view/mahapolaSchemeMaintainer/mmEligibilityListV.php');
 
 
+                        }
+                    }
+                    else{
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmNoRecordsV.php');
+                    }
+
+
+                }
+
+                elseif($report_type == 'monthlyInEligibiltyList'){
+
+                    $_SESSION['non_eligible_stu'] = '';
+
+                    if(count($non_eligible_stu_list) > 0){
+                        for($i =0; $i<count($non_eligible_stu_list) ; $i++){
+                            $student_det = viewMahapolaModel::getStudentDetails($non_eligible_stu_list[$i],$connect);
+                            $stu_det = mysqli_fetch_assoc($student_det);
+
+                            $_SESSION['eligible_stu'] .= "<tr>";
+                            $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['index_no']}</td>";
+                            $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
+                            $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
+                            $_SESSION['non_eligible_stu'] .= "</tr>";
+
+                            header('Location:../../view/mahapolaSchemeMaintainer/mmInEligibilityListV.php');
+
+                        }
+                    }
+                    else{
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmNoRecordsV.php');
                     }
 
                 }
 
-                if($report_type == 'monthlyInEligibiltyList'){
-                    $_SESSION['non_eligible_stu'] = '';
+                elseif($report_type == 'monthlyReconciliationReport'){
 
-                    for($i =0; $i<count($non_eligible_stu_list) ; $i++){
-                        $student_det = viewMahapolaModel::getStudentDetails($non_eligible_stu_list[$i],$connect);
-                        $stu_det = mysqli_fetch_assoc($student_det);
+                    $_SESSION['reco_list'] = '';
 
-                        $_SESSION['non_eligible_stu'] .= "<tr>";
-                        $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['index_no']}</td>";
-                        $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
-                        $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
-                        $_SESSION['non_eligible_stu'] .= "</tr>";
+                    $cur_reco_result = viewMahapolaModel::getCurrentMonthResult($degree,$batch_no,$year,$month,$connect);
 
-                        header('Location:../../view/mahapolaSchemeMaintainer/mmInEligibilityListV.php');
+                    if($month == 1){
+                        $prev_month = 12;
+                        $prev_year = $year - 1;
+
+                        $prev_reco_result = viewMahapolaModel::getPreviousMonthResult($degree,$batch_no,$prev_year,$prev_month,$connect);
 
                     }
+                    else{
+                        $prev_month = $month - 1;
+
+                        $prev_reco_result = viewMahapolaModel::getPreviousMonthResult($degree,$batch_no,$year,$year,$prev_month,$connect);
+                    }
+
+                    if(mysqli_num_rows($prev_reco_result) == 1){
+                        $_SESSION['has_prev_reco'] = 1;
+
+                        $prev_result = mysqli_fetch_assoc($prev_reco_result);
+
+                        $_SESSION['reco_list'] .= "<tr>";
+                        $_SESSION['reco_list'] .= "<td>{$prev_result['year']}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$prev_result['month']}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$deg_name}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$batch_no}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$prev_result['eligible_m']}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$prev_result['eligible_o']}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$prev_result['non_eligible']}</td>";
+                        $_SESSION['reco_list'] .= "</tr>";
+
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmReconcilationReportV.php');
+
+                    }
+
+                        $cur_result = mysqli_fetch_assoc($cur_reco_result);
+
+                        $_SESSION['reco_list'] .= "<tr>";
+                        $_SESSION['reco_list'] .= "<td>{$cur_result['year']}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$cur_result['month']}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$deg_name}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$batch_no}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$cur_result['eligible_m']}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$cur_result['eligible_o']}</td>";
+                        $_SESSION['reco_list'] .= "<td>{$cur_result['non_eligible']}</td>";
+                        $_SESSION['reco_list'] .= "</tr>";
+
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmReconcilationReportV.php');
+
                 }
                 
             }
