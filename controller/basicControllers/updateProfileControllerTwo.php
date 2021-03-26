@@ -37,7 +37,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $id)))
 		{
 			$errors[] = "Username should be a string";
-			header('Location:../../view/basic/aUserNameNotString.php');
+			header('Location:../../view/admin/aUserNameNotaString.php');
 			exit();
 		}
         
@@ -48,7 +48,7 @@
         if ($result_set) {
             if(mysqli_num_rows($result_set)==1){
                 $errors[] = 'Employee id already exists.'; 
-                echo "Employee id is already exists.";
+                header('Location:../../view/admin/aEmpIdAlreadyExistsV.php');
             }
         }
         
@@ -66,7 +66,7 @@
             if (!(preg_match('/^[A-Za-z]+$/', $ini)))
             {
                 $errors[] = "Initials should be a string";
-                header('Location:../../view/basic/aUserNameNotString.php');
+                header('Location:../../view/admin/aUserNameNotaString.php');
                 exit();
             }
 
@@ -74,7 +74,7 @@
             if (!(preg_match('/^[A-Za-z]+$/', $name)))
             {
                 $errors[] = "Surname should be a string";
-                header('Location:../../view/basic/aUserNameNotString.php');
+                header('Location:../../view/admin/aUserNameNotString.php');
                 exit();
             }
 
@@ -85,27 +85,27 @@
 
             if ($lastMail != "@ucsc.cmb.ac.lk") {
                 $errors[] = "University mail incorrect.";
-                header('Location:../../view/basic/uniMailIncorrect.php');
+                header('Location:../../view/admin/uniMailIncorrect.php');
                 exit();
             }
 
             if ($firstNumbs != $empid) {
                 $errors[] = "Username is incorrect.";
-                header('Location:../../view/basic/userNameIncorrect.php');
+                header('Location:../../view/admin/userNameIncorrect.php');
                 exit();
             }
 
             if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
             {
                 $errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
-                header('Location:../../view/basic/mobilePhoneIncorrect.php');
+                header('Location:../../view/admin/mobilePhoneIncorrect.php');
                 exit();
             }
 
             if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
             {
                 $errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
-                header('Location:../../view/basic/mobilePhoneIncorrect.php');
+                header('Location:../../view/admin/mobilePhoneIncorrect.php');
                 exit();
             }
 

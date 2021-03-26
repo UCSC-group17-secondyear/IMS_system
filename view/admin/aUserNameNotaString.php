@@ -12,26 +12,18 @@
         </ul>
 
         <div class="row">
-            <div class="col left20">
-                <?php
-                    require 'aSideNavV.php';
-                ?>
-            </div>
 
             <div class="col right80">
                 <div class="contentForm">
-                    <!-- <form action="../../controller/adminControllers/manageUserRoleController.php" method="post"> -->
                         <div class="row">
                             <h2>Sorry!
                                 Username is not a string..
                             </h2>
                         </div>
 
-                        <button class="cancelbtn">
+                        <button class="mainbtn">
                             <a href="../../controller/basicControllers/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>">Home</a>  
                         </button>
-                        
-                    <!-- </form> -->
                 </div>
             </div>
         </div>

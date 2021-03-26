@@ -31,7 +31,7 @@
 		if (!(preg_match('/^[A-Za-z]+$/', $id)))
 		{
 			$errors[] = "Username should be a string";
-			header('Location:../../view/admin/aUserNameNotString.php');
+			header('Location:../../view/admin/aUserNameNotaString.php');
 			exit();
 		}
         
@@ -85,21 +85,21 @@
 
             if ($firstNumbs != $empid) {
                 $errors[] = "Username is incorrect.";
-                header('Location:../../view/basic/userNameIncorrect.php');
+                header('Location:../../view/admin/userNameIncorrect.php');
                 exit();
             }
 
             if (!(preg_match('/^[0-9]{10}+$/', $mobile))) 
             {
                 $errors[] = "Mobile number is incorrect. The mobile number should have only ten digits.";
-                header('Location:../../view/basic/mobilePhoneIncorrect.php');
+                header('Location:../../view/admin/mobilePhoneIncorrect.php');
                 exit();
             }
 
             if (!(preg_match('/^[0-9]{10}+$/', $tp))) 
             {
                 $errors[] = "Telephone number is incorrect. The telephone number should have only ten digits.";
-                header('Location:../../view/basic/mobilePhoneIncorrect.php');
+                header('Location:../../view/admin/mobilePhoneIncorrect.php');
                 exit();
             }
 

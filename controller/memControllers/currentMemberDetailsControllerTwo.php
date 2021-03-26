@@ -18,7 +18,7 @@
         $result_status = renewModel::getMeidcalMemDetails($user_id, $connect);
         $result_prev = mysqli_fetch_assoc($result_status);
         $prev_status = $result_prev['married'];
-        $cur_status = mysqli_real_escape_string($connect,$_POST['civilstatus']);
+        $cur_status = mysqli_real_escape_string($connect,$_POST['married']);
 
         if($prev_status == '1'){
             $result_child = renewModel::getChildDetails($user_id, $connect);
@@ -58,7 +58,7 @@
 
     
 
-        $civil_status = $_POST['civilstatus'];
+        $civil_status = $_POST['married'];
         $result_mem = renewModel::updatememDetails($user_id,$civil_status, $mem_health, $connect);
 
         ///////////////////////////////////////////////////////////////// Unmarried --> Unmarried

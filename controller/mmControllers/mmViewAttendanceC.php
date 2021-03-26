@@ -43,8 +43,7 @@
                 header('Location:../../view/mahapolaSchemeMaintainer/mmGetStdStdwiseAttendanceV.php');
             }
             else {
-                echo("check");
-                /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubSessionAvailableV.php');*/
+                header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubSessionAvailableV.php');
             }
         }       
     }
@@ -58,8 +57,7 @@
         $endDate = $_POST['endDate'];
 
         if ($startDate > $endDate) {
-            echo("error");
-            /*header('Location:../../view/mahapolaSchemeMaintainer/mmStartEndDateIssue.php');*/
+            header('Location:../../view/mahapolaSchemeMaintainer/mmStartEndDateIssue.php');
         }
         else {
             $_SESSION['index_no'] = $index_no;
@@ -90,7 +88,7 @@
                 $_SESSION['totalDays'] = $result_totDays['totalDays'];
 
                 if ($_SESSION['totalDays'] == 0) {
-                    echo "no session has been held for the given subject in the given duration";
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmNoStdAttendanceV.php');
                 }
                 else {
                     $get_attendDays = mmModel::getAttendDays ($std_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
@@ -114,14 +112,12 @@
                         header('Location:../../view/mahapolaSchemeMaintainer/mmDisplayStdwiseAttendanceV.php');
                     }
                     else {
-                        echo "error";
-                        /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoAttendance.php');*/
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmNoStdAttendanceV.php');
                     }
                 }
             }
             else {
-                echo "error";
-                /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubIDSessionID.php');*/
+                header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubIDSessionID.php');
             }
         }
     }
@@ -145,12 +141,10 @@
         $semester = $_POST['semester'];
 
         if ($calander_year > date("Y")) {
-            echo "error";
-            /*header('Location:../../view/mahapolaSchemeMaintainer/mmFutureYearMV.php');*/
+            header('Location:../../view/mahapolaSchemeMaintainer/mmFutureYearMV.php');
         }
         elseif ($calander_year == date("Y") && $month > date("m")) {
-            echo "error";
-            /*header('Location:../../view/mahapolaSchemeMaintainer/mmFutureMonthMV.php');*/
+            header('Location:../../view/mahapolaSchemeMaintainer/mmFutureMonthMV.php');
         }
         else {
             session_start();
@@ -214,7 +208,7 @@
                 $_SESSION['monthDays'] = $result_monthDays['monthDays'];
 
                 if ($_SESSION['monthDays'] == 0) {
-                    echo "no attendance";
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmNoMonthlyAttendance.php');
                 }
                 else {
                     $get_degreeId = mmModel::getDegreeId ($degree_name, $connect);
@@ -248,18 +242,16 @@
                         header('Location:../../view/mahapolaSchemeMaintainer/mmDisplayMonthlyAttendanceV.php');
                     }
                     else {
-                        echo "error";
-                        /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoMonthlyAttendance.php');*/
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmNoMonthlyAttendance.php');
                     }
                 }
             }
             else {
-                echo "error";
-                /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubIDSessionID.php');*/
+                header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubIDSessionID_M.php');
             }
         }
         else {
-            echo "error";
+            header('Location:../../view/mahapolaSchemeMaintainer/mmRequestDeniedV.php');
         }
     }
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -297,14 +289,8 @@
         $startDate = $_POST['startDate'];
         $endDate = $_POST['endDate'];
 
-        if ($batch_number<=0) {
-            /*header('Location:../../view/mahapolaSchemeMaintainer/mmBatchNumIssueM.php');*/
-            echo "error7";
-        }
-
-        else if ($startDate > $endDate) {
-            /*header('Location:../../view/mahapolaSchemeMaintainer/mmStartEndDateIssueM.php');*/
-            echo "error8";
+        if ($startDate > $endDate) {
+            header('Location:../../view/mahapolaSchemeMaintainer/mmStartEndDateIssueM.php');
         }
 
         else {
@@ -340,7 +326,7 @@
                     $_SESSION['totSubDays'] = $result_totSubDays['totSubDays'];
 
                     if ($_SESSION['totSubDays'] == 0) {
-                        echo "no attendance";
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubjectAttendance.php');
                     }
                     else {
                         $get_attendPercentage = mmModel::getSubjectAttendPercentage ($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
@@ -376,22 +362,20 @@
                                 header('Location:../../view/mahapolaSchemeMaintainer/mmDisplaySubjectAttendanceV.php');
                             }
                             else {
-                                echo "error1";
+                                header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubjectAttendance.php');
                             }
                         }
                         else {
-                            /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubjectAttendance.php');*/
-                            echo "error5";
+                            header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubjectAttendance.php');
                         }
                     }
                 }
                 else {
-                    echo "error2";
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubjectAttendance.php');
                 }
             }
             else {
-                echo "error4";
-                /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubIDSessionID_S.php');*/
+                header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubIDSessionID_S.php');
             }
         }
     }
@@ -409,7 +393,7 @@
             header('Location:../../view/mahapolaSchemeMaintainer/mmBatchWiseAttendanceV.php');
         }
         else {
-            echo "no degrees in the system";
+            header('Location:../../view/attendanceMaintainer/mmRequestDenied.php');
         }
     }
 
@@ -441,7 +425,7 @@
             header('Location:../../view/mahapolaSchemeMaintainer/mmSelectSub_B.php');
         }
         else {
-            echo "error";
+            header('Location:../../view/attendanceMaintainer/mmRequestDenied.php');
         }
     }
 
@@ -455,8 +439,7 @@
         $endDate = $_POST['endDate'];
 
         if ($startDate > $endDate) {
-            /*header('Location:../../view/mahapolaSchemeMaintainer/mmStartEndDateIssueB.php');*/
-            echo "error";
+            header('Location:../../view/mahapolaSchemeMaintainer/mmStartEndDateIssueB.php');
         }
         else {
             $_SESSION['batch_number'] = $batch_number;
@@ -484,8 +467,7 @@
 
                 if ($records1 && $records2) {
                     if (mysqli_num_rows($records1) == 0) {
-                        /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoBatchAttendance.php');*/
-                        echo "error";
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmNoBatchAttendance.php');
                     }
                     else {
                         $_SESSION['batchWise_attendance'] = '';
@@ -507,13 +489,11 @@
                     }
                 }
                 else {
-                    /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoBatchAttendance.php');*/
-                    echo "error";
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmNoBatchAttendance.php');
                 }
             }
             else {
-                /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubIDSessionID_Batch.php');*/
-                echo "error";
+                header('Location:../../view/mahapolaSchemeMaintainer/mmNoSubIDSessionID_Batch.php');
             }
         }
     }
@@ -532,8 +512,7 @@
             $records = mmModel::getSemesterAttendance ($start_date, $end_date, $connect);
         
             if (!($records)) {
-                    echo "error1";
-                    /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoAttendanceSemester.php');*/
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmNoAttendanceSemester.php');
                 }
             else {
                 session_start();
@@ -571,13 +550,12 @@
                     header('Location:../../view/mahapolaSchemeMaintainer/mmDisplaySemesterAttendanceV.php');
                 }
                 else {
-                    echo "error4";
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmNoAttendanceSemester.php');
                 }
             }
         }
         else {
-            /*header('Location:../../view/mahapolaSchemeMaintainer/mmNoStartEndDateS.php');*/
-            echo "error2";
+            header('Location:../../view/mahapolaSchemeMaintainer/mmRequestDeniedV.php');
         }
     }
 ?>
