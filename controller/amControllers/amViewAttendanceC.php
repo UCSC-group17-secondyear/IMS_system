@@ -92,7 +92,7 @@
                 $_SESSION['totalDays'] = $result_totDays['totalDays'];
 
                 if ($_SESSION['totalDays'] == 0) {
-                    echo "no session has been held for the given subject in the given duration";
+                    header('Location:../../view/attendanceMaintainer/amNoStdAttendanceV.php');
                 }
                 else {
                     $get_attendDays = amModel::getAttendDays ($std_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
@@ -215,7 +215,7 @@
                 $_SESSION['monthDays'] = $result_monthDays['monthDays'];
 
                 if ($_SESSION['monthDays'] == 0) {
-                    echo "no attendance";
+                    header('Location:../../view/attendanceMaintainer/amNoMonthlyAttendance.php');
                 }
                 else {
                     $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
@@ -258,7 +258,7 @@
             }
         }
         else {
-            echo "failed";
+            header('Location:../../view/attendanceMaintainer/amRequestDenied.php');
         }
     }
 
@@ -289,7 +289,7 @@
             header('Location:../../view/attendanceMaintainer/amSubjectWiseAttendanceV.php');
         }
         else {
-            echo "failed";
+            header('Location:../../view/attendanceMaintainer/amRequestDenied.php');
         }
     }
 
@@ -343,7 +343,7 @@
                     $_SESSION['totSubDays'] = $result_totSubDays['totSubDays'];
 
                     if ($_SESSION['totSubDays'] == 0) {
-                        echo "no attendance";
+                        header('Location:../../view/attendanceMaintainer/amNoSubjectAttendance.php');
                     }
                     else {
                         $get_attendPercentage = amModel::getSubjectAttendPercentage ($degree_id, $subject_id, $sessionTypeId, $startDate, $endDate, $connect);
@@ -367,7 +367,6 @@
                                     $_SESSION['subWise_attendance'] .= "<td>{$index_no}</td>";
                                     $_SESSION['subWise_attendance'] .= "<td>{$record['attendance']}</td>";
                                     $_SESSION['subWise_attendance'] .= "</tr>";
-                                    echo $record['std_id'];
                                 }
 
                                 $_SESSION['subject_name'] = $subject_name;
@@ -380,7 +379,7 @@
                                 header('Location:../../view/attendanceMaintainer/amDisplaySubjectAttendanceV.php');
                             }
                             else {
-                                echo "error1";
+                                header('Location:../../view/attendanceMaintainer/amNoSubjectAttendance.php');
                             }
                         }
                         else {
@@ -389,7 +388,7 @@
                     }
                 }
                 else {
-                    echo "error2";
+                    header('Location:../../view/attendanceMaintainer/amNoSubjectAttendance.php');
                 }
             }
             else {
@@ -413,7 +412,7 @@
             header('Location:../../view/attendanceMaintainer/amBatchWiseAttendanceV.php');
         }
         else {
-            echo "no degrees in the system";
+            header('Location:../../view/attendanceMaintainer/amRequestDenied.php');
         }
     }
 
@@ -446,7 +445,7 @@
             header('Location:../../view/attendanceMaintainer/amSelectSub_B.php');
         }
         else {
-            echo "error";
+            header('Location:../../view/attendanceMaintainer/amRequestDenied.php');
         }
     }
 
@@ -572,7 +571,7 @@
                     header('Location:../../view/attendanceMaintainer/amDisplaySemesterAttendanceV.php');
                 }
                 else {
-                    echo "error4";
+                    header('Location:../../view/attendanceMaintainer/amNoStartEndDateS.php');
                 }
             }
         }
