@@ -5,31 +5,31 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amBatchWiseAttendanceV.php">Batch-wise Attendance</a></li>
-            <li class="active">Request Failed!</li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aUpdateRemoveSessionPerMonthFoundV.php">Update or Remove sessions</a></li>
+            <li class="active">Action Failed!</li>
         </ul>
 
-        <div class="row" style="margin-bottom: 4%;" >
+        <div class="row">
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'aSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!<br>
-                        The batch number has to be a positive number.
+                        <h2>Sorry, <br>
+                            Thre is a Montly session that matches to your updated details!
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amBatchWiseAttendanceV.php">Try again</a> 
+                        <a href="aUpdateRemoveSessionPerMonthFoundV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Exit</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

@@ -265,10 +265,9 @@
 
                 if ($sessionTypeId) {
                     $get_MonthlySession = adminModel::checkMonthlySession ($degree_id, $subject_id, $sessionTypeId, $calendarYear, $month, $connect);
-                    $result_MonthlySession = mysqli_fetch_assoc($get_MonthlySession);
 
-                    if ($result_MonthlySession) {
-                        echo "session is assigned";
+                    if ($get_MonthlySession) {
+                        header('Location:../../view/admin/aMSessionUpdateFailed.php');
                     }
                     else {
                         $result_set = adminModel::updateMonthlySession ($sessionMid, $calendarYear, $month, $numOfSessions, $connect);

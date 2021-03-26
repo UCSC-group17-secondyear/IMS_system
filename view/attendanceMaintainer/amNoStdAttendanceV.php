@@ -6,11 +6,11 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amBatchWiseAttendanceV.php">Batch-wise Attendance</a></li>
+            <li><a href="amStudentWiseAttendanceV.php">Student-wise attendance</a></li>
             <li class="active">Request Failed!</li>
         </ul>
 
-        <div class="row" style="margin-bottom: 4%;" >
+        <div class="row">
             <div class="col left20">
                 <?php
                     require 'amSideNavV.php';
@@ -20,13 +20,13 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!<br>
-                        The batch number has to be a positive number.
+                        <h2>Sorry!
+                            There are no sessions available for the given subject in the given date duration.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amBatchWiseAttendanceV.php">Try again</a> 
+                        <a href="amStudentWiseAttendanceV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 
