@@ -128,7 +128,7 @@
 
                     $final_percentage = ($total_stu_sub_percent + $total_stu_non_sub_percent)/($sub_count + $non_sub_count);
 
-                        if($final_percentage >= 50){
+                        if($final_percentage >= 80){
                             $eligible_stu_list[] = $stu['std_id'];
                             
                             if($stu['mahapola_category'] == 'merit'){
@@ -203,7 +203,7 @@
                             $student_det = viewMahapolaModel::getStudentDetails($non_eligible_stu_list[$i],$connect);
                             $stu_det = mysqli_fetch_assoc($student_det);
 
-                            $_SESSION['eligible_stu'] .= "<tr>";
+                            $_SESSION['non_eligible_stu'] .= "<tr>";
                             $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['index_no']}</td>";
                             $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
                             $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
@@ -253,9 +253,43 @@
                         $_SESSION['reco_list'] .= "<td>{$prev_result['non_eligible']}</td>";
                         $_SESSION['reco_list'] .= "</tr>";
 
-                        header('Location:../../view/mahapolaSchemeMaintainer/mmReconcilationReportV.php');
 
                     }
+
+
+                        $_SESSION['reco_eligible_stu'] = '';
+                        if(count($eligible_stu_list) > 0){
+                            for($i =0; $i<count($eligible_stu_list) ; $i++){
+
+                                $student_det = viewMahapolaModel::getStudentDetails($eligible_stu_list[$i],$connect);
+                                $stu_det = mysqli_fetch_assoc($student_det);
+
+                                $_SESSION['reco_eligible_stu'] .= "<tr>";
+                                $_SESSION['reco_eligible_stu'] .= "<td>{$stu_det['index_no']}</td>";
+                                $_SESSION['reco_eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
+                                $_SESSION['reco_eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
+                                $_SESSION['reco_eligible_stu'] .= "<td>{$stu_det['mahapola_category']}</td>";
+                                $_SESSION['reco_eligible_stu'] .= "</tr>";
+
+                            }
+                        }
+
+                        $_SESSION['reco_non_eligible_stu'] = '';
+
+                        if(count($non_eligible_stu_list) > 0){
+                            for($i =0; $i<count($non_eligible_stu_list) ; $i++){
+                                $student_det = viewMahapolaModel::getStudentDetails($non_eligible_stu_list[$i],$connect);
+                                $stu_det = mysqli_fetch_assoc($student_det);
+
+                                $_SESSION['reco_non_eligible_stu'] .= "<tr>";
+                                $_SESSION['reco_non_eligible_stu'] .= "<td>{$stu_det['index_no']}</td>";
+                                $_SESSION['reco_non_eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
+                                $_SESSION['reco_non_eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
+                                $_SESSION['reco_non_eligible_stu'] .= "</tr>";
+
+
+                            }
+                        }
 
                         $cur_result = mysqli_fetch_assoc($cur_reco_result);
 

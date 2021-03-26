@@ -53,7 +53,7 @@
                                         <th>Mahapola Scheme</th>
                                     </tr>
 
-                                    <?php echo $_SESSION['eligible_stu']; ?>
+                                    <?php echo $_SESSION['reco_eligible_stu']; ?>
                                 </table>
                             </div>
 
@@ -67,7 +67,7 @@
                                         <th>Name</th>
                                     </tr>
 
-                                    <?php echo $_SESSION['non_eligible_stu']; ?>
+                                    <?php echo $_SESSION['reco_non_eligible_stu']; ?>
                                 </table>
                             </div>
 

@@ -6,7 +6,7 @@
     <title>Nominated List</title>
         <div class="sansserif">
             <ul class="breadcrumbs">
-                <li><a href="mmHomeV.php">Home</a></li>
+                <li><a href="rvHomeV.php">Home</a></li>
                 <li><a href="../../controller/rvControllers/mahapolaListController.php?btn=11">View Another List</a></li>
                 <li class="active">Reconcilation Report</li>
             </ul>
@@ -53,7 +53,7 @@
                                         <th>Mahapola Scheme</th>
                                     </tr>
 
-                                    <?php echo $_SESSION['eligible_stu']; ?>
+                                    <?php echo $_SESSION['reco_eligible_stu']; ?>
                                 </table>
                             </div>
 
@@ -67,7 +67,7 @@
                                         <th>Name</th>
                                     </tr>
 
-                                    <?php echo $_SESSION['non_eligible_stu']; ?>
+                                    <?php echo $_SESSION['reco_non_eligible_stu']; ?>
                                 </table>
                             </div>
 
