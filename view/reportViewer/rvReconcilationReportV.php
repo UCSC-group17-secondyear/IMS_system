@@ -6,15 +6,15 @@
     <title>Nominated List</title>
         <div class="sansserif">
             <ul class="breadcrumbs">
-                <li><a href="mmHomeV.php">Home</a></li>
-                <li><a href="../../controller/mmControllers/mahapolaListController.php?btn=88">View Another List</a></li>
+                <li><a href="rvHomeV.php">Home</a></li>
+                <li><a href="../../controller/rvControllers/mahapolaListController.php?btn=11">View Another List</a></li>
                 <li class="active">Reconcilation Report</li>
             </ul>
         
             <div class="row" style="margin-bottom: 4%;">
                 <div class="col left20">
                     <?php 
-                        require('mmSideNavV.php');
+                        require('rvSideNavV.php');
                     ?>
                 </div>
 
@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/mmControllers/mahapolaListController.php" method="post">
+                        <form action="../../controller/rvControllers/mahapolaListController.php" method="post">
                            
                             <div class="">
                                 <table id="tableStyle">
@@ -73,7 +73,7 @@
 
                             <button class="subbtn" type="submit" name="view-mahapola-report" >View Another</button></a>
                             <button type="submit" class="cancelbtn">
-                                <a href="mmHomeV.php">Exit</a>
+                                <a href="rvHomeV.php">Exit</a>
                             </button>
                         </form>
                     </div>

@@ -5,15 +5,15 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amBatchWiseAttendanceV.php">Batch-wise Attendance</a></li>
+            <li><a href="rvHomeV.php">Home</a></li>
+            <li><a href="rvStudentWiseAttendanceV.php">Student-wise Attendance</a></li>
             <li class="active">Request Failed!</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'rvSideNavV.php';
                 ?>
             </div>
 
@@ -21,15 +21,15 @@
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!<br>
-                        The batch number has to be a positive number.
+                        The system has failed to fetch subject and/or session data.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amBatchWiseAttendanceV.php">Try again</a> 
+                        <a href="rvStudentWiseAttendanceV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Exit</a> 
+                        <a href="rvHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

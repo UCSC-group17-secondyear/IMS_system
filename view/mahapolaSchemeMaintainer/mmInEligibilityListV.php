@@ -7,6 +7,7 @@
         <div class="sansserif">
             <ul class="breadcrumbs">
                 <li><a href="mmHomeV.php">Home</a></li>
+                <li><a href="../../controller/mmControllers/mahapolaListController.php?btn=88">View Another List</a></li>
                 <li class="active">Mahapola Ineligibility List</li>
             </ul>
         
@@ -23,7 +24,7 @@
                     </div>
 
                     <div class="contentForm">
-                        <form action="" method="post">
+                        <form action="../../controller/mmControllers/mahapolaListController.php" method="post">
                         
                             <div class="row">
                                 <div class="col-25">
@@ -46,7 +47,7 @@
                                 </table>
                             </div>
 
-                            <button class="subbtn" type="submit" name="" >View Another</button></a>
+                            <button class="subbtn" type="submit" name="view-mahapola-report" >View Another</button></a>
                             <button type="submit" class="cancelbtn">
                                 <a href="mmHomeV.php">Exit</a>
                             </button>

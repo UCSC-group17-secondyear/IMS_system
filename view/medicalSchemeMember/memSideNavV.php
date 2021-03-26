@@ -1,11 +1,13 @@
 <main>
      <div class="sansserif">
         <ul id="tree_view">
-            <li>
-                <a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>">
-                    <button type="submit" class="tree_list">Renew Membership</button>
-                </a><br>
-            </li>
+            <form action="../../controller/memControllers/currentMemberDetailsController1.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                <li>
+                    <a >
+                        <button name="check-renew" type="submit" class="tree_list">Renew Membership</button>
+                    </a><br>
+                </li>
+            </form>
 
             <li>
                 <a href="../../controller/memControllers/viewSchemesController.php">

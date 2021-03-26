@@ -137,6 +137,31 @@
 			return $result;
 		}
 
+		public static function getMedYearEndDate($cur_year,$connect)
+        {
+            $query = "SELECT * FROM tbl_medical_year WHERE YEAR(end_date)='{$cur_year}' LIMIT 1";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+		public static function getNewMedYearEndDate($medi_year,$connect){
+			$query = "SELECT * FROM tbl_medical_year WHERE medical_year = '{$medi_year}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+            return $result;
+		}
+
+		public static function getDateDiffEndDate($med_year,$connect){
+			$query = "SELECT DATEDIFF(end_date,CURRENT_DATE() )FROM tbl_medical_year WHERE medical_year='{$med_year}'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
     }
 
 ?>

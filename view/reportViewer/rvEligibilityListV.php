@@ -41,6 +41,7 @@
                                         <th>Index No</th>
                                         <th>Registration No</th>
                                         <th>Name</th>
+                                        <th>Mahapola Scheme</th>
                                     </tr>
 
                                     <?php echo $_SESSION['eligible_stu']; ?>

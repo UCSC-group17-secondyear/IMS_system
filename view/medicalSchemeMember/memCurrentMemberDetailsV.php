@@ -51,7 +51,7 @@
                                     <label>Civil status</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="civilstatus" id="civilstatus" onchange="selectStaus()" required>
+                                    <select name="married" id="married" required>
                                         <option >Select option</option>
                                         <option value="1">Married</option>
                                         <option value="0">Unmarried</option>
