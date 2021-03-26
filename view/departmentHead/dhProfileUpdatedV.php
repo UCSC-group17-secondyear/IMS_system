@@ -20,16 +20,13 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>The Profile is updated successfully!</h2>
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/basicControllers/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Try Again</a>
+                        <a href="../../controller/basicControllers/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Profile</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="dhHomeV.php">Leave</a>

@@ -30,6 +30,15 @@
                             
                             <div class="row" >
                                 <div class="col-25">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input name="name" type="text" <?php echo 'value="'.$_SESSION['name'].'"' ?> readonly>
+                                </div>
+                            </div>
+
+                            <div class="row" >
+                                <div class="col-25">
                                     <label>Health condition</label>
                                 </div>
                                 <div class="col-75">
@@ -42,10 +51,10 @@
                                     <label>Civil status</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="civilstatus" required>
-                                        <option value="<?php echo $_SESSION['civilstatus'] ?>"><?php echo $_SESSION['civilstatus'] ?></option>
-                                        <option value="married">Married</option>
-                                        <option value="unmarried">Unmarried</option>
+                                    <select name="civilstatus" id="civilstatus" onchange="selectStaus()" required>
+                                        <option >Select option</option>
+                                        <option value="1">Married</option>
+                                        <option value="0">Unmarried</option>
                                     </select>
                                 </div>
                             </div>
@@ -55,11 +64,12 @@
                                     <label>Medical Scheme Type</label>
                                 </div>
                                 <div class="col-75">
-                                    <input name="scheme" type="text" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> disabled>
+                                    <input name="scheme" type="text" <?php echo 'value="'.$_SESSION['scheme'].'"' ?> readonly>
                                 </div>
                             </div>
+                            <br>
 
-                            <button class="subbtn" type="submit" name="update-submit">Update Details</button>
+                            <button class="subbtn" type="submit" name="mem-det-submit">Update Details</button>
                             <button type="submit" class="cancelbtn">
                                 <a href="memHomeV.php">Cancel</a>
                             </button>
@@ -73,3 +83,5 @@
 <?php
     require_once('../basic/footer.php');
 ?>
+
+

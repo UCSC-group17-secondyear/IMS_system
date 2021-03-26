@@ -25,14 +25,15 @@
                         </div>
 
                     <div class="contentForm">
-                        <form action="../../controller/memControllers/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['userId']?>&scheme_name=<?php echo $_SESSION['scheme_name']?>" method="POST">
+                        <form action="../../controller/memControllers/currentMemberDetailsControllerOne.php?user_id=<?php echo $_SESSION['user_id'] ?>" method="POST">
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Select Scheme</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="scheme_name" id="" required>
-                                        <option value=""><?php echo $_SESSION['schemeName'] ?></option>
+                                    <select name="scheme_id" id="" required>
+                                        <option value="">Select Scheme</option>
+                                        <?php echo $_SESSION['schemeName'] ?>
                                     </select>
                                 </div>
                             </div>

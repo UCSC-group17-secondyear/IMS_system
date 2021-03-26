@@ -27,8 +27,7 @@
                     <tr>
                         <th>Department</th>
                         <th>Abbriviation</th>
-                        <th>Department Head</th>
-                        <th>Department Head's Email</th>
+                        <th>Post of the Department Head</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>

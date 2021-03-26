@@ -7,7 +7,7 @@
 
     <div class="sansserif">
             <ul class="breadcrumbs">
-                <li class="active">Mahapola Scheme Maintainer Page</li>
+                <li class="active">Home</li>
             </ul>
 
         <div class="row" style="margin-bottom: 5%;">
@@ -26,8 +26,7 @@
                     <img src="../assests/img/profile.png" alt="Avatar" style="width:100%">
                 </div>
                 <div class="btncontainer">
-                    <a href="../../controller/basicControllers/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>                    
-                </div>
+                    <a href="../../controller/basicControllers/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" name="" class="signupbtn">My Profile</button></a>                    </div>
             </div>
         </div>
     </div>

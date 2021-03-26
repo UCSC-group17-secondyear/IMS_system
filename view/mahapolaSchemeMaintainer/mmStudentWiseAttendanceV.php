@@ -3,100 +3,48 @@
 ?>
 
 <main>
-    <title>View Student-wise Attendance</title>
+    <title>View StudentWise Attendance</title>
 
-    <div class="sansserif">
-        <ul class="breadcrumbs">
-            <li><a href="mmHomeV.php">Home</a></li>
-            <li class="active">View Student-wise Attendance</li>
-        </ul>
+    <ul class="breadcrumbs">
+        <li><a href="mmHomeV.php">Home</a></li>
+        <li class="active">Studentwise Attendance</li>
+    </ul>
 
-        <div class="row" style="margin-bottom: 4.5%;">
-            <div class="col left20">
-                <?php
-                    require 'mmSideNavV.php';
-                ?>
+    <div class="row" style="margin-bottom: 4%;" >
+        <div class="col left20">
+            <?php
+                require 'mmSideNavV.php';
+            ?>
+        </div>
+
+        <div class="col right80">
+            <div>
+                <h2>Studentwise Attendance</h2>
             </div>
+            <div class="contentForm">
+                <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Select Student Index</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="index_no">
+                                    <?php echo $_SESSION['student_indexes']; ?>
+                                </select>
+                            </div>
+                        </div>
 
-            <div class="col right80">
-                <div>
-                    <h2>View Student-wise Attendance</h2>
-                </div>
-
-                <div class="contentForm" style="margin-bottom: 1%;">
-                    <div class="row">
-                    <form action="mmStudentWiseAttendanceV.php" method="post">
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Student Index</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="student_index" placeholder="Student Index" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Degree</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="degree" placeholder="Degree"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Academic Year</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="academic_year" placeholder="Academic Year"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Semester</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="semester" placeholder="Semester"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Subject</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="subject" placeholder="Subject"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Start Date</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="date" name="start_date" placeholder="Start Date"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter End Date</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="date" name="end_date" placeholder="End Date"/>
-                            </div>
-                        </div>
-                    </form>
-                    <form>
-                        <button class="subbtn" type="submit" name="select-submit">
-                            <a href="#">Display Attendance</a>
+                        <button class="subbtn" type="submit" name="filterStudent-submit">Enter
                         </button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="mmHomeV.php">Cancel</a>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="mmHomeV.php">Cancel</a> 
                         </button>
                     </form>
-                </div>
             </div>
         </div>
     </div>
 </main>
 
 <?php
-    require_once('../basic/footer.php');
+    require '../basic/footer.php';
 ?>

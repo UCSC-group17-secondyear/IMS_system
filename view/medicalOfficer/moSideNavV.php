@@ -2,18 +2,20 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="moClaimReqestingFormsV.php">
+                <a href="../../controller/moControllers/reqClaimFormListControllerOne.php">
                     <button type="submit" class="tree_list">View Claim Requesting Forms</button>
                 </a>
             </li>
             <li><button class="tree_list">View Reffered Claim Forms</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="moApprovedClaimFormsV.php" class="buttonTwo"><li><i class="fa fa-plus-circle"></i>Approved claim forms</li></a>
+                <form action="../../controller/moControllers/refferedClaimFormListController.php" method="POST">
+                    <button type="submit" name="approve_list">
+                        <a ><li><i class="fa fa-plus-circle"></i>Approved claim forms</li></a>
                     </button>
-                    <button>
-                        <a href="moRejectedClaimFormsV.php" class="buttonTwo"><li><i class="fa fa-minus-circle"></i>Rejected claim forms</li></a>
-                    <button>
+                    <button type="submit" name="reject_list">
+                        <a ><li><i class="fa fa-minus-circle"></i>Rejected claim forms</li></a>
+                    </button>
+                </form>
                 </ul>
             </li>
             <li>
@@ -36,3 +38,4 @@
         }
     </script>
 </main>
+

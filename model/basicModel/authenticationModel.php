@@ -8,9 +8,9 @@
             return $result_set;
         }
         
-        public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $aca_or_non, $designation, $post, $userRole, $appointment, $password, $connect) 
+        public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $f, $designation, $userRole, $appointment, $password, $connect) 
 		{
-			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, aca_or_non, designation, post, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$aca_or_non', '$designation', '$post', '$appointment', '$userRole','$password')";
+			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, academic, designation_id, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$f', '$designation', '$appointment', '$userRole','$password')";
 			
 			$result = mysqli_query($connect, $query);
 
@@ -26,9 +26,9 @@
 			return $result;
         }
         
-        public static function setRole($user_id, $asm_flag, $connect)
+        public static function setRole($user_id, $asm_flag, $nasm_flag,$connect)
 		{
-			$query = "INSERT INTO tbl_user_flag (user_id, asm_flag) VALUES($user_id, $asm_flag)";
+			$query = "INSERT INTO tbl_user_flag (user_id, asm_flag, nasm_flag) VALUES($user_id, $asm_flag, $nasm_flag)";
 
 			$result = mysqli_query($connect, $query);
 

@@ -20,12 +20,12 @@
             <div class="col right80">
                 <div>
                     <div>
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             There are no Medical Years to update in the system right now.
                         </h2>
                     </div>
 
-                    <form action="../../controller/msmControllers/msmmanageMedicalYearC.php" method="post">
+                    <form action="../../controller/msmControllers/msmManageMedicalYearC.php" method="post">
                         <button name="viweMYDetails-submit" type="submit" class="subbtn">
                             <a href="#">View Medical Years</a>
                         </button>

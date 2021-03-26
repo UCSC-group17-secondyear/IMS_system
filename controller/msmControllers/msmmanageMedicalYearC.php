@@ -3,7 +3,36 @@
     require_once('../../config/database.php');
     require_once('../../model/msmModel/manageMedicalYearModel.php');
 
-    if(isset($_POST['viweMYDetails-submit'])) {
+    if(isset($_POST['addMY-submit'])) {
+        $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
+        $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
+        $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
+
+        $checkmy = msmModel::checkMedicalYear($medical_year, $connect);
+
+        if (mysqli_num_rows($checkmy) != 0) {
+            header('Location:../../view/medicalSchemeMaintainer/msmMYExists.php');
+        } else {
+            $result = msmModel::addMedicalYear($medical_year, $start_date, $end_date, $connect);
+            $allemails = msmModel::getEmailsofmembers($connect);
+
+            if ($result) {
+                while ($m = mysqli_fetch_array($allemails)) {
+                    $to_email = $m['email'];
+                    $subject = "Renew Membership";
+                    $body =  "Next medical year starts on ".$start_date.". So, please renew your membership before 14 days.";
+                    $headers = "From: ims.ucsc@gmail.com";
+
+                    $sendMail = mail($to_email, $subject, $body, $headers);
+                }
+                header('Location:../../view/medicalSchemeMaintainer/msmMYAdded.php');
+            }
+            else {
+                header('Location:../../view/medicalSchemeMaintainer/msmMYNotAdded.php');
+            }
+
+        }
+    } elseif(isset($_POST['viweMYDetails-submit'])) {
         $_SESSION['medy_list'] = '';
 
         $records = msmModel::viewMedicalYears($connect);
@@ -19,30 +48,7 @@
                 header('Location:../../view/medicalSchemeMaintainer/msmViewMYDetailsV.php');
             }
         }
-    }
-
-    elseif(isset($_POST['addMY-submit'])) {
-        $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
-        $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
-        $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
-
-        $checkmy = msmModel::checkMedicalYear($medical_year, $connect);
-
-        if (mysqli_num_rows($checkmy) != 0) {
-            header('Location:../../view/medicalSchemeMaintainer/msmMYExists.php');
-        } else {
-            $result = msmModel::addMedicalYear($medical_year, $start_date, $end_date, $connect);
-
-            if ($result) {
-                header('Location:../../view/medicalSchemeMaintainer/msmMYAdded.php');
-            }
-            else {
-                header('Location:../../view/medicalSchemeMaintainer/msmMYNotAdded.php');
-            }
-        }
-    }
-    
-    elseif(isset($_POST['viweMYList-submit'])) {
+    } elseif(isset($_POST['viweMYList-submit'])) {
         $records = msmModel::viewMedicalYears($connect);
         $_SESSION['MYNamesList'] = '';
         $count = 0;
@@ -60,9 +66,7 @@
                 header('Location:../../view/medicalSchemeMaintainer/msmUpdateViewMYV.php');
             }
         }
-    }
-
-    elseif(isset($_POST['updateMY-submit'])) {
+    } elseif(isset($_POST['updateMY-submit'])) {
         $medical_year = mysqli_real_escape_string($connect, $_POST['med_year']);
         $_SESSION['MYdetails'] = '';
 
@@ -78,9 +82,7 @@
 
             header('Location:../../view/medicalSchemeMaintainer/msmUpdateMYV.php');
         }
-    } 
-
-    elseif(isset($_POST['myupdate-submit'])) {
+    } elseif(isset($_POST['myupdate-submit'])) {
         $medical_year = mysqli_real_escape_string($connect, $_POST['medical_year']);
         $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
         $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);

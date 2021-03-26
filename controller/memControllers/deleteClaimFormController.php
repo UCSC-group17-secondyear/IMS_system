@@ -1,12 +1,12 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 ?>
 
 <?php
 
-        $moEmail = memModel::getMoEmail($connect);
+        $moEmail = claimFormModel::getMoEmail($connect);
         $email = mysqli_fetch_array($moEmail);
         $new_mail = $email['email'];
 
@@ -14,7 +14,7 @@
             $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
             $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
             
-            $result = memModel::deleteClaimForm($claim_form_no,$user_id, $connect);
+            $result = claimFormModel::deleteClaimForm($claim_form_no,$user_id, $connect);
     
             if ($result) {
                 $to_email = $new_mail;
@@ -23,8 +23,11 @@
                 $headers = "From: imsSystem17@gmail.com";
 
                 mail($to_email, $subject, $body, $headers);
-                //echo "Deleted successfully...";
+                
                 header('Location:../../view/medicalSchemeMember/memDeleteClaimFormSuccessV.php');
+            }
+            else{
+                header('Location:../../view/medicalSchemeMember/memUpdateClaimFormsV.php');
             }
            
         }

@@ -11,7 +11,6 @@
     $_SESSION['design'] = '';
     $_SESSION['posts'] = '';
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    // echo $user_id;
     $result_set = basicModel::view($user_id, $connect);
     $records = adminModel::designation($connect);
     $records2 = adminModel::getPost($connect);
@@ -27,17 +26,12 @@
             $_SESSION['mobile'] = $result['mobile'];
             $_SESSION['tp'] = $result['tp'];
             $_SESSION['dob'] = $result['dob'];
-            $_SESSION['designation'] = $result['designation'];
-            $_SESSION['post'] = $result['post'];
+            $_SESSION['designation'] = $result['designation_name'];
             $_SESSION['appointment'] = $result['appointment'];
 
             while ($record = mysqli_fetch_array($records)) {
-                $_SESSION['design'] .= "<option value='".$record['designation_name']."'>".$record['designation_name']."</option>";
+                $_SESSION['design'] .= "<option value='".$record['designation_id']."'>".$record['designation_name']."</option>";
             }
-            
-            while ($record2 = mysqli_fetch_array($records2)) {
-				$_SESSION['posts'] .= "<option value='".$record2['post_name']."'>".$record2['post_name']."</option>";
-			}
 
             if ($result['userRole'] == "admin") {
                 header('Location:../../view/admin/aUpdateProfileV.php');

@@ -3,11 +3,11 @@
 ?>
 
 <main>
-    <title>Medical Scheme Member Home Page</title>
+    <title>Home</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li class="active">Medical Scheme Member Page</li>
+            <li class="active">Home Page</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;">

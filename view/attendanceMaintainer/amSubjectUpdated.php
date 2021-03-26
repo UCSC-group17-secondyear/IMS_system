@@ -18,9 +18,6 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>The subject is updated succesdfully.
@@ -28,7 +25,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="amDeleteUpdateSubjectV.php">Update another</a> 
+                        <a href="amDeleteUpdateSubjectSearch.php">Update another</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

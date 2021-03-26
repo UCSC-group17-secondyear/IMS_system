@@ -1,40 +1,61 @@
 <main>
      <div class="sansserif">
         <ul id="tree_view">
-            <li><button class="tree_list">Mark Mahapola Selected Students</button>
-                <ul class="tree_nest">
-                    <button>
-                        <a href="mmMarkMahapolaStudentsIndexV.php"><li><i class="fa fa-pencil-square-o"></i>Search By Index Number</li></a>
-                    </button>
-                    <button>
-                        <a href="mmMarkMahapolaStudentsNameV.php"><li><i class="fa fa-pencil-square-o"></i>Search By Student Name</li></a>
-                    </button>
-                </ul>
-            </li>
-            <li>
-                <a href="mmViewMahapolaNominatedListV.php">    
-                    <button type="submit" class="tree_list">View Mahapola Nominated Student List</button>
-                </a>
-            </li>
-            <li>
-                <a href="mmViewReportsMahapolaSchemeV.php">    
-                    <button type="submit" class="tree_list">View Reports in Mahapola Scheme</button>
-                </a>
-            </li>
+            <form action="../../controller/mmControllers/markMahapolaController.php" method="POST">
+                <li>
+                    <a href="">    
+                        <button type="submit" class="tree_list" name="view-degree-list">Mark Mahapola Selected Students</button>
+                    </a>
+                </li>
+            </form>
+            <form action="../../controller/mmControllers/mahapolaNominatedListController.php" method="POST">
+                <li>
+                    <a href="">    
+                        <button type="submit" class="tree_list" name="view-nom-degree-list">View Mahapola Nominated Student List</button>
+                    </a>
+                </li>
+            </form>
+            <form action="../../controller/mmControllers/mahapolaListController.php" method="POST">
+                <li>
+                    <a href="">    
+                        <button type="submit" class="tree_list" name="view-mahapola-report">View Reports in Mahapola Scheme</button>
+                    </a>
+                </li>
+            </form>
             <li><button class="tree_list">View Student Attendance Reports</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="mmStudentWiseAttendanceV.php"><li><i class="fa fa-plus-circle"></i>View Attendance Student Wise</li></a>
-                    </button>
-                    <button>
-                        <a href="mmMonthWiseAttendanceV.php"><li><i class="fa fa-minus-circle"></i>View Attendance Month Wise</li></a></button>
-                    </button>
-                    <button>
-                        <a href="mmSubjectWiseAttendanceV.php"><li><i class="fa fa-pencil-square-o"></i>View Attendance Subject Wise</li></a>
-                    </button>
-                    <button>
-                        <a href="mmBatchWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Batch Wise</li></a>
-                    </button>
+                    <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <button name="fetchStudents-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Student Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
+                    <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <button name="fetchDegrees-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Month-Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
+                    <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <button name="fetchSubjects-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Subject Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
+                    <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <button name="getDegrees-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i> Batch Wise Attendance </li>
+                            </a>
+                        </button>
+                    </form>
+
                     <button>
                         <a href="mmSemesterWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Semester Wise</li></a>
                     </button>
@@ -46,7 +67,7 @@
                 </a>
             </li>
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Register to the Staff Medical Scheme</button>
                 </a>
             </li>

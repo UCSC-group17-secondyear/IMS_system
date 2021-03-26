@@ -25,14 +25,14 @@
                         </div>
 
                         <div class="contentForm" style="margin-bottom: 1%;">
-                            <form action="../../controller/memControllers/updateOpdFormController.php?user_id=<?php echo $_SESSION['userId']?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
+                            <form action="../../controller/memControllers/updateClaimFormControllerThree.php?user_id=<?php echo $_SESSION['user_id']?>&claim_form_no=<?php echo $_SESSION['claim_form_no'] ?>" method="post" enctype="multipart/form-data">
                              
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Claim Form No</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> disabled> <br>
+                                    <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['claim_form_no'].'"'?> readonly> <br>
                                 </div>
                             </div>
 
@@ -41,8 +41,8 @@
                                     <label for="">Patient Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="patient_name" id="" required>
-                                        <option value="<?php echo $_SESSION['patient_name'] ?>"><?php echo $_SESSION['patient_name'] ?></option>
+                                    <select name="dependant_id" id="" required>
+                                        <option value="<?php echo $_SESSION['patient_id'] ?>"><?php echo $_SESSION['patient_name'] ?></option>
                                         <?php echo $_SESSION['dependant_name'] ?> 
                                     </select>             
                                 </div>
@@ -55,11 +55,11 @@
                                 <div class="col-75">
                                     <select name="relationship" required>
                                         <option value="<?php echo $_SESSION['relationship'] ?>"><?php echo $_SESSION['relationship'] ?></option>
-                                        <option value="myself">Myself</option>
-                                        <option value="husband">Husband</option>
-                                        <option value="wife">Wife</option>
-                                        <option value="daughter">Daughter</option>
-                                        <option value="son">Son</option>
+                                        <option value="Myself">Myself</option>
+                                        <option value="Husband">Husband</option>
+                                        <option value="Wife">Wife</option>
+                                        <option value="Daughter">Daughter</option>
+                                        <option value="Son">Son</option>
                                     </select>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                                     <label for="">Treatment Received Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="treatment_received_date" <?php echo 'value="'.$_SESSION['treatment_received_date'].'"'?> required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="treatment_received_date" <?php echo 'value="'.$_SESSION['treatment_received_date'].'"'?> required> <br>
                                 </div>
                             </div>
 
@@ -87,7 +87,7 @@
                                     <label for="">Bill Issued Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="bill_issued_date" <?php echo 'value="'.$_SESSION['bill_issued_date'].'"'?> required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="bill_issued_date" <?php echo 'value="'.$_SESSION['bill_issued_date'].'"'?> required> <br>
                                 </div>
                             </div>
 
@@ -118,11 +118,11 @@
                                 </div>
                             </div>
 
-                                <button class="mainbtn" type="submit" name="update-form">Update Form</button>
+                                <button class="mainbtn" type="submit" name="update-opd-form">Update Form</button>
                             </form>
 
                             <form>
-                                <button class="subbtn" type="submit" name="userroleList-submit">
+                                <button class="subbtn" type="submit" name="">
                                     <a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId']?>">View Claim Form List</a>
                                 </button>
                                 <button type="submit" class="cancelbtn">

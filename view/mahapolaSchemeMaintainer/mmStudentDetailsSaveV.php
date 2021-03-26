@@ -21,10 +21,16 @@
                         <h2>Saved Successfully</h2>
                     </div>
                     <div class="contentForm">
-                        <a href="" ><button class="subbtn" type="submit" name="" >Add Another</button></a>
-                        <button type="submit" class="cancelbtn">
-                                <a href="mmHomeV.php">Exit</a>
-                        </button>
+                        <form  method="POST">
+                            <?Php
+                                $batch = $_SESSION['batch_no'];
+                                $degree = $_SESSION['degree_id_new'];
+                            ?>
+                            <button class="subbtn" type="submit" name="display-stu-list" ><a href="mmMarkMahapolaStudentsListV.php">Add Another</a></button>
+                            <button type="submit" class="cancelbtn">
+                                    <a href="mmHomeV.php">Exit</a>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

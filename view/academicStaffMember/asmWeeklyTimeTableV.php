@@ -26,14 +26,14 @@
                 <table id="tableStyle">
                     <tr>
                         <th>Date</th>
-                        <th>Time Duration</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Subject</th>
                         <th>Hall Name</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+
+                    <?php echo $_SESSION['time_table'] ?>
+                    
                 </table>
                 <form>
             </div>

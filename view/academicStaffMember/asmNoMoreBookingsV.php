@@ -19,18 +19,15 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             No More Bookings for you.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="../../controller/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a>
+                        <a href="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Add Booking</a>
                     </button>
                     <button class="cancelbtn">
                         <a href="asmHomeV.php">Leave</a> 

@@ -55,12 +55,16 @@
                             ?>
                                 <option value="<?php echo $_SESSION['asm_flag'] ?>"><?php echo $_SESSION['asm_flag'] ?></option>
                             <?php } ?>
+                            <?php if (isset($_SESSION['nasm_flag'])) {
+                            ?>
+                                <option value="<?php echo $_SESSION['nasm_flag'] ?>"><?php echo $_SESSION['nasm_flag'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
                 <button type="submit" class="signupbtn" name="change-role">Change</button>
         </form>
-                <a href="../../controller/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" class="cancelbtn">Cancel</button></a>
+                <a href="../../controller/basicControllers/homeController.php?user_id=<?php echo $_SESSION['userId'] ?>"><button type="submit" class="cancelbtn">Cancel</button></a>
     </div>
 
 </main>

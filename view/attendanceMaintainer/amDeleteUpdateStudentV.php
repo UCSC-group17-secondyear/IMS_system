@@ -26,7 +26,7 @@
                 <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                     <div class="row">
                         <div class="col-25">
-                          <label>Enter Student Index No</label>
+                          <label>Student's Index Number</label>
                         </div>
                         <div class="col-75">
                             <input type="text" name="index_no"  <?php echo 'value="'.$_SESSION['index_no'].'"' ?> />
@@ -35,16 +35,16 @@
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Student Registration Number</label>
+                            <label>Student's Registration Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="registrstion_no"  <?php echo 'value="'.$_SESSION['registrstion_no'].'"' ?> />
+                            <input type="text" name="registration_no"  <?php echo 'value="'.$_SESSION['registration_no'].'"' ?> />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Student's Initials</label>
+                            <label>Student's Initials</label>
                         </div>
                         <div class="col-75">
                             <input type="text" name="initials"  <?php echo 'value="'.$_SESSION['initials'].'"' ?> />
@@ -62,7 +62,7 @@
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter email</label>
+                            <label>Email address</label>
                         </div>
                         <div class="col-75">
                             <input type="email" name="email"  <?php echo 'value="'.$_SESSION['email'].'"' ?> />
@@ -71,28 +71,37 @@
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Select Academic Year</label>
+                            <label>Academic Year</label>
                         </div>
                         <div class="col-75">
-                            <select name="academic_year" id="academic_year">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select> <br>
+                            <input name="academic_year"  <?php echo 'value="'.$_SESSION['academic_year'].'"' ?> />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label>Select degree</label>
+                            <label>Semester</label>
                         </div>
                         <div class="col-75">
-                            <select name="degree" id="degree">
-                                <option value="CS">Computer Science</option>
-                                <option value="IS">Information System</option>
-                                <option value="SE">Software Engineering</option>
-                            </select> <br>
+                            <input name="semester"  <?php echo 'value="'.$_SESSION['semester'].'"' ?> />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Degree</label>
+                        </div>
+                        <div class="col-75">
+                            <input name="degree"  <?php echo 'value="'.$_SESSION['degree'].'"' ?> />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Batch Number</label>
+                        </div>
+                        <div class="col-75">
+                            <input name="batch_number"  <?php echo 'value="'.$_SESSION['batch_number'].'"' ?> />
                         </div>
                     </div>
 

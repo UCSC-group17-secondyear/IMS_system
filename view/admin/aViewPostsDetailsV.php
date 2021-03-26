@@ -25,6 +25,7 @@
                 <table id="tableStyle" class="mytable" style="margin-left: 35%;" >
                     <tr>
                         <th>Post Name</th>
+                        <th>Assigned Employee</th>
                     </tr>
                     <?php echo $_SESSION['post_list']; ?>
                 </table>

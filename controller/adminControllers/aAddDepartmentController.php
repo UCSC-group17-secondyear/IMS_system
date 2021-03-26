@@ -8,9 +8,7 @@
         
         $dept_name = mysqli_real_escape_string($connect, $_POST['dept_name']);
         $abbr = mysqli_real_escape_string($connect, $_POST['abbriviation']);
-        $dept_head = mysqli_real_escape_string($connect, $_POST['dept_head']);
-        $dept_head_email = mysqli_real_escape_string($connect, $_POST['dept_head_email']);
-        
+        $post = mysqli_real_escape_string($connect, $_POST['post']);
         
         $checkDept = adminModel::checkDeptName($dept_name, $connect);
 
@@ -18,18 +16,42 @@
             header('Location:../../view/admin/aDepartmentExistsTwoV.php');
         }
         else {
-            $result = adminModel::enterDepartment($dept_name, $abbr, $dept_head, $dept_head_email, $connect);
-        
-            if ($result) {
-                header('Location:../../view/admin/aDepartmentAddedV.php');
+            $getPost = adminModel::getPostUsingName($post, $connect);
+
+            if ($getPost) {
+                while ($rec = mysqli_fetch_assoc($getPost)) {
+                    $p_id = $rec['pst_id']; echo '<br>';
+                }
             }
-            else{
+            else {
                 header('Location:../../view/admin/aDepartmentNotAddedV.php');
             }
+
+            // $add_flag = adminModel::addFlag($u_id, $connect);
+                $result = adminModel::enterDepartment($dept_name, $abbr, $p_id, $connect);
+        
+                if ($result) {
+                    header('Location:../../view/admin/aDepartmentAddedV.php');
+                }
+                else{
+                    header('Location:../../view/admin/aDepartmentNotAddedV.php');
+                }
+            
+
         }       
     }
     else {
-        echo "No button is clicked.";
+        $_SESSION['post'] = '';
+
+        $records = adminModel::getPost($connect);
+
+        if ($records) {
+            while ($record = mysqli_fetch_array($records)) {
+                $_SESSION['post'] .= "<option value='".$record['post_name']."'>".$record['post_name']."</option>";
+			}
+        }
+
+        header('Location:../../view/admin/aAddDepartmentV.php');
     }
 
 ?>

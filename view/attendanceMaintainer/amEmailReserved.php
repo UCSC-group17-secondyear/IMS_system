@@ -18,12 +18,9 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             The email address belongs to another student.
                         </h2>
                     </div>

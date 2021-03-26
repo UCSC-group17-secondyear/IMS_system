@@ -4,7 +4,7 @@
     </div>
 
     <div class="contentForm">
-        <form action="../../controller/basicControllers/registerMSController3.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+        <form action="../../controller/basicControllers/registerMSController3.php?loguser=<?php echo $_SESSION['userId'] ?>" method="post">
             <div class="row">
                 <div class="row">
                     <div class="col-25">
@@ -13,16 +13,16 @@
                     <div class="col-75">
                         <select name="scheme" id="scheme" required>
                             <option value="">Select Scheme</option>
-                            <?php echo $_SESSION['scheme'] ?>
+                            <?php echo $_SESSION['scheme_id'] ?>
                         </select>
-                        <div class="tooltip">?
+                        <div class="tooltip"><i class="fa fa-question-circle"></i>
                             <span class="tooltiptext">Please look at the scheme details</span>
                         </div>
                     </div>
                 </div>
 
                 <?php
-                    if ($_SESSION['civil_status'] == "Married") {
+                    if ($_SESSION['civil_status'] == "1") {
                 ?>
                     <h3 style="text-decoration: none;">Spouse Details</h3>
 
@@ -31,7 +31,7 @@
                             <label>Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="spouse_name" required/>
+                            <input type="text" name="spouse_name" placeholder="Spouse name" required/>
                         </div>
                     </div>
 
@@ -62,10 +62,7 @@
                             <label>Health Status</label>
                         </div>
                         <div class="col-75">
-                            <input list="health_status" name="health_status" required>
-                            <datalist id="health_status">
-                                <?php echo $_SESSION['health_status']?>
-                            </datalist>
+                            <input list="health_status" name="health_status" placeholder="Health status" required>
                             <div class="tooltip"><i class="fa fa-question-circle"></i>
                                 <span class="tooltiptext">If he/she have any chronic disease. Please notify it here.</span>
                             </div>
@@ -79,7 +76,7 @@
                             <label>Number of children</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" min="0" name="children_no" required/>
+                            <input type="number" min="0" name="children_no" placeholder="Number of children" required/>
                         </div>
                     </div>                
 
@@ -87,7 +84,7 @@
                     }
                 ?>
 
-            <button class="mainbtn" type="submit" name="registerNext2-submit">Next</button>
+            <button class="mainbtn" type="submit" name="registerNext2-submit">Request the Membership/Next</button>
         </form>
         <form>
             <button class="subbtn" type="submit" name="schemedetails-submit"> View Scheme Details </button>

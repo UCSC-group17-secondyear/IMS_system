@@ -21,10 +21,9 @@
                 $_SESSION['dept_list'] .= "<tr>";
                 $_SESSION['dept_list'] .= "<td>{$record['department']}</td>";
                 $_SESSION['dept_list'] .= "<td>{$record['department_abbriviation']}</td>";
-                $_SESSION['dept_list'] .= "<td>{$record['department_head']}</td>";
-                $_SESSION['dept_list'] .= "<td>{$record['department_head_email']}</td>";
-                $_SESSION['dept_list'] .= "<td><a href=\"../../controller/adminControllers/aUpdateDepartmentController.php?dept_id={$record['department_id']}\">Update</a></td>";
-                $_SESSION['dept_list'] .= "<td><a href=\"../../controller/adminControllers/aDeleteDepartmentController.php?dept_id={$record['department_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
+                $_SESSION['dept_list'] .= "<td>{$record['post_name']}</td>";
+                $_SESSION['dept_list'] .= "<td><a class=\"green\" href=\"../../controller/adminControllers/aUpdateDepartmentController.php?dept_id={$record['department_id']}\">Update</a></td>";
+                $_SESSION['dept_list'] .= "<td><a class=\"red\" href=\"../../controller/adminControllers/aDeleteDepartmentController.php?dept_id={$record['department_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
                 $_SESSION['dept_list'] .= "</tr>";
 
                 header('Location:../../view/admin/aViewDepartmentV.php');

@@ -18,9 +18,6 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!
@@ -29,7 +26,7 @@
                     </div>
 
                     <button class="subbtn">
-                        <a href="amDeleteUpdateSubjectSearch.php">Try again</a> 
+                        <a href="amDeleteUpdateSubjectV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 

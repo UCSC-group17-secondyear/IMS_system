@@ -20,9 +20,6 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>The Profile is updated successfully!</h2>
@@ -32,7 +29,7 @@
                         <a href="../../controller/adminControllers/userListController.php?user_id=<?php echo $_SESSION['userId'] ?>">User List</a>
                     </button>
                     <button class="cancelbtn" type="submit">
-                        <a href="aHomeV.php">Leave</a>
+                        <a href="aHomeV.php">Exit</a>
                     </button>
                 </div>
             </div>

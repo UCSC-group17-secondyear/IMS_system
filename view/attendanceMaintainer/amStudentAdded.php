@@ -18,21 +18,20 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
-                    <div class="row">
-                        <h2>The student is added successfully.
-                        </h2>
-                    </div>
+                    <form action="../../controller/amControllers/manageStudentsC.php" method="post">
+                        <div class="row">
+                            <h2>The student is added successfully.
+                            </h2>
+                        </div>
 
-                    <button class="subbtn">
-                        <a href="amEnterStudentDetailsV.php">Add another student</a> 
-                    </button>
-                    <button class="cancelbtn">
-                        <a href="amHomeV.php">Exit</a> 
-                    </button>
+                        <button class="subbtn" name="getMandatory_submit">View student's compulsory subjects
+                            <!-- <a href="amDisplayStudentsSubjectsV.php">View student's compulsory subjects</a>  -->
+                        </button>
+                        <button class="cancelbtn">
+                            <a href="amHomeV.php">Exit</a> 
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

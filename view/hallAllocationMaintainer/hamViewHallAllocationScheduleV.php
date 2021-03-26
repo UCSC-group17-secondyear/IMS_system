@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
+                    <form action="../../controller/hamControllers/hamViewHallAllocScheduleC.php" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Enter Date</label>
@@ -32,14 +32,42 @@
                             <div class="col-75">
                                 <input type="date" id="" name="enterDate" required/>
                             </div>
+                        </div> 
+                        <button class="subbtn" type="submit" name="displayschedule1-submit">Display Schedule</button>
+                        <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
+                    </form>
+                    <form action="../../controller/hamControllers/hamViewHallAllocScheduleC.php" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Starting Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="" name="startDate" />
+                            </div>
                         </div>
-                            <button class="subbtn" type="submit" name="displayschedule-submit">
-                                <a href="hamHallAllocationScheduleViewV.php">Display Schedule</a>
-                            </button>
-                            <button class="cancelbtn" type="submit">
-                                <a href="hamHomeV.php">Cancel</a>
-                            </button>
-                        
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter Ending Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="" name="endDate" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                              <label>Enter Hall</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="hall" id="wed" required>
+                                    <option value="">Select a Hall</option>
+                                    <?php echo $_SESSION['allhalls']?>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="subbtn" type="submit" name="displayschedule2-submit">Display Schedule</button>
+                        <button class="cancelbtn" type="submit">
+                            <a href="hamHomeV.php">Cancel</a>
+                        </button>
                     </form>
                 </div>
             </div>

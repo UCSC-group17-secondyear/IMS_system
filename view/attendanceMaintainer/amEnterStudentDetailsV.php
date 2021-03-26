@@ -37,7 +37,7 @@
                             <label>Enter Registration Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="registrstion_no" placeholder="Student Registration No" required/>
+                            <input type="text" name="registration_no" placeholder="Student Registration No" required/>
                         </div>
                     </div>
 
@@ -73,12 +73,16 @@
                             <label>Select Academic Year</label>
                         </div>
                         <div class="col-75">
-                            <select name="academic_year" id="academic_year">
-                                <option value="1">1</option>
-                                <option value="2">2 </option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
+                            <input type="number" name="academic_year" min="1" max="4" required/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select Semester</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" name="semester" min="1" max="2">
                         </div>
                     </div>
 
@@ -88,10 +92,17 @@
                         </div>
                         <div class="col-75">
                             <select name="degree" id="degree">
-                                <option value="CS">Computer Science</option>
-                                <option value="IS">Information System</option>
-                                <option value="SE">Software Engineering</option>
+                                <?php echo $_SESSION['degreeList'] ?>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Enter batch number of the student</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="batch_number" name="batch_number" placeholder="Batch Number" required/>
                         </div>
                     </div>
 

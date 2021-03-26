@@ -23,13 +23,35 @@
                 <h2>Filter student details to get attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Selected student</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="index_no" disabled  <?php echo 'value="'.$_SESSION['index_no'].'"'  ?> required /><br>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-25">
                             <label>Select subject/s</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject_code" placeholder="Student Code" /> <br>
+                            <select name="subject_name">
+                                <?php echo $_SESSION['subjectsList']; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select session type</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="sessionType">
+                                <?php echo $_SESSION['sessionTypes']; ?>
+                            </select>
                         </div>
                     </div>
 
@@ -38,7 +60,7 @@
                             <label>Start date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="startDate"/> <br>
+                            <input type="date" name="startDate" required/> <br>
                         </div>
                     </div>
 
@@ -47,12 +69,11 @@
                             <label>End date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="endDate"/> <br>
+                            <input type="date" name="endDate" required/> <br>
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="select-submit">
-                        <a href="amDisplayStdwiseAttendanceV.php">Enter</a>
+                    <button class="subbtn" type="submit" name="stdWise-submit">Enter
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

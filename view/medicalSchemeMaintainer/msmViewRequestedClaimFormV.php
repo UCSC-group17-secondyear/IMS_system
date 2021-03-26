@@ -38,13 +38,13 @@
                     <tr>
                         <th>OPD/Surgical</th>
                         <th>Claim Form No</th>
-                        <th id="">Employee ID</th>
+                        <th  id="">Employee ID</th>
                         <th>Initial</th>
                         <th>Surname</th>
                         <th>Submitted Date</th>
                         <th>View</th>
                     </tr>
-                    <?php echo $_SESSION['requested']; ?>
+                    <?php echo $_SESSION['req_form_no']; ?>
                 </table>
             </div>
         </div>
@@ -62,14 +62,14 @@
 
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
+            td = tr[i].getElementsByTagName("td")[2];
             if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
         }
     }

@@ -2,27 +2,30 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="hamWeeklyTimeTableV.php">
+                <a href="../../controller/hamControllers/hamViewTimeTableController.php">
                     <button type="submit" class="tree_list">View Weekly Time Table</button>
                 </a> <br>
             </li>
 
             <li><button class="tree_list">Manage Weekly Time Table</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="hamEnterTimeTableV.php"><li><i class="fa fa-plus-circle"></i>Enter Time Table</li></a>
-                    </button>
-
-                    <button>
-                        <a href="hamUpdateTimeTableV.php"><li><i class="fa fa-plus-circle"></i>Update/Remove TimeTable</li></a>
-                    </button>
+                    <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="post">
+                        <button name="entertt-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i>Enter Time Table</li></a>
+                        </button>
+                        <button name="updateremovett-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i>Update/Remove TimeTable</li></a>
+                        </button>
+                    </form>
                 </ul>
             </li>
 
             <li>
-                <a href="hamViewHallAllocationScheduleV.php">
-                    <button type="submit" class="tree_list">View Hall Allocation Schedule</button>
-                </a><br>
+                <form action="../../controller/hamControllers/hamViewHallAllocScheduleC.php" method="post">
+                    <button type="submit" name="selectschedule-submit" class="tree_list">
+                        <a href="#" style="text-decoration:none">View Hall Allocation Schedule</a>
+                    </button>
+                </form>
             </li>
 
             <li>
@@ -44,7 +47,7 @@
             </li>
 
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list">Register to the Staff Medical Scheme</button>
                 </a><br>
             </li>

@@ -30,7 +30,10 @@
                                     <label for="">Batch No</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="text" name="batch_no" placeholder="Enter batch no"> 
+                                    <select name="batch_no" id="batch_no" required>
+                                        <option value="">Select Batch No</option>
+                                        <?php echo $_SESSION['batch_number'] ?>
+                                    </select>
                                 </div>
                             </div>
 
@@ -39,15 +42,14 @@
                                     <label for="">Degree</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="degree" id="degree">
+                                    <select name="degree" id="degree" required>
                                         <option value="">Select Degree</option>
-                                        <option value="CS">CS</option>
-                                        <option value="IS">IS</option>
+                                        <?php echo $_SESSION['degree'] ?>
                                     </select>
                                 </div>
                             </div>
                     
-                            <button class="subbtn" type="submit" name="display-list" >Display Student List</button></a>
+                            <button class="subbtn" type="submit" name="display-nom-list" >Display Student List</button></a>
                             <button type="submit" class="cancelbtn">
                                 <a href="mmHomeV.php">Cancel</a>
                             </button>

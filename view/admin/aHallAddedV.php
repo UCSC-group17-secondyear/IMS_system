@@ -20,9 +20,6 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>The Hall is added successfully!</h2>
@@ -32,7 +29,7 @@
                         <a href="../../controller/adminControllers/aViewHallController.php">Halls list</a>
                     </button>
                     <button class="cancelbtn" type="submit">
-                        <a href="aHomeV.php">Leave</a>
+                        <a href="aHomeV.php">Exit</a>
                     </button>
                 </div>
             </div>

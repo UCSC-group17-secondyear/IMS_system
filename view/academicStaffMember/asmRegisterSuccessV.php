@@ -17,12 +17,16 @@
 
         <div class="col right80">
             <div class="contentForm">
-                <form>
-                    <p>Your membership request has been sent for the approval. You will be inform about the approval later.</p> <br>
-                    <p>Thank you..</p>
+                <div class="row">
+                    <h2>Your membership request has been sent for the approval. You will be inform about the approval later. Thank you.</h2>
+                </div>
 
-                    <a href="asmHomeV.php"><button class="mainbtn" type="submit" name="registerSuccess-submit">OK</button></a><br>
-                </form>
+                <button class="subbtn">
+                    <a href="asmHomeV.php">Ok</a> 
+                </button>
+                <button class="cancelbtn">
+                    <a href="asmHomeV.php">Exit</a> 
+                </button>
             </div>
         </div>
     </div>

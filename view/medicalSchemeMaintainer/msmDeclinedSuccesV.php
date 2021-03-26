@@ -7,8 +7,8 @@
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="aHomeV.php">Home</a></li>
-            <li><a href="../../controller/msmControllers/msmviewMemberList1C.php">View Medical Member List</a></li>
+            <li><a href="msmHomeV.php">Home</a></li>
+            <li><a href="msmViewMembershipFormsV.php">View Medical Member List</a></li>
             <li class="active">Action was success!</li>
         </ul>
     
@@ -25,12 +25,14 @@
                         <h2>The Membership is declined successfully!</h2>
                     </div>
 
-                    <button class="subbtn" type="submit">
-                        <a href="../../controller/msmControllers/msmMembershipForms1C.php">Decline Another</a>
-                    </button>
-                    <button class="cancelbtn" type="submit">
-                        <a href="msmHomeV.php">Exit</a>
-                    </button>
+                    <form action="../../controller/msmControllers/msmViewFormsC.php" method="post">
+                        <button class="subbtn" name="membershipform-submit" type="submit">
+                            <a href="#">Decline another</a>
+                        </button>
+                        <button class="cancelbtn" type="submit">
+                            <a href="msmHomeV.php">Exit</a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

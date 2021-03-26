@@ -42,6 +42,9 @@
                 if ($result['asm_flag']==1) {
                     $_SESSION['asm_flag'] = 'Academic Staff Member';
                 }
+                if ($result['nasm_flag']==1) {
+                    $_SESSION['nasm_flag'] = 'Non Academic Staff Member';
+                }
 
                 header('Location:../../view/basic/aChangeUserRoleV.php');
             }
@@ -102,6 +105,11 @@
             $userRll = 'academicStaffMemb';
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/academicStaffMember/asmHomeV.php');
+        }
+        if ($userrole=='Non Academic Staff Member') {
+            $userRll = 'nonAcademicStaffMemb';
+            $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
+            header('Location:../../view/nonAcademicStaffMember/nasmHomeV.php');
         }
     }
 ?>

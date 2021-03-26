@@ -23,7 +23,7 @@
                     <h2>Users in IMS System</h2>
                 </div>
 
-                <input class="searchBar" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Employee Id..">
+                <input class="searchBar" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Username..">
 
                 <table id="tableStyle">
                     <tr>
@@ -35,7 +35,6 @@
                         <th>Telephone</th>
                         <th>Date of Birth</th>
                         <th>Designation</th>
-                        <th>Post</th>
                         <th>Appointment Date</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -45,30 +44,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function myFunction() {
-            // Declare variables
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("tableStyle");
-            tr = table.getElementsByTagName("tr");
-
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }
-            }
-        }
-    </script>
 </main>
 
 <?php

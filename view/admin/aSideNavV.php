@@ -6,22 +6,26 @@
                     <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
                         <button name="userroleList-submit">
                             <a href="#">
-                                <li><i class="fa fa-user"></i>View user role list</li>
+                                <li><i class="fa fa-user"></i>View user-role list</li>
                             </a>
                         </button>
                     </form>
                     <button>
-                        <a href="aAddNewUserRoleV.php"><li><i class="fa fa-plus-circle"></i>Add a new user role</li></a>
+                        <a href="aAddNewUserRoleV.php"><li><i class="fa fa-plus-circle"></i>Add a new user-role</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/getRolesController.php"><li><i class="fa fa-trash"></i>Remove a user role</li></a>
+                        <a href="../../controller/getRolesController.php"><li><i class="fa fa-trash"></i>Remove a user-role</li></a>
                     </button>
                     <button>
-                        <a href="../../controller/adminControllers/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user role to a user</li></a>
+                        <a href="../../controller/adminControllers/aAssignUserRoleControler.php"><li><i class="fa fa-pencil-square-o"></i>Assign a user-role to a user</li></a>
                     </button>
-                    <button>
-                        <a href="aUpdateUserRoleV.php"><li><i class="fa fa-pencil-square"></i>Update the user role of a user</li></a>
-                    </button>
+                    <form action="../../controller/adminControllers/manageUserRoleController.php" method="post">
+                        <button name="userList-submit">
+                            <a href="#">
+                                <li><i class="fa fa-pencil-square"></i>Remove a user-role from a user</li>
+                            </a>
+                        </button>
+                    </form>
                 </ul>
             </li>
 
@@ -37,7 +41,7 @@
                         <a href="../../controller/adminControllers/aViewDepartmentController.php"><li><i class="fa fa fa-check-circle"></i>View Departments</li></a>
                     </button>
                     <button>
-                        <a href="aAddDepartmentV.php"><li><i class="fa fa-plus-circle"></i>Add a new Department</li></a>
+                        <a href="../../controller/adminControllers/aAddDepartmentController.php"><li><i class="fa fa-plus-circle"></i>Add a new Department</li></a>
                     </button>
                     <button>
                         <a href="../../controller/adminControllers/aUpDepartmentController.php"><li><i class="fa fa-pencil-square"></i>Update or remove a Department</li></a>
@@ -66,9 +70,19 @@
                             <a href="#"><li><i class="fa fa-user"></i>View Posts</li></a>
                         </button>
                     </form>
-                        <button>
-                            <a href="aAddPostV.php"><li><i class="fa fa-plus-circle"></i>Add a Post</li></a>
+
+                    <form action="../../controller/adminControllers/managePostsC.php" method="post">
+                        <button name="getUsers-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-plus-circle"></i>Add a Post</li></a>
                         </button>
+                    </form>
+
+                    <form action="../../controller/adminControllers/managePostsC.php" method="post">
+                        <button name="getPosts-submit" type="submit">
+                            <a href="#"><li><i class="fa fa-pencil-square"></i>Update user of a Post</li></a>
+                        </button>
+                    </form>
+
                     <form action="../../controller/adminControllers/managePostsC.php" method="post">
                         <button name="viwePostList-submit" type="submit">
                             <a href="#"><li><i class="fa fa-trash"></i>Remove a Post</li></a>
@@ -77,28 +91,19 @@
                 </ul>
             </li>
 
-            <!-- <li><button class="tree_list">Manage Posts</button>
-                <ul class="tree_nest">
-                    <button>
-                        <a href="#"><li><i class="fa fa-user"></i>View Posts</li></a>
-                    </button>
-                    <button>
-                        <a href="#"><li><i class="fa fa-plus-circle"></i>Add a Posts</li></a>
-                    </button>
-                    <button>
-                        <a href="#"><li><i class="fa fa-pencil-square"></i>Update or remove a Posts</li></a>
-                    </button>
-                </ul>
-            </li> -->
-
             <li><button class="tree_list">Manage Degrees</button>
                 <ul class="tree_nest">
-                    <button>
-                        <a href="../../controller/adminControllers/aViewDegreeController.php"><li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
-                    </button>
+                    <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
+                        <button name="degreeList-submit" type="submit">
+                            <a href="#">
+                                <li><i class="fa fa-graduation-cap"></i>View degree list</li></a>
+                        </button>
+                    </form>
+
                     <button>
                         <a href="aAddDegreeV.php"><li><i class="fa fa-plus-circle"></i>Add a new degree</li></a>
                     </button>
+
                     <form action="../../controller/adminControllers/manageDegreesC.php" method="post">
                         <button name="getDegree-submit" type="submit">
                             <a href="#">
@@ -148,10 +153,13 @@
 
             <li><button class="tree_list">Manage Sessions Per Month</button>
                 <ul class="tree_nest">
-                    <!-- <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post"> -->
-                        <button name="ViewMonthlySessions">
-                            <a href="aViewSessionPerMonthV.php"><li><i class="fa fa-check-circle"></i>View sessions of a subject</li></a>
+                    <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
+                        <button name="getDegree-submit">
+                            <a href="#">
+                                <li><i class="fa fa-check-circle"></i>View sessions of a subject</li>
+                            </a>
                         </button>
+                    </form>
 
                     <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <button name="assignSession-submit">
@@ -163,7 +171,7 @@
 
                      <form action="../../controller/adminControllers/manageMonthlySessionsC.php" method="post">
                         <button name="sessionTypesList-submit">
-                            <a href="aUpdateRemoveSessionPerMonthV.php">
+                            <a href="#">
                                 <li><i class="fa fa-pencil-square"></i>Update or remove monthly sessions</li>
                             </a>
                         </button>
@@ -205,7 +213,7 @@
             </li>
 
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>

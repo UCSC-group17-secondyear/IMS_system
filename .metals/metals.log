@@ -38,3 +38,90 @@
 2020.11.27 20:49:29 INFO  time: initialize in 2.01s
 2020.11.27 20:49:35 WARN  Build server is not auto-connectable.
 2020.11.27 20:49:35 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.11.27 23:00:04 INFO  shutting down Metals
+2020.11.28 11:59:08 INFO  Started: Metals version 0.9.7 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2020.11.28 11:59:10 INFO  time: initialize in 1.89s
+2020.11.28 11:59:12 WARN  Build server is not auto-connectable.
+2020.11.28 11:59:12 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.12.28 13:05:50 INFO  Started: Metals version 0.9.7 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2020.12.28 13:05:53 INFO  time: initialize in 3.33s
+2020.12.28 13:06:01 WARN  Build server is not auto-connectable.
+2020.12.28 13:06:01 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+Dec 28, 2020 1:32:59 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+2020.12.30 08:20:27 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2020.12.30 08:20:28 INFO  time: initialize in 1.88s
+2020.12.30 08:20:36 WARN  Build server is not auto-connectable.
+2020.12.30 08:20:36 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2021.01.01 13:29:53 INFO  shutting down Metals
+2021.01.05 11:12:57 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2021.01.05 11:13:01 INFO  time: initialize in 4.34s
+2021.01.05 11:13:08 WARN  Build server is not auto-connectable.
+2021.01.05 11:13:08 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2021.01.05 11:13:23 INFO  shutting down Metals
+2021.01.05 14:43:24 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2021.01.05 14:43:26 INFO  time: initialize in 1.76s
+2021.01.05 14:43:27 WARN  Build server is not auto-connectable.
+2021.01.05 14:43:27 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2021.01.05 21:14:33 INFO  shutting down Metals
+2021.01.09 12:16:51 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2021.01.09 12:16:56 INFO  time: initialize in 5.77s
+2021.01.09 12:17:03 WARN  Build server is not auto-connectable.
+2021.01.09 12:17:03 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2021.01.10 20:05:19 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2021.01.10 20:05:24 INFO  time: initialize in 5.57s
+2021.01.10 20:05:31 WARN  Build server is not auto-connectable.
+2021.01.10 20:05:31 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2021.01.11 08:22:41 INFO  Started: Metals version 0.9.8 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode.
+2021.01.11 08:22:45 INFO  time: initialize in 3.52s
+2021.01.11 08:22:51 WARN  Build server is not auto-connectable.
+2021.01.11 08:22:51 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+[0m2021.02.09 09:05:53 INFO  Started: Metals version 0.9.10 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.52.1.[0m
+[0m2021.02.09 09:05:56 INFO  time: initialize in 3.86s[0m
+[0m2021.02.09 09:06:03 WARN  resetting database: C:\xampp\htdocs\IMS_system\.metals\metals.h2.db[0m
+[0m2021.02.09 09:06:05 WARN  Build server is not auto-connectable.[0m
+[0m2021.02.09 09:06:05 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.02.15 10:49:10 INFO  Started: Metals version 0.9.10 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.53.0.[0m
+[0m2021.02.15 10:49:12 INFO  time: initialize in 2.01s[0m
+[0m2021.02.15 10:49:19 WARN  Build server is not auto-connectable.[0m
+[0m2021.02.15 10:49:19 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.02.19 12:16:04 INFO  Started: Metals version 0.9.10 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.53.2.[0m
+[0m2021.02.19 12:16:05 INFO  time: initialize in 1.73s[0m
+[0m2021.02.19 12:16:11 WARN  Build server is not auto-connectable.[0m
+[0m2021.02.19 12:16:11 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.02.19 18:18:02 INFO  shutting down Metals[0m
+[0m2021.03.14 18:48:52 INFO  Started: Metals version 0.9.10 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.53.2.[0m
+[0m2021.03.14 18:48:56 INFO  time: initialize in 4.76s[0m
+[0m2021.03.14 18:48:58 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.14 18:48:58 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.03.18 07:53:58 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.53.2.[0m
+[0m2021.03.18 07:54:00 INFO  time: initialize in 2.3s[0m
+[0m2021.03.18 07:54:27 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.18 07:54:27 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.03.18 23:39:34 INFO  shutting down Metals[0m
+[0m2021.03.19 10:37:24 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.54.3.[0m
+[0m2021.03.19 10:37:26 INFO  time: initialize in 2.49s[0m
+[0m2021.03.19 10:37:27 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.19 10:37:27 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.03.19 22:55:28 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.54.3.[0m
+[0m2021.03.19 22:55:31 INFO  time: initialize in 3.51s[0m
+[0m2021.03.19 22:55:37 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.19 22:55:37 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.03.21 12:32:47 INFO  shutting down Metals[0m
+[0m2021.03.21 13:23:40 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.54.3.[0m
+[0m2021.03.21 13:23:42 INFO  time: initialize in 2.66s[0m
+[0m2021.03.21 13:23:49 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.21 13:23:49 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.03.22 07:22:31 INFO  shutting down Metals[0m
+[0m2021.03.22 08:02:30 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.54.3.[0m
+[0m2021.03.22 08:02:31 INFO  time: initialize in 1.57s[0m
+[0m2021.03.22 08:02:33 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.22 08:02:33 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.03.23 07:25:10 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.54.3.[0m
+[0m2021.03.23 07:25:13 INFO  time: initialize in 2.94s[0m
+[0m2021.03.23 07:25:19 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.23 07:25:19 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.03.25 08:55:23 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.54.3.[0m
+[0m2021.03.25 08:55:25 INFO  time: initialize in 1.85s[0m
+[0m2021.03.25 08:55:30 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.25 08:55:30 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m

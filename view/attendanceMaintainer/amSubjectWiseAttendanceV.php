@@ -6,7 +6,7 @@
     <title>View Subject Wise Attendance</title>
 
     <ul class="breadcrumbs">
-        <li><a href="amhomePageV.php">Home</a></li>
+        <li><a href="amHomeV.php">Home</a></li>
         <li class="active">Subject-wise Attendance</li>
     </ul>
 
@@ -22,13 +22,37 @@
                 <h2>Get Subject-wise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="" method="post">
+                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter Subject</label>
+                            <label>Select Subject</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="subject" placeholder="Subject" required/> <br>
+                            <select name="subject_name">
+                                <?php echo $_SESSION['subjectsList'] ; ?> <br>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select Session Type</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="sessionType">
+                                <?php echo $_SESSION['sessionTypes'] ; ?> <br>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Select degree</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="degree_name">
+                                <?php echo $_SESSION['degreeList'] ; ?> <br>
+                            </select>
                         </div>
                     </div>
 
@@ -37,35 +61,16 @@
                             <label>Batch Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="batch_number" placeholder="Batch Numbe" min="0" required/> <br>
+                            <input type="number" name="batch_number" placeholder="Batch Number" min="1" required/> <br>
                         </div>
                     </div>
-
-                    <!-- <div class="row">
-                        <div class="col-25">
-                            <label>Enter Degree</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="degree" placeholder="Degree" required/> <br>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Enter Semester</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="semester" placeholder="Semester" required/> <br>
-                        </div>
-                    </div> -->
-                    
 
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Start Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="start_date" placeholder="Start Date" required/> <br>
+                            <input type="date" name="startDate" placeholder="Start Date" required/> <br>
                         </div>
                     </div>
 
@@ -74,12 +79,11 @@
                             <label>Enter End Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="end_date" placeholder="End Date" required/> <br>
+                            <input type="date" name="endDate" placeholder="End Date" required/> <br>
                         </div>
                     </div>
 
-                    <button class="subbtn" type="submit" name="select-submit">
-                        <a href="amDisplaySubjectAttendanceV.php">Display Attendance</a> 
+                    <button class="subbtn" type="submit" name="subjectWise-submit">Display Attendance
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Cancel</a> 

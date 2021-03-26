@@ -25,14 +25,14 @@
                         </div>
                         
                         <div class="contentForm" style="margin-bottom: 1%;">
-                            <form action="../../controller/memControllers/surgicalFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
+                            <form action="../../controller/memControllers/fillFormController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
                              
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Enter Patient's Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="patient_name" id="" required>
+                                    <select name="dependant_id" id="" required>
                                         <option value="">Select Name</option>
                                         <?php echo $_SESSION['dependant_name'] ?> 
                                     </select>
@@ -41,24 +41,15 @@
 
                             <div class="row">
                                 <div class="col-25">
-                                    <label for="">Address</label>
-                                </div>
-                                <div class="col-75">
-                                    <input type="text" name="address" required> <br>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-25">
                                     <label for="">Select relationship</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="relationship" required>
-                                        <option value="myself">Myself</option>
-                                        <option value="husband">Husband</option>
-                                        <option value="wife">Wife</option>
-                                        <option value="daughter">Daughter</option>
-                                        <option value="son">Son</option>
+                                <select name="relationship" id="" required>
+                                        <option value="Myself">Myself</option>
+                                        <option value="Husband">Husband</option>
+                                        <option value="Wife">Wife</option>
+                                        <option value="Daughter">Daughter</option>
+                                        <option value="Son">Son</option>
                                     </select> <br>
                                 </div>
                             </div>
@@ -68,7 +59,7 @@
                                     <label for="">Date of the Accident</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="accident_date" required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="accident_date" required> <br>
                                 </div>
                             </div>
 
@@ -104,7 +95,7 @@
                                     <label for="">Date of Commencement of Illness</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="commence_date" required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="commence_date" required> <br>
                                 </div>
                             </div>
 
@@ -113,7 +104,7 @@
                                     <label for="">Date of First Consultation</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="first_consult_date" required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="first_consult_date" required> <br>
                                 </div>
                             </div>
 
@@ -140,7 +131,7 @@
                                     <label for="">Hospitalized On</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="hospitalized_date" required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="hospitalized_date" required> <br>
                                 </div>
                             </div>
 
@@ -149,7 +140,7 @@
                                     <label for="">Discharged On</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="discharged_date" required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="discharged_date" required> <br>
                                 </div>
                             </div>
 
@@ -220,11 +211,11 @@
                                 </div>
                             </div>
 
-                                <button class="mainbtn" type="submit" name="form-submit">Submit</button><br>  
+                                <button class="mainbtn" type="submit" name="fill-sur-submit">Submit</button><br>  
                             </form>
 
                             <form>
-                                <button class="subbtn" type="submit" name="userroleList-submit">
+                                <button class="subbtn" type="submit" name="">
                                     <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
                                 </button>
                                 <button type="submit" class="cancelbtn">

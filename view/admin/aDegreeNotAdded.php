@@ -18,12 +18,9 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             The degree did not get added.
                         </h2>
                     </div>
@@ -32,7 +29,7 @@
                         <a href="aAddDegreeV.php">Try Again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Leave</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

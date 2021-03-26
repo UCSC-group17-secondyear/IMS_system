@@ -6,7 +6,6 @@
   <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
-            <!-- <li><a href="aAddNewUserRoleV.php">Add user role</a></li> -->
             <li class="active">User Roles List</li>
         </ul>
 
@@ -22,16 +21,13 @@
                     <h2>User roles</h2>
                 </div>
 
-                <table id="tableStyle" class="mytable" style="margin-left: 25%;" >
+                <table id="tableStyle" class="mytable" style="margin-left: 10%;" >
                     <tr>
                         <th>User role</th>
                         <th>Description</th>
                     </tr>
                     <?php echo $_SESSION['user_role']; ?>
                 </table>
-                <!-- <a href="aAddNewUserRoleV.php">
-                    <button class="subbtn" type="submit">Back</button>
-                </a> -->
             </div>
         </div>
     </div>

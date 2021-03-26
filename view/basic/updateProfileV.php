@@ -61,22 +61,12 @@
 							</div>
 							<div class="col-75">
 								<select name="designation" required>
-									<option value="<?php echo $_SESSION['designation'] ?>"><?php echo $_SESSION['designation'] ?></option>
+									<option value="">Select Designation</option>
 									<?php echo $_SESSION['design'] ?>
 								</select>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-25">
-								<label>Post</label>
-							</div>
-							<div class="col-75">
-								<select name="post" required>
-									<option value="<?php echo $_SESSION['post'] ?>"><?php echo $_SESSION['post'] ?></option>
-									<?php echo $_SESSION['posts'] ?>
-								</select>
-							</div>
-						</div>
+						
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Appointment Date</label>

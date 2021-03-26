@@ -18,6 +18,15 @@
 			return $result_set;
 		}
 
+		public static function getEmailsofmembers($connect)
+		{
+			$query = "SELECT u.email from users u, tbl_medical_membership mm WHERE u.userId = mm.user_id AND mm.membership_status = 1 AND mm.is_deleted=0 AND u.is_deleted=0";
+		
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
 		public static function viewMedicalYears($connect)
 		{
 			$query = "SELECT * FROM tbl_medical_year ORDER BY myid";

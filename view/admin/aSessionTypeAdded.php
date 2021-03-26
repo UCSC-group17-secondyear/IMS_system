@@ -18,20 +18,17 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>The session type is added successfully.
                         </h2>
                     </div>
 
-                    <button class="mainbtn">
+                    <button class="subbtn">
                         <a href="aAddSessionV.php">Add another</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="aHomeV.php">Leave</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

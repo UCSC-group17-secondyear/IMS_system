@@ -20,13 +20,10 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <!-- <form action="../../controller/adminControllers/manageUserRoleController.php" method="post"> -->
                         <div class="row">
-                            <h2>Sorry! <br>
+                            <h2>Sorry!
                                 The Semester you entered already exists.
                             </h2>
                         </div>

@@ -3,6 +3,7 @@
 ?>
 
 <main>
+
     <title>OPD Form</title>
     <div class="sansserif">
                     
@@ -24,14 +25,14 @@
                         </div>
 
                     <div class="contentForm" style="margin-bottom: 1%;">
-                        <form action="../../controller/memControllers/opdFormControllerTwo.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
+                        <form action="../../controller/memControllers/fillFormController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post" enctype="multipart/form-data">
                             
                             <div class="row">
                                 <div class="col-25">
                                     <label for="">Enter Patient's Name</label>
                                 </div>
                                 <div class="col-75">
-                                    <select name="patient_name" id="" required>
+                                    <select name="dependant_id" id="" required>
                                         <option value="">Select Name</option>
                                         <?php echo $_SESSION['dependant_name'] ?> 
                                     </select>
@@ -44,11 +45,11 @@
                                 </div>
                                 <div class="col-75">
                                     <select name="relationship" id="" required>
-                                        <option value="myself">Myself</option>
-                                        <option value="husband">Husband</option>
-                                        <option value="wife">Wife</option>
-                                        <option value="daughter">Daughter</option>
-                                        <option value="son">Son</option>
+                                        <option value="Myself">Myself</option>
+                                        <option value="Husband">Husband</option>
+                                        <option value="Wife">Wife</option>
+                                        <option value="Daughter">Daughter</option>
+                                        <option value="Son">Son</option>
                                     </select> <br>
                                 </div>
                             </div>
@@ -67,7 +68,7 @@
                                     <label for="">Treatment Recieved Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="treatment_received_date"  required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="treatment_received_date" id="tdate" oninput="checkDate()" max="today()" required/><br>
                                 </div>
                             </div>
 
@@ -76,7 +77,7 @@
                                     <label for="">Bill Issued Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" name="bill_issued_date" required><br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="bill_issued_date" id="bdate" required><br>
                                 </div>
                             </div>
 
@@ -107,12 +108,12 @@
                                 </div>
                             </div>
 
-                                <button class="mainbtn" type="submit" name="form-submit">Submit</button><br>
+                                <button class="mainbtn" type="submit" name="fill-opd-submit">Submit</button><br>
                                 
                         </form>
                         
                         <form>
-                            <button class="subbtn" type="submit" name="userroleList-submit">
+                            <button class="subbtn" type="submit" name="">
                                 <a href="../../controller/memControllers/claimFormListControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"> View Claim Form List</a>
                             </button>
                             <button type="submit" class="cancelbtn">
@@ -122,7 +123,13 @@
                     </div>
             </div>
         </div>
-    </div>       
+    </div>   
+
+    <script>
+        $("#tdate").datepicker({
+        maxDate: today
+        });
+    </script>    
         
 </main>
 

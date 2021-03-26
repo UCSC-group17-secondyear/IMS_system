@@ -4,7 +4,7 @@
     </div>
 
     <div class="contentForm">
-        <form action="../../controller/basicControllers/registerMSController2.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+        <form action="../../controller/basicControllers/registerMSController2.php?loguser=<?php echo $_SESSION['userId'] ?>" method="post">
             <div class="row">
                 <div class="col-25">
                     <label>Department</label>
@@ -12,7 +12,7 @@
                 <div class="col-75">
                     <select name="department"required>
                         <option value="">Select Department </option>
-                        <?php echo $_SESSION['deps'] ?>
+                        <?php echo $_SESSION['department'] ?>
                     </select>
                 </div>
             </div>
@@ -22,10 +22,7 @@
                     <label>Health condition</label>
                 </div>
                 <div class="col-75">
-                    <input list="health_condition" name="health_condition" required>
-                    <datalist id="health_condition">
-                        <?php echo $_SESSION['health_condition']?>
-                    </datalist>
+                    <input list="health_condition" name="health_condition" placeholder="Health condition" required>
                     <div class="tooltip"><i class="fa fa-question-circle"></i>
                         <span class="tooltiptext">If you have any chronic disease. Please notify it here.</span>
                     </div>
@@ -51,16 +48,16 @@
                 <div class="col-75">
                     <select name="civil_status" required>
                         <option value="">Select Civil Status</option>
-                        <?php echo $_SESSION['civil_status'] ?>
+                        <option value="1">Married</option>
+                        <option value="0">Single</option>
                     </select>
                 </div>
             </div>
             <button class="mainbtn" type="submit" name="registerNext-submit">Next</button>
         </form>
         <form>
-            <button class="subbtn" type="submit" name="schemedetails-submit">View Scheme Details</button>
-            <button type="submit" class="cancelbtn">
-                <a href="#">Cancel</a>
+            <button class="subbtn" type="submit">View Scheme Details</button>
+            <button type="submit" class="cancelbtn"><a href="#">Cancel</a>
             </button>
         </form>
 </main>

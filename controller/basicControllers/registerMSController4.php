@@ -1,99 +1,69 @@
 <?php
     session_start();
 	require_once('../../config/database.php');
-    require_once('../../model/Model.php');
+    require_once('../../model/basicModel/registerMSModel.php');
 
-    $errors = array();
-    $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-    $result_set = Model::view($user_id, $connect);
+    $loguser = mysqli_real_escape_string($connect, $_GET['loguser']);
+    $userdetails = basicModel::view($loguser, $connect);
 
     if (isset($_POST['register-submit'])) {
-        $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
 
-        $department = $_SESSION['deps'];
+        $department = $_SESSION['department_id'];
         $child_details = $_POST['child'];
 
-        foreach($child_details as $cd){
+        foreach ($child_details as $cd) {
 
-            $userInfo = array($cd['child_name']=>50, $cd['relationship']=>8, $cd['child_dob']=>20, $cd['health_status']=>100);
-    
-            foreach ($userInfo as $info=>$maxLen) {
-                if (strlen(trim($_POST[$info])) >  $maxLen) {
-                    $errors[] = $info . ' must be less than ' . $maxLen . ' characters';
+            $birthdate = new DateTime($cd['child_dob']);
+            $today   = new DateTime('today');
+            $age = $birthdate->diff($today)->y;
+
+            if($age <= 18){
+                $checkchild = basicModel::checkdependant($loguser, $cd['child_name'], $connect);
+                if (mysqli_num_rows($checkchild) != 0) {
+                    $dependant = basicModel::adddependant($loguser, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
                 }
             }
-            if (empty($errors)) {
-                $birthdate = new DateTime($cd['child_dob']);
-                $today   = new DateTime('today');
-                $age = $birthdate->diff($today)->y;
 
-                if($age >= 18){
-                    $dependant = Model::adddependant($user_id, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
-                }
-            }
         }
         
-        $resultttt = Model::dept($department, $connect);
-        $data = mysqli_fetch_array($resultttt);
+        $departmentdetails = basicModel::getmailofdh($department, $connect);
+        $dd = mysqli_fetch_array($departmentdetails);
 
-        if ($data) {
-            $to_email = $data['department_head_email'];
+        if ($dd) {
+
+            $to_email = $dd['email'];
             $subject = "Membership Request";
             $body =  $_SESSION['empid'] . " have requested the membership for the Medical Scheme.";
             $headers = "From: ims.ucsc@gmail.com";
 
             $sendMail = mail($to_email, $subject, $body, $headers);
             
-            if (mysqli_num_rows($result_set)==1) {
-                $result = mysqli_fetch_assoc($result_set);
-                if ($result['userRole'] == "admin") {
-                    header('Location:../../view/admin/aRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "academicStaffMemb") {
-                    header('Location:../../view/academicStaffMember/asmRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "attendanceMain") {
-                    header('Location:../../view/attendanceMaintainer/amRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "hallAllocationMain") {
-                    header('Location:../../view/hallAllocationMaintainer/hamRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "mahapolaSchemeMain") {
-                    header('Location:../../view/mahapolaSchemeMaintainer/mmRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "medicalSchemeMain") {
-                    header('Location:../../view/medicalSchemeMaintainer/msmRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "recordsViewer") {
-                    header('Location:../../view/reportViewer/rvRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "departmentHead") {
-                    header('Location:../../view/departmentHead/dhRegisterMSsuccesV.php');
-                } else if ($result['userRole'] == "medicalSchemeMember") {
-                    header('Location:../../view/medicalSchemeMember/moRegisterMSsuccesV.php');
-                } else {
-                    echo "USER";
-                }
-            }
-        } else {
-            echo "query failed";
-        }
-    }
+            if (mysqli_num_rows($userdetails) == 1) {
 
-    if (isset($_POST['viewschemedetails-submit'])) {
-        if ($result['userRole'] == "admin") {
-            header('Location:../../view/admin/aViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "academicStaffMemb") {
-            header('Location:../../view/academicStaffMember/asmViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "attendanceMain") {
-            header('Location:../../view/attendanceMaintainer/amViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "hallAllocationMain") {
-            header('Location:../../view/hallAllocationMaintainer/hamViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "mahapolaSchemeMain") {
-            header('Location:../../view/mahapolaSchemeMaintainer/mmViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "medicalSchemeMain") {
-            header('Location:../../view/medicalSchemeMaintainer/msmViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "recordsViewer") {
-            header('Location:../../view/reportViewer/rvViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "departmentHead") {
-            header('Location:../../view/departmentHead/dhViewSchemeDetailsV.php');
-        } else if ($result['userRole'] == "medicalSchemeMember") {
-            header('Location:../../view/medicalSchemeMember/moViewSchemeDetailsV.php');
-        } else {
-            echo "USER";
+                $ud = mysqli_fetch_assoc($userdetails);
+                if ($ud['userRole'] == "admin") {
+                    header('Location:../../view/admin/aRegisterMSsuccesV.php');
+                } else if ($ud['userRole'] == "academicStaffMemb") {
+                    header('Location:../../view/academicStaffMember/asmRegisterMSsuccesV.php');
+                } else if ($ud['userRole'] == "attendanceMain") {
+                    header('Location:../../view/attendanceMaintainer/amRegisterMSsuccesV.php');
+                } else if ($ud['userRole'] == "hallAllocationMain") {
+                    header('Location:../../view/hallAllocationMaintainer/hamRegisterMSsuccesV.php');
+                } else if ($ud['userRole'] == "mahapolaSchemeMain") {
+                    header('Location:../../view/mahapolaSchemeMaintainer/mmRegisterMSsuccesV.php');
+                } else if ($ud['userRole'] == "medicalSchemeMain") {
+                    header('Location:../../view/medicalSchemeMaintainer/msmRegisterMSsuccesV.php');
+                } else if ($ud['userRole'] == "recordsViewer") {
+                    header('Location:../../view/reportViewer/rvRegisterMSsuccesV.php');
+                } else if ($ud['userRole'] == "departmentHead") {
+                    header('Location:../../view/departmentHead/dhRegisterMSsuccesV.php');
+                } else if ($ud['userRole'] == "nonAcademicStaffMemb") {
+                    header('Location:../../view/nonAcademicStaffMember/nasmRegisterMSsuccesV.php');
+                }
+
+            }
+
         }
+
     }
 ?>

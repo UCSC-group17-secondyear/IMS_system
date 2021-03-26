@@ -17,13 +17,10 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!
-                            The system failed to complete your request. Try later.
+                            The system has failed to complete your request. Try again shortly.
                         </h2>
                     </div>
 

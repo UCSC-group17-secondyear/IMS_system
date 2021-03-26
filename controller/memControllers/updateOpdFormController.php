@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('../../config/database.php');
-    require_once('../../model/memModel.php');
+    require_once('../../model/memModel/claimFormModel.php');
 ?>
 
 <?php
@@ -10,7 +10,7 @@
     $user_id = '';
     $claim_form_no = '';
     $claim_form_no = mysqli_real_escape_string($connect, $_GET['claim_form_no']);
-    $submit_date = memModel::getSubmitDate($claim_form_no, $user_id, $connect);
+    $submit_date = claimFormModel::getSubmitDate($claim_form_no, $user_id, $connect);
     $sub_date = mysqli_fetch_array($submit_date);
     $date = $sub_date[0];
 
@@ -55,27 +55,30 @@
               {
                 if($file_error === 0){
                    $file_name_new = $user_id."-opd-".$claim_form_no.".".$file_actual_ext;
+                   $file_name_db = $user_id."-opd-".$claim_form_no;
                    $file_destination = '../../view/assests/claimforms/opd/'.$file_name_new;
                    move_uploaded_file($file_tmp_name, $file_destination);
-                   $result = memModel::updateOpdForm($user_id, $claim_form_no, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $file_name_new, $updated_date, $connect);
+                   $result = claimFormModel::updateOpdForm($user_id, $claim_form_no, $patient_name, $relationship , $doctor_name, $treatment_received_date, $bill_issued_date, $purpose, $bill_amount, $file_name_db, $updated_date, $connect);
 
                 }
                 else{
-                    echo "There was an error uploading your file.";
+                    header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
                 }
               }
-            else
-              {
-                echo "File type is incorrrect.";
-              }
+              else{
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
+            }
 
 
             if ($result) {
                 header('Location:../../view/medicalSchemeMember/memFormUpdateSuccessV.php');
             }
-            else {
-                echo "Failed result";
+            else{
+                header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
+        }
+        else{
+            header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
         }
 
     }

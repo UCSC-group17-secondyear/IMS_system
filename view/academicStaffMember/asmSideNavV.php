@@ -2,14 +2,14 @@
     <div class="sansserif">
         <ul id="tree_view">
             <li>
-                <a href="asmWeeklyTimeTableV.php">
+                <a href="../../controller/asmControllers/asmViewTimeTableController.php">
                     <button type="submit" name="" class="tree_list">View Weekly Time Table</button>
                 </a><br>
             </li>
             <li>
-                <a href="asmViewHallAllocationScheduleV.php">
-                    <button type="submit" name="" class="tree_list">View Hall Allocation Schedule</button>
-                </a>    
+                <form action="../../controller/asmControllers/asmViewHallAllocScheduleC.php" method="post">
+                    <button type="submit" name="selectschedule-submit" class="tree_list">View Hall Allocation Schedule</button>
+                </form>
             </li>
             <li>
                 <a href="../../controller/asmControllers/asmViewHallController.php?user_id=<?php echo $_SESSION['userId'] ?>">
@@ -36,7 +36,7 @@
                 </a>    
             </li>
             <li>
-                <a href="../../controller/basicControllers/registerMSController1.php?user_id=<?php echo $_SESSION['userId'] ?>">
+                <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
                 </a>
             </li>

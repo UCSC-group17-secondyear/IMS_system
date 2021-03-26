@@ -9,7 +9,7 @@
         <ul class="breadcrumbs">
             <li><a href="aHomeV.php">Home</a></li>
             <li><a href="aAddNewUserRoleV.php">Add User role</a></li>
-            <li class="active">Action Failed!</li>
+            <li class="active">Request Denied!</li>
         </ul>
 
         <div class="row">
@@ -20,12 +20,9 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry! <br>
+                        <h2>Sorry!
                             The user role you entered did not get added.
                         </h2>
                     </div>

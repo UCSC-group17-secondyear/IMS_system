@@ -6,9 +6,19 @@
     
     $_SESSION['booking_list'] = '';
 
+    $cur_date = date('Y-m-d');
+
     $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
 
-    $records = asmModel::viewBookings($user_id, $connect);
+    $sem_Id = asmModel::getSemId($cur_date,$connect);
+
+    if ($sem_Id) {
+        while ($rec2 = mysqli_fetch_assoc($sem_Id)) {
+            $sem_id = $rec2['sem_id'];
+        }
+    }
+
+    $records = asmModel::viewBookings($user_id, $sem_id, $connect);
    
     if ($records) {
         if(mysqli_num_rows($records)==0){
@@ -22,8 +32,8 @@
                 $_SESSION['booking_list'] .= "<td>{$record['end_time']}</td>";
                 $_SESSION['booking_list'] .= "<td>{$record['reason']}</td>";
                 $_SESSION['booking_list'] .= "<td>{$record['hall_name']}</td>";
-                $_SESSION['booking_list'] .= "<td><a href=\"../../controller/asmControllers/modifyBookingController.php?booking_id={$record['booking_id']}&user_id=$user_id\">Edit</a></td>";
-                $_SESSION['booking_list'] .= "<td><a href=\"../../controller/asmControllers/deleteBookingController.php?booking_id={$record['booking_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
+                $_SESSION['booking_list'] .= "<td><a class=\"green\" href=\"../../controller/asmControllers/modifyBookingController.php?booking_id={$record['booking_id']}&user_id=$user_id\">Edit</a></td>";
+                $_SESSION['booking_list'] .= "<td><a class=\"red\" href=\"../../controller/asmControllers/deleteBookingController.php?booking_id={$record['booking_id']}\" onclick=\"return confirm('Are you sure?');\">Delete</a></td>";
                 $_SESSION['booking_list'] .= "</tr>";
 
                 header('Location:../../view/academicStaffMember/asmViewBookingListV.php');

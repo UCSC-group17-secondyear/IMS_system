@@ -3,92 +3,82 @@
 ?>
 
 <main>
-    <title>View Month-wise Attendance</title>
+    <title>View Month Wise Attendance</title>
 
-    <div class="sansserif">
-        <ul class="breadcrumbs">
-            <li><a href="mmHomeV.php">Home</a></li>
-            <li class="active">View Month-wise Attendance</li>
-        </ul>
+    <ul class="breadcrumbs">
+        <li><a href="mmHomeV.php">Home</a></li>
+        <li class="active">Monthwise Attendance</li>
+    </ul>
 
-        <div class="row" style="margin-bottom: 4.5%;">
-            <div class="col left20">
-                <?php
-                    require 'mmSideNavV.php';
-                ?>
+    <div class="row" style="margin-bottom: 4%;" >
+        <div class="col left20">
+            <?php
+                require 'mmSideNavV.php';
+            ?>
+        </div>
+
+        <div class="col right80">
+            <div>
+                <h2>Monthwise Attendance</h2>
             </div>
+            <div class="contentForm">
+                <form action="../../controller/mmControllers/mmViewAttendanceC.php" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter calendar year</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="calander_year" placeholder="Calander Year" required /> <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter month</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" name="month" placeholder="Month" min="1" max="12" required /> <br>
+                            </div>
+                        </div>
 
-            <div class="col right80">
-                <div>
-                    <h2>View Month-wise Attendance</h2>
-                </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>Enter Degree</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="degree_name">
+                                    <?php echo $_SESSION['degree_list']; ?>
+                                </select>
+                            </div>
+                        </div>
 
-                <div class="contentForm" style="margin-bottom: 1%;">
-                    <div class="row">
-                    <form action="mmStudentWiseAttendanceV.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Year</label>
+                                <label>Enter Academic Year</label>
                             </div>
                             <div class="col-75">
-                                <input type="number" name="calander_year" placeholder="Calander Year"/>
+                                <input type="number" name="academic_year" placeholder="Academic Year" min="1" max="4" required /> <br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Month</label>
+                                <label>Select Semester</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="month" placeholder="Month"/>
+                                <input type="number" name="semester" placeholder="Semester" min="1" max="2" required /> <br>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Degree</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="degree" placeholder="Degree"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Academic Year</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="academic_year" placeholder="Academic Year"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Semester</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="semester" placeholder="Semester"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Subject</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="subject" placeholder="Subject"/>
-                            </div>
-                        </div>
-                    </form>
-                    <form>
-                        <button class="subbtn" type="submit" name="select-submit">
-                            <a href="#">Display Attendance</a>
+
+                        <button class="subbtn" type="submit" name="getSubjects-submit">Display Attendance
                         </button>
-                        <button type="submit" class="cancelbtn">
-                            <a href="mmHomeV.php">Cancel</a>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="mmHomeV.php">Cancel</a> 
                         </button>
                     </form>
-                </div>
             </div>
         </div>
     </div>
 </main>
 
 <?php
-    require_once('../basic/footer.php');
+    require '../basic/footer.php';
 ?>
