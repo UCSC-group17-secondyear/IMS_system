@@ -376,8 +376,7 @@
                 }
             }
             else {
-                echo "error4";
-                /*header('Location:../../view/reportViewer/rvNoSubIDSessionID_S.php');*/
+                header('Location:../../view/reportViewer/rvNoSubIDSessionID_S.php');
             }
         }
     }
@@ -395,7 +394,7 @@
             header('Location:../../view/reportViewer/rvBatchWiseAttendanceV.php');
         }
         else {
-            echo "no degrees in the system";
+            header('Location:../../view/reportViewer/amRequestDenied.php');
         }
     }
 
@@ -427,7 +426,7 @@
             header('Location:../../view/reportViewer/rvSelectSub_B.php');
         }
         else {
-            echo "error";
+            header('Location:../../view/reportViewer/amRequestDenied.php');
         }
     }
 
@@ -441,8 +440,7 @@
         $endDate = $_POST['endDate'];
 
         if ($startDate > $endDate) {
-            /*header('Location:../../view/reportViewer/rvStartEndDateIssueB.php');*/
-            echo "error";
+            header('Location:../../view/reportViewer/rvStartEndDateIssueB.php');
         }
         else {
             $_SESSION['batch_number'] = $batch_number;
@@ -470,8 +468,7 @@
 
                 if ($records1 && $records2) {
                     if (mysqli_num_rows($records1) == 0) {
-                        /*header('Location:../../view/reportViewer/rvNoBatchAttendance.php');*/
-                        echo "error";
+                        header('Location:../../view/reportViewer/rvNoBatchAttendance.php');
                     }
                     else {
                         $_SESSION['batchWise_attendance'] = '';
@@ -493,13 +490,11 @@
                     }
                 }
                 else {
-                    /*header('Location:../../view/reportViewer/rvNoBatchAttendance.php');*/
-                    echo "error";
+                    header('Location:../../view/reportViewer/rvNoBatchAttendance.php');
                 }
             }
             else {
-                /*header('Location:../../view/reportViewer/rvNoSubIDSessionID_Batch.php');*/
-                echo "error";
+                header('Location:../../view/reportViewer/rvNoSubIDSessionID_Batch.php');
             }
         }
     }
@@ -518,8 +513,7 @@
             $records = rvModel::getSemesterAttendance ($start_date, $end_date, $connect);
         
             if (!($records)) {
-                    echo "error1";
-                    /*header('Location:../../view/reportViewer/rvNoAttendanceSemester.php');*/
+                    header('Location:../../view/reportViewer/rvNoAttendanceSemester.php');
                 }
             else {
                 session_start();
@@ -557,13 +551,12 @@
                     header('Location:../../view/reportViewer/rvDisplaySemesterAttendanceV.php');
                 }
                 else {
-                    echo "error4";
+                    header('Location:../../view/reportViewer/rvNoAttendanceSemester.php');
                 }
             }
         }
         else {
-            /*header('Location:../../view/reportViewer/rvNoStartEndDateS.php');*/
-            echo "error2";
+            header('Location:../../view/reportViewer/amRequestDenied.php');
         }
     }
     

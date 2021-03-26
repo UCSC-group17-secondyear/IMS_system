@@ -28,7 +28,6 @@
     }
     else {
         header('Location:../../view/mahapolaSchemeMaintainer/mmNoSchemesAvaliableV.php');
-       
     }
 
 ?>
