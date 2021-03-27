@@ -76,7 +76,7 @@
                         AND degree_id='{$degree}' 
                         AND subject_id='{$subject_id}' 
                         AND month='{$month}' 
-                        AND (sessionTypeId='1' OR sessionTypeId='2') 
+                        AND sessionTypeId='1' 
                         AND is_deleted='0'";
 
             $result = mysqli_query($connect, $query);

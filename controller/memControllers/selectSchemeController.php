@@ -24,7 +24,7 @@
             $_SESSION['schemeName'] = '';
             $_SESSION['user_id'] = $user_id;
 
-            if($type_id == '3'){
+            if($type_id == '1'){
                 
                 $schemes = memModel::getPermanentSchemes($expMonth, $connect);
                 
@@ -43,7 +43,7 @@
 
             //--------------------------------------------------------------------------------------------
 
-            elseif($type_id == '1'){
+            elseif($type_id == '2'){
                 
                 $schemes = memModel::getTemporarySchemes($expMonth, $connect);
 
@@ -62,7 +62,7 @@
 
             //--------------------------------------------------------------------------------------------
 
-            elseif($type_id == '2'){
+            elseif($type_id == '3'){
                
                 $schemes = memModel::getContractSchemes($expMonth, $connect);
                 
