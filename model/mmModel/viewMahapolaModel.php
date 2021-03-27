@@ -27,7 +27,7 @@
 		}
 
         public static function getStuSemSubjects($degree,$academic_year,$sem_digit,$stu_semester,$connect){
-            $query = "SELECT * FROM tbl_subject WHERE academic_year='{$academic_year}' AND degree_id='{$degree}' AND semester='{$sem_digit}' AND is_deleted='0'";
+            $query = "SELECT * FROM tbl_subject WHERE academic_year='{$academic_year}' AND degree_id='{$degree}' AND semester='{$sem_digit}' AND semester='{$stu_semester}' AND is_deleted='0'";
 
             $result = mysqli_query($connect, $query);
 
@@ -53,7 +53,7 @@
                         AND degree_id='{$degree}' 
                         AND subject_id='{$subject_id}' 
                         AND month='{$month}' 
-                        AND (sessionTypeId='1' OR sessionTypeId='2') 
+                        AND sessionTypeId='1' 
                         AND is_deleted='0'";
 
             $result = mysqli_query($connect, $query);
