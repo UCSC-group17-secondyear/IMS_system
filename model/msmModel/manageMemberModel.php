@@ -44,5 +44,29 @@
 
 			return $result;
 		}
+
+		public static function getMedyearDetails($cur_year,$connect){
+			$query = "SELECT * FROM tbl_medical_year WHERE YEAR(start_date)='{$cur_year}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+		
+		public static function getInitAmount($s_id, $connect){
+			$query = "SELECT * FROM tbl_medicalscheme WHERE scheme_id='$s_id'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function addYearClaimDetails($user_id, $cur_year,$s_id, $amount, $connect ){
+			$query = "INSERT INTO tbl_claimdetails (user_id, year, scheme, initial_amount,remain_amount) VALUES ($user_id, '$cur_year', '$s_id', '$amount','$amount')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
     }
 ?>
