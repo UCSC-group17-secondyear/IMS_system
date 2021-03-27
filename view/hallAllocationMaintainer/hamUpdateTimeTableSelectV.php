@@ -3,12 +3,12 @@
 ?>
 
 <main>
-    <title>Enter time table</title>
+    <title>Update/Delete Time Table</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li class="active">Enter time table</li>
+            <li class="active">Update/Delete Time Table</li>
         </ul>
         <div class="row">
             <div class="col left20">
@@ -19,7 +19,7 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Enter Time Table</h2>
+                    <h2>Update/Delete Time Table</h2>
                 </div>
 
                 <div class="contentForm">
@@ -60,7 +60,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="subbtn" type="submit" name="updatett-submit"><a href="#">Enter</a></button>
+                        <button class="subbtn" type="submit" name="updatett-submit">Enter</button>
                         <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>

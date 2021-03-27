@@ -47,7 +47,34 @@
 
 		public static function viewTimeTable($sem_id, $year, $degree, $connect)
 		{
-			$query = "SELECT * FROM tbl_weekly_time_table INNER JOIN tbl_hall ON tbl_weekly_time_table.hall_id = tbl_hall.hall_id INNER JOIN tbl_semester ON tbl_weekly_time_table.sem_id = tbl_semester.sem_id INNER JOIN tbl_degree ON tbl_weekly_time_table.degree_id = tbl_degree.degree_id INNER JOIN tbl_subject ON tbl_weekly_time_table.subject_id = tbl_subject.subject_id WHERE tbl_weekly_time_table.sem_id = '{$sem_id}' AND tbl_weekly_time_table.degree_id = '{$degree}' AND tbl_weekly_time_table.year = '{$year}' ORDER BY tbl_semester.academic_year , tbl_semester.semester";
+			$query = "SELECT * FROM tbl_weekly_time_table wtt INNER JOIN tbl_hall h ON wtt.hall_id = h.hall_id INNER JOIN tbl_semester s ON wtt.sem_id = s.sem_id INNER JOIN tbl_degree d ON wtt.degree_id = d.degree_id INNER JOIN tbl_subject st ON wtt.subject_id = st.subject_id WHERE wtt.sem_id = '{$sem_id}' AND wtt.degree_id = '{$degree}' AND wtt.year = '{$year}' AND wtt.is_deleted = 0 ORDER BY wtt.wtt_id";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+		}
+
+		public static function getEvent($update_wtt , $connect)
+		{
+			$query = "SELECT wtt.*, s.*, sub.*, h.*, d.* FROM tbl_weekly_time_table wtt, tbl_semester s, tbl_subject sub, tbl_hall h, tbl_degree where h.hall_id = wtt.hall_id AND s.sem_id = wtt.sem_id AND sub.subject_id = wtt.subject_id AND sub.degree_id = wtt.degree_id AND d.degree_id = sub.degree_id AND wtt.wtt_id = '{$update_wtt}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+		}
+
+		public static function updateEvent($update_tt , $connect)
+		{
+			$query = "UPDATE tbl_weekly_time_table wtt SET  WHERE wtt.wtt_id = '{$update_tt}'";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+		}
+
+		public static function deleteEvent($delete_tt , $connect)
+		{
+			$query = "UPDATE tbl_weekly_time_table SET is_deleted = 1 WHERE wtt_id = '{$delete_tt}'";
 
             $result = mysqli_query($connect, $query);
 
