@@ -63,6 +63,7 @@
             $_SESSION['fr_member'] = $md['member_type'];
             $_SESSION['fr_civil_status'] = $md['civilstatus'];
             $_SESSION['fr_scheme'] = $md['schemeName'];
+            $_SESSION['fr_scheme_id'] = $md['scheme_id'];
             $_SESSION['fr_form_submission_date'] = $md['form_submission_date'];
             $_SESSION['fr_acceptance_status'] = $md['acceptance_status'];
             $_SESSION['fr_membership_status'] = $md['membershiform_paid'];
