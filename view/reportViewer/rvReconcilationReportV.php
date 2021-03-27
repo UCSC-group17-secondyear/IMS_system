@@ -26,7 +26,7 @@
                     <div class="contentForm">
                         <form action="../../controller/rvControllers/mahapolaListController.php" method="post">
                            
-                            <div class="">
+                            <br><div class="">
                                 <table id="tableStyle">
                                     <tr>
                                         <th>Year</th>
