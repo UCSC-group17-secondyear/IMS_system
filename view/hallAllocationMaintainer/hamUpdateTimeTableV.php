@@ -10,7 +10,6 @@
             <li><a href="hamHomeV.php">Home</a></li>
             <li class="active">Update time table</li>
         </ul>
-
         <div class="row">
             <div class="col left20">
                 <?php
@@ -20,67 +19,136 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update/Remove Weekly Time Table</h2>
+                    <h2>Update Time Table</h2>
                 </div>
+
                 <div class="contentForm">
-                    <form action="" method="POST">
+                    <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="POST">
                         <div class="row">
                             <div class="col-25">
-                                <label>Subject Name</label>
+                                <label>Academic year</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="" name="subject_name" placeholder="Subject name" required /><br>
+                                <input type="time" name="semster" <?php echo 'value="'.$sub['u_academic_year'].'"'?> readonly>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-25">
-                                <label>Subject Code</label>
+                                <label>Semester</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="" name="subject_code" placeholder="Subject code" required /><br>
+                                <input type="time" name="semster" <?php echo 'value="'.$sub['u_semester'].'"'?> readonly>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-25">
-                                <label>Hall</label>
+                                <label>Degree</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="" name="hall" placeholder="Hall" required /><br>
+                                <select name="degree" required>
+                                    <option value="">Select a degree</option>
+                                    <?php echo $_SESSION['degree'] ?>
+                                </select>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-25">
-                                <label>Start time</label>
+                                <label>Year</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" id="" name="s_time" placeholder="Starting_time" required /><br>
+                                <select name="year" id="" required>
+                                    <option value="">Select a year</option>
+                                    <option value="1">1st year</option>
+                                    <option value="2">2nd year</option>
+                                    <option value="3">3rd year</option>
+                                    <option value="4">4th year</option>
+                                </select>
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="col-25">
-                                <label>End time</label>
+                                <label for="">Start Time</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" id="" name="e_time" placeholder="Ending_time" required /><br>
+                                <input type="time" name="starttime" <?php echo 'value="'.$_SESSION['u_start_time'].'"'?> required>
                             </div>
                         </div>
-                        <button class="subbtn" type="submit" name="">
-                            <a href="#">Save Updates</a>
-                        </button>
-                        <button class="cancelbtn" type="submit" name="">
-                            <a href="#">Remove</a>
-                        </button>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">End Time</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="time" name="endtime" <?php echo 'value="'.$_SESSION['u_end_time'].'"'?> required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Subject</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <?php echo $_SESSION['subject_with_code'] ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Hall</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="hall" required>
+                                    <option value="">Select a hall</option>
+                                    <?php echo $_SESSION['allhalls']?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Day</label>
+                            </div>
+                            <div class="col-75">
+                                <select name="day" required>
+                                    <option value="">Select a day</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wedensday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="subbtn" type="submit" name="savett-submit">Update</button>
+                        <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>
+                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>
     </div>
 </main>
+
+<script type="text/javascript">
+    //Get the button
+    var mybutton = document.getElementById("myTopBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+        mybutton.style.display = "block";
+        } else {
+        mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 
 <?php
     require '../basic/footer.php';
