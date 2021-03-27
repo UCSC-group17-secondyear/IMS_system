@@ -83,6 +83,26 @@
 
             $result = msmModel::requestaccept($viewed_member, $connect);
 
+            $cur_date = date('Y-m-d');
+            $cur_year = date('Y');
+            $result_medi_year = msmModel::getMedyearDetails($cur_year,$connect);
+            $medi_year = mysqli_fetch_assoc($result_medi_year);
+
+            $sc_id = $_SESSION['fr_scheme_id'];
+
+            $init_amount = msmModel::getInitAmount($sc_id, $connect);
+            $i_amount = mysqli_fetch_array($init_amount);
+            $amount = $i_amount[2] + $i_amount[3] + $i_amount[4] + $i_amount[5] + $i_amount[6] + $i_amount[7] + $i_amount[8] ;
+
+            if(strtotime(strtotime($cur_date) >= $medi_year['start_date']) ){
+                $medical_year = $medi_year['medical_year'];
+            }
+            else{
+                $medical_year = $medi_year['medical_year'] - 1;
+            }
+
+            $result_claim_det = msmModel::addYearClaimDetails($viewed_member, $medical_year,$sc_id, $amount, $connect );
+
             if ($result) {
                 $to_email = $member_email;
                 $subject = "Membership Acceptance";
