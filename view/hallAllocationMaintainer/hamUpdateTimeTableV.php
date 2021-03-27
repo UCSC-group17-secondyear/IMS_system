@@ -29,7 +29,7 @@
                                 <label>Academic year</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="semster" <?php echo 'value="'.$sub['u_academic_year'].'"'?> readonly>
+                                <input type="number" name="academic_year" <?php echo 'value="'.$_SESSION['u_academic_year'].'"'?> disabled>
                             </div>
                         </div>
                         <div class="row">
@@ -37,7 +37,7 @@
                                 <label>Semester</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="semster" <?php echo 'value="'.$sub['u_semester'].'"'?> readonly>
+                                <input type="text" name="semster" <?php echo 'value="'.$_SESSION['u_semester'].'"'?> disabled>
                             </div>
                         </div>
                         <div class="row">
@@ -118,7 +118,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="subbtn" type="submit" name="savett-submit">Update</button>
+                        <button class="subbtn" type="submit" name="update-event-submit">Update</button>
                         <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>
