@@ -44,16 +44,17 @@
 			$result = mysqli_query($connect, $query);
 			return $result;
 		}
-
-		public static function checkSubCode ($subject_code, $connect) 
+////////////////////////////////////////////////////////////////////////////////
+		public static function checkSubCode ($subject_code, $degree_id, $connect) 
 		{
 			$query = "SELECT subject_code FROM tbl_subject 
-			WHERE subject_code = '{$subject_code}' and is_deleted = 0
+			WHERE subject_code = '{$subject_code}' AND degree_id = '{$degree_id}' AND is_deleted = 0
 			LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 			return $result_set;
 		}
+/////////////////////////////////////////////////////////////////////////////////
 
 		public static function addSubject ($subject_code, $subject_name, $degree_id, $academic_year, $semester, $mandatory_subject, $connect)
 		{
@@ -72,15 +73,16 @@
 			$result_set = mysqli_query($connect, $query);
 			return $result_set;
 		}
-
-		public static function check_subCodeToUpdate ($subject_id, $subject_code, $connect) 
+//////////////////////////////////////////////////////////////////////////////////////////
+		public static function check_subCodeToUpdate ($subject_id, $degree_id, $subject_code, $connect) 
 		{
 			$query = "SELECT * FROM tbl_subject 
-			WHERE subject_code = '{$subject_code}' AND subject_id != '{$subject_id}' AND is_deleted = 0 LIMIT 1";
+			WHERE subject_code = '{$subject_code}' AND degree_id = '{$degree_id}' AND subject_id != '{$subject_id}' AND is_deleted = 0 LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 			return $result_set;
 		}
+/////////////////////////////////////////////////////////////////////////////////////////
 
 		public static function check_subjectToUpdate ($subject_id, $subject_name, $degree_id, $connect) 
 		{
