@@ -59,7 +59,8 @@
 		}
 
 		public static function getMoEmail($connect){
-			$query = "SELECT email FROM users WHERE userRole='medicalOfficer'";
+			$query = "SELECT users.email FROM users INNER JOIN tbl_user_flag ON users.userId = tbl_user_flag.user_id WHERE tbl_user_flag.mo_flag= 1";
+			//$query = "SELECT email FROM users WHERE userRole='medicalOfficer'";
 
 			$result = mysqli_query($connect, $query);
 
