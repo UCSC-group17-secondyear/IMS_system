@@ -70,30 +70,34 @@
         if ($_SESSION['checkattendance'] == 0){
             if ($_SESSION['isMandatory'] == 1) {
             
-                $ds_students = amModel::getStudents($_SESSION['aca_year'], $_SESSION['semester'], $degree, $connect);
-                if (mysqli_num_rows($ds_students) != 0) {
-                    while ($dss = mysqli_fetch_assoc($ds_students)) {
-                        amModel::setallstudents($dss['std_id'], $degree, $subject, $sessiontype, $date, $connect);
+                $attstudents = amModel::getStudents($_SESSION['aca_year'], $_SESSION['semester'], $degree, $connect);
+                if (mysqli_num_rows($attstudents) != 0) {
+                    while ($as = mysqli_fetch_array($attstudents)) {
+                        amModel::setallstudents($as['std_id'], $degree, $subject, $sessiontype, $date, $connect);
                         $_SESSION['ds_students'] .= "<tr>";
-                        $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
-                        $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
-                        $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
-                        $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['std_id']}' style='margin-left: auto; margin-right: auto;'/></td>";
+                        $_SESSION['ds_students'] .= "<td>{$as['index_no']}</td>";
+                        $_SESSION['ds_students'] .= "<td>{$as['initials']}</td>";
+                        $_SESSION['ds_students'] .= "<td>{$as['last_name']}</td>";
+                        $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$as['std_id']}' style='margin-left: auto; margin-right: auto;'/></td>";
                         $_SESSION['ds_students'] .= "</tr>";
 
                         header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
                     }
+                } else {
+                    header('Location:../../view/attendanceMaintainer/amNoStudentsV.php');
                 }
+
             } else {
-                $ds_students = amModel::getStudentsnotMand($subject, $connect);
-                if (mysqli_num_rows($ds_students) != 0) {
-                    while ($dss = mysqli_fetch_array($ds_students)) {
-                        amModel::setallstudents($dss['std_id'], $degree, $subject, $sessiontype, $date, $connect);
+
+                $attstudents = amModel::getStudentsnotMand($subject, $connect);
+                if (mysqli_num_rows($attstudents) != 0) {
+                    while ($as = mysqli_fetch_assoc($attstudents)) {
+                        amModel::setallstudents($as['std_id'], $degree, $subject, $sessiontype, $date, $connect);
                         $_SESSION['ds_students'] .= "<tr>";
-                        $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
-                        $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
-                        $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
-                        $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['std_id']}' style='margin-left: auto; margin-right: auto;'/></td>";
+                        $_SESSION['ds_students'] .= "<td>{$as['index_no']}</td>";
+                        $_SESSION['ds_students'] .= "<td>{$as['initials']}</td>";
+                        $_SESSION['ds_students'] .= "<td>{$as['last_name']}</td>";
+                        $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$as['std_id']}' style='margin-left: auto; margin-right: auto;'/></td>";
                         $_SESSION['ds_students'] .= "</tr>";
         
                         header('Location:../../view/attendanceMaintainer/amEnterAttendaceV.php');
@@ -133,20 +137,20 @@
         $ds_students = amModel::fetchstudents($degree, $subject, $sessiontype, $date, $connect);
 
         if (mysqli_num_rows($ds_students) > 0) {
-            while ($dss = mysqli_fetch_assoc($ds_students)) {
+            while ($as = mysqli_fetch_assoc($ds_students)) {
                 $_SESSION['attendance'] = "";
                 $_SESSION['ds_students'] .= "<tr>";
-                $_SESSION['ds_students'] .= "<td>{$dss['index_no']}</td>";
-                $_SESSION['ds_students'] .= "<td>{$dss['initials']}</td>";
-                $_SESSION['ds_students'] .= "<td>{$dss['last_name']}</td>";
-                $presence = amModel::getpresence($dss['std_id'], $date, $degree, $subject, $sessiontype, $connect);
+                $_SESSION['ds_students'] .= "<td>{$as['index_no']}</td>";
+                $_SESSION['ds_students'] .= "<td>{$as['initials']}</td>";
+                $_SESSION['ds_students'] .= "<td>{$as['last_name']}</td>";
+                $presence = amModel::getpresence($as['std_id'], $date, $degree, $subject, $sessiontype, $connect);
                 while ($pr = mysqli_fetch_assoc($presence)) {
                     $_SESSION['attendance'] = $pr['attendance'];
                 }
                 if ($_SESSION['attendance'] == 0){
-                    $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['std_id']}' style='margin-left: auto; margin-right: auto;'></td>";
+                    $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$as['std_id']}' style='margin-left: auto; margin-right: auto;'></td>";
                 } else {
-                    $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$dss['std_id']}' style='margin-left: auto; margin-right: auto;' checked></td>";
+                    $_SESSION['ds_students'] .= "<td><input type='checkbox' name='smarked[]' value='{$as['std_id']}' style='margin-left: auto; margin-right: auto;' checked></td>";
                 }
                 $_SESSION['ds_students'] .= "</tr>";
             }

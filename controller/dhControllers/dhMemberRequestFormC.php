@@ -19,7 +19,7 @@
                     $_SESSION['memberrequestforms'] .= "<td>{$hd['empid']}</td>";
                     $_SESSION['memberrequestforms'] .= "<td>{$hd['initials']}</td>";
                     $_SESSION['memberrequestforms'] .= "<td>{$hd['sname']}</td>";
-                    $_SESSION['memberrequestforms'] .= "<td><a href=\"../../controller/dhControllers/dhviewMemberForm1C.php?viewmember={$hd['userId']}\">View</a></td>";
+                    $_SESSION['memberrequestforms'] .= "<td><a href=\"../../controller/dhControllers/dhviewMemberFormC.php?viewmember={$hd['user_id']}\">View</a></td>";
                     $_SESSION['memberrequestforms'] .= "</tr>";
                 }
                 header('Location:../../view/departmentHead/dhMembRequestFormV.php');
@@ -27,5 +27,7 @@
                 header('Location:../../view/departmentHead/dhNoFormsV.php');
             } 
         } 
+    } else {
+        header('Location:../../view/departmentHead/dhNoFormsV.php');
     }
 ?>

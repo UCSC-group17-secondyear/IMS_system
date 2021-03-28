@@ -23,12 +23,10 @@
                         <h2>Action Successful!</h2>
                     </div>
 
-                    <button class="subbtn">
-                        <a href="hamUpdateTimeTableSelectV.php">Update/Delete Another</a> 
-                    </button>
-                    <button class="cancelbtn">
-                        <a href="hamHomeV.php">Exit</a> 
-                    </button>
+                    <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="post">
+                        <button class="subbtn" name="updateremovett-submit" type="submit">Try again</button>
+                        <button class="cancelbtn"><a href="hamHomeV.php">Exit</a></button>
+                    </form>
                 </div>
             </div>
         </div>

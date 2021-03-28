@@ -56,16 +56,25 @@
 
 		public static function getEvent($update_wtt , $connect)
 		{
-			$query = "SELECT wtt.*, s.academic_year, s.semester, sub.subject_code, sub.subject_name FROM tbl_weekly_time_table wtt, tbl_semester s, tbl_subject sub where s.sem_id = wtt.sem_id AND sub.subject_id = wtt.subject_id AND sub.degree_id = wtt.degree_id AND wtt.wtt_id = '{$update_wtt}'";
+			$query = "SELECT wtt.*, s.academic_year, s.semester, sub.subject_code, sub.subject_name, d.degree_name FROM tbl_weekly_time_table wtt, tbl_semester s, tbl_subject sub, tbl_degree d where s.sem_id = wtt.sem_id AND sub.subject_id = wtt.subject_id AND sub.degree_id = wtt.degree_id AND sub.degree_id = d.degree_id AND wtt.wtt_id = '{$update_wtt}'";
 
             $result = mysqli_query($connect, $query);
 
             return $result;
 		}
 
-		public static function updateEvent($wtt_id, $starttime, $endtime, $year, $subject, $hall, $day, $degree, $connect)
+		public static function getthesubjects($u_degree, $u_year, $connect)
 		{
-			$query = "UPDATE tbl_weekly_time_table wtt SET start_time = '{$starttime}', end_time='{$endtime}', year='{$year}', subject_id='{$subject}', hall_id='{$hall}', day='{$day}', degree_id='{$degree}' WHERE wtt_id = '{$wtt_id}'";
+			$query = "SELECT sub.* FROM tbl_subject sub, tbl_degree d where sub.degree_id = d.degree_id AND d.degree_name = '{$u_degree}' AND sub.academic_year = '{$u_year}' AND sub.is_deleted=0";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+		}
+
+		public static function updateEvent($wtt_id, $starttime, $endtime, $subject, $hall, $day, $connect)
+		{
+			$query = "UPDATE tbl_weekly_time_table wtt SET start_time = '{$starttime}', end_time='{$endtime}', subject_id='{$subject}', hall_id='{$hall}', day='{$day}' WHERE wtt_id = '{$wtt_id}'";
 
             $result = mysqli_query($connect, $query);
 
