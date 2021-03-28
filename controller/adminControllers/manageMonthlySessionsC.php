@@ -9,12 +9,10 @@
         $academic_year = $_POST['academic_year'];
 
         if ($calendarYear < date("Y")) {
-            echo "previous year";
-           /*header('Location:../../view/admin/apreviousYearMV.php');*/
+            header('Location:../../view/admin/apreviousYearMV.php');
         }
         elseif ($calendarYear == date("Y") && $month < date("m")) {
-            echo "previous month";
-            /*header('Location:../../view/admin/apreviousMonthMV.php');*/
+            header('Location:../../view/admin/apreviousMonthMV.php');
         }
         else {
             $get_degree_id = adminModel::get_degree_id ($degree_name, $connect);
@@ -49,15 +47,15 @@
                             header('Location:../../view/admin/aSaveSessionPerMonthV.php');
                         }
                         else {
-                            echo "failed3";
+                            header('Location:../../view/admin/aRequestDeniedV.php');
                         }
                     }
                     else {
-                        echo "failed2";
+                        header('Location:../../view/admin/aRequestDeniedV.php');
                     }
                 }
                 else {
-                    echo "system failed";
+                    header('Location:../../view/admin/aRequestDeniedV.php');
                 }
             }
             else {
