@@ -13,7 +13,7 @@
 
         $answer = mysqli_fetch_assoc($answers);
 
-        $role = $answer['userRole'];
+        $role = $answer['userRole_id'];
         $_SESSION['role'] = $role;
 
         $_SESSION['halls'] = '';
@@ -24,10 +24,10 @@
                 $_SESSION['halls'] .= "<option value='".$record['hall_name']."'>". $record['hall_name']."</option>";
             }
 
-            if ($role == "hallAllocationMain") {
+            if ($role == 2) {
                 header('Location:../../view/hallAllocationMaintainer/hamAddBookingV.php');
             }
-            elseif ($role == "academicStaffMemb") {
+            elseif ($role == 10) {
                 header('Location:../../view/academicStaffMember/asmAddBookingV.php');
             }
 
@@ -52,10 +52,10 @@
 
         $check = asmModel::checkHall($h_id, $date, $startTime, $endTime, $connect);
         if (mysqli_num_rows($check)==1) {
-            if ($_SESSION['role'] == "hallAllocationMain") {
+            if ($_SESSION['role'] == 2) {
                 header('Location:../../view/hallAllocationMaintainer/hamAllReadyBookedV.php');
             }
-            elseif ($_SESSION['role'] == "academicStaffMemb") {
+            elseif ($_SESSION['role'] == 10) {
                 header('Location:../../view/academicStaffMember/asmAllReadyBookedV.php');
             }            
         }
@@ -72,10 +72,10 @@
 
             if ($result) {
 
-                if ($_SESSION['role'] == "hallAllocationMain") {
+                if ($_SESSION['role'] == 2) {
                     header('Location:../../view/hallAllocationMaintainer/hamBookingAddedV.php');
                 }
-                elseif ($_SESSION['role'] == "academicStaffMemb") {
+                elseif ($_SESSION['role'] == 10) {
                     header('Location:../../view/academicStaffMember/asmBookingAddedV.php');
                 }
                 

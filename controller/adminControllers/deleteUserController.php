@@ -19,14 +19,6 @@
             $result = adminModel::deleteUser($user_id, $connect);
 
             if ($result) {
-
-                // $to_email = $_SESSION['email'];
-                // $subject = "Delete";
-                // $body = "Admin delete your account. Thank you.";
-                // $headers = "From: ims.ucsc@gmail.com";
-
-                // $sendMail = mail($to_email, $subject, $body, $headers);
-
                 header('Location:userListController.php?msg=user_deleted');
             }
             else {
