@@ -101,7 +101,7 @@
 
 		public static function getmailofdh($department, $connect)
 		{
-			$query = "SELECT u.email FROM tbl_department d, users u WHERE d.post = u.post_id AND department_id='{$department}' LIMIT 1";
+			$query = "SELECT u.email FROM tbl_department d, users u, tbl_post p WHERE d.post = p.pst_id AND p.userId = u.userId AND department_id='{$department}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);
 			

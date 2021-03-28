@@ -333,10 +333,19 @@
                             <a href="rvHomeV.php">Exit</a>
                         </button>
                 </div>
-                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+                <?php if($_SESSION['reqf_surgical'] == 1){ ?>
+                    <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
+                <?php } ?>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        var mybutton = document.getElementById("myTopBtn");
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 
 </main>
 

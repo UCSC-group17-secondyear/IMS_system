@@ -8,7 +8,7 @@
             <ul class="breadcrumbs">
                 <li><a href="rvHomeV.php">Home</a></li>
                 <li><a href="../../controller/rvControllers/mahapolaListController.php?btn=11">View Another List</a></li>
-                <li class="active">Reconcilation Report</li>
+                <li class="active">Reconciliation Report</li>
             </ul>
         
             <div class="row" style="margin-bottom: 4%;">
@@ -20,7 +20,7 @@
 
                 <div class="col right80">
                     <div>
-                        <h2>Reconcilation Report</h2>
+                        <h2>Reconciliation Report</h2>
                     </div>
 
                     <div class="contentForm">
