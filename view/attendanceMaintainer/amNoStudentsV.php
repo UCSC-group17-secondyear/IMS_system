@@ -21,7 +21,7 @@
                 <div>
                     <div>
                         <h2>Sorry!
-                            No schemes are available in the system right now.
+                            No Students are available in the system right now.
                         </h2>
                     </div>
 

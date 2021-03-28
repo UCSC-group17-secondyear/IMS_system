@@ -20,7 +20,7 @@
 
         public static function getDetails($user_id, $connect)
 		{
-			$query = "SELECT u.*, mm.*, d.department, m.member_type, s.schemeName FROM tbl_medical_membership mm, users u, tbl_department d, tbl_medicalscheme s, tbl_member_type m WHERE u.userId = mm.user_id AND d.department_id = mm.department_id AND s.scheme_id = mm.scheme_id AND m.member_id = mm.member_id AND mm.user_id={$user_id}";
+			$query = "SELECT u.empid, u.initials, u.sname, u.email, desi.designation_name, d.department, mm.healthcondition, mm.married, s.schemeName, m.member_type, mm.acceptance_status FROM tbl_medical_membership mm, users u, tbl_department d, tbl_medicalscheme s, tbl_member_type m, tbl_designation desi WHERE u.userId = mm.user_id AND d.department_id = mm.department_id AND s.scheme_id = mm.scheme_id AND m.member_id = mm.member_id AND desi.designation_id = u.designation_id AND mm.user_id='{$user_id}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

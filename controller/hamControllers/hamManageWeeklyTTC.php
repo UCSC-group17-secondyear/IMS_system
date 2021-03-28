@@ -48,12 +48,8 @@
         $hall = mysqli_real_escape_string($connect, $_POST['hall']);
         $day = mysqli_real_escape_string($connect, $_POST['day']);
 
-        $timetable = hamModel::addWeeklyTT($semester, $degree, $year, $starttime, $endtime, $subject, $hall, $day, $connect);
-        // if ($timetable) {
-            header('Location:../../view/hallAllocationMaintainer/hamEnterTTsuccesV.php');   
-        // } else {
-        //     echo "failed";
-        // }
+        hamModel::addWeeklyTT($semester, $degree, $year, $starttime, $endtime, $subject, $hall, $day, $connect);
+        header('Location:../../view/hallAllocationMaintainer/hamEnterTTsuccesV.php');
     
     } elseif (isset($_POST['updateremovett-submit'])) {
 
@@ -105,59 +101,66 @@
     } elseif (isset($_GET['ttevent_update'])) {
         
         $update_wtt = mysqli_real_escape_string($connect, $_GET['ttevent_update']);
+
         $result = hamModel::getEvent($update_wtt , $connect);
-
-        $semesters = hamModel::getAllsemesters($connect);
-        $degrees = hamModel::getAlldegrees($connect);
-        $_SESSION['acayear_with_sem'] = "";
-
-        $subjects = hamModel::getAllsubjects($connect);
         $halls = hamModel::getAllHalls($connect);
-
+        $_SESSION['acayear_with_sem'] = "";
         $_SESSION['subject_with_code'] = "";
-        
         $_SESSION['allhalls'] = "";
-        $_SESSION['degree'] = "";
-        $_SESSION['wtt'] = "";
+
+        $_SESSION['u_wtt_id'] = "";
+        $_SESSION['u_wtt_id'] = $update_wtt;
         
-        if ($semesters && $degrees && $subjects && $halls) {
-            while ($deg = mysqli_fetch_array($degrees)) {
-                $_SESSION['degree'] .= "<option value='".$deg['degree_id']."'>".$deg['degree_name']."</option>";
+        if ($halls && $result) {
+            while ($um = mysqli_fetch_assoc($result)) {
+                $_SESSION['u_degree'] = $um['degree_name'];
+                $_SESSION['u_year'] = $um['year'];
+                $_SESSION['u_academic_year'] = $um['academic_year'];
+                $_SESSION['u_semester'] = $um['semester'];
+                $_SESSION['u_start_time'] = $um['start_time'];
+                $_SESSION['u_end_time'] = $um['end_time'];
             }
 
-            while ($sub = mysqli_fetch_array($subjects)) {
-                $_SESSION['subject_with_code'] .= "<option value='".$sub['subject_id']."'>".$sub['subject_code']." - ".$sub['subject_name']."</option>";
+            $subjects = hamModel::getthesubjects($_SESSION['u_degree'], $_SESSION['u_year'], $connect);
+            if ($subjects){
+                while ($sub = mysqli_fetch_array($subjects)) {
+                    $_SESSION['subject_with_code'] .= "<option value='".$sub['subject_id']."'>".$sub['subject_code']." - ".$sub['subject_name']."</option>";
+                }
             }
     
             while ($hall = mysqli_fetch_array($halls)) {
                 $_SESSION['allhalls'] .= "<option value='".$hall['hall_id']."'>".$hall['hall_name']."</option>";
             }
 
-            while ($um = mysqli_fetch_assoc($update_tt)) {
-                $_SESSION['u_academic_year'] = $um['academic_year'];
-                $_SESSION['u_semester'] = $um['semester'];
-                $_SESSION['u_subject_code'] = $um['subject_code'];
-                $_SESSION['u_subject'] = $um['subject'];
-                $_SESSION['u_degree'] = $um['degree_name'];
-                $_SESSION['u_hall'] = $um['hall_name'];
-                $_SESSION['u_start_time'] = $um['start_time'];
-                $_SESSION['u_end_time'] = $um['end_time'];
-                $_SESSION['u_year'] = $um['year'];
-            }            
             header('Location:../../view/hallAllocationMaintainer/hamUpdateTimeTableV.php');
+        }
+
+    } elseif (isset($_POST['update-event-submit'])) {
+
+        $wtt = mysqli_real_escape_string($connect, $_GET['eventwtt']);
+        
+        $starttime = mysqli_real_escape_string($connect, $_POST['starttime']);
+		$endtime = mysqli_real_escape_string($connect, $_POST['endtime']);
+        $subject = mysqli_real_escape_string($connect, $_POST['subject']);
+        $hall = mysqli_real_escape_string($connect, $_POST['hall']);
+        $day = mysqli_real_escape_string($connect, $_POST['day']);
+
+        $updated = hamModel::updateEvent($wtt, $starttime, $endtime, $subject, $hall, $day, $connect);
+        if ($updated) {
+            header('Location:../../view/hallAllocationMaintainer/hamSuccesV.php');
         } else {
-            header('Location:../../view/hallAllocationMaintainer/hamDeletedUnsuccesV.php');
+            header('Location:../../view/hallAllocationMaintainer/hamUnsuccesV.php');
         }
 
     } elseif (isset($_GET['ttevent_delete'])) {
         
         $delete_tt = mysqli_real_escape_string($connect, $_GET['ttevent_delete']);
-        $result = hamModel::deleteEvent($delete_tt, $connect);
+        $deleted = hamModel::deleteEvent($delete_tt, $connect);
 
-        if ($result) {
-            header('Location:../../view/hallAllocationMaintainer/hamDeletedSuccesV.php');
+        if ($deleted) {
+            header('Location:../../view/hallAllocationMaintainer/hamSuccesV.php');
         } else {
-            header('Location:../../view/hallAllocationMaintainer/hamDeletedUnsuccesV.php');
+            header('Location:../../view/hallAllocationMaintainer/hamUnsuccesV.php');
         }
 
     }

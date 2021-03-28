@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/dhControllers/dhviewMemberForm2C.php?amiamember=<?php echo $_SESSION['viewed_member_userid'] ?>" method="post">
+                    <form action="../../controller/dhControllers/dhviewMemberFormC.php?amiamember=<?php echo $_SESSION['viewed_member_userid'] ?>" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Employee ID: </label>

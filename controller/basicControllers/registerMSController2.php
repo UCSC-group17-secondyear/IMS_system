@@ -36,7 +36,7 @@
             $submit_diff = mysqli_fetch_array($date_diff);
             $months = (int)$submit_diff[0]/30;
 
-            if ($_SESSION['member_id'] == 1) {
+            if ($_SESSION['member_id'] == 2) {
 
                 $temp_months = basicModel::gettempMonths($connect);
                 while ($tm = mysqli_fetch_array($temp_months)) {
@@ -65,7 +65,7 @@
                     }
                 }
 
-            } elseif ($_SESSION['member_id'] == 2) {
+            } elseif ($_SESSION['member_id'] == 1) {
 
                 $perm_months = basicModel::getpermMonths($connect);
                 while ($pm = mysqli_fetch_array($perm_months)) {
