@@ -8,7 +8,7 @@
 ?>
 
 <?php
-        $user_id = mysqli_real_escape_string($connect, $_SESSION['user_id']);
+        $user_id = mysqli_real_escape_string($connect, $_SESSION['userId']);
         $result = memModel::viewMember($user_id,$connect);
         $result_set = renewModel::getMeidcalMemDetails($user_id, $connect);
 
