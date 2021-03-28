@@ -26,15 +26,13 @@
 
                 <table id="tableStyle">
                     <tr>
-                        <th>Day</th>
+                        <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
                         <th>Subject</th>
                         <th>Hall Name</th>
-                        <th>Update</th>
-                        <th>Delete</th>
                     </tr>
-                    <?php echo $_SESSION['viewd_tt'] ?>
+                    <?php echo $_SESSION['time_table'] ?>
                     
                 </table>
             </div>
