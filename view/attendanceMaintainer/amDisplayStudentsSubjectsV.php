@@ -41,8 +41,10 @@
                         <?php echo $_SESSION['mandatoryList'];  ?>
                     </table>
 
-                    <button class="subbtn" type="submit">
-                        <a href="amGetStudentV.php">Assign Non-Mandatory Subjects</a>
+                    <button class="subbtn" type="submit" name="getStudents-submit">
+                       <!--  <a href="amGetStudentV.php"> -->
+                        Assign Non-Mandatory Subjects
+                    <!-- </a> -->
                     </button>
                     <button class="cancelbtn" type="submit" name="cancel-submit">
                         <a href="amHomeV.php">Exit</a>
