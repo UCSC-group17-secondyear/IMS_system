@@ -45,6 +45,15 @@
 			return $result;
         }
 
+        public static function getStudentsnotMand($subject, $connect)
+        {
+            $query = "SELECT * FROM tbl_std_nonmandatorysub WHERE subject_id = '{$subject}' AND is_deleted = 0";
+
+            $result = mysqli_query($connect, $query);
+            
+			return $result;
+        }
+
         public static function checkAttendance($degree, $subject, $sessiontype, $date, $connect)
         {
             $query = "SELECT count(attendance_id) AS count FROM tbl_attendance WHERE subject_id = '{$subject}' AND degree_id = '{$degree}' AND sessionTypeId = '{$sessiontype}' AND date='{$date}'";
@@ -57,15 +66,6 @@
         public static function getStudents($aca_year, $semester, $degree, $connect)
         {
             $query = "SELECT * FROM tbl_students WHERE degree_id = '{$degree}' AND semester = '{$semester}' AND academic_year = '{$aca_year}' AND is_std = 0";
-
-            $result = mysqli_query($connect, $query);
-            
-			return $result;
-        }
-
-        public static function getStudentsnotMand($subject, $connect)
-        {
-            $query = "SELECT * FROM tbl_std_nonmandatorysub WHERE subject_id = '{$subject}' AND is_deleted = 0";
 
             $result = mysqli_query($connect, $query);
             
