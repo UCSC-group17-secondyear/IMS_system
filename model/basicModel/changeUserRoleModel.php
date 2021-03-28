@@ -12,7 +12,7 @@
         
         public static function setUserRoleTwo($user_id, $userRole, $connect)
 		{
-			$query = "UPDATE users SET userRole = '{$userRole}' WHERE userId={$user_id} LIMIT 1";
+			$query = "UPDATE users SET userRole_id = {$userRole} WHERE userId={$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
