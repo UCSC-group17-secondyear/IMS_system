@@ -3,11 +3,11 @@
 ?>
 
 <main>
+
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amGetStudentV.php">Assign to Non-mandatory Subjects</a></li>
-            <li class="active">Request Denied!</li>
+            <li class="active">Request Failed!</li>
         </ul>
 
         <div class="row">
@@ -18,18 +18,15 @@
             </div>
 
             <div class="col right80">
-                <div class="contentForm">
-                    <div class="row">
+                <div>
+                    <div>
                         <h2>Sorry!
-                            There are no any non-mandatory subjects that can be assigned to the student according to student's details.
+                            No Students are available in the system right now.
                         </h2>
                     </div>
 
-                    <button class="subbtn">
-                        <a href="amGetStudentV.php">Try again</a> 
-                    </button>
-                    <button class="cancelbtn">
-                        <a href="amHomeV.php">Exit</a> 
+                    <button class="mainbtn">
+                        <a href="amHomeV.php">Ok</a>
                     </button>
                 </div>
             </div>

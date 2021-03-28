@@ -5,29 +5,31 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="hamHomeV.php">Home</a></li>
-            <li><a href="hamUpdateTimeTableSelectV.php">Update/Delete Time table</a></li>
-            <li class="active">Action Success!</li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aAddSessionPerMonthV.php">Assign monthly sessions</a></li>
+            <li class="active">Request Denied!</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'hamSideNavV.php';
+                    require 'aSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Action Successful!</h2>
+                        <h2>Sorry!
+                            Please make sure the month to be either current month, or an upcoming month.
+                        </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="hamUpdateTimeTableSelectV.php">Update/Delete Another</a> 
+                        <a href="aAddSessionPerMonthV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="hamHomeV.php">Exit</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

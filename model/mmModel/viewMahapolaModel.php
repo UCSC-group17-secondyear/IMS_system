@@ -17,9 +17,10 @@
             return $result;
         }
 
-        public static function getSemDigit($date, $connect)
+        public static function getSemDigit($year_month, $connect)
 		{	
-			$query = "SELECT semesterDigit FROM tbl_semester WHERE start_date <= '{$date}' AND end_date >= '{$date}'";
+			$query = "SELECT semesterDigit FROM tbl_semester 
+                        WHERE EXTRACT(YEAR_MONTH FROM start_date)<='{$year_month}' AND EXTRACT(YEAR_MONTH FROM end_date)>='{$year_month}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

@@ -23,13 +23,13 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="POST">
+                    <form action="../../controller/hamControllers/hamManageWeeklyTTC.php?eventwtt=<?php echo $_SESSION['u_wtt_id'] ?>" method="POST">
                         <div class="row">
                             <div class="col-25">
                                 <label>Academic year</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="semster" <?php echo 'value="'.$sub['u_academic_year'].'"'?> readonly>
+                                <input type="number" name="academic_year" <?php echo 'value="'.$_SESSION['u_academic_year'].'"'?> readonly>
                             </div>
                         </div>
                         <div class="row">
@@ -37,7 +37,7 @@
                                 <label>Semester</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="semster" <?php echo 'value="'.$sub['u_semester'].'"'?> readonly>
+                                <input type="text" name="semster" <?php echo 'value="'.$_SESSION['u_semester'].'"'?> readonly>
                             </div>
                         </div>
                         <div class="row">
@@ -45,10 +45,7 @@
                                 <label>Degree</label>
                             </div>
                             <div class="col-75">
-                                <select name="degree" required>
-                                    <option value="">Select a degree</option>
-                                    <?php echo $_SESSION['degree'] ?>
-                                </select>
+                                <input type="text" name="semster" <?php echo 'value="'.$_SESSION['u_degree'].'"'?> readonly>
                             </div>
                         </div>
                         <div class="row">
@@ -56,13 +53,15 @@
                                 <label>Year</label>
                             </div>
                             <div class="col-75">
-                                <select name="year" id="" required>
-                                    <option value="">Select a year</option>
-                                    <option value="1">1st year</option>
-                                    <option value="2">2nd year</option>
-                                    <option value="3">3rd year</option>
-                                    <option value="4">4th year</option>
-                                </select>
+                            <?php if ($_SESSION['u_year'] == 1) { ?>
+                                <input type="text" name="semster" value="1st year" readonly>
+                            <?php } elseif ($_SESSION['u_year'] == 2) { ?>
+                                <input type="text" name="semster" value="2nd year" readonly>
+                            <?php } elseif ($_SESSION['u_year'] == 3) { ?>
+                                <input type="text" name="semster" value="3rd year" readonly>
+                            <?php } else { ?>
+                                <input type="text" name="semster" value="4th year" readonly>
+                            <?php } ?>
                             </div>
                         </div>
                         <div class="row">
@@ -118,7 +117,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="subbtn" type="submit" name="savett-submit">Update</button>
+                        <button class="subbtn" type="submit" name="update-event-submit">Update</button>
                         <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>

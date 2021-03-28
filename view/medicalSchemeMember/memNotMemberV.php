@@ -7,7 +7,6 @@
 
         <ul class="breadcrumbs">
             <li><a href="memHomeV.php">Home</a></li>
-            <li><a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Select Form</a></li>
             <li class="active">Denied!</li>
         </ul>
 
@@ -20,9 +19,15 @@
             
             <div class="col right80">
                 <div class="contentForm" style="margin-bottom: 1%;">
-                    <h2>You are not allowed to fill claim forms since you are not a member.</h2>
-                    <a href="memRenewMembershipV.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="subbtn" type="submit" name="">Renew Membership</button></a>
-                    <a href="memHomeV.php"><button class="cancelbtn" type="submit" name="">Exit</button></a>
+                    <form action="../../controller/memControllers/currentMemberDetailsController1.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                        <h2>You are not allowed to fill claim forms since you are not a member.</h2>
+                        <button class="subbtn" type="submit" name="check-renew">
+                            <a >Renew Membership</a>
+                        </button>
+                        <button class="cancelbtn" type="submit" name="">
+                            <a href="memHomeV.php">Exit</a>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

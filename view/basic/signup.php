@@ -135,18 +135,6 @@
 				</div>
 			</div>
 
-			<!-- <div class="row">
-	            <div class="col-25">
-	              <label>POST (If having any. If having many select the one with highest preferrence)</label>
-	            </div>
-	            <div class="col-75">
-				  <select name="post" required>
-                    <option value="">Your Post:</option>
-                    <?php echo $_SESSION['posts'] ?>
-                  </select>
-	            </div>
-			</div> -->
-
 	        <div class="row">
 	            <div class="col-25">
 	              <label>DATE OF APPOINTMENT</label>

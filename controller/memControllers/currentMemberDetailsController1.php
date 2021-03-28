@@ -8,30 +8,40 @@
 ?>
 
 <?php
-        $user_id = mysqli_real_escape_string($connect, $_SESSION['user_id']);
+        $user_id = mysqli_real_escape_string($connect, $_SESSION['userId']);
         $result = memModel::viewMember($user_id,$connect);
         $result_set = renewModel::getMeidcalMemDetails($user_id, $connect);
 
         if(isset($_POST['check-renew'])){
-            $cur_date = date('Y-m-d');
-            $cur_year = date("Y"); 
 
-            $med_end_date = renewModel::getMedYearEndDate($cur_year,$connect);
-            $med_end_date_result = mysqli_fetch_array($med_end_date);
-            $med_year_end_date = $med_end_date_result[3];
-            $med_year = $med_end_date_result[1];
+            $mem_det = mysqli_fetch_assoc($result_set);
 
-            $date_diff = renewModel::getDateDiffEndDate($med_year,$connect);
-            $end_date_diff = mysqli_fetch_array($date_diff);
-            echo $diff = (int)$end_date_diff[0];
+            if($mem_det['acceptance_status'] == '1'){
 
-            if (strtotime($cur_date) <= strtotime($med_year_end_date) && $diff <= 14) {
+                $cur_date = date('Y-m-d');
+                $cur_year = date("Y"); 
 
-                header('Location:../../view/medicalSchemeMember/memRenewMembershipV.php');
+                $med_end_date = renewModel::getMedYearEndDate($cur_year,$connect);
+                $med_end_date_result = mysqli_fetch_array($med_end_date);
+                $med_year_end_date = $med_end_date_result[3];
+                $med_year = $med_end_date_result[1];
+
+                $date_diff = renewModel::getDateDiffEndDate($med_year,$connect);
+                $end_date_diff = mysqli_fetch_array($date_diff);
+                echo $diff = (int)$end_date_diff[0];
+
+                if (strtotime($cur_date) <= strtotime($med_year_end_date) && $diff <= 14) {
+
+                    header('Location:../../view/medicalSchemeMember/memRenewMembershipV.php');
+                }
+                else{
+                    header('Location:../../view/medicalSchemeMember/memCantRenewV.php');
+
+                }   
+
             }
             else{
                 header('Location:../../view/medicalSchemeMember/memCantRenewV.php');
-
             }
         }
 

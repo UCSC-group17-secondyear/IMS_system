@@ -24,7 +24,6 @@
 
             $result = basicModel::getlogin($empid, $hashed_password, $connect);
 
-            // print_r($result->fetch_assoc());
             if ($result) {
                 if (mysqli_num_rows($result)==1) {
                     $key = mysqli_fetch_assoc($result);
@@ -32,34 +31,37 @@
                     $_SESSION['userId'] = $key['userId'];
                     $_SESSION['empid'] = $key['empid'];
 
-                    if ($key['userRole'] == "admin") {
+                    if ($key['userRole_id'] == 1) {
                     	header('Location:../../view/admin/aHomeV.php');
 					}
-					else if ($key['userRole'] == "academicStaffMemb") {
+					else if ($key['userRole_id'] == 10) {
 						header('Location:../../view/academicStaffMember/asmHomeV.php');
                     }
-                    else if ($key['userRole'] == "nonAcademicStaffMemb") {
+                    else if ($key['userRole_id'] == 11) {
 						header('Location:../../view/nonAcademicStaffMember/nasmHomeV.php');
 					}
-					else if ($key['userRole'] == "attendanceMain") {
+					else if ($key['userRole_id'] == 9) {
 						header('Location:../../view/attendanceMaintainer/amHomeV.php');
 					}
-					else if ($key['userRole'] == "hallAllocationMain") {
+					else if ($key['userRole_id'] == 2) {
 						header('Location:../../view/hallAllocationMaintainer/hamHomeV.php');
 					}
-					else if ($key['userRole'] == "mahapolaSchemeMain") {
+					else if ($key['userRole_id'] == 7) {
 						header('Location:../../view/mahapolaSchemeMaintainer/mmHomeV.php');
 					}
-					else if ($key['userRole'] == "medicalSchemeMain") {
+					else if ($key['userRole_id'] == 4) {
 						header('Location:../../view/medicalSchemeMaintainer/msmHomeV.php');
                     }
-					else if ($key['userRole'] == "recordsViewer") {
+					else if ($key['userRole_id'] == 6) {
 						header('Location:../../view/reportViewer/rvHomeV.php');
 					}
-					else if ($key['userRole'] == "departmentHead") {
+					else if ($key['userRole_id'] == 8) {
 						header('Location:../../view/departmentHead/dhHomeV.php');
 					}
-					else if ($key['userRole'] == "medicalOfficer") {
+                    else if ($key['userRole_id'] == 5) {
+						header('Location:../../view/medicalSchemeMember/memHomeV.php');
+					}
+					else if ($key['userRole_id'] == 3) {
 						header('Location:../../view/medicalOfficer/moHomeV.php');
                     }
 					else {

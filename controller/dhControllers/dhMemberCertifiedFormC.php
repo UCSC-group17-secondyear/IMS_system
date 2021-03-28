@@ -24,7 +24,7 @@
                     } else {
                         $_SESSION['certifiedforms'] .= "<td><a class=\"red\">Declined</a></td>";
                     }
-                    $_SESSION['certifiedforms'] .= "<td><a href=\"../../controller/dhControllers/dhviewMemberForm1C.php?viewmember={$cf['userId']}\">View</a></td>";
+                    $_SESSION['certifiedforms'] .= "<td><a href=\"../../controller/dhControllers/dhviewMemberFormC.php?viewmember={$cf['userId']}\">View</a></td>";
                     $_SESSION['certifiedforms'] .= "</tr>";                    
                 }
                 header('Location:../../view/departmentHead/dhCertifiedFormV.php');
