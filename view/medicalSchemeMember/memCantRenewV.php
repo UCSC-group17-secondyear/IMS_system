@@ -21,9 +21,15 @@
                 <div class="col right80">
                     <div class="content">
                         <h2>Unable To Renew Your Membership...</h2>
-                        
+                        <form class="contentForm">
+                            <button class="subbtn" type="submit" name="">
+                                <a href="memHomeV.php">Back</a>
+                            </button>
+                            <button class="cancelbtn" type="submit" name="">
+                                <a href="memHomeV.php">Exit</a>
+                            </button>
+                        </form>
 
-                        <a href="memHomeV.php"><button class="mainbtn" type="submit" name="">Exit</button></a><br>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
         
         public static function signup($empid, $initials, $sname, $email, $mobile, $tp, $dob, $f, $designation, $userRole, $appointment, $password, $connect) 
 		{
-			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, academic, designation_id, appointment, userRole, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$f', '$designation', '$appointment', '$userRole','$password')";
+			$query = "INSERT INTO users (empid, initials, sname, email, mobile, tp, dob, academic, designation_id, appointment, userRole_id, password) VALUES ('$empid', '$initials', '$sname', '$email', '$mobile', '$tp', '$dob', '$f', '$designation', '$appointment', '$userRole','$password')";
 			
 			$result = mysqli_query($connect, $query);
 

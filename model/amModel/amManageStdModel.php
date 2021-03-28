@@ -14,6 +14,13 @@
 			return $result;
 		}
 
+		public static function get_degree_name ($degree_id, $connect) {
+			$query = "SELECT * FROM tbl_degree WHERE degree_id = '{$degree_id}' AND is_deleted = 0 LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
 		public static function viewStudents ($connect)
 		{
 			$query = "SELECT * FROM tbl_students 

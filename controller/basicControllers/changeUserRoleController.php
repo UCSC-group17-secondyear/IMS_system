@@ -57,57 +57,57 @@
         $user_id = $_SESSION['user_id'];
 
         if ($userrole=='Hall Allocation Maintainer') {
-            $userRll = 'hallAllocationMain';
+            $userRll = 2;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/hallAllocationMaintainer/hamHomeV.php');
         }
         if ($userrole=='Medical Officer') {
-            $userRll = 'medicalOfficer';
+            $userRll = 3;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/medicalOfficer/moHomeV.php');
         }
         if ($userrole=='Department Head') {
-            $userRll = 'departmentHead';
+            $userRll = 8;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/departmentHead/dhHomeV.php');
         }
         if ($userrole=='Medical Scheme Maintainer') {
-            $userRll = 'medicalSchemeMain';
+            $userRll = 4;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/medicalSchemeMaintainer/msmHomeV.php');
         }
         if ($userrole=='Medical Scheme Member') {
-            $userRll = 'medicalSchemeMemb';
+            $userRll = 5;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/medicalSchemeMember/memHomeV.php');
         }
         if ($userrole=='Admin') {
-            $userRll = 'admin';
+            $userRll = 1;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/admin/aHomeV.php');
         }
         if ($userrole=='Report Viewer') {
-            $userRll = 'recordsViewer';
+            $userRll = 6;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/reportViewer/rvHomeV.php');
         }
         if ($userrole=='Attendance Maintainer') {
-            $userRll = 'attendanceMain';
+            $userRll = 9;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/attendanceMaintainer/amHomeV.php');
         }
         if ($userrole=='Mahapola Scheme Maintainer') {
-            $userRll = 'mahapolaSchemeMain';
+            $userRll = 7;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/mahapolaSchemeMaintainer/mmHomeV.php');
         }
         if ($userrole=='Academic Staff Member') {
-            $userRll = 'academicStaffMemb';
+            $userRll = 10;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/academicStaffMember/asmHomeV.php');
         }
         if ($userrole=='Non Academic Staff Member') {
-            $userRll = 'nonAcademicStaffMemb';
+            $userRll = 11;
             $result = basicModel::setUserRoleTwo($user_id, $userRll, $connect);
             header('Location:../../view/nonAcademicStaffMember/nasmHomeV.php');
         }

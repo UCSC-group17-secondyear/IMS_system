@@ -5,15 +5,15 @@
 <main>
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="amHomeV.php">Home</a></li>
-            <li><a href="amGetStudentV.php">Assign to Non-mandatory Subjects</a></li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aAddSessionPerMonthV.php">Assign monthly sessions</a></li>
             <li class="active">Request Denied!</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'amSideNavV.php';
+                    require 'aSideNavV.php';
                 ?>
             </div>
 
@@ -21,15 +21,15 @@
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!
-                            There are no any non-mandatory subjects that can be assigned to the student according to student's details.
+                            Please make sure the calendar year to be either current year, or an upcoming year.
                         </h2>
                     </div>
 
                     <button class="subbtn">
-                        <a href="amGetStudentV.php">Try again</a> 
+                        <a href="aAddSessionPerMonthV.php">Try again</a> 
                     </button>
                     <button class="cancelbtn">
-                        <a href="amHomeV.php">Exit</a> 
+                        <a href="aHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
