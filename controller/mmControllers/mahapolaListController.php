@@ -45,9 +45,9 @@
             $batch_no = mysqli_real_escape_string($connect, $_POST['batch_no']);
             $degree = mysqli_real_escape_string($connect, $_POST['degree']);
 
-            $date = $year.'-'.$month.'-'.'01';
+            $year_month = $year.''.$month;
 
-            $semester = viewMahapolaModel::getSemDigit($date, $connect);
+            $semester = viewMahapolaModel::getSemDigit($year_month, $connect);
             $semester_digit = mysqli_fetch_assoc($semester);
             $sem_digit = $semester_digit['semesterDigit'];
 
@@ -77,6 +77,7 @@
                     $non_sub_count = 0;
                     $total_stu_sub_percent = 0;
                     $total_stu_non_sub_percent = 0;
+                    $stu_non_mand_attend_percentage = 0;
 
                     if($stu_reserved_subjects){
                         
@@ -91,11 +92,14 @@
                             $attend_count = mysqli_fetch_array($attendance_count);
                             $stu_sub_attendance = $attend_count[0];
 
-                            if($num_of_session > 0){
-                                $stu_sub_attend_percentage = ($stu_sub_attendance/$num_of_session)*100;
-                                $total_stu_sub_percent = $total_stu_sub_percent + $stu_sub_attend_percentage;
-                                $sub_count = $sub_count + 1;
+                            if($sub_session_details){
+                                if($num_of_session > 0){
+                                    $stu_sub_attend_percentage = ($stu_sub_attendance/$num_of_session)*100;
+                                    $total_stu_sub_percent = $total_stu_sub_percent + $stu_sub_attend_percentage;
+                                    $sub_count = $sub_count + 1;
+                                }
                             }
+                            
                              
                         }
                         
@@ -113,11 +117,14 @@
                             $attend_count = mysqli_fetch_array($attendance_count);
                             $stu_sub_attendance = $attend_count[0];
 
-                            if($num_of_session > 0){
-                                $stu_non_mand_attend_percentage = ($stu_sub_attendance/$num_of_session)*100;
-                                $total_stu_non_sub_percent = $total_stu_non_sub_percent + $stu_non_mand_attend_percentage;
-                                $non_sub_count = $sub_count + 1;
+                            if($sub_session_details){
+                                if($num_of_session > 0){
+                                    $stu_non_mand_attend_percentage = ($stu_sub_attendance/$num_of_session)*100;
+                                    $total_stu_non_sub_percent = $total_stu_non_sub_percent + $stu_non_mand_attend_percentage;
+                                    $non_sub_count = $non_sub_count + 1;
+                                }
                             }
+                            
                              
                         }
                     }
@@ -126,7 +133,8 @@
                         header('Location:../../view/mahapolaSchemeMaintainer/mmNoRecordsV.php');
                     }
 
-                    $final_percentage = ($total_stu_sub_percent + $total_stu_non_sub_percent)/($sub_count + $non_sub_count);
+                    if($non_sub_count > 0 || $sub_count > 0){
+                        $final_percentage = ($total_stu_sub_percent + $total_stu_non_sub_percent)/($sub_count + $non_sub_count);
 
                         if($final_percentage >= 80){
                             $eligible_stu_list[] = $stu['std_id'];
@@ -149,7 +157,10 @@
                             $non_eligible_count = $non_eligible_count + 1; 
 
                         }
-
+                    }
+                    else{
+                        header('Location:../../view/mahapolaSchemeMaintainer/mmNoRecordsV.php');
+                    }
                 }
 
                     $check_has_reconcilation_record = viewMahapolaModel::checkHasRecord($degree,$batch_no,$year,$month,$connect);
