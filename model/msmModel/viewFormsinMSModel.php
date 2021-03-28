@@ -18,7 +18,8 @@
 			return $result_set;
 		}
 
-		public static function viewmm($user_id, $connect){
+		public static function viewmm($user_id, $connect)
+        {
 			$query = "SELECT mm.*, m.*, d.*, ms.* FROM tbl_medical_membership mm, tbl_department d, tbl_medicalscheme ms, tbl_member_type m WHERE m.member_id = mm.member_id AND d.department_id = mm.department_id AND ms.scheme_id = mm.scheme_id AND user_id='{$user_id}' LIMIT 1";
 
 			$result_set = mysqli_query($connect, $query);

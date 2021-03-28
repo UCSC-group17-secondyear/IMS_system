@@ -35,25 +35,25 @@
             if (mysqli_num_rows($userdetails) == 1) {
 
                 $ud = mysqli_fetch_assoc($userdetails);
-                if ($ud['userRole'] == "admin") {
+                if ($ud['userRole_id'] == "1") {
                     header('Location:../../view/admin/aRegisterToMedicalSchemeP3V.php');
-                } else if ($ud['userRole'] == "academicStaffMemb") {
+                } else if ($ud['userRole_id'] == "10") {
                     header('Location:../../view/academicStaffMember/asmRegisterToMedicalSchemeP3V.php');
-                } else if ($ud['userRole'] == "nonAcademicStaffMemb") {
+                } else if ($ud['userRole_id'] == "11") {
                     header('Location:../../view/nonAcademicStaffMember/nasmRegisterToMedicalSchemeP3V.php');
-                } else if ($ud['userRole'] == "attendanceMain") {
+                } else if ($ud['userRole_id'] == "9") {
                     header('Location:../../view/attendanceMaintainer/amRegisterMedicalSchemep3V.php');
-                } else if ($ud['userRole'] == "hallAllocationMain") {
+                } else if ($ud['userRole_id'] == "2") {
                     header('Location:../../view/hallAllocationMaintainer/hamRegisterToMedicalSchemeP3V.php');
-                } else if ($ud['userRole'] == "mahapolaSchemeMain") {
+                } else if ($ud['userRole_id'] == "7") {
                     header('Location:../../view/mahapolaSchemeMaintainer/mmRegisterToMedicalSchemeP3V.php');
-                } else if ($ud['userRole'] == "medicalSchemeMain") {
+                } else if ($ud['userRole_id'] == "4") {
                     header('Location:../../view/medicalSchemeMaintainer/msmRegisterToMedicalSchemeP3V.php');
-                } else if ($ud['userRole'] == "recordsViewer") {
+                } else if ($ud['userRole_id'] == "6") {
                     header('Location:../../view/reportViewer/rvRegisterToMedicalSchemeP3V.php');
-                } else if ($ud['userRole'] == "departmentHead") {
+                } else if ($ud['userRole_id'] == "departmentHead") {
                     header('Location:../../view/departmentHead/dhRegisterToMedicalSchemeP3V.php');
-                } else if ($ud['userRole'] == "medicalOfficer") {
+                } else if ($ud['userRole_id'] == "medicalOfficer") {
                     header('Location:../../view/medicalOfficer/moRegisterToMedicalSchemeP3V.php');
                 }
 
@@ -80,23 +80,23 @@
                 if (mysqli_num_rows($userdetails) == 1) {
 
                     $ud = mysqli_fetch_assoc($userdetails);
-                    if ($ud['userRole'] == "admin") {
+                    if ($ud['userRole_id'] == "1") {
                         header('Location:../../view/admin/aRegisterMSsuccesV.php');
-                    } else if ($ud['userRole'] == "academicStaffMemb") {
+                    } else if ($ud['userRole_id'] == "10") {
                         header('Location:../../view/academicStaffMember/asmRegisterMSsuccesV.php');
-                    } else if ($ud['userRole'] == "attendanceMain") {
+                    } else if ($ud['userRole_id'] == "9") {
                         header('Location:../../view/attendanceMaintainer/amRegisterMSsuccesV.php');
-                    } else if ($ud['userRole'] == "hallAllocationMain") {
+                    } else if ($ud['userRole_id'] == "2") {
                         header('Location:../../view/hallAllocationMaintainer/hamRegisterMSsuccesV.php');
-                    } else if ($ud['userRole'] == "mahapolaSchemeMain") {
+                    } else if ($ud['userRole_id'] == "7") {
                         header('Location:../../view/mahapolaSchemeMaintainer/mmRegisterMSsuccesV.php');
-                    } else if ($ud['userRole'] == "medicalSchemeMain") {
+                    } else if ($ud['userRole_id'] == "4") {
                         header('Location:../../view/medicalSchemeMaintainer/msmRegisterMSsuccesV.php');
-                    } else if ($ud['userRole'] == "recordsViewer") {
+                    } else if ($ud['userRole_id'] == "6") {
                         header('Location:../../view/reportViewer/rvRegisterMSsuccesV.php');
-                    } else if ($ud['userRole'] == "departmentHead") {
+                    } else if ($ud['userRole_id'] == "departmentHead") {
                         header('Location:C:../../view/departmentHead/dhRegisterMSsuccesV.php');
-                    } else if ($ud['userRole'] == "medicalSchemeMember") {
+                    } else if ($ud['userRole_id'] == "medicalSchemeMember") {
                         header('Location:../../view/medicalSchemeMember/moRegisterMSsuccesV.php');
                     }
 

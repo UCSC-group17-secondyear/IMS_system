@@ -2,7 +2,7 @@
 	class dhModel {
 		public static function getDeptUsingId($user_id, $connect)
 		{
-			$query = "SELECT department_id FROM tbl_medical_membership WHERE user_id={$user_id}";
+			$query = "SELECT department_id FROM tbl_department d, tbl_post p WHERE p.pst_id = d.post AND p.userId={$user_id}";
 
 			$result_set = mysqli_query($connect, $query);
 			

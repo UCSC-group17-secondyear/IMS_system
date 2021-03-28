@@ -20,7 +20,7 @@
 
 		public function gethallsbookingswithinrange($startdate, $enddate, $hall, $connect)
 		{
-			$query = "SELECT * FROM tbl_booking WHERE date BETWEEN '{$startdate}' AND '{$enddate}' AND hall_name='{$hall}' AND is_deleted=0";
+			$query = "SELECT * FROM tbl_booking WHERE date BETWEEN '{$startdate}' AND '{$enddate}' AND hall_id='{$hall}' AND is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
 

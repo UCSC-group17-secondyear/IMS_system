@@ -34,7 +34,6 @@
                             </a>
                         </button>
                     </form>
-                    
                     <button>
                         <a href="rvSemesterWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Semester Wise</li></a>
                     </button>

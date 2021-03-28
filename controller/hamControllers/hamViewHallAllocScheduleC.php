@@ -10,7 +10,7 @@
 
         if ($halls) {
             while ($h = mysqli_fetch_array($halls)) {
-                $_SESSION['allhalls'] .= "<option value='".$h['hall_name']."'>".$h['hall_name']."</option>";
+                $_SESSION['allhalls'] .= "<option value='".$h['hall_id']."'>".$h['hall_name']."</option>";
             }
             header('Location:../../view/hallAllocationMaintainer/hamViewHallAllocationScheduleV.php');   
         }

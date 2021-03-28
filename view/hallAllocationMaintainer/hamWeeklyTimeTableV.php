@@ -31,9 +31,10 @@
                         <th>End Time</th>
                         <th>Subject</th>
                         <th>Hall Name</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
-                    <?php echo $_SESSION['time_table'] ?>
-                    
+                    <?php echo $_SESSION['viewd_tt'] ?>
                 </table>
             </div>
         </div>
