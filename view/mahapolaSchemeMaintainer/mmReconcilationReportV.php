@@ -7,6 +7,7 @@
         <div class="sansserif">
             <ul class="breadcrumbs">
                 <li><a href="mmHomeV.php">Home</a></li>
+                <li><a href="../../controller/mmControllers/mahapolaListController.php?btn=88">View Another List</a></li>
                 <li class="active">Reconcilation Report</li>
             </ul>
         
@@ -22,9 +23,60 @@
                         <h2>Reconcilation Report</h2>
                     </div>
 
-                
-                    <a href="mmViewReportsMahapolaSchemeV.php" ><button class="subbtn" type="submit" name="" >View Another</button></a>
-                    <a href="mmHomeV.php" ><button class="cancelbtn" type="submit" name="" >Exit</button></a>
+                    <div class="contentForm">
+                        <form action="../../controller/mmControllers/mahapolaListController.php" method="post">
+                           
+                            <br><div class="">
+                                <table id="tableStyle">
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Month</th>
+                                        <th>Degree</th>
+                                        <th>Batch Number</th>
+                                        <th>Merit Scholarship</th>
+                                        <th>Ordinary Scholarship</th>
+                                        <th>Non Eligible</th>
+                                    </tr>
+
+                                    <?php echo $_SESSION['reco_list']; ?>
+                                </table>
+                            </div><br>
+
+                            <br><h2>Eligibility List</h2><br>
+
+                            <div class="">
+                                <table id="tableStyle">
+                                    <tr>
+                                        <th>Index No</th>
+                                        <th>Registration No</th>
+                                        <th>Name</th>
+                                        <th>Mahapola Scheme</th>
+                                    </tr>
+
+                                    <?php echo $_SESSION['reco_eligible_stu']; ?>
+                                </table>
+                            </div>
+
+                            <br><h2>Ineligibility List</h2><br>
+
+                            <div class="">
+                                <table id="tableStyle">
+                                    <tr>
+                                        <th>Index No</th>
+                                        <th>Registration No</th>
+                                        <th>Name</th>
+                                    </tr>
+
+                                    <?php echo $_SESSION['reco_non_eligible_stu']; ?>
+                                </table>
+                            </div>
+
+                            <button class="subbtn" type="submit" name="view-mahapola-report" >View Another</button></a>
+                            <button type="submit" class="cancelbtn">
+                                <a href="mmHomeV.php">Exit</a>
+                            </button>
+                        </form>
+                    </div>
                 
                 </div>
             </div>

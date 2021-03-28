@@ -12,9 +12,32 @@
         $result = memModel::viewMember($user_id,$connect);
         $result_set = renewModel::getMeidcalMemDetails($user_id, $connect);
 
-        if(isset($_POST['submit-scheme'])){
+        if(isset($_POST['check-renew'])){
+            $cur_date = date('Y-m-d');
+            $cur_year = date("Y"); 
 
-            echo $scheme_id = $_POST['scheme_id'];
+            $med_end_date = renewModel::getMedYearEndDate($cur_year,$connect);
+            $med_end_date_result = mysqli_fetch_array($med_end_date);
+            $med_year_end_date = $med_end_date_result[3];
+            $med_year = $med_end_date_result[1];
+
+            $date_diff = renewModel::getDateDiffEndDate($med_year,$connect);
+            $end_date_diff = mysqli_fetch_array($date_diff);
+            echo $diff = (int)$end_date_diff[0];
+
+            if (strtotime($cur_date) <= strtotime($med_year_end_date) && $diff <= 14) {
+
+                header('Location:../../view/medicalSchemeMember/memRenewMembershipV.php');
+            }
+            else{
+                header('Location:../../view/medicalSchemeMember/memCantRenewV.php');
+
+            }
+        }
+
+        elseif(isset($_POST['submit-scheme'])){
+
+            $scheme_id = $_POST['scheme_id'];
             $scheme = renewModel::getScheme($scheme_id,$connect);
             $scheme_name = mysqli_fetch_array($scheme);
             $scheme_new = $scheme_name[0];
@@ -57,12 +80,13 @@
                     $result_two = mysqli_fetch_assoc($result_set);
                     $result_three = mysqli_fetch_assoc($result);
 
-                    $_SESSION['prev_status'] = $result_two['civilstatus'];
+                    $_SESSION['prev_status'] = $result_two['married'];
                     $_SESSION['name'] = $result_three['initials']." ".$result_three['sname'];
                     $_SESSION['health_condition'] = $result_two['healthcondition'];
                     $_SESSION['scheme'] = $name;
-                   
+
                     header('Location:../../view/medicalSchemeMember/memCurrentMemberDetailsV.php');
+                    
                     
                 }
                 
@@ -70,6 +94,8 @@
             else{
                 header('Location:../../view/medicalSchemeMember/memFailedToFetch.php');
             }
+
+            
         }
 
 

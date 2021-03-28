@@ -76,7 +76,7 @@
                         AND degree_id='{$degree}' 
                         AND subject_id='{$subject_id}' 
                         AND month='{$month}' 
-                        AND (sessionTypeId='1' OR sessionTypeId='2') 
+                        AND sessionTypeId='1' 
                         AND is_deleted='0'";
 
             $result = mysqli_query($connect, $query);
@@ -104,6 +104,56 @@
             $result = mysqli_query($connect, $query);
 
 			return $result;
+        }
+
+        public static function checkHasRecord($degree,$batch_no,$year,$month,$connect){
+            $query = "SELECT * FROM tbl_reconcilation WHERE degree_id='{$degree}' AND batch_number='{$batch_no}' AND year='{$year}' AND month='{$month}' LIMIT 1";
+
+            $result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
+        public static function updateRecocilation($degree,$batch_no,$year,$month,$eligible_count_m,$eligible_count_o,$non_eligible_count,$connect){
+            $query = "UPDATE tbl_reconcilation SET eligible_m='{$eligible_count_m}',eligible_o='{$eligible_count_o}',non_eligible='{$non_eligible_count}' 
+                        WHERE degree_id='{$degree}' AND batch_number='{$batch_no}' AND year='{$year}' AND month='{$month}' ";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function insertReconcilation($degree,$batch_no,$year,$month,$eligible_count_m,$eligible_count_o,$non_eligible_count,$connect){
+            $query = "INSERT INTO tbl_reconcilation (degree_id,batch_number,year,month,eligible_m,eligible_o,non_eligible)
+                        VALUES ('{$degree}','{$batch_no}','{$year}','{$month}','{$eligible_count_m}','{$eligible_count_o}','{$non_eligible_count}')";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getPreviousMonthResult($degree,$batch_no,$prev_year,$prev_month,$connect){
+            $query = "SELECT * FROM tbl_reconcilation WHERE degree_id='{$degree}' AND batch_number='{$batch_no}' AND year='{$prev_year}' AND month='{$prev_month}' ";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getCurrentMonthResult($degree,$batch_no,$year,$month,$connect){
+            $query = "SELECT * FROM tbl_reconcilation WHERE degree_id='{$degree}' AND batch_number='{$batch_no}' AND year='{$year}' AND month='{$month}' ";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
+        }
+
+        public static function getDegreeName($degree,$connect){
+            $query = "SELECT * FROM tbl_degree WHERE degree_id = '{$degree}' LIMIT 1";
+
+            $result = mysqli_query($connect, $query);
+
+            return $result;
         }
     }
 

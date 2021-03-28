@@ -32,8 +32,8 @@
                             <div class="col-75">
                                 <select name="semester"required>
                                     <option value="">Select semester: </option>
-                                    <option value="FirstSemester">First semester: </option>
-                                    <option value="SecondSemester">Second semester: </option>
+                                    <option value="First Semester">First semester: </option>
+                                    <option value="Second Semester">Second semester: </option>
                                 </select>
                             </div>
                         </div>

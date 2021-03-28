@@ -20,7 +20,7 @@
 
         public static function getsessiontypes($connect)
         {
-            $query = "SELECT * FROM tbl_sessiontypes WHERE is_deleted = 0 ORDER BY sessionTypeId";
+            $query = "SELECT * FROM sessiontypes WHERE is_deleted = 0 ORDER BY sessionTypeId";
 
             $result = mysqli_query($connect, $query);
             
