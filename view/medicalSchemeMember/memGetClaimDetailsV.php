@@ -24,20 +24,22 @@
 
                 <div class="contentForm">
                     <form action="../../controller/memControllers/getMemClaimDetailsController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
-                        <div class="col-25">
-                            <label for="">Medical Year</label>
-                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Medical Year</label>
+                            </div>
 
-                        <div class="col-75">
-                            <select name="medical_year" id="" required>
-                                    <option value="">Select medical year</option>
-                                    <?php echo $_SESSION['medical_year'] ?>
-                            </select>
+                            <div class="col-75">
+                                <select name="medical_year" id="" required>
+                                        <option value="">Select medical year</option>
+                                        <?php echo $_SESSION['medical_year'] ?>
+                                </select>
+                            </div>
                         </div>
-
+                        
                         <button class="subbtn" name="year-claim-submit">Dispaly Claim Details</button>
                         <button class="cancelbtn" type="submit" name="">
-                            <a href="memHomeV.php">Exit</a>
+                            <a class="cancelbtn" href="memHomeV.php">Exit</a>
                         </button>
 
                     </form>                
