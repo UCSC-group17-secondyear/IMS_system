@@ -53,7 +53,7 @@
                $_SESSION['time_table'] .= "<td>{$t['hall_name']}</td>";
                $_SESSION['time_table'] .= "</tr>";
 
-                header('Location:../../view/academicStaffMember/asmWeeklyTimeTableV.php');
+                header('Location:../../view/hallAllocationMaintainer/hamWeeklyTimeTableV.php');
             }
         }
     }

@@ -31,7 +31,7 @@
         $degree_id = $result_degree_id['degree_id'];
 
         if ($degree_id) {
-            $checkSubCode = amModel::checkSubCode ($subject_code, $connect);
+            $checkSubCode = amModel::checkSubCode ($subject_code, $degree_id, $connect);
             $check_Subject = amModel::check_Subject ($subject_name, $degree_id, $connect);
             $subCode_rows = mysqli_num_rows($checkSubCode);
             $subject_rows = mysqli_num_rows($check_Subject);
@@ -127,7 +127,7 @@
                 $degree_id = $degree_rows['degree_id'];
 
                 if ($degree_id) {
-                    $check_subCodeToUpdate = amModel::check_subCodeToUpdate ($subject_id, $subject_code, $connect);
+                    $check_subCodeToUpdate = amModel::check_subCodeToUpdate ($subject_id, $degree_id, $subject_code, $connect);
                     if (mysqli_num_rows($check_subCodeToUpdate) != 0) {
                         header('Location:../../view/attendanceMaintainer/amSubjectCodeExists.php');
                     }
