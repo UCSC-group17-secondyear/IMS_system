@@ -75,34 +75,31 @@
 
         $viewed_member = mysqli_real_escape_string($connect, $_GET['viewed_member']);
         $member_email = msmModel::getmail($viewed_member, $connect);
-
         $me = mysqli_fetch_array($member_email);
 
-
-        echo $viewed_member;
         if (isset($_POST['approvemf-submit'])) {
 
             $result = msmModel::requestaccept($viewed_member, $connect);
 
-            $cur_date = date('Y-m-d');
-            $cur_year = date('Y');
-            $result_medi_year = msmModel::getMedyearDetails($cur_year,$connect);
-            $medi_year = mysqli_fetch_assoc($result_medi_year);
+            // $cur_date = date('Y-m-d');
+            // $cur_year = date('Y');
+            // $result_medi_year = msmModel::getMedyearDetails($cur_year,$connect);
+            // $medi_year = mysqli_fetch_assoc($result_medi_year);
 
-            $sc_id = $_SESSION['fr_scheme_id'];
+            // $sc_id = $_SESSION['fr_scheme_id'];
 
-            $init_amount = msmModel::getInitAmount($sc_id, $connect);
-            $i_amount = mysqli_fetch_array($init_amount);
-            $amount = $i_amount[2] + $i_amount[3] + $i_amount[4] + $i_amount[5] + $i_amount[6] + $i_amount[7] + $i_amount[8] ;
+            // $init_amount = msmModel::getInitAmount($sc_id, $connect);
+            // $i_amount = mysqli_fetch_array($init_amount);
+            // $amount = $i_amount[2] + $i_amount[3] + $i_amount[4] + $i_amount[5] + $i_amount[6] + $i_amount[7] + $i_amount[8] ;
 
-            if(strtotime(strtotime($cur_date) >= $medi_year['start_date']) ){
-                $medical_year = $medi_year['medical_year'];
-            }
-            else{
-                $medical_year = $medi_year['medical_year'] - 1;
-            }
+            // if(strtotime(strtotime($cur_date) >= $medi_year['start_date']) ){
+            //     $medical_year = $medi_year['medical_year'];
+            // }
+            // else{
+            //     $medical_year = $medi_year['medical_year'] - 1;
+            // }
 
-            $result_claim_det = msmModel::addYearClaimDetails($viewed_member, $medical_year,$sc_id, $amount, $connect );
+            // $result_claim_det = msmModel::addYearClaimDetails($viewed_member, $medical_year,$sc_id, $amount, $connect );
 
             if ($result) {
                 $to_email = $member_email;
@@ -111,7 +108,6 @@
                 $headers = "From: ims.ucsc@gmail.com";
 
                 $sendMail = mail($to_email, $subject, $body, $headers);
-                echo "Done";
                 header('Location:../../view/medicalSchemeMaintainer/msmAcceptedSuccesV.php');
             }
 
@@ -317,7 +313,9 @@
                 $_SESSION['used_amount'] = $result['used_amount'];
                 $_SESSION['remain_amount'] = $result['remain_amount'];
                 $_SESSION['msm_comment'] = "";
+
             } elseif (mysqli_num_rows($check_has_claim_det) == 0) {
+                
                 $_SESSION['medical_year'] = $medical_year;
                 $_SESSION['remain_amount'] = "-";
                 $_SESSION['msm_comment'] = "Member hasn't registerd for this medical year";

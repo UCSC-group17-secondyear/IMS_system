@@ -6,12 +6,21 @@
     if (isset($_POST['selectschedule-submit'])) {
 
         $halls = hamModel::getAllHalls($connect);
+        $academicyear = hamModel::getAcademicYear($connect);
         $_SESSION['allhalls'] = "";
+        $_SESSION['sem_starts'] = "";
+        $_SESSION['sem_ends'] = "";
 
-        if ($halls) {
+        if ($halls && mysqli_num_rows($academicyear) == 1) {
             while ($h = mysqli_fetch_array($halls)) {
                 $_SESSION['allhalls'] .= "<option value='".$h['hall_id']."'>".$h['hall_name']."</option>";
             }
+
+            while ($ay = mysqli_fetch_array($academicyear)) {
+                $_SESSION['sem_starts'] = $ay['start_date'];
+                $_SESSION['sem_ends'] = $ay['end_date'];
+            }
+
             header('Location:../../view/hallAllocationMaintainer/hamViewHallAllocationScheduleV.php');   
         }
 

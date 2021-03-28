@@ -36,6 +36,15 @@
 			return $result;
 		}
 
+        public static function getMedyearDetails($cur_year,$connect)
+        {
+            $query = "SELECT * FROM tbl_medical_year WHERE medical_year={$cur_year} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
 		public static function requestaccept($mem_user_id, $connect)
 		{
 			$query = "UPDATE tbl_medical_membership SET membership_status = 1 WHERE user_id={$mem_user_id} LIMIT 1";
