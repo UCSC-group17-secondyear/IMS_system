@@ -26,37 +26,37 @@
             $_SESSION['designation'] = $result['designation'];
             $_SESSION['appointment'] = $result['appointment'];
 
-            if ($result['userRole'] == "admin") {
+            if ($result['userRole_id'] == 1) {
                 header('Location:../view/admin/aProfileV.php');
             }
-            else if ($result['userRole'] == "academicStaffMemb") {
+            else if ($result['userRole_id'] == 10) {
                 header('Location:../view/academicStaffMember/asmProfileV.php');
             }
-            else if ($result['userRole'] == "nonAcademicStaffMemb") {
+            else if ($result['userRole_id'] == 11) {
                 header('Location:../view/nonAcademicStaffMember/nasmProfileV.php');
             }
-            else if ($result['userRole'] == "attendanceMain") {
+            else if ($result['userRole_id'] == 9) {
                 header('Location:../view/attendanceMaintainer/amProfileV.php');
             }
-            else if ($result['userRole'] == "hallAllocationMain") {
+            else if ($result['userRole_id'] == 2) {
                 header('Location:../view/hallAllocationMaintainer/hamProfileV.php');
             }
-            else if ($result['userRole'] == "mahapolaSchemeMain") {
+            else if ($result['userRole_id'] == 7) {
                 header('Location:../view/mahapolaSchemeMaintainer/mmProfileV.php');
             }
-            else if ($result['userRole'] == "medicalSchemeMain") {
+            else if ($result['userRole_id'] == 4) {
                 header('Location:../view/medicalSchemeMaintainer/msmProfileV.php');
             }
-            else if ($result['userRole'] == "medicalSchemeMemb") {
+            else if ($result['userRole_id'] == 5) {
                 header('Location:../view/medicalSchemeMember/memProfileV.php');
             }
-            else if ($result['userRole'] == "recordsViewer") {
+            else if ($result['userRole_id'] == 6) {
                 header('Location:../view/reportViewer/rvProfileV.php');
             }
-            else if ($result['userRole'] == "departmentHead") {
+            else if ($result['userRole_id'] == 8) {
                 header('Location:../view/departmentHead/dhProfileV.php');
             }
-            else if ($result['userRole'] == "medicalOfficer") {
+            else if ($result['userRole_id'] == 3) {
                 header('Location:../view/medicalOfficer/moProfileV.php');
             }
             else {

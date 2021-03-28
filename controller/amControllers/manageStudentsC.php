@@ -105,6 +105,7 @@
         session_start();
         $index_no = $_SESSION['index_no'];
         $std_name = $_SESSION['std_name'];
+         $_SESSION['mandatoryList'] = "";
 
         $get_stdDegreeAyearSem = amModel::fetchStudent ($index_no, $connect);
         $result_stdDegreeAyearSem = mysqli_fetch_assoc($get_stdDegreeAyearSem);
@@ -372,6 +373,11 @@
 
         if ($records) {
             while ($record = mysqli_fetch_assoc($records)) {
+                $degree_id = $record['degree_id'];
+                $get_degree_name = amModel::get_degree_name ($degree_id, $connect);
+                $result_degree_name = mysqli_fetch_assoc($get_degree_name);
+                $degree_name = $result_degree_name['degree_name'];
+
                 $_SESSION['student_list'] .= "<tr>";
                 $_SESSION['student_list'] .= "<td>{$record['index_no']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['registration_no']}</td>";
@@ -380,7 +386,7 @@
                 $_SESSION['student_list'] .= "<td>{$record['email']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['academic_year']}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['semester']}</td>";
-                $_SESSION['student_list'] .= "<td>{$record['degree']}</td>";
+                $_SESSION['student_list'] .= "<td>{$degree_name}</td>";
                 $_SESSION['student_list'] .= "<td>{$record['batch_number']}</td>";
                 $_SESSION['student_list'] .= "</tr>";
 

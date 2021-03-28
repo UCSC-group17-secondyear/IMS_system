@@ -38,7 +38,7 @@
 		}
 
 		public static function get_subject_id ($subject_name, $connect) {
-			$query = "SELECT subject_id FROM tbl_subject 
+			$query = "SELECT * FROM tbl_subject 
 			WHERE subject_name = '{$subject_name}' AND is_deleted=0";
 
 			$result_set = mysqli_query($connect, $query);
@@ -108,6 +108,25 @@
 
 		public static function getDegrees($connect) {
 			$query = "SELECT degree_name FROM tbl_degree WHERE is_deleted=0  ORDER BY degree_id";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function get_semester($calendarYear, $month, $connect) {
+			$query = "SELECT * FROM tbl_semester 
+			WHERE (YEAR(start_date) = $calendarYear OR YEAR(end_date) = $calendarYear) 
+			AND $month BETWEEN MONTH(start_date) AND MONTH(end_date) AND is_deleted = 0 ; ";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+		public static function get_subjects ($degree_id, $academic_year, $semester, $connect) {
+			$query = "SELECT * FROM tbl_subject 
+			WHERE degree_id = '{$degree_id}' AND academic_year = '{$academic_year}' AND semester = '{$semester}' AND is_deleted=0  ORDER BY subject_code";
 
 			$result_set = mysqli_query($connect, $query);
 

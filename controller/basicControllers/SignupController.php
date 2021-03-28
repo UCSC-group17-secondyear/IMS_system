@@ -114,11 +114,11 @@
 		if (empty($errors)) 
 		{	
 			if ($aca_or_non == 'academic-staff') {
-				$userRole = 'academicStaffMemb';
+				$userRole = 10;
 				$f = 1;
 			}
 			elseif ($aca_or_non == 'non-academic-staff') {
-				$userRole = 'nonAcademicStaffMemb';
+				$userRole = 11;
 				$f = 0;
 			}
 			

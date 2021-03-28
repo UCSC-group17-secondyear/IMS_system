@@ -11,37 +11,37 @@
 	if ($result_set) {
 		$result = mysqli_fetch_assoc($result_set);
 
-		if ($result['userRole'] == "admin") {
+		if ($result['userRole_id'] == 1) {
             header('Location:../../view/admin/aHomeV.php');
 		}
-		else if ($result['userRole'] == "academicStaffMemb") {
+		else if ($result['userRole_id'] == 10) {
 			header('Location:../../view/academicStaffMember/asmHomeV.php');
 		}
-		else if ($result['userRole'] == "nonAcademicStaffMemb") {
+		else if ($result['userRole_id'] == 11) {
 			header('Location:../../view/nonAcademicStaffMember/nasmHomeV.php');
 		}
-		else if ($result['userRole'] == "attendanceMain") {
+		else if ($result['userRole_id'] == 9) {
 			header('Location:../../view/attendanceMaintainer/amHomeV.php');
 		}
-		else if ($result['userRole'] == "hallAllocationMain") {
+		else if ($result['userRole_id'] == 2) {
 			header('Location:../../view/hallAllocationMaintainer/hamHomeV.php');
 		}
-		else if ($result['userRole'] == "mahapolaSchemeMain") {
+		else if ($result['userRole_id'] == 7) {
 			header('Location:../../view/mahapolaSchemeMaintainer/mmHomeV.php');
 		}
-		else if ($result['userRole'] == "medicalSchemeMain") {
+		else if ($result['userRole_id'] == 4) {
 			header('Location:../../view/medicalSchemeMaintainer/msmHomeV.php');
 		}
-		else if ($result['userRole'] == "medicalSchemeMemb") {
+		else if ($result['userRole_id'] == 5) {
 			header('Location:../../view/medicalSchemeMember/memHomeV.php');
 		}
-		else if ($result['userRole'] == "recordsViewer") {
+		else if ($result['userRole_id'] == 6) {
 			header('Location:../../view/reportViewer/rvHomeV.php');
 		}
-		else if ($result['userRole'] == "departmentHead") {
+		else if ($result['userRole_id'] == 8) {
 			header('Location:../../view/departmentHead/dhHomeV.php');
 		}
-		else if ($result['userRole'] == "medicalOfficer") {
+		else if ($result['userRole_id'] == 3) {
 			header('Location:../../view/medicalOfficer/moHomeV.php');
 		}
 		else {
