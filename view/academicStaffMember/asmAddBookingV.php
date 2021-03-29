@@ -30,10 +30,10 @@
                               <label>Enter Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="date" required/>
+                                <input type="date" name="date" min="<?php echo date('Y-m-d') ?>" required/>
                             </div>
                         </div>
-
+    
                         <div class="row">
                             <div class="col-25">
                               <label>Enter Hall</label>
@@ -51,7 +51,7 @@
                               <label>Start Time</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="startTime" required/>
+                                <input type="time" name="startTime" id="txtStartTime" required/>
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                               <label>End Time</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="endTime" required/>
+                                <input type="time" name="endTime" id="txtEndTime" required/>
                             </div>
                         </div>
 
@@ -73,7 +73,7 @@
                             </div>
                         </div>
 
-                        <button class="mainbtn" type="submit" name="add-book-submit">Book</button>
+                        <button class="mainbtn" type="submit" name="add-book-submit" id="btnCompare" onclick="Compare">Book</button>
                     </form>
                     <button class="subbtn" type="submit" name="">
                         <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">View my bookings</a>
@@ -124,6 +124,36 @@
             modal.style.display = "none";
           }
         }
+
+        // Check start date and end date
+        // function Compare() {
+        //     var strStartTime = document.getElementById("txtStartTime").value;
+        //     var strEndTime = document.getElementById("txtEndTime").value;
+
+        //     var startTime = new Date().setHours(GetHours(strStartTime), GetMinutes(strStartTime), 0);
+        //     var endTime = new Date(startTime)
+        //     endTime = endTime.setHours(GetHours(strEndTime), GetMinutes(strEndTime), 0);
+
+        //     if (startTime > endTime) {
+        //         alert("Start Time is greater than end time");
+        //     }
+        //     if (startTime == endTime) {
+        //         alert("Start Time equals end time");
+        //     }
+        //     if (startTime < endTime) {
+        //         alert("Start Time is less than end time");
+        //     }
+        // }
+        // function GetHours(d) {
+        //     var h = parseInt(d.split(':')[0]);
+        //     if (d.split(':')[1].split(' ')[1] == "PM") {
+        //         h = h + 12;
+        //     }
+        //     return h;
+        // }
+        // function GetMinutes(d) {
+        //     return parseInt(d.split(':')[1].split(' ')[0]);
+        // }
     </script>
 
 </main>
