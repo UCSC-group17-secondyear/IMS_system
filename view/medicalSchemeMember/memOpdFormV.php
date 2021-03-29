@@ -77,7 +77,7 @@
                                     <label for="">Bill Issued Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="bill_issued_date" id="bdate" required><br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="bill_issued_date" id="bdate" oninput="checkDate()"; required><br>
                                 </div>
                             </div>
 
@@ -111,7 +111,7 @@
                                 </div>
                             </div>
 
-                                <button class="mainbtn" type="submit" name="fill-opd-submit">Submit</button><br>
+                                <button class="mainbtn" type="submit" name="fill-opd-submit"  >Submit</button><br>
                                 
                         </form>
                         
@@ -127,6 +127,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function checkDate(){
+            var treat_date = document.getElementById("tdate").value;
+            var bill_date = document.getElementById("bdate").value;
+
+            if(bill_date < treat_date){
+                alert("Enter Bill issued date correctly !");
+                document.getElementById("bdate").value = "mm/dd/yyyy";
+                
+            }
+        }
+    </script>
 </main>
 
 <?php
