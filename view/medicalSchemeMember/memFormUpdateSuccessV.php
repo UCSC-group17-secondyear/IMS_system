@@ -19,9 +19,12 @@
             </div>
             
             <div class="col right80">
-                <h2>Your Form has been Updated Succesfully.</h2>
+                <div class="contentForm">
+                    <h2>Your Form has been Updated Succesfully.</h2>
 
-                <a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                    <button class="subbtn" type="submit" name=""><a href="../../controller/memControllers/updateClaimFormControllerOne.php?user_id=<?php echo $_SESSION['userId'] ?>">Back</a></button>
+                    <button type="submit" class="cancelbtn"><a href="memHomeV.php">Exit</a></button>
+                </div>
             </div>
         </div>
 </main>
