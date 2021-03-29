@@ -17,17 +17,17 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <h2></h2>
-                </div>
+                
                 <div class="contentForm">
                     <div class="row">
                         <h2>Sorry!
                             There are no schemes available in the system.
                         </h2>
                     </div>
-
-                    <button style="background-color:crimson"  class="mainbtn">
+                    <button class="subbtn">
+                        <a href="memHomeV.php">Back</a> 
+                    </button>
+                    <button  class="cancelbtn">
                         <a href="memHomeV.php">Exit</a> 
                     </button>
                 </div>

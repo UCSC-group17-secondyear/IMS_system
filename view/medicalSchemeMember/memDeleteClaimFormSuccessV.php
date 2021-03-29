@@ -23,8 +23,8 @@
                     <div>
                         <h2>Claim Form Deleted Succesfully</h2>
                     </div>
-
-                    <button class="mainbtn">OK</button>
+                    <button class="subbtn"><a href="memHomeV.php">Back</a></button>
+                    <button class="cancelbtn">Exit</button>
                 </form>
             </div>
         </div>
