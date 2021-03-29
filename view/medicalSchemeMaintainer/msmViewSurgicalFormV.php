@@ -47,7 +47,7 @@
                                 <label for="">Member Name</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" name="claim_form_no" <?php echo 'value="'.$_SESSION['mem_initials']." ".$_SESSION['mem_sname'].'"'?> disabled> <br>
+                                <input type="text" name="member_name" <?php echo 'value="'.$_SESSION['mem_initials']." ".$_SESSION['mem_sname'].'"'?> disabled> <br>
                             </div>
                         </div>
 
