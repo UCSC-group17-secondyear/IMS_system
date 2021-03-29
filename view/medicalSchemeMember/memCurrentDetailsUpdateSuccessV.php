@@ -27,10 +27,14 @@
                         </div>
 
                     <div class="contentForm">
-                        <form action="memHomeV.php" method="POST">
-                            <h2>Member Details Updated Succesfully</h2>
-                            <button class="mainbtn" type="submit" name="ok-submit">OK</button><br>
-                        </form>
+                        <div class="row">
+                            <form action="memHomeV.php" method="POST">
+                                <h2>Member Details Updated Succesfully</h2>
+
+                                <button class="subbtn" type="submit" name="ok-submit">Back</button>
+                                <button class="cancelbtn" type="submit" name="ok-submit">Exit</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

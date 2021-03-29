@@ -70,7 +70,7 @@
                                     <label for="">Date of the Accident</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="accident_date" <?php echo 'value="'.$_SESSION['accident_date'].'"' ?> id="adate" required><br>
+                                    <input type="date" max="<?php echo date('Y-m-d') ?>" name="accident_date" <?php echo 'value="'.$_SESSION['accident_date'].'"' ?> id="adate" required><br>
                                 </div>
                             </div>
 
@@ -106,7 +106,7 @@
                                     <label for="">Date of Commencement of Illness</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="commence_date" <?php echo 'value="'.$_SESSION['commence_date'].'"' ?> id="cdate" required> <br>
+                                    <input type="date" max="<?php echo date('Y-m-d') ?>" name="commence_date" <?php echo 'value="'.$_SESSION['commence_date'].'"' ?> id="cdate" required> <br>
                                 </div>
                             </div>
 
@@ -115,7 +115,7 @@
                                     <label for="">Date of First Consultation</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="first_consult_date" <?php echo 'value="'.$_SESSION['first_consult_date'].'"' ?> id="fdate" required> <br>
+                                    <input type="date" max="<?php echo date('Y-m-d') ?>" name="first_consult_date" <?php echo 'value="'.$_SESSION['first_consult_date'].'"' ?> id="fdate" required> <br>
                                 </div>
                             </div>
 
@@ -142,7 +142,7 @@
                                     <label for="">Hospitalized On</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="hospitalized_date" <?php echo 'value="'.$_SESSION['hospitalized_date'].'"' ?> id="hdate" required> <br>
+                                    <input type="date" max="<?php echo date('Y-m-d') ?>" name="hospitalized_date" <?php echo 'value="'.$_SESSION['hospitalized_date'].'"' ?> id="hdate" required> <br>
                                 </div>
                             </div>
 
@@ -151,7 +151,7 @@
                                     <label for="">Discharged On</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="discharged_date" <?php echo 'value="'.$_SESSION['discharged_date'].'"' ?> id="ddate" oninput="checkDate()"; required> <br>
+                                    <input type="date" max="<?php echo date('Y-m-d') ?>" name="discharged_date" <?php echo 'value="'.$_SESSION['discharged_date'].'"' ?> id="ddate" oninput="checkDate()"; required> <br>
                                 </div>
                             </div>
 
