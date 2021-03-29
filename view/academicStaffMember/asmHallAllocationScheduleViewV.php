@@ -41,14 +41,32 @@
                 </div>
                 <button class="subbtn redbtn" style="margin-bottom:0">Allocated Halls</button>
                 <button class="cancelbtn greenbtn" style="margin-bottom:0">Not Allocated Halls</button>
-                <table id="tableStyle">
-                    <tr>
-                        <th>Start Time</th>
-                        <th>End Time</th>
-                        <th>Hall Name</th>
-                    </tr>
-                    <?php echo $_SESSION['Halls'] ?>
-                </table>
+                <?php if ($_SESSION['aretherehalls'] == 1) { ?>
+                    <table id="tableStyle">
+                        <tr>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Hall Name</th>
+                        </tr>
+                        <?php echo $_SESSION['Halls'] ?>
+                    </table> <br>
+                <?php } else { ?>
+                    <br>
+                <?php } ?>
+                <?php if ($_SESSION['wtt_fortheday'] == 1) { ?>
+                    <table id="tableStyle">
+                        <tr>
+                            <th>Day</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Subject</th>
+                            <th>Hall</th>
+                        </tr>
+                        <?php echo $_SESSION['day_tt'] ?>
+                    </table>
+                <?php } else { ?>
+                    <br>
+                <?php } ?>
             </div>
         </div>
     </div>

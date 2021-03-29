@@ -1,5 +1,5 @@
 <?php
-	class hamModel {
+	class asmModel {
 		public static function getAllHalls($connect)
 		{
 			$query = "SELECT * FROM tbl_hall WHERE is_deleted=0";
@@ -54,7 +54,7 @@
 			return $result_set;
 		}
 
-		public static function getTTonthatday($date, $connect)
+		public static function getTTonthatday($day, $connect)
 		{
 			$query = "SELECT wtt.*, s.subject_name, h.hall_name FROM tbl_weekly_time_table wtt, tbl_subject s, tbl_hall h WHERE wtt.subject_id = s.subject_id AND wtt.hall_id = h.hall_id AND wtt.day = '{$day}' AND wtt.is_deleted = 0";
 
