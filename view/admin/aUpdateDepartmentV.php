@@ -51,7 +51,7 @@
                             <div class="col-75">
                                 <select name="post" required>
 						            <option value="<?php echo $_SESSION['post'] ?>"><?php echo $_SESSION['post'] ?></option>
-						            <?php echo $_SESSION['post'] ?>
+						            <?php echo $_SESSION['post_arr'] ?>
 					            </select>
                             </div>
                         </div>
