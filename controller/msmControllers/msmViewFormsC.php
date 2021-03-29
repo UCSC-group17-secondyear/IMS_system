@@ -48,6 +48,7 @@
     } elseif (isset($_GET['view_member'])) {
 
         $view_user = mysqli_real_escape_string($connect, $_GET['view_member']);
+        $_SESSION['membership_form_view'] = $view_user;
         $user_details = msmModel::view($view_user, $connect);
         $member_details = msmModel::viewmm($view_user, $connect);
 
@@ -81,27 +82,26 @@
 
             $result = msmModel::requestaccept($viewed_member, $connect);
 
-            // $cur_date = date('Y-m-d');
-            // $cur_year = date('Y');
-            // $result_medi_year = msmModel::getMedyearDetails($cur_year,$connect);
-            // $medi_year = mysqli_fetch_assoc($result_medi_year);
-
-            // $sc_id = $_SESSION['fr_scheme_id'];
-
-            // $init_amount = msmModel::getInitAmount($sc_id, $connect);
-            // $i_amount = mysqli_fetch_array($init_amount);
-            // $amount = $i_amount[2] + $i_amount[3] + $i_amount[4] + $i_amount[5] + $i_amount[6] + $i_amount[7] + $i_amount[8] ;
-
-            // if(strtotime(strtotime($cur_date) >= $medi_year['start_date']) ){
-            //     $medical_year = $medi_year['medical_year'];
-            // }
-            // else{
-            //     $medical_year = $medi_year['medical_year'] - 1;
-            // }
-
-            // $result_claim_det = msmModel::addYearClaimDetails($viewed_member, $medical_year,$sc_id, $amount, $connect );
-
             if ($result) {
+
+                $memberdetails = msmModel::getMembershipdetails($viewed_member, $connect);
+                while ($mem = mysqli_fetch_array($memberdetails)) {
+                    $_SESSION['scheme'] = $mem['scheme_id'];
+                    $_SESSION['form_submission'] = $mem['form_submission_date'];
+                }
+
+                $medicalyear = msmModel::getMedicalyear($_SESSION['form_submission'], $connect);
+                while ($medyear = mysqli_fetch_array($medicalyear)) {
+                    $_SESSION['medical_year'] = $medyear['medical_year'];
+                }
+
+                $scheme = msmModel::schemePayment($_SESSION['scheme'], $connect);
+                while ($s = mysqli_fetch_array($scheme)) {
+                    $_SESSION['sum'] = $s['sum'];
+                }
+
+                $added = msmModel::addClaimdetails($viewed_member, $_SESSION['medical_year'], $_SESSION['scheme'], $_SESSION['sum'], $connect);
+
                 $to_email = $member_email;
                 $subject = "Membership Acceptance";
                 $body =  "Your request for the membership of Medical scheme have been accepted  by the Medical Scheme Maintainer. Now you are a medical scheme member of IMSystem.";

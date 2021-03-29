@@ -77,16 +77,10 @@
                 </ul>
             </li>
 
-            <li><button class="tree_list">Manage Attendance</button>
-                <ul class="tree_nest">
-                    <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
-                        <button name="enterupdateAttendance-submit">
-                            <a href="#">
-                                <li><i class="fa fa-plus-circle"></i> Enter or Update Attendance</li>
-                            </a>
-                        </button>
-                    </form>
-                </ul>
+            <li>
+                <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
+                    <button name="enterupdateAttendance-submit" type="submit" class="tree_list">Manage Attendance</button>
+                </form>
             </li>
 
             <li><button class="tree_list">View Attendance</button>
