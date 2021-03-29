@@ -19,11 +19,12 @@
                 </div>
 
                 <div class="col right80">
-                    <div class="content">
+                    <div class="contentForm">
                         <h2>Unable To Fetch Data...<br>Try Again...</h2>
                         
 
-                        <a href="memHomeV.php"><button class="mainbtn" type="submit" name="">Exit</button></a><br>
+                        <a href="memHomeV.php"><button class="subbtn" type="submit" name="">Back</button></a>
+                        <a href="memHomeV.php"><button class="cancelbtn" type="submit" name="">Exit</button></a>
                     </div>
                 </div>
             </div>

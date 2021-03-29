@@ -68,7 +68,7 @@
                                     <label for="">Treatment Recieved Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="treatment_received_date" id="tdate" oninput="checkDate()" max="today()" required/><br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="treatment_received_date" id="tdate"   required/><br>
                                 </div>
                             </div>
 
@@ -105,6 +105,9 @@
                                 </div>
                                 <div class="col-75">
                                     <input type="file" accept=".jpg, .png, .jpeg, .pdf" name="file" required>
+                                    <div class="tooltip"><i class="fa fa-question-circle"></i>
+                                        <span class="tooltiptext">Upload only image or PDF of prescription bill.</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -123,14 +126,7 @@
                     </div>
             </div>
         </div>
-    </div>   
-
-    <script>
-        $("#tdate").datepicker({
-        maxDate: today
-        });
-    </script>    
-        
+    </div>
 </main>
 
 <?php

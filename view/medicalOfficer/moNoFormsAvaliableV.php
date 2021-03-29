@@ -24,9 +24,12 @@
                         <h2>No Forms Avaliable</h2>
                     </div>
 
-                    <a href="moHomeV.php">
-                        <button style="background-color:crimson" type="submit" class="mainbtn">Exit</button>
-                    </a>
+                    <button type="submit" class="subbtn">
+                        <a href="moHomeV.php">Back</a>
+                    </button>
+                    <button type="submit" class="cancelbtn">
+                        <a href="moHomeV.php">Exit</a>
+                    </button>
                 </form>
             </div>
         </div>

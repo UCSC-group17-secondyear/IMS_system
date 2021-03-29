@@ -24,8 +24,11 @@
                         </h2>
                     </div>
 
-                    <button class="mainbtn">
-                        <a href="mmHomeV.php">Leave</a> 
+                    <button class="subbtn">
+                        <a href="mmHomeV.php">Back</a> 
+                    </button>
+                    <button class="cancelbtn">
+                        <a href="mmHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
