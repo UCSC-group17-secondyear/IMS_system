@@ -18,9 +18,14 @@
             </div>
             
             <div class="col right80">
-                <h2>Your form has been submitted succesfully.</h2>
+                <div  class="contentForm">
+                    <h2>Your form has been submitted succesfully.</h2>
 
-                <a href="memHomeV.php"><button class="mainbtn" type="submit" name="">OK</button></a><br>
+                    <button class="subbtn" type="submit" name=""><a href="memHomeV.php">Back</a></button>
+                    <button class="cancelbtn" type="submit" name=""><a href="memHomeV.php">Exit</a></button>
+
+                </div>
+                
             </div>
         </div>
 </main>

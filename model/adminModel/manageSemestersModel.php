@@ -90,6 +90,33 @@
 
 			return $result;
 		}
+
+		public static function getSemAndYr($connect)
+		{
+			$query = "SELECT * FROM tbl_students WHERE is_std=0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function deleteStudent($stu_id,$connect)
+		{
+			$query = "UPDATE tbl_students SET is_std = 1 WHERE std_id={$stu_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function updateStudent($stu_id, $semester, $academic_year, $connect)
+		{
+			$query = "UPDATE tbl_students SET academic_year = '{$academic_year}', semester='{$semester}' WHERE std_id={$stu_id} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
     }
 
 ?>
