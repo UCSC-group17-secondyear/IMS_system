@@ -5,6 +5,8 @@
     require_once('../../model/adminModel/manageDepartmentsModel.php');
 
     if (isset($_GET['dept_id'])) {
+
+
         $dept_id = mysqli_real_escape_string($connect, $_GET['dept_id']);
 
         $results = adminModel::viewADept($dept_id, $connect);
@@ -14,8 +16,18 @@
                 $result = mysqli_fetch_assoc($results);
                 $_SESSION['dept_id'] = $result['department_id'];
                 $_SESSION['department'] = $result['department'];
-                $_SESSION['post'] = $result['post'];
+                $_SESSION['post'] = $result['post_name'];
                 $_SESSION['abbriviation'] = $result['department_abbriviation'];
+
+                $_SESSION['post_arr'] = '';
+
+                $records = adminModel::getPost($connect);
+
+                if ($records) {
+                    while ($record = mysqli_fetch_array($records)) {
+                        $_SESSION['post_arr'] .= "<option value='".$record['post_name']."'>".$record['post_name']."</option>";
+			        }
+                }
 
                 header('Location:../../view/admin/aUpdateDepartmentV.php');
             }
