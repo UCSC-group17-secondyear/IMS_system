@@ -24,25 +24,13 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>&hall=10" method="post">
                         <div class="row">
                             <div class="col-25">
                               <label>Enter Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="date" min="<?php echo date('Y-m-d') ?>" required/>
-                            </div>
-                        </div>
-    
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Hall</label>
-                            </div>
-                            <div class="col-75">
-                                <select name="hall" id="hall" required>
-                                    <option value="">Select a Hall</option>
-                                    <?php echo $_SESSION['halls'] ?>
-                                </select>
+                                <input type="date" name="date" min="<?php echo date('Y-m-d')?>" max="<?php echo $_SESSION['max-date'] ?>" required/>
                             </div>
                         </div>
 
@@ -64,16 +52,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Reason</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="reason" required/>
-                            </div>
-                        </div>
-
-                        <button class="mainbtn" type="submit" name="add-book-submit" id="btnCompare" onclick="Compare">Book</button>
+                        <button class="mainbtn" type="submit" name="add-book-submit" id="btnCompare" onclick="Compare">Continue</button>
                     </form>
                     <button class="subbtn" type="submit" name="">
                         <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">View my bookings</a>
@@ -125,35 +104,6 @@
           }
         }
 
-        // Check start date and end date
-        // function Compare() {
-        //     var strStartTime = document.getElementById("txtStartTime").value;
-        //     var strEndTime = document.getElementById("txtEndTime").value;
-
-        //     var startTime = new Date().setHours(GetHours(strStartTime), GetMinutes(strStartTime), 0);
-        //     var endTime = new Date(startTime)
-        //     endTime = endTime.setHours(GetHours(strEndTime), GetMinutes(strEndTime), 0);
-
-        //     if (startTime > endTime) {
-        //         alert("Start Time is greater than end time");
-        //     }
-        //     if (startTime == endTime) {
-        //         alert("Start Time equals end time");
-        //     }
-        //     if (startTime < endTime) {
-        //         alert("Start Time is less than end time");
-        //     }
-        // }
-        // function GetHours(d) {
-        //     var h = parseInt(d.split(':')[0]);
-        //     if (d.split(':')[1].split(' ')[1] == "PM") {
-        //         h = h + 12;
-        //     }
-        //     return h;
-        // }
-        // function GetMinutes(d) {
-        //     return parseInt(d.split(':')[1].split(' ')[0]);
-        // }
     </script>
 
 </main>

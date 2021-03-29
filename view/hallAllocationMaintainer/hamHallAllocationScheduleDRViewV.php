@@ -55,14 +55,31 @@
                         <button class="cancelbtn" type="submit" name=""><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>
-                <table id="tableStyle">
-                    <tr>
-                        <th>Start Time</th>
-                        <th>End Time</th>
-                        <th>Reason</th>
-                    </tr>
-                    <?php echo $_SESSION['SelectedHall'] ?>
-                </table>
+                <?php if ($_SESSION['aretherehalls'] == 1) { ?>
+                    <table id="tableStyle">
+                        <tr>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Reason</th>
+                        </tr>
+                        <?php echo $_SESSION['SelectedHall'] ?>
+                    </table> <br>
+                <?php } else { ?>
+                    <br>
+                <?php } ?>
+                <?php if ($_SESSION['wtt_forhall'] == 1) { ?>
+                    <table id="tableStyle">
+                        <tr>
+                            <th>Day</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Subject</th>
+                        </tr>
+                        <?php echo $_SESSION['dr_tt'] ?>
+                    </table>
+                <?php } else { ?>
+                    <br>
+                <?php } ?>
             </div>
         </div>
     </div>

@@ -30,7 +30,7 @@
                                 <label>Enter Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" id="" name="enterDate" required/>
+                                <input type="date" id="" <?php echo 'min="'.$_SESSION['sem_starts'].'"'?> <?php echo 'max="'.$_SESSION['sem_ends'].'"'?> name="enterDate" required/>
                             </div>
                         </div> 
                         <button class="subbtn" type="submit" name="displayschedule1-submit">Display Schedule</button>
@@ -42,7 +42,7 @@
                               <label>Enter Starting Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" id="" name="startDate" />
+                                <input type="date" id="st_date" name="startDate" <?php echo 'min="'.$_SESSION['sem_starts'].'"'?> <?php echo 'max="'.$_SESSION['sem_ends'].'"'?>/>
                             </div>
                         </div>
                         <div class="row">
@@ -50,7 +50,7 @@
                                 <label>Enter Ending Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" id="" name="endDate" />
+                                <input type="date" id="e_date" name="endDate" <?php echo 'min="'.$_SESSION['sem_starts'].'"'?> <?php echo 'max="'.$_SESSION['sem_ends'].'"'?> />
                             </div>
                         </div>
                         <div class="row">
@@ -65,9 +65,7 @@
                             </div>
                         </div>
                         <button class="subbtn" type="submit" name="displayschedule2-submit">Display Schedule</button>
-                        <button class="cancelbtn" type="submit">
-                            <a href="hamHomeV.php">Cancel</a>
-                        </button>
+                        <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>
             </div>

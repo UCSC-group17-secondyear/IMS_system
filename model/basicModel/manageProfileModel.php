@@ -12,7 +12,7 @@
         
         public static function getRole($user_id, $connect)
 		{
-			$query = "SELECT userRole FROM users WHERE userId = {$user_id} LIMIT 1";
+			$query = "SELECT userRole_id FROM users WHERE userId = {$user_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

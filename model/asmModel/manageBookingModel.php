@@ -89,6 +89,51 @@
 
 			return $result;
 		}
+
+		public static function getSemEndDate($today, $connect)
+		{
+			$query = "SELECT sem_id,end_date FROM tbl_semester WHERE start_date < '{$today}' AND end_date > '{$today}'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getDay($date,$connect)
+		{
+			$query = "SELECT DAYNAME('{$date}') AS day_name";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getNotAvailableHalls($day, $sem_id, $startTime, $endTime, $connect)
+		{
+			$query = "SELECT hall_id FROM tbl_weekly_time_table WHERE day='{$day}' AND sem_id='{$sem_id}' AND start_time < '{$endTime}' AND end_time > '{$startTime}' AND is_deleted=0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function allHalls($connect)
+		{
+			$query = "SELECT hall_id FROM tbl_hall WHERE is_deleted=0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getHallNames($hall_id,$connect)
+		{
+			$query = "SELECT * FROM tbl_hall WHERE hall_id = '{$hall_id}' AND is_deleted=0";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
     }
 
 ?>

@@ -45,6 +45,42 @@
 			return $result;
 		}
 
+        public static function getMembershipdetails($viewed_member, $connect)
+        {
+            $query = "SELECT * FROM tbl_medical_membership WHERE user_id={$viewed_member} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
+        public static function getMedicalyear($connect)
+        {
+            $query = "SELECT medical_year FROM tbl_medical_year WHERE CURRENT_DATE() BETWEEN start_date AND end_date LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
+        public static function schemePayment($scheme, $connect)
+        {
+            $query = "SELECT maxRoomCharge+hospitalCharges+gvtNoPayingWard+gvtChildBirthCover+consultantFee+spectaclesCost AS sum FROM tbl_medicalscheme WHERE scheme_id='{$scheme}'";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
+        public static function addClaimdetails($viewed_member, $medical_year, $scheme, $sum, $connect)
+        {
+            $query = "INSERT INTO tbl_claimdetails(user_id, year, scheme, initial_amount, remain_amount) VALUES ('{$viewed_member}', '{$medical_year}', '{$scheme}', '{$sum}', '{$sum}')";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
 		public static function requestdecline($mem_user_id, $connect)
 		{
 			$query = "UPDATE tbl_medical_membership SET membership_status = 0 WHERE user_id={$mem_user_id} LIMIT 1";

@@ -24,7 +24,7 @@
 
                 <table id="tableStyle" class="mytable" style="margin-left: 35%;" >
                     <tr>
-                        <th>Post Name</th>
+                        <th>Medical Year</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                     </tr>

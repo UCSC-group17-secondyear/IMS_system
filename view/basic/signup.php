@@ -106,7 +106,7 @@
 	              	<label>DATE OF BIRTH</label>
 	            </div>
 	            <div class="col-75">
-	              	<input type="date" name="dob" required/>
+	              	<input type="date" name="dob" max="<?php echo date('Y-m-d'); ?>" required/>
 	            </div>
 	        </div>
 
@@ -140,7 +140,7 @@
 	              <label>DATE OF APPOINTMENT</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="date" name="appointment" required/>
+	              <input type="date" name="appointment" max="<?php echo date('Y-m-d'); ?>" required/>
 	            </div>
 	        </div>
 

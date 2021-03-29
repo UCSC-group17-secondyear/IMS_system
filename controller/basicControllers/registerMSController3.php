@@ -22,7 +22,7 @@
         $children_no = mysqli_real_escape_string($connect, $_POST['children_no']);
 
         $checkspouse = basicModel::checkdependant($loguser, $spouse_name, $connect);
-        if (mysqli_num_rows($checkspouse) != 0) {
+        if (mysqli_num_rows($checkspouse) == 0) {
             $dependant = basicModel::adddependant($loguser, $spouse_name, $spouse_relationship, $spouse_dob, $spouse_healthstatus, $connect);
         }
         
