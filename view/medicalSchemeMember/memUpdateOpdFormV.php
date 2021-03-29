@@ -115,6 +115,9 @@
                                 </div>
                                 <div class="col-75">
                                     <input type="file" accept=".jpg, .png, .jpeg, .pdf" name="file" required>
+                                    <div class="tooltip"><i class="fa fa-question-circle"></i>
+                                        <span class="tooltiptext">Upload only image or PDF of prescription bill.</span>
+                                    </div>
                                 </div>
                             </div>
 
