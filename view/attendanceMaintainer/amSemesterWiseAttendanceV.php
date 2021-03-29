@@ -3,8 +3,6 @@
 ?>
 
 <main>
-    <!-- <title>View Semester Wise Attendance</title> -->
-
     <ul class="breadcrumbs">
         <li><a href="amHomeV.php">Home</a></li>
         <li class="active">Semester-wise Attendance</li>
@@ -22,7 +20,7 @@
                 <h2>Get Semester-wise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                <form action="../../controller/amControllers/amViewSemesterAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Year that semester began</label>
