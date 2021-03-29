@@ -20,11 +20,11 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Action Successful!</h2>
+                        <h2>Sorry! The the time slot is not free.</h2>
                     </div>
 
                     <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="post">
-                        <button class="subbtn" name="entertt-submit" type="submit">Enter Another</button>
+                        <button class="subbtn" name="entertt-submit" type="submit">Try Again</button>
                         <button class="cancelbtn"><a href="hamHomeV.php">Exit</a></button>
                     </form>
                 </div>

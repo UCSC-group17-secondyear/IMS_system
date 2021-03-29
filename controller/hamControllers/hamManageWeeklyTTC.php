@@ -66,10 +66,15 @@
         $hall = mysqli_real_escape_string($connect, $_POST['hall']);
         $day = mysqli_real_escape_string($connect, $_POST['day']);
 
-        $added = hamModel::addWeeklyTT($_SESSION['wtt_semester'], $_SESSION['wtt_degree'], $_SESSION['wtt_year'], $starttime, $endtime, $subject, $hall, $day, $connect);
-        
-        if ($added) {
-            header('Location:../../view/hallAllocationMaintainer/hamEnterTTsuccesV.php');
+        $iswtt = hamModel::checkWeeklyTT($semester, $starttime, $endtime, $hall, $day, $connect);
+
+        if (mysqli_num_rows($iswtt) == 1) {
+            header('Location:../../view/hallAllocationMaintainer/hamWeeklyttExists.php');
+        } else {
+            $added = hamModel::addWeeklyTT($_SESSION['wtt_semester'], $_SESSION['wtt_degree'], $_SESSION['wtt_year'], $starttime, $endtime, $subject, $hall, $day, $connect);
+            if ($added) {
+                header('Location:../../view/hallAllocationMaintainer/hamEnterTTsuccesV.php');
+            }
         }
     
     } elseif (isset($_POST['updateremovett-submit'])) {
