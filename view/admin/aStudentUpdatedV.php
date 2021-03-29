@@ -3,7 +3,7 @@
 ?>
 
 <main>
-    <title>Add a Semester</title>
+    <title>Update Student's Semester</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
@@ -22,11 +22,11 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The Semester is added successfully!</h2>
+                        <h2>The Student's semester is updated successfully!</h2>
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/adminControllers/aAddSemesterController.php">Update Students Semesters</a>
+                        <a href="../../controller/adminControllers/aViewSemesterController.php">View Semester List</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="aHomeV.php">Exit</a>
