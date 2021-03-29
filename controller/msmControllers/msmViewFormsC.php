@@ -331,7 +331,6 @@
                 }
             }
 
-            $_SESSION['form_no'] = $claim_form_no;
             $_SESSION['user_id'] = $user_id;
             $_SESSION['mem_initials'] = $result_form['initials'];
             $_SESSION['mem_sname'] = $result_form['sname'];
@@ -402,7 +401,6 @@
                 }
             }
 
-            $_SESSION['form_no'] = $claim_form_no;
             $_SESSION['user_id'] = $user_id;
             $_SESSION['mem_initials'] = $result_form['initials'];
             $_SESSION['mem_sname'] = $result_form['sname'];
@@ -450,6 +448,8 @@
 
                 if($result_form && $result_amount){
                     header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+                } else {
+                    echo "sdsd";
                 }
 
             } elseif ($remain_amount!=0 && $final_bill_amount > $remain_amount) {
@@ -461,13 +461,18 @@
 
                 if($result_amount && $result_form){
                     header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+                } else {
+                    echo "sdsd";
                 }
+
             } elseif ($remain_amount == 0 || $final_bill_amount == 0) {
 
                 $result_form = msmModel::updateNoPaidStatus($claim_form_no, $user_id, $msm_comment, $connect);
 
                 if($result_form){
                     header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
+                } else {
+                    echo "sdsd";
                 }
             }
 
@@ -576,7 +581,6 @@
                 }
             }
 
-            $_SESSION['form_no'] = $claim_form_no;
             $_SESSION['user_id'] = $user_id;
             $_SESSION['mem_initials'] = $result_form['initials'];
             $_SESSION['mem_sname'] = $result_form['sname'];
