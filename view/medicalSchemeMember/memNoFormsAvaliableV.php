@@ -18,13 +18,16 @@
             </div>
             
             <div class="col right80">
-                <form action="memHomeV.php" class="contentForm">
-                    <div>
-                        <h2>No Forms Avaliable</h2>
-                    </div>
+                <div class="contentForm">
+                    <form action="memHomeV.php" >
+                        <div>
+                            <h2>No Forms Avaliable</h2>
+                        </div>
 
-                    <button style="background-color:crimson" class="mainbtn">Exit</button>
-                </form>
+                        <button  class="subbtn" ><a href="memHomeV.php">Back</a></button>
+                        <button  class="cancelbtn"><a href="memHomeV.php">Exit</a></button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
