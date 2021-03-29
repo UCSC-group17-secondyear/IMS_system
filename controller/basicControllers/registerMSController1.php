@@ -19,7 +19,6 @@
 
             $_SESSION['userId'] = $u['userId'];
 
-
             while ($d = mysqli_fetch_array($alldepartments)) {
                 $_SESSION['department'] .= "<option value='".$d['department_id']."'>".$d['department']."</option>";
             }

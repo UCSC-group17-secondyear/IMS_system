@@ -53,7 +53,7 @@
                                     <label>DOB</label>
                                 </div>
                                 <div class="col-75">
-                                    <input name="spouse_dob" type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> <?php echo 'value="'.$_SESSION['spouse_dob'].'"' ?> required>
+                                    <input name="spouse_dob" type="date" max="<?php echo date('Y-m-d') ?>" <?php echo 'value="'.$_SESSION['spouse_dob'].'"' ?> required>
                                 </div>
                             </div>
 

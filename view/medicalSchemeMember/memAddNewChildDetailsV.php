@@ -51,7 +51,7 @@
                                         <label>Date of Birth</label>
                                     </div>
                                     <div class="col-75">
-                                        <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="child[<?php echo $i?>][child_dob]" required/>
+                                        <input type="date" max="<?php echo date('Y-m-d') ?>" name="child[<?php echo $i?>][child_dob]" required/>
                                     </div>
                                 </div>
                                 <div class="row">

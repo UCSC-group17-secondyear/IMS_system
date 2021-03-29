@@ -60,90 +60,14 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Start Time</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="time" name="starttime" placeholder="Start time" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">End Time</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="time" name="endtime" placeholder="End time" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Subject</label>
-                            </div>
-                            <div class="col-75">
-                                <select name="subject" required>
-                                    <option value="">Select a subject</option>
-                                    <?php echo $_SESSION['subject_with_code'] ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Hall</label>
-                            </div>
-                            <div class="col-75">
-                                <select name="hall" required>
-                                    <option value="">Select a hall</option>
-                                    <?php echo $_SESSION['allhalls']?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="">Day</label>
-                            </div>
-                            <div class="col-75">
-                                <select name="day" required>
-                                    <option value="">Select a day</option>
-                                    <option value="Monday">Monday</option>
-                                    <option value="Tuesday">Tuesday</option>
-                                    <option value="Wednesday">Wedensday</option>
-                                    <option value="Thursday">Thursday</option>
-                                    <option value="Friday">Friday</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button class="subbtn" type="submit" name="savett-submit">Enter</button>
+                        <button class="subbtn" type="submit" name="enternext-submit">Enter</button>
                         <button class="cancelbtn" type="submit"><a href="hamHomeV.php">Cancel</a></button>
                     </form>
                 </div>
-                <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
             </div>
         </div>
     </div>
 </main>
-
-<script type="text/javascript">
-    //Get the button
-    var mybutton = document.getElementById("myTopBtn");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
-        mybutton.style.display = "block";
-        } else {
-        mybutton.style.display = "none";
-        }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script>
 
 <?php
     require '../basic/footer.php';

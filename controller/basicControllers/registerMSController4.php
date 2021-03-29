@@ -19,7 +19,7 @@
 
             if($age <= 18){
                 $checkchild = basicModel::checkdependant($loguser, $cd['child_name'], $connect);
-                if (mysqli_num_rows($checkchild) != 0) {
+                if (mysqli_num_rows($checkchild) == 0) {
                     $dependant = basicModel::adddependant($loguser, $cd['child_name'], $cd['relationship'], $cd['child_dob'], $cd['health_status'], $connect);
                 }
             }

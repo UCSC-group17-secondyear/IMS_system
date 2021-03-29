@@ -31,7 +31,7 @@
                         <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">Booking List</a>
                     </button>
                     <button class="cancelbtn">
-                        <a href="asmHomeV.php">Leave</a> 
+                        <a href="asmHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

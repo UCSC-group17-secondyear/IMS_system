@@ -7,7 +7,10 @@
 
     if (isset($_GET['user_id']) && !isset($_POST['add-book-submit'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
-        $records = adminModel::hall($connect);
+        // $records = adminModel::hall($connect);
+        $today = date('Y-m-d');
+
+        $records = asmModel::getSemEndDate($today, $connect);
 
         $answers = asmModel::getRole($user_id, $connect);
 
@@ -16,13 +19,14 @@
         $role = $answer['userRole_id'];
         $_SESSION['role'] = $role;
 
-        $_SESSION['halls'] = '';
+        // $_SESSION['halls'] = '';
 
         if ($records) {
             
             while ($record = mysqli_fetch_array($records)) {
-                $_SESSION['halls'] .= "<option value='".$record['hall_name']."'>". $record['hall_name']."</option>";
-            }
+                $_SESSION['max-date'] = $record['end_date'];
+                $_SESSION['sem_id'] = $record['sem_id'];
+             }
 
             if ($role == 2) {
                 header('Location:../../view/hallAllocationMaintainer/hamAddBookingV.php');
@@ -34,23 +38,84 @@
         }
     }
 
-    if (isset($_POST['add-book-submit'])) {
+    if (isset($_POST['add-book-submit']) && isset($_GET['hall'])) {
         $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
         $date = mysqli_real_escape_string($connect, $_POST['date']);
-        $hall = mysqli_real_escape_string($connect, $_POST['hall']);
         $startTime =  mysqli_real_escape_string($connect, $_POST['startTime']);
         $endTime =  mysqli_real_escape_string($connect, $_POST['endTime']);
-        $reason = mysqli_real_escape_string($connect, $_POST['reason']);
 
-        $getHallId = asmModel::getHallId($hall, $connect);
+        $_SESSION['date'] = $date;
+        $_SESSION['startTime'] = $startTime;
+        $_SESSION['endTime'] = $endTime;
 
-        if ($getHallId) {
-            while ($rec = mysqli_fetch_assoc($getHallId)) {
-                $h_id = $rec['hall_id'];
+        $sem_id = $_SESSION['sem_id'];
+
+        $getDay = asmModel::getDay($date,$connect);
+
+        if ($getDay) {
+            $rec = mysqli_fetch_assoc($getDay);
+            $day = $rec['day_name'];
+            
+            $not_avail_halls[] = '';
+            $all_halls[] = '';
+
+            $records = asmModel::getNotAvailableHalls($day, $sem_id, $startTime, $endTime, $connect);
+            if ($records) {
+                while ($rec = mysqli_fetch_assoc($records)) {
+                    $not_avail_halls[] = $rec['hall_id'];
+                }
+                
+                $results = asmModel::allHalls($connect);
+                if ($results) {
+                    while ($result = mysqli_fetch_assoc($results)) {
+                        $all_halls[] = $result['hall_id'];
+                    }
+                     
+                    $avail_halls = array_diff($all_halls,$not_avail_halls);
+
+                    $_SESSION['available_halls'] = '';
+
+                    if (count($avail_halls)>0) {
+                        for($i =1; $i<count($all_halls) ; $i++){
+                            $getHalls = asmModel::getHallNames($avail_halls[$i],$connect);
+                            $hall = mysqli_fetch_assoc($getHalls);
+
+                            if ($hall) {
+                                echo $_SESSION['available_halls'] .= "<option value='".$hall['hall_id']."'>".$hall['hall_name']."</option>";
+                            }
+
+                        }
+                        if ($_SESSION['role'] == 2) {
+                            header('Location:../../view/hallAllocationMaintainer/hamAddBookingTwoV.php');
+                        }
+                        elseif ($_SESSION['role'] == 10) {
+                            header('Location:../../view/academicStaffMember/asmAddBookingTwoV.php');
+                        }
+                    }
+                }
+
             }
         }
+    }
 
-        $check = asmModel::checkHall($h_id, $date, $startTime, $endTime, $connect);
+    if (isset($_POST['add-book-submit']) && !isset($_GET['hall'])) {
+        $user_id = mysqli_real_escape_string($connect, $_GET['user_id']);
+        $hall = mysqli_real_escape_string($connect, $_POST['hall']);
+        $reason = mysqli_real_escape_string($connect, $_POST['reason']);
+
+        $date = $_SESSION['date'];
+        $startTime =  $_SESSION['startTime'];
+        $endTime =  $_SESSION['endTime'];
+
+        // $getHallId = asmModel::getHallId($hall, $connect);
+
+        // if ($getHallId) {
+        //     while ($rec = mysqli_fetch_assoc($getHallId)) {
+        //         $h_id = $rec['hall_id'];
+        //     }
+        // }
+
+        $check = asmModel::checkHall($hall, $date, $startTime, $endTime, $connect);
         if (mysqli_num_rows($check)==1) {
             if ($_SESSION['role'] == 2) {
                 header('Location:../../view/hallAllocationMaintainer/hamAllReadyBookedV.php');
@@ -68,7 +133,7 @@
                 }
             }
 
-            $result = asmModel::book($user_id, $h_id, $sem_id, $date, $startTime, $endTime, $reason, $connect);
+            $result = asmModel::book($user_id, $hall, $sem_id, $date, $startTime, $endTime, $reason, $connect);
 
             if ($result) {
 
