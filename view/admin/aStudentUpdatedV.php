@@ -3,34 +3,33 @@
 ?>
 
 <main>
-    <title>No Reocrds</title>
+    <title>Update Student's Semester</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">No Records</li>
+            <li><a href="aHomeV.php">Home</a></li>
+            <li><a href="aAddSemesterV.php">Add Semester</a></li>
+            <li class="active">Action was success!</li>
         </ul>
     
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'msmSideNavV.php';
+                    require 'aSideNavV.php';
                 ?>
             </div>
 
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            No Reocrds Available...
-                        </h2>
+                        <h2>The Student's semester is updated successfully!</h2>
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="msmHomeV.php">Back</a>
+                        <a href="../../controller/adminControllers/aViewSemesterController.php">View Semester List</a>
                     </button>
                     <button class="cancelbtn" type="submit">
-                        <a href="msmHomeV.php">Exit</a>
+                        <a href="aHomeV.php">Exit</a>
                     </button>
                 </div>
             </div>

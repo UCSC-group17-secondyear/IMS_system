@@ -70,7 +70,7 @@
                                     <label for="">Date of the Accident</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="accident_date" <?php echo 'value="'.$_SESSION['accident_date'].'"' ?> required><br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="accident_date" <?php echo 'value="'.$_SESSION['accident_date'].'"' ?> id="adate" required><br>
                                 </div>
                             </div>
 
@@ -106,7 +106,7 @@
                                     <label for="">Date of Commencement of Illness</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="commence_date" <?php echo 'value="'.$_SESSION['commence_date'].'"' ?> required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="commence_date" <?php echo 'value="'.$_SESSION['commence_date'].'"' ?> id="cdate" required> <br>
                                 </div>
                             </div>
 
@@ -115,7 +115,7 @@
                                     <label for="">Date of First Consultation</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="first_consult_date" <?php echo 'value="'.$_SESSION['first_consult_date'].'"' ?> required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="first_consult_date" <?php echo 'value="'.$_SESSION['first_consult_date'].'"' ?> id="fdate" required> <br>
                                 </div>
                             </div>
 
@@ -142,7 +142,7 @@
                                     <label for="">Hospitalized On</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="hospitalized_date" <?php echo 'value="'.$_SESSION['hospitalized_date'].'"' ?> required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="hospitalized_date" <?php echo 'value="'.$_SESSION['hospitalized_date'].'"' ?> id="hdate" required> <br>
                                 </div>
                             </div>
 
@@ -151,7 +151,7 @@
                                     <label for="">Discharged On</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="discharged_date" <?php echo 'value="'.$_SESSION['discharged_date'].'"' ?> required> <br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="discharged_date" <?php echo 'value="'.$_SESSION['discharged_date'].'"' ?> id="ddate" oninput="checkDate()"; required> <br>
                                 </div>
                             </div>
 
@@ -219,6 +219,9 @@
                                 </div>
                                 <div class="col-75">
                                     <input type="file" accept=".jpg, .png, .jpeg, .pdf" name="file" required>
+                                    <div class="tooltip"><i class="fa fa-question-circle"></i>
+                                        <span class="tooltiptext">Upload only image or PDF of prescription bill.</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -260,6 +263,20 @@
             function topFunction() {
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
+            }
+
+            function checkDate(){
+                var treat_date = document.getElementById("hdate").value;
+                var diss_date = document.getElementById("ddate").value;
+                var acc_date = document.getElementById("adate").value;
+                var com_date = document.getElementById("cdate").value;
+                var first_date = document.getElementById("fdate").value;
+
+                if(diss_date < treat_date || diss_date < acc_date || diss_date < com_date || diss_date < first_date){
+                    alert("Discharged date should be greater than or same from other dates !");
+                    document.getElementById("ddate").value = "mm/dd/yyyy";
+                    
+                }
             }
         </script>
 </main>

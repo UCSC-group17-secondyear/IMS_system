@@ -24,7 +24,8 @@
                         <h2>No Records Avaliable</h2>
                     </div>
 
-                    <button type="submit" class="mainbtn"><a href="mmHomeV.php">Exit</a></button>
+                    <button type="submit" class="subbtn"><a href="mmHomeV.php">Back</a></button>
+                    <button type="submit" class="cancelbtn"><a href="mmHomeV.php">Exit</a></button>
                 </form>
                 
             </div>

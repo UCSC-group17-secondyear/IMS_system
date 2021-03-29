@@ -68,7 +68,7 @@
                                     <label for="">Treatment Recieved Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="treatment_received_date" id="tdate" oninput="checkDate()" max="today()" required/><br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="treatment_received_date" id="tdate"   required/><br>
                                 </div>
                             </div>
 
@@ -77,7 +77,7 @@
                                     <label for="">Bill Issued Date</label>
                                 </div>
                                 <div class="col-75">
-                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="bill_issued_date" id="bdate" required><br>
+                                    <input type="date" <?php echo 'max="'.$_SESSION['max_date'].'"' ?> name="bill_issued_date" id="bdate" oninput="checkDate()"; required><br>
                                 </div>
                             </div>
 
@@ -105,10 +105,13 @@
                                 </div>
                                 <div class="col-75">
                                     <input type="file" accept=".jpg, .png, .jpeg, .pdf" name="file" required>
+                                    <div class="tooltip"><i class="fa fa-question-circle"></i>
+                                        <span class="tooltiptext">Upload only image or PDF of prescription bill.</span>
+                                    </div>
                                 </div>
                             </div>
 
-                                <button class="mainbtn" type="submit" name="fill-opd-submit">Submit</button><br>
+                                <button class="mainbtn" type="submit" name="fill-opd-submit"  >Submit</button><br>
                                 
                         </form>
                         
@@ -123,14 +126,20 @@
                     </div>
             </div>
         </div>
-    </div>   
+    </div>
 
     <script>
-        $("#tdate").datepicker({
-        maxDate: today
-        });
-    </script>    
-        
+        function checkDate(){
+            var treat_date = document.getElementById("tdate").value;
+            var bill_date = document.getElementById("bdate").value;
+
+            if(bill_date < treat_date){
+                alert("Enter Bill issued date correctly !");
+                document.getElementById("bdate").value = "mm/dd/yyyy";
+                
+            }
+        }
+    </script>
 </main>
 
 <?php

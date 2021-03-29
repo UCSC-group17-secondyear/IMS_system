@@ -26,7 +26,7 @@
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="../../controller/adminControllers/aViewSemesterController.php">Semesters list</a>
+                        <a href="../../controller/adminControllers/aAddSemesterController.php">Update Students Semesters</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="aHomeV.php">Exit</a>
