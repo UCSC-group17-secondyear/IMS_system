@@ -35,6 +35,10 @@
                     </form>
                 </div>
                 <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
+                    <div>
+                        <input class="sabtn" type="button" value="Select All" onclick="check_all()">
+                        <input class="cabtn" type="button" value="Cancel All" onclick="un_check_all()">
+                    </div>
                     <table id="tableStyle" class="mytable" style="margin-left: 30%;" >
                         <tr>
                             <th>Student Index</th>
@@ -81,21 +85,21 @@
         }
     }
 
-    // function check() {
-    //     var checkboxes = document.getElementsByName('checked[]');
-    //     checkboxes = [...checkboxes];
-    //     for (var i = 0; i < checkboxes.length; i++) {
-    //         checkboxes[i].checked = true
-    //     }
-    // }
+    function check_all() {
+        var checkboxes = document.getElementsByName('smarked[]');
+        checkboxes = [...checkboxes];
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = true
+        }
+    }
 
-    // function un_check() {
-    //     var checkboxes = document.getElementsByName('unchecked[]');
-    //     checkboxes = [...checkboxes];
-    //     for (var i = 0; i < checkboxes.length; i++) {
-    //         checkboxes[i].checked = false;
-    //     }
-    // }
+    function un_check_all() {
+        var checkboxes = document.getElementsByName('smarked[]');
+        checkboxes = [...checkboxes];
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = false;
+        }
+    }
 
     function topFunction() {
         document.body.scrollTop = 0;
