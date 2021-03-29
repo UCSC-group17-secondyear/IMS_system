@@ -8,7 +8,6 @@
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
         <li><a href="amStudentWiseAttendanceV.php">Studentwise Attendance</a></li>
-        <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
         <li class="active">Studentwise Attendance</li>
         </ul>
 
@@ -25,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form>
+                    <form action="../../controller/amControllers/amViewStudentAttendanceC.php" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Selected student</label>
@@ -97,6 +96,16 @@
                                 <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
                             </div>
                         </div>
+
+                        <button class="subbtn" name="stdPDF">Generate pdf
+                            <!-- <a href="amStudentWiseAttendanceV.php">
+                                View another studentwise attendance
+                            </a> -->
+                        </button>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="amHomeV.php">Exit</a> 
+                        </button>
+                        
                     </form>
                 </div>
 
@@ -107,13 +116,6 @@
                     </tr>
                     <?php echo $_SESSION['stdAttendance_list']; ?>
                 </table>
-
-                <button class="subbtn">
-                    <a href="amStudentWiseAttendanceV.php">View another studentwise attendance</a>
-                </button>
-                <button class="cancelbtn" type="submit" name="cancel-submit">
-                        <a href="amHomeV.php">Exit</a> 
-                    </button>
             </div>
         </div>
     </div>
