@@ -24,35 +24,30 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>&hall=10" method="post">
+                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                        
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Date</label>
+                              <label>Select Hall</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="date" min="<?php echo date('Y-m-d')?>" max="<?php echo $_SESSION['max-date'] ?>" required/>
+                                <select name="hall"required>
+                                    <option value="">Select Hall</option>
+                                    <?php echo $_SESSION['available_halls'] ?>
+                                </select>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-25">
-                              <label>Start Time</label>
+                              <label>Reason</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="startTime" id="txtStartTime" required/>
+                                <input type="text" name="reason" required/>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                              <label>End Time</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="time" name="endTime" id="txtEndTime" required/>
-                            </div>
-                        </div>
-
-                        <button class="mainbtn" type="submit" name="add-book-submit" id="btnCompare" onclick="Compare">Continue</button>
+                        <button class="mainbtn" type="submit" name="add-book-submit" id="btnCompare" onclick="Compare">Book</button>
                     </form>
                     <button class="subbtn" type="submit" name="">
                         <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">View my bookings</a>

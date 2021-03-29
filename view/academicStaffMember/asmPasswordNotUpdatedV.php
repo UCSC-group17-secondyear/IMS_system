@@ -31,7 +31,7 @@
                         <a href="../../controller/basicControllers/updatePasswordController.php?user_id=<?php echo $_SESSION['userId'] ?>">Update Password</a>
                     </button>
                     <button class="cancelbtn">
-                        <a href="asmHomeV.php">Leave</a> 
+                        <a href="asmHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>
