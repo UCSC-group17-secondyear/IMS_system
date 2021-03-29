@@ -24,7 +24,7 @@
                     <h2>View Member Details</h2>
                 </div>
                 <div class="contentForm">
-                    <form action="../../controller/msmControllers/msmViewFormsC.php?viewed_member=<?php echo $_SESSION['userId'] ?>" method="post">
+                    <form action="../../controller/msmControllers/msmViewFormsC.php?viewed_member=<?php echo $_SESSION['membership_form_view'] ?>" method="post">
                         <div class="row">
 	                        <div class="col-25">
 	                            <label for="">Employee Id</label>

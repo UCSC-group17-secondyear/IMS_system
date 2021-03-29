@@ -6,7 +6,7 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="hamHomeV.php">Home</a></li>
-            <li><a href="hamEnterTimeTableV.php">Enter Time Table</a></li>
+            <li><a href="hamUpdateTimeTableSelectV.php">Enter Time table</a></li>
             <li class="active">Action Success!</li>
         </ul>
 
@@ -20,15 +20,13 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Event is added successfully to the weekly time table.</h2>
+                        <h2>Action Successful!</h2>
                     </div>
 
-                    <button class="subbtn">
-                        <a href="hamHomeV.php">Ok</a> 
-                    </button>
-                    <button class="cancelbtn">
-                        <a href="hamHomeV.php">Exit</a> 
-                    </button>
+                    <form action="../../controller/hamControllers/hamManageWeeklyTTC.php" method="post">
+                        <button class="subbtn" name="entertt-submit" type="submit">Enter Another</button>
+                        <button class="cancelbtn"><a href="hamHomeV.php">Exit</a></button>
+                    </form>
                 </div>
             </div>
         </div>
