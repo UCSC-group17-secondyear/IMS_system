@@ -87,10 +87,9 @@
                 $memberdetails = msmModel::getMembershipdetails($viewed_member, $connect);
                 while ($mem = mysqli_fetch_array($memberdetails)) {
                     $_SESSION['scheme'] = $mem['scheme_id'];
-                    $_SESSION['form_submission'] = $mem['form_submission_date'];
                 }
 
-                $medicalyear = msmModel::getMedicalyear($_SESSION['form_submission'], $connect);
+                $medicalyear = msmModel::getMedicalyear($connect);
                 while ($medyear = mysqli_fetch_array($medicalyear)) {
                     $_SESSION['medical_year'] = $medyear['medical_year'];
                 }

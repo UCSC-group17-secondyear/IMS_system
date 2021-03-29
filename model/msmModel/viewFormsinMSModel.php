@@ -54,9 +54,9 @@
 			return $result;
         }
 
-        public static function getMedicalyear($date, $connect)
+        public static function getMedicalyear($connect)
         {
-            $query = "SELECT medical_year FROM tbl_medical_year WHERE '{$date}' BETWEEN start_date AND end_date LIMIT 1";
+            $query = "SELECT medical_year FROM tbl_medical_year WHERE CURRENT_DATE() BETWEEN start_date AND end_date LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
