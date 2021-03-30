@@ -3,10 +3,14 @@
 ?>
 
 <main>
+    <title>View Students' Details</title>
+
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li class="active">Subject Details</li>
+            <li><a href="amViewStudentDetailsV.php">Students' Details</a></li>
+            <li><a href="amDegreeListV.php">Select a Degree</a></li>
+            <li class="active">Degree-wise Students' Details</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;" >
@@ -18,39 +22,43 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Subject Details</h2>
+                    <h2>Degree-wiae Students' Details</h2>
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
-                        <button class="subbtn" type="submit" name="getDegreeList-submit">
-                            Get subjects of a degree
-                        </button>
-                        <button class="subbtn" type="submit" name="getAsubList-submit">
-                            <a href="amSelectAcademicYv.php">Get subjects of an academic year</a>
-                        </button>
-                    </form>
                     <form action="" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label for="">Enter Subject Code</label>
+                                <label for="">Selected Degree</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search a subject" name="Index_no" required>
+                                <input type="text" name="batch_number" disabled <?php echo 'value=" '.$_SESSION['degree_name'].'"' ?> >
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Get Single Student</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a Student..." name="Index_no" required>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <table id="tableStyle" class="mytable" style="margin-left: 15%;" >
+                <table id="tableStyle" class="mytable" >
                     <tr>
-                        <th>Subject Code</th>
-                        <th>Subject Name</th>
-                        <th>Degree</th>
+                        <th>Index No</th>
+                        <th>Registration Number</th>
+                        <th>Initials</th>
+                        <th>Last name</th>
+                        <th>Email</th>
                         <th>Academic Year</th>
                         <th>Semester</th>
+                        <th>Batch Number</th>
                     </tr>
-                    <?php echo $_SESSION['subject_list']; ?>
+                    <?php echo $_SESSION['degreeStd']; ?>
                 </table>
             </div>
         </div>

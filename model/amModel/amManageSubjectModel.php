@@ -16,6 +16,20 @@
 			return $result;
 		}
 
+		public static function get_degreeSubjectList ($degree_id, $connect) {
+			$query = "SELECT * FROM tbl_subject WHERE degree_id = $degree_id AND is_deleted = 0 ORDER BY subject_code ASC";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function get_aySubjectList ($academic_year, $connect) {
+			$query = "SELECT * FROM tbl_subject WHERE academic_year = $academic_year AND is_deleted = 0 ORDER BY subject_code ASC";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
 		public static function get_degree_id($degree, $connect) {
 			$query = "SELECT degree_id FROM tbl_degree WHERE degree_name = '{$degree}' AND is_deleted = 0 LIMIT 1";
 
