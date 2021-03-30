@@ -30,7 +30,7 @@
                                 <label for="">Start Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" <?php echo 'value="'.$_SESSION['hall_start_date'].'"'?> disabled>
+                                <input type="date" id="start_date" <?php echo 'value="'.$_SESSION['hall_start_date'].'"'?> disabled>
                             </div>
                         </div>
                         <div class="row">
@@ -38,7 +38,7 @@
                                 <label for="">End Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" <?php echo 'value="'.$_SESSION['hall_end_date'].'"'?> disabled>
+                                <input type="date" id="end_date" <?php echo 'value="'.$_SESSION['hall_end_date'].'"'?> disabled>
                             </div>
                         </div>
                         <div class="row">
@@ -84,6 +84,18 @@
         </div>
     </div>
 </main>
+
+<script>
+    function checkDate(){
+        var sdate = document.getElementById("start_date").value;
+        var edate = document.getElementById("end_date").value;
+
+        if(edate < sdate){
+            alert("The end date you have entered is a date before the start date that you have entered!");
+            document.getElementById("end_date").value = "mm/dd/yyyy";
+        }
+    }
+</script>
 
 <?php
     require '../basic/footer.php';
