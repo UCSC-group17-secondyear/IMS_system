@@ -22,7 +22,7 @@
                 <h2>Get Subject-wise Attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                <form action="../../controller/amControllers/amViewSubjectAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Select Subject</label>
