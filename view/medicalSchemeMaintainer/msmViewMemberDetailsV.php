@@ -130,7 +130,7 @@
                             </div>
                         </div>
                 <?php if($_SESSION['fr_acceptance_status'] != 2) { ?>
-                    <?php if($_SESSION['fr_membership_status'] != 1) { ?>
+                    <?php if($_SESSION['fr_membership_status'] == 2) { ?>
                         <button class="subbtn" type="submit" name="approvemf-submit">Approve</button>
                         <button type="submit" class="cancelbtn" name="declinemf-submit">Decline</button>
                     <?php } else { ?>
