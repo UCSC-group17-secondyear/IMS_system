@@ -38,15 +38,6 @@
 						
         				
 						<i class="fa fa-eye" style="margin-left: -40px;" id="eye" onclick="toggle()"></i>
-    					
-						<!-- <div class="row">
-							<div class="col-25">
-								<input type="checkbox" onclick="showPasswordFunction()">
-							</div>
-							<div class="col-75"><br><br>
-								<label>Show Password</label>
-							</div>
-						</div> -->
 
 						<button class="mainbtn" type="submit" name="submit">LOGIN</button>						
 					</div>
@@ -80,15 +71,6 @@
 			}
 		}
 
-		// DISPLAY PASSWORD -------------------------------------
-		// function showPasswordFunction() {
-  		// 	var x = document.getElementById("psw");
-  		// 	if (x.type === "password") {
-    	// 		x.type = "text";
-  		// 	} else {
-    	// 		x.type = "password";
-  		// 	}
-		// }
 	</script>
 </body>
 
