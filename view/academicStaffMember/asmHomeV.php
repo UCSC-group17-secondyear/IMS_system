@@ -19,7 +19,7 @@
             <div class="column middle">
                 <h2>Academic Staff Member</h2>
                 <div class="home-heading">
-                    <img src="../assests/img/cover_final.png" alt="" style="">
+                    <img src="../assests/img/cover_final.png" alt="">
                     <h3>Welcome to the Information Management System for the Staff
                     <br>Academic and Publications Division - UCSC</h3>
                  </div>

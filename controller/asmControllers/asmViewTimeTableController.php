@@ -34,8 +34,9 @@
         $degree = mysqli_real_escape_string($connect, $_POST['degree']);
 
         $get_semId = asmModel::getSemId($semester, $academic_year, $connect);
-
+        echo "hello1";
         if ($get_semId) {
+            echo "hello2";
             while ($rec = mysqli_fetch_assoc($get_semId)) {
                 $sem_id = $rec['sem_id'];
             }
@@ -44,7 +45,9 @@
         $tTable = asmModel::viewTimeTable($sem_id, $batch_year, $degree, $connect);
 
         if ($tTable) {
+            
             while($t = mysqli_fetch_assoc($tTable)) {
+                echo "hello4";
                $_SESSION['time_table'] .= "<tr>";
                $_SESSION['time_table'] .= "<td>{$t['day']}</td>";
                $_SESSION['time_table'] .= "<td>{$t['start_time']}</td>";
@@ -55,6 +58,12 @@
 
                 header('Location:../../view/academicStaffMember/asmWeeklyTimeTableV.php');
             }
+            if(mysqli_num_rows($tTable)==0){
+                header('Location:../../view/academicStaffMember/asmNoDataV.php');
+            }
+        }
+        else{
+            header('Location:../../view/academicStaffMember/asmNoDataV.php');
         }
     }
 
