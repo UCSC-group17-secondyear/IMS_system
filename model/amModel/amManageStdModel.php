@@ -179,5 +179,32 @@
 			$result = mysqli_query($connect, $query);
 			return $result;
 		}
+
+		public static function getBatchList ($connect) {
+			$query = "SELECT DISTINCT(batch_number) AS batch_number FROM tbl_students; ";
+
+			$result = mysqli_query($connect, $query);
+			return $result;
+		}
+
+		public static function get_BstdList ($batch_number, $connect) {
+			$query = " SELECT * FROM tbl_students
+			WHERE batch_number = $batch_number AND is_std = 0
+			ORDER BY std_id AND degree_id ";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function get_DstdList($degree_id, $connect) {
+			$query = " SELECT * FROM tbl_students
+			WHERE degree_id = $degree_id AND is_std = 0
+			ORDER BY std_id AND degree_id ";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
 	}
 ?>
