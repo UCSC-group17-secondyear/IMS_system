@@ -3,7 +3,7 @@
     require_once('../../config/database.php');
     require_once('../../model/msmModel/msmviewclaimdetailsModel.php');
 
-    if(isset($_POST['memberwiseclaim-submit']) || isset($_GET['btn'])) {
+    if(isset($_POST['memberwiseclaim-submit']) || ($_GET['btn'] == 55)) {
 
         $result_year = msmModel::getMemYears($connect);
         $_SESSION['medical_year'] = '';
@@ -36,7 +36,7 @@
 
             $scheme_name = msmModel::getSchemeName($result['scheme'],$connect);
             $sch_name = mysqli_fetch_array($scheme_name);
-            $scheme = $sch_name[0];
+            $scheme = $sch_name[1];
 
             $_SESSION['year'] = $year;
             $_SESSION['emp_id'] = $emp_id;
@@ -53,7 +53,7 @@
         
     } 
     
-    elseif (isset($_POST['departmentwise-submit']) || isset($_GET['btn'])) {
+    elseif (isset($_POST['departmentwise-submit']) || ($_GET['btn'] == 56)) {
 
         $dept = msmModel::viewDept($connect);
         $result_year = msmModel::getMemYears($connect);
@@ -130,7 +130,7 @@
 
     } 
     
-    elseif (isset($_POST['ucsc-submit']) || isset($_GET['btn'])) {
+    elseif (isset($_POST['ucsc-submit']) || ($_GET['btn'] == 57)) {
 
         $result_year = msmModel::getMemYears($connect);
         $_SESSION['medical_year'] = '';
