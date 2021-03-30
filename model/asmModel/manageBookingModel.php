@@ -54,9 +54,9 @@
 			return $result_set;
         }
         
-        public static function updateBook($booking_id, $h_id, $date, $startTime, $endTime, $reason, $connect)
+        public static function updateBook($booking_id, $h_id, $sem_id, $date, $startTime, $endTime, $reason, $connect)
 		{
-			$query = "UPDATE tbl_booking SET date='{$date}', start_time='{$startTime}', end_time='{$endTime}', reason='{$reason}', hall_id='{$h_id}' WHERE booking_id={$booking_id} LIMIT 1";
+			$query = "UPDATE tbl_booking SET date='{$date}', start_time='{$startTime}', end_time='{$endTime}', reason='{$reason}', hall_id={$h_id}, sem_id={$sem_id} WHERE booking_id={$booking_id} LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 
