@@ -24,25 +24,13 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="POST">
+                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>&hall=10" method="post">
                         <div class="row">
                             <div class="col-25">
                               <label>Enter Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="date" required/>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Enter Hall</label>
-                            </div>
-                            <div class="col-75">
-                                <select name="hall" id="hall" required>
-                                    <option value="">Select a Hall</option>
-                                    <?php echo $_SESSION['halls'] ?>
-                                </select>
+                                <input type="date" name="date" min="<?php echo date('Y-m-d')?>" max="<?php echo $_SESSION['max-date'] ?>" required/>
                             </div>
                         </div>
 
@@ -51,7 +39,7 @@
                               <label>Start Time</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="startTime" required/>
+                                <input type="time" name="startTime" id="txtStartTime" required/>
                             </div>
                         </div>
 
@@ -60,26 +48,75 @@
                               <label>End Time</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="endTime" required/>
+                                <input type="time" name="endTime" id="txtEndTime" oninput="checkDate()"; required/>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                              <label>Reason</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" name="reason" required/>
-                            </div>
-                        </div>
-
-                        <button class="subbtn" type="submit" name="add-book-submit">Book</button>
-                        <button class="cancelbtn" type="submit" name="add-book-submit"><a href="hamHomeV.php">Cancel</a></button>
+                        <button class="mainbtn" type="submit" name="add-book-submit" id="btnCompare" onclick="Compare">Continue</button>
                     </form>
+                    <button class="subbtn" type="submit" name="">
+                        <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">View my bookings</a>
+                    </button>
+                    
+                    <button id="myBtn" class="cancelbtn">Cancel</button>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h1>Are you sure you want to leave the page?</h1>
+                            <button class="mainbtn">
+                                <a href="hamHomeV.php">Yes</a>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+     <script type="text/javascript">
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // var modal2 = document.getElementById("subModal");
+        // var btn2 = document.getElementById("subBtn");
+        document.getElementById("subBtn").onclick = function() {
+            document.getElementById("subModal").style.display = "block";
+        }
+
+        
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+
+        //Check time slot
+        function checkDate(){
+            var start_time = document.getElementById("txtStartTime").value;
+            var end_time = document.getElementById("txtEndTime").value;
+
+            if(start_time > end_time){
+                alert("Enter end time correctly!");
+                document.getElementById("txtEndTime").value = "hh-min";
+            }
+        }
+
+    </script>
+
 </main>
                 
 <?php

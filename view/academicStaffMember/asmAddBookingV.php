@@ -48,7 +48,7 @@
                               <label>End Time</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="endTime" id="txtEndTime" required/>
+                                <input type="time" name="endTime" id="txtEndTime" oninput="checkDate()"; required/>
                             </div>
                         </div>
 
@@ -103,6 +103,18 @@
             modal.style.display = "none";
           }
         }
+
+        //Check time slot
+        function checkDate(){
+            var start_time = document.getElementById("txtStartTime").value;
+            var end_time = document.getElementById("txtEndTime").value;
+
+            if(start_time > end_time){
+                alert("Enter end time correctly!");
+                document.getElementById("txtEndTime").value = "hh-min";
+            }
+        }
+
 
     </script>
 

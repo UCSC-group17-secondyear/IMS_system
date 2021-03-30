@@ -52,7 +52,7 @@
                               <label>Enter Starting Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="start_date" placeholder="Start date" required/>
+                                <input type="date" name="start_date" placeholder="Start date" id="startDate" required/>
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@
                               <label>Enter Ending Date</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="end_date" placeholder="End date" required/>
+                                <input type="date" name="end_date" placeholder="End date" id="endDate" oninput="checkDate()"; required/>
                             </div>
                         </div>
                         <button class="subbtn" type="submit" name="addSemester-submit">Add Semester</button>
@@ -126,6 +126,16 @@
           }
         }
 
+        // Check dates
+        function checkDate(){
+            var start_date = document.getElementById("startDate").value;
+            var end_date = document.getElementById("endDate").value;
+            alert("Enter end date correctly!");
+            if(end_date < start_date){
+                alert("Enter end date correctly!");
+                document.getElementById("endDate").value = "mm/dd/yyyy";
+            }
+        }
         
     </script>
     

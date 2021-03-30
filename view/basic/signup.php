@@ -137,7 +137,7 @@
 
 	        <div class="row">
 	            <div class="col-25">
-	              <label>DATE OF APPOINTMENT</label>
+	              <label>APPOINTMENT DATE</label>
 	            </div>
 	            <div class="col-75">
 	              <input type="date" name="appointment" max="<?php echo date('Y-m-d'); ?>" required/>

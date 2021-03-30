@@ -76,7 +76,7 @@
 		}
 		
 		public static function getInitAmount($s_id, $connect){
-			$query = "SELECT * FROM tbl_medicalscheme WHERE scheme_id='$s_id'";
+			$query = "SELECT (maxRoomCharge + hospitalCharges + gvtNoPayingWard + gvtChildBirthCover + consultantFee + spectaclesCost) AS SUM FROM tbl_medicalscheme WHERE scheme_id='$s_id'";
 
 			$result = mysqli_query($connect, $query);
 

@@ -20,20 +20,38 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Update / Remove Booking</h2>
+                    <h2>Update Booking</h2>
                 </div>
 
                 <div class="contentForm">
-                    <form action="" method="POST">
+                    <form action="../../controller/asmControllers/modifyBookingController.php?booking_id=<?php echo $_SESSION['booking_id']?>&user_id=<?php echo $_SESSION['user_id']?>" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label>Enter booking id</label>
+                                <label for="">Enter Date: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="" name="bookingId"><br>
+                                <input type="date" name="date" <?php echo 'value="'.$_SESSION['date'].'"' ?> min="<?php echo date('Y-m-d')?>" max="<?php echo $_SESSION['max-date'] ?>" required> <br>
                             </div>
                         </div>
-                        <a href="hamBookingDetailsV.php"><button type="submit" name="updateBooking-submit">OK</button></a>
+                        
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Start Time</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="time" name="startTime" <?php echo 'value="'.$_SESSION['start_time'].'"' ?> required> <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">End Time</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="time" name="endTime" <?php echo 'value="'.$_SESSION['end_time'].'"' ?> required> <br>
+                            </div>
+                        </div>
+
+                        <button class="mainbtn" type="submit" name="submit-continue">Update Booking</button>
                     </form>
                 </div>
             </div>

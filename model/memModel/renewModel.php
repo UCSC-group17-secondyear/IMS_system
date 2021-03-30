@@ -24,14 +24,7 @@
 
 			return $result;
         }
-        
-        public static function checkMemberType($user_id,$connect){
-			$query = "SELECT member_type FROM tbl_user_flag WHERE user_id={$user_id} LIMIT 1";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-        }
+    
         
         public static function getChildDetails($user_id, $connect){
 			$query = "SELECT * FROM tbl_dependant WHERE user_id={$user_id} AND (relationship='Daughter' OR relationship='Son') AND is_deleted='0'";
