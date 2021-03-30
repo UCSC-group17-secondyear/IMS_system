@@ -634,6 +634,7 @@ ul, #tree-view {
 .middle {
   width: 60%;
   border-style: solid;
+  height: 50px;
 }
 
 .middle h2 {
@@ -648,6 +649,22 @@ ul, #tree-view {
 
 .middle2 {
   width: 80%;
+}
+
+.home-heading img {
+  width: 75%; 
+  height: 1000%;
+  margin-left: 110px; 
+  margin-top:120px; 
+  margin-bottom:20px;
+}
+
+.home-heading h3 {
+  font:status-bar;
+  font-size: 23px;
+  font-weight: bold;
+  color: #065b7a;
+  margin-bottom: 100px;
 }
 
 /*-------------------------Image styles------------------------*/

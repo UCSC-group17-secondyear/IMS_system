@@ -18,6 +18,12 @@
             </div>
             <div class="column middle">
                 <h2>Admin Page</h2>
+                 <div class="home-heading">
+                    <img src="../assests/img/cover_final.png" alt="" style="">
+                    <h3>Welcome to the Information Management System for the Staff
+                    <br>Academic and Publications Division - UCSC</h3>
+                 </div>
+                 
             </div>
             <div class="column right">
                 <!-- <div class="card"> -->
