@@ -5,25 +5,13 @@
                 <ul class="tree_nest">
                     <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                         <button name="viewStudents-submit">
-                            <a href="#">
-                                <li><i class="fa fa-user"></i> View Students List</li>
-                            </a>
+                            <a href="#"><li><i class="fa fa-user"></i> View Students List</li></a>
                         </button>
-                    </form>
-
-                    <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                         <button name="enterStudents-submit">
-                            <a href="#">
-                                <li><i class="fa fa-user"></i> Add Students</li>
-                            </a>
+                            <a href="#"><li><i class="fa fa-user"></i> Add Students</li></a>
                         </button>
-                    </form>
-
-                    <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                         <button name="fetchStudents-submit">
-                            <a href="#">
-                                <li><i class="fa fa-user"></i> Update or Remove Students</li>
-                            </a>
+                            <a href="#"><li><i class="fa fa-user"></i> Update or Remove Students</li></a>
                         </button>
                     </form>
                 </ul>
@@ -33,17 +21,10 @@
                 <ul class="tree_nest">
                     <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                         <button name="getStudents-submit">
-                            <a href="#">
-                                <li><i class="fa fa-book"></i>Assign to Non-mandatory Subjects</li>
-                            </a>
+                            <a href="#"><li><i class="fa fa-book"></i> Assign to Non-mandatory Subjects</li></a>
                         </button>
-                    </form>
-
-                    <form action="../../controller/amControllers/manageStudentsC.php" method="post">
                         <button name="getStdIndexList-submit">
-                            <a href="#">
-                                <li><i class="fa fa-book"></i>Remove from Non-mandatory Subjects</li>
-                            </a>
+                            <a href="#"><li><i class="fa fa-book"></i> Remove from Non-mandatory Subjects</li></a>
                         </button>
                     </form>
                 </ul>

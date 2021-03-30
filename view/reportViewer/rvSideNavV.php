@@ -35,7 +35,7 @@
                         </button>
                     </form>
                     <button>
-                        <a href="rvSemesterWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i>View Attendance Semester Wise</li></a>
+                        <a href="rvSemesterWiseAttendanceV.php"><li><i class="fa fa-pencil-square"></i> Semester Wise Attendance</li></a>
                     </button>
                 </ul>
             </li>
@@ -81,13 +81,13 @@
                 <ul class="tree_nest">
                     <form action="../../controller/rvControllers/viewClaimDetailsController.php" method="post">
                         <button name="memberwise-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-plus-circle"></i>Member wise claim details</li></a>
+                            <a href="#"><li><i class="fa fa-plus-circle"></i> Member wise claim details</li></a>
                         </button>
                         <button name="departmentwise-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-pencil-square-o"></i>Department wise claim details</li></a>
+                            <a href="#"><li><i class="fa fa-pencil-square-o"></i> Department wise claim details</li></a>
                         </button>
                         <button name="ucsc-submit" type="submit">
-                            <a href="#"><li><i class="fa fa-minus-circle"></i>UCSC claim details</li></a>
+                            <a href="#"><li><i class="fa fa-minus-circle"></i> UCSC claim details</li></a>
                         </button>
                     </form>
                 </ul>

@@ -32,7 +32,7 @@
                         <a href="../../controller/basicControllers/viewProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Profile</a>
                     </button>
                     <button class="cancelbtn" type="submit">
-                        <a href="memHomeV.php">Leave</a>
+                        <a href="memHomeV.php">Exit</a>
                     </button>
                 </div>
             </div>

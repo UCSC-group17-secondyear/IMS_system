@@ -29,7 +29,7 @@
                                 <label for="">Start Time</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="starttime" placeholder="Start time" required>
+                                <input type="time" id="starttime" name="starttime" placeholder="Start time" required>
                             </div>
                         </div>
                         <div class="row">
@@ -37,7 +37,7 @@
                                 <label for="">End Time</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="endtime" placeholder="End time" required>
+                                <input type="time" id="endtime" name="endtime" placeholder="End time" oninput="checkTime()" required>
                             </div>
                         </div>
                         <div class="row">
@@ -85,6 +85,18 @@
         </div>
     </div>
 </main>
+
+<script>
+    function checkTime(){
+        var start_time = document.getElementById("starttime").value;
+        var end_time = document.getElementById("endtime").value;
+
+        if(start_time > end_time){
+            alert("The end time you have entered is a time before the start time that you have entered!");
+            document.getElementById("endtime").value = "hh-min";
+        }
+    }
+</script>
 
 <?php
     require '../basic/footer.php';

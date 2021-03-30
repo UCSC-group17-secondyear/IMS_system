@@ -20,16 +20,14 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>The Medical Year is removed succcessfully.
+                        <h2>The Medical Year is updated succcessfully.
                         </h2>
                     </div>
 
-                    <button class="subbtn">
-                        <a href="msmRemovePostV.php">Remove another post</a> 
-                    </button>
-                    <button class="cancelbtn">
-                        <a href="msmHomeV.php">Exit</a> 
-                    </button>
+                    <form action="../../controller/msmControllers/msmManageMedicalYearC.php" method="post">
+                        <button name="viweMYList-submit" type="submit" class="subbtn">Update again</button>
+                        <button class="cancelbtn"><a href="msmHomeV.php">Exit</a></button>
+                    </form>                    
                 </div>
             </div>
         </div>

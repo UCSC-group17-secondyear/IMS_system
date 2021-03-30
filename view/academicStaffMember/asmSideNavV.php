@@ -20,12 +20,12 @@
                 <ul class="tree_nest">
                     <button>
                         <a href="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">
-                            <li><i class="fa fa-plus-circle"></i>Add a Booking</li>
+                            <li><i class="fa fa-plus-circle"></i> Add a Booking</li>
                         </a>
                     </button>
                     <button>
                         <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" class="buttonTwo">
-                            <li><i class="fa fa-user"></i>My Bookings</li>
+                            <li><i class="fa fa-user"></i> My Bookings</li>
                         </a>
                     </button>
                 </ul>
@@ -37,7 +37,7 @@
             </li>
             <li>
                 <a href="../../controller/basicControllers/registerMSController1.php?loguser=<?php echo $_SESSION['userId'] ?>">
-                    <button type="submit" class="tree_list"> Register to the Staff Medical Scheme</button>
+                    <button type="submit" class="tree_list">Register to the Staff Medical Scheme</button>
                 </a>
             </li>
         </ul>
