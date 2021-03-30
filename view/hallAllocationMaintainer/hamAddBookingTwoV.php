@@ -3,18 +3,18 @@
 ?>
 
 <main>
-    <title>Add Booking</title>
+    <title>Booking Details</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
-            <li><a href="asmHomeV.php">Home</a></li>
-            <li class="active">Add Booking</li>
+            <li><a href="hamHomeV.php">Home</a></li>
+            <li class="active">Add a booking</li>
         </ul>
 
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'asmSideNavV.php';
+                    require 'hamSideNavV.php';
                 ?>
             </div>
 
@@ -24,35 +24,30 @@
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>&hall=10" method="post">
+                    <form action="../../controller/asmControllers/addBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>" method="post">
+                        
                         <div class="row">
                             <div class="col-25">
-                              <label>Enter Date</label>
+                              <label>Select Hall</label>
                             </div>
                             <div class="col-75">
-                                <input type="date" name="date" min="<?php echo date('Y-m-d')?>" max="<?php echo $_SESSION['max-date'] ?>" required/>
+                                <select name="hall"required>
+                                    <option value="">Select Hall</option>
+                                    <?php echo $_SESSION['available_halls'] ?>
+                                </select>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-25">
-                              <label>Start Time</label>
+                              <label>Reason</label>
                             </div>
                             <div class="col-75">
-                                <input type="time" name="startTime" id="txtStartTime" required/>
+                                <input type="text" name="reason" required/>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                              <label>End Time</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="time" name="endTime" id="txtEndTime" oninput="checkDate()"; required/>
-                            </div>
-                        </div>
-
-                        <button class="mainbtn" type="submit" name="add-book-submit" id="btnCompare" onclick="Compare">Continue</button>
+                        <button class="mainbtn" type="submit" name="add-book-submit" id="btnCompare" onclick="Compare">Book</button>
                     </form>
                     <button class="subbtn" type="submit" name="">
                         <a href="../../controller/asmControllers/viewBookingController.php?user_id=<?php echo $_SESSION['userId'] ?>">View my bookings</a>
@@ -71,9 +66,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <script type="text/javascript">
+     <script type="text/javascript">
         var modal = document.getElementById("myModal");
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
@@ -104,22 +98,10 @@
           }
         }
 
-        //Check time slot
-        function checkDate(){
-            var start_time = document.getElementById("txtStartTime").value;
-            var end_time = document.getElementById("txtEndTime").value;
-
-            if(start_time > end_time){
-                alert("Enter end time correctly!");
-                document.getElementById("txtEndTime").value = "hh-min";
-            }
-        }
-
-
     </script>
 
 </main>
-
+                
 <?php
     require '../basic/footer.php';
 ?>

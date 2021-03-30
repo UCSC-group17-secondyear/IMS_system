@@ -23,7 +23,7 @@
                 <h2>Select Relevant Subjects</h2>
             </div>
             <div class="contentForm">
-                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                <form action="../../controller/amControllers/amViewBatchAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Enter Batch Number</label>

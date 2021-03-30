@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form>
+                    <form action="../../controller/amControllers/amViewBatchAttendanceC.php" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Selected subject</label>
@@ -88,18 +88,11 @@
                             </div>
                         </div>
 
-                        <!-- <div class="row">
-                            <div class="col-25">
-                                <label>Attendance Percentage</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="number" name="attendPercentage" disabled  -->
-                                <?php 
-                                   /* echo 'value="'.$_SESSION['attendPercentage'].'"' */
-                                ?> 
-                                <!-- /><br>
-                            </div>
-                        </div> -->
+                        <button class="subbtn" type="submit" name="batchPdf">Generate a pdf
+                        </button>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="amHomeV.php">Exit</a> 
+                        </button>
                     </form>
                 </div>
 
@@ -110,13 +103,6 @@
                     </tr>
                     <?php echo $_SESSION['batchWise_attendance']; ?>
                 </table>
-
-                <button class="subbtn">
-                    <a href="amBatchWiseAttendanceV.php">View another batch-wise attendance</a>
-                </button>
-                <button class="cancelbtn" type="submit" name="cancel-submit">
-                    <a href="amHomeV.php">Cancel</a> 
-                </button>
             </div>
         </div>
     </div>

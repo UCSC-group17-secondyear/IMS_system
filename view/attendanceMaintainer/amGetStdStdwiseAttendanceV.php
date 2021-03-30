@@ -23,7 +23,7 @@
                 <h2>Filter student details to get attendance</h2>
             </div>
             <div class="contentForm">
-                <form action="../../controller/amControllers/amViewAttendanceC.php" method="post">
+                <form action="../../controller/amControllers/amViewStudentAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
                             <label>Selected student</label>

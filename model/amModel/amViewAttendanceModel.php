@@ -156,7 +156,7 @@
 
         public static function fetchSubjects($connect)
         {
-            $query = "SELECT subject_name FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_code ASC ";
+            $query = "SELECT DISTINCT(subject_name) FROM tbl_subject WHERE is_deleted = 0 ORDER BY subject_code ASC ";
 
             $result = mysqli_query($connect, $query);
             

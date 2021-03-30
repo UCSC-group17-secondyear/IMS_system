@@ -107,14 +107,6 @@
         $startTime =  $_SESSION['startTime'];
         $endTime =  $_SESSION['endTime'];
 
-        // $getHallId = asmModel::getHallId($hall, $connect);
-
-        // if ($getHallId) {
-        //     while ($rec = mysqli_fetch_assoc($getHallId)) {
-        //         $h_id = $rec['hall_id'];
-        //     }
-        // }
-
         $check = asmModel::checkHall($hall, $date, $startTime, $endTime, $connect);
         if (mysqli_num_rows($check)==1) {
             if ($_SESSION['role'] == 2) {
@@ -144,6 +136,14 @@
                     header('Location:../../view/academicStaffMember/asmBookingAddedV.php');
                 }
                 
+            }
+            else {
+                if ($_SESSION['role'] == 2) {
+                    header('Location:../../view/hallAllocationMaintainer/hamBookingNotAddedV.php');
+                }
+                elseif ($_SESSION['role'] == 10) {
+                    header('Location:../../view/academicStaffMember/asmBookingNotAddedV.php');
+                }
             }
         }
 
