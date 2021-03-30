@@ -106,7 +106,7 @@
 	              	<label>DATE OF BIRTH</label>
 	            </div>
 	            <div class="col-75">
-	              	<input type="date" name="dob" max="<?php echo date('Y-m-d'); ?>" required/>
+	              	<input type="date" name="dob" max="<?php echo date('Y-m-d'); ?>" id="birth-date" required/>
 	            </div>
 	        </div>
 
@@ -140,7 +140,7 @@
 	              <label>APPOINTMENT DATE</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="date" name="appointment" max="<?php echo date('Y-m-d'); ?>" required/>
+	              <input type="date" name="appointment" max="<?php echo date('Y-m-d'); ?>" id="app-date" onclick="checkDate()"; required/>
 	            </div>
 	        </div>
 
@@ -163,20 +163,6 @@
 					</div>
 	            </div>
 			</div>
-			<!-- <div class="row">
-				<div class="col-25">
-	              	<input type="checkbox" onclick="showPasswordFunction()">
-				</div>
-				<div class="col-75">
-					<label>SHOW PASSWORD</label>
-				</div>
-			</div> -->
-			
-			
-
-			<!-- <div class="row">
-				<b><p>Password is required minimum eight characters, at least one uppercase letter, one lowercase letter, one number, and one special character(only @$!%*?&)</p></b>
-			</div> -->
 
 	        <div class="row">
 	            <div class="col-25">
@@ -432,6 +418,18 @@
 			state = true;
 			}
 		}
+
+		//Check dates
+		function checkDate(){
+            var birth_date = document.getElementById("birth-date").value;
+            var appointment_date = document.getElementById("app-date").value;
+
+            if(birth_date < appointment_date){
+                alert("Enter birthdate and appointment date correctly !");
+                document.getElementById("birth-date").value = "mm/dd/yyyy";
+                document.getElementById("app-date").value = "mm/dd/yyyy";
+            }
+        }
     </script>
 
 </body>
