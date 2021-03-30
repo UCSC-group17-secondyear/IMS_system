@@ -135,3 +135,12 @@ INFO: Unsupported notification method: $/setTraceNotification
 [0m2021.03.28 22:37:27 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
 Mar 28, 2021 10:42:47 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTraceNotification
+[0m2021.03.29 22:55:21 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.54.3.[0m
+[0m2021.03.29 22:55:23 INFO  time: initialize in 1.99s[0m
+[0m2021.03.29 22:55:28 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.29 22:55:28 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.03.29 23:42:03 INFO  shutting down Metals[0m
+[0m2021.03.30 08:08:05 INFO  Started: Metals version 0.10.0 in workspace 'C:\xampp\htdocs\IMS_system' for client vscode 1.54.3.[0m
+[0m2021.03.30 08:08:07 INFO  time: initialize in 1.84s[0m
+[0m2021.03.30 08:08:08 WARN  Build server is not auto-connectable.[0m
+[0m2021.03.30 08:08:08 WARN  no build tool detected in workspace 'C:\xampp\htdocs\IMS_system'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
