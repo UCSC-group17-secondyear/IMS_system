@@ -3,7 +3,7 @@
     require_once('../../config/database.php');
     require_once('../../model/msmModel/msmviewclaimdetailsModel.php');
 
-    if(isset($_POST['memberwiseclaim-submit']) || $_GET['btn']==55) {
+    if(isset($_POST['memberwiseclaim-submit']) || isset($_GET['btn'])) {
 
         $result_year = msmModel::getMemYears($connect);
         $_SESSION['medical_year'] = '';
@@ -53,7 +53,7 @@
         
     } 
     
-    elseif (isset($_POST['departmentwise-submit']) || $_GET['btn']==56) {
+    elseif (isset($_POST['departmentwise-submit']) || isset($_GET['btn'])) {
 
         $dept = msmModel::viewDept($connect);
         $result_year = msmModel::getMemYears($connect);
@@ -128,7 +128,9 @@
             header('Location:../../view/medicalSchemeMaintainer/msmNoClaimRecordsAvaliableV.php');
         }
 
-    } elseif (isset($_POST['ucsc-submit']) || $_GET['btn']==57) {
+    } 
+    
+    elseif (isset($_POST['ucsc-submit']) || isset($_GET['btn'])) {
 
         $result_year = msmModel::getMemYears($connect);
         $_SESSION['medical_year'] = '';

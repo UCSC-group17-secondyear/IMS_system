@@ -6,7 +6,7 @@
 
 <?php
 
-    if(isset($_POST['approve_list']) || $_GET['btn']=='71'){
+    if(isset($_POST['approve_list']) || isset($_GET['btn'])){
 
         $_SESSION['app_form_no'] = '';
         $result_forms = array();
@@ -27,7 +27,7 @@
 
     }
 
-    if(isset($_POST['reject_list']) || $_GET['btn']=='72'){
+    if(isset($_POST['reject_list']) || isset($_GET['btn'])){
        
         $_SESSION['rej_form_no'] = '';
         $result_forms = array();

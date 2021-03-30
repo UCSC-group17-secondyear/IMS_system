@@ -8,7 +8,7 @@
 
 <?php
 
-        if(isset($_POST['view-mahapola-report']) || $_GET['btn'] == 88){
+        if(isset($_POST['view-mahapola-report']) || isset($_GET['btn'])){
 
             $batch_numbers = studentDetModel::getBatchNumbers($connect);
             $degrees = studentDetModel::getDegrees($connect);
@@ -44,6 +44,11 @@
             $month = mysqli_real_escape_string($connect, $_POST['month']);
             $batch_no = mysqli_real_escape_string($connect, $_POST['batch_no']);
             $degree = mysqli_real_escape_string($connect, $_POST['degree']);
+
+            $_SESSION['batch_no'] = $batch_no;
+            $_SESSION['month'] = $month;
+            $_SESSION['year'] = $year;
+            $_SESSION['degree_id']  = $degree;
 
             $year_month = $year.''.$month;
 
@@ -165,6 +170,10 @@
 
                     $check_has_reconcilation_record = viewMahapolaModel::checkHasRecord($degree,$batch_no,$year,$month,$connect);
 
+                    $_SESSION['eligible_m'] = $eligible_count_m;
+                    $_SESSION['eligible_o'] = $eligible_count_o;
+                    $_SESSION['non_eligible'] = $non_eligible_count;
+
                     if(mysqli_num_rows($check_has_reconcilation_record) == 1){
                         $update_reconcilation = viewMahapolaModel::updateRecocilation($degree,$batch_no,$year,$month,$eligible_count_m,$eligible_count_o,$non_eligible_count,$connect);
                     }
@@ -175,10 +184,13 @@
                 $degree_name = viewMahapolaModel::getDegreeName($degree,$connect);
                 $name = mysqli_fetch_assoc($degree_name);
                 $deg_name = $name['degree_name'];
+                $_SESSION['degree_name'] = $deg_name;
 
                 if($report_type == 'monthlyEligibiltyList'){
 
                     $_SESSION['eligible_stu'] = '';
+                    $_SESSION['gen_eligible_list'] = '';
+
                     if(count($eligible_stu_list) > 0){
                         for($i =0; $i<count($eligible_stu_list) ; $i++){
 
@@ -192,6 +204,7 @@
                             $_SESSION['eligible_stu'] .= "<td>{$stu_det['mahapola_category']}</td>";
                             $_SESSION['eligible_stu'] .= "</tr>";
 
+                            $_SESSION['gen_eligible_list'] = $eligible_stu_list;
                         
                             header('Location:../../view/mahapolaSchemeMaintainer/mmEligibilityListV.php');
 
@@ -208,6 +221,7 @@
                 elseif($report_type == 'monthlyInEligibiltyList'){
 
                     $_SESSION['non_eligible_stu'] = '';
+                    $_SESSION['gen_ineligible_list'] = '';
 
                     if(count($non_eligible_stu_list) > 0){
                         for($i =0; $i<count($non_eligible_stu_list) ; $i++){
@@ -219,6 +233,8 @@
                             $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['registration_no']}</td>";
                             $_SESSION['non_eligible_stu'] .= "<td>{$stu_det['initials']}.{$stu_det['last_name']}</td>";
                             $_SESSION['non_eligible_stu'] .= "</tr>";
+
+                            $_SESSION['gen_ineligible_list'] = $non_eligible_stu_list;
 
                             header('Location:../../view/mahapolaSchemeMaintainer/mmInEligibilityListV.php');
 
@@ -267,7 +283,7 @@
 
                     }
 
-
+             
                         $_SESSION['reco_eligible_stu'] = '';
                         if(count($eligible_stu_list) > 0){
                             for($i =0; $i<count($eligible_stu_list) ; $i++){
@@ -324,6 +340,281 @@
             }
             
             
+        }
+
+        elseif(isset($_POST['eligiblePDF'])){
+
+            require_once("../../FPDF/fpdf.php");
+
+            
+            class getPdf extends FPDF {
+
+                function header () {
+                    $this -> SetFont('Arial', 'B', 20);
+                    $this -> Cell(276, 10, "Mahapola Eligibility List", 0, 1, 'C');
+                    $this -> Ln();
+                }
+
+                function footer () {
+                    $this -> SetY(-15);
+                    $this -> SetFont('Arial', '', 8);
+                    $this -> Cell(0, 10, 'Page Number '.$this->PageNo(), 0, 0, 'C');
+                }
+
+                function displayInfo(){
+
+                    $degree = $_SESSION['degree_name'];
+                    $batch_no = $_SESSION['batch_no'];
+                    $year = $_SESSION['year'];
+                    $month = $_SESSION['month'];
+
+                    $this -> Cell(75, 10, "Year", 1, 0, 'B');
+                    $this -> Cell(0, 10, $year, 1, 1);
+
+                    $this -> Cell(75, 10, "Month", 1, 0, 'B');
+                    $this -> Cell(0, 10, $month, 1, 1);
+
+                    $this -> Cell(75, 10, "Degree", 1, 0, 'B');
+                    $this -> Cell(0, 10, $degree, 1, 1);
+
+                    $this -> Cell(75, 10, "Batch No", 1, 0, 'B');
+                    $this -> Cell(0, 10, $batch_no, 1, 1);
+
+                    $this -> Cell(0, 10, "", 0, 1);
+                }
+
+                function stuTable(){
+                    $this -> SetFont('Arial', 'B', 16);
+                    $this -> Cell(65, 10, "Student Index", 1, 0, 'C');
+                    $this -> Cell(65, 10, "Registration No", 1, 0, 'C');
+                    $this -> Cell(65, 10, "Student Name", 1, 0, 'C');
+                    $this -> Cell(0, 10, "Mahapola Scheme", 1, 0, 'C');
+                    $this -> Ln();
+                }
+
+               function displayDetail($eli_list,$connect){
+                    for($i =0; $i<count($eli_list) ; $i++){
+
+                        $student_det = viewMahapolaModel::getStudentDetails($eli_list[$i],$connect);
+                        $stu_det = mysqli_fetch_assoc($student_det);
+
+                        $this -> Cell(65, 10, $stu_det['index_no'], 1, 0);
+                        $this -> Cell(65, 10, $stu_det['registration_no'], 1, 0);
+                        $this -> Cell(65, 10, $stu_det['initials'].' '.$stu_det['last_name'], 1, 0);
+                        $this -> Cell(0, 10, $stu_det['mahapola_category'], 1, 1);
+                    }
+               }
+    
+            }
+
+            $pdf = new getPdf();
+            $pdf -> AddPage('L', 'A4', 0);
+            $pdf -> SetFont("Arial", "", 14);
+            $pdf -> displayInfo();
+            $pdf -> stuTable();
+            $pdf -> displayDetail($_SESSION['gen_eligible_list'],$connect);
+            $pdf->output();
+        }
+
+        elseif(isset($_POST['inEligiblePDF'])){
+
+            require_once("../../FPDF/fpdf.php");
+
+            
+            class getPdf extends FPDF {
+
+                function header () {
+                    $this -> SetFont('Arial', 'B', 20);
+                    $this -> Cell(276, 10, "Mahapola Ineligibility List", 0, 1, 'C');
+                    $this -> Ln();
+                }
+
+                function footer () {
+                    $this -> SetY(-15);
+                    $this -> SetFont('Arial', '', 8);
+                    $this -> Cell(0, 10, 'Page Number '.$this->PageNo(), 0, 0, 'C');
+                }
+
+                function displayInfo(){
+
+                    $degree = $_SESSION['degree_name'];
+                    $batch_no = $_SESSION['batch_no'];
+                    $year = $_SESSION['year'];
+                    $month = $_SESSION['month'];
+
+                    $this -> Cell(75, 10, "Year", 1, 0, 'B');
+                    $this -> Cell(0, 10, $year, 1, 1);
+
+                    $this -> Cell(75, 10, "Month", 1, 0, 'B');
+                    $this -> Cell(0, 10, $month, 1, 1);
+
+                    $this -> Cell(75, 10, "Degree", 1, 0, 'B');
+                    $this -> Cell(0, 10, $degree, 1, 1);
+
+                    $this -> Cell(75, 10, "Batch No", 1, 0, 'B');
+                    $this -> Cell(0, 10, $batch_no, 1, 1);
+
+                    $this -> Cell(0, 10, "", 0, 1);
+                }
+
+                function stuTable(){
+                    $this -> SetFont('Arial', 'B', 16);
+                    $this -> Cell(65, 10, "Student Index", 1, 0, 'C');
+                    $this -> Cell(65, 10, "Registration No", 1, 0, 'C');
+                    $this -> Cell(0, 10, "Student Name", 1, 0, 'C');
+                    $this -> Ln();
+                }
+
+               function displayDetail($ineli_list,$connect){
+                    for($i =0; $i<count($ineli_list) ; $i++){
+
+                        $student_det = viewMahapolaModel::getStudentDetails($ineli_list[$i],$connect);
+                        $stu_det = mysqli_fetch_assoc($student_det);
+
+                        $this -> Cell(65, 10, $stu_det['index_no'],1, 0);
+                        $this -> Cell(65, 10, $stu_det['registration_no'],1, 0);
+                        $this -> Cell(0, 10, $stu_det['initials'].' '.$stu_det['last_name'],1, 1);
+                    }
+               }
+    
+            }
+
+            $pdf = new getPdf();
+            $pdf -> AddPage('L', 'A4', 0);
+            $pdf -> SetFont("Arial", "", 14);
+            $pdf -> displayInfo();
+            $pdf -> stuTable();
+            $pdf -> displayDetail($_SESSION['gen_ineligible_list'],$connect);
+            $pdf->output();
+        }
+
+
+        elseif(isset($_POST['recoPDF'])){
+
+            require_once("../../FPDF/fpdf.php");
+
+            
+            class getPdf extends FPDF {
+
+                function header () {
+                    $this -> SetFont('Arial', 'B', 20);
+                    $this -> Cell(276, 10, "Monthly Reconciliation Report", 0, 1, 'C');
+                    $this -> Ln();
+                }
+
+                function headerEligbile () {
+                    $this -> SetFont('Arial', 'B', 20);
+                    $this -> Cell(276, 10, "Monthly Eligibility List", 0, 1, 'C');
+                    $this -> Ln();
+                }
+
+                function headerInEligbile () {
+                    $this -> SetFont('Arial', 'B', 20);
+                    $this -> Ln();
+                    $this -> Cell(276, 10, "Monthly Ineligibility List", 0, 1, 'C');
+                    $this -> Ln();
+                }
+
+                function footer () {
+                    $this -> SetY(-15);
+                    $this -> SetFont('Arial', '', 8);
+                    $this -> Cell(0, 10, 'Page Number '.$this->PageNo(), 0, 0, 'C');
+                }
+
+                function displayInfo($connect){
+
+                    $degree_id = $_SESSION['degree_id'];
+                    $degree = $_SESSION['degree_name'];
+                    $batch_no = $_SESSION['batch_no'];
+                    $year = $_SESSION['year'];
+                    $month = $_SESSION['month'];
+
+                    $this -> Cell(75, 10, "Year", 1, 0, 'B');
+                    $this -> Cell(0, 10, $year, 1, 1);
+
+                    $this -> Cell(75, 10, "Month", 1, 0, 'B');
+                    $this -> Cell(0, 10, $month, 1, 1);
+
+                    $this -> Cell(75, 10, "Degree", 1, 0, 'B');
+                    $this -> Cell(0, 10, $degree, 1, 1);
+
+                    $this -> Cell(75, 10, "Batch No", 1, 0, 'B');
+                    $this -> Cell(0, 10, $batch_no, 1, 1);
+
+                    $this -> Cell(0, 10, "", 0, 1);
+
+                    $this -> SetFont('Arial', 'B', 16);
+                    $this -> Cell(65, 10, "Merit Scholarship", 1, 0, 'C');
+                    $this -> Cell(65, 10, "Ordinary Scholarship", 1, 0, 'C');
+                    $this -> Cell(0, 10, "Non eligible", 1, 0, 'C');
+                    $this -> Ln();
+
+                    $cur_reco_result = viewMahapolaModel::getCurrentMonthResult($degree_id,$batch_no,$year,$month,$connect);
+                    $cur_result = mysqli_fetch_assoc($cur_reco_result);
+
+                        $this -> Cell(65, 10, $cur_result['eligible_m'], 1, 0);
+                        $this -> Cell(65, 10, $cur_result['eligible_m'], 1, 0);
+                        $this -> Cell(0, 10, $cur_result['non_eligible'], 1, 1);
+                    
+                                 
+                }
+
+                function stuEligibleTable(){
+                    $this -> SetFont('Arial', 'B', 16);
+                    $this -> Cell(65, 10, "Student Index", 1, 0, 'C');
+                    $this -> Cell(65, 10, "Registration No", 1, 0, 'C');
+                    $this -> Cell(65, 10, "Student Name", 1, 0, 'C');
+                    $this -> Cell(0, 10, "Mahapola Scheme", 1, 0, 'C');
+                    $this -> Ln();
+                }
+
+                function displayEligibleDetail($eli_list,$connect){
+                    for($i =0; $i<count($eli_list) ; $i++){
+
+                        $student_det = viewMahapolaModel::getStudentDetails($eli_list[$i],$connect);
+                        $stu_det = mysqli_fetch_assoc($student_det);
+
+                        $this -> Cell(65, 10, $stu_det['index_no'], 1, 0);
+                        $this -> Cell(65, 10, $stu_det['registration_no'], 1, 0);
+                        $this -> Cell(65, 10, $stu_det['initials'].' '.$stu_det['last_name'], 1, 0);
+                        $this -> Cell(0, 10, $stu_det['mahapola_category'], 1, 1);
+                    }
+               }
+
+                function stuIneligibleTable(){
+                    $this -> SetFont('Arial', 'B', 16);
+                    $this -> Cell(65, 10, "Student Index", 1, 0, 'C');
+                    $this -> Cell(65, 10, "Registration No", 1, 0, 'C');
+                    $this -> Cell(0, 10, "Student Name", 1, 0, 'C');
+                    $this -> Ln();
+                }
+
+               function displayIneligibleDetail($ineli_list,$connect){
+                    for($i =0; $i<count($ineli_list) ; $i++){
+
+                        $student_det = viewMahapolaModel::getStudentDetails($ineli_list[$i],$connect);
+                        $stu_det = mysqli_fetch_assoc($student_det);
+
+                        $this -> Cell(65, 10, $stu_det['index_no'], 1, 0);
+                        $this -> Cell(65, 10, $stu_det['registration_no'], 1, 0);
+                        $this -> Cell(0, 10, $stu_det['initials'].' '.$stu_det['last_name'], 1, 1);
+                    }
+               }
+    
+            }
+
+            $pdf = new getPdf();
+            $pdf -> AddPage('L', 'A4', 0);
+            $pdf -> SetFont("Arial", "", 14);
+            $pdf -> displayInfo($connect);
+            $pdf -> headerEligbile();
+            $pdf -> stuEligibleTable();
+            $pdf -> displayEligibleDetail($_SESSION['gen_eligible_list'],$connect);
+            $pdf -> headerInEligbile();
+            $pdf -> stuIneligibleTable();
+            $pdf -> displayIneligibleDetail($_SESSION['gen_ineligible_list'],$connect);
+            $pdf->output();
+
         }
 ?>
 

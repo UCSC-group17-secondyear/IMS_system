@@ -75,6 +75,7 @@
                             <button type="submit" class="cancelbtn">
                                 <a href="rvHomeV.php">Exit</a>
                             </button>
+                            <button class="mainbtn" type="submit" name="recoPDF" >Generate PDF</button></a>
                         </form>
                     </div>
                 
