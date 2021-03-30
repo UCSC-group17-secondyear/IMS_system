@@ -23,6 +23,19 @@
                     <h2>Scheme Details</h2>
                 </div>
 
+                <div class="contentForm">
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Enter Scheme Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search a scheme" name="Index_no" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
                 <table id="tableStyle" class="mytable">
                     <tr>
                         <th>Scheme Name</th>
@@ -47,3 +60,25 @@
 <?php
     require '../basic/footer.php';
 ?>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tableStyle");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
