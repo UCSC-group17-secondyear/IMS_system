@@ -8,7 +8,6 @@
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
         <li><a href="amSubjectWiseAttendanceV.php">Subject-wise Attendance</a></li>
-        <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
         <li class="active">Subject-wise Attendance Results</li>
         </ul>
 
@@ -25,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form>
+                    <form action="../../controller/amControllers/amViewSubjectAttendanceC.php" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Selected subject</label>
@@ -106,6 +105,12 @@
                                 <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
                             </div>
                         </div>
+
+                        <button class="subbtn" type="submit" name="subjectPdf">Generate a pdf
+                        </button>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="amHomeV.php">Exit</a> 
+                        </button>
                     </form>
                 </div>
 
@@ -116,13 +121,6 @@
                     </tr>
                     <?php echo $_SESSION['subWise_attendance']; ?>
                 </table>
-
-                <button class="subbtn">
-                    <a href="amSubjectWiseAttendanceV.php">View another subject-wise attendance</a>
-                </button>
-                <button class="cancelbtn" type="submit" name="cancel-submit">
-                    <a href="amHomeV.php">Cancel</a> 
-                </button>
             </div>
         </div>
     </div>

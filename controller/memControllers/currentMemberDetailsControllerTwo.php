@@ -45,8 +45,8 @@
 
         $init_amount = memModel::getInitAmount($s_id, $connect);
         $i_amount = mysqli_fetch_array($init_amount);
-        $amount = $i_amount[2] + $i_amount[3] + $i_amount[4] + $i_amount[5] + $i_amount[6] + $i_amount[7] + $i_amount[8] ;
-        $cur_year = date("Y");
+        $amount = (int)$i_amount[0] ;
+        $cur_year = date('Y');
 
         $check_has_claim_det_row = memModel::checkClaimDetYear($user_id, $cur_year, $connect);
         
