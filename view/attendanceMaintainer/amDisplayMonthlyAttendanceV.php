@@ -8,7 +8,6 @@
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
         <li><a href="amMonthWiseAttendanceV.php">Monthwise Attendance</a></li>
-        <!-- <li><a href="amGetStdStdwiseAttendanceV.php">Filter student details</a></li> -->
         <li class="active">Monthwise Attendance</li>
         </ul>
 
@@ -25,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form>
+                    <form action="../../controller/amControllers/amViewMonthlyAttendanceC.php" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Selected calendar year</label>
@@ -97,6 +96,12 @@
                                 <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
                             </div>
                         </div>
+
+                        <button class="subbtn" type="submit" name="monthPdf">Genrate a pdf
+                        </button>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="amHomeV.php">Exit</a> 
+                        </button>
                     </form>
                 </div>
 
@@ -107,13 +112,6 @@
                     </tr>
                     <?php echo $_SESSION['monthAttendance_list']; ?>
                 </table>
-
-                <button class="subbtn">
-                    <a href="amMonthWiseAttendanceV.php">View another monthwise attendance</a>
-                </button>
-                <button class="cancelbtn" type="submit" name="cancel-submit">
-                    <a href="amHomeV.php">Cancel</a> 
-                </button>
             </div>
         </div>
     </div>

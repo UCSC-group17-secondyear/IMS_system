@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="contentForm">
-                    <form>
+                    <form action="../../controller/amControllers/amViewSemesterAttendanceC.php" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label>Selected calendar year</label>
@@ -59,25 +59,24 @@
                                 <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
                             </div>
                         </div>
+
+                        <button class="subbtn" type="submit" name="semPdf">Generate a pdf
+                        </button>
+                        <button class="cancelbtn" type="submit" name="cancel-submit">
+                            <a href="amHomeV.php">Exit</a> 
+                        </button>
                     </form>
                 </div>
 
                 <table id="tableStyle" class="mytable" style="margin-left: 15%;" >
                     <tr>
                         <th>Student Index</th>
-                        <th>Subject Code</th>
+                        <th>Subject Name</th>
                         <th>Session Type</th>
                         <th>Attendance</th>
                     </tr>
                     <?php echo $_SESSION['semesterAttendance_list']; ?>
                 </table>
-
-                <button class="subbtn">
-                    <a href="amSemesterWiseAttendanceV.php">View another semester-wise attendance</a>
-                </button>
-                <button class="cancelbtn" type="submit" name="cancel-submit">
-                    <a href="amHomeV.php">Cancel</a> 
-                </button>
             </div>
         </div>
     </div>
