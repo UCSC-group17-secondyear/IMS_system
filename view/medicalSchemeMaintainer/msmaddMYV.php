@@ -67,7 +67,6 @@
         if(edate < sdate){
             alert("The end date you have entered is a date before the start date that you have entered!");
             document.getElementById("end_date").value = "mm/dd/yyyy";
-            
         }
     }
 </script>
