@@ -212,6 +212,84 @@
         }
     }
 
+    elseif (isset($_POST['getDegreeList-submit'])) {
+        $get_degrees = amModel::getDegreeList($connect);
+
+        if ($get_degrees) {
+            session_start();
+            $_SESSION['degreeList'] = '';
+
+            while ($record = mysqli_fetch_assoc($get_degrees)) {
+                $_SESSION['degreeList'] .= "<option value='".$record['degree_name']."'>".$record[ 'degree_name']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amSelectDegreeV.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
+        }
+    }
+
+    elseif (isset($_POST['getDegreeSubjects-submit'])) {
+        $degree_name = $_POST['degree_name'];
+        session_start();
+        $_SESSION['degree_name'] = $degree_name;
+        $_SESSION['subjectList'] = '';
+
+        $get_degree_id = amModel:: get_degree_id($degree_name, $connect);
+        $result_degree_id = mysqli_fetch_array($get_degree_id);
+        $degree_id = $result_degree_id['degree_id'];
+
+        if ($degree_id) {
+            $get_subList = amModel:: get_degreeSubjectList ($degree_id, $connect);
+
+            if (mysqli_num_rows($get_subList)) {
+                while ($record = mysqli_fetch_assoc($get_subList)) {
+                    $_SESSION['subjectList'] .= "<tr>";
+                    $_SESSION['subjectList'] .= "<td>{$record['subject_code']}</td>";
+                    $_SESSION['subjectList'] .= "<td>{$record['subject_name']}</td>";
+                    $_SESSION['subjectList'] .= "<td>{$record['academic_year']}</td>";
+                    $_SESSION['subjectList'] .= "<td>{$record['semester']}</td>";
+                    $_SESSION['subjectList'] .= "</tr>";
+                }
+                header('Location:../../view/attendanceMaintainer/amSubjectsOfDegreeV.php');
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amNoSubForDegreeV.php');
+            }
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
+        }
+    }
+
+    elseif (isset($_POST['getAyearSubjects-submit'])) {
+        $academic_year = $_POST['academic_year'];
+        session_start();
+        $_SESSION['academic_year'] = $academic_year;
+
+        $_SESSION['subjectListA'] = '';
+        $get_subList = amModel:: get_aySubjectList ($academic_year, $connect);
+        if (mysqli_num_rows($get_subList)) {
+                while ($record = mysqli_fetch_assoc($get_subList)) {
+                    $degree_id = $record['degree_id'];
+                    $fetchDegree = amModel::get_degree_name ($degree_id, $connect);
+                    $degree_rows = mysqli_fetch_assoc($fetchDegree);
+                    $degree_name = $degree_rows['degree_name'];
+
+                    $_SESSION['subjectListA'] .= "<tr>";
+                    $_SESSION['subjectListA'] .= "<td>{$record['subject_code']}</td>";
+                    $_SESSION['subjectListA'] .= "<td>{$record['subject_name']}</td>";
+                    $_SESSION['subjectListA'] .= "<td>{$degree_name}</td>";
+                    $_SESSION['subjectListA'] .= "<td>{$record['semester']}</td>";
+                    $_SESSION['subjectListA'] .= "</tr>";
+                }
+                header('Location:../../view/attendanceMaintainer/amSubjectsOfAcademicYear.php');
+            }
+            else {
+                header('Location:../../view/attendanceMaintainer/amNoSubForAcademicYearV.php');
+            }
+    }
+
     else {
     	header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
     }

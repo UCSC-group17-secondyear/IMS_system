@@ -6,10 +6,12 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li class="active">Request Failed!</li>
+            <li><a href="amViewSubjects.php">Subject Details</a></li>
+            <li><a href="amSelectAcademicYv.php">Select an academic year</a></li>
+            <li class="active">Request Denied!</li>
         </ul>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;" >
             <div class="col left20">
                 <?php
                     require 'amSideNavV.php';
@@ -19,12 +21,15 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            The system has failed to complete your request. Try again shortly.
+                        <h2>Sorry!<br>
+                        There are no subjects allocated for the given academic year.
                         </h2>
                     </div>
 
-                    <button class="mainbtn">
+                    <button class="subbtn">
+                        <a href="amSelectAcademicYv.php">Try again</a> 
+                    </button>
+                    <button class="cancelbtn">
                         <a href="amHomeV.php">Exit</a> 
                     </button>
                 </div>

@@ -6,7 +6,9 @@
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="amHomeV.php">Home</a></li>
-            <li class="active">Subject Details</li>
+            <li><a href="amViewSubjects.php">Subject Details</a></li>
+            <li><a href="amSelectAcademicYv.php">Select an academic year</a></li>
+            <li class="active">Subjects List</li>
         </ul>
 
         <div class="row" style="margin-bottom: 4%;" >
@@ -18,25 +20,26 @@
 
             <div class="col right80">
                 <div>
-                    <h2>Subject Details</h2>
+                    <h2>Subjects List of the selected academic year</h2>
                 </div>
 
                 <div class="contentForm">
-                    <form action="../../controller/amControllers/manageSubjectsC.php" method="post">
-                        <button class="subbtn" type="submit" name="getDegreeList-submit">
-                            Get subjects of a degree
-                        </button>
-                        <button class="subbtn" type="submit" name="getAsubList-submit">
-                            <a href="amSelectAcademicYv.php">Get subjects of an academic year</a>
-                        </button>
-                    </form>
                     <form action="" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="">Selected Academic Year</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="degree_name" disabled <?php echo 'value=" '.$_SESSION['academic_year'].'"' ?> >
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-25">
                                 <label for="">Enter Subject Code</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search a subject" name="Index_no" required>
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search a subject" name="subject_code" required>
                             </div>
                         </div>
                     </form>
@@ -46,11 +49,10 @@
                     <tr>
                         <th>Subject Code</th>
                         <th>Subject Name</th>
-                        <th>Degree</th>
-                        <th>Academic Year</th>
+                        <th>Degree Name</th>
                         <th>Semester</th>
                     </tr>
-                    <?php echo $_SESSION['subject_list']; ?>
+                    <?php echo $_SESSION['subjectListA'] ; ?>
                 </table>
             </div>
         </div>

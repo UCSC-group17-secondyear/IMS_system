@@ -430,6 +430,110 @@
         }
     }
 
+    elseif (isset($_POST['getBatchList-submit'])) {
+        $records = amModel::getBatchList ($connect);
+        
+        session_start();
+        $_SESSION['batchList'] = '';
+
+        if ($records) {
+            while ($record = mysqli_fetch_assoc($records)) {
+                $_SESSION['batchList'] .= "<option value='".$record['batch_number']."'>".$record['batch_number']."</option>";
+            }
+            header('Location:../../view/attendanceMaintainer/amGetBatchV.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
+        }
+    }
+
+    elseif (isset($_POST['getBatch-submit'])) {
+        $batch_number = $_POST['batch_number'];
+        session_start();
+        $_SESSION['batch_number'] = $batch_number;
+        $_SESSION['batchStd'] = '';
+
+        $get_BstdList = amModel::get_BstdList ($batch_number, $connect);
+
+        if (mysqli_num_rows($get_BstdList) != 0) {
+            while ($record = mysqli_fetch_assoc($get_BstdList)) {
+                $get_degree_name = amModel::get_degree_name ($record['degree_id'], $connect);
+                $result_degree_name = mysqli_fetch_assoc($get_degree_name);
+                $degree_name = $result_degree_name['degree_name'];
+
+                $_SESSION['batchStd'] .= "<tr>";
+                $_SESSION['batchStd'] .= "<td> {$record['index_no']} </td>";
+                $_SESSION['batchStd'] .= "<td> {$record['registration_no']} </td>";
+                $_SESSION['batchStd'] .= "<td> {$record['initials']} </td>";
+                $_SESSION['batchStd'] .= "<td> {$record['last_name']} </td>";
+                $_SESSION['batchStd'] .= "<td> {$record['email']} </td>";
+                $_SESSION['batchStd'] .= "<td> {$record['academic_year']} </td>";
+                $_SESSION['batchStd'] .= "<td> {$record['semester']} </td>";
+                $_SESSION['batchStd'] .= "<td> {$degree_name} </td>";
+                $_SESSION['batchStd'] .= "</tr>";
+            }
+            header('Location:../../view/attendanceMaintainer/amBatchListV.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
+        }
+    }
+
+    elseif (isset($_POST['getDegreeList-submit'])) {
+        $getDegreeList = amModel:: getDegreeList($connect);
+        session_start();
+        $_SESSION['degreeList'] = '';
+
+        if (mysqli_num_rows($getDegreeList) != 0) {
+            while ($record = mysqli_fetch_assoc($getDegreeList)) {
+                $_SESSION['degreeList'] .="<option value='".$record['degree_name']."'>".$record['degree_name']."</otpion>";
+            }
+            header('Location:../../view/attendanceMaintainer/amDegreeListV.php');
+        }
+        else {
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
+        }
+    }
+
+    elseif (isset($_POST['getDegree-submit'])) {
+        $degree_name = $_POST['degree_name'];
+        session_start();
+        $_SESSION['degree_name'] = $degree_name;
+        $_SESSION['degreeStd'] = '';
+
+        $get_degreeId = amModel::degreeId ($degree_name, $connect);
+        $result_degreeId = mysqli_fetch_assoc($get_degreeId);
+        $degree_id = $result_degreeId['degree_id'];
+
+        if ($degree_id) {
+            $get_DstdList = amModel::get_DstdList($degree_id, $connect);
+
+            if (mysqli_num_rows($get_DstdList) != 0) {
+                while ($record = mysqli_fetch_assoc($get_DstdList)) {
+                    $_SESSION['degreeStd'] .= "<tr>";
+                    $_SESSION['degreeStd'] .= "<td> {$record['index_no']} </td>";
+                    $_SESSION['degreeStd'] .= "<td> {$record['registration_no']} </td>";
+                    $_SESSION['degreeStd'] .= "<td> {$record['initials']} </td>";
+                    $_SESSION['degreeStd'] .= "<td> {$record['last_name']} </td>";
+                    $_SESSION['degreeStd'] .= "<td> {$record['email']} </td>";
+                    $_SESSION['degreeStd'] .= "<td> {$record['academic_year']} </td>";
+                    $_SESSION['degreeStd'] .= "<td> {$record['semester']} </td>";
+                    $_SESSION['degreeStd'] .= "<td> {$record['batch_number']} </td>";
+                    $_SESSION['degreeStd'] .= "</tr>";
+                }
+                header('Location:../../view/attendanceMaintainer/amDegreeStdListV.php');
+            }
+            else {
+                echo "amDegreeStdListV";
+                /*header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');*/
+            }
+        }
+        else {
+            echo "degree_id";
+            /*header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');*/
+        }
+    }
+
     else {
         header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
     }
