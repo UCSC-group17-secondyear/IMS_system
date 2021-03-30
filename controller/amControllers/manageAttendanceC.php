@@ -63,11 +63,8 @@
         }
 
         $checkAttendance = amModel::checkAttendance($degree, $subject, $sessiontype, $date, $connect);
-        while ($ca = mysqli_fetch_array($checkAttendance)) {
-            $_SESSION['checkattendance'] = $ca['count'];
-        }
-
-        if ($_SESSION['checkattendance'] == 0){
+        
+        if (mysqli_num_rows($checkAttendance) == 0) {
             if ($_SESSION['isMandatory'] == 1) {
             
                 $attstudents = amModel::getStudents($_SESSION['aca_year'], $_SESSION['semester'], $degree, $connect);
@@ -88,7 +85,6 @@
                 }
 
             } else {
-
                 $attstudents = amModel::getStudentsnotMand($subject, $connect);
                 if (mysqli_num_rows($attstudents) != 0) {
                     while ($as = mysqli_fetch_assoc($attstudents)) {
@@ -164,7 +160,6 @@
         if(!empty($_POST['smarked'])) {
             foreach($_POST['smarked'] as $sm){
                 amModel::addstudentattendance($sm, $_SESSION['at_degree'], $_SESSION['at_subject'], $_SESSION['at_sessiontype'], $_SESSION['at_date'], $connect);
-                echo $sm;
             }
         }
     	

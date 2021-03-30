@@ -56,7 +56,7 @@
 
         public static function checkAttendance($degree, $subject, $sessiontype, $date, $connect)
         {
-            $query = "SELECT count(attendance_id) AS count FROM tbl_attendance WHERE subject_id = '{$subject}' AND degree_id = '{$degree}' AND sessionTypeId = '{$sessiontype}' AND date='{$date}'";
+            $query = "SELECT * FROM tbl_attendance WHERE subject_id = '{$subject}' AND degree_id = '{$degree}' AND sessionTypeId = '{$sessiontype}' AND date='{$date}'";
 
             $result = mysqli_query($connect, $query);
             

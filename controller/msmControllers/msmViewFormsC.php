@@ -67,9 +67,12 @@
             $_SESSION['fr_scheme_id'] = $md['scheme_id'];
             $_SESSION['fr_form_submission_date'] = $md['form_submission_date'];
             $_SESSION['fr_acceptance_status'] = $md['acceptance_status'];
-            $_SESSION['fr_membership_status'] = $md['membershiform_paid'];
+            $_SESSION['fr_membership_status'] = $md['membership_status'];
 
             header('Location:../../view/medicalSchemeMaintainer/msmViewMemberDetailsV.php');
+
+        } else {
+            header('Location:../../view/medicalSchemeMaintainer/msmNoFormsV.php');
         }
 
     } elseif (isset($_GET['viewed_member'])) {
@@ -100,6 +103,8 @@
                 }
 
                 $added = msmModel::addClaimdetails($viewed_member, $_SESSION['medical_year'], $_SESSION['scheme'], $_SESSION['sum'], $connect);
+                $mem_flag = msmModel::addmemflag($viewed_member, $connect);
+                $user_role = msmModel::adduserRole($viewed_member, $connect);
 
                 $to_email = $member_email;
                 $subject = "Membership Acceptance";
@@ -122,7 +127,7 @@
 
                 $sendMail = mail($to_email, $subject, $body, $headers);
                 
-                // header('Location:../../view/medicalSchemeMaintainer/msmDeclinedSuccesV.php');
+                header('Location:../../view/medicalSchemeMaintainer/msmDeclinedSuccesV.php');
             }
             
         } 
@@ -291,7 +296,7 @@
             $bill_issused_year = date('Y', strtotime($bill_issused_date));
 
             //get medical year ended date with $bill_issused_year
-            $med_end_date = msmModel::getMedYearEndDate($bill_issused_year,$connect);
+            $med_end_date = msmModel::getMedYearEndDate($bill_issused_year, $connect);
             $med_end_date_result = mysqli_fetch_assoc($med_end_date);
             $med_year_end_date = $med_end_date_result['end_date'];
             $med_year = $med_end_date_result['medical_year'];

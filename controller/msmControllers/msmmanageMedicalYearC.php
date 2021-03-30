@@ -55,7 +55,8 @@
 
         if ($records) {
             while ($record = mysqli_fetch_array($records)) {
-                if($record['start_date'] >= date("Y-m-d")) {
+                if($record['end_date'] >= date("Y-m-d")) {
+                    echo "ssss ";
                     $count = $count+1;
                     $_SESSION['MYNamesList'] .= "<option value='".$record['medical_year']."'>".$record['medical_year']."</option>";
                 }
@@ -65,7 +66,10 @@
             } else {
                 header('Location:../../view/medicalSchemeMaintainer/msmUpdateViewMYV.php');
             }
+        } else {
+            header('Location:../../view/medicalSchemeMaintainer/msmNoMYV.php');
         }
+
     } elseif(isset($_POST['updateMY-submit'])) {
         $medical_year = mysqli_real_escape_string($connect, $_POST['med_year']);
         $_SESSION['MYdetails'] = '';

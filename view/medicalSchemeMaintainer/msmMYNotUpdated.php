@@ -20,9 +20,7 @@
             <div class="col right80">
                 <div class="contentForm">
                     <div class="row">
-                        <h2>Sorry!
-                            The Medical Year is not removed.
-                        </h2>
+                        <h2>Sorry! The Medical Year is not updated successfully.</h2>
                     </div>
 
                     <button class="subbtn">
