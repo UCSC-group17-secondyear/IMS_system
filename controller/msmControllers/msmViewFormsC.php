@@ -453,8 +453,6 @@
 
                 if($result_form && $result_amount){
                     header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
-                } else {
-                    echo "sdsd";
                 }
 
             } elseif ($remain_amount!=0 && $final_bill_amount > $remain_amount) {
@@ -476,8 +474,6 @@
 
                 if($result_form){
                     header('Location:../../view/medicalSchemeMaintainer/msmFormUpdateSuccessV.php');
-                } else {
-                    echo "sdsd";
                 }
             }
 
