@@ -8,27 +8,33 @@
         
         $semester = mysqli_real_escape_string($connect, $_POST['semester']);
         $academic_year = mysqli_real_escape_string($connect, $_POST['academic_year']);
-        $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
-        $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
+        echo $start_date = mysqli_real_escape_string($connect, $_POST['start_date']);
+        echo $end_date = mysqli_real_escape_string($connect, $_POST['end_date']);
 
-        if ($semester=='First Semester') {       
-            $digit = 1;
+        if (strtotime($start_date)>strtotime($end_date)) {
+            header('Location:../../view/admin/aCheckDateV.php');
         }
         else {
-            $digit = 2;
+            if ($semester=='First Semester') {       
+                $digit = 1;
+            }
+            else {
+                $digit = 2;
+            }
+
+            $_SESSION['sem'] = $digit;
+            $_SESSION['yr'] = $academic_year;
+
+            $result = adminModel::enterSemester($semester, $academic_year, $digit, $start_date, $end_date, $connect);
+            
+            if ($result) {
+                header('Location:../../view/admin/aSemesterAddedV.php');
+            }
+            else{
+                header('Location:../../view/admin/aSemesterNotAddedV.php');
+            }
         }
-
-        $_SESSION['sem'] = $digit;
-        $_SESSION['yr'] = $academic_year;
-
-        $result = adminModel::enterSemester($semester, $academic_year, $digit, $start_date, $end_date, $connect);
         
-        if ($result) {
-            header('Location:../../view/admin/aSemesterAddedV.php');
-        }
-        else{
-            header('Location:../../view/admin/aSemesterNotAddedV.php');
-        }
     }
     else {
         $records = adminModel::getSemAndYr($connect);
