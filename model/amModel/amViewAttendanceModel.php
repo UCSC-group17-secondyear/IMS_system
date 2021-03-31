@@ -212,8 +212,7 @@
         }
 
         public static function batchAttendancePercentage ($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect) {
-            $query = "SELECT COUNT(DISTINCT(ta.date)) AS numOfDays, 
-            COUNT(DISTINCT(ta.std_id)) AS stdCount, round(((AVG(ta.attendance))*100),2) AS attendPercentage
+            $query = "SELECT COUNT(DISTINCT(ta.date)) AS numOfDays, round(((AVG(ta.attendance))*100),2) AS attendPercentage
             FROM tbl_attendance ta
             INNER JOIN tbl_students ts
             ON ta.std_id = ts.std_id
@@ -224,6 +223,12 @@
 
             $result = mysqli_query($connect, $query);
             
+            return $result;
+        }
+
+        public static function batchStudents ($degree_id, $batch_number, $connect) {
+            $query = " SELECT COUNT(index_no) AS stdCount FROM tbl_students WHERE degree_id = $degree_id AND batch_number = $batch_number AND is_std =0 ";
+            $result = mysqli_query($connect, $query);
             return $result;
         }
 
