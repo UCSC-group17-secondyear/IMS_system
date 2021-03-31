@@ -26,7 +26,6 @@
                         </div>
                         <div class="col-75">
                             <select name="index_no" id="index_no">
-                                <!-- <option value="">Select student index: </option> -->
                                 <?php echo $_SESSION['stdIndexList'] ?>
                             </select>
                         </div>

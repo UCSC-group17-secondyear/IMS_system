@@ -113,10 +113,10 @@
 			return $result_set;
 		}
 
-		public static function updateStd($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $degree, $connect)
+		public static function updateStd($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $connect)
 		{
 			$query = "UPDATE tbl_students 
-			SET registration_no = '{$registration_no}', initials = '{$initials}', last_name = '{$last_name}', email = '{$email}', academic_year='{$academic_year}', degree = '{$degree}' 
+			SET registration_no = '{$registration_no}', initials = '{$initials}', last_name = '{$last_name}', email = '{$email}', academic_year='{$academic_year}'
 			WHERE index_no = '{$index_no}' and is_std = 0 LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
