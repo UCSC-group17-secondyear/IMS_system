@@ -3,11 +3,12 @@
 ?>
 
 <main>
+    <title>Updated Password</title>
 
     <div class="sansserif">
         <ul class="breadcrumbs">
             <li><a href="msmHomeV.php">Home</a></li>
-            <li class="active">Request Failed!</li>
+            <li class="active">No data!</li>
         </ul>
 
         <div class="row">
@@ -18,9 +19,9 @@
             </div>
 
             <div class="col right80">
-                <div>
-                    <div>
-                        <h2>Sorry! There are no Medical Years to update in the system right now.</h2>
+                <div class="contentForm">
+                    <div class="row">
+                        <h2>Sorry! No medical year in the Database.</h2>
                     </div>
 
                     <form action="../../controller/msmControllers/msmManageMedicalYearC.php" method="post">

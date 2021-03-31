@@ -36,7 +36,7 @@
                               <label>Enter Start Date</label>
                             </div>
                             <div class="col-75">
-                              <input type="date" id="" name="start_date" placeholder="Start Date" required/><br>
+                              <input type="date" id="start_date" name="start_date" min="<?php echo date("Y-m-d") ?>" placeholder="Start Date" required/><br>
                             </div>
                         </div>
                         <div class="row">
@@ -44,7 +44,7 @@
                               <label>Enter End Date</label>
                             </div>
                             <div class="col-75">
-                              <input type="date" id="" name="end_date" placeholder="End Date" required/><br>
+                              <input type="date" id="end_date" name="end_date" min="<?php echo date("Y-m-d") ?>" placeholder="End Date" oninput="checkDate()" required/><br>
                             </div>
                         </div>
 
@@ -58,6 +58,18 @@
         </div>
     </div>
 </main>
+
+<script>
+    function checkDate(){
+        var sdate = document.getElementById("start_date").value;
+        var edate = document.getElementById("end_date").value;
+
+        if(edate < sdate){
+            alert("The end date you have entered is a date before the start date that you have entered!");
+            document.getElementById("end_date").value = "mm/dd/yyyy";
+        }
+    }
+</script>
 
 <?php
     require '../basic/footer.php';

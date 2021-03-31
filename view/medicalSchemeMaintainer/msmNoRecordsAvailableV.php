@@ -27,7 +27,7 @@
                     </div>
 
                     <button class="subbtn" type="submit">
-                        <a href="msmHomeV.php">Back</a>
+                        <a href="msmHomeV.php">Ok</a>
                     </button>
                     <button class="cancelbtn" type="submit">
                         <a href="msmHomeV.php">Exit</a>

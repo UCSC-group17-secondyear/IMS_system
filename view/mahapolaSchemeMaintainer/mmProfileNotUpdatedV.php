@@ -31,7 +31,7 @@
                         <a href="../../controller/updateProfileController.php?user_id=<?php echo $_SESSION['userId'] ?>">Try Again</a>
                     </button>
                     <button class="cancelbtn">
-                        <a href="mmHomeV.php">Leave</a> 
+                        <a href="mmHomeV.php">Exit</a> 
                     </button>
                 </div>
             </div>

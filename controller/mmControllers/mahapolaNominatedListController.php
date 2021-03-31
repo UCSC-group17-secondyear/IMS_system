@@ -6,7 +6,7 @@
 
 <?php
 
-    if(isset($_POST['view-nom-degree-list']) || ($_GET['btn']==31)){
+    if(isset($_POST['view-nom-degree-list']) || isset($_GET['btn'])){
 
         $batch_numbers = studentDetModel::getBatchNumbers($connect);
         $degrees = studentDetModel::getDegrees($connect);

@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col left20">
                 <?php
-                    require 'aSideNavV.php';
+                    require 'amSideNavV.php';
                 ?>
             </div>
 

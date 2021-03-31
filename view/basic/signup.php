@@ -140,7 +140,7 @@
 	              <label>APPOINTMENT DATE</label>
 	            </div>
 	            <div class="col-75">
-	              <input type="date" name="appointment" max="<?php echo date('Y-m-d'); ?>" id="app-date" onclick="checkDate()"; required/>
+	              <input type="date" name="appointment" max="<?php echo date('Y-m-d'); ?>" id="app-date" oninput="checkDate()"; required/>
 	            </div>
 	        </div>
 
@@ -424,7 +424,7 @@
             var birth_date = document.getElementById("birth-date").value;
             var appointment_date = document.getElementById("app-date").value;
 
-            if(birth_date < appointment_date){
+            if(birth_date > appointment_date){
                 alert("Enter birthdate and appointment date correctly !");
                 document.getElementById("birth-date").value = "mm/dd/yyyy";
                 document.getElementById("app-date").value = "mm/dd/yyyy";

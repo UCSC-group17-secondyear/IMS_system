@@ -5,7 +5,7 @@
 ?>
 
 <?php
-    if(isset($_POST['memberwise-submit']) || $_GET['btn']==55){
+    if(isset($_POST['memberwise-submit']) || ($_GET['btn'] == 55)){
         $result_year = viewClaimDetailsModel::getMemYears($connect);
 
         $_SESSION['medical_year'] = '';
@@ -52,7 +52,7 @@
         }
     }
 
-    elseif(isset($_POST['departmentwise-submit']) || $_GET['btn']==56){
+    elseif(isset($_POST['departmentwise-submit']) || ($_GET['btn'] == 56)){
         $dept = viewClaimDetailsModel::viewDept($connect);
         $result_year = viewClaimDetailsModel::getMemYears($connect);
 
@@ -128,7 +128,7 @@
 
     } 
     
-    elseif (isset($_POST['ucsc-submit']) || $_GET['btn']==57) {
+    elseif (isset($_POST['ucsc-submit']) || ($_GET['btn'] == 57)) {
 
         $result_year = viewClaimDetailsModel::getMemYears($connect);
         $_SESSION['medical_year'] = '';

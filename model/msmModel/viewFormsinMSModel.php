@@ -81,6 +81,24 @@
 			return $result;
         }
 
+        public static function addmemflag($viewed_member, $connect)
+        {
+            $query = "UPDATE tbl_user_flag SET mem_flag = 1 WHERE user_id={$viewed_member} LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
+        public static function adduserRole($viewed_member, $connect)
+        {
+            $query = "INSERT INTO tbl_userhasrole(userId, role_id) VALUES ('{$viewed_member}', 5)";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+        }
+
 		public static function requestdecline($mem_user_id, $connect)
 		{
 			$query = "UPDATE tbl_medical_membership SET membership_status = 0 WHERE user_id={$mem_user_id} LIMIT 1";
@@ -192,33 +210,6 @@
         public static function getRejClaimForms($connect)
         {
             $query = "SELECT u.*, cf.* FROM tbl_claimform cf, users u WHERE cf.user_id = u.userId AND acceptance_status='0'";
-
-            $result = mysqli_query($connect, $query);
-
-            return $result;
-        }
-//-----------------------------------------------------------------------------------------------------------------------------------
-		public static function getSelectedForm($claim_form_no, $connect)
-		{
-			$query = "SELECT u.*, cf.* FROM tbl_claimform cf, users u WHERE cf.user_id = u.userId AND cf.claim_form_no = '{$claim_form_no}' LIMIT 1";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-		}
-
-		public static function getMemYears($connect)
-        {
-			$query = "SELECT medical_year FROM tbl_medical_year";
-
-			$result = mysqli_query($connect, $query);
-
-			return $result;
-        }
-
-        public static function getUserId($emp_id, $connect)
-        {
-            $query = "SELECT userId FROM users WHERE empid='{$emp_id}' LIMIT 1";
 
             $result = mysqli_query($connect, $query);
 
