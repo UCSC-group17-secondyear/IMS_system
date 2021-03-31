@@ -51,15 +51,6 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-25">
-                                <label>Attendance Percentage</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="number" name="attendPercentage" disabled <?php echo 'value="'.$_SESSION['attendPercentage'].'"' ?> /><br>
-                            </div>
-                        </div>
-
                         <button class="subbtn" type="submit" name="semPdf">Generate a pdf
                         </button>
                         <button class="cancelbtn" type="submit" name="cancel-submit">
