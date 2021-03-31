@@ -27,10 +27,12 @@
 
                     while ($record = mysqli_fetch_assoc($records)) {
                         $subject_id = $record['subject_id'];
+                        $_SESSION['subject_id'] = $subject_id;
                         $get_subject_name = amModel::getSubjectName ($subject_id, $connect);
                         $result_subject_name = mysqli_fetch_assoc($get_subject_name);
 
                         $sessionTypeId = $record['sessionTypeId'];
+                        $_SESSION['sessionTypeId'] = $sessionTypeId;
                         $get_sessionType = amModel::get_sessionType ($sessionTypeId, $connect);
                         $result_sessionType = mysqli_fetch_assoc($get_sessionType);
 
