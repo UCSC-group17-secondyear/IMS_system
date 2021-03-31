@@ -26,7 +26,7 @@
                             <label>Enter date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="date" <?php echo 'min="'.$_SESSION['min_date'].'"' ?> <?php echo 'max="'.$_SESSION['max_date'].'"' ?> required><br>
+                            <input type="date" name="date" <?php echo 'min="'.$_SESSION['min_date'].'"' ?> max="<?php echo date('Y-m-d')?>" required><br>
                         </div>
                     </div>
                     <div class="row">

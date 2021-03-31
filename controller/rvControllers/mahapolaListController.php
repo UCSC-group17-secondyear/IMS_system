@@ -547,7 +547,7 @@
                     $cur_result = mysqli_fetch_assoc($cur_reco_result);
 
                         $this -> Cell(65, 10, $cur_result['eligible_m'], 1, 0);
-                        $this -> Cell(65, 10, $cur_result['eligible_m'], 1, 0);
+                        $this -> Cell(65, 10, $cur_result['eligible_o'], 1, 0);
                         $this -> Cell(0, 10, $cur_result['non_eligible'], 1, 1);
                     
                                  
@@ -603,10 +603,14 @@
             $pdf -> displayInfo($connect);
             $pdf -> headerEligbile();
             $pdf -> stuEligibleTable();
-            $pdf -> displayEligibleDetail($_SESSION['gen_eligible_list'],$connect);
+            if(isset($_SESSION['gen_eligible_list'])){
+                $pdf -> displayEligibleDetail($_SESSION['gen_eligible_list'],$connect);
+            }
             $pdf -> headerInEligbile();
             $pdf -> stuIneligibleTable();
-            $pdf -> displayIneligibleDetail($_SESSION['gen_ineligible_list'],$connect);
+            if(isset($_SESSION['gen_ineligible_list'])){
+                $pdf -> displayIneligibleDetail($_SESSION['gen_ineligible_list'],$connect);
+            }
             $pdf->output();
 
         }
