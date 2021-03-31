@@ -92,7 +92,7 @@
                             <label>Degree</label>
                         </div>
                         <div class="col-75">
-                            <input name="degree"  <?php echo 'value="'.$_SESSION['degree'].'"' ?> />
+                            <input name="degree" disabled  <?php echo 'value="'.$_SESSION['degree'].'"' ?> />
                         </div>
                     </div>
 
