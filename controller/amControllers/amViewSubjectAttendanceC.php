@@ -134,12 +134,11 @@
     elseif (isset($_POST['subjectPdf'])) {
         session_start();
 
-        require_once("../FPDF/fpdf.php");
+        require_once("../../FPDF/fpdf.php");
         
         class getPdf extends FPDF
         {
             function header () {
-                /*$this -> image('../../view/assests/img/favicon1.png', 2, 2);*/
                 $this -> SetFont('Arial', 'B', 20);
                 $this -> Cell(276, 10, "Subject-wise Attendance Details", 0, 1, 'C');
                 $this -> Ln();

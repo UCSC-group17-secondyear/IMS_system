@@ -84,13 +84,16 @@
 
                 $records1 = amModel::batchAttendance($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
                 $records2 = amModel::batchAttendancePercentage($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
+                $records3 = amModel::batchStudents ($degree_id, $batch_number, $connect);
 
                 $result_records2 = mysqli_fetch_assoc($records2);
                 $attendPercentage = $result_records2['attendPercentage'];
-                $stdCount = $result_records2['stdCount'];
                 $numOfDays = $result_records2['numOfDays'];
 
-                if ($records1 && $records2) {
+                $result_records3 = mysqli_fetch_assoc($records3);
+                $stdCount = $result_records3['stdCount'];
+
+                if ($records1 && $records2 && $records3) {
                     if (mysqli_num_rows($records1) == 0) {
                         header('Location:../../view/attendanceMaintainer/amNoBatchAttendance.php');
                     }
@@ -126,12 +129,11 @@
     elseif (isset($_POST['batchPdf'])) {
         session_start();
 
-        require_once("../FPDF/fpdf.php");
+        require_once("../../FPDF/fpdf.php");
         
         class getPdf extends FPDF
         {
             function header () {
-                /*$this -> image('../../view/assests/img/favicon1.png', 2, 2);*/
                 $this -> SetFont('Arial', 'B', 20);
                 $this -> Cell(276, 10, "Batch Attendance Details", 0, 1, 'C');
                 $this -> Ln();
@@ -182,9 +184,6 @@
 
                 $this -> Cell(75, 10, "Total Number of students", 1, 0);
                 $this -> Cell(0, 10, $stdCount, 1, 1);
-
-                /*$this -> Cell(75, 10, "Attendance Percentage", 1, 0);
-                $this -> Cell(0, 10, $attendPercentage, 1, 1);*/
 
                 $this -> Ln();
 

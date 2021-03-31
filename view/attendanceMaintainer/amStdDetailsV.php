@@ -6,7 +6,7 @@
     <title>Students</title>
 
     <ul class="breadcrumbs">
-        <li><a href="aHomeV.php">Home</a></li>
+        <li><a href="amHomeV.php">Home</a></li>
         <li><a href="amDeleteUpdateStudentV.php">Select student</a></li>
         <li class="active">Student Detail</li>
     </ul>
@@ -14,7 +14,7 @@
     <div class="row" style="margin-bottom: 4%;" >
         <div class="col left20">
             <?php
-                require 'asmSideNavV.php';
+                require 'amSideNavV.php';
             ?>
         </div>
 

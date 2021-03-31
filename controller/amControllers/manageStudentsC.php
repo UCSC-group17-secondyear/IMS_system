@@ -289,6 +289,13 @@
         if (mysqli_num_rows($fetchStudent) == 1) {
             session_start();
             $result = mysqli_fetch_assoc($fetchStudent);
+            
+            $degree_id = $result['degree_id'];
+            $get_degree_name = amModel::get_degree_name ($degree_id, $connect);
+            $result_degree_name = mysqli_fetch_assoc($get_degree_name);
+            $degree_name = $result_degree_name['degree_name'];
+            $_SESSION['degreeId'] = $degree_id;
+
             $_SESSION['index_no'] = $result['index_no'];
             $_SESSION['registration_no'] = $result['registration_no'];
             $_SESSION['initials'] = $result['initials'];
@@ -296,7 +303,7 @@
             $_SESSION['email'] = $result['email'];
             $_SESSION['academic_year'] = $result['academic_year'];
             $_SESSION['semester'] = $result['semester'];
-            $_SESSION['degree'] = $result['degree'];
+            $_SESSION['degree'] = $degree_name;
             $_SESSION['batch_number'] = $result['batch_number'];
 
             header('Location:../../view/attendanceMaintainer/amDeleteUpdateStudentV.php');
@@ -313,7 +320,8 @@
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
         $academic_year = $_POST['academic_year'];
-        $degree = $_POST['degree'];
+        session_start();
+        $degree_id = $_SESSION['degree_id'];
 
         $regNumFlag = 0;
         $mailFlag = 0;
@@ -341,7 +349,7 @@
             header('Location:../../view/attendanceMaintainer/amRegnumReserved.php');
         }
         else {
-            $result = amModel::updateStd ($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $degree, $connect);
+            $result = amModel::updateStd ($index_no, $registration_no, $initials, $last_name, $email, $academic_year, $connect);
 
             if ($result) {
                 header('Location:../../view/attendanceMaintainer/amStudentUpdatedV.php');
@@ -524,13 +532,11 @@
                 header('Location:../../view/attendanceMaintainer/amDegreeStdListV.php');
             }
             else {
-                echo "amDegreeStdListV";
-                /*header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');*/
+                header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
             }
         }
         else {
-            echo "degree_id";
-            /*header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');*/
+            header('Location:../../view/attendanceMaintainer/amQueryFailedV.php');
         }
     }
 
