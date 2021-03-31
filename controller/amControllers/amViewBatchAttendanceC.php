@@ -24,6 +24,7 @@
         $degree_name = $_POST['degree_name'];
         $academic_year = $_POST['academic_year'];
         $semester = $_POST['semester'];
+        $_SESSION['degree_name'] = $degree_name;
 
         $get_degreeId = amModel::getDegreeId ($degree_name, $connect);
         $result_degreeID = mysqli_fetch_assoc($get_degreeId);
@@ -80,7 +81,10 @@
 
             if ($result1 && $result2) {
                 $subject_id = $result1['subject_id'];
+                $_SESSION['subject_id'] = $subject_id;
+                
                 $sessionTypeId = $result2['sessionTypeId'];
+                $_SESSION['sessionTypeId'] = $sessionTypeId;
 
                 $records1 = amModel::batchAttendance($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);
                 $records2 = amModel::batchAttendancePercentage($degree_id, $subject_id, $sessionTypeId, $batch_number, $startDate, $endDate, $connect);

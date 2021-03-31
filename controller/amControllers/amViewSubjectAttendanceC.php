@@ -157,9 +157,9 @@
                 $startDate = $_SESSION['startDate'];
                 $endDate = $_SESSION['endDate'];
                 
-                $result_monthDays['monthDays'] = $_SESSION['monthDays'];
-                $result_stdCount['stdCount'] = $_SESSION['stdCount'];
-                $result_attendPercentage['attendPercentage'] = $_SESSION['attendPercentage'];
+                $totSubDays = $_SESSION['totSubDays'];
+                $result_attendPercentage = $_SESSION['attendPercentage'];
+                $stdCount = $_SESSION['stdCount'];
 
                 $degree_id = $_SESSION['degree_id'];
                 $subject_id = $_SESSION['subject_id'];
@@ -182,13 +182,13 @@
                 $this -> Cell(0, 10, $endDate, 1, 1);
 
                 $this -> Cell(75, 10, "Total Number of days", 1, 0);
-                $this -> Cell(0, 10, $result_monthDays['monthDays'], 1, 1);
+                $this -> Cell(0, 10, $totSubDays, 1, 1);
 
                 $this -> Cell(75, 10, "Total Number of students", 1, 0);
-                $this -> Cell(0, 10, $result_stdCount['stdCount'], 1, 1);
+                $this -> Cell(0, 10, $stdCount, 1, 1);
 
                 $this -> Cell(75, 10, "Attendance Percentage", 1, 0);
-                $this -> Cell(0, 10, $result_attendPercentage['attendPercentage'], 1, 1);
+                $this -> Cell(0, 10, $result_attendPercentage, 1, 1);
 
                 $this -> Ln();
 
