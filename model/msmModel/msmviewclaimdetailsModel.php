@@ -65,7 +65,7 @@
         }
 
         public static function getSchemeName($scheme,$connect){
-            $query = "SELECT schemeName FROM tbl_medicalscheme WHERE scheme_id = '{$scheme}' LIMIT 1";
+            $query = "SELECT * FROM tbl_medicalscheme WHERE scheme_id = '{$scheme}' LIMIT 1";
 
             $result = mysqli_query($connect, $query);
 

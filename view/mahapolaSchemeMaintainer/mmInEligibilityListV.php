@@ -51,6 +51,7 @@
                             <button type="submit" class="cancelbtn">
                                 <a href="mmHomeV.php">Exit</a>
                             </button>
+                            <button class="mainbtn" type="submit" name="inEligiblePDF" >Generate PDF</button></a>
                         </form>
                     </div>
                 </div>
