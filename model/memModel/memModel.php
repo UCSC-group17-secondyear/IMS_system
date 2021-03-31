@@ -3,7 +3,7 @@
 	class memModel {
 		public static function scheme($connect)
 		{
-			$query = "SELECT schemename FROM tbl_medicalscheme WHERE is_deleted=0";
+			$query = "SELECT schemeName FROM tbl_medicalscheme WHERE is_deleted=0";
 			
 			$result_set = mysqli_query($connect, $query);
 			
@@ -101,6 +101,14 @@
 
 		public static function getSchemeId($scheme_name,$connect){
 			$query = "SELECT * FROM tbl_medicalscheme WHERE schemeName='{$scheme_name}' LIMIT 1";
+
+			$result = mysqli_query($connect, $query);
+
+			return $result;
+		}
+
+		public static function getSchemeName($scheme_id,$connect){
+			$query = "SELECT * FROM tbl_medicalscheme WHERE scheme_id='{$scheme_id}' LIMIT 1";
 
 			$result = mysqli_query($connect, $query);
 

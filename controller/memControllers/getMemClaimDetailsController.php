@@ -37,7 +37,11 @@
 
                     $result_one = mysqli_fetch_assoc($result);
 
-                    $_SESSION['scheme'] = $result_one['scheme'];
+                    $scheme_name = memModel::getSchemeName($result_one['scheme'],$connect);
+                    $sc_name = mysqli_fetch_assoc($scheme_name);
+                    $s_name = $sc_name['schemeName'];
+
+                    echo $_SESSION['scheme'] = $s_name;
                     $_SESSION['initial_amount'] = $result_one['initial_amount'];
                     $_SESSION['used_amount'] = $result_one['used_amount'];
                     $_SESSION['remain_amount'] = $result_one['remain_amount'];
