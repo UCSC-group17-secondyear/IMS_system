@@ -134,7 +134,7 @@
     elseif (isset($_POST['subjectPdf'])) {
         session_start();
 
-        require_once("../FPDF/fpdf.php");
+        require_once("../../FPDF/fpdf.php");
         
         class getPdf extends FPDF
         {
