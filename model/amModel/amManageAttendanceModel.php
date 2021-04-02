@@ -36,6 +36,33 @@
 			return $result;
         }
 
+        public static function getDayName($date, $connect)
+		{
+			$query = "SELECT DAYNAME('{$date}') AS day_name";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+		}
+
+        public static function getsubjectsonthatday($day_name, $degree, $connect)
+        {
+            $query = "SELECT s.* FROM tbl_weekly_time_table wtt, tbl_subject s WHERE wtt.day='{$day_name}' AND s.subject_id = wtt.subject_id AND s.degree_id = '{$degree}'";
+
+			$result_set = mysqli_query($connect, $query);
+
+			return $result_set;
+        }
+
+        // public static function checksubject($degree, $subject_id, $connect)
+        // {
+        //     $query = "SELECT * FROM tbl_subject WHERE degree_id='{$degree}' AND subject_id='{$subject_id}' AND is_deleted=0";
+
+        //     $result = mysqli_query($connect, $query);
+            
+		// 	return $result;
+        // }
+
         public static function getsubjectDetails($subject, $degree, $connect)
         {
             $query = "SELECT * FROM tbl_subject WHERE subject_id = '{$subject}' AND degree_id = '{$degree}' AND is_deleted = 0 LIMIT 1";

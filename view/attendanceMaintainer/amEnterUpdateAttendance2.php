@@ -23,24 +23,27 @@
                 <form action="../../controller/amControllers/manageAttendanceC.php" method="post">
                     <div class="row">
                         <div class="col-25">
-                            <label>Enter date</label>
+                            <label>Subject</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="date" <?php echo 'min="'.$_SESSION['min_date'].'"' ?> max="<?php echo date('Y-m-d')?>" required><br>
+                            <select name="subject" required>
+                                <option>Select a subject</option>
+                                <?php echo $_SESSION['selected_subjects'] ?>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
-                            <label>Degree</label>
+                            <label>Session Type</label>
                         </div>
                         <div class="col-75">
-                            <select name="degree" required>
-                                <option>Select a Degree</option>
-                                <?php echo $_SESSION['degree'] ?>
+                            <select name="session_type" required>
+                                <option>Select a session type</option>
+                                <?php echo $_SESSION['session_type'] ?>
                             </select>
                         </div>
                     </div>
-                    <button class="subbtn" type="submit" name="next-submit">Next</button>
+                    <button class="subbtn" type="submit" name="markattendance-submit">Mark Attendance</button>
                     <button class="cancelbtn" type="submit" name="updateattendance-submit">Update Attendance</button>
                 </form>
             </div>
