@@ -70,7 +70,7 @@
                             <label>Enter Start Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="startDate" placeholder="Start Date" required/> <br>
+                            <input type="date" name="startDate" max="<?php echo date('Y-m-d')?>" placeholder="Start Date" required/> <br>
                         </div>
                     </div>
 
@@ -79,7 +79,7 @@
                             <label>Enter End Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" name="endDate" placeholder="End Date" required/> <br>
+                            <input type="date" name="endDate" placeholder="End Date" max="<?php echo date('Y-m-d')?>" required/> <br>
                         </div>
                     </div>
 
