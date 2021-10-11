@@ -29,6 +29,10 @@
         $_SESSION['purpose'] = $result_one['purpose'];
         $_SESSION['bill_amount'] = $result_one['bill_amount'];
         $_SESSION['a_status'] = $result_one['acceptance_status'];
+        $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
+        $_SESSION['paid_status'] = $result_one['paid_status'];
+        $_SESSION['final_bill_amount'] = $result_one['final_bill_amount'];
+        $_SESSION['msm_comment'] = $result_one['msm_comment'];
 
         header('Location:../../view/reportViewer/rvViewRefClaimFormV.php');
 
@@ -62,6 +66,10 @@
         $_SESSION['insurer_claims'] = $result_one['insurer_claims'];
         $_SESSION['nature_of'] = $result_one['nature_of'];
         $_SESSION['a_status'] = $result_one['acceptance_status'];
+        $_SESSION['revised_bill_amount'] = $result_one['revised_bill_amount'];
+        $_SESSION['paid_status'] = $result_one['paid_status'];
+        $_SESSION['final_bill_amount'] = $result_one['final_bill_amount'];
+        $_SESSION['msm_comment'] = $result_one['msm_comment'];
 
         header('Location:../../view/reportViewer/rvViewRefClaimFormV.php');
 

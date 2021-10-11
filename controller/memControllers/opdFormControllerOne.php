@@ -23,6 +23,7 @@
     $status = $mem_status[0];
     //echo $status;
 
+
     $dependants = claimFormModel::getDependantName($user_id, $connect);
     $_SESSION['dependant_name'] = '';
 

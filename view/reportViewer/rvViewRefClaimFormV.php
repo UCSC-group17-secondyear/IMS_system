@@ -129,6 +129,61 @@
                                     ?>
                                 </div>
                             </div>
+
+                            <?php
+                                if($_SESSION['a_status'] == 1){
+                            ?>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label>Paid Status</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <?php
+                                            if($_SESSION['paid_status'] == 1){
+                                        ?>
+                                            <button type="submit" class="greenbtn" disabled><a class="disabled">Paid</a></button>
+                                        <?php
+                                            } else {
+                                        ?>
+                                            <button type="submit" class="yellowbtn" disabled><a class="disabled">Payment Denied</a></button>
+                                        <?php
+                                            }
+                                        ?>
+                                    </div>
+                                </div>                            
+                            <?php
+                                }
+                            ?>
+
+                            <?php
+                                if($_SESSION['paid_status'] == 1){
+                            ?>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="">Final Bill Amount</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="final_bill_amount" <?php echo 'value="'.$_SESSION['final_bill_amount'].'"'?> disabled> <br>
+                                    </div>
+                                </div>
+                            <?php
+                                }
+                            ?>
+
+                            <?php
+                                if($_SESSION['a_status'] == 1){
+                            ?>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="">Remarks</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> disabled> <br>
+                                    </div>
+                                </div>
+                            <?php
+                                }
+                            ?>
                             
                         </form>
                     <?php
@@ -342,6 +397,61 @@
                                     ?>
                                 </div>
                             </div>
+
+                            <?php
+                                if($_SESSION['a_status'] == 1){
+                            ?>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label>Paid Status</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <?php
+                                            if($_SESSION['paid_status'] == 1){
+                                        ?>
+                                            <button type="submit" class="greenbtn" disabled><a class="disabled">Paid</a></button>
+                                        <?php
+                                            } else {
+                                        ?>
+                                            <button type="submit" class="yellowbtn" disabled><a class="disabled">Payment Denied</a></button>
+                                        <?php
+                                            }
+                                        ?>
+                                    </div>
+                                </div>                            
+                            <?php
+                                }
+                            ?>
+
+                            <?php
+                                if($_SESSION['paid_status'] == 1){
+                            ?>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="">Final Bill Amount</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="final_bill_amount" <?php echo 'value="'.$_SESSION['final_bill_amount'].'"'?> disabled> <br>
+                                    </div>
+                                </div>
+                            <?php
+                                }
+                            ?>
+
+                            <?php
+                                if($_SESSION['a_status'] == 1){
+                            ?>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="">Remarks</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="msm_comment" <?php echo 'value="'.$_SESSION['msm_comment'].'"'?> disabled> <br>
+                                    </div>
+                                </div>
+                            <?php
+                                }
+                            ?>
 
                             <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-circle-up"></i> Top</button>
                         </form>
